@@ -13,7 +13,7 @@ public class PlacedOrderQueue {
 
     private Queue<Order> placedOrderQueue;
 
-    public void PlacedOrderQueue() {
+    public PlacedOrderQueue() {
         placedOrderQueue = new ArrayDeque<Order>();
     }
 
