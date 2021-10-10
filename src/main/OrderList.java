@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 /**
 This is the class of Orderlist, it is used to keep track of all orders of the restaurant
  */
-public class OrderList {
+public abstract class OrderList {
 
     private Queue<Order> orderList;
 
@@ -20,30 +20,24 @@ public class OrderList {
      * @return True on successful add, false otherwise
      */
     public boolean addOrder(Order newOrder) {
-        /*
         if (newOrder.getdistance() > RestaurantInfo.DELIVERY_RANGE) {
             return false;
         }
-        */
         orderList.add(newOrder);
         return true;
     }
 
     /**
-     * Get the next order in the orderList to be cooked, if no order found, return null
-     * @return The next order in orderList to be cooked, if no next order, return null
+     * Get the next order in the orderList, if no order found, return null
+     * @return The next order in orderList, if orderList empty, return null
      */
-    public Order getNextOrderToBeCooked() {
+    public Order getNextOrder() {
         for (Order order: orderList) {
             if (order.getOrderStatus() == Order.PLACED) {
                 return order;
             }
         }
         return null;
-    }
-
-    public boolean deleteCompletedOrder(Order completedOrder) {
-
     }
 
     public static void main(String[] args) {

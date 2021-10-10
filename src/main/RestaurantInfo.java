@@ -2,7 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-public class restaurantInfo {
+public class RestaurantInfo {
     public final static int DELIVERY_RANGE = 5000;
     public final static String ADDRESS = "fake address xxoo";
     public final static String NAME = "Restaurant X";
