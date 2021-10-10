@@ -8,7 +8,7 @@ public class Dish {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private boolean isCompleted;
+    private String status;
 
 //    public Dish() {
 //        this.name = "food";
@@ -26,15 +26,15 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.isCompleted = false;
+        this.status = "ordered";
     }
 
-    public boolean isCompleted() {
-        return isCompleted;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getName() {
@@ -94,6 +94,7 @@ public class Dish {
                 ", features=" + features +
                 ", calories=" + calories +
                 ", allergyInformation='" + allergyInformation + '\'' +
+                ", status='" + status +
                 '}';
     }
 }
