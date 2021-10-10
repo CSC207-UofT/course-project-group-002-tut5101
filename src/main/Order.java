@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+    // List of order statuses
     static String PLACED = "Order Placed";
     static String COOKED = "Order Cooked";
     static String DELIVERED = "Order Delivered";
@@ -39,11 +40,11 @@ public class Order {
     }
 
     boolean updateDishStatus(String status, Dish dish) {
-        // add the update dish status function here
+        //TODO: add the update dish status function here
     }
 
     boolean updateOrderStatus(String status) {
-        //check if status is one of the allowable statuses
+        //TODO: check if status is one of the allowable statuses
         this.orderStatus = status;
         return true;
     }
@@ -55,7 +56,7 @@ public class Order {
     int orderPrice() {
         int price = 0;
         for (Dish d: dishes) {
-            // add each dish price to price
+            //TODO: add each dish price to price
         }
         return price;
     }
