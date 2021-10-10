@@ -15,7 +15,7 @@ public class PlacedOrderQueue {
     }
 
     /**
-     * Try adding order to the order list, if order location too far or not possible to do the order,
+     * Try adding order to the placedOrderList, if order location too far or not possible to do the order,
      * reject the order.
      * @param newOrder The order to be added to the orderList
      * @return True on successful add, false on order too far or not enough ingredients
@@ -34,8 +34,8 @@ public class PlacedOrderQueue {
     }
 
     /**
-     * Get the next order in the orderQueue, if no order found, return null
-     * @return The next order in orderQueue, if orderList empty, return null
+     * Get the next order in the placedOrderQueue
+     * @return The next order in placedOrderQueue, if placedOrderQueue empty, return null
      */
     public Order getNextOrder() {
         return placedOrderQueue.poll();
