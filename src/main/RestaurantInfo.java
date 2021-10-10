@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RestaurantInfo {
     public final static int DELIVERY_RANGE = 5000;
