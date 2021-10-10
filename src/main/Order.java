@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    // List of order statuses
     static String PLACED = "Order Placed";
     static String COOKED = "Order Cooked";
     static String DELIVERED = "Order Delivered";
     static String COMPLETE = "Order Complete";
-    static String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
+    private String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
 
     private List<Dish> dishes;
     private boolean dineIn;
@@ -35,28 +34,16 @@ public class Order {
     }
 
 
-    String getOrderStatus() {
+    String GetOrderStatus() {
         return orderStatus;
     }
 
-    String getOrderDineInOrTakeOut() {
-        if (this.dineIn == false){
-            return "Take Out";
-        }
-        else {
-            return "Dine In";
-        }
-    }
-
     boolean updateDishStatus(String status, Dish dish) {
-        /**TODO: add the update dish status function here
-         * check to see if all dishes in the Order are complete, if yes, update OrderStatus to Complete
-         */
-
+        // add the update dish status function here
     }
 
     boolean updateOrderStatus(String status) {
-        //TODO: check if status is one of the allowable statuses
+        //check if status is one of the allowable statuses
         this.orderStatus = status;
         return true;
     }
@@ -68,17 +55,9 @@ public class Order {
     int orderPrice() {
         int price = 0;
         for (Dish d: dishes) {
-            //TODO: add each dish price to price
+            // add each dish price to price
         }
         return price;
-    }
-
-    int getTableNum() {
-        return this.tableNum;
-    }
-
-    String getAddress() {
-        return this.address;
     }
 
 
