@@ -26,10 +26,12 @@ public class PlacedOrderQueue {
     public boolean addOrder(Order newOrder) {
         // TODO: Check if the distance is out of range of delivery for delivery
         // Assume it is called Map to get distance of points on the map
+        /*
         if (newOrder.getOrderDineInOrTakeOut() == "take out" &&
                 Map.getDistance(newOrder.getAddress(), RestaurantInfo.ADDRESS) > RestaurantInfo.DELIVERY_RANGE) {
             return false;
         }
+         */
         //TODO: Check if the inventory is enough for cooking the order
         // If not enough, reject the order
         placedOrderQueue.add(newOrder);
