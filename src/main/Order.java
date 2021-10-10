@@ -1,12 +1,14 @@
+package main;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    String PLACED = "Order Placed";
-    String COOKED = "Order Cooked";
-    String DELIVERED = "Order Delivered";
-    String COMPLETE = "Order Complete";
+    static String PLACED = "Order Placed";
+    static String COOKED = "Order Cooked";
+    static String DELIVERED = "Order Delivered";
+    static String COMPLETE = "Order Complete";
     private String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
 
     private List<Dish> dishes;
@@ -15,6 +17,7 @@ public class Order {
     private int tableNum;
     private String address;
 
+    // initialize dine-in order
     public Order(int tableNum, List<Dish> dishes){
         this.dishes = dishes;
         this.dineIn = true;
@@ -22,6 +25,7 @@ public class Order {
         this.tableNum = tableNum;
     }
 
+    // initialize delivery order
     public Order(String address, List<Dish> dishes){
         this.dishes = dishes;
         this.dineIn = false;
@@ -34,11 +38,11 @@ public class Order {
         return orderStatus;
     }
 
-    boolean UpdateDishStatus(String status, Dish dish) {
+    boolean updateDishStatus(String status, Dish dish) {
         // add the update dish status function here
     }
 
-    boolean UpdateOrderStatus(String status) {
+    boolean updateOrderStatus(String status) {
         //check if status is one of the allowable statuses
         this.orderStatus = status;
         return true;
