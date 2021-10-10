@@ -34,8 +34,12 @@ public class OrderList {
      * @return The next order in orderList to be cooked, if no next order, return null
      */
     public Order getNextOrderToBeCooked() {
-        Order nextToBeCooked = null;
-
+        for (Order order: orderList) {
+            if (order.getOrderStatus() == Order.ORDER_PLACED) {
+                return order;
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {
