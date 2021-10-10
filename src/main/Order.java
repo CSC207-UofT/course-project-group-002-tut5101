@@ -49,9 +49,6 @@ public class Order {
     }
 
     boolean updateDishStatus(Dish dish) {
-        /**TODO: add the update dish status function here
-         * check to see if all dishes in the Order are complete, if yes, update OrderStatus to Complete
-         */
         dish.setCompleted();
         boolean allComplete = true;
         // Check if all dishes are complete
