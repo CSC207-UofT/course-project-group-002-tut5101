@@ -1,4 +1,4 @@
-public abstract class Inventory {
+public abstract class Inventory{
     public String name;
     public boolean usedup;
     public double price;
