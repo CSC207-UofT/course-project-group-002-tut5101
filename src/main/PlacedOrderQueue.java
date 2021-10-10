@@ -4,7 +4,10 @@ import java.util.Queue;
 import java.util.ArrayDeque;
 
 /**
-This is the class of Orderlist, it is used to keep track of all orders of the restaurant
+ This is the class of PlacedOrderQueue,
+ it is used to keep track of all orders placed by customers of the restaurant.
+ By Dedong Xie (1006702944)
+ 2021-10-10
  */
 public class PlacedOrderQueue {
 
