@@ -65,10 +65,10 @@ public class Order {
         return dishes.toString();
     }
 
-    int orderPrice() {
-        int price = 0;
+    double getOrderPrice() {
+        double price = 0;
         for (Dish d: dishes) {
-            //TODO: add each dish price to price
+            price += d.getPrice();
         }
         return price;
     }
