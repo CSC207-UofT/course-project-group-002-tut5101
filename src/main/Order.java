@@ -34,7 +34,7 @@ public class Order {
     }
 
 
-    String GetOrderStatus() {
+    String getOrderStatus() {
         return orderStatus;
     }
 

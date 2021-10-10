@@ -1,17 +1,17 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Queue;
+import java.util.ArrayDeque;
 
 /**
 This is the class of Orderlist, it is used to keep track of all orders of the restaurant
  */
 public class OrderList {
 
-    private List<Order> orderList;
+    private Queue<Order> orderList;
 
     public void OrderList() {
-        orderList = new ArrayList<Order>();
+        orderList = new ArrayDeque<Order>();
     }
 
     /**
@@ -35,11 +35,15 @@ public class OrderList {
      */
     public Order getNextOrderToBeCooked() {
         for (Order order: orderList) {
-            if (order.getOrderStatus() == Order.ORDER_PLACED) {
+            if (order.getOrderStatus() == Order.PLACED) {
                 return order;
             }
         }
         return null;
+    }
+
+    public boolean deleteCompletedOrder(Order completedOrder) {
+
     }
 
     public static void main(String[] args) {
