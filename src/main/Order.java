@@ -49,18 +49,17 @@ public class Order {
     }
 
     boolean updateDishStatus(Dish dish) {
-        /**TODO: add the update dish status function here
-         * check to see if all dishes in the Order are complete, if yes, update OrderStatus to Complete
-         */
         dish.setCompleted();
         boolean allComplete = true;
+        // Check if all dishes are complete
         for (Dish d:dishes) {
             if (d.isCompleted() == false){
                 allComplete = false;
             }
-            if (allComplete == true) {
-                updateOrderStatus(COMPLETE);
-            }
+        }
+        // If all dishes are complete, update the order status
+        if (allComplete == true) {
+            updateOrderStatus(COMPLETE);
         }
 
     }
