@@ -10,7 +10,7 @@ public class Order {
     static String COOKED = "Order Cooked";
     static String DELIVERED = "Order Delivered";
     static String COMPLETE = "Order Complete";
-    private String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
+    static String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
 
     private List<Dish> dishes;
     private boolean dineIn;
@@ -39,8 +39,20 @@ public class Order {
         return orderStatus;
     }
 
+    String getOrderDineInOrTakeOut() {
+        if (this.dineIn == false){
+            return "Take Out";
+        }
+        else {
+            return "Dine In";
+        }
+    }
+
     boolean updateDishStatus(String status, Dish dish) {
-        //TODO: add the update dish status function here
+        /**TODO: add the update dish status function here
+         * check to see if all dishes in the Order are complete, if yes, update OrderStatus to Complete
+         */
+
     }
 
     boolean updateOrderStatus(String status) {
@@ -59,6 +71,14 @@ public class Order {
             //TODO: add each dish price to price
         }
         return price;
+    }
+
+    int getTableNum() {
+        return this.tableNum;
+    }
+
+    String getAddress() {
+        return this.address;
     }
 
 
