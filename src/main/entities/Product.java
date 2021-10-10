@@ -1,8 +1,8 @@
-public abstract class Product extends Inventory implements Expiryable {
+public abstract class Product extends Inventory{
     public int ExpiryDate;
 
-    public Product(name: String, usedup: boolean,price: double, ExpiryDate: int){
-        super(name, usedup, price);
+    public Product(name: String, usedup: boolean,price: double,quantity: double,ExpiryDate: int){
+        super(name, usedup, price, quantity);
         this.ExpiryDate = ExpiryDate;
 
     }
