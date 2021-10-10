@@ -13,14 +13,22 @@ public class Order {
     private boolean dineIn;
     private String orderStatus;
     private int tableNum;
+    private String address;
 
-    public Order(int tableNum, List<Dish> dishes, boolean dineIn){
+    public Order(int tableNum, List<Dish> dishes){
         this.dishes = dishes;
-        this.dineIn = dineIn;
+        this.dineIn = true;
         this.orderStatus = PLACED;
         this.tableNum = tableNum;
-
     }
+
+    public Order(String address, List<Dish> dishes){
+        this.dishes = dishes;
+        this.dineIn = false;
+        this.orderStatus = PLACED;
+        this.address = address;
+    }
+
 
     String GetOrderStatus() {
         return orderStatus;
@@ -35,5 +43,18 @@ public class Order {
         this.orderStatus = status;
         return true;
     }
+
+    String getString() {
+        return dishes.toString();
+    }
+
+    int orderPrice() {
+        int price = 0;
+        for (Dish d: dishes) {
+            // add each dish price to price
+        }
+        return price;
+    }
+
 
 }
