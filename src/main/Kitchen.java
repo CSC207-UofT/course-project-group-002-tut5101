@@ -5,17 +5,40 @@ import java.util.Queue;
 
 public class Kitchen {
     public static PlacedOrderQueue placeOrderQueue;
-    public static Queue<Dish> ServingBuffer = new ArrayDeque<>();
-    public static Queue<Order> DeliveryBuffer = new ArrayDeque<>();
+    public static Queue<Dish> servingBuffer = new ArrayDeque<>();
+    public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
+    private static Order currentOrder = null;
 
     // TODO: handle exception
     public Dish getServingDish(){
-        return ServingBuffer.remove();
+        return servingBuffer.remove();
     }
 
     // TODO: handle exception
     public Order getDeliveryOrder(){
-        return DeliveryBuffer.remove();
+        return deliveryBuffer.remove();
+    }
+
+    private static void getNextToCook(){
+        currentOrder = placeOrderQueue.getNextOrder();
+    }
+
+    private static void updateDishStatus(Dish dish){
+        // TODO: throw exceptions if currentOrder is null?
+        currentOrder.updateDishStatus("Order Cooked", dish);
+
+        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
+            servingBuffer.add(dish);
+        } else {
+            if (currentOrder.getOrderStatus().equals("Order Cooked")) {
+                deliveryBuffer.add(currentOrder);
+                getNextToCook();
+            }
+        }
+    }
+
+    private static void updateInventory(Dish dish){
+        // TODO: to be implemented.
     }
 
 
