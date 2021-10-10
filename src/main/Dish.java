@@ -1,5 +1,4 @@
 package main;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -10,6 +9,7 @@ public class Dish {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
+    private String status;
 
 //    public Dish() {
 //        this.name = "food";
@@ -27,6 +27,15 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
+        this.status = "ordered";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getName() {
@@ -86,6 +95,7 @@ public class Dish {
                 ", features=" + features +
                 ", calories=" + calories +
                 ", allergyInformation='" + allergyInformation + '\'' +
+                ", status='" + status +
                 '}';
     }
 }

@@ -1,6 +1,6 @@
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
- * By Dedong Xie
+ * By Dedong Xie (1006702944)
  * 2021-10-10
  */
 package main;
@@ -23,9 +23,9 @@ public class ServingStaff extends Staff{
     public void serveDish() {
         try {
             Dish dishToBeServed = Kitchen.getServingDish();
-            //dishToBeServed.updateStatus();
+            dishToBeServed.setStatus("served");
         } catch (Exception e) {
-            System.out.println("No dish to be delivered, delivery list empty.");
+            System.out.println("No dish to be served, serving list empty.");
         }
     }
 
