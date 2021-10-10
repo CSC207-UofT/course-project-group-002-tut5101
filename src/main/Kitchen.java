@@ -10,12 +10,12 @@ public class Kitchen {
     private static Order currentOrder = null;
 
     // TODO: handle exception
-    public Dish getServingDish(){
+    public static Dish getServingDish(){
         return servingBuffer.remove();
     }
 
     // TODO: handle exception
-    public Order getDeliveryOrder(){
+    public static Order getDeliveryOrder(){
         return deliveryBuffer.remove();
     }
 
