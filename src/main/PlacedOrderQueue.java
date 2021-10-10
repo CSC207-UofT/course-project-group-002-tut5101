@@ -1,14 +1,14 @@
-package main;
-
-import java.util.Queue;
-import java.util.ArrayDeque;
-
 /**
  This is the class of PlacedOrderQueue,
  it is used to keep track of all orders placed by customers of the restaurant.
  By Dedong Xie (1006702944)
  2021-10-10
  */
+package main;
+
+import java.util.Queue;
+import java.util.ArrayDeque;
+
 public class PlacedOrderQueue {
 
     private Queue<Order> placedOrderQueue;
