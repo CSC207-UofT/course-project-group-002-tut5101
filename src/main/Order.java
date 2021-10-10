@@ -54,13 +54,15 @@ public class Order {
          */
         dish.setCompleted();
         boolean allComplete = true;
+        // Check if all dishes are complete
         for (Dish d:dishes) {
             if (d.isCompleted() == false){
                 allComplete = false;
             }
-            if (allComplete == true) {
-                updateOrderStatus(COMPLETE);
-            }
+        }
+        // If all dishes are complete, update the order status
+        if (allComplete == true) {
+            updateOrderStatus(COMPLETE);
         }
 
     }
