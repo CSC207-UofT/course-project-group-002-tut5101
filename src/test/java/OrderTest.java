@@ -1,17 +1,18 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class OrderTest {
+public class OrderTest {
     Order orderDineIn;
     Order orderTakeOut;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         List<Dish> dishList = new ArrayList<Dish>();
         String[] ingredientsA = new String[]{"a", "b"};
         String[] ingredientsB = new String[]{"c", "d"};
@@ -22,12 +23,12 @@ class OrderTest {
     }
 
     @Test
-    void getOrderStatus() {
+    public void getOrderStatus() {
         assertTrue(orderDineIn.getOrderStatus() == "Order Placed");
         assertTrue(orderTakeOut.getOrderStatus() == "Order Placed");
     }
 
-   void setOrderStatus() {
+   public void setOrderStatus() {
         orderDineIn.setOrderStatus("Order Cooked");
         orderTakeOut.setOrderStatus("Order Delivered");
         assertTrue(orderDineIn.getOrderStatus() == "Order Cooked");
