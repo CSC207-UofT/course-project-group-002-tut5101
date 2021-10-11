@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -100,7 +101,7 @@ public class Order {
         return this.address;
     }
 
-    List getDishes() {
+    List<Dish> getDishes() {
         return this.dishes;
     }
 

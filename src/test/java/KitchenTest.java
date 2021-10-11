@@ -44,7 +44,7 @@ public class KitchenTest {
 
     @Test(timeout = 50)
     public void TestGetServingDish() {
-        DishInfo di = new DishInfo(o1.getTableNum(), o1.dishes.get(0));
+        DishInfo di = new DishInfo(o1.getTableNum(), o1.getDishes.get(0));
         Kitchen.servingBuffer.add(di);
 
         DishInfo serveDish = Kitchen.getServingDish();
