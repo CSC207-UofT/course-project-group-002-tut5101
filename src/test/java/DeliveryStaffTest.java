@@ -4,19 +4,18 @@
  * 2021-10-11
  */
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DeliveryStaffTest {
     DeliveryStaff deliveryStaff;
     Order orderOne;
 
-    @BeforeEach
+    @Before
     void setUp() {
         deliveryStaff = new DeliveryStaff("a", 1, 10);
         String[] ingredients = new String[]{"a", "b"};
@@ -25,7 +24,7 @@ class DeliveryStaffTest {
         orderOne = new Order(RestaurantInfo.ADDRESS, dishList);
     }
 
-    @Test
+    @Test(timeout = 50)
     void deliverOrder() {
         assertFalse(deliveryStaff.deliverOrder());
         Kitchen.deliveryBuffer.add(orderOne);

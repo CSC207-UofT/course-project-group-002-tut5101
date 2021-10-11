@@ -27,19 +27,19 @@ class PlacedOrderQueueTest {
         orderTwo = new Order(1, dishList);
     }
 
-    @Test(timeout=50)
+    @Test(timeout = 50)
     public void TestAddOrderSingleAdd() {
         assertTrue(queue.addOrder(orderOne));
     }
 
-    @Test(timeout=50)
+    @Test(timeout = 50)
     public void TestAddOrderMultipleAdd() {
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderTwo));
     }
 
-    @Test(timeout=50)
+    @Test(timeout = 50)
     public void TestGetNextOrderSingleNext() {
         Assert.assertEquals(null, queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));
@@ -48,7 +48,7 @@ class PlacedOrderQueueTest {
         Assert.assertEquals(orderTwo, queue.getNextOrder());
     }
 
-    @Test(timeout=50)
+    @Test(timeout = 50)
     public void TestGetNextOrderMultipleNext() {
         assertNull(queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));

@@ -7,23 +7,22 @@
 The imports here imports the apis of Junit, the first gives the identifiers BeforeEach, Test, Timeout...
 The second line is to import assertions to test
  */
-import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 class StaffTest {
     Staff staff;
 
     // BeforeEach means the method will be run everytime you activate each of the test
-    @BeforeEach
+    @Before
     void setUp() {
         staff = new Staff();
     }
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
-    @Test
-    @Timeout(50)
+    @Test(timeout = 50)
     void TestGetName() {
         assertEquals("", staff.getName());
         staff = new Staff("a", 1, 0);
@@ -32,8 +31,7 @@ class StaffTest {
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
-    @Test
-    @Timeout(50)
+    @Test(timeout = 50)
     void TestGetStaffNumber() {
         assertEquals(0, staff.getStaffNumber());
         staff = new Staff("a", 1, 0);
@@ -42,8 +40,7 @@ class StaffTest {
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
-    @Test
-    @Timeout(50)
+    @Test(timeout = 50)
     void TestGetStaffSalary() {
         assertEquals(0, staff.getStaffSalary());
         staff = new Staff("a", 1, 10);
@@ -52,8 +49,7 @@ class StaffTest {
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
-    @Test
-    @Timeout(50)
+    @Test(timeout = 50)
     void TestIncreaseSalary() {
         assertEquals(0, staff.getStaffSalary());
         staff.increaseSalary(10);
@@ -62,8 +58,7 @@ class StaffTest {
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
-    @Test
-    @Timeout(50)
+    @Test(timeout = 50)
     void TestDecreaseSalary() {
         staff = new Staff("a", 1, 20);
         staff.decreaseSalary(10);

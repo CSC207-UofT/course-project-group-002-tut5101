@@ -7,21 +7,22 @@
 This is used to test the functionality of serving staff.
 Assume that Kitchen is implemented properly.
  */
-import org.junit.jupiter.api.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayDeque;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class ServingStaffTest {
     ServingStaff servingStaff;
 
-    @BeforeEach
+    @Before
     void setUp() {
         servingStaff = new ServingStaff("a", 1, 10);
     }
 
-    @Test
+    @Test(timeout = 50)
     void TestServeDish() {
         assertFalse(servingStaff.serveDish());
         Kitchen.servingBuffer.add(new DishInfo(1, new Dish("1", 10, new String[]{"1", "2"}, 10)));
