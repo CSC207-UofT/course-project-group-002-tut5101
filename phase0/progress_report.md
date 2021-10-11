@@ -25,7 +25,8 @@ Implemented following classes:
   - DeliveryStaff: subclass of Staff, a staff that sends orders for takeout orders
   - InventoryStaff
 - PlacedOrderQueue: A queue to hold the orders by customers for Kitchen to process
-- Order
+- Order: A class that holds a list of dishes ordered by a customer, the current status of the order,
+and the table number/destination of the order. Can return the total price of dishes in the order.
 - Kitchen: A class that gets new orders from an instance of PlaceOrderQueue, updates the status of the dishes in the 
 order, and depending on the type of the order, add the dish / order to the queues for either delivery staff or serving 
 staff to access.
@@ -68,5 +69,19 @@ Implemented the RestaurantInfo and Kitchen class. Created tests for the Kitchen 
 
 #### Future planning
 Implement the user interfaces part for the Staffs and Kitchen.
+
+
+### Evelyn Chou
+#### Week 2021 Oct 4 - 11
+#### Design 2021 Oct 4, 10, 11
+Worked with Raymond Liu and Dedong Xie on the CRC model and implementation of the following classes: Staff,
+ServingStaff, DeliveryStaff, InventoryStaff, PlacedOrderQueue, Order, Kitchen, and RestaurantInfo.
+
+#### Coding 2021 Oct 10, 11
+Implemented the Order class and it's getter and setter methods. Discussed with Howard and Chan about
+attributes of the Dish class needed for the Order class. Created tests for the Order class methods.
+
+#### Future planning
+Implement the InventoryStaff class once classes associated with the Inventory are complete.
 
 
