@@ -16,4 +16,4 @@ Implemented following classes:
 - PlacedOrderQueue: A queue to hold the orders by customers for Kitchen to process
 
 ### Testing
-Created at least one test for all the methods in all of the classes I wrote as described in the coding part.
+Created at least one test for all the methods in all the classes I wrote as described in the coding part.
