@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-class PlacedOrderQueueTest {
+public class PlacedOrderQueueTest {
     PlacedOrderQueue queue;
     List<Dish> dishList;
     String[] ingredients;

@@ -14,7 +14,7 @@ import java.util.ArrayDeque;
 
 import static org.junit.Assert.*;
 
-class ServingStaffTest {
+public class ServingStaffTest {
     ServingStaff servingStaff;
 
     @Before
