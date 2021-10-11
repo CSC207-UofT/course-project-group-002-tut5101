@@ -17,15 +17,18 @@ public class DeliveryStaff extends Staff{
 
     /**
      * Let a delivery staff to get a dish to be delivered and deliver it to the destination
+     * @return Return true on successful delivery, false otherwise
      */
-    public void deliverOrder() {
+    public boolean deliverOrder() {
         try {
             Order orderToBeDelivered = Kitchen.getDeliveryOrder();
             orderToBeDelivered.setOrderStatus(Order.DELIVERED);
             //TODO: Combine with the functionality of map to get distance
         } catch (Exception e) {
             System.out.println("No order to be delivered, delivery list empty." + e.getMessage());
+            return false;
         }
+        return true;
     }
 
 }
