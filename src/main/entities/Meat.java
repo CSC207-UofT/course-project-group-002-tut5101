@@ -1,10 +1,13 @@
+package entities;
+
 public class Meat extends Material {
 
-    public Meat(name:String, usedup: boolean,price: double,quantity: double, freshness: String
-                                   ImportDate: int){
+    public Meat(String name, boolean usedup, double price, double quantity, String freshness,
+                int ImportDate){
         super(name, usedup, price);
         this.freshness = freshness;
-        this.ImportDate = ImportDate;}
+        this.ImportDate = ImportDate;
+    }
 
 
 }

@@ -57,12 +57,13 @@ public class Order {
         }
         // If all dishes are complete, update the order status
         if (allComplete == true) {
-            updateOrderStatus(COMPLETE);
+            setOrderStatus(COMPLETE);
         }
+        return true;
 
     }
 
-    boolean updateOrderStatus(String status) {
+    boolean setOrderStatus(String status) {
         //TODO: check if status is one of the allowable statuses
         this.orderStatus = status;
         return true;

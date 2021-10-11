@@ -3,7 +3,6 @@
  * By Dedong Xie (1006702944)
  * 2021-10-10
  */
-package main;
 
 public class DeliveryStaff extends Staff{
     /**
@@ -22,7 +21,7 @@ public class DeliveryStaff extends Staff{
     public void deliverOrder() {
         try {
             Order orderToBeDelivered = Kitchen.getDeliveryOrder();
-            orderToBeDelivered.updateOrderStatus(Order.DELIVERED);
+            orderToBeDelivered.setOrderStatus(Order.DELIVERED);
             //TODO: Combine with the functionality of map to get distance
         } catch (Exception e) {
             System.out.println("No order to be delivered, delivery list empty." + e.getMessage());
