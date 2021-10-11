@@ -1,8 +1,8 @@
 /**
- This is the class of PlacedOrderQueue,
- it is used to keep track of all orders placed by customers of the restaurant.
- By Dedong Xie (1006702944)
- 2021-10-10
+ * This is the class of PlacedOrderQueue,
+ * it is used to keep track of all orders placed by customers of the restaurant.
+ * By Dedong Xie (1006702944)
+ * 2021-10-10
  */
 
 import java.util.Queue;
