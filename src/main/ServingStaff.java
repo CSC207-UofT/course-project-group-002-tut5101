@@ -18,14 +18,17 @@ public class ServingStaff extends Staff{
 
     /**
      * Let a serving staff to get a dish to be served and serve a dish to the table
+     * @return Return true when serve success, otherwise return false
      */
-    void serveDish() {
+    public boolean serveDish() {
         try {
             DishInfo dishToBeServed = Kitchen.getServingDish();
             dishToBeServed.getDish().setStatus("served");
         } catch (Exception e) {
             System.out.println("No dish to be served, serving list empty." + e.getMessage());
+            return false;
         }
+        return true;
     }
 
 }

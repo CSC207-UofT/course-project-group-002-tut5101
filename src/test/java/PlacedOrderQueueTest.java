@@ -3,8 +3,6 @@
  * 2021-10-11
  */
 import org.junit.*;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,7 @@ class PlacedOrderQueueTest {
     Order orderOne;
     Order orderTwo;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         queue = new PlacedOrderQueue();
         ingredients = new String[]{"a", "b"};
@@ -29,23 +27,19 @@ class PlacedOrderQueueTest {
         orderTwo = new Order(1, dishList);
     }
 
-    @Test
-    @Timeout(50)
-    @DisplayName("Test add single order to the queue")
+    @Test(timeout=50)
     public void TestAddOrderSingleAdd() {
         assertTrue(queue.addOrder(orderOne));
     }
 
-    @Test
-    @Timeout(50)
+    @Test(timeout=50)
     public void TestAddOrderMultipleAdd() {
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderTwo));
     }
 
-    @Test
-    @Timeout(50)
+    @Test(timeout=50)
     public void TestGetNextOrderSingleNext() {
         Assert.assertEquals(null, queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));
@@ -54,8 +48,7 @@ class PlacedOrderQueueTest {
         Assert.assertEquals(orderTwo, queue.getNextOrder());
     }
 
-    @Test
-    @Timeout(50)
+    @Test(timeout=50)
     public void TestGetNextOrderMultipleNext() {
         assertNull(queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));
