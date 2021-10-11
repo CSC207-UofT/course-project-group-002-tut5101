@@ -14,8 +14,6 @@ public class Staff {
      */
     public Staff() {
         staffName = "";
-        staffNumber = 0;
-        staffSalary = 0;
     }
 
     /**

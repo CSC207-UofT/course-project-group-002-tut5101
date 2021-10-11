@@ -19,10 +19,10 @@ public class ServingStaff extends Staff{
     /**
      * Let a serving staff to get a dish to be served and serve a dish to the table
      */
-    public void serveDish() {
+    void serveDish() {
         try {
-            Dish dishToBeServed = Kitchen.getServingDish();
-            dishToBeServed.setStatus("served");
+            DishInfo dishToBeServed = Kitchen.getServingDish();
+            dishToBeServed.getDish().setStatus("served");
         } catch (Exception e) {
             System.out.println("No dish to be served, serving list empty." + e.getMessage());
         }

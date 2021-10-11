@@ -1,13 +1,13 @@
+import java.util.Map;
+import java.util.Queue;
+import java.util.ArrayDeque;
+
 /**
  * This is the class of PlacedOrderQueue,
  * it is used to keep track of all orders placed by customers of the restaurant.
  * By Dedong Xie (1006702944)
  * 2021-10-10
  */
-
-import java.util.Map;
-import java.util.Queue;
-import java.util.ArrayDeque;
 
 public class PlacedOrderQueue {
 
@@ -18,8 +18,8 @@ public class PlacedOrderQueue {
     }
 
     /**
-     * Try adding order to the placedOrderList, if order location too far or not possible to do the order,
-     * reject the order.
+     * Try adding order to the placedOrderList, if order location too far or not possible to do the
+     * order, reject the order.
      * @param newOrder The order to be added to the orderList
      * @return True on successful add, false on order too far or not enough ingredients
      */
@@ -33,7 +33,9 @@ public class PlacedOrderQueue {
         }
          */
         //TODO: Check if the inventory is enough for cooking the order
-        // If not enough, reject the order
+        // If not enough, reject the order.
+        //TODO: think about how to handle cases where the ingredients for two or more dishes are
+        // unavailable, but rejecting some dishes makes the other ones available.
         placedOrderQueue.add(newOrder);
         return true;
     }
