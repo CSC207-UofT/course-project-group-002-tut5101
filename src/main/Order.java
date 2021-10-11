@@ -1,5 +1,3 @@
-package main;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,11 +47,11 @@ public class Order {
     }
 
     boolean updateDishStatus(Dish dish) {
-        dish.setCompleted();
+        dish.setStatus("completed");
         boolean allComplete = true;
         // Check if all dishes are complete
         for (Dish d:dishes) {
-            if (d.isCompleted() == false){
+            if (d.getStatus() != "completed"){
                 allComplete = false;
             }
         }

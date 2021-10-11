@@ -4,7 +4,6 @@
  By Dedong Xie (1006702944)
  2021-10-10
  */
-package main;
 
 import java.util.Queue;
 import java.util.ArrayDeque;
