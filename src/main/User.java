@@ -1,7 +1,7 @@
 public abstract class User {
     private String id;
-    private String username;
-    private int password;
+    private String name;
+    private String password;
     private String address;
     private String gender;
     private String phone;
@@ -9,17 +9,17 @@ public abstract class User {
 
     public User(){
         this.id = "you";
-        this.username = "123";
-        this.password = 123;
+        this.name = "123";
+        this.password = "12345";
         this.gender = "female";
         this.address = "Toronto";
         this.phone = "12306";
         this.email = "good.mail.ca";
     }
 
-    public User(String id, String username, int password) {
+    public User(String id, String name, String password) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.password = password;
         this.gender = "female";
         this.address = "Toronto";
@@ -35,19 +35,19 @@ public abstract class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
