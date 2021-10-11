@@ -18,7 +18,7 @@ public class Kitchen {
      * A static instance of the PlaceOrderQueue class. The Kitchen uses this instance to
      * access the next order to be cooked.
      */
-    public static PlacedOrderQueue placeOrderQueue;
+    public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
 
     /**
      * The buffer queue where each element is a "tuple" of table number and a dish; the serving
@@ -42,7 +42,7 @@ public class Kitchen {
      * @return a DishInfo instance, which contains the table number of the dish and the dish itself.
      */
     public static DishInfo getServingDish(){
-        return servingBuffer.remove();
+        return servingBuffer.poll();
     }
 
 
@@ -51,14 +51,14 @@ public class Kitchen {
      * @return an Order instance to be delivered.
      */
     public static Order getDeliveryOrder(){
-        return deliveryBuffer.remove();
+        return deliveryBuffer.poll();
     }
 
 
     /**
      * Get the next order to cook from the placeOrderQueue instance.
      */
-    private static void getNextToCook(){
+    public static void getNextToCook(){
         currentOrder = placeOrderQueue.getNextOrder();
     }
 
@@ -73,7 +73,7 @@ public class Kitchen {
      * The currentOrder will be updated if the current order is finished.
      * @param dish the dish that is cooked.
      */
-    private static void cookedDish(Dish dish){
+    public static void cookedDish(Dish dish){
         updateInventory(dish);
         boolean orderCompleted = currentOrder.setDishStatusAndCheckOrderStatus(dish);
 
