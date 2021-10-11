@@ -20,7 +20,7 @@ public abstract class Inventory{
     public boolean UpdateQuantity(double usage){
         boolean enough = true;
         if(this.quantity >= usage){
-            this.quantity -= uasge;
+            this.quantity -= usage;
         } else {
             enough = false;
         }
