@@ -1,6 +1,9 @@
+package entities;
+
 public class Alcohol extends Product{
-    public Alcohol(name: String, usedup: boolean,price: double,quantity: double,ExpiryDate: int){
+    public Alcohol(String name, boolean usedup, double price, double quantity, int ExpiryDate){
         super(name, usedup, price, quantity, ExpiryDate);
-                        }
+
+    }
 }
 
