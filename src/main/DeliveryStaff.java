@@ -25,7 +25,7 @@ public class DeliveryStaff extends Staff{
             orderToBeDelivered.updateOrderStatus(Order.DELIVERED);
             //TODO: Combine with the functionality of map to get distance
         } catch (Exception e) {
-            System.out.println("No order to be delivered, delivery list empty.");
+            System.out.println("No order to be delivered, delivery list empty." + e.getMessage());
         }
     }
 
