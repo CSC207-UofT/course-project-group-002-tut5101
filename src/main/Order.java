@@ -1,7 +1,5 @@
 package main;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
@@ -48,23 +46,24 @@ public class Order {
         }
     }
 
-    boolean updateDishStatus(Dish dish) {
-        dish.setCompleted();
+    boolean setDishStatus(Dish dish, String status) {
+        dish.setStatus(status);
         boolean allComplete = true;
         // Check if all dishes are complete
         for (Dish d:dishes) {
-            if (d.isCompleted() == false){
+            if (d.getStatus() != "complete"){
                 allComplete = false;
             }
         }
         // If all dishes are complete, update the order status
         if (allComplete == true) {
-            updateOrderStatus(COMPLETE);
+            setOrderStatus(COMPLETE);
         }
+        return true;
 
     }
 
-    boolean updateOrderStatus(String status) {
+    boolean setOrderStatus(String status) {
         //TODO: check if status is one of the allowable statuses
         this.orderStatus = status;
         return true;

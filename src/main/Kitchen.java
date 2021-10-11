@@ -25,7 +25,7 @@ public class Kitchen {
 
     private static void updateDishStatus(Dish dish){
         // TODO: throw exceptions if currentOrder is null?
-        currentOrder.updateDishStatus(dish);
+        currentOrder.setDishStatus(dish);
 
         if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
             servingBuffer.add(dish);
