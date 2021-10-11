@@ -6,14 +6,16 @@ import static org.junit.Assert.*;
 
 class PlacedOrderQueueTest {
     PlacedOrderQueue queue;
+    List<Dish> dishList;
     Order orderOne;
     Order orderTwo;
 
     @Before
     public void setUp() {
         queue = new PlacedOrderQueue();
-        orderOne = new Order(1, (List<Dish>) new Dish("a", 1, new String[]{"a", "b"}, 0));
-        orderTwo = new Order(1, (List<Dish>) new Dish("b", 1, new String[]{"a", "b"}, 0));
+        dishList = (List<Dish>) new DishList();
+        orderOne = new Order(1, dishList);
+        orderTwo = new Order(1, dishList);
     }
 
     @Test(timeout = 50)
