@@ -100,5 +100,8 @@ public class Order {
         return this.address;
     }
 
+    List getDishes() {
+        return this.dishes;
+    }
 
 }
