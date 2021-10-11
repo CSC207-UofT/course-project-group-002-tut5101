@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-class DeliveryStaffTest {
+public class DeliveryStaffTest {
     DeliveryStaff deliveryStaff;
     Order orderOne;
 

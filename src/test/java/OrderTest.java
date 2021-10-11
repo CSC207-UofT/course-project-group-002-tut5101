@@ -1,16 +1,16 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OrderTest {
+public class OrderTest {
     Order orderDineIn;
     Order orderTakeOut;
 
-    @BeforeEach
+    @Before
     void setUp() {
         List<Dish> dishList = new ArrayList<Dish>();
         String[] ingredientsA = new String[]{"a", "b"};

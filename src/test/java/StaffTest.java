@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-class StaffTest {
+public class StaffTest {
     Staff staff;
 
     // BeforeEach means the method will be run everytime you activate each of the test
