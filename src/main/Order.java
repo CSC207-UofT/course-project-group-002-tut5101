@@ -64,6 +64,12 @@ public class Order {
         return true;
     }
 
+    boolean setOrderStatus(String status) {
+        //TODO: check if status is one of the allowable statuses
+        this.orderStatus = status;
+        return true;
+    }
+
     String getString() {
         return dishes.toString();
     }
