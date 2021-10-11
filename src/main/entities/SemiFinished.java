@@ -1,5 +1,7 @@
+package entities;
+
 public class SemiFinished extends Product{
-    public SemiFinished(name: String, usedup: boolean,price: double,quantity: double,ExpiryDate: int){
+    public SemiFinished(String name, boolean usedup, double price, double quantity, int ExpiryDate){
         super(name, usedup, price, quantity, ExpiryDate);
-                        }
+    }
 }

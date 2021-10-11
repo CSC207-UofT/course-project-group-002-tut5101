@@ -1,10 +1,11 @@
-package main;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Kitchen {
     public static PlacedOrderQueue placeOrderQueue;
+
+    // TODO: change each element of servingBuffer to tuple of table num and Dish.
     public static Queue<Dish> servingBuffer = new ArrayDeque<>();
     public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
     private static Order currentOrder = null;

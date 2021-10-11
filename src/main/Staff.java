@@ -3,7 +3,6 @@
  * By Dedong xie (1006702944)
  * 2021-10-10
  */
-package main;
 
 public class Staff {
     protected String staffName;

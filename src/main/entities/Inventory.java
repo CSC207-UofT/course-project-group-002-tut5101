@@ -1,10 +1,12 @@
+package entities;
+
 public abstract class Inventory{
     public String name;
     public boolean usedup;
     public double price;
-    public double quantity
+    public double quantity;
 
-    public Inventory(name: String, usedup: boolean, price: double, quantity: double){
+    public Inventory(String name, boolean usedup, double price, double quantity){
         this.name = name;
         this.usedup = usedup;
         this.price = price;
@@ -15,12 +17,13 @@ public abstract class Inventory{
         return this.quantity;
     }
 
-    public boolean UpdateQuantity(double: usage){
+    public boolean UpdateQuantity(double usage){
         boolean enough = true;
         if(this.quantity >= usage){
             this.quantity -= uasge;
+        } else {
+            enough = false;
         }
-        else{enough = false}
         return enough;
     }
 }

@@ -1,4 +1,3 @@
-package main;
 
 public class InventoryStaff extends Staff{
     // TODO: Add method to update the freshness of item in inventory
