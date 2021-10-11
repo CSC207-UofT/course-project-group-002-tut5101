@@ -18,12 +18,12 @@ public class ServingStaffTest {
     ServingStaff servingStaff;
 
     @Before
-    void setUp() {
+    public void setUp() {
         servingStaff = new ServingStaff("a", 1, 10);
     }
 
     @Test(timeout = 50)
-    void TestServeDish() {
+    public void TestServeDish() {
         assertFalse(servingStaff.serveDish());
         Kitchen.servingBuffer.add(new DishInfo(1, new Dish("1", 10, new String[]{"1", "2"}, 10)));
         assertTrue(servingStaff.serveDish());

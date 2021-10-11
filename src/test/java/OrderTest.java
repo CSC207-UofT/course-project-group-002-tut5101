@@ -9,7 +9,7 @@ public class OrderTest {
     Order orderTakeOut;
 
     @Before
-    void setUp() {
+    public void setUp() {
         List<Dish> dishList = new ArrayList<Dish>();
         String[] ingredientsA = new String[]{"a", "b"};
         String[] ingredientsB = new String[]{"c", "d"};
@@ -19,13 +19,14 @@ public class OrderTest {
         orderTakeOut = new Order("UofT", dishList);
     }
 
-    @Test
-    void getOrderStatus() {
+    @Test(timeout = 50)
+    public void getOrderStatus() {
         assertTrue(orderDineIn.getOrderStatus() == "Order Placed");
         assertTrue(orderTakeOut.getOrderStatus() == "Order Placed");
     }
 
-   void setOrderStatus() {
+    @Test(timeout = 50)
+    public void TestSetOrderStatus() {
         orderDineIn.setOrderStatus("Order Cooked");
         orderTakeOut.setOrderStatus("Order Delivered");
         assertTrue(orderDineIn.getOrderStatus() == "Order Cooked");

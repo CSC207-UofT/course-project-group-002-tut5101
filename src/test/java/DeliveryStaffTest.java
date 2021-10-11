@@ -16,7 +16,7 @@ public class DeliveryStaffTest {
     Order orderOne;
 
     @Before
-    void setUp() {
+    public void setUp() {
         deliveryStaff = new DeliveryStaff("a", 1, 10);
         String[] ingredients = new String[]{"a", "b"};
         List<Dish> dishList = new ArrayList<Dish>();
@@ -25,7 +25,7 @@ public class DeliveryStaffTest {
     }
 
     @Test(timeout = 50)
-    void deliverOrder() {
+    public void deliverOrder() {
         assertFalse(deliveryStaff.deliverOrder());
         Kitchen.deliveryBuffer.add(orderOne);
         assertTrue(deliveryStaff.deliverOrder());

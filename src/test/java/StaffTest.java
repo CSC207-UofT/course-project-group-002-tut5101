@@ -16,14 +16,14 @@ public class StaffTest {
 
     // BeforeEach means the method will be run everytime you activate each of the test
     @Before
-    void setUp() {
+    public void setUp() {
         staff = new Staff();
     }
 
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
-    void TestGetName() {
+    public void TestGetName() {
         assertEquals("", staff.getName());
         staff = new Staff("a", 1, 0);
         assertEquals("a", staff.getName());
@@ -32,7 +32,7 @@ public class StaffTest {
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
-    void TestGetStaffNumber() {
+    public void TestGetStaffNumber() {
         assertEquals(0, staff.getStaffNumber());
         staff = new Staff("a", 1, 0);
         assertEquals(1, staff.getStaffNumber());
@@ -41,7 +41,7 @@ public class StaffTest {
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
-    void TestGetStaffSalary() {
+    public void TestGetStaffSalary() {
         assertEquals(0, staff.getStaffSalary());
         staff = new Staff("a", 1, 10);
         assertEquals(10, staff.getStaffSalary());
@@ -50,7 +50,7 @@ public class StaffTest {
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
-    void TestIncreaseSalary() {
+    public void TestIncreaseSalary() {
         assertEquals(0, staff.getStaffSalary());
         staff.increaseSalary(10);
         assertEquals(10, staff.getStaffSalary());
@@ -59,7 +59,7 @@ public class StaffTest {
     // Test means that this is a test
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
-    void TestDecreaseSalary() {
+    public void TestDecreaseSalary() {
         staff = new Staff("a", 1, 20);
         staff.decreaseSalary(10);
         assertEquals(10, staff.getStaffSalary());
