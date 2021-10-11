@@ -64,10 +64,20 @@ public class Order {
         return true;
     }
 
-    boolean setOrderStatus(String status) {
-        //TODO: check if status is one of the allowable statuses
-        this.orderStatus = status;
-        return true;
+    /**
+     * Returns provided STRING argument.
+     * @param status is the status to set the order as
+     * @throws Exception status is not one of the allowable status in statuses
+     */
+    void setOrderStatus(String status){
+        //TODO: throw exception if status is not one of the allowable status in statuses
+        for (String s: statuses){
+            if (s == status) {
+                this.orderStatus = status;
+            }
+        }
+
+
     }
 
     String getString() {
