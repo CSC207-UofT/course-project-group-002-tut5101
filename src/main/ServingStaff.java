@@ -25,7 +25,7 @@ public class ServingStaff extends Staff{
             Dish dishToBeServed = Kitchen.getServingDish();
             dishToBeServed.setStatus("served");
         } catch (Exception e) {
-            System.out.println("No dish to be served, serving list empty.");
+            System.out.println("No dish to be served, serving list empty." + e.getMessage());
         }
     }
 
