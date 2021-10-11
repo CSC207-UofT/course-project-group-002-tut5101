@@ -44,11 +44,11 @@ public class KitchenTest {
 
     @Test(timeout = 50)
     public void TestGetServingDish() {
-        DishInfo di = new DishInfo(o1.getTableNum(), o1.getDishes.get(0));
+        DishInfo di = new DishInfo(o1.getTableNum(), o1.getDishes().get(0));
         Kitchen.servingBuffer.add(di);
 
         DishInfo serveDish = Kitchen.getServingDish();
-        assertEquals(o1.dishes.get(0), serveDish.getDish());
+        assertEquals(o1.getDishes().get(0), serveDish.getDish());
         assertEquals(o1.getTableNum(), serveDish.getTableNum());
         assertEquals(di, serveDish);
     }
@@ -70,7 +70,7 @@ public class KitchenTest {
         Kitchen.placeOrderQueue.addOrder(o3);
         Kitchen.placeOrderQueue.addOrder(o4);
         Kitchen.getNextToCook();
-        for (Dish d: o1.dishes){
+        for (Dish d: o1.getDishes()){
             Kitchen.cookedDish(d);
             assertEquals(d, Kitchen.getServingDish().getDish());
         }
@@ -79,7 +79,7 @@ public class KitchenTest {
 
         boolean first = true;
 
-        for (Dish d: o2.dishes){
+        for (Dish d: o2.getDishes()){
             if (first){
                 assertEquals(null, Kitchen.getDeliveryOrder());
                 first = false;
