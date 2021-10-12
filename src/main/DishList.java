@@ -2,6 +2,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DishList {
     private ArrayList<Dish> menu;
@@ -35,6 +36,15 @@ public class DishList {
         menu.add(new Dish("Milk Tea", 10.0, new String[]{""}, 300 ));
         menu.add(new Dish("Wine", 10.0, new String[]{""}, 100 ));
         return menu;
+    }
+
+    /**
+     * Return list of dishes
+     *
+     * @return
+     */
+    public List<Dish> getDishes(){
+        return this.menu;
     }
 
 }
