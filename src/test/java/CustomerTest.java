@@ -14,14 +14,14 @@ public class CustomerTest {
     }
 
     @Test(timeout = 50)
-    public void TestCustomerConstructor1(){
+    public void testCustomerConstructor1(){
         assertEquals(customer1.getId(), "you");
         assertEquals(customer1.getName(), "123");
         assertEquals(customer1.getPassword(), "12345");
     }
 
     @Test(timeout = 50)
-    public void TestCustomerConstructor2(){
+    public void testCustomerConstructor2(){
         assertEquals(customer2.getId(), "2");
         assertEquals(customer2.getName(), "NaiHe");
         assertEquals(customer2.getPassword(), "20211011");
