@@ -58,6 +58,9 @@ Implemented following classes:
 #### Testing 2021/10/11
 Created at least one test for all the methods in all the classes I wrote as described in the coding part.
 
+#### Future Planning
+Update PlacedOrderQueue and Delivery Staff with the destination and distance simulation.
+
 ### Raymond Liu
 #### Week Oct 4 - 11
 #### Design and coding - Oct 4, 10, 11
