@@ -14,7 +14,7 @@ public class ManagerTest {
     }
 
     @Test(timeout = 50)
-    public void TestManagerConstructor1(){
+    public void testManagerConstructor1(){
         assertEquals(manager.getId(), "you");
         assertEquals(manager.getName(), "123");
         assertEquals(manager.getPassword(), "12345");
@@ -22,7 +22,7 @@ public class ManagerTest {
     }
 
     @Test(timeout = 50)
-    public void TestManagerConstructor2() {
+    public void testManagerConstructor2() {
         assertEquals(manager2.getId(), "1");
         assertEquals(manager2.getName(), "Chan");
         assertEquals(manager2.getPassword(), "12346");
