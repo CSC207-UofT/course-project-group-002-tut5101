@@ -23,7 +23,7 @@ public class UserListTest {
     }
 
     @Test(timeout = 50)
-    public void TestUserByIdentity(){
+    public void testUserByIdentity(){
         assertTrue(userlist.getUsers().containsKey("1"));
         assertFalse(userlist.getUsers().containsKey("9"));
         assertEquals(userlist.getUsers().size(), 7);
