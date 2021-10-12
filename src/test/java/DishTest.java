@@ -14,7 +14,7 @@ public class DishTest {
     }
 
     @Test(timeout = 50)
-    public void TestDishConstructor1(){
+    public void testDishConstructor1(){
         assertEquals(dish1.getName(), "MaPoTouFu");
         assertTrue(dish1.getPrice() == 12.5);
         assertTrue(dish2.getIngredients().length == 3);
