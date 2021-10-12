@@ -25,7 +25,7 @@ public class DeliveryStaffTest {
     }
 
     @Test(timeout = 50)
-    public void deliverOrder() {
+    public void testDeliverOrder() {
         assertFalse(deliveryStaff.deliverOrder());
         Kitchen.deliveryBuffer.add(orderOne);
         assertTrue(deliveryStaff.deliverOrder());
