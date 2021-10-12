@@ -1,3 +1,10 @@
+import java.util.UUID;
+
+/**
+ * Abstract class of User that contains basic properties for a single user
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 public abstract class User {
     private String id;
     private String name;
@@ -7,46 +14,87 @@ public abstract class User {
     private String phone;
     private String email;
 
+    /**
+     * Constructor of User without parameter
+     *
+     */
     public User(){
-        this.id = "you";
-        this.name = "123";
+        this.id = "defaultuserid"; //UUID.randomUUID().toString();
+        this.name = "Default User";
         this.password = "12345";
-        this.gender = "female";
+        this.gender = "N/A";
         this.address = "Toronto";
         this.phone = "12306";
-        this.email = "good.mail.ca";
+        this.email = "defaultemail@gmail.com";
     }
 
+    /**
+     * Constructor of User with id, name, and password provided.
+     *
+     * @param id        id of User, should be unique
+     * @param name      name of User
+     * @param password  password of User
+     */
     public User(String id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.gender = "female";
+        this.gender = "N/A";
         this.address = "Toronto";
         this.phone = "12306";
-        this.email = "good.mail.ca";
+        this.email = "defaultemail@gmail.com";
     }
 
+    /**
+     * Return id of User
+     *
+     * @return  the id of User
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Set id for User
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Get name of User
+     *
+     * @return  the name of User
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set name of User
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *  Get password of User
+     *
+     * @return password of User
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Set password of User
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
