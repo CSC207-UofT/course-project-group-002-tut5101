@@ -43,7 +43,7 @@ public class KitchenTest {
     }
 
     @Test(timeout = 50)
-    public void TestGetServingDish() {
+    public void testGetServingDish() {
         DishInfo di = new DishInfo(o1.getTableNum(), o1.getDishes().get(0));
         Kitchen.servingBuffer.add(di);
 
@@ -54,7 +54,7 @@ public class KitchenTest {
     }
 
     @Test(timeout = 50)
-    public void TestGetDeliveryDish() {
+    public void testGetDeliveryDish() {
         Kitchen.deliveryBuffer.add(o2);
         Kitchen.deliveryBuffer.add(o3);
         Kitchen.deliveryBuffer.add(o4);
@@ -64,7 +64,7 @@ public class KitchenTest {
     }
 
     @Test(timeout = 200)
-    public void TestCookedDish() {
+    public void testCookedDish() {
         Kitchen.placeOrderQueue.addOrder(o1);
         Kitchen.placeOrderQueue.addOrder(o2);
         Kitchen.placeOrderQueue.addOrder(o3);

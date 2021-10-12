@@ -28,19 +28,19 @@ public class PlacedOrderQueueTest {
     }
 
     @Test(timeout = 50)
-    public void TestAddOrderSingleAdd() {
+    public void testAddOrderSingleAdd() {
         assertTrue(queue.addOrder(orderOne));
     }
 
     @Test(timeout = 50)
-    public void TestAddOrderMultipleAdd() {
+    public void testAddOrderMultipleAdd() {
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderTwo));
     }
 
     @Test(timeout = 50)
-    public void TestGetNextOrderSingleNext() {
+    public void testGetNextOrderSingleNext() {
         Assert.assertEquals(null, queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));
         Assert.assertEquals(orderOne, queue.getNextOrder());
@@ -49,7 +49,7 @@ public class PlacedOrderQueueTest {
     }
 
     @Test(timeout = 50)
-    public void TestGetNextOrderMultipleNext() {
+    public void testGetNextOrderMultipleNext() {
         assertNull(queue.getNextOrder());
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderOne));
