@@ -18,7 +18,8 @@ public class UserListTest {
         userList.put("4", new Customer("4", "George", "12345"));
         userList.put("5", new Manager("5", "DeDong", "12345"));
         userList.put("6", new Customer("6", "Eve", "12345"));
-        userList.put("7", new Manager("7", "Raymond", "12345"));userlist = new UserList();
+        userList.put("7", new Manager("7", "Raymond", "12345"));
+        userlist = new UserList();
 
     }
 

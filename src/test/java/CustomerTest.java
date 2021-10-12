@@ -1,3 +1,9 @@
+/**
+ * Tests for Customer Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
+
 import org.junit.Before;
 import org.junit.Test;
 

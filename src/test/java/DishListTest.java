@@ -1,3 +1,8 @@
+/**
+ * Tests for DishList Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 import org.junit.Before;
 import org.junit.Test;
 
