@@ -20,13 +20,13 @@ public class OrderTest {
     }
 
     @Test(timeout = 50)
-    public void getOrderStatus() {
+    public void testGetOrderStatus() {
         assertTrue(orderDineIn.getOrderStatus() == "Order Placed");
         assertTrue(orderTakeOut.getOrderStatus() == "Order Placed");
     }
 
     @Test(timeout = 50)
-    public void TestSetOrderStatus() {
+    public void testSetOrderStatus() {
         orderDineIn.setOrderStatus("Order Cooked");
         orderTakeOut.setOrderStatus("Order Delivered");
         assertTrue(orderDineIn.getOrderStatus() == "Order Cooked");
