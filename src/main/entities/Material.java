@@ -1,6 +1,7 @@
 package entities;
 
 public abstract class Material extends Inventory{
+
     public String freshness;
     public int ImportDate;
 
@@ -11,7 +12,7 @@ public abstract class Material extends Inventory{
         this.ImportDate = ImportDate;
     }
 
-    public String getfreshness(){
+    public String getFreshness(){
         return this.freshness;
         }
 

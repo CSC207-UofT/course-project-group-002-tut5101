@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Order {
     // List of order statuses
@@ -38,35 +39,46 @@ public class Order {
     }
 
     String getOrderDineInOrTakeOut() {
-        if (this.dineIn == false){
+        if (!this.dineIn){
             return "Take Out";
-        }
-        else {
+        } else {
             return "Dine In";
         }
     }
 
-    boolean updateDishStatus(Dish dish) {
+
+    /**
+     *
+     * @param dish the dish to be updated as "completed".
+     * @return True if all dishes in this order are completed, otherwise return False.
+     */
+    boolean setDishStatusAndCheckOrderStatus(Dish dish) {
         dish.setStatus("completed");
-        boolean allComplete = true;
-        // Check if all dishes are complete
+        // Check if all dishes are complete, return false if not.
         for (Dish d:dishes) {
-            if (d.getStatus() != "completed"){
-                allComplete = false;
+            if (!Objects.equals(d.getStatus(), "completed")){
+                return false;
             }
         }
-        // If all dishes are complete, update the order status
-        if (allComplete == true) {
-            setOrderStatus(COMPLETE);
-        }
+        // If all dishes are complete, update the order status and return true
+        this.orderStatus = COOKED;
         return true;
-
     }
 
-    boolean setOrderStatus(String status) {
-        //TODO: check if status is one of the allowable statuses
-        this.orderStatus = status;
-        return true;
+    /**
+     * Returns provided STRING argument.
+     * @param status is the status to set the order as
+     * @throws Exception status is not one of the allowable status in statuses
+     */
+    void setOrderStatus(String status){
+        //TODO: throw exception if status is not one of the allowable status in statuses
+        for (String s: statuses){
+            if (s == status) {
+                this.orderStatus = status;
+            }
+        }
+
+
     }
 
     String getString() {
@@ -89,5 +101,8 @@ public class Order {
         return this.address;
     }
 
+    List<Dish> getDishes() {
+        return this.dishes;
+    }
 
 }
