@@ -99,34 +99,74 @@ public abstract class User {
         this.password = password;
     }
 
+    /**
+     *  Get address of User
+     *
+     * @return address of User
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     *  Set address of User
+     *
+     * @param address of User
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     *  Get gender of User
+     *
+     * @return gender of User
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     *  Set gender of User
+     *
+     * @param gender of User
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     *  Get PhoneNumber of User
+     *
+     * @return Phone of User
+     */
     public String getPhone() {
         return phone;
     }
 
+    /**
+     *  Set phoneNumber of User
+     *
+     * @param phone of User
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     *  Get emailAddress of User
+     *
+     * @return email of User
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *  Set emailAddress of User
+     *
+     * @param email of User
+     */
     public void setEmail(String email) {
         this.email = email;
     }

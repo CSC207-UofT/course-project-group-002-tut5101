@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Public class storing all dishes information using an ArrayList.
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 public class DishList {
     private ArrayList<Dish> menu;
     /* one list may be better? */
