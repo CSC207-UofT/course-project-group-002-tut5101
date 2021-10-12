@@ -1,15 +1,36 @@
 import java.util.HashMap;
 
+
+/**
+ * Public class storing information for all users using a Hashmap.
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 public class UserList{
     private HashMap<String, User> users;
 
+    /**
+     * Constructor of UserList without parameter
+     *
+     */
     public UserList(){
         this.users = this.generateUserList();
     }
 
+    /**
+     * Return this UserList
+     *
+     */
+
     public HashMap<String, User> getUsers() {
         return users;
     }
+
+    /**
+     * Generate the UserList
+     *
+     * @return a Hashmap mapping user ids to Users
+     */
 
     public HashMap<String, User> generateUserList() {
         HashMap<String, User> userList = new HashMap<String, User>();
