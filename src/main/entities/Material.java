@@ -1,6 +1,7 @@
 package entities;
 
-public abstract class Material extends Inventory implements Expiryable {
+public abstract class Material extends Inventory{
+
     public String freshness;
     public int ImportDate;
 
