@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class OrderTest {
@@ -11,8 +12,14 @@ public class OrderTest {
     @Before
     public void setUp() {
         List<Dish> dishList = new ArrayList<Dish>();
-        String[] ingredientsA = new String[]{"a", "b"};
-        String[] ingredientsB = new String[]{"c", "d"};
+        HashMap<String, Double> ingredientsA = new HashMap<String, Double>() {{
+            put("a", 10.0);
+            put("b", 10.0);
+        }};
+        HashMap<String, Double> ingredientsB = new HashMap<String, Double>() {{
+            put("c", 10.0);
+            put("d", 10.0);
+        }};
         dishList.add(new Dish("a", 10, ingredientsA, 100));
         dishList.add(new Dish("b", 5, ingredientsB, 150));
         orderDineIn = new Order(5, dishList);
