@@ -116,9 +116,9 @@ Discussed the design of inventory classes and ingredient classes.
 Implement the Manager, Customer classes with further details, and expand the DishList and UserList classes to a wider
 diversity. Add more test cases for the new changes.
 
-##Summary of subgroup2 Progress
+## Summary of subgroup2 Progress
 
-###General information
+### General information
 
 Our group have 2 people, Chan Yu and Naihe Xiao. We worked on the design of the User class(which is the
 super class for Customer, Manager, Staff and child classes of Staff), Customer class, Manager class, 
@@ -129,7 +129,7 @@ We worked on the CRC cards of the classes included above.
 We also included the basic progress for a customer to login to his or her account in the RestaurantSystem
 class, which is the class we are intending to use as our main operating class in our program.
 
-###Coding of each class
+### Coding of each class
 
 - User: the parent class of all users of the program(app). This includes Customer, Manager, Staff, Kitchen, ServingStaff,
 InventoryStaff and DeliveryStaff. A User has a unique id, a username, password, address, gender, phone and email 
@@ -152,7 +152,7 @@ is ordered according to the information stored in OrderHistory class.
 
 We also added specific descriptions of each class and their methods as comments.
 
-###Testing
+### Testing
 
 We also wrote at least an unittest for each class, and an unittest for each method, both overridden and overloading ones.
 We left comments including descriptions and responsibilities of each unittest class.

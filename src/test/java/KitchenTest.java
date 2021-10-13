@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
+import entities.Alcohol;
+import entities.Inventory;
+import entities.InventoryList;
+import entities.Meat;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,28 +23,37 @@ public class KitchenTest {
     public void setUp() throws Exception {
         ss1 = new ServingStaff("Amber", 109389, 5000);
         ds1 = new DeliveryStaff("Gale", 109398, 5000);
+        HashMap<String, Double> ingredients = new HashMap<String, Double>() {{
+            put("a", 10.0);
+            put("b", 10.0);
+        }};
         List<Dish> dishes = new ArrayList<Dish>(Arrays.asList(
-                new Dish("Fries", 5.5, new String[]{"vegefruit"}, 500),
-                new Dish("Burger", 8.6, new String[]{"meat, semifinished, seasoner"},
+                new Dish("Fries", 5.5, ingredients, 500),
+                new Dish("Burger", 8.6, ingredients,
                         3000),
-                new Dish("Cola", 2, new String[]{"softdrink"},
+                new Dish("Cola", 2, ingredients,
                         3000)));
         List<Dish> dishes2 = new ArrayList<Dish>(Arrays.asList(
-                new Dish("Hola", 5.5, new String[]{"vegefruit"}, 500),
-                new Dish("Chips", 8.6, new String[]{"meat, semifinished, seasoner"},
+                new Dish("Hola", 5.5, ingredients, 500),
+                new Dish("Chips", 8.6, ingredients,
                         3000),
-                new Dish("Binary", 34, new String[]{"softdrink"},
+                new Dish("Binary", 34, ingredients,
                         3000)));
         List<Dish> dishes3 = new ArrayList<Dish>(Arrays.asList(
-                new Dish("Primo", 540, new String[]{"vegefruit"}, 500),
-                new Dish("Pizza", 23, new String[]{"meat, semifinished, seasoner"},
+                new Dish("Primo", 540, ingredients, 500),
+                new Dish("Pizza", 23, ingredients,
                         3000),
-                new Dish("Watch", 1, new String[]{"softdrink"},
+                new Dish("Watch", 1, ingredients,
                         3000)));
         o1 = new Order(4, dishes);
         o2 = new Order("fake address 0101000", dishes);
         o3 = new Order(5, dishes2);
         o4 = new Order(5, dishes3);
+        for (int i = 1; i <= 10; i++) {
+            Inventory item = (Inventory) new Meat("Beef", false, 10.0,
+                    300.0, "A", i);
+            InventoryList.addInventory(item);
+        }
     }
 
     @Test(timeout = 50)

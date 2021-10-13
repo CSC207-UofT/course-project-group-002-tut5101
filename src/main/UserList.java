@@ -1,27 +1,25 @@
-import java.util.HashMap;
-
-
 /**
  * Public class storing information for all users using a Hashmap.
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class UserList{
+
+import java.util.HashMap;
+
+
+public class UserList {
     private HashMap<String, User> users;
 
     /**
      * Constructor of UserList without parameter
-     *
      */
-    public UserList(){
-        this.users = this.generateUserList();
+    public UserList() {
+        this.users = new HashMap<>();
     }
 
     /**
      * Return this UserList
-     *
      */
-
     public HashMap<String, User> getUsers() {
         return users;
     }
@@ -30,8 +28,8 @@ public class UserList{
      * Generate the UserList
      *
      * @return a Hashmap mapping user ids to Users
+     * //TODO To be moved to System initial
      */
-
     public HashMap<String, User> generateUserList() {
         HashMap<String, User> userList = new HashMap<String, User>();
         userList.put("1", new Manager("1", "Chan", "12345"));
