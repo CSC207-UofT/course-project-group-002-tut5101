@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RestaurantSystem {
 
@@ -21,6 +19,7 @@ public class RestaurantSystem {
                 String password = scanner.next();
                 if (newUsers.getUsers().get(id).getPassword().equals(password)) {
                     System.out.println("Succeed");
+                    break;
                 } else {
                     System.out.println("Failed. Enter again.");
                 }
@@ -34,23 +33,25 @@ public class RestaurantSystem {
         UserList newUsers = new UserList();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Here is our menu.");
-        System.out.println(DishList.getDishes());
+        System.out.println(DishList.getMenu());
+        HashMap<String, Dish> menu = DishList.getMenu();
         while(true){
             System.out.println("Are you ready to order?");
             String orderYesNo = scanner.next();
-            if (orderYesNo == "Yes") {
+            if (Objects.equals(orderYesNo, "Yes")) {
                 System.out.println("Please enter your table number.");
                 String tableNumber = scanner.next();
-                ArrayList<Dish> dishes = null;
+                ArrayList<Dish> dishes = new ArrayList<Dish>();
                 System.out.println("Please enter a dish you would like to order. If none, enter \"Place Order\"");
-                String dish = scanner.next();
-                boolean b = dish != "Place Order";
-                while (b == true) {
-                new Dish(dish); //how to create Dish from dish name
-                dishes.add(dish);
+                String d = scanner.next();
+                while (!Objects.equals(d, "Place Order")) {
+                    Dish dish = menu.get(d);
+                    dishes.add(dish);
                 }
+                System.out.println("Order Placed");
                 Order order = new Order(tableNumber, dishes);
                 PlacedOrderQueue.addOrder(order);
+                break;
             } else {
                 System.out.println("Invalid Input.");
             }
