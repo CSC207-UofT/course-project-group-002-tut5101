@@ -9,6 +9,7 @@ import java.util.List;
  *
  * @author Chan Yu & Naihe Xiao
  */
+
 public class DishList {
     private HashMap<String, Dish> menu;
     /* one list may be better? */

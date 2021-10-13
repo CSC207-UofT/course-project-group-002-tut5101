@@ -24,6 +24,5 @@ public class RestaurantSystem {
 
     public static void main(String[] args) {
 
-
     }
 }
