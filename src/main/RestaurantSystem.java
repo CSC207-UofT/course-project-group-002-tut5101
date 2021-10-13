@@ -48,6 +48,7 @@ public class RestaurantSystem {
                 while (b == true) {
                 new Dish(dish); //how to create Dish from dish name
                 dishes.add(dish);
+                System.out.println("Order Placed");
                 }
                 Order order = new Order(tableNumber, dishes);
                 PlacedOrderQueue.addOrder(order);
