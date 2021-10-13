@@ -1,4 +1,8 @@
+import entities.Inventory;
+import entities.InventoryList;
+
 import java.util.ArrayDeque;
+import java.util.HashMap;
 import java.util.Queue;
 
 /**
@@ -97,7 +101,12 @@ public class Kitchen {
      * @param dish the dish that is cooked.
      */
     private static void updateInventory(Dish dish){
-        // TODO: to be implemented.
+        HashMap<String, Double> ingredients = dish.getIngredients();
+        for (String item: ingredients.keySet()){
+            double newQuantity = InventoryList.getTotalQuantity(item) - ingredients.get(item);
+            InventoryList.setQuantity(item, newQuantity);
+        }
+        // TODO: handle cases when the new quantity is negative.
     }
 }
 

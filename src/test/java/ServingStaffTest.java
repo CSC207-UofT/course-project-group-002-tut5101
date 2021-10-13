@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -25,7 +26,8 @@ public class ServingStaffTest {
     @Test(timeout = 50)
     public void testServeDish() {
         assertFalse(servingStaff.serveDish());
-        Kitchen.servingBuffer.add(new DishInfo(1, new Dish("1", 10, new String[]{"1", "2"}, 10)));
+        Kitchen.servingBuffer.add(new DishInfo(1, new Dish("1", 10, new HashMap<String, Double>(),
+                10)));
         assertTrue(servingStaff.serveDish());
     }
 }

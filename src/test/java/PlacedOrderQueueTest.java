@@ -5,6 +5,7 @@
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -12,14 +13,17 @@ import static org.junit.Assert.*;
 public class PlacedOrderQueueTest {
     PlacedOrderQueue queue;
     List<Dish> dishList;
-    String[] ingredients;
+    HashMap<String, Double> ingredients;
     Order orderOne;
     Order orderTwo;
 
     @Before
     public void setUp() {
         queue = new PlacedOrderQueue();
-        ingredients = new String[]{"a", "b"};
+        ingredients = new HashMap<String, Double>() {{
+            put("a", 10.0);
+            put("c", 10.0);
+        }};
         dishList = new ArrayList<Dish>();
         dishList.add(new Dish("a", 10, ingredients, 100));
         dishList.add(new Dish("b", 10, ingredients, 120));
