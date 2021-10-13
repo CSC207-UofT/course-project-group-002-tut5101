@@ -1,6 +1,6 @@
-import java.util.Map;
-import java.util.Queue;
-import java.util.ArrayDeque;
+import entities.InventoryList;
+
+import java.util.*;
 
 /**
  * This is the class of PlacedOrderQueue,
@@ -32,10 +32,11 @@ public class PlacedOrderQueue {
             return false;
         }
          */
-        //TODO: Check if the inventory is enough for cooking the order
+        // Check if the inventory is enough for cooking the order
         // If not enough, reject the order.
-        //TODO: think about how to handle cases where the ingredients for two or more dishes are
-        // unavailable, but rejecting some dishes makes the other ones available.
+        if(!inventoryAvailable(newOrder.getDishes())) {
+            return false;
+        }
         placedOrderQueue.add(newOrder);
         return true;
     }
@@ -46,5 +47,35 @@ public class PlacedOrderQueue {
      */
     public Order getNextOrder() {
         return placedOrderQueue.poll();
+    }
+
+
+    /**
+     * Check if a list of dishes can be processed given the availability of inventory provided by InventoryList
+     * @param dishes The list of dishes to check the ingredients availability
+     * @return True when the list of dishes can be made, false otherwise.
+     */
+    private static boolean inventoryAvailable(List<Dish> dishes) {
+        if (dishes.isEmpty()) {
+            return true;
+        }
+        HashMap<String, Double> ingredientsRequired = new HashMap<String, Double>();
+        for (Dish dish: dishes) {
+            HashMap<String, Double> dishIngredients = dish.getIngredients();
+            for (String ingredient: dishIngredients.keySet()) {
+                if (!ingredientsRequired.containsKey(ingredient)) {
+                    ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
+                } else {
+                    double previousValue = ingredientsRequired.get(ingredient);
+                    ingredientsRequired.replace(ingredient, previousValue + dishIngredients.get(ingredient));
+                }
+            }
+        }
+        for (String ingredientRequired: ingredientsRequired.keySet()) {
+            if (InventoryList.getTotalQuantity(ingredientRequired) < ingredientsRequired.get(ingredientRequired)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
