@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class Dish {
     private String name;
     private double price;
-    private String[] ingredients;
+    private HashMap<String, Double> ingredients;
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
@@ -24,7 +24,7 @@ public class Dish {
      * @param ingredients
      * @param calories
      */
-    public Dish(String name, double price, String[] ingredients, double calories) {
+    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
         this.name = name;
         this.price = price;
         this.ingredients = ingredients;
@@ -93,7 +93,7 @@ public class Dish {
      *
      * @return the ingredients of Dish
      */
-    public String[] getIngredients() {
+    public HashMap<String, Double> getIngredients() {
         return ingredients;
     }
 
@@ -102,7 +102,7 @@ public class Dish {
      *
      * @param ingredients
      */
-    public void setIngredients(String[] ingredients) {
+    public void setIngredients(HashMap<String, Double> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -170,7 +170,7 @@ public class Dish {
         return "Dish{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
-                ", ingredients=" + Arrays.toString(ingredients) +
+                ", ingredients=" + ingredients.toString() +
                 ", features=" + features +
                 ", calories=" + calories +
                 ", allergyInformation='" + allergyInformation + '\'' +
