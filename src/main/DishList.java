@@ -1,54 +1,54 @@
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 /**
  * Public class storing all dishes information using an ArrayList.
  *
  * @author Chan Yu & Naihe Xiao
  */
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
 public class DishList {
-    private HashMap<String, Dish> menu;
-    /* one list may be better? */
+    private ArrayList<Dish> menu;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        this.menu = this.generateDishList();
+        this.menu = new ArrayList<>();
     }
 
 
     /**
      * This method is used to generate a list of dishes that used to display to customers/managers.
-     * //TODO Later, should be removed since the data should come from DB/external source.
+     * //TODO To be moved to System initial
      */
-
-    public HashMap<String, Dish> generateDishList(){
-        HashMap<String, Dish> menu = new HashMap<String, Dish>();
-        menu.put("Quarter pound with cheese", new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200 ));
-        menu.put("Quarter pound with 2 cheese", new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400 ));
-        menu.put("Quarter pound with 3 cheese", new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500 ));
-        menu.put("Quarter pound with 4 cheese", new Dish("Quarter pound with 4 cheese", 10.0, new HashMap<>(), 600 ));
-        menu.put("Quarter pound with 5 cheese", new Dish("Quarter pound with 5 cheese", 10.0, new HashMap<>(), 700 ));
-        menu.put("Small fries", new Dish("Small fries", 10.0, new HashMap<>(), 200 ));
-        menu.put("Median fries", new Dish("Median fries", 10.0, new HashMap<>(), 250 ));
-        menu.put("Large fries", new Dish("Large fries", 10.0, new HashMap<>(), 350 ));
-        menu.put("Coke", new Dish("Coke", 10.0, new HashMap<>(), 180 ));
-        menu.put("Coffee", new Dish("Coffee", 10.0, new HashMap<>(), 0 ));
-        menu.put("Tea", new Dish("Tea", 10.0, new HashMap<>(), 0 ));
-        menu.put("Milk Tea", new Dish("Milk Tea", 10.0, new HashMap<>(), 300 ));
-        menu.put("Wine", new Dish("Wine", 10.0, new HashMap<>(), 100 ));
+    public ArrayList<Dish> generateDishList() {
+        ArrayList<Dish> menu = new ArrayList<>();
+        menu.add(new Dish("Quarter pound with cheese", 10.0, new HashMap<String, Double>(), 200));
+        menu.add(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<String, Double>(), 400));
+        menu.add(new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<String, Double>(), 500));
+        menu.add(new Dish("Quarter pound with 4 cheese", 10.0, new HashMap<String, Double>(), 600));
+        menu.add(new Dish("Quarter pound with 5 cheese", 10.0, new HashMap<String, Double>(), 700));
+        menu.add(new Dish("Small fries", 10.0, new HashMap<String, Double>(), 200));
+        menu.add(new Dish("Median fries", 10.0, new HashMap<String, Double>(), 250));
+        menu.add(new Dish("Large fries", 10.0, new HashMap<String, Double>(), 350));
+        menu.add(new Dish("Coke", 10.0, new HashMap<String, Double>(), 180));
+        menu.add(new Dish("Coffee", 10.0, new HashMap<String, Double>(), 0));
+        menu.add(new Dish("Tea", 10.0, new HashMap<String, Double>(), 0));
+        menu.add(new Dish("Milk Tea", 10.0, new HashMap<String, Double>(), 300));
+        menu.add(new Dish("Wine", 10.0, new HashMap<String, Double>(), 100));
         return menu;
     }
 
     /**
      * Return list of dishes
      *
-     * @return
+     * @return list of dishes
      */
-
+    public List<Dish> getDishes() {
+        return this.menu;
+    }
 
 }

@@ -11,7 +11,7 @@ import java.util.ArrayDeque;
 
 public class PlacedOrderQueue {
 
-    private Queue<Order> placedOrderQueue;
+    private static Queue<Order> placedOrderQueue;
 
     public PlacedOrderQueue() {
         placedOrderQueue = new ArrayDeque<Order>();
@@ -23,7 +23,7 @@ public class PlacedOrderQueue {
      * @param newOrder The order to be added to the orderList
      * @return True on successful add, false on order too far or not enough ingredients
      */
-    public boolean addOrder(Order newOrder) {
+    public static boolean addOrder(Order newOrder) {
         // TODO: Check if the distance is out of range of delivery for delivery
         // Assume it is called Map to get distance of points on the map
         /*
