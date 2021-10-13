@@ -1,3 +1,9 @@
+/**
+ * Tests for Customer Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,20 +14,20 @@ public class CustomerTest {
     Customer customer2;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         customer1 = new Customer();
         customer2 = new Customer("2", "NaiHe", "20211011");
     }
 
     @Test(timeout = 50)
-    public void testCustomerConstructor1(){
-        assertEquals(customer1.getId(), "you");
-        assertEquals(customer1.getName(), "123");
+    public void testCustomerConstructor1() {
+        assertEquals(customer1.getId(), "defaultuserid");
+        assertEquals(customer1.getName(), "Default User");
         assertEquals(customer1.getPassword(), "12345");
     }
 
     @Test(timeout = 50)
-    public void testCustomerConstructor2(){
+    public void testCustomerConstructor2() {
         assertEquals(customer2.getId(), "2");
         assertEquals(customer2.getName(), "NaiHe");
         assertEquals(customer2.getPassword(), "20211011");

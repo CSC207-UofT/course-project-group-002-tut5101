@@ -1,3 +1,9 @@
+/**
+ * Tests for Manager Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,21 +14,20 @@ public class ManagerTest {
     Manager manager2;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         manager = new Manager();
         manager2 = new Manager("1", "Chan", "12346");
     }
 
     @Test(timeout = 50)
-    public void testManagerConstructor1(){
-        assertEquals(manager.getId(), "you");
-        assertEquals(manager.getName(), "123");
+    public void testManagerConstructorWOParam() {
+        assertEquals(manager.getId(), "defaultuserid");
+        assertEquals(manager.getName(), "Default User");
         assertEquals(manager.getPassword(), "12345");
-
     }
 
     @Test(timeout = 50)
-    public void testManagerConstructor2() {
+    public void testManagerConstructorWParam() {
         assertEquals(manager2.getId(), "1");
         assertEquals(manager2.getName(), "Chan");
         assertEquals(manager2.getPassword(), "12346");
