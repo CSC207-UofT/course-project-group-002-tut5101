@@ -16,15 +16,6 @@ public class Dish {
     private String allergyInformation;
     private String status;
 
-//    public Dish() {
-//        this.name = "food";
-//        this.price = 0.0;
-//        this.ingredients = new String[10];
-//        this.calories = 0.0;
-//        this.features = new HashMap<String, Boolean>();
-//        this.allergyInformation = "none";
-//    }
-
     /**
      * Constructor of Dish with name, price, ingredients and calories provided.
      *
@@ -46,7 +37,7 @@ public class Dish {
     /**
      * Return status of Dish
      *
-     * @return  the status of Dish
+     * @return the status of Dish
      */
     public String getStatus() {
         return status;
@@ -64,7 +55,7 @@ public class Dish {
     /**
      * Return name of Dish
      *
-     * @return  the name of Dish
+     * @return the name of Dish
      */
     public String getName() {
         return name;
@@ -82,7 +73,7 @@ public class Dish {
     /**
      * Return price of Dish
      *
-     * @return  the price of Dish
+     * @return the price of Dish
      */
     public double getPrice() {
         return price;
@@ -100,7 +91,7 @@ public class Dish {
     /**
      * Return ingredients of Dish
      *
-     * @return  the ingredients of Dish
+     * @return the ingredients of Dish
      */
     public String[] getIngredients() {
         return ingredients;
@@ -118,7 +109,7 @@ public class Dish {
     /**
      * Return features of Dish
      *
-     * @return  the feature of Dish
+     * @return the feature of Dish
      */
     public HashMap<String, Boolean> getFeatures() {
         return features;
@@ -136,7 +127,7 @@ public class Dish {
     /**
      * Return calories of Dish
      *
-     * @return  the calories of Dish
+     * @return the calories of Dish
      */
     public double getCalories() {
         return calories;
@@ -154,7 +145,7 @@ public class Dish {
     /**
      * Return allergy information of Dish
      *
-     * @return  the allergy information of Dish
+     * @return the allergy information of Dish
      */
     public String getAllergyInformation() {
         return allergyInformation;
