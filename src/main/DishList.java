@@ -25,6 +25,7 @@ public class DishList {
      * This method is used to generate a list of dishes that used to display to customers/managers.
      * //TODO Later, should be removed since the data should come from DB/external source.
      */
+
     public HashMap<String, Dish> generateDishList(){
         HashMap<String, Dish> menu = new HashMap<String, Dish>();
         menu.put("Quarter pound with cheese", new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200 ));
