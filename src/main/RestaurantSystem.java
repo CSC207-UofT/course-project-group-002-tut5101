@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class RestaurantSystem {
 
-    public static void main(String[] args) {
+    private static void login() {
         UserList newUsers = new UserList();
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -20,7 +20,9 @@ public class RestaurantSystem {
                 System.out.println("You are not a valid user. Sign up？");
             }
         }
+    }
 
+    public static void main(String[] args) {
 
     }
 }
