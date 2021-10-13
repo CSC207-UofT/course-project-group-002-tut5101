@@ -36,7 +36,7 @@ public class RestaurantSystem {
         System.out.println(DishList.getMenu());
         HashMap<String, Dish> menu = DishList.getMenu();
         while(true){
-            System.out.println("Are you ready to order?");
+            System.out.println("Are you ready to order? Enter Yes");
             String orderYesNo = scanner.next();
             if (Objects.equals(orderYesNo, "Yes")) {
                 System.out.println("Please enter your table number.");
@@ -47,6 +47,9 @@ public class RestaurantSystem {
                 while (!Objects.equals(d, "Place Order")) {
                     Dish dish = menu.get(d);
                     dishes.add(dish);
+                    System.out.println("Please enter a dish you would like to order. If none, enter \"Place Order\"");
+                    d = scanner.next();
+                    //TODO: Fix loop bug here
                 }
                 System.out.println("Order Placed");
                 Order order = new Order(tableNumber, dishes);
