@@ -49,11 +49,11 @@ public class InventoryListTest {
 
     @Test(timeout = 50)
     public void testQuantity(){
-        assertEquals(0,InventoryList.getTotalQuantity("g"));
-        assertEquals(2.0, InventoryList.getTotalQuantity("f"));
-        assertEquals(7.0,InventoryList.getTotalQuantity("a"));
+        assertEquals(0.0,InventoryList.getTotalQuantity("g"),0.001);
+        assertEquals(2.0, InventoryList.getTotalQuantity("f"),0.001);
+        assertEquals(7.0,InventoryList.getTotalQuantity("a"),0.001);
         InventoryList.setQuantity("f",2.0);
-        assertEquals(0.0, InventoryList.getTotalQuantity("f"));
+        assertEquals(0.0, InventoryList.getTotalQuantity("f"),0.001);
         assertTrue(InventoryList.getItem("f").getUsedup());
     }
 

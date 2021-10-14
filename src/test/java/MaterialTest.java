@@ -21,15 +21,15 @@ public class MaterialTest {
 
     }
 
-    @SuppressWarnings("deprecation")
+
     @Test(timeout = 50)
     public void testgetQuantity(){
-        assertEquals(7.0, meat.getQuantity());
-        assertEquals(6.0, seafood.getQuantity());
-        assertEquals(5.0, seasoner.getQuantity());
-        assertEquals(4.0, vegefruit.getQuantity());
-        assertEquals(3.0, grain.getQuantity());
-        assertEquals(2.0, dairysoy.getQuantity());
+        assertEquals(7.0, meat.getQuantity(),0.001);
+        assertEquals(6.0, seafood.getQuantity(),0.001);
+        assertEquals(5.0, seasoner.getQuantity(),0.001);
+        assertEquals(4.0, vegefruit.getQuantity(),0.001);
+        assertEquals(3.0, grain.getQuantity(),0.001);
+        assertEquals(2.0, dairysoy.getQuantity(),0.001);
 
     }
 
@@ -58,12 +58,12 @@ public class MaterialTest {
         assertTrue(vegefruit.getUsedup());
         assertTrue(grain.getUsedup());
         assertFalse(dairysoy.getUsedup());
-        assertEquals(4.0, meat.getQuantity());
-        assertEquals(6.0, seafood.getQuantity());
-        assertEquals(5.0, seasoner.getQuantity());
-        assertEquals(0.0, vegefruit.getQuantity());
-        assertEquals(0.0, grain.getQuantity());
-        assertEquals(1.0, dairysoy.getQuantity());
+        assertEquals(4.0, meat.getQuantity(),0.001);
+        assertEquals(6.0, seafood.getQuantity(),0.001);
+        assertEquals(5.0, seasoner.getQuantity(),0.001);
+        assertEquals(0.0, vegefruit.getQuantity(),0.001);
+        assertEquals(0.0, grain.getQuantity(),0.001);
+        assertEquals(2.0, dairysoy.getQuantity(),0.001);
 
     }
 

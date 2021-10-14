@@ -50,7 +50,7 @@ public class KitchenTest {
         o3 = new Order(5, dishes2);
         o4 = new Order(5, dishes3);
         for (int i = 1; i <= 10; i++) {
-            Inventory item = (Inventory) new Meat("Beef", false, 10.0,
+            Inventory item = (Inventory) new Meat("Beef",10.0,
                     300.0, "A", i);
             InventoryList.addInventory(item);
         }

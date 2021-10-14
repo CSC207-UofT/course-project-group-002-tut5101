@@ -116,6 +116,25 @@ Discussed the design of inventory classes and ingredient classes.
 Implement the Manager, Customer classes with further details, and expand the DishList and UserList classes to a wider
 diversity. Add more test cases for the new changes.
 
+
+### Shaojie Dong
+#### Week 2021 Oct 4 - 11
+#### Design 2021 Oct 4, 10, 11
+Designed the CRC cards of the following classes: Inventory,
+Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain and DairySoy.
+Discussed the requirements of InventoryList with Dedong Xie, Evelyn Chou and Raymond Liu and designed the CRC card of
+this class.
+
+#### Coding 2021 Oct 10, 11
+Implemented the Inventory class, Material class, Product class and their getter and setter methods.
+Discussed with Raymond Liu about
+attributes of the InventoryList class needed for the Order class. 
+Created tests for the methods of Inventory class, Material class, Product class and InventoryList class.
+
+#### Future planning
+Design and Implement the InventoryGenerator class which can create Inventory by txt files.
+
+
 ## Summary of subgroup2 Progress
 
 ### General information
@@ -156,3 +175,32 @@ We also added specific descriptions of each class and their methods as comments.
 
 We also wrote at least an unittest for each class, and an unittest for each method, both overridden and overloading ones.
 We left comments including descriptions and responsibilities of each unittest class.
+
+
+## Summary of subgroup3 Progress
+
+### General information
+
+Our group have 2 people, Mingyang Li and Shaojie Dong. We worked on the design of the Inventory class(which is the
+super class for Product class and Material class), Product class, Material class,
+their child classes which can be made as instance and InventoryList class. 
+We included comments for each class and its methods.
+
+We worked on the CRC cards of the classes included above.
+
+
+### Coding of each class
+
+- Inventory: the parent abstract class of Product and Material class, whose quantity and used up status can be checked
+   and changed by certian methods.
+  - Product: a child abstract class of Inventory whose expiry date can be checked.
+    - Alcohol, Semifinished, SoftDrink: Sub class of Product which can be instantiated. 
+  - Material: a child abstract class of Inventory whose freshness can be checked and changed.
+
+- InventoryList: a class that contains inventory items. Certain information can be checked or set by its name.
+- 
+We also added specific descriptions of each class and their methods as comments.
+
+### Testing
+
+Creating unit test for InventoryList class, Product class and Material class.

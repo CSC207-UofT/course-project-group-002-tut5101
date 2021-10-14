@@ -31,9 +31,9 @@ public class ProductTest {
     @SuppressWarnings("deprecation")
     @Test(timeout = 50)
     public void testgetQuantity(){
-        assertEquals(7.0, alcohol.getQuantity());
-        assertEquals(8.5, semi.getQuantity());
-        assertEquals(9.0, soft.getQuantity());
+        assertEquals(7.0, alcohol.getQuantity(),0.001);
+        assertEquals(8.5, semi.getQuantity(),0.001);
+        assertEquals(9.0, soft.getQuantity(),0.001);
     }
 
     @Test(timeout = 50)
@@ -51,9 +51,9 @@ public class ProductTest {
         assertFalse(alcohol.getUsedup());
         assertFalse(semi.getUsedup());
         assertTrue(soft.getUsedup());
-        assertEquals(4.0, alcohol.getQuantity());
-        assertEquals(8.5, semi.getQuantity());
-        assertEquals(0.0, soft.getQuantity());
+        assertEquals(4.0, alcohol.getQuantity(),0.001);
+        assertEquals(8.5, semi.getQuantity(),0.001);
+        assertEquals(0.0, soft.getQuantity(),0.001);
     }
 
 
