@@ -15,7 +15,8 @@ import static org.junit.Assert.*;
 
 public class PlacedOrderQueueTest {
     PlacedOrderQueue queue;
-    List<Dish> dishList;
+    List<Dish> dishListOne;
+    List<Dish> dishListTwo;
     HashMap<String, Double> ingredients;
     Order orderOne;
     Order orderTwo;
@@ -25,17 +26,19 @@ public class PlacedOrderQueueTest {
         queue = new PlacedOrderQueue();
         ingredients = new HashMap<String, Double>() {{
             put("a", 10.0);
-            put("b", 10.0);
+            put("c", 10.0);
         }};
-        dishList = new ArrayList<Dish>();
-        dishList.add(new Dish("a", 10, ingredients, 100));
-        dishList.add(new Dish("b", 10, ingredients, 120));
-        orderOne = new Order(1, dishList);
-        orderTwo = new Order(1, dishList);
+        dishListOne = new ArrayList<Dish>();
+        dishListTwo = new ArrayList<Dish>();
+        dishListOne.add(new Dish("a", 10, ingredients, 100));
+        dishListTwo.add(new Dish("a", 10, ingredients, 100));
+        dishListTwo.add(new Dish("b", 10, ingredients, 120));
+        orderOne = new Order(1, dishListOne);
+        orderTwo = new Order(2, dishListTwo);
         InventoryList.addInventory(
-                new Meat("a", false, 1, 15.0, "fresh",0));
+                new Meat("a", 1, 20.0, "fresh",0));
         InventoryList.addInventory(
-                new Meat("c", false, 1, 15.0, "fresh",0));
+                new Meat("c", 1, 20.0, "fresh",0));
     }
 
     @Test(timeout = 50)
@@ -54,9 +57,9 @@ public class PlacedOrderQueueTest {
     public void testAddOrderIngredientsUnavailable() {
         List<Dish> dishImpossible = new ArrayList<Dish>();
         HashMap<String, Double> ingredientsImpossible = new HashMap<String, Double>();
-        ingredientsImpossible.put("a", 20.0);
+        ingredientsImpossible.put("a", 25.0);
         dishImpossible.add(new Dish("k", 10, ingredientsImpossible, 100));
-        Order orderThree = new Order(1, dishList);
+        Order orderThree = new Order(1, dishImpossible);
         assertFalse(queue.addOrder(orderThree));
     }
 
