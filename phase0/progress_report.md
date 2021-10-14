@@ -1,12 +1,24 @@
 # Progress Report
 ## Summary of Specification
+This is a restaurant application for a specific restaurant in order to manage the staff and inventory conveniently and
+incorporate the traditional service with digital platforms to facilitate the customers' experience. The specific users
+include personnel in a restaurant and customers. The users would get their required information faster and easier than
+before.
 ## Summary of CRC Model
 ## Summary of Scenario Walk-through
+A dine-in customer ordered dishes and some dishes cannot be made because of lacking ingredients and the cookable 
+dishes were served after finish.
 ## Open Questions
+- Struggling on the exact implementation of InventoryList. Considering for the staffs involved in this scenario required
+only freshness and quantity, the final decision is hard to made between a single hashmap like structure or two hashmap 
+like structures which are easier to use but hard to add more features in the future.
+- 
 ## Designs that have worked well
 - The change from our original design of OrderList and KitchenStaff to only Kitchen with three queue attributes 
 simplify the ordering -> food processing -> food serving / delivering process a lot. It also makes the purpose of each 
 attribute very clear and easy to comprehend.
+- The previous idea of creating simply hashmap of name-freshness and name-quantity was change to a specific class 
+InventoryList, which protect the internal information in a hashmap.
 
 ## Summary of Subgroup1 Progress
 ### Design
@@ -192,7 +204,7 @@ We worked on the CRC cards of the classes included above.
 ### Coding of each class
 
 - Inventory: the parent abstract class of Product and Material class, whose quantity and used up status can be checked
-   and changed by certian methods.
+   and changed by methods.
   - Product: a child abstract class of Inventory whose expiry date can be checked.
     - Alcohol, Semifinished, SoftDrink: Sub class of Product which can be instantiated. 
   - Material: a child abstract class of Inventory whose freshness can be checked and changed.
