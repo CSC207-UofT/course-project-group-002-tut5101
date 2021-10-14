@@ -16,9 +16,8 @@ public abstract class User {
 
     /**
      * Constructor of User without parameter
-     *
      */
-    public User(){
+    public User() {
         this.id = "defaultuserid"; //UUID.randomUUID().toString();
         this.name = "Default User";
         this.password = "12345";
@@ -31,9 +30,9 @@ public abstract class User {
     /**
      * Constructor of User with id, name, and password provided.
      *
-     * @param id        id of User, should be unique
-     * @param name      name of User
-     * @param password  password of User
+     * @param id       id of User, should be unique
+     * @param name     name of User
+     * @param password password of User
      */
     public User(String id, String name, String password) {
         this.id = id;
@@ -46,9 +45,25 @@ public abstract class User {
     }
 
     /**
+     * Return User's basic info
+     *
+     * @return User's basic info
+     */
+    @Override
+    public String toString() {
+        return this.name + ": {" +
+                "id='" + id + '\'' +
+                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    /**
      * Return id of User
      *
-     * @return  the id of User
+     * @return the id of User
      */
     public String getId() {
         return id;
@@ -57,7 +72,7 @@ public abstract class User {
     /**
      * Set id for User
      *
-     * @param id
+     * @param id id of User
      */
     public void setId(String id) {
         this.id = id;
@@ -66,7 +81,7 @@ public abstract class User {
     /**
      * Get name of User
      *
-     * @return  the name of User
+     * @return the name of User
      */
     public String getName() {
         return name;
@@ -75,14 +90,14 @@ public abstract class User {
     /**
      * Set name of User
      *
-     * @param name
+     * @param name name of User
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     *  Get password of User
+     * Get password of User
      *
      * @return password of User
      */
@@ -93,14 +108,14 @@ public abstract class User {
     /**
      * Set password of User
      *
-     * @param password
+     * @param password password of User
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     *  Get address of User
+     * Get address of User
      *
      * @return address of User
      */
@@ -109,7 +124,7 @@ public abstract class User {
     }
 
     /**
-     *  Set address of User
+     * Set address of User
      *
      * @param address of User
      */
@@ -118,7 +133,7 @@ public abstract class User {
     }
 
     /**
-     *  Get gender of User
+     * Get gender of User
      *
      * @return gender of User
      */
@@ -127,34 +142,34 @@ public abstract class User {
     }
 
     /**
-     *  Set gender of User
+     * Set gender of User
      *
-     * @param gender of User
+     * @param gender gender of User
      */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
     /**
-     *  Get PhoneNumber of User
+     * Get PhoneNumber of User
      *
-     * @return Phone of User
+     * @return phone of User
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     *  Set phoneNumber of User
+     * Set phoneNumber of User
      *
-     * @param phone of User
+     * @param phone User's phone number
      */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     /**
-     *  Get emailAddress of User
+     * Get emailAddress of User
      *
      * @return email of User
      */
@@ -163,7 +178,7 @@ public abstract class User {
     }
 
     /**
-     *  Set emailAddress of User
+     * Set emailAddress of User
      *
      * @param email of User
      */

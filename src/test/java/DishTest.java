@@ -26,21 +26,26 @@ public class DishTest {
         ingredient2.put("Ketchup", 2.1);
         ingredient2.put("Cheese", 2.4);
 
-        dish1 = new Dish("MaPoTouFu", 12.5, ingredient1, 200);
-        dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500);
+        dish1 = new Dish("MaPoTouFu", 12.5, ingredient1, 200,"Food");
+        dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500,"Food");
     }
 
     @Test(timeout = 50)
     public void testDishConstructor1() {
         assertEquals(dish1.getName(), "MaPoTouFu");
-        assertTrue(dish1.getPrice() == 12.5);
-        assertTrue(dish2.getIngredients().size() == 3);
+        assertEquals(12.5, dish1.getPrice(), 0.0);
+        assertEquals(3, dish2.getIngredients().size());
     }
 
     @Test(timeout = 300)
     public void testToString() {
-        assertEquals(dish1.toString(), "Dish{name='MaPoTouFu', price=12.5, ingredients={Spice=1.0, " +
-                "Garlic=15.0, Tofu=10.0}, features={}, calories=200.0, allergyInformation='none', status='ordered}");
+        assertEquals(dish1.toString(), "MaPoTouFu\n" +
+                "\t$12.5\n" +
+                "\tIngredients:{Spice=1.0, Garlic=15.0, Tofu=10.0}\n" +
+                "\tfeatures:{}\n" +
+                "\tcalories:200.0 cal/100g\n" +
+                "\tallergyInformation:'none\n" +
+                "------------------------------\n");
     }
 
 }
