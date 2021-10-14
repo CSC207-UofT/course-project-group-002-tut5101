@@ -1,7 +1,7 @@
 package entities;
 
 public abstract class Product extends Inventory{
-    public int ExpiryDate;
+    public final int ExpiryDate;
 
     /**
      * Construct an instance of Product
