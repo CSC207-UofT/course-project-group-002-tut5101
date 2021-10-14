@@ -35,8 +35,10 @@ public class PlacedOrderQueue {
         // Check if the inventory is enough for cooking the order
         // If not enough, reject the order.
         if(!inventoryAvailable(newOrder.getDishes())) {
+            System.out.println("No enough ingredients");
             return false;
         }
+        System.out.println("Added successfully");
         placedOrderQueue.add(newOrder);
         return true;
     }
