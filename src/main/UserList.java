@@ -14,7 +14,7 @@ public class UserList {
      * Constructor of UserList without parameter
      */
     public UserList() {
-        this.users = generateUserList();
+        this.users = new HashMap<>();
     }
 
     /**
