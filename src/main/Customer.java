@@ -4,24 +4,23 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-public class Customer extends User{
+public class Customer extends User {
 
     /**
-     * Constructor of Customer without parameter
-     *
+     * Constructor of Customer with default info
      */
     public Customer() {
     }
 
     /**
-     * Constructor of Customer with id, username and password provided
+     * Constructor of Customer with id, name and password provided
      *
-     * @param id
-     * @param username
-     * @param password
+     * @param id       id of the Customer
+     * @param name     name of the Customer
+     * @param password password fo the Customer
      */
-    public Customer(String id, String username, String password) {
-        super(id, username, password);
+    public Customer(String id, String name, String password) {
+        super(id, name, password);
     }
 
     /**
@@ -31,7 +30,6 @@ public class Customer extends User{
      */
     @Override
     public String toString() {
-        return "Customers{" +
-                "id =' " + this.getId() + '\'' + ", username = '" + this.getName() + '\'';
+        return "(Customer) " + super.toString();
     }
 }

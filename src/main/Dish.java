@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -10,19 +9,21 @@ import java.util.HashMap;
 public class Dish {
     private String name;
     private double price;
+    private String category;
     private HashMap<String, Double> ingredients;
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
     private String status;
 
+
     /**
      * Constructor of Dish with name, price, ingredients and calories provided.
      *
-     * @param name
-     * @param price
-     * @param ingredients
-     * @param calories
+     * @param name        name of the Dish
+     * @param price       price of the Dish
+     * @param ingredients ingredients of the Dish
+     * @param calories    calories of the Dish
      */
     public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
         this.name = name;
@@ -32,6 +33,42 @@ public class Dish {
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
         this.status = "ordered";
+    }
+
+    /**
+     * Constructor of Dish with name, price, ingredients and calories provided.
+     *
+     * @param name        name of the Dish
+     * @param price       price of the Dish
+     * @param ingredients ingredients of the Dish
+     * @param calories    calories of the Dish
+     * @param category    category of the Dish, ie Food/Soup/Drink
+     */
+    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
+        this.name = name;
+        this.price = price;
+        this.ingredients = ingredients;
+        this.calories = calories;
+        this.features = new HashMap<String, Boolean>();
+        this.allergyInformation = "none";
+        this.status = "ordered";
+        this.category = category;
+    }
+
+    /**
+     * Return category of Dish
+     * @return category of Dish
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * Set category of Dish
+     * @param category category of Dish
+     */
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     /**
@@ -46,7 +83,7 @@ public class Dish {
     /**
      * Set status of Dish
      *
-     * @param status
+     * @param status Dish status
      */
     public void setStatus(String status) {
         this.status = status;
@@ -64,7 +101,7 @@ public class Dish {
     /**
      * Set name of Dish
      *
-     * @param name
+     * @param name Dish name
      */
     public void setName(String name) {
         this.name = name;
@@ -167,14 +204,12 @@ public class Dish {
      */
     @Override
     public String toString() {
-        return "Dish{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", ingredients=" + ingredients.toString() +
-                ", features=" + features +
-                ", calories=" + calories +
-                ", allergyInformation='" + allergyInformation + '\'' +
-                ", status='" + status +
-                '}';
+        return name +
+                "\n\t\t$$" + price +
+                "\n\t\tIngredients: " + ingredients +
+                "\n\t\tfeatures: " + features +
+                "\n\t\tcalories: " + calories + " cal/100g" +
+                "\n\t\tallergyInformation: " + allergyInformation +
+                "\n------------------------------\n";
     }
 }

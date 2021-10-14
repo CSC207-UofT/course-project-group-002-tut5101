@@ -3,23 +3,31 @@ package entities;
 public abstract class Inventory{
 
     public String name;
-    public boolean usedup;
-    public double price;
-    public double quantity;
+    protected boolean usedup;
+    protected double price;
+    protected double quantity;
 
     /**
      * Construct an instance of Inventory
      * @param name The name of the Inventory
-     * @param usedup The status of wether the Inventory used up or not
      * @param price The buy in price of the Inventory
      * @param quantity The quantity of the Inventory
      */
 
-    public Inventory(String name, boolean usedup, double price, double quantity){
+    public Inventory(String name, double price, double quantity){
         this.name = name;
-        this.usedup = usedup;
+        this.usedup = quantity == 0;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    /**
+     * Get the used up status of an Inventory
+     * @return The used up status of the Inventory as a boolean.
+     */
+
+    public boolean getUsedup(){
+        return this.usedup;
     }
 
 
@@ -42,7 +50,11 @@ public abstract class Inventory{
         boolean enough = true;
         if(this.quantity >= usage){
             this.quantity -= usage;
-        } else {
+            if(this.quantity == 0){
+                this.usedup = true;
+            }
+        }
+        else {
             enough = false;
         }
         return enough;
