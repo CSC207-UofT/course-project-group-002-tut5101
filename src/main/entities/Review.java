@@ -13,9 +13,9 @@ public class Review{
 
     public String showReview(boolean anonymous){
         if (anonymous){
-            return "anonymous" + review;
+            return "anonymous" + "," + review;
         }else{
-            return user_id + review;
+            return user_id + "," + review + ".";
         }
     }
 
