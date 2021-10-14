@@ -18,7 +18,6 @@ public class RestaurantSystem {
 
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         while (true) {
             if (login) {
@@ -60,7 +59,6 @@ public class RestaurantSystem {
                             "1. View uncompleted orders\n" +
                             "0. Logout";
                     actionPicker(actionList, scanner);
-
                 } else {
                     String actionList = "Welcome Back! Please enter number of the action listed below:\n" +
                             "1. View uncompleted orders\n" +
@@ -149,4 +147,5 @@ public class RestaurantSystem {
         dishes.add(new Dish("Red Wine", 10.0, new HashMap<>(), 100, "Alcoholic Drink"));
         return dishes;
     }
+
 }

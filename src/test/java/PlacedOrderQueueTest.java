@@ -2,6 +2,9 @@
  * By Dedong Xie
  * 2021-10-11
  */
+import entities.Inventory;
+import entities.InventoryList;
+import entities.Meat;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -22,13 +25,17 @@ public class PlacedOrderQueueTest {
         queue = new PlacedOrderQueue();
         ingredients = new HashMap<String, Double>() {{
             put("a", 10.0);
-            put("c", 10.0);
+            put("b", 10.0);
         }};
         dishList = new ArrayList<Dish>();
         dishList.add(new Dish("a", 10, ingredients, 100));
         dishList.add(new Dish("b", 10, ingredients, 120));
         orderOne = new Order(1, dishList);
         orderTwo = new Order(1, dishList);
+        InventoryList.addInventory(
+                new Meat("a", false, 1, 15.0, "fresh",0));
+        InventoryList.addInventory(
+                new Meat("c", false, 1, 15.0, "fresh",0));
     }
 
     @Test(timeout = 50)
@@ -37,10 +44,20 @@ public class PlacedOrderQueueTest {
     }
 
     @Test(timeout = 50)
-    public void testAddOrderMultipleAdd() {
+    public void testAddOrderMultipleAdds() {
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderOne));
         assertTrue(queue.addOrder(orderTwo));
+    }
+
+    @Test(timeout = 50)
+    public void testAddOrderIngredientsUnavailable() {
+        List<Dish> dishImpossible = new ArrayList<Dish>();
+        HashMap<String, Double> ingredientsImpossible = new HashMap<String, Double>();
+        ingredientsImpossible.put("a", 20.0);
+        dishImpossible.add(new Dish("k", 10, ingredientsImpossible, 100));
+        Order orderThree = new Order(1, dishList);
+        assertFalse(queue.addOrder(orderThree));
     }
 
     @Test(timeout = 50)
