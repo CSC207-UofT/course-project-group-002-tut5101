@@ -1,6 +1,14 @@
 ## Specifications
+### Purpose and Audience
+This is an application designed for specific restaurant, not a chain, considering for specific restaurant, there would
+be more requirements for systematic and effective management which could be conducted with the help of software.
+The specific user could be anyone in a restaurant. From the consumers to the ones working in a restaurant. Every user 
+would have access to the information they desired, for example, a customer can easier use the menu and make an order 
+from this app.
 
-A restaurant app with the following types of users and user specific functions: 
+### User Needs
+
+A restaurant app with the following types of users and user specific functions:
 
 ### Customers
 
