@@ -10,13 +10,15 @@ import java.util.List;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList {
-    private static HashMap<String, Dish> menu = generateDishList();
+    private HashMap<String, Dish> menu;
     /* one list may be better? */
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
-
+    public DishList() {
+        this.menu = this.generateDishList();
+    }
 
 
     /**
@@ -24,7 +26,7 @@ public class DishList {
      * //TODO Later, should be removed since the data should come from DB/external source.
      */
 
-    public static HashMap<String, Dish> generateDishList(){
+    public HashMap<String, Dish> generateDishList(){
         HashMap<String, Dish> menu = new HashMap<String, Dish>();
         menu.put("Quarter pound with cheese", new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200 ));
         menu.put("Quarter pound with 2 cheese", new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400 ));
@@ -47,10 +49,6 @@ public class DishList {
      *
      * @return
      */
-
-    public static HashMap<String, Dish> getMenu() {
-        return menu;
-    }
 
 
 }
