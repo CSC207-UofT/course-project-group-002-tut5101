@@ -22,7 +22,7 @@ public class Kitchen {
      * A static instance of the PlaceOrderQueue class. The Kitchen uses this instance to
      * access the next order to be cooked.
      */
-    public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
+    //public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
 
     /**
      * The buffer queue where each element is a "tuple" of table number and a dish; the serving
@@ -62,10 +62,12 @@ public class Kitchen {
     /**
      * Get the next order to cook from the placeOrderQueue instance.
      */
-    public static void getNextToCook(){
-        currentOrder = placeOrderQueue.getNextOrder();
+    public static boolean getNextToCook(){
+        currentOrder = PlacedOrderQueue.getNextOrder();
+        return currentOrder != null;
     }
 
+    public static Order getCurrentOrder() { return currentOrder; }
 
     /**
      * This method should be called only when a dish is cooked.

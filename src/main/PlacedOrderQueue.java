@@ -11,7 +11,7 @@ import java.util.*;
 
 public class PlacedOrderQueue {
 
-    private static Queue<Order> placedOrderQueue;
+    private static Queue<Order> placedOrderQueue = new ArrayDeque<Order>();
 
     public PlacedOrderQueue() {
         placedOrderQueue = new ArrayDeque<Order>();
@@ -38,8 +38,9 @@ public class PlacedOrderQueue {
             System.out.println("No enough ingredients");
             return false;
         }
-        System.out.println("Added successfully");
+        System.out.println("Try to add");
         placedOrderQueue.add(newOrder);
+        System.out.println("Added successfully");
         return true;
     }
 
@@ -47,7 +48,7 @@ public class PlacedOrderQueue {
      * Get the next order in the placedOrderQueue
      * @return The next order in placedOrderQueue, if placedOrderQueue empty, return null
      */
-    public Order getNextOrder() {
+    public static Order getNextOrder() {
         return placedOrderQueue.poll();
     }
 

@@ -4,27 +4,25 @@
  * 2021-10-10
  */
 
-public class Staff {
-    protected String staffName;
-    protected int staffNumber;
+public class Staff extends User {
     protected int staffSalary;
 
     /**
      * Empty constructor to set up default staff
      */
     public Staff() {
-        staffName = "";
+        super();
     }
 
     /**
      * Construct a staff using the staff's name, staffNumber, and staffSalary
      * @param staffName The name of a staff
-     * @param staffNumber The staff number of a staff
+     * @param staffID The staff number of a staff
+     * @param password The password of a staff
      * @param staffSalary The salary of a staff
      */
-    public Staff(String staffName, int staffNumber, int staffSalary) {
-        this.staffName = staffName;
-        this.staffNumber = staffNumber;
+    public Staff(String staffID, String staffName, String password, int staffSalary) {
+        super(staffID, staffName, password);
         this.staffSalary = staffSalary;
     }
 
@@ -43,18 +41,6 @@ public class Staff {
     public void decreaseSalary(int reduction) {
         staffSalary -= reduction;
     }
-
-    /**
-     * Get the name of a staff
-     * @return The name of the staff as a string.
-     */
-    public String getName() { return staffName;}
-
-    /**
-     * Get the staffNumber of a staff
-     * @return The staffNumber of the staff as an integer.
-     */
-    public int getStaffNumber() { return staffNumber;}
 
     /**
      * Get the staffSalary, the salary of a staff

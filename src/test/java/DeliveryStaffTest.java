@@ -18,7 +18,7 @@ public class DeliveryStaffTest {
 
     @Before
     public void setUp() {
-        deliveryStaff = new DeliveryStaff("a", 1, 10);
+        deliveryStaff = new DeliveryStaff("1", "a", "12345", 10);
         HashMap<String, Double> ingredients = new HashMap<String, Double>() {{
             put("a", 10.0);
             put("c", 10.0);

@@ -20,14 +20,14 @@ public class ServingStaffTest {
 
     @Before
     public void setUp() {
-        servingStaff = new ServingStaff("a", 1, 10);
+        servingStaff = new ServingStaff("1", "a", "12345", 1000);
     }
 
     @Test(timeout = 50)
     public void testServeDish() {
-        assertFalse(servingStaff.serveDish());
+        assertFalse(servingStaff.getServeDish());
         Kitchen.servingBuffer.add(new DishInfo(1, new Dish("1", 10, new HashMap<String, Double>(),
                 10)));
-        assertTrue(servingStaff.serveDish());
+        assertTrue(servingStaff.getServeDish());
     }
 }

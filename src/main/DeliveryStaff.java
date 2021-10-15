@@ -11,8 +11,8 @@ public class DeliveryStaff extends Staff{
      * @param staffNumber The number of the staff
      * @param staffSalary The salary of the staff
      */
-    public DeliveryStaff(String staffName, int staffNumber, int staffSalary) {
-        super(staffName, staffNumber, staffSalary);
+    public DeliveryStaff(String staffNumber, String staffName, String password, int staffSalary) {
+        super(staffNumber, staffName, password, staffSalary);
     }
 
     /**

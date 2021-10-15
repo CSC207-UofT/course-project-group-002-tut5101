@@ -14,21 +14,28 @@ public class ServingStaff extends Staff{
      * @param staffNumber The number of the staff
      * @param staffSalary The salary of the staff
      */
-    public ServingStaff(String staffName, int staffNumber, int staffSalary) {
-        super(staffName, staffNumber, staffSalary);
+    public ServingStaff(String staffNumber, String staffName, String password, int staffSalary) {
+        super(staffNumber, staffName, password, staffSalary);
     }
 
 
-    public void completeDish(Dish dish){
-        this.currentDish.getDish().setStatus("served");
+    public boolean completeDish(){
+        if (currentDish != null) {
+            this.currentDish.getDish().setStatus("served");
+            currentDish = null;
+            return true;
+        }
+        return false;
     }
 
-    public void getServeDish(){
+    public boolean getServeDish(){
         try {
             this.currentDish = Kitchen.getServingDish();
         } catch (Exception e) {
-            System.out.println("No dish to be served, serving list empty." + e.getMessage());
+            //System.out.println("No dish to be served, serving list empty." + e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public int getTableNum(){
