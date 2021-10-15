@@ -107,9 +107,10 @@ Implement the user interfaces part for the Staffs and Kitchen.
 Worked with Raymond Liu and Dedong Xie on the CRC model and implementation of the following classes: Staff,
 ServingStaff, DeliveryStaff, InventoryStaff, PlacedOrderQueue, Order, Kitchen, and RestaurantInfo.
 
-#### Coding 2021 Oct 10, 11
+#### Coding 2021 Oct 10, 11, 14
 Implemented the Order class and its getter and setter methods. Discussed with Howard and Chan about
-attributes of the Dish class needed for the Order class. Created tests for the Order class methods.
+attributes of the Dish class needed for the Order class. Created tests for the Order class methods. Worked on
+implementing the command line for kitchen and serving staff with Dedong and Raymond.
 
 #### Future planning
 Implement the InventoryStaff class once classes associated with the Inventory are complete.
