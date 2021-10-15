@@ -1,22 +1,62 @@
 package entities;
 
-import java.util.Objects;
-
 public class Review{
-    public String user_name;
-    public String if_anonymous;
 
-    public Review(String name, String YorN){
-        this.user_name = name;
-        this.if_anonymous = YorN;
+    public String user_id;
+    public String review;
+    public boolean YorN;
+    public boolean YorNforStaff;
+    public String complainStaff;
+
+    /**
+     * @param review The the comment that user want to input
+     * @param user_id The user id
+     * @param YorN whether a Yes or No
+     * @param YorNforStaff whether a Yes or No for staff
+     * @param complainStaff the complain for a staff
+     */
+
+
+    public Review(String review, String user_id, boolean YorN, boolean YorNforStaff, String complainStaff){
+        this.review = review;
+        this.user_id = user_id;
+        this.YorN = YorN;
+        this.YorNforStaff = YorNforStaff;
+        this.complainStaff = complainStaff;
     }
 
-    public String is_anonymous(){
-        if(Objects.equals(this.if_anonymous, "YES")){
-            return "anonymous";
-        } else{
-            return this.user_name;
+    /**
+     * Get the Review of a user
+     * @return The review of a user.
+     */
+
+
+    public String ShowReview(){
+        if (this.YorN){
+            return user_id + ":" + review + ".";
+        }else{
+            return "anonymous" + ":" + review + ".";
         }
     }
+
+    /**
+     * Get the complain for a staff
+     * @return The complain for a staff.
+     */
+
+
+    public String ComplainStaff(){
+        if (this.YorNforStaff){
+            if (this.YorN){
+                return "anonymous" + ":" + complainStaff + ".";
+            } else {
+                return user_id + ":" + complainStaff + ".";
+            }
+        } else {
+            return null;
+        }
+    }
+
+
 
 }

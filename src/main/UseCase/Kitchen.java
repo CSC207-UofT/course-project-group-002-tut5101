@@ -1,5 +1,7 @@
-import entities.Inventory;
-import entities.InventoryList;
+package UseCase;
+
+import entities.Dish;
+import entities.Order;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -19,10 +21,10 @@ import java.util.Queue;
 public class Kitchen {
 
     /**
-     * A static instance of the PlaceOrderQueue class. The Kitchen uses this instance to
+     * A static instance of the PlaceOrderQueue class. The UseCase.Kitchen uses this instance to
      * access the next order to be cooked.
      */
-    public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
+    //public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
 
     /**
      * The buffer queue where each element is a "tuple" of table number and a dish; the serving
@@ -36,14 +38,14 @@ public class Kitchen {
     public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
 
     /**
-     * The current order that the Kitchen is working on.
+     * The current order that the UseCase.Kitchen is working on.
      */
     private static Order currentOrder;
 
 
     /**
-     * The getter method for ServingStaff to call to get the next dish to serve.
-     * @return a DishInfo instance, which contains the table number of the dish and the dish itself.
+     * The getter method for UseCase.ServingStaff to call to get the next dish to serve.
+     * @return a UseCase.DishInfo instance, which contains the table number of the dish and the dish itself.
      */
     public static DishInfo getServingDish(){
         return servingBuffer.poll();
@@ -51,8 +53,8 @@ public class Kitchen {
 
 
     /**
-     * The getter method for DeliveryStaff to call to get the next order to delivery.
-     * @return an Order instance to be delivered.
+     * The getter method for UseCase.DeliveryStaff to call to get the next order to delivery.
+     * @return an entities.Order instance to be delivered.
      */
     public static Order getDeliveryOrder(){
         return deliveryBuffer.poll();
@@ -62,10 +64,12 @@ public class Kitchen {
     /**
      * Get the next order to cook from the placeOrderQueue instance.
      */
-    public static void getNextToCook(){
-        currentOrder = placeOrderQueue.getNextOrder();
+    public static boolean getNextToCook(){
+        currentOrder = PlacedOrderQueue.getNextOrder();
+        return currentOrder != null;
     }
 
+    public static Order getCurrentOrder() { return currentOrder; }
 
     /**
      * This method should be called only when a dish is cooked.
@@ -111,24 +115,3 @@ public class Kitchen {
 }
 
 
-/**
- * A "tuple" that contains the information of a dine-in dish.
- * The first element is the table number of this dish, and the second element is the dish itself.
- */
-class DishInfo{
-    private int tableNum;
-    private Dish dish;
-
-    DishInfo(int tableNum, Dish dish){
-        this.tableNum = tableNum;
-        this.dish = dish;
-    }
-
-    int getTableNum(){
-        return this.tableNum;
-    }
-
-    Dish getDish(){
-        return this.dish;
-    }
-}

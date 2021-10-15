@@ -1,7 +1,9 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+package entities;
+
+
 import java.util.List;
 import java.util.Objects;
+
 
 public class Order {
     // List of order statuses
@@ -33,12 +35,14 @@ public class Order {
         this.address = address;
     }
 
+    public static String getDelivered(){return DELIVERED;}
 
-    String getOrderStatus() {
+
+    public String getOrderStatus() {
         return orderStatus;
     }
 
-    String getOrderDineInOrTakeOut() {
+    public String getOrderDineInOrTakeOut() {
         if (!this.dineIn){
             return "Take Out";
         } else {
@@ -52,7 +56,7 @@ public class Order {
      * @param dish the dish to be updated as "completed".
      * @return True if all dishes in this order are completed, otherwise return False.
      */
-    boolean setDishStatusAndCheckOrderStatus(Dish dish) {
+    public boolean setDishStatusAndCheckOrderStatus(Dish dish) {
         dish.setStatus("completed");
         // Check if all dishes are complete, return false if not.
         for (Dish d:dishes) {
@@ -70,7 +74,7 @@ public class Order {
      * @param status is the status to set the order as
      * @throws Exception status is not one of the allowable status in statuses
      */
-    void setOrderStatus(String status){
+    public void setOrderStatus(String status){
         //TODO: throw exception if status is not one of the allowable status in statuses
         for (String s: statuses){
             if (s == status) {
@@ -81,11 +85,12 @@ public class Order {
 
     }
 
-    String getString() {
+    @Override
+    public String toString() {
         return dishes.toString();
     }
 
-    double getOrderPrice() {
+    public double getOrderPrice() {
         double price = 0;
         for (Dish d: dishes) {
             price += d.getPrice();
@@ -93,15 +98,15 @@ public class Order {
         return price;
     }
 
-    int getTableNum() {
+    public int getTableNum() {
         return this.tableNum;
     }
 
-    String getAddress() {
+    public String getAddress() {
         return this.address;
     }
 
-    List<Dish> getDishes() {
+    public List<Dish> getDishes() {
         return this.dishes;
     }
 

@@ -1,12 +1,38 @@
 # Progress Report
 ## Summary of Specification
+This is a restaurant application for a specific restaurant in order to manage the staff and inventory conveniently and
+incorporate the traditional service with digital platforms to facilitate the customers' experience. The specific users
+include personnel in a restaurant and customers. The users would get their required information faster and easier than
+before.
 ## Summary of CRC Model
+We designed the CRC model according to its description and functionality.
+We decided that entities in the clean architecture, which are objects that embodies a small set of
+Critical Business Rules operating on Critical Business Data, includes User(an abstract class that is the superclass
+for Customer, Manager and Staff), Staff(a superclass for ServingStaff, InventoryStaff, DeliveryStaff, Kitchen,
+), Order, Dish, DishList,  RestaurantInfo, Inventory(which is an abstract class and superclass for Product and Material),
+Product(which is an abstract class and superclass for Alcohol, SemiFinished, and SoftDrink), SoftDrink, Alcohol, SemiFinished,
+Material(which is an abstract class and superclass for Meat,Seafood,Seasoner,VegeFruit,Grain,DairySoy), Meat, Seafood,
+Seasoner, Vegefruit, Grain and DairySoy. We decided that use cases in the clean architecture, which is a description of
+the way that an automated system affect Entities, includes InventoryList, Review, OrderHistory, PlaceOrderQueue, Kitchen,
+DeliveryStaff, ServingStaff, InventoryStaff, Manager and Customer.
+We labeled the inheritance relationships between classes and their collaboration and responsibilities, and whether they
+are abstract.
+We modified our CRC model several times during coding to fit our program.
+
 ## Summary of Scenario Walk-through
+A dine-in customer ordered dishes and some dishes cannot be made because of lacking ingredients and the cookable 
+dishes were served after finish.
 ## Open Questions
+- Struggling on the exact implementation of InventoryList. Considering for the staffs involved in this scenario required
+only freshness and quantity, the final decision is hard to made between a single hashmap like structure or two hashmap 
+like structures which are easier to use but hard to add more features in the future.
+- 
 ## Designs that have worked well
 - The change from our original design of OrderList and KitchenStaff to only Kitchen with three queue attributes 
 simplify the ordering -> food processing -> food serving / delivering process a lot. It also makes the purpose of each 
 attribute very clear and easy to comprehend.
+- The previous idea of creating simply hashmap of name-freshness and name-quantity was change to a specific class 
+InventoryList, which protect the internal information in a hashmap.
 
 ## Summary of Subgroup1 Progress
 ### Design
@@ -81,9 +107,10 @@ Implement the user interfaces part for the Staffs and Kitchen.
 Worked with Raymond Liu and Dedong Xie on the CRC model and implementation of the following classes: Staff,
 ServingStaff, DeliveryStaff, InventoryStaff, PlacedOrderQueue, Order, Kitchen, and RestaurantInfo.
 
-#### Coding 2021 Oct 10, 11
+#### Coding 2021 Oct 10, 11, 14
 Implemented the Order class and its getter and setter methods. Discussed with Howard and Chan about
-attributes of the Dish class needed for the Order class. Created tests for the Order class methods.
+attributes of the Dish class needed for the Order class. Created tests for the Order class methods. Worked on
+implementing the command line for kitchen and serving staff with Dedong and Raymond.
 
 #### Future planning
 Implement the InventoryStaff class once classes associated with the Inventory are complete.
@@ -115,6 +142,42 @@ Discussed the design of inventory classes and ingredient classes.
 #### Future planning
 Implement the Manager, Customer classes with further details, and expand the DishList and UserList classes to a wider
 diversity. Add more test cases for the new changes.
+
+
+### Shaojie Dong
+#### Week 2021 Oct 4 - 11
+#### Design 2021 Oct 4, 10, 11
+Designed the CRC cards of the following classes with Mingyang Li: Inventory,
+Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain, DairySoy.
+Discussed the requirements of InventoryList with Dedong Xie, Evelyn Chou and Raymond Liu and designed the CRC card of
+this class.
+
+#### Coding 2021 Oct 10, 11
+Implemented the Inventory class, Material class, Product class and their getter and setter methods.
+Discussed with Raymond Liu about
+attributes of the InventoryList class needed for the Order class. 
+Created tests for the methods of Inventory class, Material class, Product class and InventoryList class.
+
+#### Future planning
+Design and Implement the InventoryGenerator class which can create Inventory by txt files.
+
+
+### Mingyang Li
+#### Week 2021 Oct 4 - 11
+#### Design 2021 Oct 4, 10, 11
+Designed the CRC cards of the following classes with Shaojie Dong: Inventory,
+Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain and DairySoy.
+Design the CRC card of Review class
+Discussed the requirements of InventoryList with Dedong Xie, Evelyn Chou and Raymond Liu and designed the CRC card of
+this class.
+
+#### Coding 2021 Oct 10, 11
+Implemented the Review class.
+Created tests for the Review class.
+
+#### Future planning
+Design and Implement the conversation and link-to-dish features.
+
 
 ## Summary of subgroup2 Progress
 
@@ -156,3 +219,32 @@ We also added specific descriptions of each class and their methods as comments.
 
 We also wrote at least an unittest for each class, and an unittest for each method, both overridden and overloading ones.
 We left comments including descriptions and responsibilities of each unittest class.
+
+
+## Summary of subgroup3 Progress
+
+### General information
+
+Our group have 2 people, Mingyang Li and Shaojie Dong. We worked on the design of the Inventory class(which is the
+super class for Product class and Material class), Product class, Material class,
+their child classes which can be made as instance, InventoryList class and Review. 
+We included comments for each class and its methods.
+
+We worked on the CRC cards of the classes included above.
+
+
+### Coding of each class
+
+- Inventory: the parent abstract class of Product and Material class, whose quantity and used up status can be checked
+   and changed by methods.
+  - Product: a child abstract class of Inventory whose expiry date can be checked.
+    - Alcohol, Semifinished, SoftDrink: Sub class of Product which can be instantiated. 
+  - Material: a child abstract class of Inventory whose freshness can be checked and changed.
+
+- InventoryList: a class that contains inventory items. Certain information can be checked or set by its name.
+- Review: a class that represent the review of customers
+We also added specific descriptions of each class and their methods as comments.
+
+### Testing
+
+Creating unit test for InventoryList class, Product class ,Material class and Review.

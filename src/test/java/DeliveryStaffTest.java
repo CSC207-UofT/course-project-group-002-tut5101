@@ -1,9 +1,14 @@
 /**
- * Test for DeliveryStaff class
+ * Test for UseCase.DeliveryStaff class
  * By Dedong Xie
  * 2021-10-11
  */
 
+import UseCase.DeliveryStaff;
+import UseCase.Kitchen;
+import UseCase.RestaurantInfo;
+import entities.Dish;
+import entities.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,7 +23,7 @@ public class DeliveryStaffTest {
 
     @Before
     public void setUp() {
-        deliveryStaff = new DeliveryStaff("a", 1, 10);
+        deliveryStaff = new DeliveryStaff("1", "a", "12345", 10);
         HashMap<String, Double> ingredients = new HashMap<String, Double>() {{
             put("a", 10.0);
             put("c", 10.0);

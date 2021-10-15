@@ -3,10 +3,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import entities.Alcohol;
-import entities.Inventory;
-import entities.InventoryList;
-import entities.Meat;
+import UseCase.InventoryList;
+import entities.*;
+import UseCase.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -21,8 +20,8 @@ public class KitchenTest {
 
     @Before
     public void setUp() throws Exception {
-        ss1 = new ServingStaff("Amber", 109389, 5000);
-        ds1 = new DeliveryStaff("Gale", 109398, 5000);
+        ss1 = new ServingStaff("109389", "Amber", "12345", 5000);
+        ds1 = new DeliveryStaff("12345", "Gale", "12345", 5000);
         HashMap<String, Double> ingredients = new HashMap<String, Double>() {{
             put("a", 10.0);
             put("b", 10.0);
@@ -50,7 +49,7 @@ public class KitchenTest {
         o3 = new Order(5, dishes2);
         o4 = new Order(5, dishes3);
         for (int i = 1; i <= 10; i++) {
-            Inventory item = (Inventory) new Meat("Beef", false, 10.0,
+            Inventory item = (Inventory) new Meat("Beef", 10.0,
                     300.0, "A", i);
             InventoryList.addInventory(item);
         }
@@ -79,10 +78,10 @@ public class KitchenTest {
 
     @Test(timeout = 200)
     public void testCookedDish() {
-        Kitchen.placeOrderQueue.addOrder(o1);
-        Kitchen.placeOrderQueue.addOrder(o2);
-        Kitchen.placeOrderQueue.addOrder(o3);
-        Kitchen.placeOrderQueue.addOrder(o4);
+        PlacedOrderQueue.addOrder(o1);
+        PlacedOrderQueue.addOrder(o2);
+        PlacedOrderQueue.addOrder(o3);
+        PlacedOrderQueue.addOrder(o4);
         Kitchen.getNextToCook();
         for (Dish d: o1.getDishes()){
             Kitchen.cookedDish(d);
