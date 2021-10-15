@@ -1,3 +1,4 @@
+import UseCase.InventoryList;
 import entities.*;
 import org.junit.Before;
 import org.junit.Test;

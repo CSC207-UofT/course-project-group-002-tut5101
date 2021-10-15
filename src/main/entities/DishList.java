@@ -6,7 +6,7 @@
 // * @author Chan Yu & Naihe Xiao
 // */
 //public class DishList {
-//    private HashMap<String, Dish> menu;
+//    private HashMap<String, entities.Dish> menu;
 //
 //    /**
 //     * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -25,7 +25,7 @@
 //     *
 //     * @return
 //     */
-//    public HashMap<String, Dish> getDishes() {
+//    public HashMap<String, entities.Dish> getDishes() {
 //        return this.menu;
 //    }
 //

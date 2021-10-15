@@ -1,4 +1,7 @@
-package entities;
+package UseCase;
+
+import entities.*;
+
 
 import java.util.HashMap;
 

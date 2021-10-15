@@ -1,24 +1,35 @@
 package entities;
 
 public class Review{
-    /**
-     * @param review The the comment that user want to input
-     * @param user_id The user id
-     */
+
     public String user_id;
     public String review;
     public boolean YorN;
-    public boolean YorNforStuff;
-    public String complainStuff;
+    public boolean YorNforStaff;
+    public String complainStaff;
+
+    /**
+     * @param review The the comment that user want to input
+     * @param user_id The user id
+     * @param YorN whether a Yes or No
+     * @param YorNforStaff whether a Yes or No for staff
+     * @param complainStaff the complain for a staff
+     */
 
 
-    public Review(String review, String user_id, boolean YorN, boolean YorNforStuff, String complainStuff){
+    public Review(String review, String user_id, boolean YorN, boolean YorNforStaff, String complainStaff){
         this.review = review;
         this.user_id = user_id;
         this.YorN = YorN;
-        this.YorNforStuff = YorNforStuff;
-        this.complainStuff = complainStuff;
+        this.YorNforStaff = YorNforStaff;
+        this.complainStaff = complainStaff;
     }
+
+    /**
+     * Get the Review of a user
+     * @return The review of a user.
+     */
+
 
     public String ShowReview(){
         if (this.YorN){
@@ -28,12 +39,18 @@ public class Review{
         }
     }
 
-    public String ComplainStuff(){
-        if (this.YorNforStuff){
+    /**
+     * Get the complain for a staff
+     * @return The complain for a staff.
+     */
+
+
+    public String ComplainStaff(){
+        if (this.YorNforStaff){
             if (this.YorN){
-                return "anonymous" + ":" + complainStuff + ".";
+                return "anonymous" + ":" + complainStaff + ".";
             } else {
-                return user_id + ":" + complainStuff + ".";
+                return user_id + ":" + complainStaff + ".";
             }
         } else {
             return null;

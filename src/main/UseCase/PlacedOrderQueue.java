@@ -1,9 +1,13 @@
-import entities.InventoryList;
+package UseCase;
+
+import entities.Dish;
+import UseCase.InventoryList;
+import entities.Order;
 
 import java.util.*;
 
 /**
- * This is the class of PlacedOrderQueue,
+ * This is the class of UseCase.PlacedOrderQueue,
  * it is used to keep track of all orders placed by customers of the restaurant.
  * By Dedong Xie (1006702944)
  * 2021-10-10
@@ -28,7 +32,7 @@ public class PlacedOrderQueue {
         // Assume it is called Map to get distance of points on the map
         /*
         if (newOrder.getOrderDineInOrTakeOut() == "take out" &&
-                Map.getDistance(newOrder.getAddress(), RestaurantInfo.ADDRESS) > RestaurantInfo.DELIVERY_RANGE) {
+                Map.getDistance(newOrder.getAddress(), UseCase.RestaurantInfo.ADDRESS) > UseCase.RestaurantInfo.DELIVERY_RANGE) {
             return false;
         }
          */

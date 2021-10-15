@@ -1,7 +1,9 @@
+package entities;
+
 import java.util.UUID;
 
 /**
- * Abstract class of User that contains basic properties for a single user
+ * Abstract class of entities.User that contains basic properties for a single user
  *
  * @author Chan Yu & Naihe Xiao
  */
@@ -15,11 +17,11 @@ public abstract class User {
     private String email;
 
     /**
-     * Constructor of User without parameter
+     * Constructor of entities.User without parameter
      */
     public User() {
         this.id = "defaultuserid"; //UUID.randomUUID().toString();
-        this.name = "Default User";
+        this.name = "Default entities.User";
         this.password = "12345";
         this.gender = "N/A";
         this.address = "Toronto";
@@ -28,11 +30,11 @@ public abstract class User {
     }
 
     /**
-     * Constructor of User with id, name, and password provided.
+     * Constructor of entities.User with id, name, and password provided.
      *
-     * @param id       id of User, should be unique
-     * @param name     name of User
-     * @param password password of User
+     * @param id       id of entities.User, should be unique
+     * @param name     name of entities.User
+     * @param password password of entities.User
      */
     public User(String id, String name, String password) {
         this.id = id;
@@ -45,9 +47,9 @@ public abstract class User {
     }
 
     /**
-     * Return User's basic info
+     * Return entities.User's basic info
      *
-     * @return User's basic info
+     * @return entities.User's basic info
      */
     @Override
     public String toString() {
@@ -61,126 +63,126 @@ public abstract class User {
     }
 
     /**
-     * Return id of User
+     * Return id of entities.User
      *
-     * @return the id of User
+     * @return the id of entities.User
      */
     public String getId() {
         return id;
     }
 
     /**
-     * Set id for User
+     * Set id for entities.User
      *
-     * @param id id of User
+     * @param id id of entities.User
      */
     public void setId(String id) {
         this.id = id;
     }
 
     /**
-     * Get name of User
+     * Get name of entities.User
      *
-     * @return the name of User
+     * @return the name of entities.User
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Set name of User
+     * Set name of entities.User
      *
-     * @param name name of User
+     * @param name name of entities.User
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Get password of User
+     * Get password of entities.User
      *
-     * @return password of User
+     * @return password of entities.User
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Set password of User
+     * Set password of entities.User
      *
-     * @param password password of User
+     * @param password password of entities.User
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * Get address of User
+     * Get address of entities.User
      *
-     * @return address of User
+     * @return address of entities.User
      */
     public String getAddress() {
         return address;
     }
 
     /**
-     * Set address of User
+     * Set address of entities.User
      *
-     * @param address of User
+     * @param address of entities.User
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
-     * Get gender of User
+     * Get gender of entities.User
      *
-     * @return gender of User
+     * @return gender of entities.User
      */
     public String getGender() {
         return gender;
     }
 
     /**
-     * Set gender of User
+     * Set gender of entities.User
      *
-     * @param gender gender of User
+     * @param gender gender of entities.User
      */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
     /**
-     * Get PhoneNumber of User
+     * Get PhoneNumber of entities.User
      *
-     * @return phone of User
+     * @return phone of entities.User
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     * Set phoneNumber of User
+     * Set phoneNumber of entities.User
      *
-     * @param phone User's phone number
+     * @param phone entities.User's phone number
      */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     /**
-     * Get emailAddress of User
+     * Get emailAddress of entities.User
      *
-     * @return email of User
+     * @return email of entities.User
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * Set emailAddress of User
+     * Set emailAddress of entities.User
      *
-     * @param email of User
+     * @param email of entities.User
      */
     public void setEmail(String email) {
         this.email = email;

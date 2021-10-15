@@ -1,10 +1,16 @@
+package UseCase;
+
+import UseCase.DishInfo;
+import UseCase.Kitchen;
+import entities.*;
+
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
  * By Dedong Xie (1006702944)
  * 2021-10-10
  */
 
-public class ServingStaff extends Staff{
+public class ServingStaff extends Staff {
 
     private DishInfo currentDish;
 

@@ -1,9 +1,14 @@
 /**
- * Test for DeliveryStaff class
+ * Test for UseCase.DeliveryStaff class
  * By Dedong Xie
  * 2021-10-11
  */
 
+import UseCase.DeliveryStaff;
+import UseCase.Kitchen;
+import UseCase.RestaurantInfo;
+import entities.Dish;
+import entities.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -1,9 +1,12 @@
 package entities;
 
+
+
 public abstract class Material extends Inventory{
 
     protected String freshness;
     protected final int ImportDate;
+
 
     /**
      * Construct an instance of Material

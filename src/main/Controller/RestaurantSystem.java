@@ -1,4 +1,7 @@
+package Controller;
 import java.util.*;
+import entities.*;
+import UseCase.*;
 
 public class RestaurantSystem {
 
@@ -179,7 +182,7 @@ public class RestaurantSystem {
     }
 
     /**
-     * Generate the UserList
+     * Generate the UseCase.UserList
      *
      * @return a Hashmap mapping user ids to Users
      */
