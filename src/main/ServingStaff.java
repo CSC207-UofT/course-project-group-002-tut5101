@@ -6,6 +6,8 @@
 
 public class ServingStaff extends Staff{
 
+    private DishInfo currentDish;
+
     /**
      * Construct an instance of s serving staff
      * @param staffName The name of the staff
@@ -16,19 +18,25 @@ public class ServingStaff extends Staff{
         super(staffName, staffNumber, staffSalary);
     }
 
-    /**
-     * Let a serving staff to get a dish to be served and serve a dish to the table
-     * @return Return true when serve success, otherwise return false
-     */
-    public boolean serveDish() {
+
+    public void completeDish(Dish dish){
+        this.currentDish.getDish().setStatus("served");
+    }
+
+    public void getServeDish(){
         try {
-            DishInfo dishToBeServed = Kitchen.getServingDish();
-            dishToBeServed.getDish().setStatus("served");
+            this.currentDish = Kitchen.getServingDish();
         } catch (Exception e) {
             System.out.println("No dish to be served, serving list empty." + e.getMessage());
-            return false;
         }
-        return true;
+    }
+
+    public int getTableNum(){
+        return this.currentDish.getTableNum();
+    }
+
+    public Dish getDish(){
+        return this.currentDish.getDish();
     }
 
 }
