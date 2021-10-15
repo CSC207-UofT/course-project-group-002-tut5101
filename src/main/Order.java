@@ -81,7 +81,8 @@ public class Order {
 
     }
 
-    String getString() {
+    @Override
+    public String toString() {
         return dishes.toString();
     }
 

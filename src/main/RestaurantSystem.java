@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RestaurantSystem {
 
@@ -30,11 +27,12 @@ public class RestaurantSystem {
                     int selectedAction = actionPicker(actions, scanner);
 
                     switch (selectedAction) {
+                        case 0:
+                            login = false;
+                            break;
                         case 1:
                             System.out.println(displayMenu());
                             System.out.println("Please enter the dish number you want to order (separate by a enter and ends by 'q'):");
-
-
                             ArrayList<Integer> orderedNum = new ArrayList();
                             while (scanner.hasNextInt()){
                                 orderedNum.add(scanner.nextInt());
@@ -46,26 +44,91 @@ public class RestaurantSystem {
                             scanner.next();
                             String ans = scanner.next();
                             if (ans.equals("y")) {
+                                List<Dish> orderedDishes = new ArrayList<Dish>();
+                                for (int num : orderedNum) {
+                                    orderedDishes.add(menu.get(num-1));
+                                }
+                                Order customerOrder = new Order(1, orderedDishes);
+                                System.out.println(customerOrder.toString());
+                                if (!PlacedOrderQueue.addOrder(customerOrder)) {
+                                    System.out.println("Your order cannot be placed\n\n");
+                                    break;
+                                }
                                 System.out.println("Your order has been placed, please wait...\n\n");
                             }
+                            break;
                         case 2:
                             break;
                         case 3:
                             break;
-
                     }
                 } else if (currentUser instanceof Manager) {
                     String actionList = "Welcome Back! Please enter number of the action listed below:\n" +
                             "1. View uncompleted orders\n" +
                             "0. Logout";
                     actionPicker(actionList, scanner);
-                } else {
+                } else if (currentUser instanceof ServingStaff) {
                     String actionList = "Welcome Back! Please enter number of the action listed below:\n" +
-                            "1. View uncompleted orders\n" +
+                            "1. View dish to be served\n" +
+                            "2. Mark dish as served\n" +
                             "0. Logout";
-                    actionPicker(actionList, scanner);
+                    ServingStaff currentServingStaff = ((ServingStaff) currentUser);
+                    int action = actionPicker(actionList, scanner);
+                    switch (action) {
+                        case 0:
+                            login = false;
+                            break;
+                        case 1:
+                            if (currentServingStaff.getServeDish()) {
+                                System.out.println("Table: " + currentServingStaff.getTableNum() +
+                                        "Dish: " + currentServingStaff.getDish().toString());
+                            } else {
+                                System.out.println("Currently no dish to be served");
+                            }
+                            break;
+                        case 2:
+                            if (currentServingStaff.completeDish()) {
+                                System.out.println("Dish marked as completed");
+                            } else {
+                                System.out.println("You served air!");
+                            }
+                            break;
+                    }
+                } else if (currentUser == null) {
+                    System.out.println("You have login as the kitchen");
+                    StringBuilder actionList = new StringBuilder("Welcome Back! Please enter number of the action listed below:\n" +
+                            "1. View order to be cooked\n" +
+                            "2. Mark dish as cooked\n" +
+                            "0. Logout");
+                    int action = actionPicker(actionList.toString(), scanner);
+                    switch (action) {
+                        case 0:
+                            login = false;
+                            break;
+                        case 1:
+                            if (Kitchen.getNextToCook()) {
+                                System.out.println("Cooking " + Kitchen.getCurrentOrder().toString());
+                            } else {
+                                System.out.println("No order to be cooked");
+                            }
+                            break;
+                        case 2:
+                            actionList = new StringBuilder();
+                            List<Dish> dishList = Kitchen.getCurrentOrder().getDishes();
+                            for (int i = 1; i <= dishList.size(); i++) {
+                                actionList.append(i).append(" ").append(dishList.get(i-1).getName()).append("\n");
+                            }
+                            int dishToBeCooked = actionPicker(actionList.toString(), scanner);
+                            if (1 <= dishToBeCooked && dishToBeCooked <= dishList.size()) {
+                                Kitchen.cookedDish(dishList.get(dishToBeCooked-1));
+                            } else {
+                                System.out.println("Invalid dish number: " + dishToBeCooked);
+                            }
+                            break;
+                    }
+                } else {
+                    login = false;
                 }
-
             } else {
                 userLoginHelper(scanner);
             }
@@ -96,6 +159,11 @@ public class RestaurantSystem {
     private static void userLoginHelper(Scanner scanner) {
         System.out.print("Please enter your id: ");
         String id = scanner.next();
+        if (Objects.equals(id, "0")) {
+            currentUser = null;
+            login = true;
+            return;
+        }
         if (userList.getUsers().containsKey(id)) {
             System.out.print("Please enter your password: ");
             String password = scanner.next();
@@ -124,6 +192,7 @@ public class RestaurantSystem {
         userList.getUsers().put("5", new Manager("5", "DeDong", "12345"));
         userList.getUsers().put("6", new Customer("6", "Eve", "12345"));
         userList.getUsers().put("7", new Manager("7", "Raymond", "12345"));
+        userList.getUsers().put("8", new ServingStaff("8", "Tom", "12345", 4000));
         return userList;
     }
 

@@ -25,7 +25,7 @@ public class StaffTest {
     @Test(timeout = 50)
     public void testGetName() {
         assertEquals("", staff.getName());
-        staff = new Staff("a", 1, 0);
+        staff = new Staff("1", "a", "1", 0);
         assertEquals("a", staff.getName());
     }
 
@@ -33,9 +33,9 @@ public class StaffTest {
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
     public void testGetStaffNumber() {
-        assertEquals(0, staff.getStaffNumber());
-        staff = new Staff("a", 1, 0);
-        assertEquals(1, staff.getStaffNumber());
+        assertEquals(0, staff.getId());
+        staff = new Staff("1", "a", "1", 0);
+        assertEquals(1, staff.getId());
     }
 
     // Test means that this is a test
@@ -43,7 +43,7 @@ public class StaffTest {
     @Test(timeout = 50)
     public void testGetStaffSalary() {
         assertEquals(0, staff.getStaffSalary());
-        staff = new Staff("a", 1, 10);
+        staff = new Staff("1", "a", "1", 10);
         assertEquals(10, staff.getStaffSalary());
     }
 
@@ -60,7 +60,7 @@ public class StaffTest {
     // Timeout is the timeout for the test in seconds
     @Test(timeout = 50)
     public void testDecreaseSalary() {
-        staff = new Staff("a", 1, 20);
+        staff = new Staff("1", "a", "1", 20);
         staff.decreaseSalary(10);
         assertEquals(10, staff.getStaffSalary());
     }
