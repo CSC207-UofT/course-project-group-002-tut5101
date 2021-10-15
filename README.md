@@ -10,7 +10,7 @@ Customers can order different quantities of food and see their total price
 
 Customers can ask for staff assistance and mark requests as complete 
 
-### UseCase.Kitchen
+### Controller.Kitchen
 
 Once the order is sent, kitchen workers can see a list of orders and check off when orders are ready to be served 
 

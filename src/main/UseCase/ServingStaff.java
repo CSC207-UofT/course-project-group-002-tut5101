@@ -1,7 +1,6 @@
 package UseCase;
 
-import UseCase.DishInfo;
-import UseCase.Kitchen;
+import Controller.Kitchen;
 import entities.*;
 
 /**

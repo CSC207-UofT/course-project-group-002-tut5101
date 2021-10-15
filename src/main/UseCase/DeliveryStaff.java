@@ -1,6 +1,6 @@
 package UseCase;
 
-import UseCase.Kitchen;
+import Controller.Kitchen;
 import entities.Order;
 import entities.Staff;
 
