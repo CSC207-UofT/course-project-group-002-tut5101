@@ -1,5 +1,8 @@
-package UseCase;
+package Controller;
 
+import UseCase.DishInfo;
+import UseCase.InventoryList;
+import UseCase.PlacedOrderQueue;
 import entities.Dish;
 import entities.Order;
 
@@ -21,7 +24,7 @@ import java.util.Queue;
 public class Kitchen {
 
     /**
-     * A static instance of the PlaceOrderQueue class. The UseCase.Kitchen uses this instance to
+     * A static instance of the PlaceOrderQueue class. The Controller.Kitchen uses this instance to
      * access the next order to be cooked.
      */
     //public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
@@ -38,7 +41,7 @@ public class Kitchen {
     public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
 
     /**
-     * The current order that the UseCase.Kitchen is working on.
+     * The current order that the Controller.Kitchen is working on.
      */
     private static Order currentOrder;
 

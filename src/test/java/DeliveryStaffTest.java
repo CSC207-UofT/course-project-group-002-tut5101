@@ -5,7 +5,7 @@
  */
 
 import UseCase.DeliveryStaff;
-import UseCase.Kitchen;
+import Controller.Kitchen;
 import UseCase.RestaurantInfo;
 import entities.Dish;
 import entities.Order;
