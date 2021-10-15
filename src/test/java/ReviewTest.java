@@ -27,6 +27,6 @@ public class ReviewTest {
 
     @Test(timeout = 50)
     public void testReview2() {
-        assertEquals(review1.ComplainStuff(), "anonymous:bad.");
+        assertEquals(review1.ComplainStaff(), "anonymous:bad.");
     }
 }

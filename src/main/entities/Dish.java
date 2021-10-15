@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.HashMap;
 
 
@@ -18,12 +20,12 @@ public class Dish {
 
 
     /**
-     * Constructor of Dish with name, price, ingredients and calories provided.
+     * Constructor of entities.Dish with name, price, ingredients and calories provided.
      *
-     * @param name        name of the Dish
-     * @param price       price of the Dish
-     * @param ingredients ingredients of the Dish
-     * @param calories    calories of the Dish
+     * @param name        name of the entities.Dish
+     * @param price       price of the entities.Dish
+     * @param ingredients ingredients of the entities.Dish
+     * @param calories    calories of the entities.Dish
      */
     public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
         this.name = name;
@@ -36,13 +38,13 @@ public class Dish {
     }
 
     /**
-     * Constructor of Dish with name, price, ingredients and calories provided.
+     * Constructor of entities.Dish with name, price, ingredients and calories provided.
      *
-     * @param name        name of the Dish
-     * @param price       price of the Dish
-     * @param ingredients ingredients of the Dish
-     * @param calories    calories of the Dish
-     * @param category    category of the Dish, ie Food/Soup/Drink
+     * @param name        name of the entities.Dish
+     * @param price       price of the entities.Dish
+     * @param ingredients ingredients of the entities.Dish
+     * @param calories    calories of the entities.Dish
+     * @param category    category of the entities.Dish, ie Food/Soup/Drink
      */
     public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
         this.name = name;
@@ -56,68 +58,68 @@ public class Dish {
     }
 
     /**
-     * Return category of Dish
-     * @return category of Dish
+     * Return category of entities.Dish
+     * @return category of entities.Dish
      */
     public String getCategory() {
         return category;
     }
 
     /**
-     * Set category of Dish
-     * @param category category of Dish
+     * Set category of entities.Dish
+     * @param category category of entities.Dish
      */
     public void setCategory(String category) {
         this.category = category;
     }
 
     /**
-     * Return status of Dish
+     * Return status of entities.Dish
      *
-     * @return the status of Dish
+     * @return the status of entities.Dish
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     * Set status of Dish
+     * Set status of entities.Dish
      *
-     * @param status Dish status
+     * @param status entities.Dish status
      */
     public void setStatus(String status) {
         this.status = status;
     }
 
     /**
-     * Return name of Dish
+     * Return name of entities.Dish
      *
-     * @return the name of Dish
+     * @return the name of entities.Dish
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Set name of Dish
+     * Set name of entities.Dish
      *
-     * @param name Dish name
+     * @param name entities.Dish name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Return price of Dish
+     * Return price of entities.Dish
      *
-     * @return the price of Dish
+     * @return the price of entities.Dish
      */
     public double getPrice() {
         return price;
     }
 
     /**
-     * Set price of Dish
+     * Set price of entities.Dish
      *
      * @param price
      */
@@ -126,16 +128,16 @@ public class Dish {
     }
 
     /**
-     * Return ingredients of Dish
+     * Return ingredients of entities.Dish
      *
-     * @return the ingredients of Dish
+     * @return the ingredients of entities.Dish
      */
     public HashMap<String, Double> getIngredients() {
         return ingredients;
     }
 
     /**
-     * Set ingredients of Dish
+     * Set ingredients of entities.Dish
      *
      * @param ingredients
      */
@@ -144,16 +146,16 @@ public class Dish {
     }
 
     /**
-     * Return features of Dish
+     * Return features of entities.Dish
      *
-     * @return the feature of Dish
+     * @return the feature of entities.Dish
      */
     public HashMap<String, Boolean> getFeatures() {
         return features;
     }
 
     /**
-     * Set features of Dish
+     * Set features of entities.Dish
      *
      * @param features
      */
@@ -162,16 +164,16 @@ public class Dish {
     }
 
     /**
-     * Return calories of Dish
+     * Return calories of entities.Dish
      *
-     * @return the calories of Dish
+     * @return the calories of entities.Dish
      */
     public double getCalories() {
         return calories;
     }
 
     /**
-     * Set calories of Dish
+     * Set calories of entities.Dish
      *
      * @param calories
      */
@@ -180,16 +182,16 @@ public class Dish {
     }
 
     /**
-     * Return allergy information of Dish
+     * Return allergy information of entities.Dish
      *
-     * @return the allergy information of Dish
+     * @return the allergy information of entities.Dish
      */
     public String getAllergyInformation() {
         return allergyInformation;
     }
 
     /**
-     * Set allergy information of Dish
+     * Set allergy information of entities.Dish
      *
      * @param allergyInformation
      */
@@ -198,7 +200,7 @@ public class Dish {
     }
 
     /**
-     * Override the toString method of Object and return a fine illustration of a Dish information
+     * Override the toString method of Object and return a fine illustration of a entities.Dish information
      *
      * @return a string representation of this dish
      */

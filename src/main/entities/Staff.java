@@ -1,5 +1,7 @@
+package entities;
+
 /**
- * Class for Staff that hold the name, salary, and staff number of a staff
+ * Class for entities.Staff that hold the name, salary, and staff number of a staff
  * By Dedong xie (1006702944)
  * 2021-10-10
  */

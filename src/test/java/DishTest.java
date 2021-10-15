@@ -1,9 +1,10 @@
 /**
- * Tests for Dish Class
+ * Tests for entities.Dish Class
  *
  * @author Chan Yu & Naihe Xiao
  */
 
+import entities.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

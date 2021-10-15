@@ -1,16 +1,19 @@
 /**
- * Tests for ServingStaff class
+ * Tests for UseCase.ServingStaff class
  * By Dedong Xie
  * 2021-10-11
  */
 /*
 This is used to test the functionality of serving staff.
-Assume that Kitchen is implemented properly.
+Assume that UseCase.Kitchen is implemented properly.
  */
+import UseCase.DishInfo;
+import UseCase.Kitchen;
+import UseCase.ServingStaff;
+import entities.Dish;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayDeque;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;

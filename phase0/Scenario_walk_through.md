@@ -1,7 +1,7 @@
 ## Scenario Walkthrough
-A dine-in Customer checks the menu, which obtains a list of dishes and their prices from DishList. When the Customer
-places an Order on PlaceOrderQueue, if the Inventory lacks ingredients to make a Dish, then the order is rejected.
-Otherwise, the total price is calculated and returned to the Customer.
+A dine-in UseCase.Customer checks the menu, which obtains a list of dishes and their prices from DishList. When the UseCase.Customer
+places an entities.Order on PlaceOrderQueue, if the Inventory lacks ingredients to make a entities.Dish, then the order is rejected.
+Otherwise, the total price is calculated and returned to the UseCase.Customer.
 
 The kitchen will repeatedly ask for orders to cook, when they finish a dish, they update the ingredient quantity in
 the inventory, and they check if this dish belongs to a delivery order or a dine-in order. If dine-in order, then add

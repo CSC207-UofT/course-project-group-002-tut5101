@@ -1,9 +1,10 @@
 /**
- * Tests for Customer Class
+ * Tests for UseCase.Customer Class
  *
  * @author Chan Yu & Naihe Xiao
  */
 
+import UseCase.Customer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class CustomerTest {
     @Test(timeout = 50)
     public void testCustomerConstructor1() {
         assertEquals(customer1.getId(), "defaultuserid");
-        assertEquals(customer1.getName(), "Default User");
+        assertEquals(customer1.getName(), "Default entities.User");
         assertEquals(customer1.getPassword(), "12345");
     }
 

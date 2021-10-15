@@ -1,8 +1,11 @@
 /**
- * Tests for UserList Class
+ * Tests for UseCase.UserList Class
  *
  * @author Chan Yu & Naihe Xiao
  */
+import UseCase.Customer;
+import UseCase.Manager;
+import UseCase.UserList;
 import org.junit.Before;
 import org.junit.Test;
 
