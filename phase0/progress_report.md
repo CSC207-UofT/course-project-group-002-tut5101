@@ -5,6 +5,20 @@ incorporate the traditional service with digital platforms to facilitate the cus
 include personnel in a restaurant and customers. The users would get their required information faster and easier than
 before.
 ## Summary of CRC Model
+We designed the CRC model according to its description and functionality.
+We decided that entities in the clean architecture, which are objects that embodies a small set of
+Critical Business Rules operating on Critical Business Data, includes User(an abstract class that is the superclass
+for Customer, Manager and Staff), Staff(a superclass for ServingStaff, InventoryStaff, DeliveryStaff, Kitchen,
+), Order, Dish, DishList,  RestaurantInfo, Inventory(which is an abstract class and superclass for Product and Material),
+Product(which is an abstract class and superclass for Alcohol, SemiFinished, and SoftDrink), SoftDrink, Alcohol, SemiFinished,
+Material(which is an abstract class and superclass for Meat,Seafood,Seasoner,VegeFruit,Grain,DairySoy), Meat, Seafood,
+Seasoner, Vegefruit, Grain and DairySoy. We decided that use cases in the clean architecture, which is a description of
+the way that an automated system affect Entities, includes InventoryList, Review, OrderHistory, PlaceOrderQueue, Kitchen,
+DeliveryStaff, ServingStaff, InventoryStaff, Manager and Customer.
+We labeled the inheritance relationships between classes and their collaboration and responsibilities, and whether they
+are abstract.
+We modified our CRC model several times during coding to fit our program.
+
 ## Summary of Scenario Walk-through
 A dine-in customer ordered dishes and some dishes cannot be made because of lacking ingredients and the cookable 
 dishes were served after finish.
@@ -132,8 +146,8 @@ diversity. Add more test cases for the new changes.
 ### Shaojie Dong
 #### Week 2021 Oct 4 - 11
 #### Design 2021 Oct 4, 10, 11
-Designed the CRC cards of the following classes: Inventory,
-Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain and DairySoy.
+Designed the CRC cards of the following classes with Mingyang Li: Inventory,
+Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain, DairySoy.
 Discussed the requirements of InventoryList with Dedong Xie, Evelyn Chou and Raymond Liu and designed the CRC card of
 this class.
 
@@ -145,6 +159,23 @@ Created tests for the methods of Inventory class, Material class, Product class 
 
 #### Future planning
 Design and Implement the InventoryGenerator class which can create Inventory by txt files.
+
+
+### Mingyang Li
+#### Week 2021 Oct 4 - 11
+#### Design 2021 Oct 4, 10, 11
+Designed the CRC cards of the following classes with Shaojie Dong: Inventory,
+Material, Product, Alcohol, Semifinished, SoftDrink, Meat, Seafood, Seasoner, VegeFruit, Grain and DairySoy.
+Design the CRC card of Review class
+Discussed the requirements of InventoryList with Dedong Xie, Evelyn Chou and Raymond Liu and designed the CRC card of
+this class.
+
+#### Coding 2021 Oct 10, 11
+Implemented the Review class.
+Created tests for the Review class.
+
+#### Future planning
+Design and Implement the conversation and link-to-dish features.
 
 
 ## Summary of subgroup2 Progress
@@ -195,7 +226,7 @@ We left comments including descriptions and responsibilities of each unittest cl
 
 Our group have 2 people, Mingyang Li and Shaojie Dong. We worked on the design of the Inventory class(which is the
 super class for Product class and Material class), Product class, Material class,
-their child classes which can be made as instance and InventoryList class. 
+their child classes which can be made as instance, InventoryList class and Review. 
 We included comments for each class and its methods.
 
 We worked on the CRC cards of the classes included above.
@@ -210,9 +241,9 @@ We worked on the CRC cards of the classes included above.
   - Material: a child abstract class of Inventory whose freshness can be checked and changed.
 
 - InventoryList: a class that contains inventory items. Certain information can be checked or set by its name.
-- 
+- Review: a class that represent the review of customers
 We also added specific descriptions of each class and their methods as comments.
 
 ### Testing
 
-Creating unit test for InventoryList class, Product class and Material class.
+Creating unit test for InventoryList class, Product class ,Material class and Review.
