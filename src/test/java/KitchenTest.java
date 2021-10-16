@@ -1,15 +1,18 @@
+import controller.Kitchen;
+import entity.Dish;
+import entity.Inventory;
+import entity.Meat;
+import entity.Order;
+import org.junit.Before;
+import org.junit.Test;
+import use_case.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import Controller.Kitchen;
-import UseCase.InventoryList;
-import entities.*;
-import UseCase.*;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class KitchenTest {
     ServingStaff ss1;
@@ -84,7 +87,7 @@ public class KitchenTest {
         PlacedOrderQueue.addOrder(o3);
         PlacedOrderQueue.addOrder(o4);
         Kitchen.getNextToCook();
-        for (Dish d: o1.getDishes()){
+        for (Dish d : o1.getDishes()) {
             Kitchen.cookedDish(d);
             assertEquals(d, Kitchen.getServingDish().getDish());
         }
@@ -93,8 +96,8 @@ public class KitchenTest {
 
         boolean first = true;
 
-        for (Dish d: o2.getDishes()){
-            if (first){
+        for (Dish d : o2.getDishes()) {
+            if (first) {
                 assertEquals(null, Kitchen.getDeliveryOrder());
                 first = false;
             }
