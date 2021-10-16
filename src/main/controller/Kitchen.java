@@ -1,10 +1,10 @@
-package controller;
+package Controller;
 
-import use_case.DishInfo;
-import use_case.InventoryList;
-import use_case.PlacedOrderQueue;
-import entity.Dish;
-import entity.Order;
+import UseCase.DishInfo;
+import UseCase.InventoryList;
+import UseCase.PlacedOrderQueue;
+import entities.Dish;
+import entities.Order;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
