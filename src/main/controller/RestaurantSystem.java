@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 import java.util.*;
-import entities.*;
-import UseCase.*;
+import entity.*;
+import use_case.*;
 
 public class RestaurantSystem {
 
@@ -26,6 +26,7 @@ public class RestaurantSystem {
                             "1. Place Order\n" +
                             "2. Ask for assistance\n" +
                             "3. Pay bill\n" +
+                            "4. Leave a review\n" +
                             "0. Logout";
                     int selectedAction = actionPicker(actions, scanner);
 
@@ -35,15 +36,19 @@ public class RestaurantSystem {
                             break;
                         case 1:
                             System.out.println(displayMenu());
-                            System.out.println("Please enter the dish number you want to order (separate by a enter and ends by 'q'):");
+                            System.out.println("Please enter the dish number you want to order " +
+                                    "(separate by a enter and ends by 'e'):");
                             ArrayList<Integer> orderedNum = new ArrayList();
                             while (scanner.hasNextInt()){
                                 orderedNum.add(scanner.nextInt());
                             }
-                            System.out.println("Please confirm your orders [y/n]:");
+                            double totalPrice = 0;
                             for (int num : orderedNum) {
                                 System.out.println(menu.get(num - 1));
+                                totalPrice += menu.get(num - 1).getPrice();
                             }
+                            System.out.print("Your total price for this order is $$" + totalPrice + " before" +
+                                    " tax. ☺\nPlease confirm your orders [y/n]:");
                             scanner.next();
                             String ans = scanner.next();
                             if (ans.equals("y")) {
@@ -98,9 +103,8 @@ public class RestaurantSystem {
                             break;
                     }
                 } else if (currentUser == null) {
-                    System.out.println("You have login as the kitchen");
-                    StringBuilder actionList = new StringBuilder("Welcome Back! Please enter number of the action listed below:\n" +
-                            "1. View order to be cooked\n" +
+                    System.out.println("You have login as the kitchen, enter number of action listed below:");
+                    StringBuilder actionList = new StringBuilder("1. View order to be cooked\n" +
                             "2. Mark dish as cooked\n" +
                             "0. Logout");
                     int action = actionPicker(actionList.toString(), scanner);
