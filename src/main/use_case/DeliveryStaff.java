@@ -1,8 +1,8 @@
-package UseCase;
+package use_case;
 
-import Controller.Kitchen;
-import entities.Order;
-import entities.Staff;
+import controller.Kitchen;
+import entity.Order;
+import entity.Staff;
 
 /**
  * Class for delivery staff
