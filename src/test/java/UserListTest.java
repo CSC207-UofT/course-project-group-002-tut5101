@@ -3,9 +3,9 @@
  *
  * @author Chan Yu & Naihe Xiao
  */
-import UseCase.Customer;
-import UseCase.Manager;
-import UseCase.UserList;
+import use_case.Customer;
+import use_case.Manager;
+import use_case.UserList;
 import org.junit.Before;
 import org.junit.Test;
 

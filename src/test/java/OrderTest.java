@@ -1,5 +1,5 @@
-import entities.Dish;
-import entities.Order;
+import entity.Dish;
+import entity.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

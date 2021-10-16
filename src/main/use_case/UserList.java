@@ -1,10 +1,10 @@
-package UseCase; /*
+package use_case; /*
   Public class storing information for all users using a Hashmap.
 
   @author Chan Yu & Naihe Xiao
  */
 
-import entities.User;
+import entity.User;
 
 import java.util.HashMap;
 

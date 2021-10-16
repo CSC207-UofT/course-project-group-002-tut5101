@@ -3,9 +3,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import UseCase.InventoryList;
-import entities.*;
-import UseCase.*;
+import controller.Kitchen;
+import use_case.InventoryList;
+import entity.*;
+import use_case.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

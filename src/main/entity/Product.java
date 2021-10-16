@@ -1,4 +1,4 @@
-package entities;
+package entity;
 
 public abstract class Product extends Inventory{
     public final int ExpiryDate;

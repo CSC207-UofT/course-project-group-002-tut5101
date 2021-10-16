@@ -1,6 +1,6 @@
-package UseCase;
+package use_case;
 
-import entities.Dish;
+import entity.Dish;
 
 /**
  * A "tuple" that contains the information of a dine-in dish.

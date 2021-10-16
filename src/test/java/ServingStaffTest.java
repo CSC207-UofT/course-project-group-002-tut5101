@@ -5,12 +5,12 @@
  */
 /*
 This is used to test the functionality of serving staff.
-Assume that UseCase.Kitchen is implemented properly.
+Assume that Controller.Kitchen is implemented properly.
  */
-import UseCase.DishInfo;
-import UseCase.Kitchen;
-import UseCase.ServingStaff;
-import entities.Dish;
+import use_case.DishInfo;
+import controller.Kitchen;
+import use_case.ServingStaff;
+import entity.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

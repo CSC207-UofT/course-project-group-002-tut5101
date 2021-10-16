@@ -1,8 +1,7 @@
-package UseCase;
+package use_case;
 
-import entities.Dish;
-import UseCase.InventoryList;
-import entities.Order;
+import entity.Dish;
+import entity.Order;
 
 import java.util.*;
 

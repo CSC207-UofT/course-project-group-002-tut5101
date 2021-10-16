@@ -4,7 +4,7 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-import UseCase.Customer;
+import use_case.Customer;
 import org.junit.Before;
 import org.junit.Test;
 

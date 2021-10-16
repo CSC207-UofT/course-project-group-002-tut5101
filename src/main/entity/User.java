@@ -1,6 +1,4 @@
-package entities;
-
-import java.util.UUID;
+package entity;
 
 /**
  * Abstract class of entities.User that contains basic properties for a single user

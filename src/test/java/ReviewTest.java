@@ -4,7 +4,7 @@
  * @author Mingyang Li
  */
 
-import entities.Review;
+import entity.Review;
 import org.junit.Before;
 import org.junit.Test;
 

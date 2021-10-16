@@ -1,7 +1,6 @@
-package UseCase;
+package use_case;
 
-import UseCase.InventoryList;
-import entities.Staff;
+import entity.Staff;
 
 /**
  * The inventory staff responsible for managing the freshness and quantity of all inventory items.

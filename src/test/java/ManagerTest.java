@@ -4,7 +4,7 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-import UseCase.Manager;
+import use_case.Manager;
 import org.junit.Before;
 import org.junit.Test;
 

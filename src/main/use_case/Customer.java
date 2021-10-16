@@ -1,6 +1,6 @@
-package UseCase;
+package use_case;
 
-import entities.User;
+import entity.User;
 
 /**
  * Public class storing information of a customer.

@@ -1,4 +1,6 @@
-package entities;
+package use_case;
+
+import entity.Dish;
 
 import java.util.HashMap;
 
@@ -8,7 +10,7 @@ import java.util.HashMap;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList {
-    private HashMap<String, entities.Dish> menu;
+    private HashMap<String, Dish> menu;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -27,10 +29,19 @@ public class DishList {
      *
      * @return
      */
-    public HashMap<String, entities.Dish> getDishes() {
+    public HashMap<String, entity.Dish> getDishes() {
         return this.menu;
     }
 
+    /**
+     * //TODO
+     * Return true if the restaurant has enough inventory for the Dish
+     * @return true with inventory, or false if out of stock.
+     *
+     */
+    public boolean hasInventoryOfTheDish() {
+        return false;
+    }
 
     /**
      * Override the toString method of Object and return a fine illustration of the DishList information

@@ -2,11 +2,11 @@
  * By Dedong Xie
  * 2021-10-11
  */
-import UseCase.PlacedOrderQueue;
-import entities.Dish;
-import UseCase.InventoryList;
-import entities.Meat;
-import entities.Order;
+import use_case.PlacedOrderQueue;
+import entity.Dish;
+import use_case.InventoryList;
+import entity.Meat;
+import entity.Order;
 import org.junit.*;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package UseCase;
+package use_case;
 
-import entities.*;
+import entity.*;
 
 
 import java.util.HashMap;
