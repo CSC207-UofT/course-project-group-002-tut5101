@@ -7,10 +7,10 @@
 This is used to test the functionality of serving staff.
 Assume that Controller.Kitchen is implemented properly.
  */
-import use_case.DishInfo;
-import controller.Kitchen;
-import use_case.ServingStaff;
-import entity.Dish;
+import UseCase.DishInfo;
+import Controller.Kitchen;
+import UseCase.ServingStaff;
+import entities.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -4,11 +4,11 @@
  * 2021-10-11
  */
 
-import use_case.DeliveryStaff;
-import controller.Kitchen;
-import use_case.RestaurantInfo;
-import entity.Dish;
-import entity.Order;
+import UseCase.DeliveryStaff;
+import Controller.Kitchen;
+import UseCase.RestaurantInfo;
+import entities.Dish;
+import entities.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -33,7 +33,7 @@ public class DeliveryStaffTest {
         orderOne = new Order(RestaurantInfo.ADDRESS, dishList);
     }
 
-    @Test
+    @Test(timeout = 50)
     public void testDeliverOrder() {
         assertFalse(deliveryStaff.deliverOrder());
         Kitchen.deliveryBuffer.add(orderOne);

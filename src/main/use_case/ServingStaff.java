@@ -1,7 +1,7 @@
-package use_case;
+package UseCase;
 
-import controller.Kitchen;
-import entity.*;
+import Controller.Kitchen;
+import entities.*;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
