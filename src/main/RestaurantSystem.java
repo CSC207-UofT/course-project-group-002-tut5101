@@ -52,7 +52,6 @@ public class RestaurantSystem {
                             break;
                         case 3:
                             break;
-
                     }
                 } else if (currentUser instanceof Manager) {
                     String actionList = "Welcome Back! Please enter number of the action listed below:\n" +
