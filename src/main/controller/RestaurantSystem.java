@@ -89,7 +89,7 @@ public class RestaurantSystem {
                         case 1:
                             if (currentServingStaff.getServeDish()) {
                                 System.out.println("Table: " + currentServingStaff.getTableNum() +
-                                        " Dish: " + currentServingStaff.getDish().toString());
+                                        " Dish: " + currentServingStaff.getDish().getName() + "\n");
                             } else {
                                 System.out.println("Currently no dish to be served");
                             }
