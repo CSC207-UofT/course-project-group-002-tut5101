@@ -1,6 +1,6 @@
 ## Scenario Walkthrough
-A dine-in use_case.Customer checks the menu of the restaurant, which obtains a list of dishes and their prices from DishList. When the use_case.Customer
-places an entity.Order on PlaceOrderQueue, the total price is calculated and returned to the use_case.Customer.
+A dine-in use_case.Customer checks the DishList from the RestaurantSystem, which obtains a list of dishes and their prices from DishList. When the use_case.Customer
+places an entity.Order on PlaceOrderQueue, the total price is calculated and returned to the Customer.
 
 The kitchen will repeatedly ask for orders to be cooked, when they finish a dish, they update the ingredient quantity in
 the inventory, and they check if this dish belongs to a delivery order or a dine-in order. If dine-in order, then add
