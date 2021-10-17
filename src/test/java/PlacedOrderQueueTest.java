@@ -1,10 +1,12 @@
-/** Test file for PlacedOrderQueue class
+/** Test file for UseCase.PlacedOrderQueue class
  * By Dedong Xie
  * 2021-10-11
  */
-import entities.Inventory;
-import entities.InventoryList;
-import entities.Meat;
+import use_case.PlacedOrderQueue;
+import entity.Dish;
+import use_case.InventoryList;
+import entity.Meat;
+import entity.Order;
 import org.junit.*;
 
 import java.util.ArrayList;

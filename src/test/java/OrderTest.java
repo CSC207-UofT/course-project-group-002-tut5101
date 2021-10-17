@@ -1,3 +1,5 @@
+import entity.Dish;
+import entity.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -28,16 +30,16 @@ public class OrderTest {
 
     @Test(timeout = 50)
     public void testGetOrderStatus() {
-        assertTrue(orderDineIn.getOrderStatus() == "Order Placed");
-        assertTrue(orderTakeOut.getOrderStatus() == "Order Placed");
+        assertTrue(orderDineIn.getOrderStatus() == "entities.Order Placed");
+        assertTrue(orderTakeOut.getOrderStatus() == "entities.Order Placed");
     }
 
     @Test(timeout = 50)
     public void testSetOrderStatus() {
-        orderDineIn.setOrderStatus("Order Cooked");
-        orderTakeOut.setOrderStatus("Order Delivered");
-        assertTrue(orderDineIn.getOrderStatus() == "Order Cooked");
-        assertTrue(orderTakeOut.getOrderStatus() == "Order Delivered");
+        orderDineIn.setOrderStatus("entities.Order Cooked");
+        orderTakeOut.setOrderStatus("entities.Order Delivered");
+        assertTrue(orderDineIn.getOrderStatus() == "entities.Order Cooked");
+        assertTrue(orderTakeOut.getOrderStatus() == "entities.Order Delivered");
     }
 
 }

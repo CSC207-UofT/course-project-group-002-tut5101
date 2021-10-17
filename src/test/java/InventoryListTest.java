@@ -1,4 +1,5 @@
-import entities.*;
+import use_case.InventoryList;
+import entity.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

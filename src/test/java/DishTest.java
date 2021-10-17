@@ -1,9 +1,10 @@
 /**
- * Tests for Dish Class
+ * Tests for entities.Dish Class
  *
  * @author Chan Yu & Naihe Xiao
  */
 
+import entity.Dish;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,14 +38,14 @@ public class DishTest {
         assertEquals(3, dish2.getIngredients().size());
     }
 
-    @Test(timeout = 300)
+    @Test
     public void testToString() {
         assertEquals(dish1.toString(), "MaPoTouFu\n" +
-                "\t$12.5\n" +
-                "\tIngredients:{Spice=1.0, Garlic=15.0, Tofu=10.0}\n" +
-                "\tfeatures:{}\n" +
-                "\tcalories:200.0 cal/100g\n" +
-                "\tallergyInformation:'none\n" +
+                "\t$$12.5\n" +
+                "\tIngredients: {Spice=1.0, Garlic=15.0, Tofu=10.0}\n" +
+                "\tfeatures: {}\n" +
+                "\tcalories: 200.0 cal/100g\n" +
+                "\tallergyInformation: none\n" +
                 "------------------------------\n");
     }
 

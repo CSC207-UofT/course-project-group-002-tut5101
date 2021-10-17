@@ -10,33 +10,33 @@ Customers can order different quantities of food and see their total price
 
 Customers can ask for staff assistance and mark requests as complete 
 
-### Kitchen
+### Controller.Kitchen
 
 Once the order is sent, kitchen workers can see a list of orders and check off when orders are ready to be served 
 
 The kitchen can check the ingredients and their status (including freeze or not, freshness) and update the status and their numbers of ingredients 
 
-### Delivery Staff
+### Delivery entities.Staff
 
 Deliver services—takeaway people can see the order’s destination, time, dishes, additional requirements, estimated time of arrival. 
 
-### Serving Staff
+### Serving entities.Staff
 
 Serving staff can see which tables ordered a certain dish and when the kitchen marks the dish as ready, as well as when the dishes have been delivered to the table 
 
-Staff can see when customers require assistance 
+entities.Staff can see when customers require assistance 
 
-Staff can choose to only see orders pertaining to the tables they are assigned by the manager 
+entities.Staff can choose to only see orders pertaining to the tables they are assigned by the manager 
 
-### Inventory Staff 
+### Inventory entities.Staff 
 
 Check and update the freshness and quantity of inventory items. 
 
-### Manager
+### UseCase.Manager
 
 Managers can see the quantity of each dish sold over a customizable period of time 
 
-Manager can use a timetable to arrange the prices of dishes (special offer) in the following day/week/month/season. They can decide to lower the price of a dish with small demand and raise those with higher demand. They can determine discounts according to specific events or seasons on dishes. 
+UseCase.Manager can use a timetable to arrange the prices of dishes (special offer) in the following day/week/month/season. They can decide to lower the price of a dish with small demand and raise those with higher demand. They can determine discounts according to specific events or seasons on dishes. 
 
 Managers can assign staff to certain tables 
 
@@ -44,7 +44,7 @@ Managers can assign staff to certain tables
 
 When a product is sold out based on the inventory, the product will show up as sold out on the menu so customers cannot order more  
 
-Manager can manage the type and quantity of raw materials needed per day and per week (some materials need to be updated daily and some weekly). 
+UseCase.Manager can manage the type and quantity of raw materials needed per day and per week (some materials need to be updated daily and some weekly). 
 
 ### Review
 

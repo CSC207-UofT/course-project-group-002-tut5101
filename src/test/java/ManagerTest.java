@@ -1,9 +1,10 @@
 /**
- * Tests for Manager Class
+ * Tests for UseCase.Manager Class
  *
  * @author Chan Yu & Naihe Xiao
  */
 
+import use_case.Manager;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class ManagerTest {
     @Test(timeout = 50)
     public void testManagerConstructorWOParam() {
         assertEquals(manager.getId(), "defaultuserid");
-        assertEquals(manager.getName(), "Default User");
+        assertEquals(manager.getName(), "Default entities.User");
         assertEquals(manager.getPassword(), "12345");
     }
 

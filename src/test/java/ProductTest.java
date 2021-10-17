@@ -1,7 +1,7 @@
-import entities.Alcohol;
-import entities.Product;
-import entities.SemiFinished;
-import entities.SoftDrink;
+import entity.Alcohol;
+import entity.Product;
+import entity.SemiFinished;
+import entity.SoftDrink;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
