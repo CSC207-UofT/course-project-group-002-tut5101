@@ -89,16 +89,16 @@ public class RestaurantSystem {
                         case 1:
                             if (currentServingStaff.getServeDish()) {
                                 System.out.println("Table: " + currentServingStaff.getTableNum() +
-                                        "Dish: " + currentServingStaff.getDish().toString());
+                                        " Dish: " + currentServingStaff.getDish().toString());
                             } else {
                                 System.out.println("Currently no dish to be served");
                             }
                             break;
                         case 2:
                             if (currentServingStaff.completeDish()) {
-                                System.out.println("Dish marked as completed");
+                                System.out.println("Dish marked as completed\n");
                             } else {
-                                System.out.println("You served air!");
+                                System.out.println("You served air!\n");
                             }
                             break;
                     }
@@ -128,6 +128,7 @@ public class RestaurantSystem {
                             int dishToBeCooked = actionPicker(actionList.toString(), scanner);
                             if (1 <= dishToBeCooked && dishToBeCooked <= dishList.size()) {
                                 Kitchen.cookedDish(dishList.get(dishToBeCooked-1));
+                                System.out.println("Dish marked as cooked.\n");
                             } else {
                                 System.out.println("Invalid dish number: " + dishToBeCooked);
                             }
