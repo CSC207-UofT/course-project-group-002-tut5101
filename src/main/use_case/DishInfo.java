@@ -6,6 +6,7 @@ import entity.Dish;
  * A "tuple" that contains the information of a dine-in dish.
  * The first element is the table number of this dish, and the second element is the dish itself.
  */
+// TODO: Delete?
 public class DishInfo {
     private int tableNum;
     private Dish dish;

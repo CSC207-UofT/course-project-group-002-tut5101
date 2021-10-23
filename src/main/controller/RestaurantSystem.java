@@ -58,7 +58,7 @@ public class RestaurantSystem {
                                 }
                                 Order customerOrder = new Order(1, orderedDishes);
                                 System.out.println(customerOrder.toString());
-                                if (!PlacedOrderQueue.addOrder(customerOrder)) {
+                                if (!OrderQueue.addOrder(customerOrder)) {
                                     System.out.println("Your order cannot be placed\n\n");
                                     break;
                                 }

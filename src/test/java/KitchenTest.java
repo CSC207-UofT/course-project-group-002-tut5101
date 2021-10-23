@@ -1,4 +1,4 @@
-import controller.Kitchen;
+import use_case.Kitchen;
 import entity.Dish;
 import entity.Inventory;
 import entity.Meat;

@@ -11,11 +11,17 @@ public class Order {
     static String COOKED = "Order Cooked";
     static String DELIVERED = "Order Delivered";
     static String COMPLETE = "Order Complete";
-    static String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
+
+    public enum Status {
+        PLACED,
+        COOKED,
+        DELIVERED,
+        COMPLETE
+    }
 
     private List<Dish> dishes;
     private boolean dineIn;
-    private String orderStatus;
+    private Status orderStatus;
     private int tableNum;
     private String address;
 
@@ -23,7 +29,7 @@ public class Order {
     public Order(int tableNum, List<Dish> dishes){
         this.dishes = dishes;
         this.dineIn = true;
-        this.orderStatus = PLACED;
+        this.orderStatus = Status.PLACED;
         this.tableNum = tableNum;
     }
 
@@ -31,15 +37,12 @@ public class Order {
     public Order(String address, List<Dish> dishes){
         this.dishes = dishes;
         this.dineIn = false;
-        this.orderStatus = PLACED;
+        this.orderStatus = Status.PLACED;
         this.address = address;
     }
 
-    public static String getDelivered(){return DELIVERED;}
-
-
     public String getOrderStatus() {
-        return orderStatus;
+        return orderStatus.toString();
     }
 
     public String getOrderDineInOrTakeOut() {
@@ -65,7 +68,7 @@ public class Order {
             }
         }
         // If all dishes are complete, update the order status and return true
-        this.orderStatus = COOKED;
+        this.orderStatus = Status.COOKED;
         return true;
     }
 
@@ -74,16 +77,11 @@ public class Order {
      * @param status is the status to set the order as
      * @throws Exception status is not one of the allowable status in statuses
      */
-    public void setOrderStatus(String status){
+    public void setOrderStatus(Status status) {
         //TODO: throw exception if status is not one of the allowable status in statuses
-        for (String s: statuses){
-            if (s == status) {
-                this.orderStatus = status;
-            }
-        }
-
-
+        this.orderStatus = status;
     }
+
 
     @Override
     public String toString() {

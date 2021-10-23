@@ -1,6 +1,5 @@
 package use_case;
 
-import controller.Kitchen;
 import entity.Order;
 import entity.Staff;
 
@@ -28,7 +27,7 @@ public class DeliveryStaff extends Staff {
     public boolean deliverOrder() {
         try {
             Order orderToBeDelivered = Kitchen.getDeliveryOrder();
-            orderToBeDelivered.setOrderStatus(Order.getDelivered());
+            orderToBeDelivered.setOrderStatus(Order.Status.DELIVERED);
             //TODO: Combine with the functionality of map to get distance
         } catch (Exception e) {
             System.out.println("No order to be delivered, delivery list empty." + e.getMessage());

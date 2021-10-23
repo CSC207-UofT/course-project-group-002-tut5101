@@ -5,7 +5,7 @@
  */
 
 import use_case.DeliveryStaff;
-import controller.Kitchen;
+import use_case.Kitchen;
 import use_case.RestaurantInfo;
 import entity.Dish;
 import entity.Order;

@@ -8,7 +8,7 @@ This is used to test the functionality of serving staff.
 Assume that Controller.Kitchen is implemented properly.
  */
 
-import controller.Kitchen;
+import use_case.Kitchen;
 import use_case.DishInfo;
 import use_case.ServingStaff;
 import entity.*;

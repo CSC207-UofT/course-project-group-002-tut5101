@@ -16,7 +16,7 @@ public class PlacedOrderQueue {
 
     private static Queue<Order> placedOrderQueue = new ArrayDeque<Order>();
 
-    public PlacedOrderQueue() {
+    public OrderQueue() {
         placedOrderQueue = new ArrayDeque<Order>();
     }
 
@@ -38,13 +38,9 @@ public class PlacedOrderQueue {
         // Check if the inventory is enough for cooking the order
         // If not enough, reject the order.
         if(!inventoryAvailable(newOrder.getDishes())) {
-            System.out.println("No enough ingredients");
-            return false;
+            throw new Exception("Inventory not available for the order");
         }
-        System.out.println("Try to add");
         placedOrderQueue.add(newOrder);
-        System.out.println("Added successfully");
-        return true;
     }
 
     /**

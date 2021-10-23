@@ -1,10 +1,7 @@
-package controller;
+package use_case;
 
 import entity.Dish;
 import entity.Order;
-import use_case.DishInfo;
-import use_case.InventoryList;
-import use_case.PlacedOrderQueue;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -68,7 +65,7 @@ public class Kitchen {
      * Get the next order to cook from the placeOrderQueue instance.
      */
     public static boolean getNextToCook(){
-        currentOrder = PlacedOrderQueue.getNextOrder();
+        currentOrder = OrderQueue.getNextOrder();
         return currentOrder != null;
     }
 
