@@ -175,7 +175,7 @@ public class RestaurantSystem {
         if (userList.getUsers().containsKey(id)) {
             System.out.print("Please enter your password: ");
             String password = scanner.next();
-            if (userList.getUsers().get(id).getPassword().equals(password)) {
+            if (userList.getUsers().get(id).passwordMatches(password)) {
                 login = true;
                 currentUser = userList.getUsers().get(id);
             } else {
