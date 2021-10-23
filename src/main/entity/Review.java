@@ -1,6 +1,6 @@
 package entity;
 
-public class Review{
+public class Review implements Rate, Comment, ComplainStuff{
 
     public String user_id;
     public String review;
@@ -57,6 +57,21 @@ public class Review{
         }
     }
 
+    @Override
+    public int addRate(int number) {
+        return number;
+    }
 
+    @Override
+    public String addComment(String newComment) {
+        review = newComment;
+        return review;
+    }
+
+    @Override
+    public String complainStuff(String newComplain) {
+        complainStaff = newComplain;
+        return complainStaff;
+    }
 
 }
