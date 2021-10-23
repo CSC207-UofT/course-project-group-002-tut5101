@@ -13,7 +13,7 @@ public class CustomerUseCase {
      * @param order
      * @return a string containing comments and suggestions.
      */
-    public String leaveReview(Customer customer, ServingStaff serve, Order order){
+    public String LeaveReview(Customer customer, ServingStaff serve, Order order){
         String good = "good";
         return good;
     }
@@ -26,7 +26,7 @@ public class CustomerUseCase {
      * @param serve
      * @return true if the customer want to complain about a server. Update the server information.
      */
-    public boolean complain(Customer customer, ServingStaff serve){
+    public boolean Complain(Customer customer, ServingStaff serve){
         String damn = "damn";
         return true;
     }
@@ -39,7 +39,7 @@ public class CustomerUseCase {
      * @param serve
      * @return true if assistance if provided.
      */
-    public boolean assistance(Customer customer, ServingStaff serve){
+    public boolean Assistance(Customer customer, ServingStaff serve){
         String help = "help";
         return true;
     }
@@ -51,7 +51,7 @@ public class CustomerUseCase {
      * @param customer
      * @return true if the customer pays the bill and the restaurant profit is updated.
      */
-    public boolean payBill(Customer customer){
+    public boolean PayBill(Customer customer){
         return true;
     }
     //TODO: write this method.
