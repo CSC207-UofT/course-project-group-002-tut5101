@@ -1,4 +1,4 @@
-package use_case;
+package entity;
 
 import entity.User;
 
@@ -34,6 +34,6 @@ public class Manager extends User {
      */
     @Override
     public String toString() {
-        return "(UseCase.Manager) " + super.toString();
+        return "(Manager) " + super.toString();
     }
 }
