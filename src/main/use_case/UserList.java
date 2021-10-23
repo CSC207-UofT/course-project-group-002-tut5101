@@ -5,18 +5,29 @@ package use_case; /*
  */
 
 import entity.User;
-
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 
-public class UserList {
-    private HashMap<String, User> users;
+public class UserList implements Serializable {
+
+    //private HashMap<String, User> users;
+    private final Map<String, User> users = new HashMap<>();
+//
+//    /**
+//     * Constructor of UseCase.UserList without parameter
+//     */
+//    public UserList() {
+//        this.users = new HashMap<>();
+//    }
 
     /**
-     * Constructor of UseCase.UserList without parameter
+     * Add user to this user list.
+     * @param user the user to add
      */
-    public UserList() {
-        this.users = new HashMap<>();
+    public void add(User user) {
+        users.put(user.getName(), user);
     }
 
     /**
@@ -24,9 +35,8 @@ public class UserList {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public HashMap<String, User> getUsers() {
-        return users;
+    public User getUsers(String username) {
+        return users.get(username);
     }
-
 
 }

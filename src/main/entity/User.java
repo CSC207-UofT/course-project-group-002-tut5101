@@ -1,11 +1,13 @@
 package entity;
 
+import java.io.Serializable;
+
 /**
  * Abstract class of entities.User that contains basic properties for a single user
  *
  * @author Chan Yu & Naihe Xiao
  */
-public abstract class User {
+public class User implements Serializable {
     private String id;
     private String name;
     private String password;
