@@ -4,7 +4,7 @@
  * 2021-10-11
  */
 
-import use_case.DeliveryStaff;
+import entity.DeliveryStaff;
 import use_case.Kitchen;
 import use_case.RestaurantInfo;
 import entity.Dish;

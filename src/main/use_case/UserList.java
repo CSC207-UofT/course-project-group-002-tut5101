@@ -10,7 +10,12 @@ import java.util.HashMap;
 
 
 public class UserList {
-    private HashMap<String, User> users;
+
+    /**
+     * A map of user IDs that refers to a user
+     */
+
+    private static HashMap<String, User> users;
 
     /**
      * Constructor of UseCase.UserList without parameter

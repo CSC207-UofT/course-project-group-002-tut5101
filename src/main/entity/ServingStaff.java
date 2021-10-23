@@ -1,8 +1,10 @@
-package use_case;
+package entity;
 
 
 import entity.Dish;
 import entity.Staff;
+import use_case.DishInfo;
+import use_case.Kitchen;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
@@ -22,8 +24,12 @@ public class ServingStaff extends Staff {
      */
     public ServingStaff(String staffNumber, String staffName, String password, int staffSalary) {
         super(staffNumber, staffName, password, staffSalary);
+        this.currentDish = null;
     }
 
+    public void setCurrentDish(DishInfo currentDish) {
+        this.currentDish = currentDish;
+    }
 
     public boolean completeDish(){
         if (currentDish != null) {
@@ -34,15 +40,6 @@ public class ServingStaff extends Staff {
         return false;
     }
 
-    public boolean getServeDish(){
-        try {
-            this.currentDish = Kitchen.getServingDish();
-        } catch (Exception e) {
-            //System.out.println("No dish to be served, serving list empty." + e.getMessage());
-            return false;
-        }
-        return true;
-    }
 
     public int getTableNum(){
         return this.currentDish.getTableNum();

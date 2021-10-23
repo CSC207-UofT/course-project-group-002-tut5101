@@ -1,7 +1,8 @@
-package use_case;
+package entity;
 
 import entity.Order;
 import entity.Staff;
+import use_case.Kitchen;
 
 /**
  * Class for delivery staff

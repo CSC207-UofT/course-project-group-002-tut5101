@@ -24,11 +24,11 @@ Once the order is sent, kitchen workers can see a list of orders and check off w
 
 The kitchen can check the ingredients and their status (including freeze or not, freshness) and update the status and their numbers of ingredients
 
-### use_case.DeliveryStaff
+### entity.DeliveryStaff
 
 Deliver services—takeaway people can see the order’s destination, time, dishes, additional requirements, estimated time of arrival.
 
-### use_case.ServingStaff
+### entity.ServingStaff
 
 Serving staff can see which tables ordered a certain dish and when the kitchen marks the dish as ready, as well as when the dishes have been delivered to the table
 
