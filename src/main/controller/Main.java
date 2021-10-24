@@ -1,7 +1,6 @@
 package controller;
 
-import UI.CmdUI;
-import UI.ManagerUI;
+import ui.LoginUI;
 import constant.UserType;
 import use_case.DishList;
 import use_case.LoginUseCase;
@@ -20,7 +19,7 @@ public class Main {
     private static void userLogin() {
         LoginUseCase loginUseCase = new LoginUseCase(userList);
         LoginController controller = new LoginController(loginUseCase);
-        CmdUI ui = new CmdUI();
+        LoginUI ui = new LoginUI();
         String userId = ui.runLogin(controller);
         if (userId != null) {
             currentUserId = userId;
