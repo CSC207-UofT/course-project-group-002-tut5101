@@ -1,10 +1,8 @@
 package use_case;
 
-import entity.Manager;
-import entity.Review;
-import entity.Staff;
+import boundary.ManagerInputBoundary;
 
-public class ManagerUseCase {
+public class ManagerUseCase implements ManagerInputBoundary {
 
 //    /**
 //     * Manager issue payment to a specific staff.
@@ -22,8 +20,7 @@ public class ManagerUseCase {
      * // TODO not clear what the staff be assigned for?
      * Manager assign
      *
-     * @param manager the current manager in system
-     * @param staff   the new staff who will be assigned
+     * @param staffId   the new staff id who will be assigned
      * @return true iff the assignment succeed
      */
     public boolean assignServingStaff(String staffId) {
@@ -46,8 +43,7 @@ public class ManagerUseCase {
     /**
      * Manager adjust the menu(dish list).
      *
-     * @param manager the current manager in system
-     * @param menu    the current menu in system
+     * @param menu      the current menu in system
      * @return true     iff the adjustment is made successfully
      */
     public boolean manageMenu(DishList menu) {
@@ -59,7 +55,6 @@ public class ManagerUseCase {
     /**
      * Manager request out of stock status.
      *
-     * @param manager       the current manager in system
      * @param inventoryList the current inventory status in system
      * @return true iff the request is made successfully
      */
@@ -69,8 +64,8 @@ public class ManagerUseCase {
     }
 
     /**
-     * @param manager the current manager in system
-     * @param review  the review that will be updated
+     *
+     * @param review    the review that will be updated
      * @return true iff the adjustment is made successfully
      */
     public boolean deleteReview() {
