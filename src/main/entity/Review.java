@@ -1,8 +1,5 @@
 package entity;
 import java.time.LocalDateTime;
-import java.io.IOException;  // Import the IOException class to handle errors
-import java.io.FileWriter;   // Import the FileWriter class
-
 
 public class Review implements Comment,ComplainStuff,Rate,DayTime,IsAnonymous{
     public String user_name;
