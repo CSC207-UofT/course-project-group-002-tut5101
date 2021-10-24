@@ -6,33 +6,41 @@ package use_case; /*
 
 import entity.User;
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 
-public class UserList {
+public class UserList implements Serializable {
 
-    /**
-     * A map of user IDs that refers to a user
-     */
 
-    private static HashMap<String, User> users;
+    private final Map<String, User> users = new HashMap<>();
 
     /**
-     * Constructor of UseCase.UserList without parameter
+     * Add user to this user list.
+     *
+     * @param user the user to add
      */
-    public UserList() {
-        this.users = new HashMap<>();
+    public void add(User user) {
+        users.put(user.getId(), user);
     }
 
     /**
-     * Return users
+     * Return user by its id
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public HashMap<String, User> getUsers() {
-        return users;
+    public User getUsersByUserId(String id) {
+        return users.get(id);
     }
 
-    public static User getUser(String id) {return users.get(id); }
+//    private HashMap<String, User> users;
+//
+//    /**
+//     * Constructor of UseCase.UserList without parameter
+//     */
+//    public UserList() {
+//        this.users = new HashMap<>();
+//    }
 
 }

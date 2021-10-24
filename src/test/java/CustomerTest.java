@@ -4,7 +4,7 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-import use_case.Customer;
+import entity.Customer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,14 +24,14 @@ public class CustomerTest {
     public void testCustomerConstructor1() {
         assertEquals(customer1.getId(), "defaultuserid");
         assertEquals(customer1.getName(), "Default entities.User");
-        assertEquals(customer1.getPassword(), "12345");
+        assertEquals(customer1.passwordMatches("12345"), "12345");
     }
 
     @Test(timeout = 50)
     public void testCustomerConstructor2() {
         assertEquals(customer2.getId(), "2");
         assertEquals(customer2.getName(), "NaiHe");
-        assertEquals(customer2.getPassword(), "20211011");
+        assertEquals(customer2.passwordMatches("22345"), "22345");
     }
 
 }

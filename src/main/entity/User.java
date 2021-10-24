@@ -1,11 +1,13 @@
 package entity;
 
+import java.io.Serializable;
+
 /**
  * Abstract class of entities.User that contains basic properties for a single user
  *
  * @author Chan Yu & Naihe Xiao
  */
-public abstract class User {
+public class User implements Serializable {
     private String id;
     private String name;
     private String password;
@@ -96,14 +98,16 @@ public abstract class User {
         this.name = name;
     }
 
+
     /**
-     * Get password of entities.User
-     *
-     * @return password of entities.User
+     * Return whether the password parameter matches this user's password.
+     * @param password the password guess
+     * @return whether the guess matches the real password.
      */
-    public String getPassword() {
-        return password;
+    public boolean passwordMatches(String password) {
+        return this.password.equals(password);
     }
+
 
     /**
      * Set password of entities.User

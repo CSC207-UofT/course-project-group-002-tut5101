@@ -206,10 +206,16 @@ public class Dish {
      */
     @Override
     public String toString() {
+
+        StringBuilder ingString = new StringBuilder();
+        for (String ing: ingredients.keySet()){
+            ingString.append(ingredients.get(ing) + " " + ing + "  ");
+        }
+
         return name +
                 "\n\t\t$$" + price +
-                "\n\t\tIngredients: " + ingredients +
-                "\n\t\tfeatures: " + features +
+                "\n\t\tIngredients: " + ingString +
+//                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
                 "\n\t\tallergyInformation: " + allergyInformation +
                 "\n------------------------------\n";
