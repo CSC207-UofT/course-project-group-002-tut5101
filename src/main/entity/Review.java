@@ -1,6 +1,12 @@
 package entity;
 
-public class Review implements Rate, Comment, ComplainStuff{
+import use_case.Customer;
+
+import java.time.LocalDateTime;
+import java.io.File;  // Import the File class
+import java.io.IOException;  // Import the IOException class to handle errors
+
+public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     public String user_id;
     public String review;
@@ -59,7 +65,10 @@ public class Review implements Rate, Comment, ComplainStuff{
 
     @Override
     public int addRate(int number) {
-        return number;
+        if (number <= 0){
+            return 0;
+        } else return Math.min(number, 5);
+
     }
 
     @Override
@@ -74,4 +83,10 @@ public class Review implements Rate, Comment, ComplainStuff{
         return complainStaff;
     }
 
+    @Override
+    public LocalDateTime reviewDate() {
+        return LocalDateTime.now();
+    }
+
 }
+
