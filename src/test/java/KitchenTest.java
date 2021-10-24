@@ -1,8 +1,5 @@
+import entity.*;
 import use_case.Kitchen;
-import entity.Dish;
-import entity.Inventory;
-import entity.Meat;
-import entity.Order;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.*;

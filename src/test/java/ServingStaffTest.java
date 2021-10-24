@@ -10,7 +10,7 @@ Assume that Controller.Kitchen is implemented properly.
 
 import use_case.Kitchen;
 import use_case.DishInfo;
-import use_case.ServingStaff;
+import entity.ServingStaff;
 import entity.*;
 import org.junit.Before;
 import org.junit.Test;

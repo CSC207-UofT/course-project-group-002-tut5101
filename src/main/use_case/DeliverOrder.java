@@ -8,8 +8,7 @@ public class DeliverOrder {
         User user = UserList.getUser(id);
 
         if (user instanceof DeliveryStaff){
-            //TODO: Finish this part in DeliveryStaff
-           //  ((DeliveryStaff) user).completeServingDish();
+           ((DeliveryStaff) user).completeOrderDelivery();
         } else {
             throw new Exception("Not a delivery staff");
         }
@@ -19,8 +18,7 @@ public class DeliverOrder {
         User user = UserList.getUser(id);
 
         if (user instanceof DeliveryStaff){
-            //TODO: Finish this part in DeliveryStaff
-           // ((DeliveryStaff) user).setCurrentDish(Kitchen.getServingDish());
+           ((DeliveryStaff) user).setCurrentOrder(Kitchen.getDeliveryOrder());
         } else {
             throw new Exception("Not a delivery staff");
         }

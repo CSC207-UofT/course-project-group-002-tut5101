@@ -1,7 +1,5 @@
 package entity;
 
-import entity.Order;
-import entity.Staff;
 import use_case.Kitchen;
 
 /**
@@ -11,6 +9,9 @@ import use_case.Kitchen;
  */
 
 public class DeliveryStaff extends Staff {
+
+    private Order currentOrder;
+
     /**
      * Construct an instance of s delivery staff
      * @param staffName The name of the staff
@@ -19,12 +20,14 @@ public class DeliveryStaff extends Staff {
      */
     public DeliveryStaff(String staffNumber, String staffName, String password, int staffSalary) {
         super(staffNumber, staffName, password, staffSalary);
+        this.currentOrder = null;
     }
 
     /**
      * Let a delivery staff to get a dish to be delivered and deliver it to the destination
      * @return Return true on successful delivery, false otherwise
      */
+
     public boolean deliverOrder() {
         try {
             Order orderToBeDelivered = Kitchen.getDeliveryOrder();
@@ -35,6 +38,18 @@ public class DeliveryStaff extends Staff {
             return false;
         }
         return true;
+    }
+
+    public void setCurrentOrder(Order order) {
+        this.currentOrder = order;
+    }
+
+    public void completeOrderDelivery() {
+        if (currentOrder != null) {
+            this.currentOrder.setOrderStatus(Order.Status.COMPLETE);
+            currentOrder = null;
+        }
+    }
     }
 
 }

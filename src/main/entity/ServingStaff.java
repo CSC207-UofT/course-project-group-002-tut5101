@@ -1,10 +1,7 @@
 package entity;
 
 
-import entity.Dish;
-import entity.Staff;
 import use_case.DishInfo;
-import use_case.Kitchen;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
@@ -35,9 +32,7 @@ public class ServingStaff extends Staff {
         if (currentDish != null) {
             this.currentDish.getDish().setStatus("served");
             currentDish = null;
-            return true;
         }
-        return false;
     }
 
 
