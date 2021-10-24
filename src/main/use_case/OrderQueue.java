@@ -12,7 +12,7 @@ import java.util.*;
  * 2021-10-10
  */
 
-public class PlacedOrderQueue {
+public class OrderQueue {
 
     private static Queue<Order> placedOrderQueue = new ArrayDeque<Order>();
 
@@ -26,7 +26,7 @@ public class PlacedOrderQueue {
      * @param newOrder The order to be added to the orderList
      * @return True on successful add, false on order too far or not enough ingredients
      */
-    public static boolean addOrder(Order newOrder) {
+    public static void addOrder(Order newOrder) throws Exception {
         // TODO: Check if the distance is out of range of delivery for delivery
         // Assume it is called Map to get distance of points on the map
         /*

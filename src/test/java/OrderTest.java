@@ -1,5 +1,6 @@
 import entity.Dish;
 import entity.Order;
+import entity.OrderInterface;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -36,8 +37,8 @@ public class OrderTest {
 
     @Test(timeout = 50)
     public void testSetOrderStatus() {
-        orderDineIn.setOrderStatus("entities.Order Cooked");
-        orderTakeOut.setOrderStatus("entities.Order Delivered");
+        orderDineIn.setOrderStatus(OrderInterface.Status.PLACED);
+        orderTakeOut.setOrderStatus(OrderInterface.Status.DELIVERED);
         assertTrue(orderDineIn.getOrderStatus() == "entities.Order Cooked");
         assertTrue(orderTakeOut.getOrderStatus() == "entities.Order Delivered");
     }

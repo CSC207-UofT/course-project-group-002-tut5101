@@ -10,18 +10,20 @@ import java.util.HashMap;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList {
-    private HashMap<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        this.menu = new HashMap<>();
+        menu = new HashMap<>();
     }
 
     public DishList(DishList dishList) {
-        this.menu = dishList.getDishes();
+        menu = dishList.getAllDishes();
     }
+
+    public static Dish getDish(String dish) {return menu.get(dish); }
 
 
     /**
@@ -29,8 +31,8 @@ public class DishList {
      *
      * @return
      */
-    public HashMap<String, entity.Dish> getDishes() {
-        return this.menu;
+    public static HashMap<String, entity.Dish> getAllDishes() {
+        return menu;
     }
 
     /**
@@ -39,7 +41,7 @@ public class DishList {
      * @return true with inventory, or false if out of stock.
      *
      */
-    public boolean hasInventoryOfTheDish() {
+    public static boolean hasInventoryOfTheDish() {
         return false;
     }
 

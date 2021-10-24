@@ -33,5 +33,6 @@ public class UserList {
         return users;
     }
 
+    public static User getUser(String id) {return users.get(id); }
 
 }

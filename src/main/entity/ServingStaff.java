@@ -28,7 +28,7 @@ public class ServingStaff extends Staff {
         this.currentDish = currentDish;
     }
 
-    public boolean completeDish(){
+    public void completeServingDish(){
         if (currentDish != null) {
             this.currentDish.getDish().setStatus("served");
             currentDish = null;
