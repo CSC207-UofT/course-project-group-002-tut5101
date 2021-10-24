@@ -1,5 +1,7 @@
 package entity;
 
+import constant.ItemStatus;
+
 import java.util.HashMap;
 
 
@@ -34,7 +36,7 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
+        this.status = ItemStatus.DISH_PLACED;
     }
 
     /**
@@ -53,7 +55,7 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
+        this.status = ItemStatus.DISH_PLACED;
         this.category = category;
     }
 

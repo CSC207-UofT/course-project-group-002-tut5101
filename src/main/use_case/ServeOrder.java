@@ -19,7 +19,7 @@ public class ServeOrder {
         User user = UserList.getUserByUserId(id);
 
         if (user instanceof ServingStaff){
-            ((ServingStaff) user).setCurrentDish(Kitchen.getServingDish());
+            ((ServingStaff) user).setCurrentDish(ServingBuffer.getNextToServe());
         } else {
             throw new Exception("Not a serving staff");
         }

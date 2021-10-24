@@ -1,6 +1,11 @@
 package entity;
 
 
+import boundary.PlaceOrderInputBoundary;
+import constant.ItemStatus;
+import use_case.DishList;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -9,28 +14,24 @@ import java.util.Objects;
 public class Order {
     private ArrayList<String[]> dishes;
     private boolean dineIn;
-    private Status orderStatus;
+    private String orderStatus;
     private int tableNum;
     private String address;
 
     // initialize dine-in order
-    public Order(int tableNum, List<Dish> dishes){
+    public Order(int tableNum, ArrayList<String[]> dishes){
         this.dishes = dishes;
         this.dineIn = true;
-        this.orderStatus = Status.PLACED;
+        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.tableNum = tableNum;
     }
 
     // initialize delivery order
-    public Order(String address, List<Dish> dishes){
+    public Order(String address, ArrayList<String[]> dishes){
         this.dishes = dishes;
         this.dineIn = false;
-        this.orderStatus = Status.PLACED;
+        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.address = address;
-    }
-
-    public String getOrderStatus() {
-        return orderStatus.toString();
     }
 
     public String getOrderDineInOrTakeOut() {
@@ -69,8 +70,7 @@ public class Order {
         }
 
         // If all dishes are complete, update the order status and return true
-        this.orderStatus = Status.COOKED;
-        return true;
+        this.orderStatus = ItemStatus.ORDER_COOKED;
     }
 
     /**
@@ -78,8 +78,8 @@ public class Order {
      * @param status is the status to set the order as
      * @throws Exception status is not one of the allowable status in statuses
      */
-    public void setOrderStatus(Status status) {
-        //TODO: throw exception if status is not one of the allowable status in statuses
+    public void setOrderStatus(String status) {
+        // TODO: handle exception for when status is not allowable
         this.orderStatus = status;
     }
 
@@ -101,10 +101,18 @@ public class Order {
         return price;
     }
 
+    /**
+     * Get the table number to be delivered for the order
+     * @return the table number of the dine-in order.
+     */
     public int getTableNum() {
         return this.tableNum;
     }
 
+    /**
+     * Get the address of the destination of the delivery order
+     * @return the address of the destination of the order
+     */
     public String getAddress() {
         return this.address;
     }

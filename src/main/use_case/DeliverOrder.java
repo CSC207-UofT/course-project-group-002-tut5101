@@ -4,8 +4,8 @@ import entity.DeliveryStaff;
 import entity.User;
 
 public class DeliverOrder {
-    public void Served(String id) throws Exception{
-        User user = UserList.getUser(id);
+    public void Delivered(String id) throws Exception{
+        User user = UserList.getUserByUserId(id);
 
         if (user instanceof DeliveryStaff){
             // TODO: show the delivery route here?
@@ -15,11 +15,11 @@ public class DeliverOrder {
         }
     }
 
-    public void getToServe(String id) throws Exception{
-        User user = UserList.getUser(id);
+    public void getOrderToBeDelivered(String id) throws Exception{
+        User user = UserList.getUserByUserId(id);
 
         if (user instanceof DeliveryStaff){
-           ((DeliveryStaff) user).setCurrentOrder(Kitchen.getDeliveryOrder());
+           ((DeliveryStaff) user).setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
         } else {
             throw new Exception("Not a delivery staff");
         }

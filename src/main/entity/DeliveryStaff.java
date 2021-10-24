@@ -1,5 +1,6 @@
 package entity;
 
+import constant.ItemStatus;
 import use_case.Kitchen;
 
 /**

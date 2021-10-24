@@ -14,14 +14,14 @@ import java.util.Map;
 public class UserList implements Serializable {
 
 
-    private final Map<String, User> users = new HashMap<>();
+    private static final Map<String, User> users = new HashMap<>();
 
     /**
      * Add user to this user list.
      *
      * @param user the user to add
      */
-    public void add(User user) {
+    public static void add(User user) {
         users.put(user.getId(), user);
     }
 
@@ -30,7 +30,7 @@ public class UserList implements Serializable {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public User getUsersByUserId(String id) {
+    public static User getUserByUserId(String id) {
         return users.get(id);
     }
 
