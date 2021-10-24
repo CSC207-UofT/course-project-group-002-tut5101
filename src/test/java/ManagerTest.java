@@ -24,14 +24,14 @@ public class ManagerTest {
     public void testManagerConstructorWOParam() {
         assertEquals(manager.getId(), "defaultuserid");
         assertEquals(manager.getName(), "Default entities.User");
-        assertEquals(manager.getPassword(), "12345");
+        assert(manager.passwordMatches("12345"));
     }
 
-    @Test(timeout = 50)
+    @Test(timeout = 200)
     public void testManagerConstructorWParam() {
         assertEquals(manager2.getId(), "1");
         assertEquals(manager2.getName(), "Chan");
-        assertEquals(manager2.getPassword(), "12346");
+        assert(manager2.passwordMatches("12346"));
     }
 
 }
