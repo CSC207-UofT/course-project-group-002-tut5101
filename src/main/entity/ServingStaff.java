@@ -1,7 +1,7 @@
 package entity;
 
 
-import use_case.DishInfo;
+// import use_case.DishInfo;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
