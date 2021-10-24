@@ -11,7 +11,7 @@ import use_case.DishInfo;
 
 public class ServingStaff extends Staff {
 
-    private DishInfo currentDish;
+    private String[] currentDish;
 
     /**
      * Construct an instance of s serving staff
@@ -24,7 +24,7 @@ public class ServingStaff extends Staff {
         this.currentDish = null;
     }
 
-    public void setCurrentDish(DishInfo currentDish) {
+    public void setCurrentDish(String[] currentDish) {
         this.currentDish = currentDish;
     }
 

@@ -57,4 +57,10 @@ public class DishList {
         }
         return menuString.toString();
     }
+
+    public static Dish getDishInfo(String dishName) {
+        // TODO: handle dish name not in menu case
+        return menu.get(dishName);
+    }
+
 }

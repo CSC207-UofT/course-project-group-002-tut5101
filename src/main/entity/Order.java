@@ -2,6 +2,7 @@ package entity;
 
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -108,8 +109,16 @@ public class Order {
         return this.address;
     }
 
-    public List<Dish> getDishes() {
-        return this.dishes;
+    /**
+     * Return all the dishes in the order with duplication
+     * @return The list of all the dishes in the order with duplication
+     */
+    public List<String> getDishes() {
+        List<String> dishNames = new ArrayList<String>();
+        for (String[] dishAndStatus: dishes) {
+            dishNames.add(dishAndStatus[0]);
+        }
+        return dishNames;
     }
 
 }

@@ -1,9 +1,11 @@
 package use_case;
 
-import entity.Staff;
+import entity.Dish;
+
+import java.util.HashMap;
 
 /**
- * The inventory staff responsible for managing the freshness and quantity of all inventory items.
+ * The inventory use case responsible for managing the freshness and quantity of all inventory items.
  */
 
 public class UpdateInventory {
@@ -35,8 +37,21 @@ public class UpdateInventory {
         InventoryList.setQuantity(name, newQuantity);
     }
 
+
+    /**
+     * Update the inventory using the quantity of each ingredient that this dish needs.
+     * @param dish the dish that is cooked.
+     */
+    private static void updateInventory(Dish dish){
+        HashMap<String, Double> ingredients = dish.getIngredients();
+        for (String item: ingredients.keySet()){
+            double newQuantity = InventoryList.getTotalQuantity(item) - ingredients.get(item);
+            InventoryList.setQuantity(item, newQuantity);
+        }
+        // TODO: handle cases when the new quantity is negative.
+    }
+
     //TODO: the idea of having an automatic expire date checking function is nice. When an ingredient
     // is close to its expire date, the inventory staff should notifications regarding it.
-
 
 }

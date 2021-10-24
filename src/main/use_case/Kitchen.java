@@ -1,5 +1,6 @@
 package use_case;
 
+import constant.ItemStatus;
 import entity.Dish;
 import entity.Order;
 
@@ -19,24 +20,6 @@ import java.util.Queue;
  */
 
 public class Kitchen {
-
-    /**
-     * A static instance of the PlaceOrderQueue class. The Controller.Kitchen uses this instance to
-     * access the next order to be cooked.
-     */
-    //public static PlacedOrderQueue placeOrderQueue = new PlacedOrderQueue();
-
-    /**
-     * The buffer queue where each element is a "tuple" of table number and a dish; the serving
-     * staff calls method to access the next dish to be served.
-     */
-    public static Queue<DishInfo> servingBuffer = new ArrayDeque<>();
-
-    /**
-     * The buffer queue of completed orders for delivery staff to access.
-     */
-    public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
-
     /**
      * The current order that the Controller.Kitchen is working on.
      */
