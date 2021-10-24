@@ -28,7 +28,8 @@ public class DeliveryStaff extends Staff {
      * @return Return true on successful delivery, false otherwise
      */
 
-    public boolean deliverOrder() {
+        //TODO: REMOVE LATER? MOVE TO DeliverOrder?
+   /** public boolean deliverOrder() {
         try {
             Order orderToBeDelivered = Kitchen.getDeliveryOrder();
             orderToBeDelivered.setOrderStatus(Order.Status.DELIVERED);
@@ -39,6 +40,8 @@ public class DeliveryStaff extends Staff {
         }
         return true;
     }
+    **/
+
 
     public void setCurrentOrder(Order order) {
         this.currentOrder = order;
@@ -50,6 +53,6 @@ public class DeliveryStaff extends Staff {
             currentOrder = null;
         }
     }
-    }
-
 }
+
+
