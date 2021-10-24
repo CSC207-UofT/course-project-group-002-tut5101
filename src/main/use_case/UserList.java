@@ -5,6 +5,7 @@ package use_case; /*
  */
 
 import entity.User;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +13,28 @@ import java.util.Map;
 
 public class UserList implements Serializable {
 
-    //private HashMap<String, User> users;
+
     private final Map<String, User> users = new HashMap<>();
+
+    /**
+     * Add user to this user list.
+     *
+     * @param user the user to add
+     */
+    public void add(User user) {
+        users.put(user.getId(), user);
+    }
+
+    /**
+     * Return user by its id
+     *
+     * @return a Hashmap with users' id mapping with users
+     */
+    public User getUsersByUserId(String id) {
+        return users.get(id);
+    }
+
+//    private HashMap<String, User> users;
 //
 //    /**
 //     * Constructor of UseCase.UserList without parameter
@@ -21,22 +42,5 @@ public class UserList implements Serializable {
 //    public UserList() {
 //        this.users = new HashMap<>();
 //    }
-
-    /**
-     * Add user to this user list.
-     * @param user the user to add
-     */
-    public void add(User user) {
-        users.put(user.getName(), user);
-    }
-
-    /**
-     * Return users
-     *
-     * @return a Hashmap with users' id mapping with users
-     */
-    public User getUsers(String username) {
-        return users.get(username);
-    }
 
 }

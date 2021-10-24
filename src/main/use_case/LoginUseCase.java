@@ -2,30 +2,23 @@ package use_case;
 
 import boundary.LoginInputBoundary;
 import entity.User;
-
-import java.io.IOException;
+import constant.LoginResult;
 
 public class LoginUseCase implements LoginInputBoundary {
 
     /**
-     * A list of users organized by username.
+     * A list of users organized by id.
      */
     private final UserList users;
 
     /**
      * Serializes and deserializes list of users
      */
-    // UserReadWriter readWriter = new UserReadWriter();
     //TODO: inject this object and change the type to ReadWriter interface.
+    // UserReadWriter readWriter = new UserReadWriter();
 
-    /**
-     * / The "output" of this use case.
-     */
-    // Note: This could also be a fully-fledged class if we need to return
-    // information to the controller.
-    public enum LoginResult {
-        SUCCESS, FAILURE // Should we do NO_SUCH_USER as well as SUCCESS and FAILURE?
-    }
+
+
 
     public LoginUseCase(UserList users) {
         this.users = users;
@@ -38,12 +31,15 @@ public class LoginUseCase implements LoginInputBoundary {
 
     /**
      * Run the login use case.
-     * @param username the username
+     * @param id the id
      * @param password the password attempt
-     * @return whether the attempt matches the password associated with username
+     * @return whether the attempt matches the password associated with id
      */
-    public LoginResult logIn(String username, String password) {
-        User user = users.getUsers(username);
+    public LoginResult logIn(String id, String password) {
+        User user = users.getUsersByUserId(id);
+        if (user == null) {
+            return LoginResult.NO_SUCH_USER;
+        }
         if (user.passwordMatches(password)) {
             return LoginResult.SUCCESS;
         } else {

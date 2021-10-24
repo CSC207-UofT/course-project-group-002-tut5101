@@ -1,13 +1,13 @@
 package controller;
 
 import boundary.LoginInputBoundary;
-import use_case.LoginUseCase;
+import constant.LoginResult;
 
 /**
  * Controls the process for logging in.
  */
 // If we handled logging out as well, this would be a good controller
-// to do it in. It could have runLogin and runLogout methods.
+// to do it in. It could have runLogin and runLogout methods. //TODO logout
 public class LoginController {
 
     /**
@@ -24,23 +24,23 @@ public class LoginController {
     }
 
     /**
-     * Run the login use case where username is attempting to log into their
+     * Run the login use case where user with id is attempting to log into their
      * account with a password attempt.
-     * @param username the username
+     * @param id the id
      * @param password the password attempt
+     * @return the result of user login attempt
      */
-    public void runLogin(String username, String password) {
+    public LoginResult runLogin(String id, String password) {
         // Note: hands off the work to the use case class.
-        LoginUseCase.LoginResult result = loginInputBoundary.logIn(username, password);
+        LoginResult result = loginInputBoundary.logIn(id, password);
         switch (result) {
             case SUCCESS:
-                // Should we be printing? How might you refactor this program
-                // to fit the Clean Architecture?
-                System.out.println("Success!");
-                break;
+                return LoginResult.SUCCESS;
             case FAILURE:
-                System.out.println("Failed to login!");
-                break;
+                return LoginResult.FAILURE;
+            case NO_SUCH_USER:
+                return LoginResult.NO_SUCH_USER;
         }
+        return result;
     }
 }
