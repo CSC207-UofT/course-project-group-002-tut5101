@@ -6,7 +6,7 @@ import entity.Staff;
  * The inventory staff responsible for managing the freshness and quantity of all inventory items.
  */
 
-public class InventoryStaff extends Staff {
+public class UpdateInventory {
 
     /**
      *

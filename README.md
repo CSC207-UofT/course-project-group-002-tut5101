@@ -36,7 +36,7 @@ Staff can see when customers require assistance
 
 Staff can choose to only see orders pertaining to the tables they are assigned by the manager
 
-### use_case.InventoryStaff
+### use_case.UpdateInventory
 
 Check and update the freshness and quantity of inventory items.
 

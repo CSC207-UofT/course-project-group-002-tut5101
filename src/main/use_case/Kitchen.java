@@ -42,25 +42,6 @@ public class Kitchen {
      */
     private static Order currentOrder;
 
-
-    /**
-     * The getter method for UseCase.ServingStaff to call to get the next dish to serve.
-     * @return a UseCase.DishInfo instance, which contains the table number of the dish and the dish itself.
-     */
-    public static DishInfo getServingDish(){
-        return servingBuffer.poll();
-    }
-
-
-    /**
-     * The getter method for UseCase.DeliveryStaff to call to get the next order to delivery.
-     * @return an entities.Order instance to be delivered.
-     */
-    public static Order getDeliveryOrder(){
-        return deliveryBuffer.poll();
-    }
-
-
     /**
      * Get the next order to cook from the placeOrderQueue instance.
      */
@@ -71,49 +52,22 @@ public class Kitchen {
 
     public static Order getCurrentOrder() { return currentOrder; }
 
-    /**
-     * This method should be called only when a dish is cooked.
-     *
-     * Update the inventory and status of the dish, then depending on the type of order that this
-     * dish belongs to, either add the dish to the servingBuffer or add the complete order to
-     * deliveryBuffer.
-     *
-     * The currentOrder will be updated if the current order is finished.
-     * @param dish the dish that is cooked.
-     */
-    public static void cookedDish(Dish dish){
-        updateInventory(dish);
-        boolean orderCompleted = currentOrder.setDishStatusAndCheckOrderStatus(dish);
-
-        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
-            servingBuffer.add(new DishInfo(currentOrder.getTableNum(), dish));
-
-            if (orderCompleted){
-                getNextToCook();
-            }
-        } else {
-            if (orderCompleted) {
-                deliveryBuffer.add(currentOrder);
-                getNextToCook();
-            }
-        }
-    }
-
-    //TODO: consider splitting the update inventory method from cookedDish
-
-
-    /**
-     * Update the inventory using the quantity of each ingredient that this dish needs.
-     * @param dish the dish that is cooked.
-     */
-    private static void updateInventory(Dish dish){
-        HashMap<String, Double> ingredients = dish.getIngredients();
-        for (String item: ingredients.keySet()){
-            double newQuantity = InventoryList.getTotalQuantity(item) - ingredients.get(item);
-            InventoryList.setQuantity(item, newQuantity);
-        }
-        // TODO: handle cases when the new quantity is negative.
-    }
+//    public static void cookedDish(String dishName) throws Exception{
+//        // TODO: call the update inventory in controller.
+//        Dish dishCooked = currentOrder.setDishStatus(dishName);
+//        ItemStatus orderCompleted = currentOrder.getOrderStatus();
+//        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
+//            ServingBuffer.addDish(currentOrder.getTableNum(), dishCooked);
+//            if (orderCompleted == ItemStatus.ORDER_COOKED){
+//                getNextToCook();
+//            }
+//        } else {
+//            if (orderCompleted == ItemStatus.ORDER_COOKED) {
+//                DeliveryBuffer.addDeliveryOrder(currentOrder);
+//                getNextToCook();
+//            }
+//        }
+//    }
 }
 
 

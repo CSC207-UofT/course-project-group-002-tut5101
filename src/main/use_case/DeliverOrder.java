@@ -8,7 +8,8 @@ public class DeliverOrder {
         User user = UserList.getUser(id);
 
         if (user instanceof DeliveryStaff){
-           ((DeliveryStaff) user).completeOrderDelivery();
+            // TODO: show the delivery route here?
+           // ((DeliveryStaff) user).completeOrderDelivery();
         } else {
             throw new Exception("Not a delivery staff");
         }

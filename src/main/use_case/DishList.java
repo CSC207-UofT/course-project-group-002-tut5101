@@ -23,9 +23,6 @@ public class DishList {
         menu = dishList.getAllDishes();
     }
 
-    public static Dish getDish(String dish) {return menu.get(dish); }
-
-
     /**
      * Return list of dishes
      *
@@ -36,7 +33,7 @@ public class DishList {
     }
 
     /**
-     * //TODO
+     * //TODO:
      * Return true if the restaurant has enough inventory for the Dish
      * @return true with inventory, or false if out of stock.
      *

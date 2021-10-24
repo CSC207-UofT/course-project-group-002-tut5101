@@ -36,7 +36,7 @@ public class LoginUseCase implements LoginInputBoundary {
      * @return whether the attempt matches the password associated with id
      */
     public LoginResult logIn(String id, String password) {
-        User user = users.getUsersByUserId(id);
+        User user = users.getUserByUserId(id);
         if (user == null) {
             return LoginResult.NO_SUCH_USER;
         }

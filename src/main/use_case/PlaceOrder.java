@@ -1,18 +1,19 @@
 package use_case;
 
-import entity.Dish;
+import boundary.PlaceOrderInputBoundary;
+import constant.ItemStatus;
 import entity.Order;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class PlaceOrder {
 
-    public static void placeOrder(boolean dineIn, String[] dishNames, String location) throws Exception {
-        List<Dish> dishes = new ArrayList<>();
-        for (String dishName: dishNames){
-            dishes.add(DishList.getDish(dishName));
-        }
+public class PlaceOrder implements PlaceOrderInputBoundary {
+
+    public void placeOrder(boolean dineIn, String[] dishNames, String location) throws Exception{
+        ArrayList<String[]> dishes = new ArrayList();
+        for (String dishName: dishNames) {
+            String[] dish = new String[]{dishName, ItemStatus.DISH_PLACED};
+            }
 
         Order newOrder;
 
@@ -23,6 +24,5 @@ public class PlaceOrder {
         }
 
         OrderQueue.addOrder(newOrder);
-        // TODO: Catch this exception in the UI
     }
 }

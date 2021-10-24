@@ -6,20 +6,7 @@ import java.util.Objects;
 
 
 public class Order {
-    // List of order statuses
-    static String PLACED = "Order Placed";
-    static String COOKED = "Order Cooked";
-    static String DELIVERED = "Order Delivered";
-    static String COMPLETE = "Order Complete";
-
-    public enum Status {
-        PLACED,
-        COOKED,
-        DELIVERED,
-        COMPLETE
-    }
-
-    private List<Dish> dishes;
+    private ArrayList<String[]> dishes;
     private boolean dineIn;
     private Status orderStatus;
     private int tableNum;
@@ -54,19 +41,32 @@ public class Order {
     }
 
 
-    /**
-     *
-     * @param dish the dish to be updated as "completed".
-     * @return True if all dishes in this order are completed, otherwise return False.
-     */
-    public boolean setDishStatusAndCheckOrderStatus(Dish dish) {
-        dish.setStatus("completed");
-        // Check if all dishes are complete, return false if not.
-        for (Dish d:dishes) {
-            if (!Objects.equals(d.getStatus(), "completed")){
-                return false;
+    public void setDishStatus(String dishName) throws Exception {
+        boolean updated = false;
+        for (String[] dishAndStatus: dishes) {
+            if (dishAndStatus[0].equals(dishName) && dishAndStatus[1].equals(ItemStatus.DISH_PLACED)){
+                dishAndStatus[1] = ItemStatus.DISH_COOKED;
+                updated = true;
+                break;
             }
         }
+
+        if (!updated) {
+            throw new Exception("No such dish:" + dishName + " in the order");
+        }
+
+        updateOrderStatus();
+    }
+
+
+    private void updateOrderStatus() {
+        // Check if all dishes are complete.
+        for (String[] dishAndStatus: dishes) {
+            if (!dishAndStatus[1].equals(ItemStatus.DISH_COOKED)) {
+                return;
+            }
+        }
+
         // If all dishes are complete, update the order status and return true
         this.orderStatus = Status.COOKED;
         return true;
@@ -82,16 +82,20 @@ public class Order {
         this.orderStatus = status;
     }
 
-
-    @Override
-    public String toString() {
-        return dishes.toString();
+    /**
+     * Get the order status of the order
+     * @return order status as type ItemStatus
+     */
+    public String getOrderStatus() {
+        return orderStatus;
     }
+
+    // TODO: add a method to access all the information of a dish given the dish name.
 
     public double getOrderPrice() {
         double price = 0;
-        for (Dish d: dishes) {
-            price += d.getPrice();
+        for (String[] dishAndStatus: dishes) {
+            price += DishList.getDishInfo(dishAndStatus[0]).getPrice();
         }
         return price;
     }
