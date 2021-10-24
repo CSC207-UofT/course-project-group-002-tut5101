@@ -4,6 +4,10 @@ package use_case; /*
   @author Chan Yu & Naihe Xiao
  */
 
+import constant.UserType;
+import entity.Customer;
+import entity.Manager;
+import entity.Staff;
 import entity.User;
 
 import java.io.Serializable;
@@ -30,8 +34,21 @@ public class UserList implements Serializable {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public User getUsersByUserId(String id) {
+    public User getUserByUserId(String id) {
         return users.get(id);
+    }
+
+    public UserType getUserTypeById(String id){
+        User currentUser = this.getUserByUserId(id);
+        if (currentUser instanceof Customer)
+            return UserType.CUSTOMER;
+        else if (currentUser instanceof Manager)
+            return UserType.MANAGER;
+        else
+            return UserType.STAFF;
+
+
+
     }
 
 //    private HashMap<String, User> users;
