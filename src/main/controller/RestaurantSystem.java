@@ -209,7 +209,7 @@ public class RestaurantSystem {
      */
     public static UserList generateUserList() {
         UserList userList = new UserList();
-        userList.add(new Manager("1", "Chan", "12345"));
+        userList.add(new Manager());
         userList.add(new Customer("2", "Howard", "12345"));
         userList.add(new ServingStaff("8", "Tom", "12345", 4000));
         return userList;

@@ -2,6 +2,7 @@ package controller;
 
 import ui.LoginUI;
 import constant.UserType;
+import ui.ManagerUI;
 import use_case.DishList;
 import use_case.LoginUseCase;
 import use_case.UserList;
@@ -35,10 +36,16 @@ public class Main {
                 new CustomerUI(dishList);
                 break;
             case MANAGER:
-                new ManagerUI();
+                new ManagerUI(dishList);
                 break;
-            case STAFF:
-                new StaffUI();
+            case DELIVERY_STAFF:
+                new DeliveryStaffUI();
+                break;
+            case INVENTORY_STAFF:
+                new InventoryStaffUI();
+                break;
+            case SERVING_STAFF:
+                new ServingStaffUI();
                 break;
             case KITCHEN:
                 new KitchenUI();
