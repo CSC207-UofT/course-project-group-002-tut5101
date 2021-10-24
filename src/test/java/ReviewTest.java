@@ -16,17 +16,31 @@ public class ReviewTest {
 
     @Before
     public void setUp() {
-        review1 = new Review("ok", "Ben", false, true, "bad");
+        review1 = new Review("Ben");
 
     }
 
     @Test(timeout = 50)
-    public void testReview1() {
-        assertEquals(review1.ShowReview(), "anonymous:ok.");
+    public void testisAnonymouse() {
+        assertEquals(review1.isAnonymouse(true), "Anonymous");
     }
 
     @Test(timeout = 50)
-    public void testReview2() {
-        assertEquals(review1.ComplainStaff(), "anonymous:bad.");
+    public void testReviewRate() {
+        assertEquals(review1.addRate(6), 5);
     }
+
+    @Test(timeout = 50)
+    public void testReviewComment() {
+        assertEquals(review1.addComment("ok"), "ok");
+    }
+
+    @Test(timeout = 50)
+    public void testComplainStuff() {
+        assertEquals(review1.complainStuff("bad"), "bad");
+    }
+
+
+
+
 }

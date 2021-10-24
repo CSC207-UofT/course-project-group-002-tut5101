@@ -1,62 +1,44 @@
 package entity;
-
-public class Review{
-
-    public String user_id;
-    public String review;
-    public boolean YorN;
-    public boolean YorNforStaff;
-    public String complainStaff;
-
-    /**
-     * @param review The the comment that user want to input
-     * @param user_id The user id
-     * @param YorN whether a Yes or No
-     * @param YorNforStaff whether a Yes or No for staff
-     * @param complainStaff the complain for a staff
-     */
+import java.time.LocalDateTime;
+import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.FileWriter;   // Import the FileWriter class
 
 
-    public Review(String review, String user_id, boolean YorN, boolean YorNforStaff, String complainStaff){
-        this.review = review;
-        this.user_id = user_id;
-        this.YorN = YorN;
-        this.YorNforStaff = YorNforStaff;
-        this.complainStaff = complainStaff;
+public class Review implements Comment,ComplainStuff,Rate,DayTime,IsAnonymous{
+    public String user_name;
+
+    public Review(String name){
+        this.user_name = name;
     }
 
-    /**
-     * Get the Review of a user
-     * @return The review of a user.
-     */
-
-
-    public String ShowReview(){
-        if (this.YorN){
-            return user_id + ":" + review + ".";
-        }else{
-            return "anonymous" + ":" + review + ".";
-        }
-    }
-
-    /**
-     * Get the complain for a staff
-     * @return The complain for a staff.
-     */
-
-
-    public String ComplainStaff(){
-        if (this.YorNforStaff){
-            if (this.YorN){
-                return "anonymous" + ":" + complainStaff + ".";
-            } else {
-                return user_id + ":" + complainStaff + ".";
-            }
+    @Override
+    public String isAnonymouse(boolean ifAnonymous) {
+        if(ifAnonymous){
+            return "Anonymous";
         } else {
-            return null;
+            return this.user_name;
         }
     }
 
+    @Override
+    public int addRate(int number) {
+        if (number <= 0){
+            return 0;
+        } else return Math.min(number, 5);
+    }
 
+    @Override
+    public String addComment(String newComment) {
+        return newComment;
+    }
 
+    @Override
+    public String complainStuff(String newComplain) {
+        return newComplain;
+    }
+
+    @Override
+    public LocalDateTime reviewDate() {
+        return LocalDateTime.now();
+    }
 }
