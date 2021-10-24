@@ -30,7 +30,7 @@ public class UserList implements Serializable {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public User getUsersByUserId(String id) {
+    public User getUserByUserId(String id) {
         return users.get(id);
     }
 

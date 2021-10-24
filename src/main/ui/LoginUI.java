@@ -1,11 +1,11 @@
-package UI;
+package ui;
 
 import constant.UIMessage;
 import controller.LoginController;
 
 import java.util.Scanner;
 
-public class CmdUI {
+public class LoginUI {
     /**
      * Cmd UI of login.
      *

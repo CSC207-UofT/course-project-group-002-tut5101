@@ -1,7 +1,7 @@
 package controller;
 import java.util.*;
 
-import UI.CmdUI;
+import ui.LoginUI;
 import constant.UIMessage;
 import entity.*;
 import use_case.*;
@@ -167,7 +167,7 @@ public class RestaurantSystem {
     private static void userLogin(){
         LoginUseCase loginUseCase = new LoginUseCase(userList);
         LoginController controller = new LoginController(loginUseCase);
-        CmdUI ui = new CmdUI();
+        LoginUI ui = new LoginUI();
         String userId = ui.runLogin(controller);
         if(userId != null){
             currentUserId = userId;
