@@ -18,7 +18,7 @@ public class Dish {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private String status;
+    private ItemStatus status;
 
 
     /**
@@ -80,7 +80,7 @@ public class Dish {
      *
      * @return the status of entities.Dish
      */
-    public String getStatus() {
+    public ItemStatus getStatus() {
         return status;
     }
 
@@ -89,7 +89,7 @@ public class Dish {
      *
      * @param status entities.Dish status
      */
-    public void setStatus(String status) {
+    public void setStatus(ItemStatus status) {
         this.status = status;
     }
 

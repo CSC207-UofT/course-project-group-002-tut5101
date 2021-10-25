@@ -57,10 +57,21 @@ public class DishList {
         }
         return menuString.toString();
     }
+    // Methods that allow lookup dish information without returning the dish itself
 
-    public static Dish getDishInfo(String dishName) {
+    public static double getDishPrice(String dishName) {
         // TODO: handle dish name not in menu case
-        return menu.get(dishName);
+        return menu.get(dishName).getPrice();
     }
+
+    public static HashMap<java.lang.String, java.lang.Double> getDishIngredients(String dishName) {
+        return menu.get(dishName).getIngredients();
+    }
+
+    public static double getDishCalories(String dishName) {
+        return menu.get(dishName).getCalories();
+    }
+
+    // TODO: Add additional methods to get other dish info such as allergy information
 
 }
