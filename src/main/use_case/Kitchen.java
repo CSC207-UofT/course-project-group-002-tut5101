@@ -35,22 +35,22 @@ public class Kitchen {
 
     public static Order getCurrentOrder() { return currentOrder; }
 
-//    public static void cookedDish(String dishName) throws Exception{
-//        // TODO: call the update inventory in controller.
-//        Dish dishCooked = currentOrder.setDishStatus(dishName);
-//        ItemStatus orderCompleted = currentOrder.getOrderStatus();
-//        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
-//            ServingBuffer.addDish(currentOrder.getTableNum(), dishCooked);
-//            if (orderCompleted == ItemStatus.ORDER_COOKED){
-//                getNextToCook();
-//            }
-//        } else {
-//            if (orderCompleted == ItemStatus.ORDER_COOKED) {
-//                DeliveryBuffer.addDeliveryOrder(currentOrder);
-//                getNextToCook();
-//            }
-//        }
-//    }
+    public static void cookedDish(String dishName) throws Exception{
+        // TODO: call the update inventory in controller.
+        Dish dishCooked = currentOrder.setDishStatus(dishName);
+        ItemStatus orderCompleted = currentOrder.getOrderStatus();
+        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
+            ServingBuffer.addDish(currentOrder.getTableNum(), dishCooked);
+            if (orderCompleted == ItemStatus.ORDER_COOKED){
+                getNextToCook();
+            }
+        } else {
+            if (orderCompleted == ItemStatus.ORDER_COOKED) {
+                DeliveryBuffer.addDeliveryOrder(currentOrder);
+                getNextToCook();
+            }
+        }
+    }
 }
 
 

@@ -28,22 +28,22 @@ public class ServingStaff extends Staff {
         this.currentDish = currentDish;
     }
 
-//    public void completeServingDish() throws Exception{
-//        if (currentDish != null) {
-//            this.currentDish.setStatus("served");
-//            currentDish = null;
-//        } else {
-//            throw new Exception("No dish to be marked as served");
-//        }
-//    }
-//
-//
-//    public int getTableNum(){
-//        return this.currentDish.getTableNum();
-//    }
-//
-//    public Dish getDish(){
-//        return this.currentDish.getDish();
-//    }
+    public void completeServingDish() throws Exception{
+        if (currentDish != null) {
+            this.currentDish.setStatus("served");
+            currentDish = null;
+        } else {
+            throw new Exception("No dish to be marked as served");
+        }
+    }
+
+
+    public int getTableNum(){
+        return this.currentDish.getTableNum();
+    }
+
+    public Dish getDish(){
+        return this.currentDish.getDish();
+    }
 
 }

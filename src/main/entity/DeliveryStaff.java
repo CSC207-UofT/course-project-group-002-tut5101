@@ -27,14 +27,14 @@ public class DeliveryStaff extends Staff {
         this.currentOrder = order;
     }
 
-//    public void completeOrderDelivery() throws Exception{
-//        if (currentOrder != null) {
-//            this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETE);
-//            currentOrder = null;
-//        } else {
-//            throw new Exception("No order to be delivered");
-//        }
-//    }
+    public void completeOrderDelivery() throws Exception{
+        if (currentOrder != null) {
+            this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETE);
+            currentOrder = null;
+        } else {
+            throw new Exception("No order to be delivered");
+        }
+    }
 }
 
 
