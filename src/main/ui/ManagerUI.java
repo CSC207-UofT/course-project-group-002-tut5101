@@ -19,6 +19,7 @@ public class ManagerUI {
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
         ManagerController controller = new ManagerController();
+        // interface for q3.
         switch (action) {
             // Assign serving staff to table
             case 1:

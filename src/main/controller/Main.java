@@ -18,6 +18,9 @@ public class Main {
      * User Login
      */
     private static void userLogin() {
+        // Create useCase in controller. Use case need to implement an interface.
+        // initialize the controller in UI
+        // initialize use case in the controller
         LoginUseCase loginUseCase = new LoginUseCase(userList);
         LoginController controller = new LoginController(loginUseCase);
         LoginUI ui = new LoginUI();
