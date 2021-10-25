@@ -10,23 +10,23 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     public String user_id;
     public String review;
-    public boolean YorN;
+    public boolean IfAnonymous;
     public boolean YorNforStaff;
     public String complainStaff;
 
     /**
      * @param review The the comment that user want to input
      * @param user_id The user id
-     * @param YorN whether a Yes or No
-     * @param YorNforStaff whether a Yes or No for staff
+     * @param IsAnonymous whether a Yes or No for anonymous
+     * @param YorNforStaff whether a Yes or No for complain staff
      * @param complainStaff the complain for a staff
      */
 
 
-    public Review(String review, String user_id, boolean YorN, boolean YorNforStaff, String complainStaff){
+    public Review(String review, String user_id, boolean IsAnonymous, boolean YorNforStaff, String complainStaff){
         this.review = review;
         this.user_id = user_id;
-        this.YorN = YorN;
+        this.IfAnonymous = IsAnonymous;
         this.YorNforStaff = YorNforStaff;
         this.complainStaff = complainStaff;
     }
@@ -38,7 +38,7 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
 
     public String ShowReview(){
-        if (this.YorN){
+        if (this.IfAnonymous){
             return user_id + ":" + review + ".";
         }else{
             return "anonymous" + ":" + review + ".";
@@ -53,7 +53,7 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     public String ComplainStaff(){
         if (this.YorNforStaff){
-            if (this.YorN){
+            if (this.IfAnonymous){
                 return "anonymous" + ":" + complainStaff + ".";
             } else {
                 return user_id + ":" + complainStaff + ".";
