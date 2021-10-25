@@ -8,7 +8,7 @@ import java.io.IOException;  // Import the IOException class to handle errors
 
 public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
-    public String user_id;
+    public String userId;
     public String review;
     public boolean IfAnonymous;
     public boolean YorNforStaff;
@@ -16,16 +16,16 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     /**
      * @param review The the comment that user want to input
-     * @param user_id The user id
+     * @param userID The user id
      * @param IsAnonymous whether a Yes or No for anonymous
      * @param YorNforStaff whether a Yes or No for complain staff
      * @param complainStaff the complain for a staff
      */
 
 
-    public Review(String review, String user_id, boolean IsAnonymous, boolean YorNforStaff, String complainStaff){
+    public Review(String review, String userID, boolean IsAnonymous, boolean YorNforStaff, String complainStaff){
         this.review = review;
-        this.user_id = user_id;
+        this.userId = userID;
         this.IfAnonymous = IsAnonymous;
         this.YorNforStaff = YorNforStaff;
         this.complainStaff = complainStaff;
@@ -39,7 +39,7 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     public String ShowReview(){
         if (this.IfAnonymous){
-            return user_id + ":" + review + ".";
+            return userId + ":" + review + ".";
         }else{
             return "anonymous" + ":" + review + ".";
         }
@@ -56,7 +56,7 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
             if (this.IfAnonymous){
                 return "anonymous" + ":" + complainStaff + ".";
             } else {
-                return user_id + ":" + complainStaff + ".";
+                return userId + ":" + complainStaff + ".";
             }
         } else {
             return null;
