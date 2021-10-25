@@ -1,13 +1,14 @@
 package UI;
+import boundary.ServingStaffControllerInterface;
 import constant.*;
 import java.util.*;
 import controller.ServingStaffController;
 
 public class ServingStaffUI {
-    ServingStaffController currentServingStaff;
+    ServingStaffControllerInterface currentServingStaff;
 
     public void ServingStaffUI(String id) {
-        currentServingStaff = new ServingStaffController(id);
+        currentServingStaff = (ServingStaffControllerInterface) new ServingStaffController(id);
     }
 
     public void run () {
@@ -21,21 +22,21 @@ public class ServingStaffUI {
                     login = false;
                     break;
                 case 1:
-//                    try {
-//                        currentServingStaff.getServeDish();
-//                        System.out.println("Table: " + currentServingStaff.getTableNumber() +
-//                                " Dish: " + currentServingStaff.getDishName() + "\n");
-//                    } catch (Exception e) {
-//                        System.out.println(e.getMessage());
-//                    }
-//                    break;
-//                case 2:
-//                    try {
-//                        currentServingStaff.completeDish();
-//                        System.out.println("Dish marked as completed\n");
-//                    } catch (Exception e) {
-//                        System.out.println(e);
-//                    }
+                    try {
+                        currentServingStaff.getServeDish();
+                        System.out.println("Table: " + currentServingStaff.getTableNumber() +
+                                " Dish: " + currentServingStaff.getDishName() + "\n");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    try {
+                        currentServingStaff.completeDish();
+                        System.out.println("Dish marked as completed\n");
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
                     break;
             }
         }
