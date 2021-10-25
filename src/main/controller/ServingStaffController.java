@@ -1,8 +1,9 @@
 package controller;
 
+import boundary.ServingStaffControllerInterface;
 import use_case.ServingBuffer;
 
-public class ServingStaffController {
+public class ServingStaffController implements ServingStaffControllerInterface {
     String id;
     // DishInfo dish;
 
@@ -19,16 +20,16 @@ public class ServingStaffController {
         }
     }
 
-    // public int getTableNumber() {
+    public int getTableNumber() {
        // return dish.getTableNum();
-   // }
+    }
 
-   // public String getDishName() {
+    public String getDishName() {
         //return dish.getDishName();
-   // }
-//
-//    public void completeDish() {
-//        dish.getDish();
-//    }
+    }
+
+    public void completeDish() {
+        //dish.getDish();
+    }
 
 }
