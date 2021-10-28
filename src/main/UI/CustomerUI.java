@@ -11,7 +11,14 @@ public class CustomerUI {
      * CMD UI for Users that login as Customer
      */
 
-    public String runCustomerActions(OrderController orderController) {
+    private final OrderController orderController;
+
+    public CustomerUI() {
+        this.orderController = new OrderController();
+    }
+
+
+    public String runCustomerActions() {
         while (true) {
             System.out.println(CustomerUIMessage.CUSTOMER_ACTIONS);
             System.out.println(CustomerUIMessage.SELECT_ACTION);
@@ -19,13 +26,13 @@ public class CustomerUI {
             String action = scanner.nextLine();
             switch (action) {
                 case "1":
-                    // boolean dineInStatus = orderTypeUI();
+                    boolean dineInStatus = orderTypeUI();
 
                     /**
                      * Print the menu and then use helper method to get input for what dishes, then pass to the
                      * place order controller
                      */
-                    // String location = locationUI(dineInStatus);
+                    String location = locationUI(dineInStatus);
 
                     String[] dishes;
                     dishes = orderedDishesUI().toArray(new String[0]);
@@ -34,7 +41,7 @@ public class CustomerUI {
                     System.out.println(dishes.toString());
                     String confirm = scanner.nextLine();
                     if (confirm.equals('Y')) {
-                       // runPlaceOrder(orderController, dineInStatus, dishes, location);
+                       runPlaceOrder(orderController, dineInStatus, dishes, location);
                     }
                     System.out.println(CustomerUIMessage.ORDER_PLACED);
 
@@ -58,16 +65,21 @@ public class CustomerUI {
         // TODO: print the menu
     }
 
-    public void orderTypeUI() {
-        System.out.println(CustomerUIMessage.SELECT_ORDER_TYPE);
-        Scanner scanner = new Scanner(System.in);
-        String type = scanner.nextLine();
-//        switch(type) {
-//            case "1":
-//                return true;
-//            case "2":
-//                return false;
-//        }
+    public boolean orderTypeUI() {
+        while (true) {
+            System.out.println(CustomerUIMessage.SELECT_ORDER_TYPE);
+            Scanner scanner = new Scanner(System.in);
+            String type = scanner.nextLine();
+            switch (type) {
+                case "1":
+                    return true;
+                case "2":
+                    return false;
+                default:
+                    System.out.println("Please enter a valid input.");
+            }
+
+        }
     }
 
     /**
@@ -105,7 +117,7 @@ public class CustomerUI {
             controller.runPlaceOrder(dineIn, dishes, location);
         }
         catch(Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
 
     }

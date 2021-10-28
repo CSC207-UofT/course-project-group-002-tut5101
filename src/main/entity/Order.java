@@ -13,7 +13,6 @@ import java.util.Objects;
 
 public class Order {
     private HashMap<String, List<Dish>> dishes;
-   // private ArrayList<String[]> dishes;
     private boolean dineIn;
     private ItemStatus orderStatus;
     private int tableNum;

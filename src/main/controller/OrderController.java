@@ -1,6 +1,7 @@
 package controller;
 
 import boundary.PlaceOrderInputBoundary;
+import use_case.PlaceOrder;
 
 public class OrderController {
     //Controller class that interacts with use_case.PlaceOrder to place an order from the customer
@@ -12,10 +13,9 @@ public class OrderController {
 
     /**
      * A new OrderController for the use case defined by the PlaceOrderInputBoundary.
-     * @param placeOrderInputBoundary the input boundary for the place order use case
      */
-    public OrderController(PlaceOrderInputBoundary placeOrderInputBoundary) {
-        this.placeOrderInputBoundary = placeOrderInputBoundary;
+    public OrderController() {
+        this.placeOrderInputBoundary = new PlaceOrder();
     }
 
     public void runPlaceOrder(boolean dineIn, String[] dishNames, String location) throws Exception {
