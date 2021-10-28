@@ -19,6 +19,7 @@ public class Dish {
     private double calories;
     private String allergyInformation;
     private ItemStatus status;
+    private int tableNum;
 
 
     /**
@@ -29,8 +30,9 @@ public class Dish {
      * @param ingredients ingredients of the entities.Dish
      * @param calories    calories of the entities.Dish
      */
-    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
+    public Dish(String name, int tableNum, double price, HashMap<String, Double> ingredients, double calories) {
         this.name = name;
+        this.tableNum = tableNum;
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
@@ -48,8 +50,9 @@ public class Dish {
      * @param calories    calories of the entities.Dish
      * @param category    category of the entities.Dish, ie Food/Soup/Drink
      */
-    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
+    public Dish(String name,  int tableNum, double price, HashMap<String, Double> ingredients, double calories, String category) {
         this.name = name;
+        this.tableNum = tableNum;
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
@@ -66,6 +69,11 @@ public class Dish {
     public String getCategory() {
         return category;
     }
+
+    /**
+     * @return the table number for this dish.
+     */
+    public int getTableNum() { return tableNum;}
 
     /**
      * Set category of entities.Dish

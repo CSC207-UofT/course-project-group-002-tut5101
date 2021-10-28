@@ -43,20 +43,15 @@ public class Order {
         }
     }
 
-    public void setDishStatus(Dish dish, ItemStatus status) throws Exception {
-        boolean updated = false;
-        List<Dish> dishAsList = this.dishes.get(dish.getName());
-        for(Dish d : dishAsList){
-            if (d == dish) {
-                dish.setStatus(status);
-                updated = true;
-                break;
+    public Dish setDishStatus(String name) throws Exception {
+        for(Dish d : dishes.get(name)){
+            if (d.getStatus().equals(ItemStatus.DISH_PLACED)) {
+                d.setStatus(ItemStatus.DISH_COOKED);
+                updateOrderStatus();
+                return d;
             }
         }
-        if (!updated) {
-            throw new Exception("No such dish:" + dish.getName()+ " in the order");
-        }
-        updateOrderStatus();
+        throw new Exception("No such dish:" + name + " in the order, or all dishes are cooked.");
     }
 
 
@@ -80,7 +75,6 @@ public class Order {
      * @throws Exception status is not one of the allowable status in statuses
      */
     public void setOrderStatus(ItemStatus status) {
-        // TODO: handle exception for when status is not allowable
         this.orderStatus = status;
     }
 
