@@ -9,7 +9,7 @@ public class ServeOrder {
         User user = UserList.getUserByUserId(id);
 
         if (user instanceof ServingStaff){
-           // ((ServingStaff) user).completeServingDish();
+           ((ServingStaff) user).completeServingDish();
         } else {
             throw new Exception("Not a serving staff");
         }
@@ -20,6 +20,7 @@ public class ServeOrder {
 
         if (user instanceof ServingStaff){
             ((ServingStaff) user).setCurrentDish(ServingBuffer.getNextToServe());
+            // TODO: display the dish to serve to Controller then to UI?
         } else {
             throw new Exception("Not a serving staff");
         }

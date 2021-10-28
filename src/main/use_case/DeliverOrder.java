@@ -9,7 +9,7 @@ public class DeliverOrder {
 
         if (user instanceof DeliveryStaff){
             // TODO: show the delivery route here?
-           // ((DeliveryStaff) user).completeOrderDelivery();
+           ((DeliveryStaff) user).completeOrderDelivery();
         } else {
             throw new Exception("Not a delivery staff");
         }

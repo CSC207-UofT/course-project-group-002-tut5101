@@ -17,7 +17,7 @@ public class DeliveryBuffer {
      */
     public static Order getDeliveryOrder() throws Exception {
         Order deliveryOrder = null;
-        deliveryBuffer.poll();
+        deliveryOrder = deliveryBuffer.poll();
         if (deliveryOrder == null) {
             throw new Exception("No delivery order to be delivered");
         }

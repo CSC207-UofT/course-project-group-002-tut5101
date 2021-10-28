@@ -3,6 +3,8 @@ package entity;
 
 // import use_case.DishInfo;
 
+import constant.ItemStatus;
+
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
  * By Dedong Xie (1006702944)
@@ -11,7 +13,7 @@ package entity;
 
 public class ServingStaff extends Staff {
 
-    private String[] currentDish;
+    private Dish currentDish;
 
     /**
      * Construct an instance of s serving staff
@@ -24,26 +26,28 @@ public class ServingStaff extends Staff {
         this.currentDish = null;
     }
 
-    public void setCurrentDish(String[] currentDish) {
+    public void setCurrentDish(Dish currentDish) {
         this.currentDish = currentDish;
     }
 
     public void completeServingDish() throws Exception{
         if (currentDish != null) {
-            this.currentDish.setStatus("served");
+            this.currentDish.setStatus(ItemStatus.DISH_COMPLETED);
             currentDish = null;
         } else {
             throw new Exception("No dish to be marked as served");
         }
     }
 
-
     public int getTableNum(){
         return this.currentDish.getTableNum();
     }
 
-    public Dish getDish(){
-        return this.currentDish.getDish();
+    public String displayDish(){
+        if (currentDish != null){
+            return currentDish.toString();
+        }
+        return "";
     }
 
 }
