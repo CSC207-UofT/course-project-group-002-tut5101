@@ -1,65 +1,18 @@
 package entity;
 
-import use_case.Customer;
-
 import java.time.LocalDateTime;
 import java.io.File;  // Import the File class
 import java.io.IOException;  // Import the IOException class to handle errors
+import java.util.Objects;
 
-public class Review implements Rate, Comment, ComplainStuff, DayTime{
+public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
 
-    public String userId;
-    public String review;
-    public boolean IfAnonymous;
-    public boolean YorNforStaff;
-    public String complainStaff;
-
-    /**
-     * @param review The the comment that user want to input
-     * @param userID The user id
-     * @param IsAnonymous whether a Yes or No for anonymous
-     * @param YorNforStaff whether a Yes or No for complain staff
-     * @param complainStaff the complain for a staff
-     */
-
-
-    public Review(String review, String userID, boolean IsAnonymous, boolean YorNforStaff, String complainStaff){
-        this.review = review;
-        this.userId = userID;
-        this.IfAnonymous = IsAnonymous;
-        this.YorNforStaff = YorNforStaff;
-        this.complainStaff = complainStaff;
-    }
-
-    /**
-     * Get the Review of a user
-     * @return The review of a user.
-     */
-
-
-    public String ShowReview(){
-        if (this.IfAnonymous){
-            return userId + ":" + review + ".";
-        }else{
-            return "anonymous" + ":" + review + ".";
-        }
-    }
-
-    /**
-     * Get the complain for a staff
-     * @return The complain for a staff.
-     */
-
-
-    public String ComplainStaff(){
-        if (this.YorNforStaff){
-            if (this.IfAnonymous){
-                return "anonymous" + ":" + complainStaff + ".";
-            } else {
-                return userId + ":" + complainStaff + ".";
-            }
+    @Override
+    public String addName(String name, boolean ifAnonymous) {
+        if(ifAnonymous){
+            return "Anonymous";
         } else {
-            return null;
+            return name;
         }
     }
 
@@ -73,20 +26,23 @@ public class Review implements Rate, Comment, ComplainStuff, DayTime{
 
     @Override
     public String addComment(String newComment) {
-        review = newComment;
-        return review;
+        return newComment;
     }
 
     @Override
-    public String complainStuff(String newComplain) {
-        complainStaff = newComplain;
-        return complainStaff;
+    public String complainStuff(boolean ifComplain, String newComplain) {
+        if(ifComplain){
+            return newComplain;
+        }else {
+            return "";
+        }
     }
 
     @Override
     public LocalDateTime reviewDate() {
         return LocalDateTime.now();
     }
+
 
 }
 
