@@ -34,10 +34,20 @@ public class Kitchen {
         return currentOrder != null;
     }
 
+    /**
+     * @return the String representation of the current order.
+     */
     public static String showOrder(){
         return currentOrder.toString();
     }
 
+    /**
+     * Update the status of the dish cooked. Depending on the type of the order, add the dish to
+     * the ServingBuffer or add the order to DeliveryBuffer.
+     *
+     * @param dishName the name of the dish that is completed by the kitchen.
+     * @throws Exception if the given dish name does not correspond to any dish in the current order.
+     */
     public static void cookedDish(String dishName) throws Exception {
         // TODO: call the update inventory in controller.
         Dish dishCooked = currentOrder.setDishStatus(dishName);

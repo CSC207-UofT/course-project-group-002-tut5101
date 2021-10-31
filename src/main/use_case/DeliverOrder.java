@@ -1,28 +1,40 @@
 package use_case;
 
+import boundary.Delivery;
 import entity.DeliveryStaff;
+import entity.ServingStaff;
 import entity.User;
 
-public class DeliverOrder {
-    public void Delivered(String id) throws Exception{
-        User user = UserList.getUserByUserId(id);
+public class DeliverOrder implements Delivery {
 
-        if (user instanceof DeliveryStaff){
-            // TODO: show the delivery route here?
-           ((DeliveryStaff) user).completeOrderDelivery();
-        } else {
-            throw new Exception("Not a delivery staff");
-        }
+    /**
+     * @param id The id of the serving staff that has logged in.
+     * @throws Exception if the given id does not correspond to a delivery staff.
+     */
+    public void delivered(String id) throws Exception{
+        User user = UserList.getUserByUserId(id);
+        // TODO: show the delivery route here?
+        ((DeliveryStaff) user).completeOrderDelivery();
     }
 
-    public void getOrderToBeDelivered(String id) throws Exception{
+    /**
+     * @param id The id of the serving staff that has logged in.
+     * @throws Exception if the given id does not correspond to a delivery staff.
+     */
+    public void getToBeDeliver(String id) throws Exception{
         User user = UserList.getUserByUserId(id);
+        ((DeliveryStaff) user).setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
+    }
 
-        if (user instanceof DeliveryStaff){
-           ((DeliveryStaff) user).setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
-        } else {
-            throw new Exception("Not a delivery staff");
+    public String display(String id) throws Exception {
+        User user = UserList.getUserByUserId(id);
+        String orderInfo = ((DeliveryStaff) user).displayOrder();
+
+        if (orderInfo.equals("")){
+            return "No current dish to be displayed";
         }
+
+        return orderInfo;
     }
 
 }
