@@ -41,7 +41,7 @@ public class DeliveryStaffUI implements UserInterface {
                         currentDeliveryStaff.completeCurrent(id);
                         System.out.println("Order marked as completed\n");
                     } catch (Exception e) {
-                        System.out.println(e);
+                        System.out.println(e.getMessage());
                     }
                     break;
             }

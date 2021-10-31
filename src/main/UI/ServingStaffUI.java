@@ -39,7 +39,7 @@ public class ServingStaffUI implements UserInterface {
                         currentServingStaff.completeCurrent(id);
                         System.out.println("Dish marked as completed\n");
                     } catch (Exception e) {
-                        System.out.println(e);
+                        System.out.println(e.getMessage());
                     }
                     break;
             }

@@ -38,9 +38,6 @@ public class ServeOrder implements Delivery {
         if (dishInfo.equals("")){
             return "No current dish to be displayed";
         }
-
         return dishInfo;
     }
-
-
 }
