@@ -1,4 +1,6 @@
 package gateway;
+import use_case.UserList;
+
 import java.io.*;
 import java.util.HashMap;
 
@@ -31,14 +33,14 @@ public class UserReadWriter implements ReadWriter {
      * @throws IOException
      */
     @Override
-    public HashMap readFromFile(String filePath) throws IOException, ClassNotFoundException {
+    public UserList readFromFile(String filePath) throws IOException, ClassNotFoundException {
 
         InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        HashMap users = (HashMap) input.readObject();
+        UserList users = (UserList) input.readObject();
         input.close();
         return users;
     }

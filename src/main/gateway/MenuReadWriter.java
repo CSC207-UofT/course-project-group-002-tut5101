@@ -1,7 +1,8 @@
 package gateway;
 
 import java.io.*;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuReadWriter implements ReadWriter{
     /**
@@ -32,16 +33,16 @@ public class MenuReadWriter implements ReadWriter{
      * @throws IOException
      */
     @Override
-    public HashMap readFromFile(String filePath) throws IOException, ClassNotFoundException {
+    public ArrayList readFromFile(String filePath) throws IOException, ClassNotFoundException {
 
         InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        HashMap users = (HashMap) input.readObject();
+        ArrayList dishes = (ArrayList) input.readObject();
         input.close();
-        return users;
+        return dishes;
     }
 }
 

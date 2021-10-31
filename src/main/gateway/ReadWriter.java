@@ -2,6 +2,7 @@ package gateway;
 import use_case.UserList;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 
 public interface ReadWriter {
@@ -14,5 +15,5 @@ public interface ReadWriter {
     /**
      * @param filepath location of ser file
      */
-    HashMap readFromFile(String filepath) throws IOException, ClassNotFoundException;
+    Serializable readFromFile(String filepath) throws IOException, ClassNotFoundException;
 }
