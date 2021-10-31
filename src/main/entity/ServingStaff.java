@@ -26,10 +26,19 @@ public class ServingStaff extends Staff {
         this.currentDish = null;
     }
 
+
+    /**
+     * Set the current dish to the given dish.
+     * @param currentDish The current dish for the Serving Staff
+     */
     public void setCurrentDish(Dish currentDish) {
         this.currentDish = currentDish;
     }
 
+    /**
+     * Set the status of the current to "Completed" to indicate that the dish is served
+     * @throws Exception if the current Dish is null.
+     */
     public void completeServingDish() throws Exception{
         if (currentDish != null) {
             this.currentDish.setStatus(ItemStatus.DISH_COMPLETED);
@@ -45,7 +54,7 @@ public class ServingStaff extends Staff {
 
     public String displayDish(){
         if (currentDish != null){
-            return currentDish.toString();
+            return currentDish.getName() + currentDish.getTableNum();
         }
         return "";
     }
