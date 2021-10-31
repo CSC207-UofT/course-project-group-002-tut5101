@@ -71,8 +71,8 @@ public class SoftDrink implements Inventory, HasExpiry, Serializable {
 
     @Override
     public String toString(){
-        String s = "softdrink;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+ this.ExpiryDate;
+        String s = "softdrink,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.ExpiryDate;
         return s;
 
     }

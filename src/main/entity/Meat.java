@@ -88,8 +88,8 @@ public class Meat implements Inventory, HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "meat;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "meat,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

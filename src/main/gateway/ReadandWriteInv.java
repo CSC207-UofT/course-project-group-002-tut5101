@@ -1,10 +1,13 @@
-package use_case;
+package gateway;
 
 import entity.Inventory;
+import gateway.ReadandWrite;
+import use_case.InventoryFactory;
+import use_case.InventoryList;
 
 import java.io.*;
 
-public class ReadandWriteInv implements ReadandWrite{
+public class ReadandWriteInv implements ReadandWrite {
     @Override
     public InventoryList read(String filepath){
         String line;
@@ -13,7 +16,7 @@ public class ReadandWriteInv implements ReadandWrite{
         try{
             BufferedReader br = new BufferedReader(new FileReader(filepath));
             while((line = br.readLine()) != null){
-               String[] paras = line.split(";");
+               String[] paras = line.split(",");
                 Inventory item = factory.getInventory(paras);
                 l.addInventory(item);
             }

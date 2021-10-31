@@ -88,8 +88,8 @@ public class Seasoner implements Inventory,HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "seasoner;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "seasoner,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

@@ -14,7 +14,9 @@ public class InventoryList implements Serializable {
      * The information of this ingredient (e.g. name, price, quantity, etc.) are stored as
      * attribute in the inventory item instance.
      */
-    private static HashMap<String, Inventory> myDict = new HashMap<>();
+    private static HashMap<String, Inventory> myDict;
+    public InventoryList(){this.myDict = new HashMap<>();}
+    public InventoryList(HashMap inventorys){ this.myDict = inventorys;}
 
 
 
@@ -43,8 +45,8 @@ public class InventoryList implements Serializable {
      */
 
     public static String getFreshness(String name){
-        if(getItem(name) instanceof Material){
-            Material i = (Material) getItem(name);
+        if(getItem(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getItem(name);
             return i.getFreshness();
         }
         else{
@@ -60,8 +62,8 @@ public class InventoryList implements Serializable {
      */
 
     public static void updateFreshness(String name, String newFreshness) {
-        if(getItem(name) instanceof Material){
-            Material i = (Material) getItem(name);
+        if(getItem(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getItem(name);
             i.setFreshness(newFreshness);
         }
         // TODO: handle cases when the given name is not an ingredient with freshness

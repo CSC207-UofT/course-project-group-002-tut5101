@@ -87,8 +87,8 @@ public class Seafood implements Inventory, HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "seafood;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "seafood,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

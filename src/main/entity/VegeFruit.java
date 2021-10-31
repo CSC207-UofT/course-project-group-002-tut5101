@@ -88,8 +88,8 @@ public class VegeFruit implements Inventory,HasFreshness, Serializable{
 
     @Override
     public String toString(){
-        String s = "vegefruit;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "vegefruit,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

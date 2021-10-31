@@ -1,4 +1,4 @@
-package use_case;
+package gateway;
 import entity.Review;
 
 import java.io.IOException;

@@ -71,8 +71,8 @@ public class SemiFinished implements Inventory, HasExpiry, Serializable {
 
     @Override
     public String toString(){
-        String s = "semifinished;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+ this.ExpiryDate;
+        String s = "semifinished,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.ExpiryDate;
         return s;
 
     }

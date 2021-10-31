@@ -88,8 +88,8 @@ public class DairySoy implements Inventory,HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "dairysoy;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "dairysoy,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

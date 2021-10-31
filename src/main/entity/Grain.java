@@ -87,8 +87,8 @@ public class Grain implements Inventory,HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "grain;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+this.freshness+";"+ this.ImportDate;
+        String s = "grain,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 
     }

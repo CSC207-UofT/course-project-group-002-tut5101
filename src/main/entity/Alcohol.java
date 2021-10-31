@@ -70,8 +70,8 @@ public class Alcohol implements Inventory,HasExpiry, Serializable {
 
     @Override
     public String toString(){
-        String s = "alcohol;"+this.name+ ";"+ this.price +
-                ";"+ this.quantity +";"+ this.ExpiryDate;
+        String s = "alcohol,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.ExpiryDate;
         return s;
 
     }

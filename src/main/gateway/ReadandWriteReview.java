@@ -1,7 +1,7 @@
-package use_case;
+package gateway;
 
-import entity.Inventory;
 import entity.Review;
+
 import java.io.*;
 import java.util.ArrayList;
 
