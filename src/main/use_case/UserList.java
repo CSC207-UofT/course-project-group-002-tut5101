@@ -14,6 +14,9 @@ import java.util.Map;
 public class UserList implements Serializable {
 
 
+    public UserList(){this.users = new HashMap<>();}
+
+    public UserList(HashMap users){ this.users = users;}
     private static Map<String, User> users = new HashMap<>();
 
     /**
