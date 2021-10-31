@@ -3,6 +3,8 @@ package controller;
 import ui.LoginUI;
 import constant.UserType;
 import ui.ManagerUI;
+import ui.UIFactory;
+import ui.UserInterface;
 import use_case.DishList;
 import use_case.LoginUseCase;
 import use_case.UserList;
@@ -23,6 +25,7 @@ public class Main {
         // initialize use case in the controller
         LoginUseCase loginUseCase = new LoginUseCase(userList);
         LoginController controller = new LoginController(loginUseCase);
+
         LoginUI ui = new LoginUI();
         String userId = ui.runLogin(controller);
         if (userId != null) {
@@ -33,29 +36,23 @@ public class Main {
 
     public static void assignUser(){
         UserType userType = userList.getUserTypeById(currentUserId);
-        switch(userType){
-            // TODO pass to different controllers based on type
-            case CUSTOMER:
-                new CustomerUI(dishList);
-                break;
-            case MANAGER:
-                new ManagerUI(dishList);
-                break;
-            case DELIVERY_STAFF:
-                new DeliveryStaffUI();
-                break;
-            case INVENTORY_STAFF:
-                new InventoryStaffUI();
-                break;
-            case SERVING_STAFF:
-                new ServingStaffUI();
-                break;
-            case KITCHEN:
-                new KitchenUI();
-        }
+        UserInterface ui = UIFactory.getUI(userType);
+        ui.loadUi();
     }
 
     public static void main(String[] args) {
+
+        // 1. init load data
+        // 2. login LoginManager man  = new
+        // man.userLogin();
+        // 3. switch to different ui -> controller => use case -> ui
+
+
+
+
+
+
+
         // TODO: Load data (userList/dishList) from file to the program
 
         // User Login
@@ -63,6 +60,8 @@ public class Main {
             userLogin();
         }
         assignUser();
+
+
 
 
     }
