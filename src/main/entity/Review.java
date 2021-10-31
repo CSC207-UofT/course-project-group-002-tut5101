@@ -92,7 +92,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
      */
     @Override
     public String reviewDate() {
-        Date date=new Date();
+        Date date = new Date();
         SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
     }
