@@ -20,6 +20,7 @@ public class DishList {
         menu = new HashMap<>();
     }
 
+    // TODO: delete later if needed
     public DishList(DishList dishList) {
         menu = dishList.getAllDishes();
     }
@@ -31,10 +32,11 @@ public class DishList {
         }
     }
 
+
     /**
      * Return list of dishes
      *
-     * @return
+     * @return the menu
      */
     public static HashMap<String, entity.Dish> getAllDishes() {
         return menu;
