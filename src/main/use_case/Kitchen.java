@@ -6,6 +6,7 @@ import entity.Order;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -48,7 +49,7 @@ public class Kitchen {
      * @param dishName the name of the dish that is completed by the kitchen.
      * @throws Exception if the given dish name does not correspond to any dish in the current order.
      */
-    public static void cookedDish(String dishName) throws Exception {
+    public static void cookedDish(String dishName) {
         // TODO: call the update inventory in controller.
         Dish dishCooked = currentOrder.setDishStatus(dishName);
         ItemStatus orderCompleted = currentOrder.getOrderStatus();
@@ -64,6 +65,21 @@ public class Kitchen {
             }
         }
     }
+
+    /**
+     * @return A string representation of the choices of dishes that still need to be cooked.
+     */
+    public static HashMap<Integer, String> showDishesChoice() {
+        HashMap<Integer, String> dishChoice = new HashMap<>();
+        List<Dish> dishes = currentOrder.getDishes();
+        for (int i = 1; i <= dishes.size(); i++) {
+            if (dishes.get(i - 1).getStatus() == ItemStatus.DISH_PLACED) {
+                dishChoice.put(i, dishes.get(i).getName());
+            }
+        }
+        return dishChoice;
+    }
+
 }
 
 
