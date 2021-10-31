@@ -16,6 +16,7 @@ public class UIMessage {
     // public static final String CUSTOMER_ACTIONS = "1. Place Order\n 2. Ask for assistance\n 3. Pay bill\n " +
     //        "4. Leave a review\n 0. Logout";;
     public static final String SERVING_STAFF_ACTIONS = "1. View dish to be served\n 2. Mark dish as served\n 0. Logout";
+    public static final String DELIVERY_STAFF_ACTIONS = "1. View order to be delivered\n 2. Mark dish as delivered\n 0. Logout";
     public static final String MANAGER_ACTIONS = "1. View uncompleted orders\n 0. Logout";
     public static final String ASK_FOR_DISH_NUMBER = "Please enter the dish number you want to order " +
             "(separate by a enter and ends by 'e'):";

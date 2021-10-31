@@ -1,52 +1,55 @@
 package controller;
 
+import boundary.Delivery;
+import constant.UserType;
 import use_case.DeliverOrder;
 import use_case.ServeOrder;
+import use_case.UserList;
 
 public class StaffController {
     ServeOrder servingStaff = new ServeOrder();
     DeliverOrder deliveryStaff = new DeliverOrder();
 
     public void getNext(String id) throws Exception {
-        String staffType = getUserTypeById(id);
-        if (staffType.equals("ServingStaff")) {
-            servingStaff.getToBeDeliver(id);
-        } else if (staffType.equals("DeliveryStaff")) {
-            deliveryStaff.getToBeDeliver(id);
-        } else {
-            throw new Exception("wrong id for staff");
+        Delivery staff;
+        try {
+            staff = selectStaffTypeById(id);
+            staff.getToBeDeliver(id);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
     public String displayCurrent(String id) throws Exception {
-        String staffType = getUserTypeById(id);
-        if (staffType.equals("ServingStaff")) {
-            return servingStaff.display(id);
-        } else if (staffType.equals("DeliveryStaff")) {
-            return deliveryStaff.display(id);
-        } else {
-            throw new Exception("wrong id for staff");
+        Delivery staff;
+        try {
+            staff = selectStaffTypeById(id);
+            return staff.display(id);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
     public void completeCurrent(String id) throws Exception {
-        String staffType = getUserTypeById(id);
-        if (staffType.equals("ServingStaff")) {
-            servingStaff.delivered(id);
-        } else if (staffType.equals("DeliveryStaff")) {
-            deliveryStaff.delivered(id);
-        } else {
-            throw new Exception("wrong id for staff");
+        Delivery staff;
+        try {
+            staff = selectStaffTypeById(id);
+            staff.delivered(id);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
-    private String getUserTypeById(String id) {
-        if (id.equals("0")) {
-            return "ServingStaff";
-        } else if (id.equals("1")) {
-            return "DeliveryStaff";
+    private Delivery selectStaffTypeById(String id) throws Exception {
+        UserType staffType = UserList.getUserTypeById(id);
+        Delivery staff;
+        if (staffType == UserType.SERVING_STAFF) {
+            staff = servingStaff;
+        } else if (staffType == UserType.DELIVERY_STAFF) {
+            staff = deliveryStaff;
         } else {
-            return "Other";
+            throw new Exception("wrong id for staff");
         }
+        return staff;
     }
 }

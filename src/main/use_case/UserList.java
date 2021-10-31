@@ -14,7 +14,7 @@ import java.util.Map;
 public class UserList implements Serializable {
 
 
-    private final Map<String, User> users = new HashMap<>();
+    private static Map<String, User> users = new HashMap<>();
 
     /**
      * Add user to this user list.
@@ -30,12 +30,12 @@ public class UserList implements Serializable {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public User getUserByUserId(String id) {
+    public static User getUserByUserId(String id) {
         return users.get(id);
     }
 
-    public UserType getUserTypeById(String id){
-        User currentUser = this.getUserByUserId(id);
+    public static UserType getUserTypeById(String id){
+        User currentUser = getUserByUserId(id);
         if (currentUser instanceof Customer)
             return UserType.CUSTOMER;
         else if (currentUser instanceof Manager)
