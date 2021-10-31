@@ -26,7 +26,18 @@ public class ReviewTest {
     }
 
     @Test(timeout = 50)
-    public void testReview2() {
+    public void testReviewAddRate() {
         assertEquals(review1.addRate(), 5);
     }
+
+    @Test(timeout = 50)
+    public void testReviewAddComment() {
+        assertEquals(review1.addComment(), "good food");
+    }
+
+    @Test(timeout = 50)
+    public void testReviewComplainStuff() {
+        assertEquals(review1.addComment(), "bad stuff");
+    }
+
 }
