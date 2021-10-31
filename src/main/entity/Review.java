@@ -106,7 +106,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         boolean ifAnonymous;
         boolean ifComplain;
         ifAnonymous = paras[0].equals("Anonymous");
-        ifComplain = paras[3].equals("no complain");
+        ifComplain = !paras[3].equals("no complain");
         userName = paras[0];
         rate = Integer.parseInt(paras[1]);
         newComment = paras[2];
