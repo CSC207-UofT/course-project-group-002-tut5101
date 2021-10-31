@@ -3,9 +3,10 @@ package use_case;
 import entity.*;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class InventoryList {
+public class InventoryList implements Serializable {
 
 
     /**
@@ -15,12 +16,14 @@ public class InventoryList {
      */
     private static HashMap<String, Inventory> myDict = new HashMap<>();
 
+
+
     /**
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public static void addInventory(Inventory item){
-        if(!(myDict.containsKey(item.name) || myDict.containsValue(item))){myDict.put(item.name, item);}
+    public void addInventory(Inventory item){
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
     }
 
 

@@ -1,5 +1,4 @@
 import entity.Alcohol;
-import entity.Product;
 import entity.SemiFinished;
 import entity.SoftDrink;
 import org.junit.Before;
