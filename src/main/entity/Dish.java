@@ -30,9 +30,8 @@ public class Dish {
      * @param ingredients ingredients of the entities.Dish
      * @param calories    calories of the entities.Dish
      */
-    public Dish(String name, int tableNum, double price, HashMap<String, Double> ingredients, double calories) {
+    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
         this.name = name;
-        this.tableNum = tableNum;
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
@@ -50,9 +49,8 @@ public class Dish {
      * @param calories    calories of the entities.Dish
      * @param category    category of the entities.Dish, ie Food/Soup/Drink
      */
-    public Dish(String name,  int tableNum, double price, HashMap<String, Double> ingredients, double calories, String category) {
+    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
         this.name = name;
-        this.tableNum = tableNum;
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
@@ -60,6 +58,10 @@ public class Dish {
         this.allergyInformation = "none";
         this.status = ItemStatus.DISH_PLACED;
         this.category = category;
+    }
+
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
     }
 
     /**
