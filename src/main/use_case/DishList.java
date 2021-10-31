@@ -74,4 +74,8 @@ public class DishList {
 
     // TODO: Add additional methods to get other dish info such as allergy information
 
+    public static String getDishCategory(String dishName) {
+        return menu.get(dishName).getCategory();
+    }
+
 }
