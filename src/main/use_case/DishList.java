@@ -3,6 +3,7 @@ package use_case;
 import entity.Dish;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -21,6 +22,13 @@ public class DishList {
 
     public DishList(DishList dishList) {
         menu = dishList.getAllDishes();
+    }
+
+    public DishList(List<Dish> dishes){
+        menu = new HashMap<>();
+        for (Dish d: dishes){
+            menu.put(d.getName(), d);
+        }
     }
 
     /**

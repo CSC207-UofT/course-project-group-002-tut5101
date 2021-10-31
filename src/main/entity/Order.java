@@ -6,6 +6,7 @@ import constant.ItemStatus;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Order {
@@ -129,4 +130,16 @@ public class Order {
         return dishList;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return dineIn == order.dineIn && getTableNum() == order.getTableNum() && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus() && Objects.equals(getAddress(), order.getAddress());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDishes(), dineIn, getOrderStatus(), getTableNum(), getAddress());
+    }
 }

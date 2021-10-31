@@ -26,7 +26,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
 
         for (String dishName: dishNames) {
             Dish dishCopy;
-            dishCopy = generateDishCopy(dishName, location);
+            dishCopy = generateDishCopy(dishName, location, dineIn);
 
 
             List<Dish> dishCopyAsList;
@@ -41,13 +41,20 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
             }
 
         }
+        Order order ;
+        if (dineIn) {
+            int tableNum = Integer.valueOf(location);
+            order = new Order(tableNum, dishes);
+        }
+        else {
+            order = new Order(location, dishes);
+        }
 
-        Order order = new Order(location, dishes);
         OrderQueue.addOrder(order);
     }
 
     // Lookup the dish in the DishList/Menu then create a copy of that dish
-    public Dish generateDishCopy(String dishName, String location) {
+    public Dish generateDishCopy(String dishName, String location, boolean dineIn){
         double price = DishList.getDishPrice(dishName);
         HashMap<String, Double> ingredients = DishList.getDishIngredients(dishName);
         double calories = DishList.getDishCalories(dishName);
@@ -55,13 +62,15 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
 
 
         Dish dishCopy = new Dish(dishName, price, ingredients, calories, category);
+        if (dineIn) {
+            try {
+                int tableNum = Integer.valueOf(location);
+                dishCopy.setTableNum(tableNum);
+            } catch (NumberFormatException ignored) {
 
-        try{
-            int tableNum = Integer.valueOf(location);
-            dishCopy.setTableNum(tableNum);
+            }
         }
-        catch (NumberFormatException ignored){
-        }
+
         return dishCopy;
     }
 

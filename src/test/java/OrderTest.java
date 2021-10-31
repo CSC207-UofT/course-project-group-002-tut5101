@@ -74,11 +74,25 @@ public class OrderTest {
 
         //Update the status of last dish, which should call updateOrderStatus
         try {
+            assertEquals(quarterPoundWithCheese, order.setDishStatus("Quarter pound with cheese"));
+            assertEquals(ItemStatus.DISH_COOKED, quarterPoundWithCheese.getStatus());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            assertEquals(smallFries, order.setDishStatus("Small fries"));
+            assertEquals(ItemStatus.DISH_COOKED, smallFries.getStatus());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
             assertEquals(coke, order.setDishStatus("Coke"));
             assertEquals(ItemStatus.DISH_COOKED, coke.getStatus());
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         assertEquals(ItemStatus.ORDER_COOKED, order.getOrderStatus());
 
     }

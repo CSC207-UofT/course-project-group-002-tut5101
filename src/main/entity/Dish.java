@@ -3,6 +3,7 @@ package entity;
 import constant.ItemStatus;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -232,5 +233,18 @@ public class Dish {
                 "\n\t\tcalories: " + calories + " cal/100g" +
                 "\n\t\tallergyInformation: " + allergyInformation +
                 "\n------------------------------\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getCategory().equals(dish.getCategory()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPrice(), getCategory(), getIngredients(), getFeatures(), getCalories(), getAllergyInformation(), getStatus(), getTableNum());
     }
 }
