@@ -12,7 +12,7 @@ public class InventoryManager {
     private final String filepath;
 
     public InventoryManager(String filepath){
-        this.filepath =filepath;
+        this.filepath = filepath;
         this.inventorys = filehelper.read(filepath);
     }
 
