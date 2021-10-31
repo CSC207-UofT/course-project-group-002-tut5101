@@ -98,7 +98,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
     }
 
     public String toString(){
-        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate()+";";
+        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate();
     }
 
     public Review getReview(String[] paras){
