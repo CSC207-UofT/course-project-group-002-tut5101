@@ -1,45 +1,35 @@
 package entity;
 
 
+import constant.ItemStatus;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 
 
 public class Order {
-    // List of order statuses
-    static String PLACED = "Order Placed";
-    static String COOKED = "Order Cooked";
-    static String DELIVERED = "Order Delivered";
-    static String COMPLETE = "Order Complete";
-    static String[] statuses = new String[]{PLACED, COOKED, DELIVERED, COMPLETE};
-
-    private List<Dish> dishes;
+    private HashMap<String, List<Dish>> dishes;
     private boolean dineIn;
-    private String orderStatus;
+    private ItemStatus orderStatus;
     private int tableNum;
     private String address;
 
     // initialize dine-in order
-    public Order(int tableNum, List<Dish> dishes){
+    public Order(int tableNum, HashMap<String, List<Dish>> dishes){
         this.dishes = dishes;
         this.dineIn = true;
-        this.orderStatus = PLACED;
+        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.tableNum = tableNum;
     }
 
     // initialize delivery order
-    public Order(String address, List<Dish> dishes){
+    public Order(String address, HashMap<String, List<Dish>> dishes){
         this.dishes = dishes;
         this.dineIn = false;
-        this.orderStatus = PLACED;
+        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.address = address;
-    }
-
-    public static String getDelivered(){return DELIVERED;}
-
-
-    public String getOrderStatus() {
-        return orderStatus;
     }
 
     public String getOrderDineInOrTakeOut() {
@@ -50,23 +40,35 @@ public class Order {
         }
     }
 
-
-    /**
-     *
-     * @param dish the dish to be updated as "completed".
-     * @return True if all dishes in this order are completed, otherwise return False.
-     */
-    public boolean setDishStatusAndCheckOrderStatus(Dish dish) {
-        dish.setStatus("completed");
-        // Check if all dishes are complete, return false if not.
-        for (Dish d:dishes) {
-            if (!Objects.equals(d.getStatus(), "completed")){
-                return false;
+    public Dish setDishStatus(String name) {
+        for(Dish d : dishes.get(name)){
+            if (d.getStatus().equals(ItemStatus.DISH_PLACED)) {
+                d.setStatus(ItemStatus.DISH_COOKED);
+                updateOrderStatus();
+                return d;
             }
         }
+        return null;
+    }
+
+
+    private void updateOrderStatus() {
+        // Check if all dishes are complete.
+        boolean allComplete = true;
+
+        for (List<Dish> dishAsList: dishes.values()) {
+            for (Dish dish: dishAsList) {
+                if (!dish.getStatus().equals(ItemStatus.DISH_COOKED)){
+                    allComplete = false;
+                }
+
+            }
+        }
+
         // If all dishes are complete, update the order status and return true
-        this.orderStatus = COOKED;
-        return true;
+        if (allComplete) {
+            this.orderStatus = ItemStatus.ORDER_COOKED;
+        }
     }
 
     /**
@@ -74,40 +76,95 @@ public class Order {
      * @param status is the status to set the order as
      * @throws Exception status is not one of the allowable status in statuses
      */
-    public void setOrderStatus(String status){
-        //TODO: throw exception if status is not one of the allowable status in statuses
-        for (String s: statuses){
-            if (s == status) {
-                this.orderStatus = status;
-            }
-        }
-
-
+    public void setOrderStatus(ItemStatus status) {
+        this.orderStatus = status;
     }
 
-    @Override
-    public String toString() {
-        return dishes.toString();
+    /**
+     * Get the order status of the order
+     * @return order status as type ItemStatus
+     */
+    public ItemStatus getOrderStatus() {
+        return orderStatus;
     }
+
+    // TODO: add a method to access all the information of a dish given the dish name.
 
     public double getOrderPrice() {
         double price = 0;
-        for (Dish d: dishes) {
-            price += d.getPrice();
+        for (List<Dish> dishAsList : dishes.values()) {
+            for (Dish dish : dishAsList) {
+                price += dish.getPrice();
+            }
         }
         return price;
     }
 
+    /**
+     * Get the table number to be delivered for the order
+     * @return the table number of the dine-in order.
+     */
     public int getTableNum() {
         return this.tableNum;
     }
 
+    /**
+     * Get the address of the destination of the delivery order
+     * @return the address of the destination of the order
+     */
     public String getAddress() {
         return this.address;
     }
 
+    /**
+     * Return all the dishes in the order with duplication
+     * @return The list of all the dishes in the order with duplication
+     */
     public List<Dish> getDishes() {
-        return this.dishes;
+        List<Dish> dishList = new ArrayList<Dish>();
+        for (List<Dish> dishAsList: dishes.values()) {
+            for (Dish dish: dishAsList) {
+                dishList.add(dish);
+                }
+            }
+        return dishList;
     }
 
+
+    public String toString() {
+        // Dish Names, Quantity, Ingredients, price for each dish + total price
+        StringBuilder orderString = new StringBuilder();
+        String dishInfo;
+        double totalPrice = 0;
+
+        orderString.append("ORDER DETAILS");
+        orderString.append("\n------------------------------\n");
+
+        for (String key: dishes.keySet()) {
+            Dish dish = dishes.get(key).get(0);
+            dishInfo = "Dish Name: " + dish.getName() +
+                    "\n Quantity: " + dishes.get(key).size() +
+                    "\n Ingredients: " + dish.getIngredients() +
+                    "\n Price: $" + dish.getPrice() +
+                    "\n------------------------------\n";
+            totalPrice += dish.getPrice();
+            orderString.append(dishInfo);
+        }
+        orderString.append("Total Price: $" + (Math.round(totalPrice*100.0) /100.0));
+        return orderString.toString();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return dineIn == order.dineIn && getTableNum() == order.getTableNum() && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus() && Objects.equals(getAddress(), order.getAddress());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDishes(), dineIn, getOrderStatus(), getTableNum(), getAddress());
+    }
 }

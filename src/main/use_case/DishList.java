@@ -3,6 +3,7 @@ package use_case;
 import entity.Dish;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -10,35 +11,44 @@ import java.util.HashMap;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList {
-    private HashMap<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        this.menu = new HashMap<>();
+        menu = new HashMap<>();
     }
 
+    // TODO: delete later if needed
     public DishList(DishList dishList) {
-        this.menu = dishList.getDishes();
+        menu = dishList.getAllDishes();
     }
+
+    public DishList(List<Dish> dishes){
+        menu = new HashMap<>();
+        for (Dish d: dishes){
+            menu.put(d.getName(), d);
+        }
+    }
+
 
     /**
      * Return list of dishes
      *
-     * @return
+     * @return the menu
      */
-    public HashMap<String, entity.Dish> getDishes() {
-        return this.menu;
+    public static HashMap<String, entity.Dish> getAllDishes() {
+        return menu;
     }
 
     /**
-     * //TODO
+     * //TODO:
      * Return true if the restaurant has enough inventory for the Dish
      * @return true with inventory, or false if out of stock.
      *
      */
-    public boolean hasInventoryOfTheDish() {
+    public static boolean hasInventoryOfTheDish() {
         return false;
     }
 
@@ -57,8 +67,25 @@ public class DishList {
         }
         return menuString.toString();
     }
+    // Methods that allow lookup dish information without returning the dish itself
 
-    public int size() {
-        return this.menu.size();
+    public static double getDishPrice(String dishName) {
+        // TODO: handle dish name not in menu case
+        return menu.get(dishName).getPrice();
     }
+
+    public static HashMap<java.lang.String, java.lang.Double> getDishIngredients(String dishName) {
+        return menu.get(dishName).getIngredients();
+    }
+
+    public static double getDishCalories(String dishName) {
+        return menu.get(dishName).getCalories();
+    }
+
+    // TODO: Add additional methods to get other dish info such as allergy information
+
+    public static String getDishCategory(String dishName) {
+        return menu.get(dishName).getCategory();
+    }
+
 }
