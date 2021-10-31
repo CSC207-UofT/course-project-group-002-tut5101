@@ -7,14 +7,15 @@ import use_case.InventoryList;
 
 import java.util.Scanner;
 
-public class ManagerUI {
+public class ManagerUI implements UserInterface{
     
     private static DishList dishList;
     
     public ManagerUI(DishList dishList) {
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void loadUi() {
         System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
