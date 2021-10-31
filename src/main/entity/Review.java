@@ -1,62 +1,100 @@
 package entity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class Review{
-
-    public String user_id;
-    public String review;
-    public boolean YorN;
-    public boolean YorNforStaff;
-    public String complainStaff;
+public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
+    public String userName;
+    public boolean ifAnonymous;
+    public int rate;
+    public String newComment;
+    public boolean ifComplain;
+    public String newComplain;
 
     /**
-     * @param review The the comment that user want to input
-     * @param user_id The user id
-     * @param YorN whether a Yes or No
-     * @param YorNforStaff whether a Yes or No for staff
-     * @param complainStaff the complain for a staff
+     * Construct an instance of Material
+     * @param userName The name of the user
+     * @param ifAnonymous ture if the user want to anonymous, false if the user want to show the userName
+     * @param rate an int in 0-5 rate for the food
+     * @param newComment The comment that the user want to add
+     * @param ifComplain true if the user want to add complain to stuff, false if the user doesn't want to
+     * @param newComplain the complain that the user want to add
      */
 
-
-    public Review(String review, String user_id, boolean YorN, boolean YorNforStaff, String complainStaff){
-        this.review = review;
-        this.user_id = user_id;
-        this.YorN = YorN;
-        this.YorNforStaff = YorNforStaff;
-        this.complainStaff = complainStaff;
+    public Review(String userName, boolean ifAnonymous, int rate, String newComment,
+                  boolean ifComplain, String newComplain){
+        this.userName = userName;
+        this.ifAnonymous = ifAnonymous;
+        this.rate = rate;
+        this.newComment = newComment;
+        this.ifComplain = ifComplain;
+        this.newComplain = newComplain;
     }
 
-    /**
-     * Get the Review of a user
-     * @return The review of a user.
-     */
-
-
-    public String ShowReview(){
-        if (this.YorN){
-            return user_id + ":" + review + ".";
-        }else{
-            return "anonymous" + ":" + review + ".";
-        }
-    }
 
     /**
-     * Get the complain for a staff
-     * @return The complain for a staff.
+     * Get the name of the user
+     * @return The String of the userName, return "Anonymous" if the user want to anonymous.
      */
-
-
-    public String ComplainStaff(){
-        if (this.YorNforStaff){
-            if (this.YorN){
-                return "anonymous" + ":" + complainStaff + ".";
-            } else {
-                return user_id + ":" + complainStaff + ".";
-            }
+    @Override
+    public String addName() {
+        if(ifAnonymous){
+            return "Anonymous";
         } else {
-            return null;
+            return userName;
         }
     }
 
 
+    /**
+     * Get the rate of the comment
+     * @return an int of the rate from 0-5.
+     */
+    @Override
+    public int addRate() {
+        if (rate <= 0){
+            return 0;
+        } else return Math.min(rate, 5);
 
+    }
+
+
+    /**
+     * Get the comment of the user
+     * @return The String of the comment.
+     */
+    @Override
+    public String addComment() {
+        return newComment;
+    }
+
+
+    /**
+     * Get the complain for the stuff.
+     * @return The String of the complain.
+     */
+    @Override
+    public String complainStuff() {
+        if(ifComplain){
+            return newComplain;
+        }else {
+            return "no complain";
+        }
+    }
+
+
+    /**
+     * Get the date when the user comment
+     * @return The LocalDateTime when the user makes a comment.
+     */
+    @Override
+    public String reviewDate() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
+    }
+
+    public String toString(){
+        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate();
+    }
 }
+
