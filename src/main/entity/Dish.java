@@ -226,6 +226,7 @@ public class Dish {
 
         return name +
                 "\n\t\t$$" + price +
+                "\n\t\t$$" + tableNum +
                 "\n\t\tIngredients: " + ingString +
 //                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
