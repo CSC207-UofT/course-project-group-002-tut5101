@@ -6,7 +6,7 @@ package entity;
  * 2021-10-10
  */
 
-public class Staff extends User {
+public abstract class Staff extends User {
     protected int staffSalary;
 
     /**

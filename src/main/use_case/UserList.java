@@ -1,10 +1,10 @@
 package use_case; /*
   Public class storing information for all users using a Hashmap.
-
   @author Chan Yu & Naihe Xiao
  */
 
-import entity.User;
+import constant.UserType;
+import entity.*;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -14,18 +14,17 @@ import java.util.Map;
 public class UserList implements Serializable {
 
 
-    private final Map<String, User> users;
-
     public UserList(){this.users = new HashMap<>();}
 
     public UserList(HashMap users){ this.users = users;}
+    private static Map<String, User> users = new HashMap<>();
 
     /**
      * Add user to this user list.
      *
      * @param user the user to add
      */
-    public void add(User user) {
+    public static void add(User user) {
         users.put(user.getId(), user);
     }
 
@@ -34,8 +33,24 @@ public class UserList implements Serializable {
      *
      * @return a Hashmap with users' id mapping with users
      */
-    public User getUsersByUserId(String id) {
+    public static User getUserByUserId(String id) {
         return users.get(id);
+    }
+
+    public static UserType getUserTypeById(String id){
+        User currentUser = getUserByUserId(id);
+        if (currentUser instanceof Customer)
+            return UserType.CUSTOMER;
+        else if (currentUser instanceof Manager)
+            return UserType.MANAGER;
+        else if (currentUser instanceof ServingStaff)
+            return UserType.SERVING_STAFF;
+        else if (currentUser instanceof DeliveryStaff)
+            return UserType.DELIVERY_STAFF;
+        else
+            return UserType.KITCHEN;
+
+
     }
 
 //    private HashMap<String, User> users;
