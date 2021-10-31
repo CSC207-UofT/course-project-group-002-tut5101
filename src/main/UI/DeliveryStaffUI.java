@@ -13,7 +13,7 @@ public class DeliveryStaffUI implements UserInterface {
     }
 
     /**
-     * Run the user interface for Serving staff, when calling run, make sure you have the user's id.
+     * Run the user interface for Delivery staff, when calling run, make sure you have the user's id.
      * @param id The id of the current user.
      */
     public void loadUi (String id) {
