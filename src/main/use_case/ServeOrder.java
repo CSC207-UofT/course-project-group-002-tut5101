@@ -1,13 +1,17 @@
 package use_case;
 
+import boundary.ServingOrderInterface;
 import entity.ServingStaff;
 import entity.User;
 
-public class ServeOrder {
+public class ServeOrder implements ServingOrderInterface {
+    User user;
 
-    public void completedCurrentDish(String id) throws Exception{
-        User user = UserList.getUserByUserId(id);
+    public ServeOrder(String id) {
+        user = UserList.getUserByUserId(id);
+    }
 
+    public void completeCurrentDish() throws Exception{
         if (user instanceof ServingStaff){
            ((ServingStaff) user).completeServingDish();
         } else {
@@ -15,9 +19,7 @@ public class ServeOrder {
         }
     }
 
-    public void getToServe(String id) throws Exception{
-        User user = UserList.getUserByUserId(id);
-
+    public void getToServe() throws Exception{
         if (user instanceof ServingStaff){
             ((ServingStaff) user).setCurrentDish(ServingBuffer.getNextToServe());
         } else {
@@ -25,9 +27,7 @@ public class ServeOrder {
         }
     }
 
-    public String displayDish(String id) throws Exception{
-        User user = UserList.getUserByUserId(id);
-
+    public String displayDish() throws Exception {
         if (user instanceof ServingStaff){
             String dishInfo = ((ServingStaff) user).displayDish();
 

@@ -23,9 +23,8 @@ public class ServingStaffUI {
                     break;
                 case 1:
                     try {
-                        currentServingStaff.getServeDish();
-                        System.out.println("Table: " + currentServingStaff.getTableNumber() +
-                                " Dish: " + currentServingStaff.getDishName() + "\n");
+                        currentServingStaff.getNextServeDish();
+                        System.out.println(currentServingStaff.displayDish());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
