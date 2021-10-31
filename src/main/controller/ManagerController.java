@@ -13,19 +13,15 @@ public class ManagerController {
         this.managerInputBoundary = new ManagerUseCase();
     }
 
-    public void assignStaffToTable(String staffID) {
-        managerInputBoundary.assignServingStaff(staffID);
-    }
-
     public void manageMenu(DishList dishList){
         managerInputBoundary.manageMenu(dishList);
     }
 
-    public void requestInventory(InventoryList inventoryList){
-        managerInputBoundary.requestInventory(inventoryList);
+    public String requestInventory(InventoryList inventoryList){
+        return managerInputBoundary.requestInventory(inventoryList);
     }
 
-    public void deleteReview(){
-        managerInputBoundary.deleteReview();
+    public void deleteReview(ReviewList reviewList){
+        managerInputBoundary.deleteReview(reviewList);
     }
 }

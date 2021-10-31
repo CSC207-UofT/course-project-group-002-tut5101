@@ -12,21 +12,17 @@ public class ManagerUI implements UserInterface{
     private static DishList dishList;
     
     public ManagerUI(DishList dishList) {
+        this.dishList = dishList;
     }
 
     @Override
-    public void loadUi() {
+    public String loadUi(String managerId) {
         System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
         ManagerController controller = new ManagerController();
         // interface for q3.
         switch (action) {
-            // Assign serving staff to table
-            case 1:
-                String staffID = scanner.next();
-                controller.assignStaffToTable(staffID);
-                break;
 
             // Manage menu
             case 2:
@@ -41,9 +37,11 @@ public class ManagerUI implements UserInterface{
 
             // Delete Review
             case 4:
-                controller.deleteReview();
+                ReviewList reviewList = null;
+                controller.deleteReview(reviewList);
                 break;
 
         }
+        return "";
     }
 }

@@ -23,7 +23,6 @@ public class DishList {
         this.menu = dishList.getDishes();
     }
 
-
     /**
      * Return list of dishes
      *
@@ -57,5 +56,9 @@ public class DishList {
             dishNumber++;
         }
         return menuString.toString();
+    }
+
+    public int size() {
+        return this.menu.size();
     }
 }

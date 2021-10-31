@@ -1,5 +1,5 @@
 package ui;
 
 public interface UserInterface {
-    void loadUi();
+    String loadUi(String id);
 }

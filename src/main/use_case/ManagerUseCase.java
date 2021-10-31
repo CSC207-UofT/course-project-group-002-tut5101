@@ -1,6 +1,10 @@
 package use_case;
 
 import boundary.ManagerInputBoundary;
+import entity.Dish;
+import entity.Review;
+
+import java.util.*;
 
 public class ManagerUseCase implements ManagerInputBoundary {
 
@@ -16,17 +20,6 @@ public class ManagerUseCase implements ManagerInputBoundary {
 //        return false;
 //    }
 
-    /**
-     * // TODO not clear what the staff be assigned for?
-     * Manager assign
-     *
-     * @param staffId   the new staff id who will be assigned
-     * @return true iff the assignment succeed
-     */
-    public boolean assignServingStaff(String staffId) {
-        //TODO
-        return false;
-    }
 
 //    /**
 //     * Manager process enrollment of new staff.
@@ -46,11 +39,29 @@ public class ManagerUseCase implements ManagerInputBoundary {
      * @param menu      the current menu in system
      * @return true     iff the adjustment is made successfully
      */
-    public boolean manageMenu(DishList menu) {
-        //TODO
-        return false;
+    public void manageMenu(DishList menu) {
+        HashMap<String, Dish> dishMap = menu.getDishes();
+        Set keySet = dishMap.keySet();
+        List<String> list = new ArrayList<String>(keySet);
+        for (int i = 0; i < menu.size(); i++){
+            Dish dish = dishMap.get(list.get(i));
+            if (dish.getPrice() < 10 && dish.getPrice() > 5){
+                manageMenuHelper(dish);
+                dishMap.put(dish.getName(), dish);
+            } else if (dish.getPrice() <= 5){
+                dishMap.remove(dish.getName());
+            }
+        }
     }
 
+    /**
+     * Helper function of manageMenu method.
+     *
+     * @param dish
+     */
+    public void manageMenuHelper(Dish dish){
+        dish.updatePrice();
+    }
 
     /**
      * Manager request out of stock status.
@@ -58,19 +69,24 @@ public class ManagerUseCase implements ManagerInputBoundary {
      * @param inventoryList the current inventory status in system
      * @return true iff the request is made successfully
      */
-    public boolean requestInventory(InventoryList inventoryList) {
-        //TODO
-        return false;
+    public String requestInventory(InventoryList inventoryList) {
+       return inventoryList.toString();
     }
 
     /**
      *
-     * @param review    the review that will be updated
      * @return true iff the adjustment is made successfully
      */
-    public boolean deleteReview() {
-        //TODO
-        return false;
+    public void deleteReview(ReviewList reviewList) {
+
+        Set keySet = reviewList.getReviews().keySet();
+        List<String> list = new ArrayList<String>(keySet);
+        for (int i = 0; i < reviewList.size(); i++){
+            Review review = reviewList.getReviews().get(list.get(i));
+            if (review.getScore() < 10) {
+                reviewList.remove();
+            }
+        }
     }
 
 

@@ -4,22 +4,41 @@ import constant.UserType;
 
 public class UIFactory {
 
-    public static UserInterface getUI(UserType userType){
-        switch (userType){
+    private CustomerUI customerUI = new CustomerUI();
+    private ManagerUI managerUI = new ManagerUI();
+    private DeliveryStaffUI deliveryStaffUI = new DeliveryStaffUI();
+    private InventoryStaffUI InventoryStaffUI = new InventoryStaffUI();
+    private ServingStaffUI servingStaffUI = new ServingStaffUI();
+    private KitchenUI kitchenUI = new KitchenUI();
+    private LoginUI loginUI = new LoginUI();
+    private String id;
+
+    public UIFactory(String id){
+        this.id = id;
+    }
+
+    public UserInterface loadUI(UserType userType) {
+        switch (userType) {
             case CUSTOMER:
-                return new CustomerUI(dishList);
+                customerUI.loadUi(id);
+                break;
             case MANAGER:
-                return new ManagerUI(dishList);
+                managerUI.loadUi(id);
+                break;
             case DELIVERY_STAFF:
-                returnDeliveryStaffUI();
+                deliveryStaffUI.loadUi();
+                break;
             case INVENTORY_STAFF:
-                returnInventoryStaffUI();
+                inventoryStaffUI.loadUi();
+                break;
             case SERVING_STAFF:
-                return ServingStaffUI();
+                servingStaffUI.loadUi();
+                break;
             case KITCHEN:
-                return KitchenUI();
+                kitchenUI.loadUi();
+                break;
             default:
-                return null;
+                loginUI.loadUi("");
         }
     }
 

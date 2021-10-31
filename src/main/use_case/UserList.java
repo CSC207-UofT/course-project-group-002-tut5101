@@ -7,7 +7,6 @@ package use_case; /*
 import constant.UserType;
 import entity.Customer;
 import entity.Manager;
-import entity.Staff;
 import entity.User;
 
 import java.io.Serializable;
@@ -18,11 +17,7 @@ import java.util.Map;
 public class UserList implements Serializable {
 
 
-    private final Map<String, User> users;
-
-    public UserList(){this.users = new HashMap<>();}
-
-    public UserList(HashMap users){ this.users = users;}
+    private Map<String, User> users = new HashMap<>();
 
     /**
      * Add user to this user list.
@@ -50,8 +45,6 @@ public class UserList implements Serializable {
             return UserType.MANAGER;
         else
             return UserType.STAFF;
-
-
 
     }
 
