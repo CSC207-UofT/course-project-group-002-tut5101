@@ -35,6 +35,13 @@ public class DeliveryStaff extends Staff {
             throw new Exception("No order to be delivered");
         }
     }
+
+    public String displayOrder(){
+        if (currentOrder != null){
+            return currentOrder.toString();
+        }
+        return "";
+    }
 }
 
 
