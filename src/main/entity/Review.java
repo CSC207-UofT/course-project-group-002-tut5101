@@ -1,6 +1,5 @@
 package entity;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
@@ -31,11 +30,6 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         this.newComplain = newComplain;
     }
 
-    public Review() {
-
-    }
-
-
 
     /**
      * Get the name of the user
@@ -50,6 +44,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         }
     }
 
+
     /**
      * Get the rate of the comment
      * @return an int of the rate from 0-5.
@@ -61,6 +56,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         } else return Math.min(rate, 5);
 
     }
+
 
     /**
      * Get the comment of the user
