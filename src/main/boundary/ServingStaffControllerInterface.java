@@ -1,8 +1,7 @@
 package boundary;
 
 public interface ServingStaffControllerInterface {
-    void getServeDish() throws Exception;
-    int getTableNumber();
-    String getDishName();
-    void completeDish();
+    void getNextServeDish() throws Exception;
+    String displayDish() throws Exception;
+    void completeDish() throws Exception;
 }
