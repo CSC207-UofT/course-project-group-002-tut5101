@@ -14,7 +14,7 @@ public class ReviewList implements Serializable {
     }
 
     public ReviewList(HashMap reviews) {
-        this.reviews = reviews;
+        this.reviews  = reviews;
     }
 
     /**
