@@ -40,7 +40,7 @@ public class Order {
         }
     }
 
-    public Dish setDishStatus(String name) throws Exception {
+    public Dish setDishStatus(String name) {
         for(Dish d : dishes.get(name)){
             if (d.getStatus().equals(ItemStatus.DISH_PLACED)) {
                 d.setStatus(ItemStatus.DISH_COOKED);
@@ -48,7 +48,7 @@ public class Order {
                 return d;
             }
         }
-        throw new Exception("No such dish:" + name + " in the order, or all dishes are cooked.");
+        return null;
     }
 
 
