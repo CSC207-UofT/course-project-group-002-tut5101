@@ -16,16 +16,17 @@ public class ReviewTest {
 
     @Before
     public void setUp() {
-        review1 = new Review();
+        review1 = new Review("Amy", true, 5, "good food",
+                true, "bad stuff");
     }
 
     @Test(timeout = 50)
     public void testReviewAddName() {
-        assertEquals(review1.addName("Amy", true), "Anonymous");
+        assertEquals(review1.addName(), "Anonymous");
     }
 
     @Test(timeout = 50)
     public void testReview2() {
-        assertEquals(review1.addName("Amy", false), "Amy");
+        assertEquals(review1.addRate(), 5);
     }
 }

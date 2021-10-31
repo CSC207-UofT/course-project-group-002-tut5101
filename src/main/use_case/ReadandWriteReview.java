@@ -1,5 +1,6 @@
 package use_case;
 
+import entity.Inventory;
 import entity.Review;
 import java.io.*;
 import java.util.ArrayList;
@@ -8,12 +9,14 @@ public class ReadandWriteReview implements ReadWriteReview<Object> {
     @Override
     public Object read(String filepath) {
         String line;
-        ArrayList<String> reviews = new ArrayList<String>();
+        ArrayList<Review> reviews = new ArrayList<Review>();
         Review r = new Review();
         try{
             BufferedReader br = new BufferedReader(new FileReader(filepath));
             while((line = br.readLine()) != null){
-                reviews.add(line);
+                String[] paras = line.split(";");
+                Review rev = r.getReview(paras);
+                reviews.add(rev);
             }
             br.close();
             return reviews;

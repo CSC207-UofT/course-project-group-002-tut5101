@@ -1,48 +1,114 @@
 package entity;
-
 import java.time.LocalDateTime;
-import java.io.File;  // Import the File class
-import java.io.IOException;  // Import the IOException class to handle errors
-import java.util.Objects;
 
 public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
+    public String userName;
+    public boolean ifAnonymous;
+    public int rate;
+    public String newComment;
+    public boolean ifComplain;
+    public String newComplain;
 
+    /**
+     * Construct an instance of Material
+     * @param userName The name of the user
+     * @param ifAnonymous ture if the user want to anonymous, false if the user want to show the userName
+     * @param rate an int in 0-5 rate for the food
+     * @param newComment The comment that the user want to add
+     * @param ifComplain true if the user want to add complain to stuff, false if the user doesn't want to
+     * @param newComplain the complain that the user want to add
+     */
+
+    public Review(String userName, boolean ifAnonymous, int rate, String newComment,
+                  boolean ifComplain, String newComplain){
+        this.userName = userName;
+        this.ifAnonymous = ifAnonymous;
+        this.rate = rate;
+        this.newComment = newComment;
+        this.ifComplain = ifComplain;
+        this.newComplain = newComplain;
+    }
+
+    public Review() {
+
+    }
+
+
+
+    /**
+     * Get the name of the user
+     * @return The String of the userName, return "Anonymous" if the user want to anonymous.
+     */
     @Override
-    public String addName(String name, boolean ifAnonymous) {
+    public String addName() {
         if(ifAnonymous){
             return "Anonymous";
         } else {
-            return name;
+            return userName;
         }
     }
 
+    /**
+     * Get the rate of the comment
+     * @return an int of the rate from 0-5.
+     */
     @Override
-    public int addRate(int number) {
-        if (number <= 0){
+    public int addRate() {
+        if (rate <= 0){
             return 0;
-        } else return Math.min(number, 5);
+        } else return Math.min(rate, 5);
 
     }
 
+    /**
+     * Get the comment of the user
+     * @return The String of the comment.
+     */
     @Override
-    public String addComment(String newComment) {
+    public String addComment() {
         return newComment;
     }
 
+
+    /**
+     * Get the complain for the stuff.
+     * @return The String of the complain.
+     */
     @Override
-    public String complainStuff(boolean ifComplain, String newComplain) {
+    public String complainStuff() {
         if(ifComplain){
             return newComplain;
         }else {
-            return "";
+            return "no complain";
         }
     }
 
+
+    /**
+     * Get the date when the user comment
+     * @return The LocalDateTime when the user makes a comment.
+     */
     @Override
     public LocalDateTime reviewDate() {
         return LocalDateTime.now();
     }
 
+    public String toString(){
+        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate()+";";
+    }
 
+    public Review getReview(String[] paras){
+        Review r;
+        boolean ifAnonymous;
+        boolean ifComplain;
+        ifAnonymous = paras[0].equals("Anonymous");
+        ifComplain = paras[3].equals("no complain");
+        userName = paras[0];
+        rate = Integer.parseInt(paras[1]);
+        newComment = paras[2];
+        newComplain = paras[3];
+        r = new Review(userName, ifAnonymous, rate, newComment, ifComplain, newComplain);
+        return r;
+    }
 }
 
