@@ -1,5 +1,7 @@
 package controller;
 
+import use_case.DishList;
+import use_case.InventoryList;
 import use_case.Kitchen;
 
 import java.util.HashMap;
@@ -24,7 +26,16 @@ public class KitchenController {
     }
 
     public void completeDish(String number) {
-        Kitchen.cookedDish(dishChoices.get(Integer.parseInt(number)));
-        // TODO: update inventory here.
+        String dishName = dishChoices.get(Integer.parseInt(number));
+        Kitchen.cookedDish(dishName);
+        HashMap<String, Double> ingredientInfo = DishList.getDishIngredients(dishName);
+
+        for (String dish: ingredientInfo.keySet()) {
+            for (String ingredient: ingredientInfo.keySet()){
+                double oriQuantity = InventoryList.getTotalQuantity(dish);
+                InventoryList.setQuantity(dish, oriQuantity - ingredientInfo.get(ingredient));
+            }
+        }
+
     }
 }
