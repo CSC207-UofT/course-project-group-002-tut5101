@@ -2,7 +2,6 @@
  * Test for the PlaceOrder class
  */
 
-import entity.Customer;
 import entity.Dish;
 import entity.Order;
 import org.junit.Before;
@@ -18,13 +17,17 @@ import static org.junit.Assert.assertEquals;
 
 public class PlaceOrderTest {
     private static List<Dish> menu = null;
-    private PlaceOrder placeOrder;
+    private PlaceOrder placeOrder = new PlaceOrder();
 
     @Before
     public void setUp() {
         menu = generateDishList();
     }
 
+
+    /**
+     * Test placing a dine in order with table number
+     */
     @Test(timeout = 50)
     public void testPlaceOrderDineInTrue(){
         boolean dineIn = true;
@@ -46,6 +49,9 @@ public class PlaceOrderTest {
 
     }
 
+    /**
+     * Test placing a delivery order with table number
+     */
     @Test(timeout = 50)
     public void testPlaceOrderDineInFalse(){
         boolean dineIn = false;
