@@ -100,19 +100,5 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
     public String toString(){
         return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate();
     }
-
-    public Review getReview(String[] paras){
-        Review r;
-        boolean ifAnonymous;
-        boolean ifComplain;
-        ifAnonymous = paras[0].equals("Anonymous");
-        ifComplain = !paras[3].equals("no complain");
-        userName = paras[0];
-        rate = Integer.parseInt(paras[1]);
-        newComment = paras[2];
-        newComplain = paras[3];
-        r = new Review(userName, ifAnonymous, rate, newComment, ifComplain, newComplain);
-        return r;
-    }
 }
 

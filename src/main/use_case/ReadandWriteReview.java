@@ -10,7 +10,7 @@ public class ReadandWriteReview implements ReadWriteReview<Object> {
     public Object read(String filepath) {
         String line;
         ArrayList<Review> reviews = new ArrayList<Review>();
-        Review r = new Review();
+        ReviewCreater r = new ReviewCreater();
         try{
             BufferedReader br = new BufferedReader(new FileReader(filepath));
             while((line = br.readLine()) != null){
