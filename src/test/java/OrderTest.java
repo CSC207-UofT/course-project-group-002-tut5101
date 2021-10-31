@@ -35,7 +35,15 @@ public class OrderTest {
         dishes.put("Coke", List.of(new Dish[]{coke}));
         order = new Order(Integer.valueOf(location), dishes);
 
+        // testToString();
+
     }
+
+    public void testToString(){
+        System.out.println(order);
+    }
+
+
 
     @Test(timeout = 50)
     public void testGetOrderDineInOrTakeOut(){

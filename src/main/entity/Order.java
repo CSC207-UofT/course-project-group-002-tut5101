@@ -130,6 +130,31 @@ public class Order {
         return dishList;
     }
 
+
+    public String toString() {
+        // Dish Names, Quantity, Ingredients, price for each dish + total price
+        StringBuilder orderString = new StringBuilder();
+        String dishInfo;
+        double totalPrice = 0;
+
+        orderString.append("ORDER DETAILS");
+        orderString.append("\n------------------------------\n");
+
+        for (String key: dishes.keySet()) {
+            Dish dish = dishes.get(key).get(0);
+            dishInfo = "Dish Name: " + dish.getName() +
+                    "\n Quantity: " + dishes.get(key).size() +
+                    "\n Ingredients: " + dish.getIngredients() +
+                    "\n Price: $" + dish.getPrice() +
+                    "\n------------------------------\n";
+            totalPrice += dish.getPrice();
+            orderString.append(dishInfo);
+        }
+        orderString.append("Total Price: $" + (Math.round(totalPrice*100.0) /100.0));
+        return orderString.toString();
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
