@@ -1,5 +1,7 @@
 package entity;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
     public String userName;
@@ -89,8 +91,10 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
      * @return The LocalDateTime when the user makes a comment.
      */
     @Override
-    public LocalDateTime reviewDate() {
-        return LocalDateTime.now();
+    public String reviewDate() {
+        Date date=new Date();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
     }
 
     public String toString(){
