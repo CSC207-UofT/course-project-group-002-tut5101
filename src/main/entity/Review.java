@@ -1,6 +1,5 @@
 package entity;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
@@ -31,11 +30,6 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         this.newComplain = newComplain;
     }
 
-    public Review() {
-
-    }
-
-
 
     /**
      * Get the name of the user
@@ -50,6 +44,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         }
     }
 
+
     /**
      * Get the rate of the comment
      * @return an int of the rate from 0-5.
@@ -61,6 +56,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
         } else return Math.min(rate, 5);
 
     }
+
 
     /**
      * Get the comment of the user
@@ -98,21 +94,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
     }
 
     public String toString(){
-        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate()+";";
-    }
-
-    public Review getReview(String[] paras){
-        Review r;
-        boolean ifAnonymous;
-        boolean ifComplain;
-        ifAnonymous = paras[0].equals("Anonymous");
-        ifComplain = !paras[3].equals("no complain");
-        userName = paras[0];
-        rate = Integer.parseInt(paras[1]);
-        newComment = paras[2];
-        newComplain = paras[3];
-        r = new Review(userName, ifAnonymous, rate, newComment, ifComplain, newComplain);
-        return r;
+        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate();
     }
 }
 
