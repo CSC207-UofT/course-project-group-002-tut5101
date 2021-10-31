@@ -1,13 +1,13 @@
 package UI;
 import constant.*;
 import java.util.*;
-import controller.ServingStaffController;
+import controller.StaffController;
 
 public class ServingStaffUI {
-    ServingStaffController currentServingStaff;
+    StaffController currentServingStaff;
 
     public ServingStaffUI() {
-        currentServingStaff = new ServingStaffController();
+        currentServingStaff = new StaffController();
     }
 
     /**

@@ -3,7 +3,7 @@ package controller;
 import use_case.DeliverOrder;
 import use_case.ServeOrder;
 
-public class ServingStaffController {
+public class StaffController {
     ServeOrder servingStaff = new ServeOrder();
     DeliverOrder deliveryStaff = new DeliverOrder();
 
