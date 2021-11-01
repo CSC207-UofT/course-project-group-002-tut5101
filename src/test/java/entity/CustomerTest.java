@@ -1,3 +1,4 @@
+package entity;
 /**
  * Tests for UseCase.Customer Class
  *

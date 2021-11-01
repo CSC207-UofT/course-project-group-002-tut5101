@@ -1,3 +1,5 @@
+package use_case;
+
 import org.junit.Before;
 import org.junit.Test;
 
