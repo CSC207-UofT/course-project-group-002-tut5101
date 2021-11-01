@@ -2,6 +2,6 @@ package entity;
 
 import java.time.LocalDateTime;
 
-interface DayTime {
-    public  String reviewDate();
+public interface DayTime {
+    public String reviewDate();
 }

@@ -29,10 +29,8 @@ public class Kitchen {
     /**
      * Get the next order to cook from the placeOrderQueue instance.
      */
-    public static boolean getNextToCook(){
-        // TODO: does this really need to be a boolean return type?
+    public static void getNextToCook(){
         currentOrder = OrderQueue.getNextOrder();
-        return currentOrder != null;
     }
 
     /**
@@ -50,7 +48,6 @@ public class Kitchen {
      * @throws Exception if the given dish name does not correspond to any dish in the current order.
      */
     public static void cookedDish(String dishName) {
-        // TODO: call the update inventory in controller.
         Dish dishCooked = currentOrder.setDishStatus(dishName);
         ItemStatus orderCompleted = currentOrder.getOrderStatus();
         if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){

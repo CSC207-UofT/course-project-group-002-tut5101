@@ -15,6 +15,10 @@ public class Dish {
     private String name;
     private double price;
     private String category;
+
+    /**
+     * A Hashmap that maps ingredient name to the quantity needed for this dish.
+     */
     private HashMap<String, Double> ingredients;
     private HashMap<String, Boolean> features;
     private double calories;
