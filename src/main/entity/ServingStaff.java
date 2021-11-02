@@ -48,10 +48,6 @@ public class ServingStaff extends Staff {
         }
     }
 
-    public int getTableNum(){
-        return this.currentDish.getTableNum();
-    }
-
     public String displayDish(){
         if (currentDish != null){
             return "Table: " + currentDish.getTableNum() + " Dish: "+ currentDish.getName();
