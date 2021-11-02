@@ -1,4 +1,12 @@
 package controller;
+/**
+ * StaffController
+ * A controller for delivery and serving staff
+ * By Dedong Xie and Raymond Liu
+ * Created: 2021-10-24, Dedong Xie, named the class ServingStaffController
+ * Refactored: 2021-10-31, Dedong Xie and Raymond Liu,
+ *      change name to staffController and make it common controller for serveOrder and deliverOrder use cases.
+ */
 
 import boundary.Delivery;
 import constant.UserType;

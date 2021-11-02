@@ -1,4 +1,11 @@
 package UI;
+/**
+ * ServingStaffUI
+ * A UI for serving staff
+ * Created by Dedong Xie
+ * On 2021-10-24
+ */
+
 import constant.*;
 import java.util.*;
 import controller.StaffController;

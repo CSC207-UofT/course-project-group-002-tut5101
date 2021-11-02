@@ -1,4 +1,10 @@
 package UI;
+/**
+ * ServingStaffUI
+ * A UI for delivery staff
+ * Created by Dedong Xie
+ * On 2021-10-31
+ */
 
 import constant.UIMessage;
 import controller.StaffController;
