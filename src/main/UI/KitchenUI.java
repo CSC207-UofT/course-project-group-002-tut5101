@@ -1,13 +1,15 @@
 package UI;
 
-import constant.CustomerUIMessage;
 import constant.KitchenUIMessage;
 import controller.KitchenController;
-import use_case.Kitchen;
 
 import java.util.Scanner;
 
-public class KitchenUI implements UserInterface{
+/**
+ * The user interface for Kitchen.
+ */
+
+public class KitchenUI implements UserInterface {
 
     private KitchenController kc = new KitchenController();
 
@@ -18,7 +20,8 @@ public class KitchenUI implements UserInterface{
             String action = scanner.nextLine();
             switch (action) {
                 case "1":
-                    kc.displayOrder();
+                    // Case 1: display order if there is order to be cooked.
+                    System.out.println(kc.showOrder());
                     break;
                 case "2":
                     System.out.println(KitchenUIMessage.COMPLETE_DISH);

@@ -44,7 +44,7 @@ public class CustomerUI {
                        runPlaceOrder(orderController, dineInStatus, dishes, location);
                     }
                     System.out.println(CustomerUIMessage.ORDER_PLACED);
-
+                    break;
                 case "2":
                     break;
                 case "3":

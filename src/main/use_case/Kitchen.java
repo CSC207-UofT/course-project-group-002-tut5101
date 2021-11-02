@@ -4,33 +4,29 @@ import constant.ItemStatus;
 import entity.Dish;
 import entity.Order;
 
-import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Queue;
 
 /**
- * The kitchen in the restaurant.
+ * The kitchen use case in the restaurant.
  *
- * This class serves as an intermediate step between the customers and the delivery / serving staff.
- * It gets new orders from the placeOrderQueue, and update the status of the dish, and depending
- * on the type of the order, add the dish / order to the queues for either delivery staff or
- * serving staff.
- *
- * Author: Raymond Liu, 2021/10/11
+ * Author: ௵۞ၡ֍Ѭ֍Ӂ
  */
 
 public class Kitchen {
     /**
-     * The current order that the Controller.Kitchen is working on.
+     * The current order that the Kitchen is working on.
      */
     private static Order currentOrder;
 
     /**
-     * Get the next order to cook from the placeOrderQueue instance.
+     * Get the next order to cook from the OrderQueue.
+     *
+     * @return if the Kitchen actually gets a new order.
      */
-    public static void getNextToCook(){
+    public static boolean getNextToCook(){
         currentOrder = OrderQueue.getNextOrder();
+        return !(currentOrder == null);
     }
 
     /**
@@ -45,33 +41,50 @@ public class Kitchen {
      * the ServingBuffer or add the order to DeliveryBuffer.
      *
      * @param dishName the name of the dish that is completed by the kitchen.
-     * @throws Exception if the given dish name does not correspond to any dish in the current order.
      */
     public static void cookedDish(String dishName) {
         Dish dishCooked = currentOrder.setDishStatus(dishName);
-        ItemStatus orderCompleted = currentOrder.getOrderStatus();
-        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")){
+
+        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")) {
             ServingBuffer.addDish(dishCooked);
-            if (orderCompleted == ItemStatus.ORDER_COOKED){
-                getNextToCook();
-            }
-        } else {
-            if (orderCompleted == ItemStatus.ORDER_COOKED) {
-                DeliveryBuffer.addDeliveryOrder(currentOrder);
-                getNextToCook();
-            }
+        } else if (currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED) {
+            DeliveryBuffer.addDeliveryOrder(currentOrder);
         }
+    }
+
+
+    /**
+     * @return whether the Kitchen needs a new order to cook.
+     *
+     * The kitchen needs a new order when they currently don't have one or when their current order
+     * is all cooked.
+     */
+    public static boolean needNextOrder() {
+        return !occupied() || currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED;
+    }
+
+
+    /**
+     * @return whether the kitchen is occupied (has an order to work on)
+     */
+    public static boolean occupied() {
+        return !(currentOrder == null);
     }
 
     /**
      * @return A string representation of the choices of dishes that still need to be cooked.
+     *
      */
-    public static HashMap<Integer, String> showDishesChoice() {
-        HashMap<Integer, String> dishChoice = new HashMap<>();
+    public static HashMap<String, Integer> showDishesChoice() {
+        HashMap<String, Integer> dishChoice = new HashMap<>();
         List<Dish> dishes = currentOrder.getDishes();
-        for (int i = 1; i <= dishes.size(); i++) {
-            if (dishes.get(i - 1).getStatus() == ItemStatus.DISH_PLACED) {
-                dishChoice.put(i, dishes.get(i).getName());
+        for (Dish d: dishes) {
+            if (d.getStatus() == ItemStatus.DISH_PLACED) {
+                if (dishChoice.containsKey(d.getName())) {
+                    dishChoice.replace(d.getName(), dishChoice.get(d.getName()) + 1);
+                } else {
+                    dishChoice.put(d.getName(), 1);
+                }
             }
         }
         return dishChoice;
