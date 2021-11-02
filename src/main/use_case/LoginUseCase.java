@@ -16,10 +16,6 @@ public class LoginUseCase implements LoginInputBoundary {
      */
     //TODO: inject this object and change the type to ReadWriter interface.
     // UserReadWriter readWriter = new UserReadWriter();
-
-
-
-
     public LoginUseCase(UserList users) {
         this.users = users;
 //        try {

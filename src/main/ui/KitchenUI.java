@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import constant.CustomerUIMessage;
 import constant.KitchenUIMessage;
@@ -7,7 +7,7 @@ import use_case.Kitchen;
 
 import java.util.Scanner;
 
-public class KitchenUI implements UserInterface{
+public class KitchenUI implements UI.UserInterface {
 
     private KitchenController kc = new KitchenController();
 

@@ -1,81 +1,67 @@
 package use_case;
 
-import entity.Manager;
+import boundary.ManagerInputBoundary;
+import constant.FileLocation;
+import entity.Dish;
 import entity.Review;
-import entity.Staff;
+import gateway.MenuReadWriter;
+import gateway.ReadWriter;
 
-public class ManagerUseCase {
+import java.io.IOException;
+import java.util.*;
 
-    /**
-     * Manager issue payment to a specific staff.
-     *
-     * @param manager the current manager in system
-     * @param staff   the staff who are getting payment
-     * @return true iff the payment issue succeed
-     */
-    public boolean payStaffSalary(Manager manager, Staff staff) {
-        //TODO
-        return false;
-    }
+public class ManagerUseCase implements ManagerInputBoundary {
 
-    /**
-     * // TODO not clear what the staff be assigned for?
-     * Manager assign
-     *
-     * @param manager the current manager in system
-     * @param staff   the new staff who will be assigned
-     * @return true iff the assignment succeed
-     */
-    public boolean assignServingStaff(Manager manager, Staff staff) {
-        //TODO
-        return false;
-    }
 
-    /**
-     * Manager process enrollment of new staff.
-     *
-     * @param manager the current manager in system
-     * @param staff   the new staff who will be enrolled
-     * @return true iff the enrollment process success
-     */
-    public boolean enrollStaff(Manager manager, Staff staff) {
-        //TODO
-        return false;
+    public DishList loadMenu() {
+        ReadWriter readWriter = new MenuReadWriter();
+        try {
+            return (DishList) readWriter.readFromFile(FileLocation.MenuLocation);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
      * Manager adjust the menu(dish list).
      *
-     * @param manager the current manager in system
-     * @param menu    the current menu in system
      * @return true     iff the adjustment is made successfully
      */
-    public boolean manageMenu(Manager manager, DishList menu) {
-        //TODO
-        return false;
+    public void manageMenu() {
+        DishList menu = loadMenu();
+        HashMap<String, Dish> dishMap = menu.getAllDishes();
+        Set keySet = dishMap.keySet();
+        List<String> list = new ArrayList<String>(keySet);
+        for (int i = 0; i < menu.size(); i++) {
+            Dish dish = dishMap.get(list.get(i));
+            if (dish.getPrice() < 10 && dish.getPrice() > 5) {
+                manageMenuHelper(dish);
+                dishMap.put(dish.getName(), dish);
+            } else if (dish.getPrice() <= 5) {
+                dishMap.remove(dish.getName());
+            }
+        }
+
+
     }
 
-
     /**
-     * Manager request out of stock status.
+     * Helper function of manageMenu method.
      *
-     * @param manager       the current manager in system
-     * @param inventoryList the current inventory status in system
-     * @return true iff the request is made successfully
+     * @param dish
      */
-    public boolean requestInventory(Manager manager, InventoryList inventoryList) {
-        //TODO
-        return false;
+    public void manageMenuHelper(Dish dish) {
+        dish.updatePrice();
     }
 
     /**
-     * @param manager the current manager in system
-     * @param review  the review that will be updated
      * @return true iff the adjustment is made successfully
      */
-    public boolean adjustReview(Manager manager, Review review) {
-        //TODO
-        return false;
+    public void deleteReview(ReviewList reviewList) {
+        reviewList.deleteReviews();
     }
 
 

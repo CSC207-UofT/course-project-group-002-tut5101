@@ -2,6 +2,7 @@ package use_case;
 
 import entity.Dish;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class DishList {
+public class DishList implements Serializable {
     private static HashMap<String, Dish> menu;
 
     /**
@@ -86,6 +87,10 @@ public class DishList {
 
     public static String getDishCategory(String dishName) {
         return menu.get(dishName).getCategory();
+    }
+
+    public int size() {
+        return this.size();
     }
 
 }
