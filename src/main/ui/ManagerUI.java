@@ -4,16 +4,12 @@ import constant.UIMessage;
 import controller.ManagerController;
 import use_case.DishList;
 import use_case.InventoryList;
+import use_case.ReviewList;
 
 import java.util.Scanner;
 
-public class ManagerUI implements UserInterface{
-    
-    private static DishList dishList;
-    
-    public ManagerUI(DishList dishList) {
-        this.dishList = dishList;
-    }
+public class ManagerUI implements UserInterface {
+
 
     @Override
     public String loadUi(String managerId) {
@@ -29,11 +25,6 @@ public class ManagerUI implements UserInterface{
                 controller.manageMenu(dishList);
                 break;
 
-            // Request inventory
-            case 3:
-                InventoryList inventoryList = null;
-                controller.requestInventory(inventoryList);
-                break;
 
             // Delete Review
             case 4:
@@ -42,6 +33,5 @@ public class ManagerUI implements UserInterface{
                 break;
 
         }
-        return "";
     }
 }

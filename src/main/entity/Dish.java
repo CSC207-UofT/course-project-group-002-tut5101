@@ -220,4 +220,9 @@ public class Dish {
                 "\n\t\tallergyInformation: " + allergyInformation +
                 "\n------------------------------\n";
     }
+
+    public void updatePrice() {
+        double increment = 10 - this.getPrice();
+        this.price += increment + 1;
+    }
 }

@@ -1,5 +1,7 @@
 package gateway;
 
+import use_case.DishList;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class MenuReadWriter implements ReadWriter{
      * @throws IOException
      */
     @Override
-    public ArrayList readFromFile(String filePath) throws IOException, ClassNotFoundException {
+    public DishList readFromFile(String filePath) throws IOException, ClassNotFoundException {
 
         InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);

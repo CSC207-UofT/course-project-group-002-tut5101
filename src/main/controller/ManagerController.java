@@ -4,6 +4,7 @@ import boundary.ManagerInputBoundary;
 import use_case.DishList;
 import use_case.InventoryList;
 import use_case.ManagerUseCase;
+import use_case.ReviewList;
 
 public class ManagerController {
 
@@ -15,10 +16,6 @@ public class ManagerController {
 
     public void manageMenu(DishList dishList){
         managerInputBoundary.manageMenu(dishList);
-    }
-
-    public String requestInventory(InventoryList inventoryList){
-        return managerInputBoundary.requestInventory(inventoryList);
     }
 
     public void deleteReview(ReviewList reviewList){
