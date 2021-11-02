@@ -42,7 +42,7 @@ public class MenuReadWriter implements ReadWriter{
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        ArrayList dishes = (ArrayList) input.readObject();
+        DishList dishes = (DishList) input.readObject();
         input.close();
         return dishes;
     }

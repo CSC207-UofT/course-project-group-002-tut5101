@@ -12,7 +12,7 @@ public class ManagerUI implements UserInterface {
 
 
     @Override
-    public String loadUi(String managerId) {
+    public void loadUi(String managerId) {
         System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
@@ -22,7 +22,7 @@ public class ManagerUI implements UserInterface {
 
             // Manage menu
             case 2:
-                controller.manageMenu(dishList);
+                controller.manageMenu();
                 break;
 
 

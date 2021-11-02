@@ -53,12 +53,11 @@ public class ManagerUseCase implements ManagerInputBoundary {
      *
      * @param dish
      */
-    public void manageMenuHelper(Dish dish){
+    public void manageMenuHelper(Dish dish) {
         dish.updatePrice();
     }
 
     /**
-     *
      * @return true iff the adjustment is made successfully
      */
     public void deleteReview(ReviewList reviewList) {

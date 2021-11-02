@@ -14,8 +14,8 @@ public class ManagerController {
         this.managerInputBoundary = new ManagerUseCase();
     }
 
-    public void manageMenu(DishList dishList){
-        managerInputBoundary.manageMenu(dishList);
+    public void manageMenu(){
+        managerInputBoundary.manageMenu();
     }
 
     public void deleteReview(ReviewList reviewList){
