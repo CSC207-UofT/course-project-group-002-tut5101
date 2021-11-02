@@ -8,4 +8,4 @@
 # Progress report
 ## Open questions
 ## What has worked well
-## Summary of each group member's work and plan
+## Summary of each group member's work and plan 
