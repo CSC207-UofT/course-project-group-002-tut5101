@@ -4,20 +4,22 @@ import java.util.*;
 import UI.CmdUI;
 import constant.UIMessage;
 import entity.*;
+import gateway.UserReadWriter;
 import use_case.*;
 
 public class RestaurantSystem {
 
     private static final UserList userList;
     private static final List<Dish> menu;
+    private static UserReadWriter urf = new UserReadWriter();
     private static boolean login;
     private static String currentUserId;
 
 
     static {
-        userList = generateUserList();
-        menu = generateDishList();
-    }
+       userList = generateUserList();
+       menu = generateDishList();
+   }
 
 
     public static void main(String[] args) {
@@ -141,6 +143,10 @@ public class RestaurantSystem {
 //            else {
 //                userLoginHelper(scanner);
 //            }
+            UserList users = urf.readFromFile("src/users.ser");
+            User a = new User();
+            users.add(a);
+
         }
     }
 
