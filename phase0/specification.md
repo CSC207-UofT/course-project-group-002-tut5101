@@ -42,11 +42,11 @@ Check and update the freshness and quantity of inventory items.
 
 ### Manager
 
-Managers can see the quantity of each dish sold over a customizable period of time 
+Manager can see the quantity of each dish sold over a customizable period of time 
 
-Manager can use a timetable to arrange the prices of dishes (special offer) in the following day/week/month/season. They can decide to lower the price of a dish with small demand and raise those with higher demand. They can determine discounts according to specific events or seasons on dishes. 
+Manager can view the specific information of a dish or access the entire dish list and make changes to dish prices.
 
-Managers can assign staff to certain tables 
+Manager can adjust reviews left by customers.
 
 ### Inventory
 

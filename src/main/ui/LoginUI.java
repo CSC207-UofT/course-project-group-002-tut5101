@@ -1,18 +1,21 @@
-package UI;
+package ui;
 
 import constant.UIMessage;
 import controller.LoginController;
 
 import java.util.Scanner;
 
-public class CmdUI {
+public class LoginUI implements UserInterface{
+
+    private LoginController controller = new LoginController();
+
     /**
      * Cmd UI of login.
      *
-     * @param controller
      * @return id of the user if login succeed, otherwise, return null;
      */
-    public String runLogin(LoginController controller) {
+    @Override
+    public void loadUi(String arg) {
         System.out.println(UIMessage.ASK_FOR_ID);
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();
