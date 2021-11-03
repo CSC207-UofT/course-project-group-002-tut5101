@@ -1,4 +1,10 @@
 package use_case;
+/**
+ * This is the PlaceOrder class, which creates copies of dishes ordered based on their information in the menu and creates
+ * a new order with the list of dishes
+ * @Author Evelyn Chou
+ * 2021-11-03
+ */
 
 import boundary.PlaceOrderInputBoundary;
 import entity.Dish;
@@ -54,6 +60,14 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
     }
 
     // Lookup the dish in the DishList/Menu then create a copy of that dish
+
+    /**
+     * Lookup the dish in the Menu then create a copy of that dish
+     * @param dishName the name of the dish
+     * @param location the table number of the dish, or location of order to be delivered
+     * @param dineIn whether the dish is for a dine in or take out order
+     * @return a Dish with same information as the corresponding dish in the menu
+     */
     public Dish generateDishCopy(String dishName, String location, boolean dineIn){
         double price = DishList.getDishPrice(dishName);
         HashMap<String, Double> ingredients = DishList.getDishIngredients(dishName);
