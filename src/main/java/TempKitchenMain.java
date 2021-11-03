@@ -1,6 +1,13 @@
+package java;
+
 import UI.CustomerUI;
 import UI.KitchenUI;
-import entity.*;
+import entity.Dish;
+import entity.Inventory;
+import entity.Meat;
+import entity.Order;
+import entity.Seafood;
+import entity.VegeFruit;
 import use_case.DishList;
 import use_case.InventoryList;
 import use_case.PlaceOrder;
