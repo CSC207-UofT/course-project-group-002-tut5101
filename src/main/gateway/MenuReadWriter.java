@@ -1,6 +1,7 @@
 package gateway;
 
 import use_case.DishList;
+import use_case.InventoryList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -17,16 +18,21 @@ public class MenuReadWriter extends SuperReadWriter{
      */
     @Override
 
-    public DishList readFromFile(String filePath) throws IOException, ClassNotFoundException {
+    public DishList readFromFile(String filePath) {
 
-        InputStream file = new FileInputStream(filePath);
-        InputStream buffer = new BufferedInputStream(file);
-        ObjectInput input = new ObjectInputStream(buffer);
+        DishList dishes = new DishList();
+        try{
+            File f = new File(filePath);
+            f.createNewFile();
+            InputStream file = new FileInputStream(f);
+            InputStream buffer = new BufferedInputStream(file);
+            ObjectInput input = new ObjectInputStream(buffer);
 
-        // serialize the Map
-
-        DishList dishes = (DishList) input.readObject();
-        input.close();
+            // serialize the Map
+            dishes = (DishList) input.readObject();
+            input.close();
+        }
+        catch(IOException|ClassNotFoundException e){e.printStackTrace();}
         return dishes;
     }
 }

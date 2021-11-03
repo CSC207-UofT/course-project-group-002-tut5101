@@ -3,9 +3,12 @@ package use_case;
 import entity.*;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 
-public class InventoryList {
+
+public class InventoryList implements Serializable {
 
 
     /**
@@ -13,14 +16,19 @@ public class InventoryList {
      * The information of this ingredient (e.g. name, price, quantity, etc.) are stored as
      * attribute in the inventory item instance.
      */
-    private static HashMap<String, Inventory> myDict = new HashMap<>();
+    private static final HashMap<String, Inventory> myDict = new HashMap<>();
+
 
     /**
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public static void addInventory(Inventory item){
+    public void addInventory(Inventory item){
         if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
+    }
+
+    public void loadHashMap(HashMap hashMap){
+        if(myDict.isEmpty()){myDict.putAll(hashMap);}
     }
 
 
@@ -29,7 +37,7 @@ public class InventoryList {
      * @param name The name of this inventory
      * @return the inventory required.
      */
-    public static Inventory getItem(String name){
+    public Inventory getItem(String name){
         return myDict.get(name);
     }
 
@@ -39,7 +47,7 @@ public class InventoryList {
      * @return the freshness of inventory required.
      */
 
-    public static String getFreshness(String name){
+    public String getFreshness(String name){
         if(getItem(name) instanceof HasFreshness){
             HasFreshness i = (HasFreshness) getItem(name);
             return i.getFreshness();
@@ -56,7 +64,7 @@ public class InventoryList {
      * @param newFreshness the new freshness for this ingredient.
      */
 
-    public static void updateFreshness(String name, String newFreshness) {
+    public void updateFreshness(String name, String newFreshness) {
         if(getItem(name) instanceof HasFreshness){
             HasFreshness i = (HasFreshness) getItem(name);
             i.setFreshness(newFreshness);
@@ -71,7 +79,7 @@ public class InventoryList {
      */
 
 
-    public static double getTotalQuantity(String name){
+    public double getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return 0;
@@ -84,7 +92,7 @@ public class InventoryList {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public static void setQuantity(String name, double usage) {
+    public void setQuantity(String name, double usage) {
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return;
