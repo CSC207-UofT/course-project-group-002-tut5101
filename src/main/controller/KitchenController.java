@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class KitchenController {
     HashMap<Integer, String> dishChoices;
 
+
     public String displayOrder() {
         Kitchen.getNextToCook();
         return Kitchen.showOrder();
