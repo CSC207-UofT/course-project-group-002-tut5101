@@ -20,7 +20,7 @@ public class InventoryList {
      * @param item The inventory to add
      */
     public static void addInventory(Inventory item){
-        if(!(myDict.containsKey(item.name) || myDict.containsValue(item))){myDict.put(item.name, item);}
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
     }
 
 
@@ -40,8 +40,8 @@ public class InventoryList {
      */
 
     public static String getFreshness(String name){
-        if(getItem(name) instanceof Material){
-            Material i = (Material) getItem(name);
+        if(getItem(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getItem(name);
             return i.getFreshness();
         }
         else{
@@ -57,8 +57,8 @@ public class InventoryList {
      */
 
     public static void updateFreshness(String name, String newFreshness) {
-        if(getItem(name) instanceof Material){
-            Material i = (Material) getItem(name);
+        if(getItem(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getItem(name);
             i.setFreshness(newFreshness);
         }
         // TODO: handle cases when the given name is not an ingredient with freshness
