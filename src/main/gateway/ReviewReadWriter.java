@@ -1,26 +1,14 @@
 package gateway;
 
+import entity.Review;
+import use_case.DishList;
+import use_case.ReviewList;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class ReviewReadWriter implements ReadWriter{
-    /**
-     * Writes the users to file at filePath.
-     *
-     * @param filePath the file to write the records to
-     * @param reviews    stores the list of users to be serialized
-     * @throws IOException
-     */
-    @Override
-    public void saveToFile(String filePath, Object reviews) throws IOException {
+public class ReviewReadWriter extends SuperReadWriter{
 
-        OutputStream file = new FileOutputStream(filePath);
-        OutputStream buffer = new BufferedOutputStream(file);
-        ObjectOutput output = new ObjectOutputStream(buffer);
-        // serialize the Map
-        output.writeObject(reviews);
-        output.close();
-    }
 
 
     /**
@@ -31,15 +19,22 @@ public class ReviewReadWriter implements ReadWriter{
      * @throws IOException
      */
     @Override
-    public Serializable readFromFile(String filePath) throws IOException, ClassNotFoundException {
+    public ReviewList readFromFile(String filePath){
+        ReviewList reviews = new ReviewList();
+        try{
+            File f = new File(filePath);
+            f.createNewFile();
+            InputStream file = new FileInputStream(f);
+            InputStream buffer = new BufferedInputStream(file);
+            ObjectInput input = new ObjectInputStream(buffer);
 
-        InputStream file = new FileInputStream(filePath);
-        InputStream buffer = new BufferedInputStream(file);
-        ObjectInput input = new ObjectInputStream(buffer);
-
-        // serialize the Map
-        Serializable reviews = (Serializable) input.readObject();
-        input.close();
+            // serialize the Map
+            reviews = (ReviewList) input.readObject();
+            input.close();}
+        catch(EOFException e){
+            reviews = new ReviewList();
+        }
+        catch(IOException|ClassNotFoundException e){e.printStackTrace();}
         return reviews;
     }
 }

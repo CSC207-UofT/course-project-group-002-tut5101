@@ -1,5 +1,6 @@
 package controller;
 
+
 import constant.UserType;
 import ui.LoginUI;
 import ui.UIFactory;
@@ -15,6 +16,7 @@ public class RestaurantSystem {
     private UserList userList;
     private DishList dishList;
 
+
     /**
      * User Login
      */
@@ -23,9 +25,11 @@ public class RestaurantSystem {
         LoginUI ui = new LoginUI();
         String userId = ui.loadUi(""); //ui.runLogin(controller);
 
+
         if (userId != null) {
             currentUserId = userId;
             login = true;
+
         }
     }
 

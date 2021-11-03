@@ -1,28 +1,11 @@
 package gateway;
+import entity.User;
 import use_case.UserList;
 
 import java.io.*;
 import java.util.HashMap;
 
-public class UserReadWriter implements ReadWriter {
-    /**
-     * Writes the users to file at filePath.
-     *
-     * @param filePath the file to write the records to
-     * @param users    stores the list of users to be serialized
-     * @throws IOException
-     */
-    @Override
-    public void saveToFile(String filePath, Object users) throws IOException {
-
-        OutputStream file = new FileOutputStream(filePath);
-        OutputStream buffer = new BufferedOutputStream(file);
-        ObjectOutput output = new ObjectOutputStream(buffer);
-
-        // serialize the Map
-        output.writeObject(users);
-        output.close();
-    }
+public class UserReadWriter extends SuperReadWriter {
 
 
     /**
@@ -33,15 +16,20 @@ public class UserReadWriter implements ReadWriter {
      * @throws IOException
      */
     @Override
-    public UserList readFromFile(String filePath) throws IOException, ClassNotFoundException {
-
-        InputStream file = new FileInputStream(filePath);
+    public UserList readFromFile(String filePath){
+        UserList users = new UserList();
+        try{
+        File f = new File(filePath);
+        f.createNewFile();
+        InputStream file = new FileInputStream(f);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        UserList users = (UserList) input.readObject();
+        users = (UserList) input.readObject();
         input.close();
+        }
+        catch(IOException|ClassNotFoundException e){e.printStackTrace();}
         return users;
     }
 }
