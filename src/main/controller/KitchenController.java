@@ -12,10 +12,6 @@ import java.util.HashMap;
  * Controller for Kitchen.
  */
 
-
-//TODO: I WANT TO MAKE KITCHEN A LISTENER TO ORDER QUEUE, WHICH MAKES MUCH MORE SENSE MORE THE
-// CURRENT IMPLEMENTATION
-
 public class KitchenController {
     HashMap<String, Integer> dishChoices;
 

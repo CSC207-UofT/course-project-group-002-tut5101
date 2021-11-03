@@ -9,29 +9,24 @@ import java.util.Scanner;
  * The user interface for Kitchen.
  */
 
+//TODO: notification system
+//TODO: allow multiple orders to be processed at the same time
 public class KitchenUI implements UserInterface {
 
     private KitchenController kc = new KitchenController();
 
     public void loadUi(String id) {
+        System.out.println(KitchenUIMessage.SELECT_ACTION);
+        System.out.println(kc.showOrder());
         while (true) {
-            System.out.println(KitchenUIMessage.SELECT_ACTION);
             Scanner scanner = new Scanner(System.in);
-            String action = scanner.nextLine();
-            switch (action) {
-                case "1":
-                    // Case 1: display order if there is order to be cooked.
-                    System.out.println(kc.showOrder());
-                    break;
-                case "2":
-                    System.out.println(KitchenUIMessage.COMPLETE_DISH);
-                    System.out.println(kc.showDishesToCook());
-                    kc.completeDish(scanner.nextLine());
-                    break;
-                case "0":
-                    return;
+            System.out.println(kc.showDishesToCook());
 
+            String action = scanner.nextLine();
+            if (action.equals("0")) {
+                return;
             }
+            kc.completeDish(action);
         }
     }
 }
