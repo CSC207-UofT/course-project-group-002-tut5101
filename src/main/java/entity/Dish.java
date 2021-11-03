@@ -23,7 +23,7 @@ public class Dish {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private ItemStatus status;
+    private ItemStatus status = constant.ItemStatus.DISH_PLACED;
     private int tableNum;
 
 
@@ -42,7 +42,6 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = ItemStatus.DISH_PLACED;
     }
 
     /**
@@ -61,7 +60,6 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = ItemStatus.DISH_PLACED;
         this.category = category;
     }
 

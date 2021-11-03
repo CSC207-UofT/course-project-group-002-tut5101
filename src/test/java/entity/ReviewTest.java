@@ -38,7 +38,7 @@ public class ReviewTest {
 
     @Test(timeout = 50)
     public void testReviewComplainStuff() {
-        assertEquals(review1.addComment(), "bad stuff");
+        assertEquals(review1.complainStuff(), "bad stuff");
     }
 
 }

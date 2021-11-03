@@ -1,8 +1,8 @@
 package controller;
 import java.util.*;
 
-import UI.CmdUI;
-import constant.UIMessage;
+import UI.*;
+import constant.*;
 import entity.*;
 import use_case.*;
 
@@ -209,9 +209,9 @@ public class RestaurantSystem {
      */
     public static UserList generateUserList() {
         UserList userList = new UserList();
-        userList.add(new Manager("1", "Chan", "12345"));
-        userList.add(new Customer("2", "Howard", "12345"));
-        userList.add(new ServingStaff("8", "Tom", "12345", 4000));
+        userList.add(((User) new Manager("1", "Chan", "12345")));
+        userList.add(((User) new Customer("2", "Howard", "12345")));
+        userList.add(((User) new ServingStaff("8", "Tom", "12345", 4000)));
         return userList;
     }
 

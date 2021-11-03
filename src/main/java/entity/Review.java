@@ -69,7 +69,7 @@ public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
 
 
     /**
-     * Get the complain for the stuff.
+     * Get the complain for the staff.
      * @return The String of the complain.
      */
     @Override
