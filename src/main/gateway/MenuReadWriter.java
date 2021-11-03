@@ -16,22 +16,17 @@ public class MenuReadWriter extends SuperReadWriter{
      * @return list of users
      */
     @Override
-    public DishList readFromFile(String filePath){
-        DishList dishes = new DishList();
-        try{
-        File f = new File(filePath);
-        f.createNewFile();
-        InputStream file = new FileInputStream(f);
+
+    public DishList readFromFile(String filePath) throws IOException, ClassNotFoundException {
+
+        InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        dishes = (DishList) input.readObject();
-        input.close();}
-        catch(EOFException e){
-        dishes = new DishList();
-        }
-        catch(IOException|ClassNotFoundException e){e.printStackTrace();}
+
+        DishList dishes = (DishList) input.readObject();
+        input.close();
         return dishes;
     }
 }

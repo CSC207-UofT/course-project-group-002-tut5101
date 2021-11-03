@@ -10,21 +10,13 @@ import entity.User;
 
 public class Manager extends User {
 
+
     /**
      * Constructor of UseCase.Manager with default info
      */
     public Manager() {
-    }
+        super("100", "Professor", "999");
 
-    /**
-     * Constructor of UseCase.Manager with id, name and password provided
-     *
-     * @param id       id of the UseCase.Manager
-     * @param name     name of the UseCase.Manager
-     * @param password password of the UseCase.Manager acct
-     */
-    public Manager(String id, String name, String password) {
-        super(id, name, password);
     }
 
     /**

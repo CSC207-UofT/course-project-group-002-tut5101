@@ -1,5 +1,9 @@
 package entity;
 
-public interface DayTime {
-    public String reviewDate();
+
+import java.time.LocalDateTime;
+
+interface DayTime {
+    public  String reviewDate();
+
 }

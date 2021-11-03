@@ -89,4 +89,8 @@ public class DishList implements Serializable {
         return menu.get(dishName).getCategory();
     }
 
+    public int size() {
+        return this.size();
+    }
+
 }
