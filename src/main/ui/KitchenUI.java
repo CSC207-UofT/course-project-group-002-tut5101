@@ -7,7 +7,7 @@ import use_case.Kitchen;
 
 import java.util.Scanner;
 
-public class KitchenUI implements ui.UserInterface {
+public class KitchenUI implements UserInterface {
 
     private KitchenController kc = new KitchenController();
 

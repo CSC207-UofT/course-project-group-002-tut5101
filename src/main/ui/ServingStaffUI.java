@@ -3,7 +3,7 @@ import constant.*;
 import java.util.*;
 import controller.StaffController;
 
-public class ServingStaffUI implements UI.UserInterface {
+public class ServingStaffUI implements UserInterface {
     StaffController currentServingStaff;
 
     public ServingStaffUI() {
