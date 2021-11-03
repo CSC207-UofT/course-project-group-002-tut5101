@@ -7,7 +7,7 @@ public class UIFactory {
     private CustomerUI customerUI = new CustomerUI();
     private ManagerUI managerUI = new ManagerUI();
     private DeliveryStaffUI deliveryStaffUI = new DeliveryStaffUI();
-    private InventoryStaffUI InventoryStaffUI = new InventoryStaffUI();
+    private InventoryUI inventoryStaffUI = new InventoryUI();
     private ServingStaffUI servingStaffUI = new ServingStaffUI();
     private KitchenUI kitchenUI = new KitchenUI();
     private LoginUI loginUI = new LoginUI();
@@ -29,7 +29,7 @@ public class UIFactory {
                 deliveryStaffUI.loadUi();
                 break;
             case INVENTORY_STAFF:
-                inventoryStaffUI.loadUi();
+                inventoryStaffUI.loadUi(id);
                 break;
             case SERVING_STAFF:
                 servingStaffUI.loadUi();

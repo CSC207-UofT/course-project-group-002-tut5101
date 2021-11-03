@@ -31,13 +31,13 @@ public class InventoryList implements Serializable {
         if(myDict.isEmpty()){myDict.putAll(hashMap);}
     }
 
-
+    public boolean checkExist(String name){return myDict.containsKey(name);}
     /**
      * Get the inventory by its name
      * @param name The name of this inventory
      * @return the inventory required.
      */
-    public Inventory getItem(String name){
+    public static Inventory getItem(String name){
         return myDict.get(name);
     }
 
@@ -47,16 +47,7 @@ public class InventoryList implements Serializable {
      * @return the freshness of inventory required.
      */
 
-    public String getFreshness(String name){
-        if(getItem(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getItem(name);
-            return i.getFreshness();
-        }
-        else{
-            // TODO: what would be a better way to access the freshness of inventory item.
-            return null;
-        }
-    }
+
 
     /**
      *
@@ -64,13 +55,7 @@ public class InventoryList implements Serializable {
      * @param newFreshness the new freshness for this ingredient.
      */
 
-    public void updateFreshness(String name, String newFreshness) {
-        if(getItem(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getItem(name);
-            i.setFreshness(newFreshness);
-        }
-        // TODO: handle cases when the given name is not an ingredient with freshness
-    }
+
 
     /**
      * Get the quantity of inventory by its name
@@ -79,7 +64,7 @@ public class InventoryList implements Serializable {
      */
 
 
-    public double getTotalQuantity(String name){
+    public static double getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return 0;
@@ -92,7 +77,7 @@ public class InventoryList implements Serializable {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public void setQuantity(String name, double usage) {
+    public static void setQuantity(String name, double usage) {
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return;
