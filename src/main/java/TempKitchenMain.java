@@ -27,15 +27,15 @@ public class TempKitchenMain {
 
     public static void main(String[] args) {
         setup();
-        CustomerUI cu = new CustomerUI();
-        cu.loadUi("");
+//        CustomerUI cu = new CustomerUI();
+//        cu.loadUi("");
 
         PlaceOrder po = new PlaceOrder();
         try {
-            po.placeOrder(true, new String[]{"Yu & Rou, Curry, Curry"}, "3");
-            po.placeOrder(false, new String[]{"Yu & Rou, Whatever, Curry"}, "Fake street");
+            po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
+            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
         } catch (Exception e) {
-            System.out.println("Invalid order, not enough material");
+            System.out.println(e.getCause());
         }
 
         KitchenUI ku = new KitchenUI();
@@ -58,12 +58,12 @@ public class TempKitchenMain {
         }};
 
         inventoryList = new HashMap<>() {{
-            put("Meat", new Meat("Meat", 10, 490, "Rotten", 100));
-            put("Fish", new Seafood("Fish", 10, 30, "Fresh", 100));
-            put("Carrot", new VegeFruit("Carrot", 5, 10, "With dirt", 20));
-            put("Potato", new VegeFruit("Potato", 3, 40, "Fresh", 11));
-            put("Kale", new VegeFruit("Kale", 7, 100, "Fresh", 100));
-            put("Mushroom", new VegeFruit("Mushroom", 3, 70, "YIKES", 34));
+            put("Meat", new Meat("Meat", 10, 1000, "Rotten", 100));
+            put("Fish", new Seafood("Fish", 10, 1000, "Fresh", 100));
+            put("Carrot", new VegeFruit("Carrot", 5, 1000, "With dirt", 20));
+            put("Potato", new VegeFruit("Potato", 3, 1000, "Fresh", 11));
+            put("Kale", new VegeFruit("Kale", 7, 1000, "Fresh", 100));
+            put("Mushroom", new VegeFruit("Mushroom", 3, 1000, "YIKES", 34));
         }};
         new InventoryList(inventoryList);
 

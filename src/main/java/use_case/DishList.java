@@ -79,7 +79,7 @@ public class DishList {
         return menu.get(dishName).getPrice();
     }
 
-    public static HashMap<java.lang.String, java.lang.Double> getDishIngredients(String dishName) {
+    public static HashMap<String, Double> getDishIngredients(String dishName) {
         return menu.get(dishName).getIngredients();
     }
 

@@ -10,51 +10,108 @@ import java.util.HashMap;
 
 /**
  * Controller for Kitchen.
+ *
+ * Display and update the list of dishes to be completed by the kitchen.
+ * Allow the kitchen user to view the ingredients needed for a dish.
+ * Mark a given dish as completed in the collection dishes, and decreases its quantity by 1 or remove
+ * it from the collection.
+ * Return notification if a new order comes for the kitchen.
+ *
+ * Author: ௵۞ၡ֍Ѭ֍Ӂ
+ *
  */
 
 public class KitchenController {
-    HashMap<String, Integer> dishChoices;
+
 
     /**
-     * @return the String info of the current order in Kitchen if there is one, or if the Kitchen needs
-     * one and the newly obtained one is not null.
+     * A collection of dishes to be completed by the Kitchen. Each key is a dish name, corresponding
+     * to its quantity.
      */
-    public String showOrder() {
-        if (Kitchen.occupied() || (Kitchen.needNextOrder() && Kitchen.getNextToCook())) {
-            return Kitchen.showOrder();
+    HashMap<String, Integer> dishes;
+
+    /**
+     *
+     * @return whether the Kitchen has an order to be processed on.
+     * 1. If there is an incomplete one, return true.
+     * 2. If the current one is complete, and a new one was able to obtain, return true. Otherwise,
+     * return false.
+     * 3. If there is no order, and a new one was able to obtain, return true. Otherwise,
+     * return false.
+     *
+     * dishes is updated whenever a new order is obtained for Kitchen.
+     *
+     */
+    public boolean hasOrder(){
+        if (Kitchen.occupied()) {
+            if (Kitchen.orderCompleted()) {
+                if (Kitchen.getNextToCook()) {
+                    dishes = Kitchen.dishAndQuantity();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        } else if (Kitchen.getNextToCook()) {
+            dishes = Kitchen.dishAndQuantity();
+            return true;
         }
-        return "No order yet";
+        return false;
     }
 
 
     /**
-     * Show a list of dish choices for the Kitchen to select.
+     * Show a list of dishes for the Kitchen to complete.
      * E.g.
-     * Name      quantity
-     * Fries     1
-     * Burger    2
-     * ...
+     * # Name ---- Quantity #
+     *   Fries     1
+     *   Burger    2
+     *   ...
+     * ----------------------
      *
-     * @return The String representation of the list of dish choices.
+     * @return The String representation of the list of dishes.
      */
-    public String showDishesToCook() {
-        dishChoices = Kitchen.showDishesChoice();
+    public String showDishes() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Name      Quantity\n");
-        for (String dish: dishChoices.keySet()) {
+        sb.append("# Name ---- Quantity #\n");
+        for (String dish: dishes.keySet()) {
             StringBuilder space = new StringBuilder();
             for (int i = 0; i < 10 - dish.length(); i++){
                 space.append(" ");
             }
-            sb.append(dish + space + dishChoices.get(dish) + "\n");
+            sb.append("# " + dish + space + dishes.get(dish) + "\n");
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Display the ingredients for a given dish.
+     * @param dishName The name of the dish whose ingredients will be displayed.
+     * @return A string representation of the ingredients.
+     */
+    public String displayIngredient(String dishName) {
+        HashMap<String, Double> in = DishList.getDishIngredients(dishName);
+        StringBuilder sb = new StringBuilder();
+        sb.append(dishName + "\n" + "# Ingredient ---- Quantity #\n");
+        for (String ingreName: in.keySet()) {
+            StringBuilder space = new StringBuilder();
+            for (int i = 0; i < 16 - ingreName.length(); i++){
+                space.append(" ");
+            }
+            sb.append("# " + ingreName + space + in.get(ingreName) + "\n");
         }
         return sb.toString();
     }
 
 
     /**
-     * Mark the given dish as cooked, and push the ready dish to the Buffer for Delivery staff,
-     * and update the inventory. Give a new order to Kitchen if it needs one.
+     * Mark the given dish as cooked.
+     * Update the inventory.
+     *
+     * If the given dish is all completed in dishes, remove this element from dishes. Otherwise,
+     * decreases the quantity of this dish by 1.
+     *
      *
      * @param dishName One of the dish choices provided to Kitchen in showDishToCook.
      */
@@ -63,8 +120,11 @@ public class KitchenController {
         // need to check if the given dishName is valid.
         Kitchen.cookedDish(dishName);
         updateInventory(dishName);
-        if (Kitchen.needNextOrder()) {
-            Kitchen.getNextToCook();
+
+        if (dishes.get(dishName) > 1) {
+            dishes.replace(dishName, dishes.get(dishName) - 1);
+        } else {
+            dishes.remove(dishName);
         }
     }
 
@@ -74,7 +134,6 @@ public class KitchenController {
      * @param dishName The name of the cooked dish
      */
     private void updateInventory(String dishName) {
-        // TODO: should this method be in Kitchen use case or controller.
         HashMap<String, Double> ingredientInfo = DishList.getDishIngredients(dishName);
 
         for (String dish: ingredientInfo.keySet()) {
@@ -82,4 +141,7 @@ public class KitchenController {
             InventoryList.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
         }
     }
+
+
+
 }

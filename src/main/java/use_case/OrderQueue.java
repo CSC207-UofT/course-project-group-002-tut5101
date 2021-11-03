@@ -6,7 +6,7 @@ import entity.Order;
 import java.util.*;
 
 /**
- * This is the class of UseCase.PlacedOrderQueue,
+ * This is the class of UseCase.OrderQueue,
  * it is used to keep track of all orders placed by customers of the restaurant.
  * By Dedong Xie (1006702944)
  * 2021-10-10

@@ -66,7 +66,7 @@ public class CustomerUI implements UserInterface{
                 case "4":
                     break;
                 case "0":
-                    break;
+                    return;
                 default:
                     break;
             }

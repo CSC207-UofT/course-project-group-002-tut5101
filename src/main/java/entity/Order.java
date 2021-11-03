@@ -88,8 +88,6 @@ public class Order {
         return orderStatus;
     }
 
-    // TODO: add a method to access all the information of a dish given the dish name.
-
     public double getOrderPrice() {
         double price = 0;
         for (List<Dish> dishAsList : dishes.values()) {
@@ -128,6 +126,17 @@ public class Order {
                 }
             }
         return dishList;
+    }
+
+    /**
+     * @return A hashmap of dishes with its corresponding quantity.
+     */
+    public HashMap<String, Integer> getDishAndQuantity() {
+        HashMap<String, Integer> dq = new HashMap<>();
+        for (String dishName: dishes.keySet()) {
+            dq.put(dishName, dishes.get(dishName).size());
+        }
+        return dq;
     }
 
 

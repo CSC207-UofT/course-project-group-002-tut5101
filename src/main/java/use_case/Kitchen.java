@@ -30,12 +30,6 @@ public class Kitchen {
         return !(currentOrder == null);
     }
 
-    /**
-     * @return the String representation of the current order.
-     */
-    public static String showOrder(){
-        return currentOrder.toString();
-    }
 
     /**
      * Update the status of the dish cooked. Depending on the type of the order, add the dish to
@@ -55,13 +49,10 @@ public class Kitchen {
 
 
     /**
-     * @return whether the Kitchen needs a new order to cook.
-     *
-     * The kitchen needs a new order when they currently don't have one or when their current order
-     * is all cooked.
+     * @return whether the Kitchen completed its current order.
      */
-    public static boolean needNextOrder() {
-        return !occupied() || currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED;
+    public static boolean orderCompleted() {
+        return currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED;
     }
 
 
@@ -73,22 +64,10 @@ public class Kitchen {
     }
 
     /**
-     * @return A string representation of the choices of dishes that still need to be cooked.
-     *
+     * @return A hashmap of dishes with its corresponding quantity.
      */
-    public static HashMap<String, Integer> showDishesChoice() {
-        HashMap<String, Integer> dishChoice = new HashMap<>();
-        List<Dish> dishes = currentOrder.getDishes();
-        for (Dish d: dishes) {
-            if (d.getStatus() == ItemStatus.DISH_PLACED) {
-                if (dishChoice.containsKey(d.getName())) {
-                    dishChoice.replace(d.getName(), dishChoice.get(d.getName()) + 1);
-                } else {
-                    dishChoice.put(d.getName(), 1);
-                }
-            }
-        }
-        return dishChoice;
+    public static HashMap<String, Integer> dishAndQuantity() {
+        return currentOrder.getDishAndQuantity();
     }
 
 }
