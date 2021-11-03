@@ -2,6 +2,7 @@ package use_case;
 
 import entity.Dish;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,22 +12,23 @@ import java.util.List;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList {
-    private static HashMap<String, Dish> menu;
+    private static HashMap<String, Dish> menu = new HashMap<>();
+    private static HashMap<Integer, String> keySet = new HashMap<Integer, String>();
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        menu = new HashMap<>();
+        // menu = new HashMap<>();
     }
 
     // TODO: delete later if needed
     public DishList(DishList dishList) {
-        menu = dishList.getAllDishes();
+        menu.putAll(dishList.getAllDishes());
     }
 
     public DishList(List<Dish> dishes){
-        menu = new HashMap<>();
+       // menu = new HashMap<>();
         for (Dish d: dishes){
             menu.put(d.getName(), d);
         }
@@ -61,11 +63,14 @@ public class DishList {
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
+        keySet = new HashMap<Integer, String>();
         for (String dishName : menu.keySet()) {
             menuString.append(dishNumber + ". " + menu.get(dishName).toString());
+            keySet.put(dishNumber, menu.get(dishName).getName());
             dishNumber++;
         }
         return menuString.toString();
+
     }
     // Methods that allow lookup dish information without returning the dish itself
 
@@ -86,6 +91,14 @@ public class DishList {
 
     public static String getDishCategory(String dishName) {
         return menu.get(dishName).getCategory();
+    }
+
+    public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
+        List<String> dishes = new ArrayList<String>();
+        for (int num : orderedNum) {
+            dishes.add(keySet.get(num));
+        }
+        return dishes;
     }
 
 }
