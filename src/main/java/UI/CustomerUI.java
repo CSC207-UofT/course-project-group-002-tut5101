@@ -145,7 +145,4 @@ public class CustomerUI implements UserInterface{
         }
 
     }
-
-
-
 }

@@ -1,5 +1,3 @@
-package java;
-
 import UI.CustomerUI;
 import UI.KitchenUI;
 import entity.Dish;
@@ -29,8 +27,8 @@ public class TempKitchenMain {
 
     public static void main(String[] args) {
         setup();
-//        CustomerUI cu = new CustomerUI();
-//        cu.runCustomerActions();
+        CustomerUI cu = new CustomerUI();
+        cu.loadUi("");
 
         PlaceOrder po = new PlaceOrder();
         try {
