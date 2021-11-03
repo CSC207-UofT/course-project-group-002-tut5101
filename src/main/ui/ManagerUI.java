@@ -4,19 +4,15 @@ import constant.UIMessage;
 import controller.ManagerController;
 import use_case.DishList;
 import use_case.InventoryList;
+import use_case.ReviewList;
 
 import java.util.Scanner;
 
-public class ManagerUI implements UserInterface{
-    
-    private static DishList dishList;
-    
-    public ManagerUI(DishList dishList) {
-        this.dishList = dishList;
-    }
+public class ManagerUI implements UserInterface {
+
 
     @Override
-    public String loadUi(String managerId) {
+    public void loadUi(String managerId) {
         System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
@@ -26,14 +22,9 @@ public class ManagerUI implements UserInterface{
 
             // Manage menu
             case 2:
-                controller.manageMenu(dishList);
+                controller.manageMenu();
                 break;
 
-            // Request inventory
-            case 3:
-                InventoryList inventoryList = null;
-                controller.requestInventory(inventoryList);
-                break;
 
             // Delete Review
             case 4:
@@ -42,6 +33,5 @@ public class ManagerUI implements UserInterface{
                 break;
 
         }
-        return "";
     }
 }

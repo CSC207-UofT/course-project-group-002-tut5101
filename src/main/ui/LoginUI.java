@@ -15,7 +15,7 @@ public class LoginUI implements UserInterface{
      * @return id of the user if login succeed, otherwise, return null;
      */
     @Override
-    public String loadUi(String arg) {
+    public void loadUi(String arg) {
         System.out.println(UIMessage.ASK_FOR_ID);
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();

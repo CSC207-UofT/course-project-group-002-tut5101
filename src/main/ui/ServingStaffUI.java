@@ -1,9 +1,9 @@
-package UI;
+package ui;
 import constant.*;
 import java.util.*;
 import controller.StaffController;
 
-public class ServingStaffUI implements UserInterface {
+public class ServingStaffUI implements UI.UserInterface {
     StaffController currentServingStaff;
 
     public ServingStaffUI() {

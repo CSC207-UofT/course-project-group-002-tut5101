@@ -2,9 +2,9 @@ package boundary;
 
 import use_case.DishList;
 import use_case.InventoryList;
+import use_case.ReviewList;
 
 public interface ManagerInputBoundary {
-    void manageMenu(DishList menu);
-    String requestInventory(InventoryList inventoryList);
-    void deleteReview();
+    void manageMenu();
+    void deleteReview(ReviewList reviewList);
 }
