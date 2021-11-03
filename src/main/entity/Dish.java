@@ -73,10 +73,18 @@ public class Dish {
         this.category = category;
     }
 
+    /**
+     *
+     * @return status of entities.Dish
+     */
     public ItemStatus getStatus() {
         return status;
     }
 
+    /**
+     *
+     * @param status status of entities.Dish
+     */
     public void setStatus(ItemStatus status) {
         this.status = status;
     }

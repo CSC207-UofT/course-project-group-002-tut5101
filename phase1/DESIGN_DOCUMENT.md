@@ -28,6 +28,7 @@ A restaurant app with the following types of users and user specific functions:
 # Brief description of SOLID design principles
 # Brief description of packaging strategies
 # Summary of any design pattern
+
 # Progress report
 ## Open questions
 ## What has worked well
