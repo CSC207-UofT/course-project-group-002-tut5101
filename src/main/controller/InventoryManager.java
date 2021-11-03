@@ -3,11 +3,13 @@ package controller;
 import entity.HasFreshness;
 import entity.Inventory;
 import gateway.InventoryReadWriter;
+import use_case.InventoryFactory;
 import use_case.InventoryList;
 
 public class InventoryManager {
     private final InventoryList inventorys;
     private final InventoryReadWriter irw = new InventoryReadWriter();
+    private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
     public InventoryManager(){
@@ -37,8 +39,8 @@ public class InventoryManager {
         else{return "Invalid name";}
     }
 
-    public void addNewInventory(Inventory item){
-        this.inventorys.addInventory(item);
+    public void addNewInventory(String[] para){
+        this.inventorys.addInventory(this.infc.getInventory(para));
     }
 
     public String currentFreshness(String name){
