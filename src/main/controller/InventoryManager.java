@@ -1,5 +1,6 @@
 package controller;
 
+import entity.HasFreshness;
 import entity.Inventory;
 import gateway.InventoryReadWriter;
 import use_case.InventoryList;
@@ -8,6 +9,11 @@ public class InventoryManager {
     private final InventoryList inventorys;
     private final InventoryReadWriter irw = new InventoryReadWriter();
     private final String filepath;
+
+    public InventoryManager(){
+        this.filepath = "src/initialdata.ser";
+        this.inventorys = irw.readFromFile(filepath);
+    }
 
     public InventoryManager(String filepath){
         this.filepath = filepath;
@@ -25,20 +31,37 @@ public class InventoryManager {
         return this.inventorys.getItem(name);
     }
 
+    public String getInfo(String name){
+        if(this.inventorys.checkExist(name)){
+        return this.inventorys.getItem(name).toString();}
+        else{return "Invalid name";}
+    }
+
     public void addNewInventory(Inventory item){
         this.inventorys.addInventory(item);
     }
-    public String currentFreshness(String name){return this.inventorys.getFreshness(name); }
 
-    public double currentQuantity(String name) {return this.inventorys.getTotalQuantity(name);}
-
-
-    public void newFreshness(String name, String newfreshness){
-        this.inventorys.updateFreshness(name, newfreshness);
+    public String currentFreshness(String name){
+        if(getInventory(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getInventory(name);
+            return i.getFreshness();
+        }
+        else{
+            return null;
+        }
     }
 
-    public void newQuantity(String name, double usage){
-        this.inventorys.setQuantity(name, usage);
+
+    public void newFreshness(String name, String newFreshness){
+        if(getInventory(name) instanceof HasFreshness){
+            HasFreshness i = (HasFreshness) getInventory(name);
+            i.setFreshness(newFreshness);
+        }
+    }
+
+    public void newQuantity(String name, String usage){
+        double u = Double.parseDouble(usage);
+        InventoryList.setQuantity(name, u);
     }
 
 
