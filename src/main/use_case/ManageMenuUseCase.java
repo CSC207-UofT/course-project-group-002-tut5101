@@ -1,17 +1,15 @@
 package use_case;
 
-import boundary.ManagerInputBoundary;
+import boundary.ManageMenuInputBoundary;
 import constant.FileLocation;
 import entity.Dish;
-import entity.Review;
 import gateway.MenuReadWriter;
 import gateway.ReadWriter;
 
 import java.io.IOException;
 import java.util.*;
 
-public class ManagerUseCase implements ManagerInputBoundary {
-
+public class ManageMenuUseCase implements ManageMenuInputBoundary {
 
     public DishList loadMenu() {
         ReadWriter readWriter = new MenuReadWriter();
@@ -44,8 +42,6 @@ public class ManagerUseCase implements ManagerInputBoundary {
                 dishMap.remove(dish.getName());
             }
         }
-
-
     }
 
     /**
@@ -56,13 +52,5 @@ public class ManagerUseCase implements ManagerInputBoundary {
     public void manageMenuHelper(Dish dish) {
         dish.updatePrice();
     }
-
-    /**
-     * @return true iff the adjustment is made successfully
-     */
-    public void deleteReview(ReviewList reviewList) {
-        reviewList.deleteReviews();
-    }
-
 
 }

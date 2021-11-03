@@ -1,24 +1,26 @@
 package controller;
 
-import boundary.ManagerInputBoundary;
-import use_case.DishList;
-import use_case.InventoryList;
-import use_case.ManagerUseCase;
+import boundary.DeleteReviewInputBoundary;
+import boundary.ManageMenuInputBoundary;
+import use_case.DeleteReviewUseCase;
+import use_case.ManageMenuUseCase;
 import use_case.ReviewList;
 
 public class ManagerController {
 
-    private final ManagerInputBoundary managerInputBoundary;
+    private final ManageMenuInputBoundary manageMenuInputBoundary;
+    private final DeleteReviewInputBoundary deleteReviewInputBoundary;
 
     public ManagerController() {
-        this.managerInputBoundary = new ManagerUseCase();
+        this.manageMenuInputBoundary = new ManageMenuUseCase();
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase();
     }
 
     public void manageMenu(){
-        managerInputBoundary.manageMenu();
+        manageMenuInputBoundary.manageMenu();
     }
 
     public void deleteReview(ReviewList reviewList){
-        managerInputBoundary.deleteReview(reviewList);
+        deleteReviewInputBoundary.deleteReview();
     }
 }
