@@ -7,7 +7,7 @@ import use_case.InventoryList;
 
 import java.io.*;
 
-public class ReadandWriteInv implements ReadandWrite {
+public class InvReadandWrite implements ReadandWrite {
     @Override
     public InventoryList read(String filepath){
         String line;

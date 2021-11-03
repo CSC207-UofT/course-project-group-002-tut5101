@@ -2,13 +2,13 @@ package controller;
 
 import entity.Inventory;
 import use_case.InventoryList;
-import gateway.ReadandWriteInv;
+import gateway.InvReadandWrite;
 
 ;
 
 public class InventoryManager {
     private final InventoryList inventorys;
-    private final ReadandWriteInv filehelper = new ReadandWriteInv();
+    private final InvReadandWrite filehelper = new InvReadandWrite();
     private final String filepath;
 
     public InventoryManager(String filepath){
