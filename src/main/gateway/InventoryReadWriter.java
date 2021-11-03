@@ -17,12 +17,12 @@ public class InventoryReadWriter extends SuperReadWriter implements ReadFromCSV{
         try{
             Scanner scanner = new Scanner(new FileInputStream(filePath));
             String[] record;
-            Inventory inventory;
+
 
             while(scanner.hasNextLine()) {
                 record = scanner.nextLine().split(",");
-                inventory = factory.getInventory(record);
-                hashMap.put(inventory.getName(),inventory);
+
+                hashMap.put(record[1],factory.getInventory(record));
             }
             scanner.close();
         }
