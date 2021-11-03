@@ -26,7 +26,6 @@ public class MenuReadWriter implements ReadWriter{
         output.close();
     }
 
-
     /**
      * Store the users to file at filePath.
      *
