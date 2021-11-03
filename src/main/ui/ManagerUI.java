@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class ManagerUI implements UserInterface {
 
-
     @Override
     public void loadUi(String managerId) {
         System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);

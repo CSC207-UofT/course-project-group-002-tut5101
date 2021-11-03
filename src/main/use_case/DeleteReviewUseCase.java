@@ -23,5 +23,6 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     public void deleteReview() {
         ReviewList reviewList = loadReviewList();
         reviewList.deleteReviews();
+
     }
 }

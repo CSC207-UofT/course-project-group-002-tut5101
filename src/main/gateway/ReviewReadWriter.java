@@ -17,7 +17,6 @@ public class ReviewReadWriter implements ReadWriter{
         OutputStream file = new FileOutputStream(filePath);
         OutputStream buffer = new BufferedOutputStream(file);
         ObjectOutput output = new ObjectOutputStream(buffer);
-
         // serialize the Map
         output.writeObject(reviews);
         output.close();

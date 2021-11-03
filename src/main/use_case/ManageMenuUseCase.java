@@ -23,6 +23,7 @@ public class ManageMenuUseCase implements ManageMenuInputBoundary {
         return null;
     }
 
+
     /**
      * Manager adjust the menu(dish list).
      *

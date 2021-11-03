@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 
+
 public interface ReadWriter {
     /**
      * @param filepath location of ser file
