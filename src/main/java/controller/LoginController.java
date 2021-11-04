@@ -3,7 +3,6 @@ package controller;
 import boundary.LoginInputBoundary;
 import constant.LoginResult;
 import constant.UserType;
-import ui.UserInterface;
 import use_case.LoginUseCase;
 import use_case.UserList;
 

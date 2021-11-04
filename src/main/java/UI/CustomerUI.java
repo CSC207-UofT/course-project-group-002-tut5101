@@ -1,4 +1,4 @@
-package ui;
+package UI;
 
 import constant.CustomerUIMessage;
 import controller.OrderController;
@@ -18,7 +18,7 @@ public class CustomerUI {
     }
 
 
-    public String runCustomerActions() {
+    public String runCustomerActions(String id) {
         while (true) {
             System.out.println(CustomerUIMessage.CUSTOMER_ACTIONS);
             System.out.println(CustomerUIMessage.SELECT_ACTION);

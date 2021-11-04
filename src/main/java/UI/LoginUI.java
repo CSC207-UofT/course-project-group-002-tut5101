@@ -1,6 +1,6 @@
-package ui;
+package UI;
 
-import constant.UIMessage;
+import constant.*;
 import controller.LoginController;
 
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class LoginUI implements UserInterface{
      * @return id of the user if login succeed, otherwise, return null;
      */
     @Override
-    public void loadUi(String arg) {
+    public String loadUi(String arg) {
         System.out.println(UIMessage.ASK_FOR_ID);
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();

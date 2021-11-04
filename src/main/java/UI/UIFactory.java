@@ -1,6 +1,6 @@
-package ui;
+package UI;
 
-import constant.UserType;
+import constant.*;
 
 public class UIFactory {
 
@@ -17,25 +17,25 @@ public class UIFactory {
         this.id = id;
     }
 
-    public UserInterface loadUI(UserType userType) {
+    public void loadUI(UserType userType) {
         switch (userType) {
             case CUSTOMER:
-                customerUI.loadUi(id);
+                customerUI.runCustomerActions(id);
                 break;
             case MANAGER:
                 managerUI.loadUi(id);
                 break;
             case DELIVERY_STAFF:
-                deliveryStaffUI.loadUi();
+                deliveryStaffUI.loadUi(id);
                 break;
             case INVENTORY_STAFF:
                 inventoryStaffUI.loadUi(id);
                 break;
             case SERVING_STAFF:
-                servingStaffUI.loadUi();
+                servingStaffUI.loadUi(id);
                 break;
             case KITCHEN:
-                kitchenUI.loadUi();
+                kitchenUI.loadUi(id);
                 break;
             default:
                 loginUI.loadUi("");

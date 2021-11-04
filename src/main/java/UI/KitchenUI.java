@@ -1,4 +1,4 @@
-package ui;
+package UI;
 
 import constant.CustomerUIMessage;
 import constant.KitchenUIMessage;

@@ -2,9 +2,8 @@ package controller;
 
 
 import constant.UserType;
-import ui.LoginUI;
-import ui.UIFactory;
-import ui.UserInterface;
+import UI.LoginUI;
+import UI.UIFactory;
 import use_case.DishList;
 import use_case.LoginUseCase;
 import use_case.UserList;

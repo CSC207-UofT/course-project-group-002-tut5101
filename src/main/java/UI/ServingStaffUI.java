@@ -1,25 +1,23 @@
-package ui;
-
-import constant.UIMessage;
+package UI;
+import java.util.*;
 import controller.StaffController;
+import constant.*;
 
-import java.util.Scanner;
+public class ServingStaffUI implements UI.UserInterface {
+    StaffController currentServingStaff;
 
-public class DeliveryStaffUI implements UserInterface {
-    StaffController currentDeliveryStaff;
-
-    public DeliveryStaffUI() {
-        currentDeliveryStaff = new StaffController();
+    public ServingStaffUI() {
+        currentServingStaff = new StaffController();
     }
 
     /**
-     * Run the user interface for Delivery staff, when calling run, make sure you have the user's id.
+     * Run the user interface for Serving staff, when calling run, make sure you have the user's id.
      * @param id The id of the current user.
      */
     public void loadUi (String id) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.DELIVERY_STAFF_ACTIONS);
+            System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.SERVING_STAFF_ACTIONS);
             int action = scanner.nextInt();
             switch (action) {
                 case 0:
@@ -27,10 +25,10 @@ public class DeliveryStaffUI implements UserInterface {
                     System.out.println("You have successfully logged out");
                     return;
                 case 1:
-                    // Case 1: get next order
+                    // Case 1: get next Dish
                     try {
-                        currentDeliveryStaff.getNext(id);
-                        System.out.println(currentDeliveryStaff.displayCurrent(id));
+                        currentServingStaff.getNext(id);
+                        System.out.println(currentServingStaff.displayCurrent(id));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -38,8 +36,8 @@ public class DeliveryStaffUI implements UserInterface {
                 case 2:
                     // Case 2: mark current as delivered
                     try {
-                        currentDeliveryStaff.completeCurrent(id);
-                        System.out.println("Order marked as completed\n");
+                        currentServingStaff.completeCurrent(id);
+                        System.out.println("Dish marked as completed\n");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -47,5 +45,4 @@ public class DeliveryStaffUI implements UserInterface {
             }
         }
     }
-
 }
