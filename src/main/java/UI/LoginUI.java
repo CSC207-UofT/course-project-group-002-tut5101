@@ -14,7 +14,7 @@ public class LoginUI {
      *
      * @return id of the user if login succeed, otherwise, return null;
      */
-    public String loadUi(String arg) {
+    public String loadUi() {
         System.out.println(LoginLogoutUIMessage.ASK_FOR_ID);
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();

@@ -4,6 +4,7 @@ import boundary.LoginInputBoundary;
 import constant.FileLocation;
 import constant.LoginResult;
 import entity.User;
+import gateway.SerReadWriter;
 import gateway.UserReadWriter;
 
 public class LoginUseCase implements LoginInputBoundary {
@@ -15,8 +16,9 @@ public class LoginUseCase implements LoginInputBoundary {
 
 
     public LoginUseCase() {
-        UserReadWriter readWriter = new UserReadWriter();
-        this.users = readWriter.readFromFile(FileLocation.USER_FILE_LOCATION);
+        SerReadWriter urf = new SerReadWriter();
+        users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
+        System.out.println(users);
 
     }
 

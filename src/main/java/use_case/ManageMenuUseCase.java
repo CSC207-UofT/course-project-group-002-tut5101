@@ -11,7 +11,7 @@ public class ManageMenuUseCase implements ManageMenuInputBoundary {
 
     private DishList loadMenu() {
         ReadWriter readWriter = new MenuReadWriter();
-        return (DishList) readWriter.readFromFile(FileLocation.DISH_LIST_LOCATION);
+        return (DishList) readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION);
     }
 
 

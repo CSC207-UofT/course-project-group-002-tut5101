@@ -20,6 +20,8 @@ import static org.junit.Assert.*;
 
 public class UserListTest {
 
+
+    UserList userList = new UserList();
     @Before
     public void setUp() {
         UserList.addUser(new Manager());

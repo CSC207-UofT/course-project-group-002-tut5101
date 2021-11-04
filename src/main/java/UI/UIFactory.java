@@ -20,7 +20,7 @@ public class UIFactory {
     public void loadUI(UserType userType) {
         switch (userType) {
             case CUSTOMER:
-                customerUI.runCustomerActions(id);
+                customerUI.loadUi(id);
                 break;
             case MANAGER:
                 managerUI.loadUi(id);

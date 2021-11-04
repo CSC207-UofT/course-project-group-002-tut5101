@@ -47,7 +47,7 @@ public class KitchenTest {
             put("Kale", new VegeFruit("Kale", 7, 100, "Fresh", 100));
             put("Mushroom", new VegeFruit("Mushroom", 3, 70, "YIKES", 34));
         }};
-        new InventoryList(inventoryList);
+        new InventoryList();
 
         d1 = new Dish("Yu & Rou", 14.5, ingredient1, 1000);
         d2 = new Dish("Curry", 10.5, ingredient2, 500);
