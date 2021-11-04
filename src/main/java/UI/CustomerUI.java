@@ -1,24 +1,29 @@
 package UI;
 
 import constant.CustomerUIMessage;
+import controller.MenuController;
 import controller.OrderController;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
 
-public class CustomerUI {
+public class CustomerUI implements UserInterface{
     /**
      * CMD UI for Users that login as Customer
      */
 
     private final OrderController orderController;
+    private final MenuController menuController;
 
     public CustomerUI() {
         this.orderController = new OrderController();
+        this.menuController = new MenuController();
     }
 
 
-    public String runCustomerActions(String id) {
+
+    @Override
+    public void loadUi(String id) {
         while (true) {
             System.out.println(CustomerUIMessage.CUSTOMER_ACTIONS);
             System.out.println(CustomerUIMessage.SELECT_ACTION);
@@ -34,16 +39,23 @@ public class CustomerUI {
                      */
                     String location = locationUI(dineInStatus);
 
-                    String[] dishes;
-                    dishes = orderedDishesUI().toArray(new String[0]);
+                    printMenu();
+
+                    ArrayList<Integer> orderedNum;
+                    orderedNum = orderedDishesUI();
+
+                    List<String> dishes = dishNamesOrdered(orderedNum);
+
+                    String[] dishesAsList = dishes.toArray(new String[0]);
 
                     System.out.println(CustomerUIMessage.CONFIRM_ORDER);
                     System.out.println(dishes.toString());
                     String confirm = scanner.nextLine();
-                    if (confirm.equals('Y')) {
-                       runPlaceOrder(orderController, dineInStatus, dishes, location);
+                    if (confirm.equals("Y")) {
+                        runPlaceOrder(orderController, dineInStatus, dishesAsList, location);
                     }
                     System.out.println(CustomerUIMessage.ORDER_PLACED);
+                    break;
 
                 case "2":
                     break;
@@ -52,9 +64,9 @@ public class CustomerUI {
                 case "4":
                     break;
                 case "0":
-                    break;
+                    return;
                 default:
-                    return null;
+                    break;
             }
         }
     }
@@ -62,7 +74,13 @@ public class CustomerUI {
     // TODO: Write helper to print menu
     public void printMenu(){
         System.out.println(CustomerUIMessage.MENU_TITLE);
-        // TODO: print the menu
+        System.out.println(menuController.dishesInMenuAsString());
+    }
+
+    public List<String> dishNamesOrdered(List<Integer> orderedNum){
+        List<String> dishes;
+        dishes = menuController.passDishNumbersOrdered(orderedNum);
+        return dishes;
     }
 
     public boolean orderTypeUI() {
@@ -88,14 +106,18 @@ public class CustomerUI {
      * @return the list of dish names customer ordered
      */
 
-    private ArrayList<String> orderedDishesUI(){
+    private ArrayList<Integer> orderedDishesUI(){
         System.out.println(CustomerUIMessage.PLACE_ORDER);
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> dishes = new ArrayList();
-        while (!scanner.next().equals('e')){
-            dishes.add(scanner.next());
+
+        ArrayList<Integer> orderedNum = new ArrayList<Integer>();
+        while (scanner.hasNextInt()){
+            orderedNum.add(scanner.nextInt());
         }
-        return dishes;
+//        while (!scanner.next().equals("e")){
+//            dishes.add(scanner.next());
+//        }
+        return orderedNum;
     }
 
     private String locationUI(boolean dineInStatus){
@@ -121,5 +143,4 @@ public class CustomerUI {
         }
 
     }
-
 }
