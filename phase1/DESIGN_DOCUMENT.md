@@ -22,6 +22,8 @@ A restaurant app with the following types of users and user specific functions:
     - Manager can manage the type and quantity of raw materials needed per day and per week (some materials need to be updated daily and some weekly).
 - ## Review
     - Customers can provide a review and rate their experience. The review may be anonymous.
+    - Customers can provide a complain on stuff. The complain may be anonymous.
+    - Review reads and write to data files to keep the customer's reviews.
 # Optional UML
 # Description of major design decisions
 # Brief description of how the project adheres to Clean Architecture
