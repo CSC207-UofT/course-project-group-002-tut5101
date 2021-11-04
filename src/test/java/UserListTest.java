@@ -1,38 +1,52 @@
 /**
- * Tests for UseCase.UserList Class
+ * Tests for UseCase.entity.UserList Class
  *
  * @author Chan Yu & Naihe Xiao
  */
-import use_case.Customer;
-import use_case.Manager;
-import use_case.UserList;
+
+import constant.FileLocation;
+import constant.UserType;
+import entity.*;
+import gateway.SerReadWriter;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.UserList;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UserListTest {
     UserList userList = new UserList();
 
-
-
-    UserList userList = new UserList();
     @Before
     public void setUp() {
-        this.userList.getUsers().put("1", new Manager("1", "Chan", "12345"));
-        this.userList.getUsers().put("2", new Customer("2", "Howard", "12345"));
-        this.userList.getUsers().put("3", new Manager("3", "Nathan", "12345"));
-        this.userList.getUsers().put("4", new Customer("4", "George", "12345"));
-        this.userList.getUsers().put("5", new Manager("5", "DeDong", "12345"));
-        this.userList.getUsers().put("6", new Customer("6", "Eve", "12345"));
-        this.userList.getUsers().put("7", new Manager("7", "Raymond", "12345"));
+        UserList.addUser(new Manager());
+        UserList.addUser(new Customer("2", "James", "12345"));
+        UserList.addUser(new Customer("3", "Steve", "12345"));
+        UserList.addUser(new Customer("4", "David", "12345"));
+        UserList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
+        UserList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
+        UserList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
     }
 
-    @Test(timeout = 50)
-    public void testUserByIdentity() {
-        assertTrue(this.userList.getUsers().containsKey("1"));
-        assertFalse(this.userList.getUsers().containsKey("9"));
-        assertEquals(this.userList.getUsers().size(), 7);
+    @Test
+    public void testUserTypeById() {
+        assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
     }
+
+    //TODO delete this test later
+    @Test
+    public void testSaveToFile(){
+        SerReadWriter urf = new SerReadWriter();
+        urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList);
+    }
+
+    //TODO delete this test later
+    @Test
+    public void testReadFromFile(){
+        SerReadWriter urf = new SerReadWriter();
+        UserList users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
+        System.out.println(users);
+    }
+
+
 }
