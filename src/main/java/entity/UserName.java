@@ -1,5 +1,5 @@
 package entity;
 
-public interface userName {
+public interface UserName {
     public String addName();
 }

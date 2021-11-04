@@ -2,7 +2,7 @@ package entity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Review implements userName, Rate, Comment, ComplainStuff, DayTime{
+public class Review implements UserName, Rate, Comment, ComplainStuff, DayTime{
     public String userName;
     public boolean ifAnonymous;
     public int rate;
