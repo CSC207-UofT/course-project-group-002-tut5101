@@ -146,11 +146,25 @@ public class Order {
      * @return A hashmap of dishes with its corresponding quantity.
      */
     public HashMap<String, Integer> getDishAndQuantity() {
-        HashMap<String, Integer> dq = new HashMap<>();
+        HashMap<String, Integer> dishAndQuantity = new HashMap<>();
         for (String dishName: dishes.keySet()) {
-            dq.put(dishName, dishes.get(dishName).size());
+            dishAndQuantity.put(dishName, dishes.get(dishName).size());
         }
-        return dq;
+        return dishAndQuantity;
+    }
+
+    public String getOrderContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("Order contents: \n");
+        for (String dishName: dishes.keySet()) {
+            content.append("\tDish: ");
+            content.append(dishName);
+            content.append(" Quantity: ");
+            content.append(dishes.get(dishName).size());
+            content.append("\n");
+        }
+        content.append("====================");
+        return content.toString();
     }
 
 

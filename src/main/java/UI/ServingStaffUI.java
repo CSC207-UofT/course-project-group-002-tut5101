@@ -17,12 +17,12 @@ public class ServingStaffUI implements UserInterface {
     public void loadUi (String id) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.SERVING_STAFF_ACTIONS);
+            System.out.println(StaffUIMessage.GREETING_ASK_FOR_ACTION + StaffUIMessage.SERVING_STAFF_ACTIONS);
             int action = scanner.nextInt();
             switch (action) {
                 case 0:
                     // Case 0: logout
-                    System.out.println("You have successfully logged out");
+                    System.out.println(LoginLogoutUIMessage.LOGOUT_SUCCESSFUL);
                     return;
                 case 1:
                     // Case 1: get next Dish
@@ -37,7 +37,7 @@ public class ServingStaffUI implements UserInterface {
                     // Case 2: mark current as delivered
                     try {
                         currentServingStaff.completeCurrent(id);
-                        System.out.println("Dish marked as completed\n");
+                        System.out.println(StaffUIMessage.DISH_MARKED_COMPLETED);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }

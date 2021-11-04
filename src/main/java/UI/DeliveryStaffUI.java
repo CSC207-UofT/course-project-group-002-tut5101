@@ -1,6 +1,7 @@
 package UI;
 
-import constant.UIMessage;
+import constant.StaffUIMessage;
+import constant.LoginLogoutUIMessage;
 import controller.StaffController;
 
 import java.util.Scanner;
@@ -19,12 +20,12 @@ public class DeliveryStaffUI implements UserInterface {
     public void loadUi (String id) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.DELIVERY_STAFF_ACTIONS);
+            System.out.println(StaffUIMessage.GREETING_ASK_FOR_ACTION + StaffUIMessage.DELIVERY_STAFF_ACTIONS);
             int action = scanner.nextInt();
             switch (action) {
                 case 0:
                     // Case 0: logout
-                    System.out.println("You have successfully logged out");
+                    System.out.println(LoginLogoutUIMessage.LOGOUT_SUCCESSFUL);
                     return;
                 case 1:
                     // Case 1: get next order
@@ -39,7 +40,7 @@ public class DeliveryStaffUI implements UserInterface {
                     // Case 2: mark current as delivered
                     try {
                         currentDeliveryStaff.completeCurrent(id);
-                        System.out.println("Order marked as completed\n");
+                        System.out.println(StaffUIMessage.ORDER_MARKED_COMPLETED);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }

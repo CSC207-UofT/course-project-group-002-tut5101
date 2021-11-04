@@ -35,8 +35,8 @@ public class DeliverOrder implements Delivery {
      * @throws Exception When there is no order, throws exception
      */
     public String display(String id) throws Exception {
-        User user = UserList.getUserByUserId(id);
-        String orderInfo = ((DeliveryStaff) user).displayOrder();
+        DeliveryStaff staff = (DeliveryStaff) UserList.getUserByUserId(id);
+        String orderInfo = staff.displayOrder();
 
         if (orderInfo.equals("")){
             return "No current order to be displayed";

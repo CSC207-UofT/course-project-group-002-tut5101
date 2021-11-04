@@ -146,7 +146,7 @@ public class RestaurantSystem {
 
     private static String displayMenu() {
         StringBuilder menuString = new StringBuilder();
-        menuString.append(UIMessage.MENU_TITLE);
+        menuString.append(CustomerUIMessage.MENU_TITLE);
         for (int i = 0; i < menu.size(); i++) {
             menuString.append(i + 1).append(". ").append(menu.get(i).toString());
         }

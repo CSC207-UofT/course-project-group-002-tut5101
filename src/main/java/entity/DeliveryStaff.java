@@ -38,7 +38,7 @@ public class DeliveryStaff extends Staff {
 
     public String displayOrder(){
         if (currentOrder != null){
-            return currentOrder.toString();
+            return "Address: " + currentOrder.getAddress() + "\n" + currentOrder.getOrderContent();
         }
         return "";
     }
