@@ -9,7 +9,6 @@ import java.util.List;
 
 public class MenuReadWriter extends SuperReadWriter{
 
-
     /**
      * Store the users to file at filePath.
      *

@@ -3,7 +3,6 @@ package use_case;
 import entity.Dish;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import java.util.List;
  */
 public class DishList implements Serializable {
     private static HashMap<String, Dish> menu;
-    private static HashMap<Integer, String> keySet = new HashMap<Integer, String>();
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -64,14 +62,11 @@ public class DishList implements Serializable {
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
-        keySet = new HashMap<Integer, String>();
         for (String dishName : menu.keySet()) {
             menuString.append(dishNumber + ". " + menu.get(dishName).toString());
-            keySet.put(dishNumber, menu.get(dishName).getName());
             dishNumber++;
         }
         return menuString.toString();
-
     }
     // Methods that allow lookup dish information without returning the dish itself
 
@@ -96,14 +91,6 @@ public class DishList implements Serializable {
 
     public int size() {
         return this.size();
-    }
-
-    public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
-        List<String> dishes = new ArrayList<String>();
-        for (int num : orderedNum) {
-            dishes.add(keySet.get(num));
-        }
-        return dishes;
     }
 
 }

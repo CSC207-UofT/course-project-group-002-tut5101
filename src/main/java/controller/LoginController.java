@@ -3,6 +3,7 @@ package controller;
 import boundary.LoginInputBoundary;
 import constant.LoginResult;
 import constant.UserType;
+import ui.UserInterface;
 import use_case.LoginUseCase;
 import use_case.UserList;
 
@@ -16,15 +17,16 @@ public class LoginController {
     /**
      * The input boundary for the login use case.
      */
-     private final LoginInputBoundary loginInputBoundary;
+    private final LoginInputBoundary loginInputBoundary;
 
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
+     * @param loginInputBoundary the input boundary for the login use case
      */
     public LoginController() {
         //TODO how to solve this!!!!!!!!! ASAP
-         this.loginInputBoundary = new LoginUseCase(userList);
+        this.loginInputBoundary = new LoginUseCase(userList);
     }
 
     /**
