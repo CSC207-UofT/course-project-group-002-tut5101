@@ -54,7 +54,7 @@ public class ManagerUseCase implements ManagerInputBoundary {
      * @param dish
      */
     public void manageMenuHelper(Dish dish) {
-        dish.updatePrice();
+        // dish.updatePrice();
     }
 
     /**
