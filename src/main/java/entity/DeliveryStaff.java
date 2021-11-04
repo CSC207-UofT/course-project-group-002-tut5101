@@ -27,6 +27,12 @@ public class DeliveryStaff extends Staff {
         this.currentOrder = order;
     }
 
+    /**
+     * Check if the staff has an order already
+     * @return true when there is no current dish, false when there is one
+     */
+    public boolean hasCurrentOrder() {return currentOrder != null;}
+
     public void completeOrderDelivery() throws Exception{
         if (currentOrder != null) {
             this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETED);
@@ -38,10 +44,8 @@ public class DeliveryStaff extends Staff {
 
     public String displayOrder(){
         if (currentOrder != null){
-            return currentOrder.toString();
+            return "Address: " + currentOrder.getAddress() + "\n" + currentOrder.getOrderContent();
         }
         return "";
     }
 }
-
-

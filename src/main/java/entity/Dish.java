@@ -1,6 +1,9 @@
 package entity;
 
+import constant.ItemStatus;
+
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -12,11 +15,16 @@ public class Dish {
     private String name;
     private double price;
     private String category;
+
+    /**
+     * A Hashmap that maps ingredient name to the quantity needed for this dish.
+     */
     private HashMap<String, Double> ingredients;
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private String status;
+    private ItemStatus status = constant.ItemStatus.DISH_PLACED;
+    private int tableNum;
 
 
     /**
@@ -34,7 +42,6 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
     }
 
     /**
@@ -53,8 +60,11 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
         this.category = category;
+    }
+
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
     }
 
     /**
@@ -64,6 +74,11 @@ public class Dish {
     public String getCategory() {
         return category;
     }
+
+    /**
+     * @return the table number for this dish.
+     */
+    public int getTableNum() { return tableNum;}
 
     /**
      * Set category of entities.Dish
@@ -78,7 +93,7 @@ public class Dish {
      *
      * @return the status of entities.Dish
      */
-    public String getStatus() {
+    public ItemStatus getStatus() {
         return status;
     }
 
@@ -87,7 +102,7 @@ public class Dish {
      *
      * @param status entities.Dish status
      */
-    public void setStatus(String status) {
+    public void setStatus(ItemStatus status) {
         this.status = status;
     }
 
@@ -214,6 +229,7 @@ public class Dish {
 
         return name +
                 "\n\t\t$$" + price +
+                "\n\t\t$$" + tableNum +
                 "\n\t\tIngredients: " + ingString +
 //                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
@@ -221,8 +237,16 @@ public class Dish {
                 "\n------------------------------\n";
     }
 
-    public void updatePrice() {
-        double increment = 10 - this.getPrice();
-        this.price += increment + 1;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getCategory().equals(dish.getCategory()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPrice(), getCategory(), getIngredients(), getFeatures(), getCalories(), getAllergyInformation(), getStatus(), getTableNum());
     }
 }

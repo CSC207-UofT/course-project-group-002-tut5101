@@ -1,6 +1,10 @@
 package entity;
 
-
+/**
+ * This is the Order class, which holds all the dishes the customer placed in the order
+ * @Author Evelyn Chou
+ * 2021-11-03
+ */
 import constant.ItemStatus;
 
 import java.util.HashMap;
@@ -32,6 +36,10 @@ public class Order {
         this.address = address;
     }
 
+    /**
+     *
+     * @return whether the order is dine in or take out
+     */
     public String getOrderDineInOrTakeOut() {
         if (!this.dineIn){
             return "Take Out";
@@ -40,6 +48,12 @@ public class Order {
         }
     }
 
+
+    /**
+     * sets the status uncooked dish with name as cooked, and checks if the entire order is done cooking
+     * @param name the name of the dish that was cooked and needs to be updated
+     * @return the Dish that was updated
+     */
     public Dish setDishStatus(String name) {
         for(Dish d : dishes.get(name)){
             if (d.getStatus().equals(ItemStatus.DISH_PLACED)) {
@@ -88,8 +102,6 @@ public class Order {
         return orderStatus;
     }
 
-    // TODO: add a method to access all the information of a dish given the dish name.
-
     public double getOrderPrice() {
         double price = 0;
         for (List<Dish> dishAsList : dishes.values()) {
@@ -125,14 +137,42 @@ public class Order {
         for (List<Dish> dishAsList: dishes.values()) {
             for (Dish dish: dishAsList) {
                 dishList.add(dish);
-                }
             }
+        }
         return dishList;
     }
 
+    /**
+     * @return A hashmap of dishes with its corresponding quantity.
+     */
+    public HashMap<String, Integer> getDishAndQuantity() {
+        HashMap<String, Integer> dishAndQuantity = new HashMap<>();
+        for (String dishName: dishes.keySet()) {
+            dishAndQuantity.put(dishName, dishes.get(dishName).size());
+        }
+        return dishAndQuantity;
+    }
 
+    public String getOrderContent() {
+        StringBuilder content = new StringBuilder();
+        content.append("Order contents: \n");
+        for (String dishName: dishes.keySet()) {
+            content.append("\tDish: ");
+            content.append(dishName);
+            content.append(" Quantity: ");
+            content.append(dishes.get(dishName).size());
+            content.append("\n");
+        }
+        content.append("====================");
+        return content.toString();
+    }
+
+
+    /**
+     *
+     * @return String containing the dish names, quantity, ingredients, price for each dish, and total price of the Order
+     */
     public String toString() {
-        // Dish Names, Quantity, Ingredients, price for each dish + total price
         StringBuilder orderString = new StringBuilder();
         String dishInfo;
         double totalPrice = 0;
@@ -154,7 +194,11 @@ public class Order {
         return orderString.toString();
     }
 
-
+    /**
+     *
+     * @param o the Dish to compare to
+     * @return whether the attributes of the Order are the same.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
