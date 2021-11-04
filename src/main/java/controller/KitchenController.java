@@ -112,10 +112,10 @@ public class KitchenController {
      * If the given dish is all completed in dishes, remove this element from dishes. Otherwise,
      * decreases the quantity of this dish by 1.
      *
-     *
      * @param dishName One of the dish choices provided to Kitchen in showDishToCook.
+     * @return whether all dish in dishes is cooked.
      */
-    public void completeDish(String dishName) {
+    public boolean completeDish(String dishName) {
         // Since more clever design (such as button) will be later implemented. There is no
         // need to check if the given dishName is valid.
         Kitchen.cookedDish(dishName);
@@ -126,6 +126,7 @@ public class KitchenController {
         } else {
             dishes.remove(dishName);
         }
+        return 0 == dishes.size();
     }
 
 

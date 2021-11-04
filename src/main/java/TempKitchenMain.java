@@ -1,5 +1,6 @@
 import UI.CustomerUI;
 import UI.KitchenUI;
+import UI.ServingStaffUI;
 import entity.Dish;
 import entity.Inventory;
 import entity.Meat;
@@ -27,19 +28,12 @@ public class TempKitchenMain {
 
     public static void main(String[] args) {
         setup();
-//        CustomerUI cu = new CustomerUI();
-//        cu.loadUi("");
-
-        PlaceOrder po = new PlaceOrder();
-        try {
-            po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
-            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
-        } catch (Exception e) {
-            System.out.println(e.getCause());
-        }
-
+        CustomerUI cu = new CustomerUI();
+        cu.loadUi("");
         KitchenUI ku = new KitchenUI();
         ku.loadUi("");
+        ServingStaffUI su = new ServingStaffUI();
+        su.loadUi("8");
     }
 
 

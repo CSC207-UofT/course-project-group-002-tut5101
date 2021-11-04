@@ -53,7 +53,7 @@ public class CustomerUI implements UserInterface{
                     System.out.println(CustomerUIMessage.CONFIRM_ORDER);
                     System.out.println(dishes.toString());
                     String confirm = scanner.nextLine();
-                    if (confirm.equals('Y')) {
+                    if (confirm.equals("Y")) {
                        runPlaceOrder(orderController, dineInStatus, dishesAsList, location);
                     }
                     System.out.println(CustomerUIMessage.ORDER_PLACED);

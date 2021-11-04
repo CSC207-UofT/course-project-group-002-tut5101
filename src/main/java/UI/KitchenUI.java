@@ -14,12 +14,16 @@ public class KitchenUI implements UserInterface {
     private KitchenController kc = new KitchenController();
 
     public void loadUi(String id) {
-        System.out.println("Kitchen UI");
+        System.out.println(KitchenUIMessage.ACTION);
         Scanner scanner = new Scanner(System.in);
+        boolean newOrder = true;
         while (true) {
             if (kc.hasOrder()) {
+                if (newOrder) {
+                    System.out.println(KitchenUIMessage.NEW_ORDER);
+                    newOrder = true;
+                }
                 System.out.println(kc.showDishes());
-                System.out.println(KitchenUIMessage.ACTION);
                 String action = scanner.nextLine();
                 if (action.equals("0")) {
                     return;
@@ -31,7 +35,7 @@ public class KitchenUI implements UserInterface {
                 boolean getIngredient = temp.equals("ingredient") || temp.equals("ingredients");
 
                 if (markComplete) {
-                    kc.completeDish(dishName);
+                    newOrder = kc.completeDish(dishName);
                     System.out.println(KitchenUIMessage.DISH_COMPLETE);
                 } else if (getIngredient){
                     System.out.println(kc.displayIngredient(dishName));
