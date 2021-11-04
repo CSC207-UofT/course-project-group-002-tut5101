@@ -36,7 +36,7 @@ public class InventoryUI implements UserInterface{
                     if (scanner.hasNextLine()) {
                         String str = scanner.nextLine();
                         String[] para = str.split(",");
-                        im.addNewInventory(infc.getInventory(para));
+                        im.addNewInventory(para);
                         System.out.println(im.getInfo(para[1]));
                     }
                     break;
