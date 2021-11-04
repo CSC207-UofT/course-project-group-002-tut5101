@@ -228,8 +228,8 @@ public class Dish {
                 "\n------------------------------\n";
     }
 
-    public void updatePrice() {
-        double increment = 10 - this.getPrice();
-        this.price += increment + 1;
-    }
+//    public void updatePrice() {
+//        double increment = 10 - this.getPrice();
+//        this.price += increment + 1;
+//    }
 }

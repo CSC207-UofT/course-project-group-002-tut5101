@@ -3,27 +3,23 @@ package use_case;
 import entity.Dish;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Public class storing all dishes information using an ArrayList.
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class DishList implements Serializable {
+public class DishList implements Serializable, Iterable<Dish>{
     private static HashMap<String, Dish> menu;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
-    public DishList() {
-        menu = new HashMap<>();
-    }
 
     // TODO: delete later if needed
-    public DishList(DishList dishList) {
-        menu = dishList.getAllDishes();
+    public DishList() {
+        menu = DishList.getAllDishes();
     }
 
     public DishList(List<Dish> dishes){
@@ -32,7 +28,6 @@ public class DishList implements Serializable {
             menu.put(d.getName(), d);
         }
     }
-
 
     /**
      * Return list of dishes
@@ -93,4 +88,62 @@ public class DishList implements Serializable {
         return this.size();
     }
 
+    /**
+     * Returns an iterator for this address book.
+     *
+     * @return an iterator for this address book.
+     */
+    @Override
+    public Iterator<Dish> iterator() {
+        return new DishListIterator();
+    }
+
+    /**
+     * An Iterator for DishList.
+     */
+    private class DishListIterator implements Iterator<Dish>{
+
+        /**
+         * The index of the next Dish to return.
+         */
+        private int current = 0;
+
+        /**
+         * Returns whether there is another Dish to return.
+         *
+         * @return whether there is another Dish to return.
+         */
+        @Override
+        public boolean hasNext() {
+            return current < menu.size();
+        }
+
+        /**
+         * Returns the next Contact.
+         *
+         * @return the next Contact.
+         */
+        @Override
+        public Dish next() {
+            Dish dish;
+            try {
+                Set<String> keySet = menu.keySet();
+                List<String> list = new ArrayList<>(keySet);
+                String dishName = list.get(current);
+                dish = menu.get(dishName);
+            } catch (IndexOutOfBoundsException e) {
+                throw new NoSuchElementException();
+            }
+            current += 1;
+            return dish;
+        }
+//
+//        public void replace(Dish dish){
+//            Set<String> keySet = menu.keySet();
+//            List<String> list = new ArrayList<>(keySet);
+//            String dishName = list.get(current);
+//            menu.put(dishName, dish);
+//        }
+
+    }
 }
