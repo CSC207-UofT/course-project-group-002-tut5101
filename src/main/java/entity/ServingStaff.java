@@ -60,7 +60,9 @@ public class ServingStaff extends Staff {
 
     public String displayDish(){
         if (currentDish != null){
-            return currentDish.getName() + currentDish.getTableNum();
+            return "Table: " + currentDish.getTableNum()
+                    + " Dish: " + currentDish.getName()
+                    + "\n====================";
         }
         return "";
     }
