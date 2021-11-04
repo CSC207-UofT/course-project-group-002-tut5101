@@ -93,4 +93,12 @@ public class DishList implements Serializable {
         return this.size();
     }
 
+    public void addDish(Dish dish){
+        menu.put(dish.getName(), dish);
+    }
+
+    public Dish getDishByDishName(String dishName){
+        return menu.get(dishName);
+    }
+
 }
