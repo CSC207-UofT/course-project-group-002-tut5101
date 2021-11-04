@@ -1,7 +1,9 @@
 package constant;
 
 public class KitchenUIMessage {
-    public static final String GREETING = "Welcome!";
-    public static final String SELECT_ACTION = "1. View Next Order\n 2. Complete Dish\n 0. Logout";
-    public static final String COMPLETE_DISH = "Please the number of the dish that is cooked.";
+    public static final String ACTION = "Actions:\n Enter \"<Dish name>; cook\" to mark a dish as" +
+            " cooked\n Enter \"<Dish name>; ingredient\" to view the ingredients for a dish\n" +
+            " Enter 0 to Log out\n";
+    public static final String DISH_COMPLETE = "Dish cooked!\n";
+    public static final String NEW_ORDER = "-----------New Order-----------";
 }
