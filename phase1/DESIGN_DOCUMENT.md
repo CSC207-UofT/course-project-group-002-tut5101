@@ -47,5 +47,52 @@ A restaurant app with the following types of users and user specific functions:
 # Summary of any design pattern
 # Progress report
 ## Open questions
+- 
+
 ## What has worked well
+- The new Kitchen UI. The decision to abandon to the "view order" functionality and replace it a constant display of the
+current order (if there is any) matches the GUI design that will be implemented in the future. In addition, the new 
+feature of sending out a notification for Kitchen whenever a new order comes in is much more user-friendly, and helps 
+the Kitchen keep track of their work.
+
+
 ## Summary of each group member's work and plan 
+### Summary of subgroup 1 progress
+#### Design
+Our group of three (Dedong, Evelyn, and Raymond) discussed new design for serving staff and delivery staff to split them
+into two entity classes and two use case classes. We also talked about the design for Customer UI, Customer controller,
+Customer use case, Serving staff UI, Delivery staff UI, Serving staff and delivery staff controller, and Kitchen UI, 
+Kitchen controller, and Kitchen use case.
+
+#### Coding
+Our group of three (Dedong, Evelyn, and Raymond) implemented or edited the following classes from Oct 18 - Nov 4:
+- Entity classes:
+  - Serving staff, Delivery staff
+  - Order, Dish
+- Use case classes:
+  - UserList, DishList
+  - PlaceOrder
+  - Kitchen
+  - ServingBuffer, DeliveryBuffer, ServeOrder, DeliveryOrder
+- Boundary classes:
+  - Delivery, PlaceOrderInputBoundary
+- Controller classes:
+  - OrderController, StaffController, KitchenController
+- UI classes:
+  - CustomerUI, DeliveryStaffUI, KitchenUI, ServingStaffUI
+- Other:
+  - CustomerUIMessage, ItemStatus, KitchenUIMessage, LoginLogoutUIMessage, StaffUIMessage
+  - TempKitchenMain
+
+Refactored the directory structure for the entire project.
+
+Created test for some classes shown above.
+
+
+### Summary of subgroup 2 progress
+#### Design
+#### Coding
+
+### Summary of subgroup 3 progress
+#### Design
+#### Coding
