@@ -1,3 +1,5 @@
+package entity;
+
 import constant.ItemStatus;
 import entity.Dish;
 import entity.Order;
