@@ -5,20 +5,12 @@ import constant.FileLocation;
 import gateway.ReadWriter;
 import gateway.ReviewReadWriter;
 
-import java.io.IOException;
 
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
-    public ReviewList loadReviewList(){
+    private ReviewList loadReviewList(){
         ReadWriter readWriter = new ReviewReadWriter();
-        try {
-            return (ReviewList) readWriter.readFromFile(FileLocation.ReviewListLocation);
-        } catch (IOException e){
-            e.printStackTrace();
-        } catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        return null;
+        return (ReviewList) readWriter.readFromFile(FileLocation.REVIEW_LIST_LOCATION);
     }
     public void deleteReview() {
         ReviewList reviewList = loadReviewList();

@@ -1,5 +1,7 @@
 package entity;
 
+import constant.ItemStatus;
+
 import java.util.HashMap;
 
 
@@ -16,8 +18,8 @@ public class Dish {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private String status;
-
+    private ItemStatus status;
+    private int tableNum;
 
     /**
      * Constructor of entities.Dish with name, price, ingredients and calories provided.
@@ -34,7 +36,6 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
     }
 
     /**
@@ -53,7 +54,6 @@ public class Dish {
         this.calories = calories;
         this.features = new HashMap<String, Boolean>();
         this.allergyInformation = "none";
-        this.status = "ordered";
         this.category = category;
     }
 
@@ -73,22 +73,29 @@ public class Dish {
         this.category = category;
     }
 
+
     /**
-     * Return status of entities.Dish
      *
-     * @return the status of entities.Dish
+     * @return status of entities.Dish
      */
-    public String getStatus() {
+    public ItemStatus getStatus() {
         return status;
     }
 
     /**
-     * Set status of entities.Dish
      *
-     * @param status entities.Dish status
+     * @param status status of entities.Dish
      */
-    public void setStatus(String status) {
+    public void setStatus(ItemStatus status) {
         this.status = status;
+    }
+
+    public int getTableNum() {
+        return tableNum;
+    }
+
+    public void setTableNum(int tableNum) {
+        this.tableNum = tableNum;
     }
 
     /**
@@ -221,8 +228,8 @@ public class Dish {
                 "\n------------------------------\n";
     }
 
-    public void updatePrice() {
-        double increment = 10 - this.getPrice();
-        this.price += increment + 1;
-    }
+//    public void updatePrice() {
+//        double increment = 10 - this.getPrice();
+//        this.price += increment + 1;
+//    }
 }
