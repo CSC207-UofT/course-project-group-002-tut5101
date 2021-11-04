@@ -40,7 +40,11 @@ public class KitchenUI implements UserInterface {
                 } else if (getIngredient){
                     System.out.println(kc.displayIngredient(dishName));
                 }
+            } else {
+                System.out.println("No more order for now, BYE~");
+                return;
             }
+
         }
     }
 }
