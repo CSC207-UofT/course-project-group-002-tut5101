@@ -49,7 +49,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
         }
         Order order ;
         if (dineIn) {
-            int tableNum = Integer.valueOf(location);
+            int tableNum = Integer.parseInt(location);
             order = new Order(tableNum, dishes);
         }
         else {
@@ -78,7 +78,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
         Dish dishCopy = new Dish(dishName, price, ingredients, calories, category);
         if (dineIn) {
             try {
-                int tableNum = Integer.valueOf(location);
+                int tableNum = Integer.parseInt(location);
                 dishCopy.setTableNum(tableNum);
             } catch (NumberFormatException ignored) {
 
