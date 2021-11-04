@@ -1,8 +1,11 @@
 package use_case;
 
 import boundary.LoginInputBoundary;
-import entity.User;
+import constant.FileLocation;
 import constant.LoginResult;
+import entity.User;
+import gateway.SerReadWriter;
+import gateway.UserReadWriter;
 
 public class LoginUseCase implements LoginInputBoundary {
 
@@ -11,28 +14,23 @@ public class LoginUseCase implements LoginInputBoundary {
      */
     private final UserList users;
 
-    /**
-     * Serializes and deserializes list of users
-     */
-    //TODO: inject this object and change the type to ReadWriter interface.
-    // UserReadWriter readWriter = new UserReadWriter();
-    public LoginUseCase(UserList users) {
-        this.users = users;
-//        try {
-//            readWriter.saveToFile("users.ser", users);
-//        } catch (IOException e) {
-//            System.out.println("User list did not save.");
-//        }
+
+    public LoginUseCase() {
+        SerReadWriter urf = new SerReadWriter();
+        users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
+        System.out.println(users);
+
     }
 
     /**
      * Run the login use case.
-     * @param id the id
+     *
+     * @param id       the id
      * @param password the password attempt
      * @return whether the attempt matches the password associated with id
      */
     public LoginResult logIn(String id, String password) {
-        User user = users.getUserByUserId(id);
+        User user = UserList.getUserByUserId(id);
         if (user == null) {
             return LoginResult.NO_SUCH_USER;
         }

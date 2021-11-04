@@ -13,18 +13,24 @@ import java.util.Map;
 
 public class UserList implements Serializable {
 
-
-    public UserList(){this.users = new HashMap<>();}
-
-    public UserList(HashMap users){ this.users = users;}
     private static Map<String, User> users = new HashMap<>();
+    private static final long serialVersionUID = 1L;
+
+    public UserList() {
+        this.users = new HashMap<>();
+    }
+
+    public UserList(HashMap users) {
+        this.users = users;
+    }
+
 
     /**
      * Add user to this user list.
      *
      * @param user the user to add
      */
-    public static void add(User user) {
+    public static void addUser(User user) {
         users.put(user.getId(), user);
     }
 
@@ -37,7 +43,12 @@ public class UserList implements Serializable {
         return users.get(id);
     }
 
-    public static UserType getUserTypeById(String id){
+    /**
+     * Return user type by its id
+     *
+     * @return a Hashmap with users' id mapping with users
+     */
+    public static UserType getUserTypeById(String id) {
         User currentUser = getUserByUserId(id);
         if (currentUser instanceof Customer)
             return UserType.CUSTOMER;
@@ -49,17 +60,27 @@ public class UserList implements Serializable {
             return UserType.DELIVERY_STAFF;
         else
             return UserType.KITCHEN;
-
-
     }
 
-//    private HashMap<String, User> users;
-//
-//    /**
-//     * Constructor of UseCase.UserList without parameter
-//     */
-//    public UserList() {
-//        this.users = new HashMap<>();
-//    }
+    /**
+     * Return all users.
+     * @return a UserList contains
+     */
+    public static UserList getUsers(){
+        return (UserList) users;
+    }
 
+    /**
+     * String representation for user list.
+     *
+     * @return a string representation including all users.
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (String userId : users.keySet()){
+            builder.append(UserList.getUserByUserId(userId));
+        }
+        return builder.toString();
+    }
 }

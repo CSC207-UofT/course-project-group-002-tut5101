@@ -19,7 +19,7 @@ public class DeliverOrderTest {
         deliver = new DeliverOrder();
         Order order1 = new Order("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);
-        UserList.add(new DeliveryStaff("1", "a", "abc", 10));
+        UserList.addUser(new DeliveryStaff("1", "a", "abc", 10));
     }
 
     @Test

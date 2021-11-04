@@ -16,7 +16,7 @@ public class LoginController {
     /**
      * The input boundary for the login use case.
      */
-     private final LoginInputBoundary loginInputBoundary;
+    private final LoginInputBoundary loginInputBoundary;
 
 
     /**
@@ -24,7 +24,7 @@ public class LoginController {
      */
     public LoginController() {
         //TODO how to solve this!!!!!!!!! ASAP
-         this.loginInputBoundary = new LoginUseCase(userList);
+        this.loginInputBoundary = new LoginUseCase();
     }
 
     /**
