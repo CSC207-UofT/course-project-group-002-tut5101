@@ -8,7 +8,6 @@ import java.util.Scanner;
  * The user interface for Kitchen.
  */
 
-//TODO: notification system
 public class KitchenUI implements UserInterface {
 
     private KitchenController kc = new KitchenController();

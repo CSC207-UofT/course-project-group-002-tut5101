@@ -26,20 +26,19 @@ public class TempKitchenMain {
 
     public static void main(String[] args) {
         setup();
-//        CustomerUI cu = new CustomerUI();
-//        cu.loadUi("");
-        PlaceOrder po = new PlaceOrder();
-        try {
-            // po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
-            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
-        } catch (Exception e) {
-            System.out.println(e.getCause());
-        }
+        CustomerUI cu = new CustomerUI();
+        cu.loadUi("");
+//        PlaceOrder po = new PlaceOrder();
+//        try {
+//            po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
+//            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
+//        } catch (Exception e) {
+//            System.out.println(e.getCause());
+//        }
         KitchenUI ku = new KitchenUI();
         ku.loadUi("");
-//        ServingStaffUI su = new ServingStaffUI();
-//        su.loadUi("1");
-        System.out.println("Delivery staff UI");
+        ServingStaffUI su = new ServingStaffUI();
+        su.loadUi("1");
         DeliveryStaffUI ds = new DeliveryStaffUI();
         ds.loadUi("2");
     }
