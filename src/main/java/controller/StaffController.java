@@ -37,7 +37,7 @@ public class StaffController {
         Delivery staff;
         try {
             staff = selectStaffTypeById(id);
-            return staff.display(id);
+            return "Current: \n" + staff.display(id);
         } catch (Exception e) {
             throw e;
         }

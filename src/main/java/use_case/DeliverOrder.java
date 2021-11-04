@@ -24,8 +24,12 @@ public class DeliverOrder implements Delivery {
      * @throws Exception if the given id does not correspond to a delivery staff.
      */
     public void getToBeDeliver(String id) throws Exception{
-        User user = UserList.getUserByUserId(id);
-        ((DeliveryStaff) user).setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
+        DeliveryStaff staff = (DeliveryStaff) UserList.getUserByUserId(id);
+        if (!staff.hasCurrentOrder()) {
+            staff.setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
+        } else {
+            throw new Exception("Already has one order in hands");
+        }
     }
 
     /**

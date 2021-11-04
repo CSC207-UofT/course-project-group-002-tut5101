@@ -36,6 +36,12 @@ public class ServingStaff extends Staff {
     }
 
     /**
+     * Check if the staff has a dish already
+     * @return true when there is no current dish, false when there is one
+     */
+    public boolean hasCurrentDish() {return currentDish != null;}
+
+    /**
      * Set the status of the current to "Completed" to indicate that the dish is served
      * @throws Exception if the current Dish is null.
      */

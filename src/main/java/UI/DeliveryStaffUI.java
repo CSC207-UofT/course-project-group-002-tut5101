@@ -28,7 +28,15 @@ public class DeliveryStaffUI implements UserInterface {
                     System.out.println(LoginLogoutUIMessage.LOGOUT_SUCCESSFUL);
                     return;
                 case 1:
-                    // Case 1: get next order
+                    // Case 1: view current order
+                    try {
+                        System.out.println(currentDeliveryStaff.displayCurrent(id));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    // Case 2: get next order
                     try {
                         currentDeliveryStaff.getNext(id);
                         System.out.println(currentDeliveryStaff.displayCurrent(id));
@@ -36,8 +44,8 @@ public class DeliveryStaffUI implements UserInterface {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 2:
-                    // Case 2: mark current as delivered
+                case 3:
+                    // Case 3: mark current as delivered
                     try {
                         currentDeliveryStaff.completeCurrent(id);
                         System.out.println(StaffUIMessage.ORDER_MARKED_COMPLETED);

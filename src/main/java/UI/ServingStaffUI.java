@@ -25,7 +25,15 @@ public class ServingStaffUI implements UserInterface {
                     System.out.println(LoginLogoutUIMessage.LOGOUT_SUCCESSFUL);
                     return;
                 case 1:
-                    // Case 1: get next Dish
+                    // Case 1: view current Dish
+                    try {
+                        System.out.println(currentServingStaff.displayCurrent(id));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    // Case 2: get next Dish
                     try {
                         currentServingStaff.getNext(id);
                         System.out.println(currentServingStaff.displayCurrent(id));
@@ -33,8 +41,8 @@ public class ServingStaffUI implements UserInterface {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 2:
-                    // Case 2: mark current as delivered
+                case 3:
+                    // Case 3: mark current as delivered
                     try {
                         currentServingStaff.completeCurrent(id);
                         System.out.println(StaffUIMessage.DISH_MARKED_COMPLETED);
