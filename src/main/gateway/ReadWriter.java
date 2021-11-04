@@ -11,10 +11,10 @@ public interface ReadWriter {
      * @param filepath location of ser file
      * @param o object to be serialized
      */
-    void saveToFile(String filepath, Object o) throws IOException;
+    void saveToFile(String filepath, Object o);
 
     /**
      * @param filepath location of ser file
      */
-    Serializable readFromFile(String filepath) throws IOException, ClassNotFoundException;
+    Serializable readFromFile(String filepath);
 }

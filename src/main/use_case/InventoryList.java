@@ -3,9 +3,12 @@ package use_case;
 import entity.*;
 
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 
-public class InventoryList {
+
+public class InventoryList implements Serializable {
 
 
     /**
@@ -13,17 +16,22 @@ public class InventoryList {
      * The information of this ingredient (e.g. name, price, quantity, etc.) are stored as
      * attribute in the inventory item instance.
      */
-    private static HashMap<String, Inventory> myDict = new HashMap<>();
+    private static final HashMap<String, Inventory> myDict = new HashMap<>();
+
 
     /**
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public static void addInventory(Inventory item){
+    public void addInventory(Inventory item){
         if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
     }
 
+    public void loadHashMap(HashMap hashMap){
+        if(myDict.isEmpty()){myDict.putAll(hashMap);}
+    }
 
+    public boolean checkExist(String name){return myDict.containsKey(name);}
     /**
      * Get the inventory by its name
      * @param name The name of this inventory
@@ -39,16 +47,7 @@ public class InventoryList {
      * @return the freshness of inventory required.
      */
 
-    public static String getFreshness(String name){
-        if(getItem(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getItem(name);
-            return i.getFreshness();
-        }
-        else{
-            // TODO: what would be a better way to access the freshness of inventory item.
-            return null;
-        }
-    }
+
 
     /**
      *
@@ -56,13 +55,7 @@ public class InventoryList {
      * @param newFreshness the new freshness for this ingredient.
      */
 
-    public static void updateFreshness(String name, String newFreshness) {
-        if(getItem(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getItem(name);
-            i.setFreshness(newFreshness);
-        }
-        // TODO: handle cases when the given name is not an ingredient with freshness
-    }
+
 
     /**
      * Get the quantity of inventory by its name
