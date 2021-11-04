@@ -29,6 +29,8 @@ A restaurant app with the following types of users and user specific functions:
     - Customers can provide a complain on stuff. The complain may be anonymous.
     - Review reads and write to data files to keep the customer's reviews.
 # Optional UML
+
+
 # Description of major design decisions
 - A major design decision was on deciding how the Main class connects with all the UIs. We eventually
 decided to create an interface for all UI to implement so that they each have their own main action method, and 
@@ -36,7 +38,7 @@ let the main call the corresponding UI depending on the type of the user. In add
 this interface method so that some UIs can process requests by the users without violating clean architecture.
 - Another major design decision was on the Serving staff and delivery staff sector. We eventually decided to create an
 interface for the user case of serving staff and delivery staff, as they have similar tasks, and only use one controller
-to control them based on the id of the user.
+to control them based on the id of the user instead of having two.
 
 # Brief description of how the project adheres to Clean Architecture
 - ## Scenario walk-through
