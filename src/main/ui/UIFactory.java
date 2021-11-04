@@ -38,7 +38,7 @@ public class UIFactory {
                 kitchenUI.loadUi();
                 break;
             default:
-                loginUI.loadUi("");
+                loginUI.loadUi();
         }
     }
 

@@ -146,4 +146,11 @@ public class DishList implements Serializable, Iterable<Dish>{
         }
 
     }
+    public void addDish(Dish dish){
+        menu.put(dish.getName(), dish);
+    }
+
+    public Dish getDishByDishName(String dishName){
+        return menu.get(dishName);
+    }
 }

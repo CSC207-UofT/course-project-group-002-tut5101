@@ -2,16 +2,11 @@ package controller;
 
 import boundary.LoginInputBoundary;
 import constant.LoginResult;
-import constant.UserType;
-import ui.UserInterface;
 import use_case.LoginUseCase;
-import use_case.UserList;
 
 /**
  * Controls the process for logging in.
  */
-// If we handled logging out as well, this would be a good controller
-// to do it in. It could have runLogin and runLogout methods. //TODO logout
 public class LoginController {
 
     /**
@@ -22,11 +17,9 @@ public class LoginController {
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
-     * @param loginInputBoundary the input boundary for the login use case
      */
     public LoginController() {
-        //TODO how to solve this!!!!!!!!! ASAP
-        this.loginInputBoundary = new LoginUseCase(userList);
+        this.loginInputBoundary = new LoginUseCase();
     }
 
     /**
