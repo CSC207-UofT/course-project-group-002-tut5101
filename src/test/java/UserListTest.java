@@ -3,58 +3,36 @@
  *
  * @author Chan Yu & Naihe Xiao
  */
-
-import constant.FileLocation;
-import constant.UserType;
-import entity.Customer;
-import entity.DeliveryStaff;
-import entity.Manager;
-import entity.ServingStaff;
-import gateway.SerReadWriter;
-import gateway.UserReadWriter;
+import use_case.Customer;
+import use_case.Manager;
+import use_case.UserList;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.UserList;
+
 
 import static org.junit.Assert.*;
 
 public class UserListTest {
+    UserList userList = new UserList();
+
 
 
     UserList userList = new UserList();
     @Before
     public void setUp() {
-        UserList.addUser(new Manager());
-        UserList.addUser(new Customer("2", "James", "12345"));
-        UserList.addUser(new Customer("3", "Steve", "12345"));
-        UserList.addUser(new Customer("4", "David", "12345"));
-        UserList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
-        UserList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
-        UserList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
+        this.userList.getUsers().put("1", new Manager("1", "Chan", "12345"));
+        this.userList.getUsers().put("2", new Customer("2", "Howard", "12345"));
+        this.userList.getUsers().put("3", new Manager("3", "Nathan", "12345"));
+        this.userList.getUsers().put("4", new Customer("4", "George", "12345"));
+        this.userList.getUsers().put("5", new Manager("5", "DeDong", "12345"));
+        this.userList.getUsers().put("6", new Customer("6", "Eve", "12345"));
+        this.userList.getUsers().put("7", new Manager("7", "Raymond", "12345"));
     }
 
-    @Test
+    @Test(timeout = 50)
     public void testUserByIdentity() {
-        assertEquals(UserList.getUserByUserId("2"), new Customer("2", "James", "12345"));
-    }
-
-    @Test
-    public void testUserTypeById() {
-        assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
-    }
-
-    // TODO delete this test case later
-    @Test
-    public void testSaveToFile(){
-        SerReadWriter urf = new SerReadWriter();
-        urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList);
-    }
-
-    // TODO delete this test case later
-    @Test
-    public void testReadFromFile(){
-        SerReadWriter urf = new SerReadWriter();
-        UserList users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
-        System.out.println(users);
+        assertTrue(this.userList.getUsers().containsKey("1"));
+        assertFalse(this.userList.getUsers().containsKey("9"));
+        assertEquals(this.userList.getUsers().size(), 7);
     }
 }

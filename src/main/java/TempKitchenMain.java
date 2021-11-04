@@ -1,7 +1,6 @@
-import UI.CustomerUI;
-import UI.DeliveryStaffUI;
-import UI.KitchenUI;
-import UI.ServingStaffUI;
+import ui.DeliveryStaffUI;
+import ui.KitchenUI;
+import ui.ServingStaffUI;
 import entity.*;
 import use_case.DishList;
 import use_case.InventoryList;
@@ -26,15 +25,15 @@ public class TempKitchenMain {
 
     public static void main(String[] args) {
         setup();
-        CustomerUI cu = new CustomerUI();
-        cu.loadUi("");
-//        PlaceOrder po = new PlaceOrder();
-//        try {
-//            po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
-//            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
-//        } catch (Exception e) {
-//            System.out.println(e.getCause());
-//        }
+//        CustomerUI cu = new CustomerUI();
+//        cu.loadUi("");
+        PlaceOrder po = new PlaceOrder();
+        try {
+            po.placeOrder(true, new String[]{"Yu & Rou", "Curry", "Curry"}, "3");
+            po.placeOrder(false, new String[]{"Yu & Rou", "Whatever", "Curry"}, "Fake street");
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+        }
         KitchenUI ku = new KitchenUI();
         ku.loadUi("");
         ServingStaffUI su = new ServingStaffUI();
@@ -66,7 +65,8 @@ public class TempKitchenMain {
             put("Kale", new VegeFruit("Kale", 7, 1000, "Fresh", 100));
             put("Mushroom", new VegeFruit("Mushroom", 3, 1000, "YIKES", 34));
         }};
-        //new InventoryList(inventoryList);
+        InventoryList il = new InventoryList();
+        il.loadHashMap(inventoryList);
 
         d1 = new Dish("Yu & Rou", 14.5, ingredient1, 1000);
         d2 = new Dish("Curry", 10.5, ingredient2, 500);

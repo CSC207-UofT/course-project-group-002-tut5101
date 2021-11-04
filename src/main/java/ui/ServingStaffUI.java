@@ -1,26 +1,23 @@
-package UI;
-
-import constant.StaffUIMessage;
-import constant.LoginLogoutUIMessage;
+package ui;
+import constant.*;
+import java.util.*;
 import controller.StaffController;
 
-import java.util.Scanner;
+public class ServingStaffUI implements UserInterface {
+    StaffController currentServingStaff;
 
-public class DeliveryStaffUI implements UserInterface {
-    StaffController currentDeliveryStaff;
-
-    public DeliveryStaffUI() {
-        currentDeliveryStaff = new StaffController();
+    public ServingStaffUI() {
+        currentServingStaff = new StaffController();
     }
 
     /**
-     * Run the user interface for Delivery staff, when calling run, make sure you have the user's id.
+     * Run the user interface for Serving staff, when calling run, make sure you have the user's id.
      * @param id The id of the current user.
      */
     public void loadUi (String id) {
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println(StaffUIMessage.GREETING_ASK_FOR_ACTION + StaffUIMessage.DELIVERY_STAFF_ACTIONS);
+            System.out.println(StaffUIMessage.GREETING_ASK_FOR_ACTION + StaffUIMessage.SERVING_STAFF_ACTIONS);
             int action = scanner.nextInt();
             switch (action) {
                 case 0:
@@ -28,18 +25,18 @@ public class DeliveryStaffUI implements UserInterface {
                     System.out.println(LoginLogoutUIMessage.LOGOUT_SUCCESSFUL);
                     return;
                 case 1:
-                    // Case 1: view current order
+                    // Case 1: view current Dish
                     try {
-                        System.out.println(currentDeliveryStaff.displayCurrent(id));
+                        System.out.println(currentServingStaff.displayCurrent(id));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case 2:
-                    // Case 2: get next order
+                    // Case 2: get next Dish
                     try {
-                        currentDeliveryStaff.getNext(id);
-                        System.out.println(currentDeliveryStaff.displayCurrent(id));
+                        currentServingStaff.getNext(id);
+                        System.out.println(currentServingStaff.displayCurrent(id));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -47,8 +44,8 @@ public class DeliveryStaffUI implements UserInterface {
                 case 3:
                     // Case 3: mark current as delivered
                     try {
-                        currentDeliveryStaff.completeCurrent(id);
-                        System.out.println(StaffUIMessage.ORDER_MARKED_COMPLETED);
+                        currentServingStaff.completeCurrent(id);
+                        System.out.println(StaffUIMessage.DISH_MARKED_COMPLETED);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -56,5 +53,4 @@ public class DeliveryStaffUI implements UserInterface {
             }
         }
     }
-
 }
