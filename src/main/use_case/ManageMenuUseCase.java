@@ -36,10 +36,9 @@ public class ManageMenuUseCase implements ManageMenuInputBoundary {
 //        }
         Iterator<Dish> dishListIterator1 = dishList.iterator();
         while (dishListIterator1.hasNext()) {
-
             Dish dish = dishListIterator1.next();
             if (dish.getPrice() < 10 && dish.getCalories() > 100) {
-                dishListIterator1.remove();
+                ((DishList.DishListIterator) dishListIterator1).replace(dish);
             }
 
         }

@@ -101,7 +101,7 @@ public class DishList implements Serializable, Iterable<Dish>{
     /**
      * An Iterator for DishList.
      */
-    private class DishListIterator implements Iterator<Dish>{
+    public class DishListIterator implements Iterator<Dish>{
 
         /**
          * The index of the next Dish to return.
@@ -137,13 +137,13 @@ public class DishList implements Serializable, Iterable<Dish>{
             current += 1;
             return dish;
         }
-//
-//        public void replace(Dish dish){
-//            Set<String> keySet = menu.keySet();
-//            List<String> list = new ArrayList<>(keySet);
-//            String dishName = list.get(current);
-//            menu.put(dishName, dish);
-//        }
+
+        public void replace(Dish dish){
+            Set<String> keySet = menu.keySet();
+            List<String> list = new ArrayList<>(keySet);
+            String dishName = list.get(current);
+            menu.put(dishName, dish);
+        }
 
     }
 }
