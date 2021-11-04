@@ -1,7 +1,6 @@
-package UI;
+package ui;
 
 import constant.InventoryManagerMessage;
-import constant.KitchenUIMessage;
 import controller.InventoryManager;
 import use_case.InventoryFactory;
 

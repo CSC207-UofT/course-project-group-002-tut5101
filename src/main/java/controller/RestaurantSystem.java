@@ -2,10 +2,9 @@ package controller;
 
 
 import constant.UserType;
-import UI.LoginUI;
-import UI.UIFactory;
+import ui.LoginUI;
+import ui.UIFactory;
 import use_case.DishList;
-import use_case.LoginUseCase;
 import use_case.UserList;
 
 public class RestaurantSystem {

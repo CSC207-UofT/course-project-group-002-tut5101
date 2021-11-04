@@ -1,7 +1,6 @@
-import UI.CustomerUI;
-import UI.DeliveryStaffUI;
-import UI.KitchenUI;
-import UI.ServingStaffUI;
+import ui.DeliveryStaffUI;
+import ui.KitchenUI;
+import ui.ServingStaffUI;
 import entity.*;
 import use_case.DishList;
 import use_case.InventoryList;

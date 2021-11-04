@@ -1,9 +1,7 @@
-package UI;
+package ui;
 
 import constant.UIMessage;
 import controller.ManagerController;
-import use_case.DishList;
-import use_case.InventoryList;
 import use_case.ReviewList;
 
 import java.util.Scanner;

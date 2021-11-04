@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import constant.CustomerUIMessage;
 import controller.MenuController;

@@ -32,7 +32,7 @@ simplify the ordering -> food processing -> food serving / delivering process a 
 attribute very clear and easy to comprehend.
 - The previous idea of creating simply hashmap of name-freshness and name-quantity was change to a specific class 
 InventoryList, which protect the internal information in a hashmap.
-- For command-line UI, the current user could log out from the system then another user could log in with credentials 
+- For command-line ui, the current user could log out from the system then another user could log in with credentials 
 to view different info.
 
 
@@ -230,7 +230,7 @@ Follow the Clean Architecture principle and extracted the placeholder lists (use
 #### Coding efforts
 Implemented the Customer, Manager, UserList, Dish, DishList, UserList by collaborating with Naihe. 
 Designed test cases and JavaDoc for classes mentioned above with Naihe. 
-Designed and implemented the RestaurantSystem class with Naihe, including functionalities of user login/logout, cmd-line UI display, and user interactions.
+Designed and implemented the RestaurantSystem class with Naihe, including functionalities of user login/logout, cmd-line ui display, and user interactions.
 
 #### Future planning
 Upgrade the user login controller based on the demo project provided by instructors. 
