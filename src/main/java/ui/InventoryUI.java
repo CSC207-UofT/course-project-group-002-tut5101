@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class InventoryUI implements UserInterface{
     private static InventoryManager im;
-    private static InventoryFactory infc = new InventoryFactory();
 
     public InventoryUI(){this.im = new InventoryManager();}
 

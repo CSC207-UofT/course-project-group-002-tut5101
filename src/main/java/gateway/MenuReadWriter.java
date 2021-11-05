@@ -6,6 +6,7 @@ import use_case.InventoryList;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MenuReadWriter implements ReadWriter{
@@ -32,9 +33,9 @@ public class MenuReadWriter implements ReadWriter{
      */
     @Override
 
-    public List readFromFile(String filePath) {
+    public HashMap readFromFile(String filePath) {
 
-        List dishes = new ArrayList<>();
+        HashMap dishes = new HashMap();
         try{
             File f = new File(filePath);
             f.createNewFile();
@@ -43,7 +44,7 @@ public class MenuReadWriter implements ReadWriter{
             ObjectInput input = new ObjectInputStream(buffer);
 
             // serialize the Map
-            dishes = (ArrayList) input.readObject();
+            dishes = (HashMap) input.readObject();
             input.close();
         }
         catch(IOException|ClassNotFoundException e){e.printStackTrace();}
