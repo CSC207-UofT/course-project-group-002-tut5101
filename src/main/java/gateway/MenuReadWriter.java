@@ -1,27 +1,24 @@
 package gateway;
 
-import entity.Dish;
-import use_case.DishList;
-import use_case.InventoryList;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
-public class MenuReadWriter implements ReadWriter{
+public class MenuReadWriter implements ReadWriter {
 
     @Override
     public void saveToFile(String filePath, Object objects) {
 
-        try{
+        try {
             OutputStream file = new FileOutputStream(filePath);
             OutputStream buffer = new BufferedOutputStream(file);
             ObjectOutput output = new ObjectOutputStream(buffer);
 
             // serialize the Map
             output.writeObject(objects);
-            output.close();}
-        catch(IOException e){e.printStackTrace();}
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -32,10 +29,10 @@ public class MenuReadWriter implements ReadWriter{
      */
     @Override
 
-    public List readFromFile(String filePath) {
+    public HashMap readFromFile(String filePath) {
 
-        List dishes = new ArrayList<>();
-        try{
+        HashMap dishes = new HashMap();
+        try {
             File f = new File(filePath);
             f.createNewFile();
             InputStream file = new FileInputStream(f);
@@ -43,10 +40,11 @@ public class MenuReadWriter implements ReadWriter{
             ObjectInput input = new ObjectInputStream(buffer);
 
             // serialize the Map
-            dishes = (ArrayList) input.readObject();
+            dishes = (HashMap) input.readObject();
             input.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        catch(IOException|ClassNotFoundException e){e.printStackTrace();}
         return dishes;
     }
 }

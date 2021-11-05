@@ -1,17 +1,11 @@
 package entity;
-/**
- * Tests for entities.Dish Class
- *
- * @author Chan Yu & Naihe Xiao
- */
 
-import entity.Dish;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class DishTest {
     Dish dish1;
@@ -39,15 +33,6 @@ public class DishTest {
         assertEquals(3, dish2.getIngredients().size());
     }
 
-    @Test
-    public void testToString() {
-        assertEquals(dish1.toString(), "MaPoTouFu\n" +
-                "\t$$12.5\n" +
-                "\tIngredients: {Spice=1.0, Garlic=15.0, Tofu=10.0}\n" +
-                "\tfeatures: {}\n" +
-                "\tcalories: 200.0 cal/100g\n" +
-                "\tallergyInformation: none\n" +
-                "------------------------------\n");
-    }
+
 
 }
