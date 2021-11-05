@@ -16,17 +16,14 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        RestaurantSystem system = new RestaurantSystem();
-        system.run();
 
-
-
-
-
+        while (true) {
+            RestaurantSystem system = new RestaurantSystem();
+            system.run();
+        }
 
 
     }
-
 
 }
 
