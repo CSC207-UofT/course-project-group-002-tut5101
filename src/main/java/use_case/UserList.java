@@ -1,4 +1,5 @@
-package use_case; /*
+package use_case;
+/*
   Public class storing information for all users using a Hashmap.
   @author Chan Yu & Naihe Xiao
  */

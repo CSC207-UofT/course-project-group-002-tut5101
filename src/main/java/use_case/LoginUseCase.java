@@ -19,7 +19,6 @@ public class LoginUseCase implements LoginInputBoundary {
         SerReadWriter urf = new SerReadWriter();
         users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
         System.out.println(users);
-
     }
 
     /**

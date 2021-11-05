@@ -21,7 +21,7 @@ public class RestaurantSystem {
     private void userLogin() {
 
         LoginUI ui = new LoginUI();
-        String userId = ui.loadUi(); //ui.runLogin(controller);
+        String userId = ui.loadUi();
 
 
         if (userId != null) {

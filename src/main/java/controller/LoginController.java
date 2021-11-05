@@ -23,7 +23,6 @@ public class LoginController {
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-        //TODO how to solve this!!!!!!!!! ASAP
         this.loginInputBoundary = new LoginUseCase();
     }
 
