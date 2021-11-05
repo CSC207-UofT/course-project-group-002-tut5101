@@ -65,8 +65,7 @@ public class TempKitchenMain {
             put("Kale", new VegeFruit("Kale", 7, 1000, "Fresh", 100));
             put("Mushroom", new VegeFruit("Mushroom", 3, 1000, "YIKES", 34));
         }};
-        InventoryList il = new InventoryList();
-        il.loadHashMap(inventoryList);
+        InventoryList il = new InventoryList(inventoryList);
 
         d1 = new Dish("Yu & Rou", 14.5, ingredient1, 1000);
         d2 = new Dish("Curry", 10.5, ingredient2, 500);
