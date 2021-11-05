@@ -27,9 +27,7 @@ A restaurant app with the following types of users and user specific functions:
     - Customers can provide a review and rate their experience. The review may be anonymous.
     - Customers can provide a complain on stuff. The complain may be anonymous.
     - Review reads and write to data files to keep the customer's reviews.
-# Optional UML
-
-
+    
 # Description of major design decisions
 - A major design decision was on deciding how the Main class connects with all the UIs. We eventually
 decided to create an interface for all ui to implement so that they each have their own main action method, and 
