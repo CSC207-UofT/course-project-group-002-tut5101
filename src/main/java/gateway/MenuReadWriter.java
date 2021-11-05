@@ -1,5 +1,6 @@
 package gateway;
 
+import entity.Dish;
 import use_case.DishList;
 import use_case.InventoryList;
 
@@ -7,7 +8,21 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuReadWriter extends SuperReadWriter{
+public class MenuReadWriter implements ReadWriter{
+
+    @Override
+    public void saveToFile(String filePath, Object objects) {
+
+        try{
+            OutputStream file = new FileOutputStream(filePath);
+            OutputStream buffer = new BufferedOutputStream(file);
+            ObjectOutput output = new ObjectOutputStream(buffer);
+
+            // serialize the Map
+            output.writeObject(objects);
+            output.close();}
+        catch(IOException e){e.printStackTrace();}
+    }
 
     /**
      * Store the users to file at filePath.
@@ -17,9 +32,9 @@ public class MenuReadWriter extends SuperReadWriter{
      */
     @Override
 
-    public DishList readFromFile(String filePath) {
+    public List readFromFile(String filePath) {
 
-        DishList dishes = new DishList();
+        List dishes = new ArrayList<>();
         try{
             File f = new File(filePath);
             f.createNewFile();
@@ -28,7 +43,7 @@ public class MenuReadWriter extends SuperReadWriter{
             ObjectInput input = new ObjectInputStream(buffer);
 
             // serialize the Map
-            dishes = (DishList) input.readObject();
+            dishes = (ArrayList) input.readObject();
             input.close();
         }
         catch(IOException|ClassNotFoundException e){e.printStackTrace();}

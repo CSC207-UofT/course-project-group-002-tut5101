@@ -1,6 +1,8 @@
 package entity;
 
-public interface HasFreshness {
+import java.io.Serializable;
+
+public interface HasFreshness extends Serializable {
     String getFreshness();
     void setFreshness(String NewFreshness);
 }

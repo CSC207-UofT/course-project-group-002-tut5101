@@ -9,7 +9,23 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class InventoryReadWriter extends SuperReadWriter implements ReadFromCSV{
+public class InventoryReadWriter implements ReadWriter,ReadFromCSV{
+    @Override
+    public void saveToFile(String filePath, Object objects) {
+
+        try{
+            OutputStream file = new FileOutputStream(filePath);
+            OutputStream buffer = new BufferedOutputStream(file);
+            ObjectOutput output = new ObjectOutputStream(buffer);
+
+            // serialize the Map
+            output.writeObject(objects);
+            output.close();}
+        catch(IOException e){e.printStackTrace();}
+    }
+
+
+
     @Override
     public HashMap readFromCSV(String filePath){
         HashMap hashMap = new HashMap();
@@ -30,9 +46,10 @@ public class InventoryReadWriter extends SuperReadWriter implements ReadFromCSV{
         return hashMap;
     }
 
+
     @Override
-    public InventoryList readFromFile(String filePath){
-        InventoryList inventorys = new InventoryList();
+    public HashMap readFromFile(String filePath){
+        HashMap il = new HashMap();
         try{
             File f = new File(filePath);
             f.createNewFile();
@@ -41,10 +58,10 @@ public class InventoryReadWriter extends SuperReadWriter implements ReadFromCSV{
             ObjectInput input = new ObjectInputStream(buffer);
 
             // serialize the Map
-            inventorys = (InventoryList) input.readObject();
+            il = (HashMap) input.readObject();
             input.close();
         }
         catch(IOException|ClassNotFoundException e){e.printStackTrace();}
-        return inventorys;
+        return il;
     }
 }

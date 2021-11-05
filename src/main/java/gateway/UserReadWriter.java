@@ -5,19 +5,25 @@ import use_case.UserList;
 import java.io.*;
 import java.util.HashMap;
 
-public class UserReadWriter extends SuperReadWriter {
-
-
-    /**
-     * Store the users to file at filePath.
-     *
-     * @param filePath file where the user list is stored
-     * @return list of users
-     * @throws IOException
-     */
+public class UserReadWriter implements ReadWriter{
     @Override
-    public UserList readFromFile(String filePath){
-        UserList users = new UserList();
+    public void saveToFile(String filePath, Object objects) {
+
+        try{
+            OutputStream file = new FileOutputStream(filePath);
+            OutputStream buffer = new BufferedOutputStream(file);
+            ObjectOutput output = new ObjectOutputStream(buffer);
+
+            // serialize the Map
+            output.writeObject(objects);
+            output.close();}
+        catch(IOException e){e.printStackTrace();}
+    }
+
+
+    @Override
+    public HashMap readFromFile(String filePath){
+        HashMap users = new HashMap();
         try{
         File f = new File(filePath);
         f.createNewFile();
@@ -26,7 +32,7 @@ public class UserReadWriter extends SuperReadWriter {
         ObjectInput input = new ObjectInputStream(buffer);
 
         // serialize the Map
-        users = (UserList) input.readObject();
+        users = (HashMap) input.readObject();
         input.close();
         }
         catch(IOException|ClassNotFoundException e){e.printStackTrace();}
