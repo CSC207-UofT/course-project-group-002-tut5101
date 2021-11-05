@@ -14,17 +14,18 @@ public class CustomerUI implements UserInterface{
 
     private final OrderController orderController;
     private final MenuController menuController;
+    private boolean logIn;
 
     public CustomerUI() {
         this.orderController = new OrderController();
         this.menuController = new MenuController();
+        this.logIn = true;
     }
-
 
 
     @Override
     public void loadUi(String id) {
-        while (true) {
+        while (logIn) {
             System.out.println(CustomerUIMessage.CUSTOMER_ACTIONS);
             System.out.println(CustomerUIMessage.SELECT_ACTION);
             Scanner scanner = new Scanner(System.in);
@@ -64,7 +65,8 @@ public class CustomerUI implements UserInterface{
                 case "4":
                     break;
                 case "0":
-                    return;
+                    logIn = false;
+                    break;
                 default:
                     break;
             }

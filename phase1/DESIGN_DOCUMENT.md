@@ -22,10 +22,9 @@ A restaurant app with the following types of users and user specific functions:
 - ## Inventory
     - Inventory stores the ingredients of the restaurant, provides search and update functions to check the availability of ingredients and get new ingredients in. 
     - Inventory reads and write to data files to keep track of the inventory status, including the ingredients' type, amount, and status (fresh or frozen, available or used up)
-    - Manager can manage the type and quantity of raw materials needed per day and per week (some materials need to be updated daily and some weekly).
 - ## Review
     - Customers can provide a review and rate their experience. The review may be anonymous.
-    - Customers can provide a complain on stuff. The complain may be anonymous.
+    - Customers can provide a complaint on stuff. The complaint may be anonymous.
     - Review reads and write to data files to keep the customer's reviews.
     
 # Description of major design decisions
