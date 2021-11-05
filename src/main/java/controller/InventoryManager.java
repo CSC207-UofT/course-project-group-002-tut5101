@@ -6,22 +6,28 @@ import gateway.InventoryReadWriter;
 import use_case.InventoryFactory;
 import use_case.InventoryList;
 
+import java.util.HashMap;
+
 public class InventoryManager {
-    private final InventoryList inventorys = new InventoryList();
+    private InventoryList inventorys;
     private final InventoryReadWriter irw = new InventoryReadWriter();
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
+    private HashMap map;
 
     public InventoryManager(){
         this.filepath = "src/initialdata.ser";
-     //   this.inventorys.loadHashMap(irw.readFromFile(filepath));
+        this.map = irw.readFromFile(filepath);
+        this.inventorys = new InventoryList(this.map);
     }
 
-
-    public InventoryManager(String filepath, String CSVpath){
+    public InventoryManager(String filepath, HashMap map){
         this.filepath = filepath;
-        this.inventorys.loadHashMap(irw.readFromCSV(CSVpath));
+        this.map = map;
+        this.inventorys = new InventoryList(this.map);
     }
+
+
 
 
     public Inventory getInventory(String name){
@@ -37,6 +43,8 @@ public class InventoryManager {
     public void addNewInventory(String[] para){
         this.inventorys.addInventory(this.infc.getInventory(para));
     }
+
+
 
     public String currentFreshness(String name){
         if(getInventory(name) instanceof HasFreshness){
@@ -59,6 +67,10 @@ public class InventoryManager {
     public void newQuantity(String name, String usage){
         double u = Double.parseDouble(usage);
         InventoryList.setQuantity(name, u);
+    }
+
+    public void SavetoFile(){
+        this.irw.saveToFile(this.filepath, this.map);
     }
 
 
