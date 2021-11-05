@@ -1,6 +1,8 @@
 package use_case;
 
+import constant.FileLocation;
 import entity.Dish;
+import gateway.MenuReadWriter;
 
 import java.io.Serializable;
 import java.util.*;
@@ -13,6 +15,7 @@ import java.util.*;
 public class DishList implements Serializable, Iterable<Dish> {
     private static Map<String, Dish> menu = new HashMap<>();
     private static HashMap<Integer, String> keySet = new HashMap<>();
+    private static final long serialVersionUID = 1L;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -56,6 +59,10 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     public String toString() {
+        if(menu.isEmpty()){
+            MenuReadWriter readWriter = new MenuReadWriter();
+            loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
+        }
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
         keySet = new HashMap<Integer, String>();

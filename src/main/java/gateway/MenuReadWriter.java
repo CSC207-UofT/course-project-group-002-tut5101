@@ -7,7 +7,6 @@ public class MenuReadWriter implements ReadWriter {
 
     @Override
     public void saveToFile(String filePath, Object objects) {
-
         try {
             OutputStream file = new FileOutputStream(filePath);
             OutputStream buffer = new BufferedOutputStream(file);

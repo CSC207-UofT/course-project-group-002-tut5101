@@ -10,7 +10,7 @@ public class UIMessage {
 
     public static final String LOGIN_FAILED = "Login Failed. Please ask for assistance.";
     public static final String ASK_FOR_SIGNUP = "Do you want to sign up？";
-    public static final String GREETING_ASK_FOR_ACTION= "Welcome!\nPlease enter number of the action listed below: ";
+    public static final String GREETING_ASK_FOR_ACTION= "Welcome!\nPlease enter number of the action listed below: \n";
 
     // CUSTOMER_ACTIONS now in constants.CustomerUIMessage
     // public static final String CUSTOMER_ACTIONS = "1. Place Order\n 2. Ask for assistance\n 3. Pay bill\n " +

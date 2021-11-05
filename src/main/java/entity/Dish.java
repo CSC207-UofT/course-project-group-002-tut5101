@@ -27,6 +27,8 @@ public class Dish implements Serializable {
     private ItemStatus status = constant.ItemStatus.DISH_PLACED;
     private int tableNum;
 
+    private static final long serialVersionUID = 1L;
+
 
     /**
      * Constructor of entities.Dish with name, price, ingredients and calories provided.
@@ -230,8 +232,7 @@ public class Dish implements Serializable {
 
         return name +
                 "\n\t\t$$" + price +
-                "\n\t\t$$" + tableNum +
-                "\n\t\tIngredients: " + ingString +
+//                "\n\t\tIngredients: " + ingString +
 //                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
                 "\n\t\tallergyInformation: " + allergyInformation +
