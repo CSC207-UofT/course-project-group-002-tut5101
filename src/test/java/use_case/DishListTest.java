@@ -1,58 +1,84 @@
 package use_case;
-/**
- * Tests for DishList Class
- *
- * @author Chan Yu & Naihe Xiao
- */
+
 
 import constant.FileLocation;
-import gateway.SerReadWriter;
-import use_case.DishList;
+import entity.Dish;
+import gateway.MenuReadWriter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
 public class DishListTest {
     DishList menu = new DishList();
+    private static HashMap<String, Double> ingredient1;
+    private static HashMap<String, Double> ingredient2;
+    private static HashMap<String, Double> ingredient3;
+    private static HashMap<String, Double> ingredient4;
+    private static HashMap<String, Double> ingredient5;
+    private static HashMap<String, Double> ingredient6;
 
     @Before
     public void setUp() {
-        menu.addDish(new entity.Dish("Quarter pound with cheese", 10.0, new HashMap<String, Double>(), 200));
-        menu.addDish(new entity.Dish("Quarter pound with 2 cheese", 10.0, new HashMap<String, Double>(), 400));
-        menu.addDish(new entity.Dish("Quarter pound with 3 cheese", 10.0, new HashMap<String, Double>(), 500));
-        menu.addDish(new entity.Dish("Quarter pound with 4 cheese", 10.0, new HashMap<String, Double>(), 600));
-        menu.addDish(new entity.Dish("Quarter pound with 5 cheese", 10.0, new HashMap<String, Double>(), 700));
-        menu.addDish(new entity.Dish("Small fries", 10.0, new HashMap<String, Double>(), 200));
-        menu.addDish(new entity.Dish("Median fries", 10.0, new HashMap<String, Double>(), 250));
-        menu.addDish(new entity.Dish("Large fries", 10.0, new HashMap<String, Double>(), 350));
-        menu.addDish(new entity.Dish("Coke", 10.0, new HashMap<String, Double>(), 180));
-        menu.addDish(new entity.Dish("Coffee", 10.0, new HashMap<String, Double>(), 0));
-        menu.addDish(new entity.Dish("Tea", 10.0, new HashMap<String, Double>(), 0));
-        menu.addDish(new entity.Dish("Milk Tea", 10.0, new HashMap<String, Double>(), 300));
-        menu.addDish(new entity.Dish("Wine", 10.0, new HashMap<String, Double>(), 100));
+        ingredient1 = new HashMap<>() {{
+            put("Meat", 10.0);
+            put("Cheese", 13.0);
+        }};
+        ingredient2 = new HashMap<>() {{
+            put("Potato", 11.0);
+        }};
+        ingredient3 = new HashMap<>() {{
+            put("Coke", 1.0);
+        }};
+        ingredient4 = new HashMap<>() {{
+            put("Coffee", 1.0);
+        }};
+        ingredient5 = new HashMap<>() {{
+            put("Milk Tea", 1.0);
+        }};
+        ingredient6 = new HashMap<>() {{
+            put("Potato", 1.0);
+            put("Cheese", 2.5);
+        }};
+
+        menu.addDish(new entity.Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
+        menu.addDish(new entity.Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
+        menu.addDish(new entity.Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
+        menu.addDish(new entity.Dish("Small fries", 10.0, new HashMap<>(), 200));
+        menu.addDish(new entity.Dish("Median fries", 10.0, new HashMap<>(), 250));
+        menu.addDish(new entity.Dish("Large fries", 10.0, new HashMap<>(), 350));
+        menu.addDish(new entity.Dish("Coke", 10.0, new HashMap<>(), 180));
+        menu.addDish(new entity.Dish("Coffee", 10.0, new HashMap<>(), 0));
+        menu.addDish(new entity.Dish("Milk Tea", 10.0, new HashMap<>(), 300));
     }
 
     @Test
-    public void testDishList() {
-        assertEquals(menu.getAllDishes().size(), 13);
-        entity.Dish testDish = new entity.Dish("Poutine ", 10.0, new HashMap<String, Double>(), 400);
-        menu.getAllDishes().put("Poutine", testDish);
-        assertEquals(menu.getAllDishes().get("Poutine"), testDish);
+    public void testDishListSize() {
+        assertEquals(menu.size(), 9);
     }
 
     @Test
-    public void testSaveToFile() throws IOException {
-        SerReadWriter readWriter = new SerReadWriter();
-        readWriter.saveToFile(FileLocation.MENU_FILE_LOCATION, menu);
+    public void testDishListAddDish() {
+        Dish testDish = new Dish("Poutine ", 10.0, new HashMap<>(), 400);
+        menu.addDish(testDish);
+        assertEquals(menu.getDishByDishName("Poutine"), testDish);
     }
+
+    //TODO delete this test case
     @Test
-    public void testReadFromFile() throws IOException, ClassNotFoundException {
-        SerReadWriter readWriter = new SerReadWriter();
-        DishList menu = (DishList) readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION);
+    public void testSaveToFile() {
+        MenuReadWriter readWriter = new MenuReadWriter();
+        readWriter.saveToFile(FileLocation.MENU_FILE_LOCATION, menu.getAllDishes());
+    }
+
+    //TODO delete this test case
+    @Test
+    public void testReadFromFile() {
+        MenuReadWriter readWriter = new MenuReadWriter();
+        DishList menu = new DishList();
+        menu.loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
         System.out.println(menu);
     }
 

@@ -1,6 +1,8 @@
 package use_case;
 
+import constant.FileLocation;
 import entity.Dish;
+import gateway.MenuReadWriter;
 
 import java.io.Serializable;
 import java.util.*;
@@ -11,8 +13,9 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static HashMap<String, Dish> menu;
-    private static HashMap<Integer, String> keySet = new HashMap<Integer, String>();
+    private static Map<String, Dish> menu = new HashMap<>();
+    private static HashMap<Integer, String> keySet = new HashMap<>();
+    private static final long serialVersionUID = 1L;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -21,15 +24,20 @@ public class DishList implements Serializable, Iterable<Dish> {
         menu = new HashMap<>();
     }
 
-    // TODO: load a map
     public DishList(HashMap map) {
         menu = map;
     }
 
-    public DishList(List<Dish> dishes){
+    public DishList(List<Dish> dishes) {
         menu = new HashMap<>();
-        for (Dish d: dishes){
+        for (Dish d : dishes) {
             menu.put(d.getName(), d);
+        }
+    }
+
+    public void loadHashMap(HashMap hashMap){
+        if(menu.isEmpty()){
+            menu.putAll(hashMap);
         }
     }
 
@@ -39,19 +47,10 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return the menu
      */
-    public static HashMap<String, entity.Dish> getAllDishes() {
+    public Map getAllDishes() {
         return menu;
     }
 
-    /**
-     * //TODO:
-     * Return true if the restaurant has enough inventory for the Dish
-     * @return true with inventory, or false if out of stock.
-     *
-     */
-    public static boolean hasInventoryOfTheDish() {
-        return false;
-    }
 
     /**
      * Override the toString method of Object and return a fine illustration of the DishList information
@@ -60,6 +59,10 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     public String toString() {
+        if(menu.isEmpty()){
+            MenuReadWriter readWriter = new MenuReadWriter();
+            loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
+        }
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
         keySet = new HashMap<Integer, String>();
@@ -93,7 +96,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public int size() {
-        return this.size();
+        return menu.size();
     }
 
     public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
@@ -117,7 +120,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     /**
      * An Iterator for DishList.
      */
-    public class DishListIterator implements Iterator<Dish>{
+    public class DishListIterator implements Iterator<Dish> {
 
         /**
          * The index of the next Dish to return.
@@ -154,7 +157,7 @@ public class DishList implements Serializable, Iterable<Dish> {
             return dish;
         }
 
-        public void replace(Dish dish){
+        public void replace(Dish dish) {
             Set<String> keySet = menu.keySet();
             List<String> list = new ArrayList<>(keySet);
             String dishName = list.get(current);
@@ -162,11 +165,21 @@ public class DishList implements Serializable, Iterable<Dish> {
         }
 
     }
-    public void addDish(Dish dish){
+
+    /**
+     * Add Dish to DishList
+     * @param dish new dish to be added
+     */
+    public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
     }
 
-    public Dish getDishByDishName(String dishName){
+    /**
+     * Get Dish by dish name
+     * @param dishName name of the dish
+     * @return the Dish object
+     */
+    public Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
 
