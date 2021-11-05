@@ -25,7 +25,6 @@ public class InventoryListTest {
     @Test
     public void testCheckExist2() {assertEquals(invList.checkExist("wine"), true);}
 
-
     @Test
     public void testCheckExist3() {assertEquals(invList.checkExist("a"), false);}
 
