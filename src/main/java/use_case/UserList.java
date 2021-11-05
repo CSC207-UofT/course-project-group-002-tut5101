@@ -21,6 +21,10 @@ public class UserList implements Serializable {
         users = new HashMap<>();
     }
 
+    public UserList(HashMap users) {
+        users = users;
+    }
+
     public void loadHashMap(HashMap hashMap){
         if(users.isEmpty()){
             users.putAll(hashMap);
