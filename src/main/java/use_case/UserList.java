@@ -18,11 +18,13 @@ public class UserList implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public UserList() {
-        this.users = new HashMap<>();
+        users = new HashMap<>();
     }
 
-    public UserList(HashMap users) {
-        this.users = users;
+    public void loadHashMap(HashMap hashMap){
+        if(users.isEmpty()){
+            users.putAll(hashMap);
+        }
     }
 
 
@@ -65,11 +67,11 @@ public class UserList implements Serializable {
     }
 
     /**
-     * Return all users.
+     * Return all users as a map.
      * @return a UserList contains
      */
-    public static UserList getUsers(){
-        return (UserList) users;
+    public Map getUsers(){
+        return users;
     }
 
     /**

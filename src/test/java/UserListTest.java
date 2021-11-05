@@ -4,10 +4,8 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-import constant.FileLocation;
 import constant.UserType;
 import entity.*;
-import gateway.SerReadWriter;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.UserList;
@@ -33,20 +31,21 @@ public class UserListTest {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
     }
 
-    //TODO delete this test later
-    @Test
-    public void testSaveToFile(){
-        SerReadWriter urf = new SerReadWriter();
-        urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList);
-    }
-
-    //TODO delete this test later
-    @Test
-    public void testReadFromFile(){
-        SerReadWriter urf = new SerReadWriter();
-        UserList users = (UserList) urf.readFromFile(FileLocation.USER_FILE_LOCATION);
-        System.out.println(users);
-    }
+//    //TODO delete this test later
+//    @Test
+//    public void testSaveToFile(){
+//        UserReadWriter urf = new UserReadWriter();
+//        urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList.getUsers());
+//    }
+//
+//    //TODO delete this test later
+//    @Test
+//    public void testReadFromFile(){
+//        UserReadWriter urf = new UserReadWriter();
+//        UserList users = new UserList();
+//        users.loadHashMap(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
+//        System.out.println(users);
+//    }
 
 
 }
