@@ -21,9 +21,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         menu = new HashMap<>();
     }
 
-    // TODO: delete later if needed
-    public DishList(DishList dishList) {
-        menu = dishList.getAllDishes();
+    // TODO: load a map
+    public DishList(HashMap map) {
+        menu = map;
     }
 
     public DishList(List<Dish> dishes){

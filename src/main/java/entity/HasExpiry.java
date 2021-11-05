@@ -1,5 +1,7 @@
 package entity;
 
-public interface HasExpiry {
+import java.io.Serializable;
+
+public interface HasExpiry extends Serializable {
     int getExpiryDate();
 }

@@ -16,7 +16,7 @@ public class InventoryList implements Serializable {
      * The information of this ingredient (e.g. name, price, quantity, etc.) are stored as
      * attribute in the inventory item instance.
      */
-    private static final HashMap<String, Inventory> myDict = new HashMap<>();
+    private static HashMap<String, Inventory> myDict = new HashMap<>();
 
 
     /**
@@ -28,10 +28,15 @@ public class InventoryList implements Serializable {
     }
 
     public void loadHashMap(HashMap hashMap){
-        if(myDict.isEmpty()){myDict.putAll(hashMap);}
-    }
+        if(myDict.isEmpty()) {
+            myDict.putAll(hashMap);
+            //  myDict = hashMap;}
+        }}
 
+    public boolean checkEmpty(){return myDict.isEmpty();}
     public boolean checkExist(String name){return myDict.containsKey(name);}
+
+
     /**
      * Get the inventory by its name
      * @param name The name of this inventory
