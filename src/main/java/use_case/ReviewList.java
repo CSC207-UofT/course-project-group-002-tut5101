@@ -18,13 +18,20 @@ public class ReviewList implements Serializable {
         this.reviews  = reviews;
     }
 
+
     /**
      * Add review to this review list.
      *
      * @param r is the review to add in the list
      */
     public void addReview(Review r) {
-        reviews.get(r.addRate()).add(r);
+        if(reviews.containsKey(r.addRate())){
+            reviews.get(r.addRate()).add(r);
+        } else {
+            ArrayList<Review> review = new ArrayList<Review>();
+            review.add(r);
+            reviews.put(r.addRate(), review);
+        }
     }
 
 
