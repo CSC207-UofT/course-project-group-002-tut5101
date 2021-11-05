@@ -7,24 +7,19 @@ import use_case.InventoryFactory;
 import use_case.InventoryList;
 
 public class InventoryManager {
-    private final InventoryList inventorys;
+    private final InventoryList inventorys = new InventoryList();
     private final InventoryReadWriter irw = new InventoryReadWriter();
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
     public InventoryManager(){
         this.filepath = "src/initialdata.ser";
-        this.inventorys = irw.readFromFile(filepath);
+     //   this.inventorys.loadHashMap(irw.readFromFile(filepath));
     }
 
-    public InventoryManager(String filepath){
-        this.filepath = filepath;
-        this.inventorys = irw.readFromFile(filepath);
-    }
 
     public InventoryManager(String filepath, String CSVpath){
         this.filepath = filepath;
-        this.inventorys = irw.readFromFile(filepath);
         this.inventorys.loadHashMap(irw.readFromCSV(CSVpath));
     }
 

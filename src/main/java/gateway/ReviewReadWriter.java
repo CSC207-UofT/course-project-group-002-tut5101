@@ -6,21 +6,27 @@ import use_case.ReviewList;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class ReviewReadWriter extends SuperReadWriter{
-
-
-
-    /**
-     * Store the users to file at filePath.
-     *
-     * @param filePath file where the user list is stored
-     * @return list of users
-     * @throws IOException
-     */
+public class ReviewReadWriter implements ReadWriter{
     @Override
-    public ReviewList readFromFile(String filePath){
-        ReviewList reviews = new ReviewList();
+    public void saveToFile(String filePath, Object objects) {
+
+        try{
+            OutputStream file = new FileOutputStream(filePath);
+            OutputStream buffer = new BufferedOutputStream(file);
+            ObjectOutput output = new ObjectOutputStream(buffer);
+
+            // serialize the Map
+            output.writeObject(objects);
+            output.close();}
+        catch(IOException e){e.printStackTrace();}
+    }
+
+
+    @Override
+    public HashMap readFromFile(String filePath){
+        HashMap reviews = new HashMap();
         try{
             File f = new File(filePath);
             f.createNewFile();
@@ -29,10 +35,10 @@ public class ReviewReadWriter extends SuperReadWriter{
             ObjectInput input = new ObjectInputStream(buffer);
 
             // serialize the Map
-            reviews = (ReviewList) input.readObject();
+            reviews = (HashMap) input.readObject();
             input.close();}
         catch(EOFException e){
-            reviews = new ReviewList();
+            reviews = new HashMap();
         }
         catch(IOException|ClassNotFoundException e){e.printStackTrace();}
         return reviews;

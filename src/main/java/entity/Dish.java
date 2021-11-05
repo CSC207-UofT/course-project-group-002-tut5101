@@ -2,6 +2,7 @@ package entity;
 
 import constant.ItemStatus;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class Dish {
+public class Dish implements Serializable {
     private String name;
     private double price;
     private String category;

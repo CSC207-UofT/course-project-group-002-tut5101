@@ -26,6 +26,7 @@ public class UserList implements Serializable {
     }
 
 
+
     /**
      * Add user to this user list.
      *
