@@ -5,7 +5,6 @@ import boundary.DeleteReviewInputBoundary;
 import boundary.ManageMenuInputBoundary;
 import use_case.DeleteReviewUseCase;
 import use_case.ManageMenuUseCase;
-import use_case.ReviewList;
 
 public class ManagerController {
 
@@ -21,7 +20,7 @@ public class ManagerController {
         manageMenuInputBoundary.manageMenu();
     }
 
-    public void deleteReview(ReviewList reviewList){
+    public void deleteReview(){
         deleteReviewInputBoundary.deleteReview();
     }
 }

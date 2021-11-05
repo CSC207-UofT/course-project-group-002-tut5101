@@ -14,7 +14,6 @@ public class ManagerUI implements UserInterface {
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
         ManagerController controller = new ManagerController();
-        // interface for q3.
         switch (action) {
 
             // Manage menu
@@ -25,8 +24,7 @@ public class ManagerUI implements UserInterface {
 
             // Delete Review
             case 4:
-                ReviewList reviewList = null;
-                controller.deleteReview(reviewList);
+                controller.deleteReview();
                 break;
 
         }

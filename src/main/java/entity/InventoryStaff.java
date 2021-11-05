@@ -1,6 +1,7 @@
 package entity;
 
 public class InventoryStaff extends Staff{
-    public InventoryStaff() {
+    public InventoryStaff(String staffID, String staffName, String password, int staffSalary) {
+        super(staffID, staffName, password, staffSalary);
     }
 }
