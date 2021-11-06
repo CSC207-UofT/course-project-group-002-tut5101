@@ -51,6 +51,8 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menu;
     }
 
+//    TODO add saveToFile(HashMap hashMaP){}
+
 
     /**
      * Override the toString method of Object and return a fine illustration of the DishList information
@@ -59,10 +61,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     public String toString() {
-        if(menu.isEmpty()){
-            MenuReadWriter readWriter = new MenuReadWriter();
-            loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
-        }
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
         keySet = new HashMap<Integer, String>();
@@ -95,6 +93,10 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menu.get(dishName).getCategory();
     }
 
+    /**
+     * Return number of dishes in the dish list
+     * @return number of dishes
+     */
     public int size() {
         return menu.size();
     }
@@ -182,5 +184,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     public Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
+
+
 
 }
