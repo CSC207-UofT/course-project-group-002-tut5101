@@ -100,7 +100,40 @@ Created test for some classes shown above.
 
 ### Summary of subgroup 2 progress
 #### Design
+Our group, consisting of 2 people(Naihe Xiao and Chan Yu), worked on the implementation of the specification 
+of managers, the revise of the login system, and cooperated with the 3rd group on the readwrite process.
+We worked on the debugging process of the entire program, and collaborated on the further modifications 
+of the login and logout functions.
 #### Coding
+(1) Implementation of the specification of the manager. 
+In general the manager has 2 responsibilities. 
+The first is that the manager should be able to see the entire menu and make modifications to the prices of the dishes or the 
+existence of the dishes on the menu. We decided that the manager will eliminate all dishes with prices lower than 5
+and change the prices of the dishes with prices between 5 and 10, inclusive, to 11. The second responsibility of the
+manager is that it should be able to delete reviews that are harmful for the restaurant. We decided that all reviews
+with score lower than or equal to 3 will be deleted.
+To establish these functions, we first designed the UI class of the manager, just following the login-related classes,
+and it initiates a controller class of the manager according to the input information of the user(manager). 
+The controller class of the manager then reads the files and generates the dishList and reviewList. These are 
+passed as constructor parameters into the corresponding use case classes, which contains specific information
+to conduct the responsibilities. Each of the use case classes implements a corresponding boundary interface, so that 
+clean architecture is maintained. 
+
+(2) Update of the login system.
+Our original login process was entirely contained in one class: the RestaurantSystem.
+This violates the clean architecture and the SOLID principle. 
+Therefore, following the clean architecture login sample provide by the course, we designed a completely different 
+system. 
+It would be hardly readable to illustrate in words, thus we will use a path for presentation:
+Main -> Restaurant(controller): method run -> UIFactory(ui): method loadUI -> different UI classes.
+We also designed the logout procedure, so that when the program runs, the user can log in as different users.
+
+(3) Debugging process
+We went through the debugging process. As every programmer can tell, this is the most devastating, heart-breaking, 
+exhausting process when developing a project. We received the codes from everyone, and debugged the page almost
+filled by red lines bit by bit. 
+The especially time-consuming and frustrating bug occurs within the read write process. We tried 10 plus different
+methods, went to professor office hours, discussed with peers, and finally overcome the difficulty.
 
 ### Summary of subgroup 3 progress
 #### Design
