@@ -15,7 +15,7 @@ public class InventoryUI implements UserInterface{
 
     public InventoryUI(){
         InventoryReadWriter irw = new InventoryReadWriter();
-        map = irw.readFromFile(FileLocation.INVENTORY_FILE_LOCATION);
+        map = irw.readFromFile("src/file.ser");
         im = new InventoryManager(FileLocation.INVENTORY_FILE_LOCATION, map);
     }
 
