@@ -78,7 +78,7 @@ public class Review implements UserName, Rate, Comment, ComplainStuff, DayTime, 
         if(ifComplain){
             return newComplain;
         }else {
-            return "no complain";
+            return "no complaint";
         }
     }
 
