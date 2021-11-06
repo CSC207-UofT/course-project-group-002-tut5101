@@ -22,7 +22,6 @@ public class Main {
             system.run();
         }
 
-
     }
 
 }
