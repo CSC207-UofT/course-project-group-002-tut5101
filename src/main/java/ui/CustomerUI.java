@@ -3,6 +3,8 @@ package ui;
 import constant.CustomerUIMessage;
 import controller.MenuController;
 import controller.OrderController;
+import entity.Review;
+import use_case.ReviewList;
 
 import java.util.*;
 import java.util.List;
@@ -62,6 +64,40 @@ public class CustomerUI implements UserInterface{
                 case "3":
                     break;
                 case "4":
+                    String name;
+                    String complaint;
+                    boolean ifAnonymous;
+                    boolean ifComplain;
+                    ReviewList rl = new ReviewList();
+
+                    System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
+                    String anonymous = scanner.nextLine();
+                    if(anonymous.equals("Y")){
+                        name = "Anonymous";
+                        ifAnonymous = true;
+                    } else {
+                        name = id;
+                        ifAnonymous = false;
+                    }
+                    System.out.println(CustomerUIMessage.ASK_FOR_RATE);
+                    int rate = scanner.nextInt();
+
+                    System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
+                    String comment = scanner.nextLine();
+
+                    System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
+                    String complain = scanner.nextLine();
+                    if(complain.equals("Y")){
+                        ifComplain = true;
+                        System.out.println(CustomerUIMessage.ASK_COMPLAIN_INFO);
+                        complaint = scanner.nextLine();
+                    } else {
+                        ifComplain = false;
+                        complaint = "no complaint";
+                    }
+                    Review r = new Review(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    rl.addReview(r);
+                    rl.SavetoFile("src/main/resources/review.ser");
                     break;
                 case "0":
                     return;
@@ -141,6 +177,5 @@ public class CustomerUI implements UserInterface{
         catch(Exception e) {
             System.out.println(e);
         }
-
     }
 }
