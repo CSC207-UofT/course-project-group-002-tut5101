@@ -12,7 +12,6 @@ public class CustomerUIMessage {
             "to finish order";
     public static final String CONFIRM_ORDER = "Please confirm your order Y/N";
     public static final String ORDER_PLACED = "Order successfully placed";
-
     public static final String ASK_IF_ANONYMOUS = "Do you want to anonymous? (enter Y or N)";
     public static final String ASK_FOR_RATE = "Please enter your rate from 1 to 5 point: ";
     public static final String ASK_FOR_COMMENT = "Please enter your comment: ";

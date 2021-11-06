@@ -82,10 +82,8 @@ public class CustomerUI implements UserInterface{
                     }
                     System.out.println(CustomerUIMessage.ASK_FOR_RATE);
                     int rate = scanner.nextInt();
-
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
-
                     System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
                     String complain = scanner.nextLine();
                     if(complain.equals("Y")){
