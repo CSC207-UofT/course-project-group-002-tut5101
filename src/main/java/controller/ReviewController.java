@@ -12,7 +12,6 @@ public class ReviewController {
     public void addToReviewList
             (String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain) {
         ReviewList rl = new ReviewList();
-        rl.creatReview(name, ifAnonymouse, rate, comment, ifComplain, complain);
         rl.addReview(rl.creatReview(name, ifAnonymouse, rate, comment, ifComplain, complain));
         rl.SavetoFile("src/main/resources/review.ser");
     }
