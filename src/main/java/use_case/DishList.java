@@ -16,7 +16,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static Map<String, Dish> menu = new HashMap<>();
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
-    private static MenuReadWriter mrw = new MenuReadWriter();
+
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -184,8 +184,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menu.get(dishName);
     }
 
-    public void SavetoFile(String filePath){
-        mrw.saveToFile(filePath, menu);
-    }
+
 
 }
