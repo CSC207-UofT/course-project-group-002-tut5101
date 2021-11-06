@@ -1,5 +1,7 @@
 package gateway;
 
+import java.util.HashMap;
+
 public interface ReadWriter {
     /**
      * @param filepath location of ser file
@@ -10,5 +12,5 @@ public interface ReadWriter {
     /**
      * @param filepath location of ser file
      */
-    Object readFromFile(String filepath);
+    HashMap readFromFile(String filepath);
 }

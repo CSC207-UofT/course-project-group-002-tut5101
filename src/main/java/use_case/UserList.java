@@ -66,8 +66,11 @@ public class UserList implements Serializable {
             return UserType.SERVING_STAFF;
         else if (currentUser instanceof DeliveryStaff)
             return UserType.DELIVERY_STAFF;
-        else
+        else if (currentUser instanceof InventoryStaff)
+            return UserType.INVENTORY_STAFF;
+        else if (currentUser instanceof KitchenStaff)
             return UserType.KITCHEN;
+        return null;
     }
 
     /**
