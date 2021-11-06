@@ -17,5 +17,5 @@ public class CustomerUIMessage {
     public static final String ASK_FOR_COMMENT = "Please enter your comment: ";
     public static final String ASK_IF_COMPLAIN_STUFF = "Do you want to complain on stuff? (enter Y or N)";
     public static final String ASK_COMPLAIN_INFO = "Please enter your complaint: ";
-    public static final String SHOW_REVIEW = "Comment success! Your review: ";
+    public static final String SHOW_REVIEW = "Comment success!";
 }
