@@ -101,6 +101,7 @@ public class CustomerUI implements UserInterface{
                         complaint = "no complaint";
                     }
                     reviewController.addToReviewList(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    reviewController.saveToFile();
                     System.out.println(CustomerUIMessage.SHOW_REVIEW);
 
                     break;
