@@ -4,6 +4,7 @@ import constant.CustomerUIMessage;
 import constant.FileLocation;
 import controller.MenuController;
 import controller.OrderController;
+import controller.ReviewController;
 import entity.Review;
 import gateway.MenuReadWriter;
 import use_case.ReviewList;
@@ -18,6 +19,7 @@ public class CustomerUI implements UserInterface{
 
     private final OrderController orderController;
     private final MenuController menuController;
+    private final ReviewController reviewController;
     private static MenuReadWriter mrw = new MenuReadWriter();
     private static HashMap map;
     private boolean logIn;
@@ -26,6 +28,7 @@ public class CustomerUI implements UserInterface{
         map = mrw.readFromFile(FileLocation.MENU_FILE_LOCATION);
         this.orderController = new OrderController();
         this.menuController = new MenuController(map);
+        this.reviewController = new ReviewController();
         this.logIn = true;
     }
 
@@ -102,8 +105,8 @@ public class CustomerUI implements UserInterface{
                     }
                     Review r = new Review(name, ifAnonymous, rate, comment, ifComplain, complaint);
                     System.out.println(CustomerUIMessage.SHOW_REVIEW + r.toString());
-                    rl.addReview(r);
-                    rl.SavetoFile("src/main/resources/review.ser");
+                    reviewController.addToReviewList(r);
+                    reviewController.saveToFile("src/main/resources/review.ser");
                     break;
                 case "0":
                     logIn = false;
