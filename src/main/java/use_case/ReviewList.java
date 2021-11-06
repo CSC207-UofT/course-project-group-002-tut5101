@@ -53,11 +53,13 @@ public class ReviewList implements Serializable {
     }
 
     public void deleteReviews(){
-        reviews.put(0, new ArrayList<>());
         reviews.put(1, new ArrayList<>());
         reviews.put(2, new ArrayList<>());
         reviews.put(3, new ArrayList<>());
+        reviews.put(4, new ArrayList<>());
+        reviews.put(5, new ArrayList<>());
     }
+
     public void SavetoFile(String filePath){ rrw.saveToFile(filePath, reviews);}
 
 }
