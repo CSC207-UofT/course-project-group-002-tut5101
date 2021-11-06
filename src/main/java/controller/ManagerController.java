@@ -19,12 +19,14 @@ public class ManagerController {
 
     private DishList loadMenu() {
         ReadWriter readWriter = new MenuReadWriter();
-        return (DishList) readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION);
+        DishList d = new DishList(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
+        return d;
     }
 
     private ReviewList loadReviewList(){
         ReadWriter readWriter = new ReviewReadWriter();
-        return (ReviewList) readWriter.readFromFile(FileLocation.REVIEW_LIST_LOCATION);
+        ReviewList r = new ReviewList(readWriter.readFromFile(FileLocation.REVIEW_LIST_LOCATION));
+        return r;
     }
 
     public ManagerController() {

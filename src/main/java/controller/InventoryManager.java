@@ -1,5 +1,6 @@
 package controller;
 
+import constant.FileLocation;
 import entity.HasFreshness;
 import entity.Inventory;
 import gateway.InventoryReadWriter;
@@ -16,8 +17,8 @@ public class InventoryManager {
     private HashMap map;
 
     public InventoryManager(){
-        this.filepath = "src/initialdata.ser";
-        this.map = irw.readFromFile(filepath);
+        this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
+        this.map = irw.readFromCSV("src/main/resources/inventorydata.csv");
         this.inventorys = new InventoryList(this.map);
     }
 
