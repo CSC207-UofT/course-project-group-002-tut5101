@@ -43,15 +43,15 @@ public class DishListTest {
             put("Cheese", 2.5);
         }};
 
-        menu.addDish(new entity.Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
-        menu.addDish(new entity.Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
-        menu.addDish(new entity.Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
-        menu.addDish(new entity.Dish("Small fries", 10.0, new HashMap<>(), 200));
-        menu.addDish(new entity.Dish("Median fries", 10.0, new HashMap<>(), 250));
-        menu.addDish(new entity.Dish("Large fries", 10.0, new HashMap<>(), 350));
-        menu.addDish(new entity.Dish("Coke", 10.0, new HashMap<>(), 180));
-        menu.addDish(new entity.Dish("Coffee", 10.0, new HashMap<>(), 0));
-        menu.addDish(new entity.Dish("Milk Tea", 10.0, new HashMap<>(), 300));
+        menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
+        menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
+        menu.addDish(new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
+        menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
+        menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
+        menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
+        menu.addDish(new Dish("Coke", 10.0, new HashMap<>(), 180));
+        menu.addDish(new Dish("Coffee", 10.0, new HashMap<>(), 0));
+        menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class DishListTest {
 
     @Test
     public void testDishListAddDish() {
-        Dish testDish = new Dish("Poutine ", 10.0, new HashMap<>(), 400);
+        Dish testDish = new Dish("Poutine", 10.0, new HashMap<>(), 400);
         menu.addDish(testDish);
         assertEquals(menu.getDishByDishName("Poutine"), testDish);
     }
