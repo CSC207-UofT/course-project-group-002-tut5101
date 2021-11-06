@@ -3,7 +3,6 @@ package gateway;
 import java.io.*;
 import java.util.HashMap;
 
-
 public class MenuReadWriter implements ReadWriter {
 
     @Override

@@ -1,10 +1,10 @@
 package controller;
 
 import boundary.LoginInputBoundary;
+import constant.FileLocation;
 import constant.LoginResult;
-import constant.UserType;
+import gateway.UserReadWriter;
 import use_case.LoginUseCase;
-import use_case.UserList;
 
 /**
  * Controls the process for logging in.
@@ -23,7 +23,8 @@ public class LoginController {
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-        this.loginInputBoundary = new LoginUseCase();
+        UserReadWriter readWriter = new UserReadWriter();
+        this.loginInputBoundary = new LoginUseCase(readWriter.readFromFile(FileLocation.USER_FILE_LOCATION));
     }
 
     /**

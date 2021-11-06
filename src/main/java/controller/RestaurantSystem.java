@@ -39,19 +39,6 @@ public class RestaurantSystem {
 
     public void run(){
 
-        // 1. init load data
-        // 2. login LoginManager man  = new
-        // man.userLogin();
-        // 3. switch to different ui -> controller => use case -> ui
-
-
-
-
-
-
-
-        // TODO: Load data (userList/dishList) from file to the program
-
         // User Login
         while (!login) {
             userLogin();
