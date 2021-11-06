@@ -1,10 +1,10 @@
 package use_case;
 
 import boundary.LoginInputBoundary;
-import constant.FileLocation;
 import constant.LoginResult;
 import entity.User;
-import gateway.UserReadWriter;
+
+import java.util.HashMap;
 
 public class LoginUseCase implements LoginInputBoundary {
 
@@ -14,9 +14,8 @@ public class LoginUseCase implements LoginInputBoundary {
     private final UserList users = new UserList();
 
 
-    public LoginUseCase() {
-        UserReadWriter readWriter = new UserReadWriter();
-        users.loadHashMap(readWriter.readFromFile(FileLocation.USER_FILE_LOCATION));
+    public LoginUseCase(HashMap userMap) {
+        users.loadHashMap(userMap);
     }
 
     /**
