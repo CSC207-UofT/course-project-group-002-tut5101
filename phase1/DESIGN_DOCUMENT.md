@@ -54,6 +54,18 @@ to control them based on the id of the user instead of having two.
   - There are a few interfaces between the controller and use case layers. For example the LoginController does not directly interact with the LoginUseCase, but instead calls on the logIn method in the LoginInputBoundary interface. Similarly, the OrderController calls on the placeOrder method in the PlaceOrderInputBoundary.
   - However, some controllers such as the MenuController directly interact with the DishList use case, so there is no layer of abstraction. This could be fixed by creating more interfaces, ensuring the use cases can easily be replaced without having to change the controllers.
 # Brief description of packaging strategies
+  Our packaging strategy is packaging by the layers in the clean architecture, from lower to higher, there are layers of enterprise business rules, application business rules, interface adapters, frameworks and drivers levels.
+  Under the top-level package of `java`, 
+  we have the packages `entity`, `use_case`, `controller`, `gateway`, `ui`, each of which represents a layer of the system by levels.
+  1. Enterprise business rules level
+     - The `entity` package contains all the classes representing entities of the system and their corresponding methods at the enterprise business rules level.
+  2. Application business rules level
+     - The `use_case` package contains all the classes that defines application business rules level.
+  3. Interface adapter level
+     - The `controller` package contains all the classes that performs controller functionality at the interface adapter level.
+     - The `gateway` package contains the classes associated with data read/write to and from database st the interface adapter level.
+  4. Frameworks and drivers level
+     - The `ui` package contains all the user interface in the system that acts at the outermost layer of the system.
 # Summary of any design pattern
 # Progress report
 ## Open questions
