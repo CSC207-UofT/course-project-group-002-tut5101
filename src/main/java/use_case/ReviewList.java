@@ -20,12 +20,8 @@ public class ReviewList implements Serializable {
         this.reviews  = reviews;
     }
 
-
-
-
-    public static Review creatReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
-        Review r = new Review(name, ifAnonymouse, rate, comment, ifComplain, complain);
-        return r;
+    public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
+        addReview(new Review(name, ifAnonymouse, rate, comment, ifComplain, complain));
     }
     /**
      * Add review to this review list.
