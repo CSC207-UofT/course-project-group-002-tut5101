@@ -9,10 +9,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ReviewController {
-    public void saveToFile(String filePath){
-        ReviewList rl = new ReviewList();
-        rl.SavetoFile(filePath);
+    private static ReviewReadWriter rrw = new ReviewReadWriter();
+    private static HashMap map;
+    private  static  ReviewList reviews;
+
+    public ReviewController(){
+        map = rrw.readFromFile(FileLocation.REVIEW_LIST_LOCATION);
+        reviews = new ReviewList(map);
     }
+
+    public void saveToFile(String filePath){ rrw.saveToFile(filePath, map);}
+
 
     public void addToReviewList(Review r){
         ReviewList rl = new ReviewList();

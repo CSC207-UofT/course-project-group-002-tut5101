@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
-    private static ReviewReadWriter rrw = new ReviewReadWriter();
+
 
     public ReviewList() {
         this.reviews = new HashMap<>();
@@ -60,6 +60,5 @@ public class ReviewList implements Serializable {
         reviews.put(5, new ArrayList<>());
     }
 
-    public void SavetoFile(String filePath){ rrw.saveToFile(filePath, reviews);}
 
 }
