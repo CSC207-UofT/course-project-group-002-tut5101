@@ -2,6 +2,7 @@ package use_case;
 import constant.FileLocation;
 import entity.Review;
 import gateway.ReviewReadWriter;
+import gateway.UserReadWriter;
 import use_case.ReviewList;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,13 @@ public class ReviewListTest {
     public void testSaveToFile() throws IOException {
         ReviewReadWriter readWriter = new ReviewReadWriter();
         readWriter.saveToFile(FileLocation.REVIEW_LIST_LOCATION, rl);
+    }
+
+    @Test
+    public void testReadFromFile(){
+        ReviewReadWriter urf = new ReviewReadWriter();
+        ReviewList rl = new ReviewList(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
+        System.out.println(rl);
     }
 
 }

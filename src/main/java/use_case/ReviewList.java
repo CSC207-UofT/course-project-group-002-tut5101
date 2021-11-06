@@ -42,7 +42,7 @@ public class ReviewList implements Serializable {
      *
      * @return a Hashmap with review's rate mapping with reviews
      */
-    public ArrayList<Review> getReviewByRate(int rate) {
+    public static ArrayList<Review> getReviewByRate(int rate) {
         if (rate < 0) {
             return null;
         } else if (rate <= 5) {
@@ -58,6 +58,15 @@ public class ReviewList implements Serializable {
         reviews.put(2, new ArrayList<>());
         reviews.put(3, new ArrayList<>());
     }
+
     public void SavetoFile(String filePath){ rrw.saveToFile(filePath, reviews);}
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Integer rate : reviews.keySet()){
+            builder.append(ReviewList.getReviewByRate(rate));
+        }
+        return builder.toString();
+    }
 }

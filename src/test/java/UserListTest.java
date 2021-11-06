@@ -41,15 +41,15 @@ public class UserListTest {
         UserReadWriter urf = new UserReadWriter();
         urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList.getUsers());
     }
-//
-//    //TODO delete this test later
-//    @Test
-//    public void testReadFromFile(){
-//        UserReadWriter urf = new UserReadWriter();
-//        UserList users = new UserList();
-//        users.loadHashMap(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
-//        System.out.println(users);
-//    }
+
+    //TODO delete this test later
+    @Test
+    public void testReadFromFile(){
+        UserReadWriter urf = new UserReadWriter();
+        UserList users = new UserList();
+        users.loadHashMap(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
+        System.out.println(users);
+    }
 
 
 }
