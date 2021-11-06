@@ -5,9 +5,8 @@ import constant.FileLocation;
 import controller.MenuController;
 import controller.OrderController;
 import controller.ReviewController;
-import entity.Review;
 import gateway.MenuReadWriter;
-import use_case.ReviewList;
+
 
 import java.util.*;
 import java.util.List;
@@ -77,8 +76,6 @@ public class CustomerUI implements UserInterface{
                     String complaint;
                     boolean ifAnonymous;
                     boolean ifComplain;
-                    ReviewList rl = new ReviewList();
-
                     System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
                     String anonymous = scanner.nextLine();
                     if(anonymous.equals("Y")){
@@ -103,10 +100,9 @@ public class CustomerUI implements UserInterface{
                         ifComplain = false;
                         complaint = "no complaint";
                     }
-                    Review r = new Review(name, ifAnonymous, rate, comment, ifComplain, complaint);
-                    System.out.println(CustomerUIMessage.SHOW_REVIEW + r.toString());
-                    reviewController.addToReviewList(r);
-                    reviewController.saveToFile("src/main/resources/review.ser");
+                    reviewController.addToReviewList(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    System.out.println(CustomerUIMessage.SHOW_REVIEW);
+
                     break;
                 case "0":
                     logIn = false;

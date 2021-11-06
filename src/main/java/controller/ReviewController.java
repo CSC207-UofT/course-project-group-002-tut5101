@@ -1,21 +1,20 @@
 package controller;
 import constant.FileLocation;
-
-import entity.Review;
 import use_case.ReviewList;
+import java.text.SimpleDateFormat;
 import gateway.ReviewReadWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ReviewController {
-    public void saveToFile(String filePath){
+
+    public void addToReviewList
+            (String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain) {
         ReviewList rl = new ReviewList();
-        rl.SavetoFile(filePath);
+        rl.creatReview(name, ifAnonymouse, rate, comment, ifComplain, complain);
+        rl.addReview(rl.creatReview(name, ifAnonymouse, rate, comment, ifComplain, complain));
+        rl.SavetoFile("src/main/resources/review.ser");
     }
 
-    public void addToReviewList(Review r){
-        ReviewList rl = new ReviewList();
-        rl.addReview(r);
-    }
 }
