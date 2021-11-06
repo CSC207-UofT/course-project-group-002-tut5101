@@ -82,6 +82,7 @@ public class CustomerUI implements UserInterface{
                     }
                     System.out.println(CustomerUIMessage.ASK_FOR_RATE);
                     int rate = scanner.nextInt();
+                    String rn = scanner.nextLine();
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
                     System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
@@ -95,6 +96,7 @@ public class CustomerUI implements UserInterface{
                         complaint = "no complaint";
                     }
                     Review r = new Review(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    System.out.println(CustomerUIMessage.SHOW_REVIEW + r.toString());
                     rl.addReview(r);
                     rl.SavetoFile("src/main/resources/review.ser");
                     break;
