@@ -286,3 +286,10 @@ Implemented or edited the following classes from Oct 18 - Nov 6:
 - gateway classes/interface:
     - InventoryReadWriter, ReviewReadWriter, SerReadWriter
     - ReadFromCSV, ReadWriter
+
+#### Shaojie Dong's future plannings
+I plan to implement the Android GUI for phase 2 , focused on inventory part. I also plan to make it used for more restaurant.
+
+#### Mingyang Li's future plannings
+I plain to implent the Android GUI for phrase 2, focused on the Review part, try to make it avaiable for customers to add images
+on their reivew or make other customers to reply the current reviews.
