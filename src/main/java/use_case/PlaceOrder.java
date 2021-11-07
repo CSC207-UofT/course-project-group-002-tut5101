@@ -29,12 +29,9 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
     public void placeOrder(boolean dineIn, String[] dishNames, String location) throws Exception{
         HashMap<String, List<Dish>> dishes = new HashMap<String, List<Dish>>();
 
-
         for (String dishName: dishNames) {
             Dish dishCopy;
             dishCopy = generateDishCopy(dishName, location, dineIn);
-
-
             List<Dish> dishCopyAsList;
             if (!dishes.containsKey(dishName)) {
                 dishCopyAsList = new ArrayList<>(Arrays.asList(dishCopy));
@@ -45,7 +42,6 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
                 dishCopyAsList.add(dishCopy);
                 dishes.replace(dishName, dishCopyAsList);
             }
-
         }
         Order order ;
         if (dineIn) {
@@ -55,11 +51,8 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
         else {
             order = new Order(location, dishes);
         }
-
         OrderQueue.addOrder(order);
     }
-
-    // Lookup the dish in the DishList/Menu then create a copy of that dish
 
     /**
      * Lookup the dish in the Menu then create a copy of that dish

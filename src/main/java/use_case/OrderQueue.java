@@ -27,15 +27,7 @@ public class OrderQueue {
      * @return True on successful add, false on order too far or not enough ingredients
      */
     public static void addOrder(Order newOrder) throws Exception {
-        // TODO: Check if the distance is out of range of delivery for delivery
-        // Assume it is called Map to get distance of points on the map
-        /*
-        if (newOrder.getOrderDineInOrTakeOut() == "take out" &&
-                Map.getDistance(newOrder.getAddress(), UseCase.RestaurantInfo.ADDRESS) > UseCase.RestaurantInfo.DELIVERY_RANGE) {
-            return false;
-        }
-         */
-        // Check if the inventory is enough for cooking the order
+        // Check if the inventory is sufficient for cooking the order
         // If not enough, reject the order.
         if(!inventoryAvailable(newOrder.getDishes())) {
             throw new Exception("Inventory not available for the order");
@@ -61,9 +53,12 @@ public class OrderQueue {
         if (dishes.isEmpty()) {
             return true;
         }
-        HashMap<String, Double> ingredientsRequired = new HashMap<String, Double>();
+        HashMap<String, Double> ingredientsRequired = new HashMap<String, Double>(); // A dictionary with key the ingredient, 
+                                                                        // value the ingredient needed
+        // Calculate the total amount of each ingredient needed in the list of dishes
         for (Dish dish: dishes) {
             HashMap<String, Double> dishIngredients = dish.getIngredients();
+            // Add the amount of an ingredient needed for a dish to the dictionary
             for (String ingredient: dishIngredients.keySet()) {
                 if (!ingredientsRequired.containsKey(ingredient)) {
                     ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
@@ -73,6 +68,8 @@ public class OrderQueue {
                 }
             }
         }
+        // For all the ingredients needed in the list of dishes, check if inventory is enough to do
+        // If one ingredient has more needed than inventory has, we can't make the list of dishes, so return false
         for (String ingredientRequired: ingredientsRequired.keySet()) {
             if (InventoryList.getTotalQuantity(ingredientRequired) < ingredientsRequired.get(ingredientRequired)) {
                 return false;
