@@ -35,40 +35,28 @@ public class InventoryManager {
         this.inventorys = new InventoryList(this.map);
     }
 
-
-
-
-    public Inventory getInventory(String name){
-        return this.inventorys.getItem(name);
-    }
-
     public String getInfo(String name){
         if(this.inventorys.checkExist(name)){
-        return this.inventorys.getItem(name).toString();}
+        return this.inventorys.getInfo(name);}
         else{return "Invalid name";}
     }
 
     public void addNewInventory(String[] para){
-        this.inventorys.addInventory(this.infc.getInventory(para));
+        this.inventorys.addFromFactory(this.infc, para);
     }
 
-
-
-    public String currentFreshness(String name){
-        if(getInventory(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getInventory(name);
-            return i.getFreshness();
-        }
-        else{
+    public String currentFreshness(String name) {
+        if(this.inventorys.isHasFreshness(name)) {
+            return this.inventorys.getFreshness(name);
+        } else {
             return null;
         }
     }
 
 
     public void newFreshness(String name, String newFreshness){
-        if(getInventory(name) instanceof HasFreshness){
-            HasFreshness i = (HasFreshness) getInventory(name);
-            i.setFreshness(newFreshness);
+        if(this.inventorys.isHasFreshness(name)){
+            this.inventorys.setFreshness(name, newFreshness);
         }
     }
 
