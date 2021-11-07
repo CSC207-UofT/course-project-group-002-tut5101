@@ -1,7 +1,9 @@
 package entity;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /**
  * Entity class for reviews.
  */
@@ -17,16 +19,17 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Construct an instance of Material
-     * @param userName The name of the user
+     *
+     * @param userName    The name of the user
      * @param ifAnonymous ture if the user want to anonymous, false if the user want to show the userName
-     * @param rate an int in 0-5 rate for the food
-     * @param newComment The comment that the user want to add
-     * @param ifComplain true if the user want to add complain to stuff, false if the user doesn't want to
+     * @param rate        an int in 0-5 rate for the food
+     * @param newComment  The comment that the user want to add
+     * @param ifComplain  true if the user want to add complain to stuff, false if the user doesn't want to
      * @param newComplain the complain that the user want to add
      */
 
     public Review(String userName, boolean ifAnonymous, int rate, String newComment,
-                  boolean ifComplain, String newComplain){
+                  boolean ifComplain, String newComplain) {
         this.userName = userName;
         this.ifAnonymous = ifAnonymous;
         this.rate = rate;
@@ -38,11 +41,12 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Get the name of the user
+     *
      * @return The String of the userName, return "Anonymous" if the user want to anonymous.
      */
     @Override
     public String addName() {
-        if(ifAnonymous){
+        if (ifAnonymous) {
             return "Anonymous";
         } else {
             return userName;
@@ -52,11 +56,12 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Get the rate of the comment
+     *
      * @return an int of the rate from 0-5.
      */
     @Override
     public int addRate() {
-        if (rate <= 0){
+        if (rate <= 0) {
             return 0;
         } else return Math.min(rate, 5);
 
@@ -65,6 +70,7 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Get the comment of the user
+     *
      * @return The String of the comment.
      */
     @Override
@@ -75,13 +81,14 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Get the complain for the stuff.
+     *
      * @return The String of the complain.
      */
     @Override
     public String complainStuff() {
-        if(ifComplain){
+        if (ifComplain) {
             return newComplain;
-        }else {
+        } else {
             return "no complaint";
         }
     }
@@ -89,17 +96,18 @@ public class Review implements Reviewable, Serializable {
 
     /**
      * Get the date when the user comment
+     *
      * @return The LocalDateTime when the user makes a comment.
      */
     @Override
     public String reviewDate() {
         Date date = new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
     }
 
-    public String toString(){
-        return addName()+ ";"+ this.rate + ";"+ this.newComment +";"+ this.newComplain+";"+ reviewDate();
+    public String toString() {
+        return addName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + reviewDate();
     }
 }
 

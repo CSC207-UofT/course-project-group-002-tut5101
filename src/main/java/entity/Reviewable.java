@@ -1,4 +1,5 @@
 package entity;
+
 /**
  * Interface of reviewable.
  */
