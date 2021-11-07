@@ -25,6 +25,10 @@ public class UserList implements Serializable {
         users = users;
     }
 
+    /**
+     * Load userList from hashMap
+     * @param hashMap the hashMap given by gateway of userList
+     */
     public void loadHashMap(HashMap hashMap){
         if(users.isEmpty()){
             users.putAll(hashMap);

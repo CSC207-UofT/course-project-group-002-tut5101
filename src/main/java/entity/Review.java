@@ -2,6 +2,10 @@ package entity;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+/**
+ * Entity class for reviews.
+ */
+
 
 public class Review implements Reviewable, Serializable {
     public String userName;

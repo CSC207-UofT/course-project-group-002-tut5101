@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Controller class for review.
+ */
+
+
 public class ReviewController {
     private static HashMap map;
     private static ReviewList reviews;

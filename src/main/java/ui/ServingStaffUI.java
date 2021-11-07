@@ -2,6 +2,10 @@ package ui;
 import constant.*;
 import java.util.*;
 import controller.StaffController;
+/**
+ * UI class for serving staff.
+ */
+
 
 public class ServingStaffUI implements UserInterface {
     StaffController currentServingStaff;

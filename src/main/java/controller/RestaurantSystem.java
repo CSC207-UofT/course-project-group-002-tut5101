@@ -1,6 +1,5 @@
 package controller;
 
-
 import constant.UserType;
 import ui.LoginUI;
 import ui.UIFactory;

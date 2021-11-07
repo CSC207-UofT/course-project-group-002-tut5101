@@ -1,5 +1,9 @@
 package constant;
 
+/**
+ * Constant class for Inventory Manager.
+ */
+
 public class InventoryManagerMessage {
     public static final String SELECT_ACTION = "1. Check information of \"Please give a name\"\n2. Add new item\n" + "3. Set freshness for \"Please give a name\"\n"+"4. Set quantity of \"Please give a name\"\n"+ "0. Logout";
     public static final String REQUEST_NAME = "A name of inventory";

@@ -1,5 +1,10 @@
 package entity;
 
+/**
+ * Interface inventory.
+ */
+
+
 import java.io.Serializable;
 
 public interface Inventory extends Serializable {

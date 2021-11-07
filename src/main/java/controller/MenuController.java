@@ -7,6 +7,11 @@ import use_case.DishList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Controller class for menu.
+ */
+
+
 public class MenuController {
 
     private static MenuReadWriter mrw = new MenuReadWriter();
@@ -31,8 +36,8 @@ public class MenuController {
         return dishList.toString();
     }
 
-    public void SavetoFile(){
-        mrw.saveToFile("src/main/resources/menu.ser", map);
+    public void saveToFile(){
+        mrw.saveToFile(FileLocation.MENU_FILE_LOCATION, map);
     }
 
 }

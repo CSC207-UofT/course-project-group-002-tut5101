@@ -1,5 +1,9 @@
 package constant;
 
+/**
+ * Constant class for customer UI.
+ */
+
 public class CustomerUIMessage {
     public static final String MENU_TITLE = "~~~~~~~~~~~~~~~~~~~ M E N U ~~~~~~~~~~~~~~~~~~~~~";
     public static final String CUSTOMER_ACTIONS = "1. Place Order\n2. Ask for assistance \n3. Pay bill\n" +

@@ -1,4 +1,8 @@
 package entity;
+/**
+ * Entity class for seasoner.
+ */
+
 
 import java.io.Serializable;
 

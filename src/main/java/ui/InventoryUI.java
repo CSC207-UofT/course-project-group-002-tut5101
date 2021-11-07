@@ -8,6 +8,10 @@ import use_case.InventoryFactory;
 
 import java.util.HashMap;
 import java.util.Scanner;
+/**
+ * UI class for inventory staff.
+ */
+
 
 public class InventoryUI implements UserInterface{
     private static InventoryManager im;

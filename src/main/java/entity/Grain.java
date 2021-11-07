@@ -1,5 +1,10 @@
 package entity;
 
+/**
+ * Entity class for grain.
+ */
+
+
 import java.io.Serializable;
 
 public class Grain implements Inventory,HasFreshness, Serializable {

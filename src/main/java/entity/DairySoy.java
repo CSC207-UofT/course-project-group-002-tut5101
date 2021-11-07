@@ -1,5 +1,10 @@
 package entity;
 
+/**
+ * Entity class for dairy soy.
+ */
+
+
 import java.io.Serializable;
 
 public class DairySoy implements Inventory,HasFreshness, Serializable {

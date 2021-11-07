@@ -14,7 +14,6 @@ public class DeliverOrder implements Delivery {
      */
     public void delivered(String id) throws Exception{
         User user = UserList.getUserByUserId(id);
-        // TODO: show the delivery route here?
         ((DeliveryStaff) user).completeOrderDelivery();
     }
 

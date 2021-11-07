@@ -1,8 +1,6 @@
 package entity;
 
 
-// import use_case.DishInfo;
-
 import constant.ItemStatus;
 
 /**

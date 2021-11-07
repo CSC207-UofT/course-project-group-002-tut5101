@@ -1,6 +1,9 @@
-
-
 package constant;
+
+/**
+ * Constant class for staff UI.
+ */
+
 
 public class StaffUIMessage {
     public static final String GREETING_ASK_FOR_ACTION =

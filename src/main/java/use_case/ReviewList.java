@@ -44,7 +44,7 @@ public class ReviewList implements Serializable {
      *
      * @return a Hashmap with review's rate mapping with reviews
      */
-    public static ArrayList<Review> getReviewByRate(int rate) {
+    public ArrayList<Review> getReviewByRate(int rate) {
         if (rate < 0) {
             return null;
         } else if (rate <= 5) {
@@ -54,6 +54,9 @@ public class ReviewList implements Serializable {
         }
     }
 
+    /**
+     * Delete the reviews
+     */
     public void deleteReviews(){
         reviews.put(1, new ArrayList<>());
         reviews.put(2, new ArrayList<>());
@@ -66,12 +69,4 @@ public class ReviewList implements Serializable {
 
 
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (Integer rate : reviews.keySet()){
-            builder.append(ReviewList.getReviewByRate(rate));
-        }
-        return builder.toString();
-    }
 }
