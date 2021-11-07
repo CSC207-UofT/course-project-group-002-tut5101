@@ -162,7 +162,25 @@ Our group of three (Dedong, Evelyn, and Raymond) implemented or edited the follo
 
 Refactored the directory structure for the entire project.
 
-Created test for some classes shown above.
+Created tests for classes shown above.
+
+#### Evelyn Chou's future plannings
+
+For phase 2 I plan to help implement the Android app GUI, especially the part that would replace the current Customer
+UI. I also plan to change the current structure of the Order so that more types of orders can be placed (instead of just
+the current dine in and delivery orders). I will also finish writing a more complete set of tests for the classes I
+wrote.
+
+#### Dedong Xie's future plannings
+
+For phase 2 I plan to implement the Android GUI, focused on the parts I have written its UI, i.e ServingStaff and
+DeliveryStaff. I also plan to add the feature of a using real-life address, map, and distance calculation to simulate
+the delivery process. I'll also create a more thorough test set for all the classes I wrote.
+
+#### Raymond Liu's future plannings
+
+For phase 2 I plan to implement the Android GUI for Kitchen, and possibly implement the observer design pattern for the
+serving staff and customer so that the customer can call on a staff at any time.
 
 
 ### Summary of subgroup 2 progress
