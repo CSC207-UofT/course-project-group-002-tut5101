@@ -33,6 +33,12 @@ A restaurant app with the following types of users and user specific functions:
     - Customers can provide a complaint on stuff. The complaint may be anonymous.
     - Review reads and write to data files to keep the customer's reviews.
 
+# UML Diagram
+UML diagrams can be found in the phase 1/UML folder. Since the overall project UML is too large and too messy to view, 
+we created a UML diagram for each important sector of our program, illustrating how each sector works. The sectors that
+we included are: Login system, UI selection, Customer system, Kitchen system, Serving & Delivery staff system,
+manager system, and inventory staff system.
+
 # Description of major design decisions
 
 - A major design decision was on deciding how the Main class connects with all the UIs. We eventually decided to create
