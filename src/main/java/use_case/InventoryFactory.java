@@ -1,6 +1,9 @@
 package use_case;
 import entity.*;
 public class InventoryFactory {
+    /**
+     * Use getInventory method to get the inventory by a string array.
+     */
     public Inventory getInventory(String[] paras){
         if(paras.length == 6){
             if(paras[0].equalsIgnoreCase("meat")){
