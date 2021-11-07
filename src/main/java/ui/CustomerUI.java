@@ -9,7 +9,7 @@ import controller.ReviewController;
 import java.util.*;
 import java.util.List;
 
-public class CustomerUI implements UserInterface{
+public class CustomerUI implements UserInterface {
     /**
      * CMD UI for Users that login as Customer
      */
@@ -77,7 +77,7 @@ public class CustomerUI implements UserInterface{
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
                     ifComplain = ifComplainUI();
-                    if(ifComplain){
+                    if (ifComplain) {
                         System.out.println(CustomerUIMessage.ASK_COMPLAIN_INFO);
                         complaint = scanner.nextLine();
                     } else {
@@ -97,12 +97,12 @@ public class CustomerUI implements UserInterface{
     }
 
     // TODO: Write helper to print menu
-    public void printMenu(){
+    public void printMenu() {
         System.out.println(CustomerUIMessage.MENU_TITLE);
         System.out.println(menuController.dishesInMenuAsString());
     }
 
-    public List<String> dishNamesOrdered(List<Integer> orderedNum){
+    public List<String> dishNamesOrdered(List<Integer> orderedNum) {
         List<String> dishes;
         dishes = menuController.passDishNumbersOrdered(orderedNum);
         return dishes;
@@ -166,12 +166,12 @@ public class CustomerUI implements UserInterface{
      * @return the list of dish names customer ordered
      */
 
-    private ArrayList<Integer> orderedDishesUI(){
+    private ArrayList<Integer> orderedDishesUI() {
         System.out.println(CustomerUIMessage.PLACE_ORDER);
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Integer> orderedNum = new ArrayList<Integer>();
-        while (scanner.hasNextInt()){
+        while (scanner.hasNextInt()) {
             orderedNum.add(scanner.nextInt());
         }
 //        while (!scanner.next().equals("e")){
@@ -180,13 +180,12 @@ public class CustomerUI implements UserInterface{
         return orderedNum;
     }
 
-    private String locationUI(boolean dineInStatus){
+    private String locationUI(boolean dineInStatus) {
         Scanner scanner = new Scanner(System.in);
         String location;
-        if (dineInStatus){
+        if (dineInStatus) {
             System.out.println(CustomerUIMessage.ENTER_TABLE_NUMBER);
-        }
-        else {
+        } else {
             System.out.println(CustomerUIMessage.ENTER_LOCATION);
         }
         location = scanner.nextLine();
@@ -197,8 +196,7 @@ public class CustomerUI implements UserInterface{
     private void runPlaceOrder(OrderController controller, boolean dineIn, String[] dishes, String location) {
         try {
             controller.runPlaceOrder(dineIn, dishes, location);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
