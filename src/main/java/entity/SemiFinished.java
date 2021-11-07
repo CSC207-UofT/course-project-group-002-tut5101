@@ -6,7 +6,7 @@ package entity;
 
 import java.io.Serializable;
 
-public class SemiFinished implements Inventory, HasExpiry, Serializable {
+public class SemiFinished implements Inventory, Serializable {
     public String name;
     protected boolean usedup;
     protected double price;
@@ -64,14 +64,6 @@ public class SemiFinished implements Inventory, HasExpiry, Serializable {
     }
 
 
-    /**
-     * Get the ExpiryDate of a Product
-     * @return The ExpiryDate of the Product as an int.
-     */
-    @Override
-    public int getExpiryDate(){
-        return this.ExpiryDate;
-    }
 
     @Override
     public String toString(){

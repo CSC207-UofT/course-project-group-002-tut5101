@@ -1,9 +1,5 @@
 package controller;
 
-/**
- * Controller class for inventory manager.
- */
-
 
 import constant.FileLocation;
 import entity.HasFreshness;
@@ -27,7 +23,13 @@ public class InventoryManager {
         this.inventorys = new InventoryList(this.map);
     }
 
-    public InventoryManager(String filepath, HashMap map){
+    public InventoryManager(String filepath){
+        this.filepath = filepath;
+        this.map = irw.readFromFile(filepath);
+        this.inventorys = new InventoryList(this.map);
+    }
+
+    public InventoryManager(String filepath,HashMap map){
         this.filepath = filepath;
         this.map = map;
         this.inventorys = new InventoryList(this.map);
