@@ -70,7 +70,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     public String toString() {
-
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
         keySet = new HashMap<Integer, String>();
