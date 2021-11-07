@@ -1,4 +1,8 @@
 package entity;
+/**
+ * Entity class for seafood.
+ */
+
 
 import java.io.Serializable;
 

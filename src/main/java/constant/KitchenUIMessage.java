@@ -1,5 +1,10 @@
 package constant;
 
+/**
+ * Constant class for kitchen UI.
+ */
+
+
 public class KitchenUIMessage {
     public static final String ACTION = "Actions:\n Enter \"<Dish name>; cook\" to mark a dish as" +
             " cooked\n Enter \"<Dish name>; ingredient\" to view the ingredients for a dish\n" +

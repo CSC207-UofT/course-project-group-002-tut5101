@@ -3,6 +3,11 @@ package gateway;
 import java.io.*;
 import java.util.HashMap;
 
+/**
+ * Gateway class for menu reading and writing.
+ */
+
+
 public class MenuReadWriter implements ReadWriter {
 
     @Override

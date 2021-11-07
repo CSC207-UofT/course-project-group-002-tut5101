@@ -1,6 +1,8 @@
 package boundary;
 
-import use_case.ReviewList;
+/**
+ * The input boundary for PlaceOrder use case.
+ */
 
 public interface DeleteReviewInputBoundary {
     void deleteReview();

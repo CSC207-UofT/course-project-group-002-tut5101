@@ -1,10 +1,13 @@
 package ui;
 
-import constant.UIMessage;
+import constant.ManagerUIMessage;
 import controller.ManagerController;
-import use_case.ReviewList;
 
 import java.util.Scanner;
+/**
+ * UI class for manager.
+ */
+
 
 public class ManagerUI implements UserInterface {
 
@@ -17,7 +20,7 @@ public class ManagerUI implements UserInterface {
     @Override
     public void loadUi(String managerId) {
         while (logIn) {
-            System.out.println(UIMessage.GREETING_ASK_FOR_ACTION + UIMessage.MANAGER_ACTIONS);
+            System.out.println(ManagerUIMessage.GREETING_ASK_FOR_ACTION + ManagerUIMessage.MANAGER_ACTIONS);
             Scanner scanner = new Scanner(System.in);
             int action = scanner.nextInt();
             ManagerController controller = new ManagerController();
@@ -26,12 +29,14 @@ public class ManagerUI implements UserInterface {
                 // Manage menu
                 case 1:
                     controller.manageMenu();
+                    System.out.println("Hello Sir, menu successfully adjusted.");
                     break;
 
 
                 // Delete Review
                 case 2:
                     controller.deleteReview();
+                    System.out.println("Hello Sir, inadequate reviews are deleted.");
                     break;
 
                 // logout

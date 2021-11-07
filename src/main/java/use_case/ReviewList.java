@@ -54,6 +54,9 @@ public class ReviewList implements Serializable {
         }
     }
 
+    /**
+     * Delete the reviews
+     */
     public void deleteReviews(){
         reviews.put(1, new ArrayList<>());
         reviews.put(2, new ArrayList<>());

@@ -10,6 +10,10 @@ import use_case.UserList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * This is a test main function to test thefunctionality of kitchen class.
+ * Written by Raymond Liu
+ */
 public class TempKitchenMain {
 
     private static Dish d1;

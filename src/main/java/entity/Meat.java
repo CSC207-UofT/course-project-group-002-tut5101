@@ -1,4 +1,8 @@
 package entity;
+/**
+ * Entity class for meat.
+ */
+
 
 import java.io.Serializable;
 

@@ -1,4 +1,8 @@
 package entity;
+/**
+ * Interface of reviewable.
+ */
+
 
 public interface Reviewable {
     String addName();

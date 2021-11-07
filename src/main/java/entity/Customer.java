@@ -1,7 +1,5 @@
 package entity;
 
-import entity.User;
-
 /**
  * Public class storing information of a customer.
  *

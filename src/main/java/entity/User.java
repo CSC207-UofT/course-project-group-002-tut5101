@@ -101,6 +101,7 @@ public class User implements Serializable {
 
     /**
      * Return whether the password parameter matches this user's password.
+     *
      * @param password the password guess
      * @return whether the guess matches the real password.
      */

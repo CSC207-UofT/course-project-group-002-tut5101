@@ -9,8 +9,6 @@ import use_case.LoginUseCase;
 /**
  * Controls the process for logging in.
  */
-// If we handled logging out as well, this would be a good controller
-// to do it in. It could have runLogin and runLogout methods. //TODO logout
 public class LoginController {
 
     /**
@@ -35,7 +33,6 @@ public class LoginController {
      * @return the result of user login attempt
      */
     public LoginResult runLogin(String id, String password) {
-        // Note: hands off the work to the use case class.
         LoginResult result = loginInputBoundary.logIn(id, password);
         switch (result) {
             case SUCCESS:

@@ -18,7 +18,6 @@ public class CustomerUseCase {
         String good = "good";
         return good;
     }
-    //TODO: write this method.
 
     /**
      * Complain on serving staff if the customer is annoyed.
@@ -31,7 +30,6 @@ public class CustomerUseCase {
         String damn = "damn";
         return true;
     }
-    //TODO: write this method.
 
     /**
      * Ask for assistance from ServingStaff.
@@ -44,7 +42,6 @@ public class CustomerUseCase {
         String help = "help";
         return true;
     }
-    //TODO: write this method.
 
     /**
      * Pay the bill.
@@ -55,5 +52,4 @@ public class CustomerUseCase {
     public boolean payBill(Customer customer){
         return true;
     }
-    //TODO: write this method.
 }

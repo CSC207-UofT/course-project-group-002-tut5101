@@ -25,6 +25,10 @@ public class ServingBuffer {
         return dish;
     }
 
+    /**
+     * Add dish to serving buffer
+     * @param dish the dish to be added
+     */
     public static void addDish(Dish dish) {
         servingBuffer.add(dish);
     }

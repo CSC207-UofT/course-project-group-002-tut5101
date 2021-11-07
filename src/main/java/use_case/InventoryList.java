@@ -32,8 +32,17 @@ public class InventoryList implements Serializable {
     }
 
 
-
+    /**
+     * Check if the inventoryList is empty
+     * @return true when the inventoryList is empty
+     */
     public boolean checkEmpty(){return myDict.isEmpty();}
+
+    /**
+     * Check if an ingredient is in the inventoryList, return true if present
+     * @param name Name of the ingredient
+     * @return true only if the ingredient with name is foudn in the list
+     */
     public boolean checkExist(String name){return myDict.containsKey(name);}
 
 
@@ -46,20 +55,6 @@ public class InventoryList implements Serializable {
         return myDict.get(name);
     }
 
-    /**
-     * Get the freshness of inventory by its name
-     * @param name The name of this inventory
-     * @return the freshness of inventory required.
-     */
-
-
-
-    /**
-     *
-     * @param name The name of the ingredient being changed
-     * @param newFreshness the new freshness for this ingredient.
-     */
-
 
 
     /**
@@ -67,8 +62,6 @@ public class InventoryList implements Serializable {
      * @param name The name of this inventory
      * @return the quantity of inventory required.
      */
-
-
     public static double getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
