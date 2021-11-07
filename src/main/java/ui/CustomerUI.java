@@ -3,8 +3,8 @@ package ui;
 import constant.CustomerUIMessage;
 import controller.MenuController;
 import controller.OrderController;
-import entity.Review;
-import use_case.ReviewList;
+import controller.ReviewController;
+
 
 import java.util.*;
 import java.util.List;
@@ -16,11 +16,13 @@ public class CustomerUI implements UserInterface{
 
     private final OrderController orderController;
     private final MenuController menuController;
+    private final ReviewController reviewController;
     private boolean logIn;
 
     public CustomerUI() {
         this.orderController = new OrderController();
         this.menuController = new MenuController();
+        this.reviewController = new ReviewController();
         this.logIn = true;
     }
 
@@ -69,8 +71,6 @@ public class CustomerUI implements UserInterface{
                     String complaint;
                     boolean ifAnonymous;
                     boolean ifComplain;
-                    ReviewList rl = new ReviewList();
-
                     System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
                     String anonymous = scanner.nextLine();
                     if(anonymous.equals("Y")){
@@ -95,10 +95,10 @@ public class CustomerUI implements UserInterface{
                         ifComplain = false;
                         complaint = "no complaint";
                     }
-                    Review r = new Review(name, ifAnonymous, rate, comment, ifComplain, complaint);
-                    System.out.println(CustomerUIMessage.SHOW_REVIEW + r.toString());
-                    rl.addReview(r);
-                    rl.SavetoFile("src/main/resources/review.ser");
+                    reviewController.addToReviewList(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    reviewController.saveToFile();
+                    System.out.println(CustomerUIMessage.SHOW_REVIEW);
+
                     break;
                 case "0":
                     logIn = false;

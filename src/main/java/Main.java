@@ -1,8 +1,11 @@
 
 import constant.FileLocation;
 import controller.InventoryManager;
+import controller.MenuController;
 import controller.RestaurantSystem;
 import gateway.InventoryReadWriter;
+import gateway.MenuReadWriter;
+import use_case.DishList;
 
 import java.util.HashMap;
 
@@ -19,8 +22,15 @@ public class Main {
            RestaurantSystem system = new RestaurantSystem();
             system.run();
         }
-
+     //   MenuReadWriter mrw = new MenuReadWriter();
+     //   HashMap map = mrw.readFromFile("src/main/resources/menu.ser");
+     //   MenuController mc = new MenuController(map);
+    //    mrw.saveToFile("src/main/resources/menu.ser",map);
+    //    MenuController mc = new MenuController(map);
+     //   System.out.println(mc.dishesInMenuAsString());
+     //   mc.SavetoFile();
+    }
     }
 
-}
+
 

@@ -149,4 +149,23 @@ methods, went to professor office hours, discussed with peers, and finally overc
 
 ### Summary of subgroup 3 progress
 #### Design
+Our group of two(Shaojie Dong, Mingyang Li) discussed new design of Readwriter for InventoryList and ReviewList, we talk about the hashmap
+structure of both, and the clearest way to store those information in specific FileLocation. New class include InventoryManagerMessage ui, 
+InventoryManager controller, ReviewController, new feature of CustomerUI about adding reviews, InventoryList use case and ReviewList use case.
 #### Coding
+Implemented or edited the following classes from Oct 18 - Nov 6:
+- Entity classes/interface:
+  - Reviewable
+  - HasExpiry, HasFreshness
+- Use case classes:
+  - ReviewList
+  - InventoryFactory
+  - InventoryList
+  - DishList
+- Controller classes:
+  - ReivewController, InventoryManager
+- ui classes:
+  - CustomerUI, InventoryUI, UIFactory
+- gateway classes/interface:
+  - InventoryReadWriter, ReviewReadWriter, SerReadWriter
+  - ReadFromCSV, ReadWriter
