@@ -60,10 +60,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     public String toString() {
-        if(menu.isEmpty()){
-            MenuReadWriter readWriter = new MenuReadWriter();
-            loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
-        }
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
         keySet = new HashMap<Integer, String>();
