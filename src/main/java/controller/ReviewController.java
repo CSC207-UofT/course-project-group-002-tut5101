@@ -24,6 +24,6 @@ public class ReviewController {
 
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
                                 String comment, boolean ifComplain, String complaint){
-        reviews.addReview(ReviewList.creatReview(name, ifAnonymous, rate, comment, ifComplain,complaint));
+        reviews.addReview(name, ifAnonymous, rate, comment, ifComplain,complaint);
     }
 }
