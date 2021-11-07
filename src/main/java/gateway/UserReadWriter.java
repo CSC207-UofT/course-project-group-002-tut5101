@@ -3,6 +3,11 @@ package gateway;
 import java.io.*;
 import java.util.HashMap;
 
+/**
+ * Gateway class for user reading and writing.
+ */
+
+
 public class UserReadWriter implements ReadWriter {
     @Override
     public void saveToFile(String filePath, Object objects) {

@@ -1,4 +1,8 @@
 package entity;
+/**
+ * Entity class for semi-finished products.
+ */
+
 
 import java.io.Serializable;
 

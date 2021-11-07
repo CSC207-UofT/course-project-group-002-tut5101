@@ -5,6 +5,10 @@ import constant.LoginLogoutUIMessage;
 import controller.StaffController;
 
 import java.util.Scanner;
+/**
+ * UI class for delivery staff.
+ */
+
 
 public class DeliveryStaffUI implements UserInterface {
     StaffController currentDeliveryStaff;

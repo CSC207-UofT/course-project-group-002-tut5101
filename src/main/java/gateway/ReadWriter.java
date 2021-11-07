@@ -1,4 +1,8 @@
 package gateway;
+/**
+ * Gateway interface for reading and writing.
+ */
+
 
 import java.util.HashMap;
 

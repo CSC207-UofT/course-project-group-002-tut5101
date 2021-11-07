@@ -1,5 +1,10 @@
 package controller;
 
+/**
+ * Controller class for inventory manager.
+ */
+
+
 import constant.FileLocation;
 import entity.HasFreshness;
 import entity.Inventory;

@@ -1,6 +1,10 @@
 package ui;
 
 import constant.*;
+/**
+ * UI factory for simple factory design pattern.
+ */
+
 
 public class UIFactory {
 

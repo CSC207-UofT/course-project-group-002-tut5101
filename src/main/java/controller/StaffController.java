@@ -6,6 +6,11 @@ import use_case.DeliverOrder;
 import use_case.ServeOrder;
 import use_case.UserList;
 
+/**
+ * Controller class for staff.
+ */
+
+
 public class StaffController {
     ServeOrder servingStaff = new ServeOrder();
     DeliverOrder deliveryStaff = new DeliverOrder();

@@ -12,6 +12,11 @@ import use_case.DishList;
 import use_case.ManageMenuUseCase;
 import use_case.ReviewList;
 
+/**
+ * Controller class for manager.
+ */
+
+
 public class ManagerController {
 
     private final ManageMenuInputBoundary manageMenuInputBoundary;

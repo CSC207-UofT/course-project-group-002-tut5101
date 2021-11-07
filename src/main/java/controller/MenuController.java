@@ -7,6 +7,11 @@ import use_case.DishList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Controller class for menu.
+ */
+
+
 public class MenuController {
 
     private static MenuReadWriter mrw = new MenuReadWriter();

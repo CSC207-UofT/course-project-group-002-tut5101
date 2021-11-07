@@ -1,3 +1,5 @@
+# Design Document of Group_002
+
 # Updated specification
 A restaurant app with the following types of users and user specific functions:
 
@@ -38,34 +40,87 @@ to control them based on the id of the user instead of having two.
 
 # Brief description of how the project adheres to Clean Architecture
 - ## Scenario walk-through
-  - Customer is presented with the LoginUI, and logs in. The LoginUI calls on the LoginController, which calls on the logIn method in the LoginInputBoundary to determine if the login was successful. The LoginUseCase, which implements this interface, runs the method. If successful, the Customer is then presented with the CustomerUI, and given several options. The Customer chooses to place an order, so the Menu is printed by calling on the MenuController, which calls on the method in use case DishList to pass the menu as a string. The string menu is passed to the Customer ui, which prints it. Each dish is assigned a corresponding number, and the customer is asked to enter the number of the dishes they wish to order. Once the customer is done ordering, the list of numbers is passed to the MenuController, which takes those numbers and returns the list of dish names corresponding to those numbers. This list of dish names is passed to the OrderController, which calls on the placeOrder method in the interface PlaceOrderInputBoundary. The PlaceOrder use case, which implements this interface, then creates a new Order with the dishes the customer ordered, and adds the order to the OrderQueue for the Kitchen to cook.
+    - Customer is presented with the LoginUI, and logs in. The LoginUI calls on the LoginController, which calls on the
+      logIn method in the LoginInputBoundary to determine if the login was successful. The LoginUseCase, which
+      implements this interface, runs the method. If successful, the Customer is then presented with the CustomerUI, and
+      given several options. The Customer chooses to place an order, so the Menu is printed by calling on the
+      MenuController, which calls on the method in use case DishList to pass the menu as a string. The string menu is
+      passed to the Customer ui, which prints it. Each dish is assigned a corresponding number, and the customer is
+      asked to enter the number of the dishes they wish to order. Once the customer is done ordering, the list of
+      numbers is passed to the MenuController, which takes those numbers and returns the list of dish names
+      corresponding to those numbers. This list of dish names is passed to the OrderController, which calls on the
+      placeOrder method in the interface PlaceOrderInputBoundary. The PlaceOrder use case, which implements this
+      interface, then creates a new Order with the dishes the customer ordered, and adds the order to the OrderQueue for
+      the Kitchen to cook.
+
 # Brief description of SOLID design principles
 - ## Single responsibility principle
   - Classes such as LoginUseCase are only responsible for checking if login was successful and returning the result.
 - ## Open/closed principle
   - We can add any number of types of orders with different features by extending the Order class. This could be made even easier by having the current two DineIn orders and Delivery orders be subclasses of the Order class, instead of merely attributes of it.
 - ## Liskov substitution principle
-  - Any class that implements the abstract class User is able to login. The login process does not care which type of user it gets.
+    - Any class that implements the super class User is able to login. The login process does not care which type of
+      user it gets.
 - ## Interface segregation principle
   - All interfaces are kept small, with most (such as HasExpiry, HasFreshness) requiring only one method. Some interfaces such as ReadandWrite require two methods, but both these methods are necessary for the functionality.
   - If we consider interface to mean the public methods of a class, then some classes such as Order are a bit large, however most of the methods are getter and setter methods, so it would not make sense to split the class.
 - ## Dependency inversion principle
-  - There are a few interfaces between the controller and use case layers. For example the LoginController does not directly interact with the LoginUseCase, but instead calls on the logIn method in the LoginInputBoundary interface. Similarly, the OrderController calls on the placeOrder method in the PlaceOrderInputBoundary.
-  - However, some controllers such as the MenuController directly interact with the DishList use case, so there is no layer of abstraction. This could be fixed by creating more interfaces, ensuring the use cases can easily be replaced without having to change the controllers.
+    - There are a few interfaces between the controller and use case layers. For example the LoginController does not
+      directly interact with the LoginUseCase, but instead calls on the logIn method in the LoginInputBoundary
+      interface. Similarly, the OrderController calls on the placeOrder method in the PlaceOrderInputBoundary.
+    - However, some controllers such as the MenuController directly interact with the DishList use case, so there is no
+      layer of abstraction. This could be fixed by creating more interfaces, ensuring the use cases can easily be
+      replaced without having to change the controllers.
+
 # Brief description of packaging strategies
-  Our packaging strategy is packaging by the layers in the clean architecture, from lower to higher, there are layers of enterprise business rules, application business rules, interface adapters, frameworks and drivers levels.
-  Under the top-level package of `java`, 
-  we have the packages `entity`, `use_case`, `controller`, `gateway`, `ui`, each of which represents a layer of the system by levels.
-  1. Enterprise business rules level
-     - The `entity` package contains all the classes representing entities of the system and their corresponding methods at the enterprise business rules level.
-  2. Application business rules level
-     - The `use_case` package contains all the classes that defines application business rules level.
-  3. Interface adapter level
-     - The `controller` package contains all the classes that performs controller functionality at the interface adapter level.
-     - The `gateway` package contains the classes associated with data read/write to and from database st the interface adapter level.
-  4. Frameworks and drivers level
-     - The `ui` package contains all the user interface in the system that acts at the outermost layer of the system.
+
+Our packaging strategy is packaging by the layers in the clean architecture, from lower to higher, there are layers of
+enterprise business rules, application business rules, interface adapters, frameworks and drivers levels. Under the
+top-level package of `java`, we have the packages `entity`, `use_case`, `controller`, `gateway`, `ui`, each of which
+represents a layer of the system by levels.
+
+1. Enterprise business rules level
+    - The `entity` package contains all the classes representing entities of the system and their corresponding methods
+      at the enterprise business rules level.
+2. Application business rules level
+    - The `use_case` package contains all the classes that defines application business rules level.
+3. Interface adapter level
+    - The `controller` package contains all the classes that performs controller functionality at the interface adapter
+      level.
+    - The `gateway` package contains the classes associated with data read/write to and from database st the interface
+      adapter level.
+4. Frameworks and drivers level
+    - The `ui` package contains all the user interface in the system that acts at the outermost layer of the system.
+
 # Summary of any design pattern
+
+We used design patterns in our project
+
+1. Simple factory design pattern
+    - We applied this design patter in the UIFactory class under the ui package.
+    - We applied this implementation because in the login process a user could be one of Customer, Manager, Kitchen,
+      Inventory staff, Serving Staff, or DeliveryStaff. Therefore, the original RestaurantSystem class under controller
+      package need to interact with many UI classes. We used to use the switch statement to determine which type is the
+      login user following by a list of cases that loads the user interface for a specific user type. But it has
+      limitations when we need to update the user types and expand the functionalities to include the delivery staff. By
+      implementing Factory method, we can create a new interface called UserInterface and declares method loadUI().
+      Then, update our existing UI classes to implement this interface and override the loadUI() method. The UIFactory
+      class, at the meantime, has method includes getUI() that has an argument for where user type is passed in. The
+      return type of this method is UserInterface, and it returns the proper UI instance based on the user type
+      parameter. At last, we can update the code where the original switch statement was, to a single line of code
+      invoking getUI() method with its parameter. For any future updates, we only need to update the UIFactory to return
+      the new type of UI instance and implement the UserInterface when define the new UI, no need to make changes in
+      other classes.
+2. Iterator design pattern
+    - We applied this design pattern in DishList class under use_case package.
+    - We decided this implementation so that the ManageMenuUseCase class under use_case package is clean. This class is
+      a use case class which implements the responsibility of the manager to manage menu and delete dishes in the dish
+      list with prices lower than 5 or adjust dishes with price between 6 and 10 to prices over 10. However, directly
+      iterating through the dish list would be a violation of the dependency rule since in that way, this use case class
+      is able to modify information under another use case class.
+    - Thus, we let the DishList class implement the Iterable interface and, following the structure of an Iterator
+      design pattern, we fix this issue.
+
 # Progress report
 ## Open questions
 - 
