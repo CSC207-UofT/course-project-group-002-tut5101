@@ -1,11 +1,9 @@
 package ui;
 
 import constant.CustomerUIMessage;
-import constant.FileLocation;
 import controller.MenuController;
 import controller.OrderController;
 import controller.ReviewController;
-import gateway.MenuReadWriter;
 
 
 import java.util.*;
@@ -19,14 +17,11 @@ public class CustomerUI implements UserInterface{
     private final OrderController orderController;
     private final MenuController menuController;
     private final ReviewController reviewController;
-    private static MenuReadWriter mrw = new MenuReadWriter();
-    private static HashMap map;
     private boolean logIn;
 
     public CustomerUI() {
-        map = mrw.readFromFile(FileLocation.MENU_FILE_LOCATION);
         this.orderController = new OrderController();
-        this.menuController = new MenuController(map);
+        this.menuController = new MenuController();
         this.reviewController = new ReviewController();
         this.logIn = true;
     }
