@@ -7,7 +7,7 @@ package entity;
 
 import java.io.Serializable;
 
-public class Alcohol implements Inventory,HasExpiry, Serializable {
+public class Alcohol implements Inventory, Serializable {
     public String name;
     protected boolean usedup;
     protected double price;
@@ -68,10 +68,7 @@ public class Alcohol implements Inventory,HasExpiry, Serializable {
      * Get the ExpiryDate of a Product
      * @return The ExpiryDate of the Product as an int.
      */
-    @Override
-    public int getExpiryDate(){
-        return this.ExpiryDate;
-    }
+
 
     @Override
     public String toString(){

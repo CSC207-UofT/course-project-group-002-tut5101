@@ -15,12 +15,10 @@ import java.util.Scanner;
 
 public class InventoryUI implements UserInterface{
     private static InventoryManager im;
-    private static HashMap map;
+
 
     public InventoryUI(){
-        InventoryReadWriter irw = new InventoryReadWriter();
-        map = irw.readFromFile("src/file.ser");
-        im = new InventoryManager(FileLocation.INVENTORY_FILE_LOCATION, map);
+        im = new InventoryManager("src/main/resources/inventory.ser");
     }
 
     //public InventoryUI(InventoryManager im){
