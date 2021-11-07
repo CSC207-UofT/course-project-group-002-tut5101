@@ -3,6 +3,8 @@ package ui;
 import constant.CustomerUIMessage;
 import controller.MenuController;
 import controller.OrderController;
+import controller.ReviewController;
+
 
 import java.util.*;
 import java.util.List;
@@ -14,11 +16,13 @@ public class CustomerUI implements UserInterface{
 
     private final OrderController orderController;
     private final MenuController menuController;
+    private final ReviewController reviewController;
     private boolean logIn;
 
     public CustomerUI() {
         this.orderController = new OrderController();
         this.menuController = new MenuController();
+        this.reviewController = new ReviewController();
         this.logIn = true;
     }
 
@@ -63,6 +67,38 @@ public class CustomerUI implements UserInterface{
                 case "3":
                     break;
                 case "4":
+                    String name;
+                    String complaint;
+                    boolean ifAnonymous;
+                    boolean ifComplain;
+                    System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
+                    String anonymous = scanner.nextLine();
+                    if(anonymous.equals("Y")){
+                        name = "Anonymous";
+                        ifAnonymous = true;
+                    } else {
+                        name = id;
+                        ifAnonymous = false;
+                    }
+                    System.out.println(CustomerUIMessage.ASK_FOR_RATE);
+                    int rate = scanner.nextInt();
+                    String rn = scanner.nextLine();
+                    System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
+                    String comment = scanner.nextLine();
+                    System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
+                    String complain = scanner.nextLine();
+                    if(complain.equals("Y")){
+                        ifComplain = true;
+                        System.out.println(CustomerUIMessage.ASK_COMPLAIN_INFO);
+                        complaint = scanner.nextLine();
+                    } else {
+                        ifComplain = false;
+                        complaint = "no complaint";
+                    }
+                    reviewController.addToReviewList(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    reviewController.saveToFile();
+                    System.out.println(CustomerUIMessage.SHOW_REVIEW);
+
                     break;
                 case "0":
                     logIn = false;
@@ -143,6 +179,5 @@ public class CustomerUI implements UserInterface{
         catch(Exception e) {
             System.out.println(e);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
-    private static ReviewReadWriter rrw = new ReviewReadWriter();
+
 
     public ReviewList() {
         this.reviews = new HashMap<>();
@@ -20,7 +20,9 @@ public class ReviewList implements Serializable {
         this.reviews  = reviews;
     }
 
-
+    public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
+        addReview(new Review(name, ifAnonymouse, rate, comment, ifComplain, complain));
+    }
     /**
      * Add review to this review list.
      *
@@ -42,7 +44,7 @@ public class ReviewList implements Serializable {
      *
      * @return a Hashmap with review's rate mapping with reviews
      */
-    public static ArrayList<Review> getReviewByRate(int rate) {
+    public ArrayList<Review> getReviewByRate(int rate) {
         if (rate < 0) {
             return null;
         } else if (rate <= 5) {
@@ -53,20 +55,15 @@ public class ReviewList implements Serializable {
     }
 
     public void deleteReviews(){
-        reviews.put(0, new ArrayList<>());
         reviews.put(1, new ArrayList<>());
         reviews.put(2, new ArrayList<>());
         reviews.put(3, new ArrayList<>());
+        reviews.put(4, new ArrayList<>());
+        reviews.put(5, new ArrayList<>());
     }
 
-    public void SavetoFile(String filePath){ rrw.saveToFile(filePath, reviews);}
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (Integer rate : reviews.keySet()){
-            builder.append(ReviewList.getReviewByRate(rate));
-        }
-        return builder.toString();
-    }
+
+
+
 }

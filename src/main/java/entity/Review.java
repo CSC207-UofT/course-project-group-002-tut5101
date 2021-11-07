@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Review implements UserName, Rate, Comment, ComplainStuff, DayTime, Serializable {
+public class Review implements Reviewable, Serializable {
     public String userName;
     public boolean ifAnonymous;
     public int rate;
@@ -78,7 +78,7 @@ public class Review implements UserName, Rate, Comment, ComplainStuff, DayTime, 
         if(ifComplain){
             return newComplain;
         }else {
-            return "no complain";
+            return "no complaint";
         }
     }
 

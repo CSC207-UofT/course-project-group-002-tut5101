@@ -1,19 +1,27 @@
 package ui;
 
+import constant.FileLocation;
 import constant.InventoryManagerMessage;
 import controller.InventoryManager;
+import gateway.InventoryReadWriter;
 import use_case.InventoryFactory;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class InventoryUI implements UserInterface{
     private static InventoryManager im;
+    private static HashMap map;
 
-    public InventoryUI(){this.im = new InventoryManager();}
-
-    public InventoryUI(InventoryManager im){
-        this.im = im;
+    public InventoryUI(){
+        InventoryReadWriter irw = new InventoryReadWriter();
+        map = irw.readFromFile("src/file.ser");
+        im = new InventoryManager(FileLocation.INVENTORY_FILE_LOCATION, map);
     }
+
+    //public InventoryUI(InventoryManager im){
+    //    this.im = im;
+    //}
 
     @Override
     public void loadUi(String id){
@@ -35,6 +43,7 @@ public class InventoryUI implements UserInterface{
                         String str = scanner.nextLine();
                         String[] para = str.split(",");
                         im.addNewInventory(para);
+                        im.SavetoFile();
                         System.out.println(im.getInfo(para[1]));
                     }
                     break;
@@ -44,6 +53,7 @@ public class InventoryUI implements UserInterface{
                         String str = scanner.nextLine();
                         String[] t = str.split(",");
                         im.newFreshness(t[0],t[1]);
+                        im.SavetoFile();
                         System.out.println(im.getInfo(t[0]));
                     }
                     break;
@@ -53,6 +63,7 @@ public class InventoryUI implements UserInterface{
                         String str = scanner.nextLine();
                         String[] q = str.split(",");
                         im.newQuantity(q[0],q[1]);
+                        im.SavetoFile();
                         System.out.println(im.getInfo(q[0]));
                     }
                     break;
