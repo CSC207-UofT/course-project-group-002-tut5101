@@ -125,6 +125,7 @@ public class CustomerUI implements UserInterface {
         }
     }
 
+
     public boolean ifAnonymousUI() {
         while (true) {
             System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
