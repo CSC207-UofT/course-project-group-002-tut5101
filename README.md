@@ -1,14 +1,16 @@
 Information needed for the login process:
+
 id      Password     UserType 
-100     12345        Manager
-2       12345        Customer
-3       12345        Customer
-4       12345        Customer
-5       12345        DeliveryStaff
-6       12345        ServingStaff
-7       12345        ServingStaff
-8       12345        Kitchen
-9       12345        InventoryStaff
+
+- 100     12345        Manager
+- 2       12345        Customer
+- 3       12345        Customer
+- 4       12345        Customer
+- 5       12345        DeliveryStaff
+- 6       12345        ServingStaff
+- 7       12345        ServingStaff
+- 8       12345        Kitchen
+- 9       12345        InventoryStaff
 
 
 ### Purpose and Audience
