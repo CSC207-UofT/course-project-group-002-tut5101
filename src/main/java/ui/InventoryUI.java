@@ -1,12 +1,8 @@
 package ui;
 
-import constant.FileLocation;
 import constant.InventoryManagerMessage;
 import controller.InventoryManager;
-import gateway.InventoryReadWriter;
-import use_case.InventoryFactory;
 
-import java.util.HashMap;
 import java.util.Scanner;
 /**
  * UI class for inventory staff.
@@ -21,9 +17,6 @@ public class InventoryUI implements UserInterface{
         im = new InventoryManager("src/main/resources/inventory.ser");
     }
 
-    //public InventoryUI(InventoryManager im){
-    //    this.im = im;
-    //}
 
     @Override
     public void loadUi(String id){

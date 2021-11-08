@@ -51,15 +51,17 @@ manager system, and inventory staff system.
 
 # Brief description of how the project adheres to Clean Architecture
 
-- ## Issues in Phase0
-    - In phase 0, TA raised that our program violated Clean Architecture in multiple aspects. For instance, we used to
-      have the system data hardcoded and saved in the main method, and we didn't have UI classes and put all the command
-      line presentations inside the main class. In Phase 1, we have implemented the boundary interface between
-      controller and use case, as well as the data access gateway interface to read data from files and write to files.
+- ## Clean Architecture Issues in Phase0 and how we fixed them in Phase1
+    - In phase 0, our TA pointed out that our program violated Clean Architecture from multiple aspects. 
+      Firstly, we hardcoded the system data and saved them in the main method. 
+      Secondly, we didn't have UI classes, and instead put all the command line presentations inside the main class. 
+    - In Phase 1, we have implemented the boundary interface between controller and use case, as well as the data access 
+      gateway interface to read data from files and write to file.
     - From a high-level viewpoint, our program is loaded by the main method, the RestaurantSystem controller manages UI
       loading based on login user type, each UI and its corresponding controller interact with user inputs to access use
       cases passing data acquired through gateway classes.
-- ## Scenario walk-through
+  
+- ## A Scenario walk-through that shows our code structure's accordance with Clean Architecture
     - Customer is presented with the LoginUI, and logs in. The LoginUI calls on the LoginController, which calls on the
       logIn method in the LoginInputBoundary to determine if the login was successful. The LoginUseCase, which
       implements this interface, runs the method. If successful, the Customer is then presented with the CustomerUI, and

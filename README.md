@@ -2,7 +2,7 @@ Information needed for the login process:
 
 id      Password     UserType 
 
-- 100     12345        Manager
+- 100     999        Manager
 - 2       12345        Customer
 - 3       12345        Customer
 - 4       12345        Customer
