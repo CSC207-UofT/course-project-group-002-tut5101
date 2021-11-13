@@ -31,18 +31,6 @@ public class DeliverOrderTest {
         }
     }
 
-    @Test
-    public void display() {
-        try {
-            deliver.getToBeDeliver("1");
-            String target = "ORDER DETAILS\n" +
-                    "------------------------------\n" +
-                    "Total Price: $0.0";
-            assertEquals(target, deliver.display("1"));
-        } catch (Exception e) {
-            assert false;
-        }
-    }
 
     @Test
     public void delivered() {
