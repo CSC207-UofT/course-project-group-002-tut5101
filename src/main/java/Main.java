@@ -1,4 +1,4 @@
-import controller.RestaurantSystem;
+import ui.RestaurantSystem;
 
 /**
  * Main class for this project.
