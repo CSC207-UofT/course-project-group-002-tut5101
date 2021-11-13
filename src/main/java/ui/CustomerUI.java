@@ -9,7 +9,7 @@ import controller.ReviewController;
 import java.util.*;
 import java.util.List;
 
-public class CustomerUI implements UserInterface{
+public class CustomerUI implements UserInterface {
     /**
      * CMD UI for Users that login as Customer
      */
@@ -67,38 +67,25 @@ public class CustomerUI implements UserInterface{
                 case "3":
                     break;
                 case "4":
-                    String name;
                     String complaint;
                     boolean ifAnonymous;
                     boolean ifComplain;
-                    System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
-                    String anonymous = scanner.nextLine();
-                    if(anonymous.equals("Y")){
-                        name = "Anonymous";
-                        ifAnonymous = true;
-                    } else {
-                        name = id;
-                        ifAnonymous = false;
-                    }
+                    ifAnonymous = ifAnonymousUI();
                     System.out.println(CustomerUIMessage.ASK_FOR_RATE);
                     int rate = scanner.nextInt();
                     String rn = scanner.nextLine();
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
-                    System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
-                    String complain = scanner.nextLine();
-                    if(complain.equals("Y")){
-                        ifComplain = true;
+                    ifComplain = ifComplainUI();
+                    if (ifComplain) {
                         System.out.println(CustomerUIMessage.ASK_COMPLAIN_INFO);
                         complaint = scanner.nextLine();
                     } else {
-                        ifComplain = false;
                         complaint = "no complaint";
                     }
-                    reviewController.addToReviewList(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                    reviewController.addToReviewList(id, ifAnonymous, rate, comment, ifComplain, complaint);
                     reviewController.saveToFile();
                     System.out.println(CustomerUIMessage.SHOW_REVIEW);
-
                     break;
                 case "0":
                     logIn = false;
@@ -110,12 +97,12 @@ public class CustomerUI implements UserInterface{
     }
 
     // TODO: Write helper to print menu
-    public void printMenu(){
+    public void printMenu() {
         System.out.println(CustomerUIMessage.MENU_TITLE);
         System.out.println(menuController.dishesInMenuAsString());
     }
 
-    public List<String> dishNamesOrdered(List<Integer> orderedNum){
+    public List<String> dishNamesOrdered(List<Integer> orderedNum) {
         List<String> dishes;
         dishes = menuController.passDishNumbersOrdered(orderedNum);
         return dishes;
@@ -138,18 +125,54 @@ public class CustomerUI implements UserInterface{
         }
     }
 
+
+    public boolean ifAnonymousUI() {
+        while (true) {
+            System.out.println(CustomerUIMessage.ASK_IF_ANONYMOUS);
+            Scanner scanner = new Scanner(System.in);
+            String ifAnonymous = scanner.nextLine();
+            switch (ifAnonymous) {
+                case "Y":
+                    return true;
+                case "N":
+                    return false;
+                default:
+                    System.out.println("Please enter a valid input.");
+            }
+
+        }
+    }
+
+    public boolean ifComplainUI() {
+        while (true) {
+            System.out.println(CustomerUIMessage.ASK_IF_COMPLAIN_STUFF);
+            Scanner scanner = new Scanner(System.in);
+            String ifComplain = scanner.nextLine();
+            switch (ifComplain) {
+                case "Y":
+                    return true;
+                case "N":
+                    return false;
+                default:
+                    System.out.println("Please enter a valid input.");
+            }
+
+        }
+    }
+
+
     /**
      * Cmd UI of place order.
      *
      * @return the list of dish names customer ordered
      */
 
-    private ArrayList<Integer> orderedDishesUI(){
+    private ArrayList<Integer> orderedDishesUI() {
         System.out.println(CustomerUIMessage.PLACE_ORDER);
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<Integer> orderedNum = new ArrayList<Integer>();
-        while (scanner.hasNextInt()){
+        while (scanner.hasNextInt()) {
             orderedNum.add(scanner.nextInt());
         }
 //        while (!scanner.next().equals("e")){
@@ -158,13 +181,12 @@ public class CustomerUI implements UserInterface{
         return orderedNum;
     }
 
-    private String locationUI(boolean dineInStatus){
+    private String locationUI(boolean dineInStatus) {
         Scanner scanner = new Scanner(System.in);
         String location;
-        if (dineInStatus){
+        if (dineInStatus) {
             System.out.println(CustomerUIMessage.ENTER_TABLE_NUMBER);
-        }
-        else {
+        } else {
             System.out.println(CustomerUIMessage.ENTER_LOCATION);
         }
         location = scanner.nextLine();
@@ -175,8 +197,7 @@ public class CustomerUI implements UserInterface{
     private void runPlaceOrder(OrderController controller, boolean dineIn, String[] dishes, String location) {
         try {
             controller.runPlaceOrder(dineIn, dishes, location);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
