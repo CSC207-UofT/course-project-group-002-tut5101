@@ -1,6 +1,6 @@
 package use_case;
 
-import boundary.LoginInputBoundary;
+import use_case.boundary.LoginInputBoundary;
 import constant.LoginResult;
 import entity.User;
 

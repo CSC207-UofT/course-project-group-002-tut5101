@@ -1,6 +1,6 @@
 package controller;
 
-import boundary.LoginInputBoundary;
+import use_case.boundary.LoginInputBoundary;
 import constant.FileLocation;
 import constant.LoginResult;
 import gateway.UserReadWriter;
@@ -12,7 +12,7 @@ import use_case.LoginUseCase;
 public class LoginController {
 
     /**
-     * The input boundary for the login use case.
+     * The input use_case.boundary for the login use case.
      */
     private final LoginInputBoundary loginInputBoundary;
 

@@ -6,7 +6,7 @@ package use_case;
  * 2021-11-03
  */
 
-import boundary.PlaceOrderInputBoundary;
+import use_case.boundary.PlaceOrderInputBoundary;
 import entity.Dish;
 import entity.Order;
 

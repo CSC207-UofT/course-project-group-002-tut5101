@@ -1,7 +1,7 @@
-package boundary;
+package use_case.boundary;
 
 /**
- * The input boundary for ManageMenu use case.
+ * The input use_case.boundary for ManageMenu use case.
  */
 
 // Note: The interface that the PlaceOrder implements

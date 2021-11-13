@@ -1,8 +1,8 @@
 package controller;
 
 
-import boundary.DeleteReviewInputBoundary;
-import boundary.ManageMenuInputBoundary;
+import use_case.boundary.DeleteReviewInputBoundary;
+import use_case.boundary.ManageMenuInputBoundary;
 import constant.FileLocation;
 import gateway.MenuReadWriter;
 import gateway.ReadWriter;
@@ -20,11 +20,11 @@ import use_case.ReviewList;
 public class ManagerController {
 
     /**
-     * The input boundary for the manage menu use case.
+     * The input use_case.boundary for the manage menu use case.
      */
     private final ManageMenuInputBoundary manageMenuInputBoundary;
     /**
-     * The input boundary for the delete review use case.
+     * The input use_case.boundary for the delete review use case.
      */
     private final DeleteReviewInputBoundary deleteReviewInputBoundary;
 

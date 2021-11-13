@@ -1,6 +1,6 @@
 package controller;
 
-import boundary.Delivery;
+import use_case.boundary.Delivery;
 import constant.UserType;
 import use_case.DeliverOrder;
 import use_case.ServeOrder;

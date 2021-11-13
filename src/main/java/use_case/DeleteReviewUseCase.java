@@ -1,9 +1,6 @@
 package use_case;
 
-import boundary.DeleteReviewInputBoundary;
-import constant.FileLocation;
-import gateway.ReadWriter;
-import gateway.ReviewReadWriter;
+import use_case.boundary.DeleteReviewInputBoundary;
 
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
