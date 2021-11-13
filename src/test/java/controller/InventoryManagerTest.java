@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class InventoryManagerTest {
     InventoryReadWriter irw = new InventoryReadWriter();
     HashMap map = irw.readFromFile("src/main/resources/inventory.ser");
-    InventoryManager im = new InventoryManager("src/file.ser",map);
+    InventoryManager im = new InventoryManager("src/test/resources/inventory.ser",map);
 
     @Test
     public void testGetinfo(){
