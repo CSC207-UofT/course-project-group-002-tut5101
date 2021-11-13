@@ -33,6 +33,12 @@ A restaurant app with the following types of users and user specific functions:
     - Customers can provide a complaint on stuff. The complaint may be anonymous.
     - Review reads and write to data files to keep the customer's reviews.
 
+# UML Diagram
+UML diagrams can be found in the phase 1/UML folder. Since the overall project UML is too large and too messy to view, 
+we created a UML diagram for each important sector of our program, illustrating how each sector works. The sectors that
+we included are: Login system, UI selection, Customer system, Kitchen system, Serving & Delivery staff system,
+manager system, and inventory staff system.
+
 # Description of major design decisions
 
 - A major design decision was on deciding how the Main class connects with all the UIs. We eventually decided to create
@@ -45,15 +51,17 @@ A restaurant app with the following types of users and user specific functions:
 
 # Brief description of how the project adheres to Clean Architecture
 
-- ## Issues in Phase0
-    - In phase 0, TA raised that our program violated Clean Architecture in multiple aspects. For instance, we used to
-      have the system data hardcoded and saved in the main method, and we didn't have UI classes and put all the command
-      line presentations inside the main class. In Phase 1, we have implemented the boundary interface between
-      controller and use case, as well as the data access gateway interface to read data from files and write to files.
+- ## Clean Architecture Issues in Phase0 and how we fixed them in Phase1
+    - In phase 0, our TA pointed out that our program violated Clean Architecture from multiple aspects. 
+      Firstly, we hardcoded the system data and saved them in the main method. 
+      Secondly, we didn't have UI classes, and instead put all the command line presentations inside the main class. 
+    - In Phase 1, we have implemented the boundary interface between controller and use case, as well as the data access 
+      gateway interface to read data from files and write to file.
     - From a high-level viewpoint, our program is loaded by the main method, the RestaurantSystem controller manages UI
       loading based on login user type, each UI and its corresponding controller interact with user inputs to access use
       cases passing data acquired through gateway classes.
-- ## Scenario walk-through
+  
+- ## A Scenario walk-through that shows our code structure's accordance with Clean Architecture
     - Customer is presented with the LoginUI, and logs in. The LoginUI calls on the LoginController, which calls on the
       logIn method in the LoginInputBoundary to determine if the login was successful. The LoginUseCase, which
       implements this interface, runs the method. If successful, the Customer is then presented with the CustomerUI, and
@@ -286,3 +294,10 @@ Implemented or edited the following classes from Oct 18 - Nov 6:
 - gateway classes/interface:
     - InventoryReadWriter, ReviewReadWriter, SerReadWriter
     - ReadFromCSV, ReadWriter
+
+#### Shaojie Dong's future plannings
+I plan to implement the Android GUI for phase 2 , focused on inventory part. I also plan to make it used for more restaurant.
+
+#### Mingyang Li's future plannings
+I plain to implent the Android GUI for phrase 2, focused on the Review part, try to make it avaiable for customers to add images
+on their reivew or make other customers to reply the current reviews.

@@ -33,6 +33,18 @@ public class InventoryList implements Serializable {
 
 
     /**
+     * Add a new inventory item by creating from the inventory Factory with the given string
+     * parameters.
+     *
+     * @param inf an InventoryFactory instance
+     * @param paras The given String parameters needed to create it.
+     */
+    public void addFromFactory(InventoryFactory inf, String[] paras) {
+        addInventory(inf.getInventory(paras));
+    }
+
+
+    /**
      * Check if the inventoryList is empty
      * @return true when the inventoryList is empty
      */
@@ -47,6 +59,49 @@ public class InventoryList implements Serializable {
 
 
     /**
+     * @param name The name of the inventory item to be returned info
+     * @return The string information of the inventory item.
+     *
+     * This method should only be called after checkExist to ensure not error occur.
+     */
+    public String getInfo(String name) {
+        return myDict.get(name).toString();
+    }
+
+
+    /**
+     * @param name the inventory item whose type will be checked
+     * @return whether the given inventory item has freshness or not.
+     */
+    public boolean isHasFreshness(String name) {
+        return myDict.get(name) instanceof HasFreshness;
+    }
+
+
+    /**
+     * @param name an inventory item
+     * @return The freshness of this given item.
+     *
+     * NOTE: This method should only be called after the isHasFreshness check.
+     */
+    public String getFreshness(String name) {
+        return ((HasFreshness) myDict.get(name)).getFreshness();
+    }
+
+
+    /**
+     * Set the freshness of the given inventory item
+     *
+     * @param name The name of an inventory item
+     *
+     * NOTE: This method should only be called after the isHasFreshness check.
+     */
+    public void setFreshness(String name, String newFreshness) {
+        ((HasFreshness) myDict.get(name)).setFreshness(newFreshness);
+    }
+
+
+    /**
      * Get the inventory by its name
      * @param name The name of this inventory
      * @return the inventory required.
@@ -54,6 +109,8 @@ public class InventoryList implements Serializable {
     public static Inventory getItem(String name){
         return myDict.get(name);
     }
+
+
 
 
 
