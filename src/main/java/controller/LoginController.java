@@ -1,10 +1,12 @@
 package controller;
 
-import use_case.boundary.LoginInputBoundary;
 import constant.FileLocation;
 import constant.LoginResult;
+import constant.UserType;
 import gateway.UserReadWriter;
 import use_case.LoginUseCase;
+import use_case.UserList;
+import use_case.boundary.LoginInputBoundary;
 
 /**
  * Controls the process for logging in.
@@ -45,4 +47,12 @@ public class LoginController {
         return result;
     }
 
+    /**
+     * Return UserType based on the login user id
+     * @param id the login user id
+     * @return UserType of the user
+     */
+    public UserType getUserTypeById(String id){
+        return UserList.getUserTypeById(id);
+    }
 }
