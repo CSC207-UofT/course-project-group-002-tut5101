@@ -8,14 +8,14 @@ import constant.*;
 
 public class UIFactory {
 
-    private CustomerUI customerUI = new CustomerUI();
-    private ManagerUI managerUI = new ManagerUI();
-    private DeliveryStaffUI deliveryStaffUI = new DeliveryStaffUI();
-    private InventoryUI inventoryStaffUI = new InventoryUI();
-    private ServingStaffUI servingStaffUI = new ServingStaffUI();
-    private KitchenUI kitchenUI = new KitchenUI();
-    private LoginUI loginUI = new LoginUI();
-    private String id;
+    private final CustomerUI customerUI = new CustomerUI();
+    private final ManagerUI managerUI = new ManagerUI();
+    private final DeliveryStaffUI deliveryStaffUI = new DeliveryStaffUI();
+    private final InventoryUI inventoryStaffUI = new InventoryUI();
+    private final ServingStaffUI servingStaffUI = new ServingStaffUI();
+    private final KitchenUI kitchenUI = new KitchenUI();
+    private final LoginUI loginUI = new LoginUI();
+    private final String id;
 
     public UIFactory(String id){
         this.id = id;
