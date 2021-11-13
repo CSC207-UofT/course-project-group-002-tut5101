@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class KitchenUI implements UserInterface {
 
-    private KitchenController kc = new KitchenController();
+    private final KitchenController kc = new KitchenController();
 
     public void loadUi(String id) {
         System.out.println(KitchenUIMessage.ACTION);
@@ -20,7 +20,6 @@ public class KitchenUI implements UserInterface {
             if (kc.hasOrder()) {
                 if (newOrder) {
                     System.out.println(KitchenUIMessage.NEW_ORDER);
-                    newOrder = true;
                 }
                 System.out.println(kc.showDishes());
                 String action = scanner.nextLine();
