@@ -1,10 +1,8 @@
 package use_case;
 
-import boundary.ManageMenuInputBoundary;
-import constant.FileLocation;
+import use_case.boundary.ManageMenuInputBoundary;
 import entity.Dish;
-import gateway.MenuReadWriter;
-import gateway.ReadWriter;
+
 import java.util.*;
 
 public class ManageMenuUseCase implements ManageMenuInputBoundary {

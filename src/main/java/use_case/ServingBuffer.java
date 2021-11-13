@@ -3,7 +3,7 @@ package use_case;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import entity.Dish;
-// import boundary.ServeBufferInterface;
+// import use_case.boundary.ServeBufferInterface;
 
 public class ServingBuffer {
     /**

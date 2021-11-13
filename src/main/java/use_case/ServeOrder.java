@@ -1,6 +1,6 @@
 package use_case;
 
-import boundary.Delivery;
+import use_case.boundary.Delivery;
 import entity.ServingStaff;
 import entity.User;
 

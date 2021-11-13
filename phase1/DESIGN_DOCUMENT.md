@@ -55,7 +55,7 @@ manager system, and inventory staff system.
     - In phase 0, our TA pointed out that our program violated Clean Architecture from multiple aspects. 
       Firstly, we hardcoded the system data and saved them in the main method. 
       Secondly, we didn't have UI classes, and instead put all the command line presentations inside the main class. 
-    - In Phase 1, we have implemented the boundary interface between controller and use case, as well as the data access 
+    - In Phase 1, we have implemented the use_case.boundary interface between controller and use case, as well as the data access 
       gateway interface to read data from files and write to file.
     - From a high-level viewpoint, our program is loaded by the main method, the RestaurantSystem controller manages UI
       loading based on login user type, each UI and its corresponding controller interact with user inputs to access use
@@ -237,7 +237,7 @@ or equal to 3 will be deleted. To establish these functions, we first designed t
 following the login-related classes, and it initiates a controller class of the manager according to the input
 information of the user(manager). The controller class of the manager then reads the files and generates the dishList
 and reviewList. These are passed as constructor parameters into the corresponding use case classes, which contains
-specific information to conduct the responsibilities. Each of the use case classes implements a corresponding boundary
+specific information to conduct the responsibilities. Each of the use case classes implements a corresponding use_case.boundary
 interface, so that clean architecture is maintained.
 
 (2) Update of the login system. Our original login process was entirely contained in one class: the RestaurantSystem.

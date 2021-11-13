@@ -7,14 +7,14 @@ package controller;
  * 2021-11-03
  */
 
-import boundary.PlaceOrderInputBoundary;
+import use_case.boundary.PlaceOrderInputBoundary;
 import use_case.PlaceOrder;
 
 public class OrderController {
     //Controller class that interacts with use_case.PlaceOrder to place an order from the customer
 
     /**
-     * The input boundary for the place order.
+     * The input use_case.boundary for the place order.
      */
     private final PlaceOrderInputBoundary placeOrderInputBoundary;
 

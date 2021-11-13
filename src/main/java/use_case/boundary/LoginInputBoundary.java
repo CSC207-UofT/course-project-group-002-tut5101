@@ -1,9 +1,9 @@
-package boundary;
+package use_case.boundary;
 
 import constant.LoginResult;
 
 /**
- * The input boundary for the login use case.
+ * The input use_case.boundary for the login use case.
  */
 
 public interface LoginInputBoundary {
