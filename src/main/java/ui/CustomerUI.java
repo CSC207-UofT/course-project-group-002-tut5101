@@ -38,10 +38,8 @@ public class CustomerUI implements UserInterface {
                 case "1":
                     boolean dineInStatus = orderTypeUI();
 
-                    /**
-                     * Print the menu and then use helper method to get input for what dishes, then pass to the
-                     * place order controller
-                     */
+                    // Print the menu and then use helper method to get input for what dishes, then pass to the
+                    // place order controller
                     String location = locationUI(dineInStatus);
 
                     printMenu();
@@ -54,7 +52,7 @@ public class CustomerUI implements UserInterface {
                     String[] dishesAsList = dishes.toArray(new String[0]);
 
                     System.out.println(CustomerUIMessage.CONFIRM_ORDER);
-                    System.out.println(dishes.toString());
+                    System.out.println(dishes);
                     String confirm = scanner.nextLine();
                     if (confirm.equals("Y")) {
                         runPlaceOrder(orderController, dineInStatus, dishesAsList, location);
@@ -62,10 +60,6 @@ public class CustomerUI implements UserInterface {
                     System.out.println(CustomerUIMessage.ORDER_PLACED);
                     break;
 
-                case "2":
-                    break;
-                case "3":
-                    break;
                 case "4":
                     String complaint;
                     boolean ifAnonymous;
@@ -73,7 +67,7 @@ public class CustomerUI implements UserInterface {
                     ifAnonymous = ifAnonymousUI();
                     System.out.println(CustomerUIMessage.ASK_FOR_RATE);
                     int rate = scanner.nextInt();
-                    String rn = scanner.nextLine();
+                    // String rn = scanner.nextLine();
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
                     ifComplain = ifComplainUI();
@@ -137,7 +131,7 @@ public class CustomerUI implements UserInterface {
                 case "N":
                     return false;
                 default:
-                    System.out.println("Please enter a valid input.");
+                    System.out.println("Please enter a valid answer.");
             }
 
         }
@@ -171,13 +165,10 @@ public class CustomerUI implements UserInterface {
         System.out.println(CustomerUIMessage.PLACE_ORDER);
         Scanner scanner = new Scanner(System.in);
 
-        ArrayList<Integer> orderedNum = new ArrayList<Integer>();
+        ArrayList<Integer> orderedNum = new ArrayList<>();
         while (scanner.hasNextInt()) {
             orderedNum.add(scanner.nextInt());
         }
-//        while (!scanner.next().equals("e")){
-//            dishes.add(scanner.next());
-//        }
         return orderedNum;
     }
 
@@ -198,7 +189,7 @@ public class CustomerUI implements UserInterface {
         try {
             controller.runPlaceOrder(dineIn, dishes, location);
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 }
