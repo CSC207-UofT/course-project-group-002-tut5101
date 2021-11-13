@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 public class InventoryManagerTest {
     InventoryReadWriter irw = new InventoryReadWriter();
-    HashMap map = irw.readFromCSV("src/main/resources/inventorydata.csv");
+    HashMap map = irw.readFromFile("src/main/resources/inventory.ser");
     InventoryManager im = new InventoryManager("src/file.ser",map);
 
     @Test
