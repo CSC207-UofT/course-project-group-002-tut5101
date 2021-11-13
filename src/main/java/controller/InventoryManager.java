@@ -2,8 +2,6 @@ package controller;
 
 
 import constant.FileLocation;
-import entity.HasFreshness;
-import entity.Inventory;
 import gateway.InventoryReadWriter;
 import use_case.InventoryFactory;
 import use_case.InventoryList;
@@ -43,14 +41,6 @@ public class InventoryManager {
 
     public void addNewInventory(String[] para){
         this.inventorys.addFromFactory(this.infc, para);
-    }
-
-    public String currentFreshness(String name) {
-        if(this.inventorys.isHasFreshness(name)) {
-            return this.inventorys.getFreshness(name);
-        } else {
-            return null;
-        }
     }
 
 
