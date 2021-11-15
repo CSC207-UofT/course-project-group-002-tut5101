@@ -4,13 +4,14 @@
  * @author Chan Yu & Naihe Xiao
  */
 
-import constant.FileLocation;
-import constant.UserType;
+import constant.mangerSystem.UserType;
 import entity.*;
-import gateway.UserReadWriter;
+import entity.DeliveryStaff;
+import entity.ServingStaff;
+import entity.InventoryStaff;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.UserList;
+import use_case.userList.UserList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,22 +35,4 @@ public class UserListTest {
     public void testUserTypeById() {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
     }
-
-    //TODO delete this test later
-    @Test
-    public void testSaveToFile(){
-        UserReadWriter urf = new UserReadWriter();
-        urf.saveToFile(FileLocation.USER_FILE_LOCATION, userList.getUsers());
-    }
-
-    //TODO delete this test later
-    @Test
-    public void testReadFromFile(){
-        UserReadWriter urf = new UserReadWriter();
-        UserList users = new UserList();
-        users.loadHashMap(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
-        System.out.println(users);
-    }
-
-
 }

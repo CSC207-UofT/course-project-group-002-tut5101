@@ -1,7 +1,7 @@
 package ui;
 
-import constant.ManagerUIMessage;
-import controller.ManagerController;
+import constant.uiMessage.ManagerUIMessage;
+import controller.managerSystem.ManagerController;
 
 import java.util.Scanner;
 /**

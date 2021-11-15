@@ -1,15 +1,14 @@
 package use_case;
 
 import entity.DeliveryStaff;
-import entity.Dish;
-import entity.Order;
+import entity.orderList.Order;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.deliverOrder.DeliverOrder;
+import use_case.deliverOrder.DeliveryBuffer;
+import use_case.userList.UserList;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 
 public class DeliverOrderTest {
     DeliverOrder deliver;

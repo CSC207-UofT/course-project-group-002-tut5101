@@ -1,8 +1,8 @@
 package ui;
 
-import constant.StaffUIMessage;
-import constant.LoginLogoutUIMessage;
-import controller.StaffController;
+import constant.uiMessage.StaffUIMessage;
+import constant.uiMessage.LoginLogoutUIMessage;
+import controller.staffSystem.StaffController;
 
 import java.util.Scanner;
 /**

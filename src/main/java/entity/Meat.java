@@ -3,7 +3,6 @@ package entity;
  * Entity class for meat.
  */
 
-
 import java.io.Serializable;
 
 public class Meat implements Inventory, HasFreshness, Serializable {

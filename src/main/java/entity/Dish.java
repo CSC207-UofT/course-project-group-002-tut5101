@@ -1,6 +1,6 @@
 package entity;
 
-import constant.ItemStatus;
+import constant.orderSystem.ItemStatus;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ public class Dish implements Serializable {
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
-    private ItemStatus status = constant.ItemStatus.DISH_PLACED;
+    private ItemStatus status = ItemStatus.DISH_PLACED;
     private int tableNum;
 
     private static final long serialVersionUID = 1L;

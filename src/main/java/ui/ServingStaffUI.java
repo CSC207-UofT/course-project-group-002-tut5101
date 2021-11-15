@@ -1,7 +1,9 @@
 package ui;
-import constant.*;
 import java.util.*;
-import controller.StaffController;
+
+import constant.uiMessage.LoginLogoutUIMessage;
+import constant.uiMessage.StaffUIMessage;
+import controller.staffSystem.StaffController;
 /**
  * UI class for serving staff.
  */

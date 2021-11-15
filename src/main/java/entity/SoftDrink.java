@@ -3,7 +3,6 @@ package entity;
  * Entity class for soft drinks.
  */
 
-
 import java.io.Serializable;
 
 public class SoftDrink implements Inventory, Serializable {

@@ -4,7 +4,6 @@ package entity;
  * Entity class for alcohol.
  */
 
-
 import java.io.Serializable;
 
 public class Alcohol implements Inventory, Serializable {

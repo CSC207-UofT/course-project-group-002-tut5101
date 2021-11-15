@@ -1,14 +1,11 @@
 package use_case;
-import constant.FileLocation;
-import entity.Review;
+import constant.fileSystem.FileLocation;
 import gateway.ReviewReadWriter;
-import gateway.UserReadWriter;
-import use_case.ReviewList;
+import use_case.reviewList.ReviewList;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,7 +1,7 @@
 package entity;
 
-import constant.ItemStatus;
-import use_case.Kitchen;
+import constant.orderSystem.ItemStatus;
+import entity.orderList.Order;
 
 /**
  * Class for delivery staff

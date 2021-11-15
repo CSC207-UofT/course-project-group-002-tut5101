@@ -1,7 +1,7 @@
 package ui;
 
-import constant.UserType;
-import controller.LoginController;
+import constant.mangerSystem.UserType;
+import controller.loginSystem.LoginController;
 
 public class RestaurantSystem {
 

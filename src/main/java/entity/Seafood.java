@@ -3,7 +3,6 @@ package entity;
  * Entity class for seafood.
  */
 
-
 import java.io.Serializable;
 
 public class Seafood implements Inventory, HasFreshness, Serializable {

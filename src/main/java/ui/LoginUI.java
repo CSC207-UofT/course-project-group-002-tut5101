@@ -1,7 +1,7 @@
 package ui;
 
-import constant.LoginLogoutUIMessage;
-import controller.LoginController;
+import constant.uiMessage.LoginLogoutUIMessage;
+import controller.loginSystem.LoginController;
 
 import java.util.Scanner;
 

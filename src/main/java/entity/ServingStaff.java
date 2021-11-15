@@ -1,7 +1,7 @@
 package entity;
 
 
-import constant.ItemStatus;
+import constant.orderSystem.ItemStatus;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes

@@ -1,7 +1,7 @@
 package ui;
 
-import constant.InventoryManagerMessage;
-import controller.InventoryManager;
+import constant.uiMessage.InventoryManagerMessage;
+import controller.inventorySystem.InventoryManager;
 
 import java.util.Scanner;
 /**

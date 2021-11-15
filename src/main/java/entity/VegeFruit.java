@@ -3,7 +3,6 @@ package entity;
  * Entity class for vegetable and fruits.
  */
 
-
 import java.io.Serializable;
 
 public class VegeFruit implements Inventory, HasFreshness, Serializable {
