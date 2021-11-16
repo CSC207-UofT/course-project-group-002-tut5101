@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 
 
-public class InventoryReadWriter implements ReadWriter, ReadFromCSV {
+public class CSVReadWriter implements ReadWriter, ReadFromCSV {
     @Override
     public void saveToFile(String filePath, Object objects) {
 
@@ -31,7 +31,7 @@ public class InventoryReadWriter implements ReadWriter, ReadFromCSV {
 
     @Override
     public HashMap readFromCSV(String filePath) {
-        HashMap hashMap = new HashMap();
+        HashMap<String, entity.inventory.Inventory> hashMap = new HashMap<>();
         InventoryFactory factory = new InventoryFactory();
         try {
             Scanner scanner = new Scanner(new FileInputStream(filePath));

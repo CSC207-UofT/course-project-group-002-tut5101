@@ -1,7 +1,6 @@
 package use_case;
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
-import gateway.ReviewReadWriter;
 import use_case.reviewList.ReviewList;
 import org.junit.Before;
 import org.junit.Test;

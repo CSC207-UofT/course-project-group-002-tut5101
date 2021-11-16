@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 
 
-public class MenuReadWriter implements ReadWriter {
+public class SerReadWriter implements ReadWriter {
 
     @Override
     public void saveToFile(String filePath, Object objects) {

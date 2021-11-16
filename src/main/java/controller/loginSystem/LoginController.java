@@ -3,7 +3,6 @@ package controller.loginSystem;
 import constant.fileSystem.FileLocation;
 import constant.uiMessage.LoginResult;
 import constant.mangerSystem.UserType;
-import gateway.UserReadWriter;
 import use_case.userList.LoginUseCase;
 import use_case.userList.UserList;
 import use_case.boundary.LoginInputBoundary;
