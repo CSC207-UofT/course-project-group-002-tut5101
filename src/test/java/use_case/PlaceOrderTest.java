@@ -3,10 +3,11 @@ package use_case;
  * Test for the PlaceOrder class
  */
 
-import entity.*;
+import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.*;
+import use_case.customerSystem.PlaceOrder;
+import use_case.dishList.DishList;
 
 import java.util.ArrayList;
 import java.util.HashMap;

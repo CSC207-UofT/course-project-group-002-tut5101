@@ -3,8 +3,13 @@ package use_case;
  * Tests for InventoryList Class
  */
 
+import entity.inventory.Alcohol;
+import entity.inventory.Grain;
+import entity.inventory.Meat;
+import entity.inventory.Seafood;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.kitchen.InventoryList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,10 +18,10 @@ public class InventoryListTest {
 
     @Before
     public void setUp() {
-        invList.addInventory(new entity.Grain("corn", 0.99, 699, "a",20221122));
-        invList.addInventory(new entity.Meat("pork",5.00,100,"b",20211030));
-        invList.addInventory(new entity.Seafood("samon fish",10.99,23,"c",20211029));
-        invList.addInventory(new entity.Alcohol("wine",69.99,4,20221006));
+        invList.addInventory(new Grain("corn", 0.99, 699, "a",20221122));
+        invList.addInventory(new Meat("pork",5.00,100,"b",20211030));
+        invList.addInventory(new Seafood("samon fish",10.99,23,"c",20211029));
+        invList.addInventory(new Alcohol("wine",69.99,4,20221006));
     }
 
     @Test

@@ -1,6 +1,6 @@
 package gateway;
 
-import use_case.InventoryFactory;
+import use_case.inventoryFactory.InventoryFactory;
 
 import java.io.*;
 import java.util.HashMap;

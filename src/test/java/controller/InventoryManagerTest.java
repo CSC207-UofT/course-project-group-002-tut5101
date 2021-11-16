@@ -1,5 +1,6 @@
 package controller;
 
+import controller.inventorySystem.InventoryManager;
 import gateway.InventoryReadWriter;
 import org.junit.Test;
 

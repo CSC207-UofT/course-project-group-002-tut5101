@@ -5,7 +5,7 @@ package entity;
  * @author Mingyang Li
  */
 
-import entity.Review;
+import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
 

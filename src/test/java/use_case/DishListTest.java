@@ -1,11 +1,12 @@
 package use_case;
 
 
-import constant.FileLocation;
-import entity.Dish;
+import constant.fileSystem.FileLocation;
+import entity.orderList.Dish;
 import gateway.MenuReadWriter;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.dishList.DishList;
 
 import java.util.HashMap;
 
