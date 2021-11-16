@@ -7,6 +7,7 @@ import use_case.inventoryFactory.InventoryFactory;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class InventoryList implements Serializable {
@@ -21,7 +22,7 @@ public class InventoryList implements Serializable {
 
     public InventoryList(){ myDict = new HashMap<>();}
 
-    public InventoryList(HashMap map){myDict = map;}
+    public InventoryList(HashMap<String, Inventory> map){myDict = map;}
 
 
     /**
@@ -66,7 +67,7 @@ public class InventoryList implements Serializable {
      * This method should only be called after checkExist to ensure not error occur.
      */
     public String getInfo(String name) {
-        return myDict.get(name).toString();
+        return Objects.requireNonNull(myDict.get(name)).toString();
     }
 
 
@@ -86,7 +87,7 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public String getFreshness(String name) {
-        return ((HasFreshness) myDict.get(name)).getFreshness();
+        return ((HasFreshness) Objects.requireNonNull(myDict.get(name))).getFreshness();
     }
 
 
@@ -98,7 +99,7 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        ((HasFreshness) myDict.get(name)).setFreshness(newFreshness);
+        ((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);
     }
 
 

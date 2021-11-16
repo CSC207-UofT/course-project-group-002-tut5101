@@ -1,7 +1,6 @@
 package controller.reviewSystem;
 
 import constant.fileSystem.FileLocation;
-import gateway.ReviewReadWriter;
 import use_case.reviewList.ReviewList;
 
 import java.util.HashMap;
