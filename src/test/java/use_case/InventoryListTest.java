@@ -3,7 +3,10 @@ package use_case;
  * Tests for InventoryList Class
  */
 
-import entity.*;
+import entity.inventory.Alcohol;
+import entity.inventory.Grain;
+import entity.inventory.Meat;
+import entity.inventory.Seafood;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.kitchen.InventoryList;

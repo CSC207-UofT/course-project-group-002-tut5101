@@ -1,7 +1,7 @@
 package use_case.kitchen;
 
 import constant.orderSystem.ItemStatus;
-import entity.Dish;
+import entity.orderList.Dish;
 import entity.orderList.Order;
 import use_case.deliverOrder.DeliveryBuffer;
 import use_case.serveDish.ServingBuffer;

@@ -1,7 +1,7 @@
 package use_case.kitchen;
 
-import entity.HasFreshness;
-import entity.Inventory;
+import entity.inventory.HasFreshness;
+import entity.inventory.Inventory;
 import use_case.inventoryFactory.InventoryFactory;
 
 

@@ -2,7 +2,7 @@ package use_case.deliverOrder;
 
 import use_case.userList.UserList;
 import use_case.boundary.Delivery;
-import entity.DeliveryStaff;
+import entity.delivery.DeliveryStaff;
 import entity.User;
 
 public class DeliverOrder implements Delivery {

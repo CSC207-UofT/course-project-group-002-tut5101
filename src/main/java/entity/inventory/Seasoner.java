@@ -1,11 +1,12 @@
-package entity;
+package entity.inventory;
 /**
- * Entity class for seafood.
+ * Entity class for seasoner.
  */
+
 
 import java.io.Serializable;
 
-public class Seafood implements Inventory, HasFreshness, Serializable {
+public class Seasoner implements Inventory,HasFreshness, Serializable {
     public String name;
     private boolean usedup;
     private double price;
@@ -23,7 +24,7 @@ public class Seafood implements Inventory, HasFreshness, Serializable {
      * @param ImportDate The ImportDate of the Material
      */
 
-    public Seafood(String name, double price, double quantity, String freshness,
+    public Seasoner(String name, double price, double quantity, String freshness,
                 int ImportDate){
         this.name = name;
         this.price = price;
@@ -72,6 +73,7 @@ public class Seafood implements Inventory, HasFreshness, Serializable {
      * Get the freshness of a Material
      * @return The freshness of the Material as a string.
      */
+
     @Override
     public String getFreshness(){
         return this.freshness;
@@ -90,7 +92,7 @@ public class Seafood implements Inventory, HasFreshness, Serializable {
 
     @Override
     public String toString(){
-        String s = "seafood,"+this.name+ ","+ this.price +
+        String s = "seasoner,"+this.name+ ","+ this.price +
                 ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
 

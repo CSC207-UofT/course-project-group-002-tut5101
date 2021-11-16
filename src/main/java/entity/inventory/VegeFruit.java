@@ -1,4 +1,4 @@
-package entity;
+package entity.inventory;
 /**
  * Entity class for vegetable and fruits.
  */

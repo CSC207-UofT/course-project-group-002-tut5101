@@ -1,38 +1,34 @@
-package entity;
-
+package entity.inventory;
 /**
- * Entity class for grain.
+ * Entity class for semi-finished products.
  */
+
 
 import java.io.Serializable;
 
-public class Grain implements Inventory,HasFreshness, Serializable {
+public class SemiFinished implements Inventory, Serializable {
     public String name;
-    private boolean usedup;
-    private double price;
-    private double quantity;
-    private String freshness;
-    private final int ImportDate;
-
+    protected boolean usedup;
+    protected double price;
+    protected double quantity;
+    public final int ExpiryDate;
 
     /**
-     * Construct an instance of Material
+     * Construct an instance of Product
      * @param name The name of the Inventory
      * @param price The buy in price of the Inventory
      * @param quantity The quantity of the Inventory
-     * @param freshness The freshness of the Material
-     * @param ImportDate The ImportDate of the Material
+     * @param ExpiryDate The ExiryDate of the Product
      */
 
-    public Grain(String name, double price, double quantity, String freshness,
-                    int ImportDate){
+    public SemiFinished(String name, double price, double quantity, int ExpiryDate){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.freshness = freshness;
-        this.ImportDate = ImportDate;
+        this.ExpiryDate = ExpiryDate;
         this.usedup = quantity == 0;
     }
+
     @Override
     public String getName(){return this.name;}
 
@@ -68,34 +64,12 @@ public class Grain implements Inventory,HasFreshness, Serializable {
     }
 
 
-    /**
-     * Get the freshness of a Material
-     * @return The freshness of the Material as a string.
-     */
-
-    @Override
-    public String getFreshness(){
-        return this.freshness;
-    }
-
-
-
-    /**
-     * Change the freshness status of a Material
-     * @param NewFreshness The new freshness status of this Material
-     */
-    @Override
-    public void setFreshness(String NewFreshness){
-        this.freshness = NewFreshness;
-    }
 
     @Override
     public String toString(){
-        String s = "grain,"+this.name+ ","+ this.price +
-                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
+        String s = "semifinished,"+this.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.ExpiryDate;
         return s;
 
     }
-
-
 }

@@ -3,7 +3,7 @@ package use_case;
  * Test for the PlaceOrder class
  */
 
-import entity.Dish;
+import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.customerSystem.PlaceOrder;

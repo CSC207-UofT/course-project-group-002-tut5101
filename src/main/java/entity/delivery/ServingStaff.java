@@ -1,7 +1,8 @@
-package entity;
+package entity.delivery;
 
 
 import constant.orderSystem.ItemStatus;
+import entity.orderList.Dish;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes

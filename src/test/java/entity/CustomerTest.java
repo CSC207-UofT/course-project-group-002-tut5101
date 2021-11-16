@@ -5,7 +5,7 @@ package entity;
  * @author Chan Yu & Naihe Xiao
  */
 
-import entity.Customer;
+import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;
 

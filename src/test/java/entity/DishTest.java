@@ -1,5 +1,6 @@
 package entity;
 
+import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

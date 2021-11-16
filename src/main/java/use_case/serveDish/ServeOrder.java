@@ -2,7 +2,7 @@ package use_case.serveDish;
 
 import use_case.userList.UserList;
 import use_case.boundary.Delivery;
-import entity.ServingStaff;
+import entity.delivery.ServingStaff;
 import entity.User;
 
 public class ServeOrder implements Delivery {

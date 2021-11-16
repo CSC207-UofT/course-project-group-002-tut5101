@@ -1,4 +1,4 @@
-package entity;
+package entity.orderList;
 
 import constant.orderSystem.ItemStatus;
 

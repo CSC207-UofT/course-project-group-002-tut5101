@@ -1,4 +1,4 @@
-package entity;
+package entity.review;
 
 /**
  * Interface of reviewable.

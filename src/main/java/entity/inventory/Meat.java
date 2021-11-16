@@ -1,4 +1,4 @@
-package entity;
+package entity.inventory;
 /**
  * Entity class for meat.
  */
@@ -72,13 +72,10 @@ public class Meat implements Inventory, HasFreshness, Serializable {
      * Get the freshness of a Material
      * @return The freshness of the Material as a string.
      */
-
     @Override
     public String getFreshness(){
         return this.freshness;
     }
-
-
 
     /**
      * Change the freshness status of a Material
@@ -94,7 +91,6 @@ public class Meat implements Inventory, HasFreshness, Serializable {
         String s = "meat,"+this.name+ ","+ this.price +
                 ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
         return s;
-
     }
 
 }

@@ -1,5 +1,6 @@
 package use_case;
 import constant.fileSystem.FileLocation;
+import entity.review.Review;
 import gateway.ReviewReadWriter;
 import use_case.reviewList.ReviewList;
 import org.junit.Before;
@@ -14,9 +15,9 @@ public class ReviewListTest {
 
     @Before
     public void setUp(){
-        rl.addReview(new entity.Review("Amy", false, 5, "good", false, ""));
-        rl.addReview(new entity.Review("Ben", false, 5, "good", false, ""));
-        rl.addReview(new entity.Review("Cissy", true, 1, "not good", true, "bad"));
+        rl.addReview(new Review("Amy", false, 5, "good", false, ""));
+        rl.addReview(new Review("Ben", false, 5, "good", false, ""));
+        rl.addReview(new Review("Cissy", true, 1, "not good", true, "bad"));
     }
 
     @Test

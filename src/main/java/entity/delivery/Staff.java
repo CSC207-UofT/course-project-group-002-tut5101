@@ -1,4 +1,6 @@
-package entity;
+package entity.delivery;
+
+import entity.User;
 
 /**
  * Class for entities.Staff that hold the name, salary, and staff number of a staff

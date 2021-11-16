@@ -6,9 +6,12 @@ package use_case.userList;
 
 import constant.mangerSystem.UserType;
 import entity.*;
-import entity.DeliveryStaff;
-import entity.ServingStaff;
-import entity.InventoryStaff;
+import entity.delivery.DeliveryStaff;
+import entity.delivery.ServingStaff;
+import entity.customer.Customer;
+import entity.inventory.InventoryStaff;
+import entity.kitchen.KitchenStaff;
+import entity.manager.Manager;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package use_case.dishList;
 
-import entity.Dish;
+import entity.orderList.Dish;
 
 import java.io.Serializable;
 import java.util.*;

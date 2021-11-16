@@ -1,4 +1,6 @@
-package entity;
+package entity.manager;
+
+import entity.User;
 
 /**
  * Public class storing information of a manager.

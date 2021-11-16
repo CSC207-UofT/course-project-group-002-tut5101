@@ -1,6 +1,6 @@
-package entity;
+package entity.inventory;
 
-import entity.Staff;
+import entity.delivery.Staff;
 
 /**
  * Entity class for inventory staff.

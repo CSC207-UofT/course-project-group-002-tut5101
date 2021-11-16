@@ -1,4 +1,6 @@
-package entity;
+package entity.customer;
+
+import entity.User;
 
 /**
  * Public class storing information of a customer.

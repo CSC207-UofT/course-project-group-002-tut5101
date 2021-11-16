@@ -1,6 +1,6 @@
 package use_case.kitchen;
 
-import entity.Dish;
+import entity.orderList.Dish;
 import entity.orderList.Order;
 
 import java.util.*;

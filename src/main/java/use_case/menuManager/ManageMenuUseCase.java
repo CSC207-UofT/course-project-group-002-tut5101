@@ -1,7 +1,7 @@
 package use_case.menuManager;
 
 import use_case.boundary.ManageMenuInputBoundary;
-import entity.Dish;
+import entity.orderList.Dish;
 import use_case.dishList.DishList;
 
 import java.util.*;

@@ -1,5 +1,5 @@
 package use_case.inventoryFactory;
-import entity.*;
+import entity.inventory.*;
 
 public class InventoryFactory {
     /**

@@ -2,7 +2,7 @@ package use_case;
 
 
 import constant.fileSystem.FileLocation;
-import entity.Dish;
+import entity.orderList.Dish;
 import gateway.MenuReadWriter;
 import org.junit.Before;
 import org.junit.Test;
