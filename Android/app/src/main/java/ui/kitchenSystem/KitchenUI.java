@@ -27,8 +27,8 @@ public class KitchenUI implements UserInterface {
                     return;
                 }
                 int separator = action.indexOf(";");
-                String dishName = action.substring(0, separator).strip();
-                String temp = action.substring(separator + 1).toLowerCase().strip();
+                String dishName = action.substring(0, separator).trim();
+                String temp = action.substring(separator + 1).toLowerCase().trim();
                 boolean markComplete = temp.equals("cook") || temp.equals("cooked");
                 boolean getIngredient = temp.equals("ingredient") || temp.equals("ingredients");
 
