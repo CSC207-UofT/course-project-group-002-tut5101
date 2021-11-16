@@ -5,9 +5,9 @@
  */
 
 import constant.mangerSystem.UserType;
+import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
-import entity.customer.Customer;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;

@@ -1,8 +1,8 @@
 package use_case.userList;
 
-import use_case.boundary.LoginInputBoundary;
 import constant.uiMessage.LoginResult;
 import entity.User;
+import use_case.boundary.LoginInputBoundary;
 
 import java.util.HashMap;
 

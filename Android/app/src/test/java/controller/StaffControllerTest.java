@@ -1,7 +1,7 @@
 package controller;
 
 import controller.staffSystem.StaffController;
-import entity.*;
+import entity.User;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.orderList.Dish;

@@ -1,9 +1,11 @@
-package ui;
+package ui.managerSystem;
 
 import constant.uiMessage.ManagerUIMessage;
 import controller.managerSystem.ManagerController;
+import ui.UserInterface;
 
 import java.util.Scanner;
+
 /**
  * UI class for manager.
  */

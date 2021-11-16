@@ -1,12 +1,12 @@
 package controller.loginSystem;
 
 import constant.fileSystem.FileLocation;
-import constant.uiMessage.LoginResult;
 import constant.mangerSystem.UserType;
+import constant.uiMessage.LoginResult;
 import gateway.UserReadWriter;
+import use_case.boundary.LoginInputBoundary;
 import use_case.userList.LoginUseCase;
 import use_case.userList.UserList;
-import use_case.boundary.LoginInputBoundary;
 
 /**
  * Controls the process for logging in.

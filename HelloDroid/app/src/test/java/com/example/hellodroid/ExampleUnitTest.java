@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.hellodroid;
 
 import org.junit.Test;
 

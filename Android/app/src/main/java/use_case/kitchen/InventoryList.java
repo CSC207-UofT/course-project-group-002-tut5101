@@ -4,7 +4,6 @@ import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import use_case.inventoryFactory.InventoryFactory;
 
-
 import java.io.Serializable;
 import java.util.HashMap;
 

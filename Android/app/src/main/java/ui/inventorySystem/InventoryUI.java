@@ -1,15 +1,17 @@
-package ui;
+package ui.inventorySystem;
 
 import constant.uiMessage.InventoryManagerMessage;
 import controller.inventorySystem.InventoryManager;
+import ui.UserInterface;
 
 import java.util.Scanner;
+
 /**
  * UI class for inventory staff.
  */
 
 
-public class InventoryUI implements UserInterface{
+public class InventoryUI implements UserInterface {
     private static InventoryManager im;
 
 

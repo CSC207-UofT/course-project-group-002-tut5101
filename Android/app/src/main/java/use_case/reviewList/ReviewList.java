@@ -1,9 +1,10 @@
 package use_case.reviewList;
+
 import entity.review.Review;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;

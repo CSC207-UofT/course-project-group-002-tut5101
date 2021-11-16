@@ -1,7 +1,9 @@
-package ui;
+package ui.kitchenSystem;
 
 import constant.uiMessage.KitchenUIMessage;
 import controller.kitchenSystem.KitchenController;
+import ui.UserInterface;
+
 import java.util.Scanner;
 
 /**

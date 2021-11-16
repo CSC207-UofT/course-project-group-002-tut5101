@@ -1,9 +1,9 @@
 package use_case.deliverOrder;
 
-import use_case.userList.UserList;
-import use_case.boundary.Delivery;
-import entity.delivery.DeliveryStaff;
 import entity.User;
+import entity.delivery.DeliveryStaff;
+import use_case.boundary.Delivery;
+import use_case.userList.UserList;
 
 public class DeliverOrder implements Delivery {
 
