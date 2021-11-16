@@ -1,7 +1,7 @@
 import ui.RestaurantSystem;
 
 /**
- * com.example.csc207project.Main class for this project.
+ * Main class for this project.
  */
 
 

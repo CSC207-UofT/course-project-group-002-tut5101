@@ -1,6 +1,7 @@
 package ui;
 
-import constant.*;
+import constant.mangerSystem.UserType;
+
 /**
  * UI factory for simple factory design pattern.
  */
