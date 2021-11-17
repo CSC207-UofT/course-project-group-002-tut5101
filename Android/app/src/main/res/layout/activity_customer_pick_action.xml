@@ -7,15 +7,22 @@
         android:layout_height="match_parent"
         tools:context=".CustomerPickActionActivity">
 
-    <Button
-            android:text="Place Order"
+    <TextView
+            android:text="@string/welcome_customer"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button"
-            app:backgroundTint="@color/design_default_color_primary_variant"
-            android:onClick="selectSeeMenu" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="136dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="547dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="144dp" android:layout_marginStart="144dp" android:layout_marginEnd="144dp"
-            android:layout_marginRight="144dp" app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_height="wrap_content" android:id="@+id/welcome_customer"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="144dp" android:layout_marginStart="144dp" android:layout_marginEnd="139dp"
+            android:layout_marginRight="139dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <Button
+            android:text="@string/see_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/selectSeeMenu"
+            android:onClick="selectSeeMenu"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_customer" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="162dp" android:layout_marginStart="162dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

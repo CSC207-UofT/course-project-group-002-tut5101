@@ -18,6 +18,8 @@ public class SeeMenuActivity extends AppCompatActivity {
 
         MenuController menuController = new MenuController();
 
-        menuItems.setText(CustomerUIMessage.MENU_TITLE + menuController.dishesInMenuAsString());
+        menuItems.setText(menuController.dishesInMenuAsString());
     }
+
+
 }

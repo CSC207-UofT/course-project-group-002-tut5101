@@ -23,10 +23,6 @@ public class MenuController {
         dishList = new DishList(map);
     }
 
-    //TODO: Add methods to get list of dish names from integer in menu
-
-
-    //TODO: Add method to read things from menu
 
     public List<String> passDishNumbersOrdered(List<Integer> orderedNum) {
         return dishList.getDishNamesFromInt(orderedNum);
