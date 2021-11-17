@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button"
             app:backgroundTint="@color/design_default_color_primary_variant"
-            android:onClick="selectPlaceOrder" app:layout_constraintTop_toTopOf="parent"
+            android:onClick="selectSeeMenu" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="136dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="547dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="144dp" android:layout_marginStart="144dp" android:layout_marginEnd="144dp"

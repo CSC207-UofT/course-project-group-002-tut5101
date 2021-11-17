@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".PlaceOrderActivity">
+        <activity android:name=".SeeMenuActivity">
         </activity>
         <activity android:name=".CustomerPickActionActivity">
         </activity>

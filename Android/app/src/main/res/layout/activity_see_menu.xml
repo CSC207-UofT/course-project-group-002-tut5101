@@ -5,6 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PlaceOrderActivity">
+        tools:context=".SeeMenuActivity">
 
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/menuItems" tools:layout_editor_absoluteY="67dp"
+            tools:layout_editor_absoluteX="155dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

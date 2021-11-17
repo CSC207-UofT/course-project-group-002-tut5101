@@ -14,8 +14,8 @@ public class CustomerPickActionActivity extends AppCompatActivity {
 
     }
 
-    public void selectPlaceOrder(View v) {
-        Intent intent = new Intent(CustomerPickActionActivity.this, PlaceOrderActivity.class);
+    public void selectSeeMenu(View v) {
+        Intent intent = new Intent(CustomerPickActionActivity.this, SeeMenuActivity.class);
         startActivity(intent);
     }
 }
