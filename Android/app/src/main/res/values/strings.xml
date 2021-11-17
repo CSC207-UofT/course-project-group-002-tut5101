@@ -11,4 +11,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_customer">Welcome, Customer</string>
     <string name="see_menu">See Menu</string>
+    <string name="place_order">Place Order</string>
+    <string name="order_dish">Order Dish</string>
 </resources>

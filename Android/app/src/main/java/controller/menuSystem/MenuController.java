@@ -32,6 +32,7 @@ public class MenuController {
         return dishList.toString();
     }
 
+
     public void saveToFile(){
         mrw.saveToFile(FileLocation.MENU_FILE_LOCATION, map);
     }
