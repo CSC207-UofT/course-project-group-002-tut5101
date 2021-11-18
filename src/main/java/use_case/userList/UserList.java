@@ -27,15 +27,15 @@ public class UserList implements Serializable {
         users = new HashMap<>();
     }
 
-    public UserList(HashMap users) {
-        users = users;
+    public UserList(HashMap<String, User> users) {
+        UserList.users = users;
     }
 
     /**
      * Load userList from hashMap
      * @param hashMap the hashMap given by gateway of userList
      */
-    public void loadHashMap(HashMap hashMap){
+    public void loadHashMap(HashMap<String, User> hashMap){
         if(users.isEmpty()){
             users.putAll(hashMap);
         }

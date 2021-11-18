@@ -1,4 +1,4 @@
-package ui;
+package ui.loginPrompt;
 
 import constant.uiMessage.LoginLogoutUIMessage;
 import controller.loginSystem.LoginController;

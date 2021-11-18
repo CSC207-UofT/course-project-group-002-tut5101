@@ -4,8 +4,6 @@ package controller.managerSystem;
 import use_case.boundary.DeleteReviewInputBoundary;
 import use_case.boundary.ManageMenuInputBoundary;
 import constant.fileSystem.FileLocation;
-import gateway.MenuReadWriter;
-import gateway.ReadWriter;
 import use_case.reviewList.DeleteReviewUseCase;
 import use_case.dishList.DishList;
 import use_case.menuManager.ManageMenuUseCase;
@@ -34,8 +32,8 @@ public class ManagerController {
      * @return the DishList type object that contains all dishes saved in menu file.
      */
     private DishList loadMenu() {
-        ReadWriter readWriter = new MenuReadWriter();
-        DishList d = new DishList(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
+
+        DishList d = new DishList();
         return d;
     }
 
@@ -45,8 +43,7 @@ public class ManagerController {
      * @return the ReviewList type object that contains all reviews saved in the review file.
      */
     private ReviewList loadReviewList(){
-        ReadWriter readWriter = new ReviewReadWriter();
-        ReviewList r = new ReviewList(readWriter.readFromFile(FileLocation.REVIEW_LIST_LOCATION));
+        ReviewList r = new ReviewList();
         return r;
     }
 
