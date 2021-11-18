@@ -1,9 +1,7 @@
 package controller.menuSystem;
 
 import constant.fileSystem.FileLocation;
-import gateway.MenuReadWriter;
 import use_case.dishList.DishList;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,13 +12,10 @@ import java.util.List;
 
 public class MenuController {
 
-    private static MenuReadWriter mrw = new MenuReadWriter();
-    private static HashMap map;
     DishList dishList;
 
     public MenuController(){
-        map = mrw.readFromFile(FileLocation.MENU_FILE_LOCATION);
-        dishList = new DishList(map);
+        dishList = new DishList(FileLocation.MENU_FILE_LOCATION);
     }
 
     //TODO: Add methods to get list of dish names from integer in menu
@@ -37,7 +32,7 @@ public class MenuController {
     }
 
     public void saveToFile(){
-        mrw.saveToFile(FileLocation.MENU_FILE_LOCATION, map);
+        this.dishList.saveToFile();
     }
 
 }

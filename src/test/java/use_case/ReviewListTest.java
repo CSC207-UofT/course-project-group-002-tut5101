@@ -21,14 +21,14 @@ public class ReviewListTest {
 
     @Test
     public void testSaveToFile() throws IOException {
-        ReviewReadWriter readWriter = new ReviewReadWriter();
-        readWriter.saveToFile(FileLocation.REVIEW_LIST_LOCATION, rl);
+
+        rl.saveToFile();
     }
 
     @Test
     public void testReadFromFile(){
-        ReviewReadWriter urf = new ReviewReadWriter();
-        ReviewList rl = new ReviewList(urf.readFromFile(FileLocation.USER_FILE_LOCATION));
+
+        ReviewList rl = new ReviewList();
         System.out.println(rl);
     }
 

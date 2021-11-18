@@ -22,8 +22,7 @@ public class LoginController {
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-        UserReadWriter readWriter = new UserReadWriter();
-        this.loginInputBoundary = new LoginUseCase(readWriter.readFromFile(FileLocation.USER_FILE_LOCATION));
+        this.loginInputBoundary = new LoginUseCase(FileLocation.USER_FILE_LOCATION);
     }
 
     /**

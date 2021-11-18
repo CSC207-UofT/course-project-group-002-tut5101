@@ -1,5 +1,7 @@
 package use_case.menuManager;
 
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
 import use_case.boundary.ManageMenuInputBoundary;
 import entity.orderList.Dish;
 import use_case.dishList.DishList;
@@ -9,9 +11,12 @@ import java.util.*;
 public class ManageMenuUseCase implements ManageMenuInputBoundary {
 
     private DishList dishList;
+
+
     public ManageMenuUseCase(DishList dishList) {
         this.dishList = dishList;
     }
+
 
     /**
      * Manager adjust the menu(dish list).

@@ -2,7 +2,6 @@ package controller.inventorySystem;
 
 
 import constant.fileSystem.FileLocation;
-import gateway.InventoryReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
@@ -10,28 +9,21 @@ import java.util.HashMap;
 
 public class InventoryManager {
     private InventoryList inventorys;
-    private final InventoryReadWriter irw = new InventoryReadWriter();
+
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
-    private HashMap map;
 
     public InventoryManager(){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.map = irw.readFromCSV("src/main/resources/inventorydata.csv");
-        this.inventorys = new InventoryList(this.map);
+        this.inventorys = new InventoryList(filepath);
     }
 
     public InventoryManager(String filepath){
         this.filepath = filepath;
-        this.map = irw.readFromFile(filepath);
-        this.inventorys = new InventoryList(this.map);
+        this.inventorys = new InventoryList(filepath);
     }
 
-    public InventoryManager(String filepath,HashMap map){
-        this.filepath = filepath;
-        this.map = map;
-        this.inventorys = new InventoryList(this.map);
-    }
+
 
     public String getInfo(String name){
         if(this.inventorys.checkExist(name)){
@@ -56,7 +48,7 @@ public class InventoryManager {
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, this.map);
+        this.inventorys.SavetoFile();
     }
 
 

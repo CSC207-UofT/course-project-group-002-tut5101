@@ -1,7 +1,13 @@
 package ui;
 
 import constant.mangerSystem.UserType;
-
+import ui.customerSystem.CustomerUI;
+import ui.managerSystem.ManagerUI;
+import ui.deliverOrderSystem.DeliveryStaffUI;
+import ui.inventorySystem.InventoryUI;
+import ui.kitchenSystem.KitchenUI;
+import ui.serveDishSystem.ServingStaffUI;
+import ui.loginPrompt.LoginUI;
 /**
  * UI factory for simple factory design pattern.
  */
