@@ -23,6 +23,11 @@ public class LoginUI {
         switch (controller.runLogin(id, password)) {
             case NO_SUCH_USER:
                 System.out.println(LoginLogoutUIMessage.ASK_FOR_SIGNUP);
+                System.out.println("Please give your id, name and password in format of id,name,password eg. 2,Ben,12345");
+                if (scanner.hasNextLine()) {
+                    String str = scanner.nextLine();
+                    System.out.println(controller.RegisterUser(str));
+                }
                 return null;
             case FAILURE:
                 System.out.println(LoginLogoutUIMessage.LOGIN_FAILED);

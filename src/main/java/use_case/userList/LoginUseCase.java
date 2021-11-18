@@ -1,27 +1,22 @@
 package use_case.userList;
 
-import constant.fileSystem.FileLocation;
-import gateway.SerReadWriter;
-import use_case.boundary.LoginInputBoundary;
 import constant.uiMessage.LoginResult;
 import entity.User;
-
-import java.util.HashMap;
+import use_case.boundary.LoginInputBoundary;
 
 public class LoginUseCase implements LoginInputBoundary {
 
     /**
      * A list of users organized by id.
      */
-    private final UserList users = new UserList();
-    SerReadWriter readWriter = new SerReadWriter();
+    private final UserList users;
 
-    public LoginUseCase(HashMap userMap) {
-        users.loadHashMap(userMap);
+
+    public LoginUseCase() {
+        users = new UserList();
     }
     public LoginUseCase(String filepath){
-        HashMap map = readWriter.readFromFile(filepath);
-        users.loadHashMap(map);
+        users = new UserList(filepath);
     }
     /**
      * Run the login use case.
@@ -40,5 +35,12 @@ public class LoginUseCase implements LoginInputBoundary {
         } else {
             return LoginResult.FAILURE;
         }
+    }
+
+    public String Register(String[] para){
+
+        String message =  this.users.addNewUser(para[0],para[1],para[2]);
+        this.users.SavetoFile();
+        return message;
     }
 }

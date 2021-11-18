@@ -29,6 +29,10 @@ public class ReviewController {
         reviews.addReview(name, ifAnonymous, rate, comment, ifComplain, complaint);
     }
 
+    public int sizeofReview(){
+        return this.reviews.sizeofList();
+    }
+
     public void saveToFile(){
         reviews.saveToFile();}
 }

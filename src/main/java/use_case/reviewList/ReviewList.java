@@ -67,6 +67,10 @@ public class ReviewList implements Serializable {
         reviews.put(5, new ArrayList<>());
     }
 
+    public int sizeofList(){
+        return reviews.size();
+    }
+
     public void saveToFile() {
         rrw.saveToFile(this.filepath, this.reviews);
     }

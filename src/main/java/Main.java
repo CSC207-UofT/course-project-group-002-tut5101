@@ -1,4 +1,4 @@
-import ui.RestaurantSystem;
+import ui.managerSystem.RestaurantSystem;
 
 /**
  * Main class for this project.
@@ -13,6 +13,9 @@ public class Main {
             RestaurantSystem system = new RestaurantSystem();
             system.run();
         }
+
+
+
     }
 }
 
