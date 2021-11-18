@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
+        <activity android:name=".LoginActivity">
+        </activity>
         <activity android:name=".PlaceOrderActivity">
         </activity>
         <activity android:name=".SeeMenuActivity">

@@ -8,8 +8,19 @@
         tools:context=".SeeMenuActivity">
 
     <TextView
-            android:text="TextView"
+            android:text="@string/menu_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/menuItems" tools:layout_editor_absoluteY="67dp"
-            tools:layout_editor_absoluteX="155dp"/>
+            android:layout_height="wrap_content" android:id="@+id/menuTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="176dp" android:layout_marginStart="176dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp"/>
+    <ScrollView
+            android:layout_width="409dp"
+            android:layout_height="643dp"
+            android:id="@+id/menuItems" android:layout_marginTop="18dp"
+            app:layout_constraintTop_toBottomOf="@+id/menuTitle" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="88dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"/>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

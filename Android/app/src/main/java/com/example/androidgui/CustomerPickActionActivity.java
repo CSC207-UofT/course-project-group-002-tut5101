@@ -23,4 +23,9 @@ public class CustomerPickActionActivity extends AppCompatActivity {
         Intent intent = new Intent(CustomerPickActionActivity.this, PlaceOrderActivity.class);
         startActivity(intent);
     }
+
+    public void selectExit(View v) {
+        Intent intent = new Intent(CustomerPickActionActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

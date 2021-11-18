@@ -13,4 +13,9 @@
     <string name="see_menu">See Menu</string>
     <string name="place_order">Place Order</string>
     <string name="order_dish">Order Dish</string>
+    <string name="staff_login">Staff Login</string>
+    <string name="i_am_a_customer">I am a customer</string>
+    <string name="logout">Logout</string>
+    <string name="menu_title">~Menu~</string>
+    <string name="exit">Exit</string>
 </resources>
