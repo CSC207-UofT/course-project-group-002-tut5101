@@ -3,7 +3,6 @@ package use_case;
 
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
-import gateway.MenuReadWriter;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dishList.DishList;
@@ -67,20 +66,6 @@ public class DishListTest {
         assertEquals(menu.getDishByDishName("Poutine"), testDish);
     }
 
-    //TODO delete this test case
-    @Test
-    public void testSaveToFile() {
-        MenuReadWriter readWriter = new MenuReadWriter();
-        readWriter.saveToFile(FileLocation.MENU_FILE_LOCATION, menu.getAllDishes());
-    }
 
-    //TODO delete this test case
-    @Test
-    public void testReadFromFile() {
-        MenuReadWriter readWriter = new MenuReadWriter();
-        DishList menu = new DishList();
-        menu.loadHashMap(readWriter.readFromFile(FileLocation.MENU_FILE_LOCATION));
-        System.out.println(menu);
-    }
 
 }

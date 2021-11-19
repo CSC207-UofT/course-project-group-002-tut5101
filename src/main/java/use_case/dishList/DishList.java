@@ -14,11 +14,11 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static Map<String, Dish> menu = new HashMap<>();
+    private static Map<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter = new SerReadWriter();
-    private String filepath = FileLocation.MENU_FILE_LOCATION;
+    private String filepath;
 
 
     /**
@@ -34,13 +34,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         menu = map;
     }
 
-    /**
-     * This constructor is using hash map to initialize dishList
-     * @param map hash map type of dishList
-     */
-    public DishList(HashMap<String, Dish> map) {
-        menu = map;
-    }
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -225,7 +218,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile(){
-        readWriter.saveToFile(this.filepath, menu);
+        readWriter.saveToFile(this.filepath, this.menu);
     }
 
 

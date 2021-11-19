@@ -7,6 +7,8 @@ import use_case.userList.LoginUseCase;
 import use_case.userList.UserList;
 import use_case.boundary.LoginInputBoundary;
 
+import java.util.Scanner;
+
 /**
  * Controls the process for logging in.
  */
@@ -52,5 +54,10 @@ public class LoginController {
      */
     public UserType getUserTypeById(String id){
         return UserList.getUserTypeById(id);
+    }
+
+    public String RegisterUser(String info){
+        String[] para = info.split(",");
+        return loginInputBoundary.Register(para);
     }
 }

@@ -12,10 +12,10 @@ import java.util.List;
 
 public class MenuController {
 
-    DishList dishList;
+    public DishList dishList;
 
     public MenuController(){
-        dishList = new DishList(FileLocation.MENU_FILE_LOCATION);
+        dishList = new DishList("src/main/resources/menu.ser");
     }
 
     //TODO: Add methods to get list of dish names from integer in menu

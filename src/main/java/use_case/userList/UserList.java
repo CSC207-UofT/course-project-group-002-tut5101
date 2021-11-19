@@ -4,6 +4,7 @@ package use_case.userList;
   @author Chan Yu & Naihe Xiao
  */
 
+import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.*;
 import entity.delivery.DeliveryStaff;
@@ -12,6 +13,7 @@ import entity.customer.Customer;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -22,24 +24,17 @@ public class UserList implements Serializable {
 
     private static Map<String, User> users = new HashMap<>();
     private static final long serialVersionUID = 1L;
-
+    SerReadWriter readWriter = new SerReadWriter();
+    private String filepath = FileLocation.USER_FILE_LOCATION;
     public UserList() {
-        users = new HashMap<>();
+        users = readWriter.readFromFile(filepath);
     }
 
-    public UserList(HashMap<String, User> users) {
-        UserList.users = users;
+    public UserList(String filepath) {
+        this.filepath = filepath;
+        UserList.users =readWriter.readFromFile(filepath);;
     }
 
-    /**
-     * Load userList from hashMap
-     * @param hashMap the hashMap given by gateway of userList
-     */
-    public void loadHashMap(HashMap<String, User> hashMap){
-        if(users.isEmpty()){
-            users.putAll(hashMap);
-        }
-    }
 
 
 
@@ -50,6 +45,14 @@ public class UserList implements Serializable {
      */
     public static void addUser(User user) {
         users.put(user.getId(), user);
+    }
+
+    public String addNewUser(String id, String name, String password) {
+        User user = new User(id,name,password);
+        if(users.containsKey(user.getId())){return "Used id, please change";}
+        else{users.put(user.getId(), user);
+        return "Successfully added";}
+
     }
 
     /**
@@ -104,4 +107,6 @@ public class UserList implements Serializable {
         }
         return builder.toString();
     }
+
+    public void SavetoFile(){this.readWriter.saveToFile(this.filepath,this.users);}
 }
