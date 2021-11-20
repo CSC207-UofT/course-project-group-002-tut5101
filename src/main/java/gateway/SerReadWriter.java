@@ -46,7 +46,8 @@ public class SerReadWriter implements ReadWriter {
             // serialize the Map
             dishes = (HashMap) input.readObject();
             input.close();
-        } catch (IOException | ClassNotFoundException e) {
+
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
         return dishes;
