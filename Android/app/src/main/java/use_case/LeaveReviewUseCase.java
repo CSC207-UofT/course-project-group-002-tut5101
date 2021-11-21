@@ -1,8 +1,9 @@
 package use_case;
 
-import entity.Customer;
-import entity.Order;
-import entity.ServingStaff;
+
+import entity.customer.Customer;
+import entity.delivery.ServingStaff;
+import entity.orderList.Order;
 
 public class LeaveReviewUseCase {
 

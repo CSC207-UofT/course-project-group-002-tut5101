@@ -1,7 +1,7 @@
 package use_case;
 
-import entity.Customer;
-import entity.ServingStaff;
+import entity.customer.Customer;
+import entity.delivery.ServingStaff;
 
 public class AssistanceUseCase {
 

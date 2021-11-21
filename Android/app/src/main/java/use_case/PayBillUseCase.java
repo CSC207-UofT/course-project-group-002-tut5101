@@ -1,6 +1,6 @@
 package use_case;
 
-import entity.Customer;
+import entity.customer.Customer;
 
 public class PayBillUseCase {
 

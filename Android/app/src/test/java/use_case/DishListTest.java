@@ -22,23 +22,23 @@ public class DishListTest {
 
     @Before
     public void setUp() {
-        ingredient1 = new HashMap<>() {{
+        ingredient1 = new HashMap<String, Double>() {{
             put("Meat", 10.0);
             put("Cheese", 13.0);
         }};
-        ingredient2 = new HashMap<>() {{
+        ingredient2 = new HashMap<String, Double>() {{
             put("Potato", 11.0);
         }};
-        ingredient3 = new HashMap<>() {{
+        ingredient3 = new HashMap<String, Double>() {{
             put("Coke", 1.0);
         }};
-        ingredient4 = new HashMap<>() {{
+        ingredient4 = new HashMap<String, Double>() {{
             put("Coffee", 1.0);
         }};
-        ingredient5 = new HashMap<>() {{
+        ingredient5 = new HashMap<String, Double>() {{
             put("Milk Tea", 1.0);
         }};
-        ingredient6 = new HashMap<>() {{
+        ingredient6 = new HashMap<String, Double>() {{
             put("Potato", 1.0);
             put("Cheese", 2.5);
         }};
