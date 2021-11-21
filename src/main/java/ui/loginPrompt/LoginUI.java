@@ -2,12 +2,14 @@ package ui.loginPrompt;
 
 import constant.uiMessage.LoginLogoutUIMessage;
 import controller.loginSystem.LoginController;
+import presenter.LoginPresenter;
 
 import java.util.Scanner;
 
 public class LoginUI {
 
-    private final LoginController controller = new LoginController();
+    private final LoginPresenter presenter = new LoginPresenter();
+    private final LoginController controller = new LoginController(presenter);
 
     /**
      * Cmd UI of login.
@@ -20,6 +22,7 @@ public class LoginUI {
         String id = scanner.nextLine();
         System.out.println(LoginLogoutUIMessage.ASK_FOR_PASSWORD);
         String password = scanner.nextLine();
+
         switch (controller.runLogin(id, password)) {
             case NO_SUCH_USER:
                 System.out.println(LoginLogoutUIMessage.ASK_FOR_SIGNUP);
