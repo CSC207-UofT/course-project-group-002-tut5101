@@ -2,6 +2,7 @@ package ui.managerSystem;
 
 import constant.mangerSystem.UserType;
 import controller.loginSystem.LoginController;
+import presenter.LoginPresenter;
 import ui.UIFactory;
 import ui.loginPrompt.LoginUI;
 
@@ -10,7 +11,7 @@ public class RestaurantSystem {
     private boolean login;
     private String currentUserId;
 
-    private final LoginController loginController = new LoginController();
+    private final LoginController loginController = new LoginController(new LoginPresenter());
 
 
     /**
