@@ -14,7 +14,9 @@ public class ReviewList implements Serializable {
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
 
     public ReviewList() {
-        this.reviews = new HashMap<>();
+        rrw = new SerReadWriter();
+        HashMap map = rrw.readFromFile(filepath);
+        this.reviews  = map;
     }
 
     public ReviewList(String filepath) {

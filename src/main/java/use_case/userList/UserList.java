@@ -28,6 +28,7 @@ public class UserList implements Serializable {
     ReadWriter readWriter;
     private String filepath = FileLocation.USER_FILE_LOCATION;
     public UserList() {
+        readWriter = new SerReadWriter();
         users = readWriter.readFromFile(filepath);
     }
 
@@ -50,7 +51,7 @@ public class UserList implements Serializable {
     }
 
     public String addNewUser(String id, String name, String password) {
-        User user = new User(id,name,password);
+        User user = new Customer(id,name,password);
         if(users.containsKey(user.getId())){return "Used id, please change";}
         else{users.put(user.getId(), user);
         return "Successfully added";}

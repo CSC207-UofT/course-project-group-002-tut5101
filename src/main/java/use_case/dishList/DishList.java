@@ -18,14 +18,15 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
-    private String filepath;
+    private String filepath = FileLocation.MENU_FILE_LOCATION;
 
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        menu = new HashMap<>();
+        readWriter = new SerReadWriter();
+        menu = readWriter.readFromFile(filepath);
     }
 
     public DishList(String filepath) {
