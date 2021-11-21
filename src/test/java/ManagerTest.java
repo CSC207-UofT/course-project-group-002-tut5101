@@ -4,7 +4,7 @@
 // * @author Chan Yu & Naihe Xiao
 // */
 //
-//import entity.Manager;
+//import entity.manager.Manager;
 //import org.junit.Before;
 //import org.junit.Test;
 //

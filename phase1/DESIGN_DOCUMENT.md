@@ -106,7 +106,7 @@ manager system, and inventory staff system.
 Our packaging strategy is packaging by the layers in the clean architecture, from lower to higher, there are layers of
 enterprise business rules, application business rules, interface adapters, frameworks and drivers levels. Under the
 top-level package of `java`, we have the packages `entity`, `use_case`, `controller`, `gateway`, `ui`, each of which
-represents a layer of the system by levels.
+represents a layer of the system by levels. Under each layer, the sub-packages are created according to components.
 
 1. Enterprise business rules level
     - The `entity` package contains all the classes representing entities of the system and their corresponding methods

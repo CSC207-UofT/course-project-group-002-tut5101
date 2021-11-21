@@ -1,6 +1,7 @@
 package controller;
 
-import gateway.InventoryReadWriter;
+import controller.inventorySystem.InventoryManager;
+
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -8,9 +9,8 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 
 public class InventoryManagerTest {
-    InventoryReadWriter irw = new InventoryReadWriter();
-    HashMap map = irw.readFromFile("src/main/resources/inventory.ser");
-    InventoryManager im = new InventoryManager("src/test/resources/inventory.ser",map);
+
+    InventoryManager im = new InventoryManager();
 
     @Test
     public void testGetinfo(){
@@ -32,7 +32,6 @@ public class InventoryManagerTest {
         im.newQuantity("potato","3");
         im.SavetoFile();
         String info = "vegefruit,potato,2.99,31.0,A,20211028";
-        System.out.println(map.containsKey("potato"));
         assertEquals(info, im.getInfo("potato"));
 
     }
