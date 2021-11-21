@@ -26,14 +26,13 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public DishList() {
         readWriter = new SerReadWriter();
-        menu = new HashMap<>();
+        menu = readWriter.readFromFile(filepath);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
-        HashMap map = readWriter.readFromFile(filepath);
-        menu = map;
+        menu = readWriter.readFromFile(filepath);
     }
 
 

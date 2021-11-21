@@ -22,8 +22,7 @@ public class ReviewList implements Serializable {
     public ReviewList(String filepath) {
         this.filepath = filepath;
         rrw = new SerReadWriter();
-        HashMap map = rrw.readFromFile(filepath);
-        this.reviews  = map;
+        this.reviews  = rrw.readFromFile(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){

@@ -21,18 +21,18 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private final ReadWriter irw;
-    private final String filepath;
+    private ReadWriter irw;
+    private String filepath;
     public InventoryList(){
         this.filepath = null;
-        irw = new SerReadWriter();
-        myDict = new HashMap<>();}
+        myDict = new HashMap<>();
+    }
 
-    public InventoryList(String filepath){
+    public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
         this.myDict = irw.readFromFile(filepath);
-        }
+    }
 
 
     /**
