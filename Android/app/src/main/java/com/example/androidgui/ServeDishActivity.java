@@ -8,8 +8,8 @@ public class ServeDishActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.staff);
-        TextView header = (TextView) findViewById(R.id.header);
-        header.setText("Serve Dish System");
+        setContentView(R.layout.activity_staff);
+        TextView header = findViewById(R.id.header);
+        header.setText(R.string.serve_dish_header);
     }
 }
