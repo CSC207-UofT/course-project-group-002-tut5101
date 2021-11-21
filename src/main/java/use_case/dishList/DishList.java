@@ -17,19 +17,21 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static Map<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter = new SerReadWriter();
-    private String filepath;
+    ReadWriter readWriter;
+    private String filepath = FileLocation.MENU_FILE_LOCATION;
 
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
+        readWriter = new SerReadWriter();
         menu = new HashMap<>();
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
+        readWriter = new SerReadWriter();
         HashMap map = readWriter.readFromFile(filepath);
         menu = map;
     }

@@ -24,14 +24,16 @@ public class UserList implements Serializable {
 
     private static Map<String, User> users = new HashMap<>();
     private static final long serialVersionUID = 1L;
-    SerReadWriter readWriter = new SerReadWriter();
+    SerReadWriter readWriter;
     private String filepath = FileLocation.USER_FILE_LOCATION;
     public UserList() {
+        readWriter = new SerReadWriter();
         users = readWriter.readFromFile(filepath);
     }
 
     public UserList(String filepath) {
         this.filepath = filepath;
+        readWriter = new SerReadWriter();
         UserList.users =readWriter.readFromFile(filepath);;
     }
 
@@ -48,7 +50,7 @@ public class UserList implements Serializable {
     }
 
     public String addNewUser(String id, String name, String password) {
-        User user = new User(id,name,password);
+        User user = new Customer(id,name,password);
         if(users.containsKey(user.getId())){return "Used id, please change";}
         else{users.put(user.getId(), user);
         return "Successfully added";}
