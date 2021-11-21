@@ -2,6 +2,7 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.ReadWriter;
 import gateway.SerReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
 
@@ -20,16 +21,18 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private final SerReadWriter irw = new SerReadWriter();
-    private final String filepath;
+    private ReadWriter irw;
+    private String filepath;
     public InventoryList(){
         this.filepath = null;
-        myDict = new HashMap<>();}
+        myDict = new HashMap<>();
+    }
 
-    public InventoryList(String filepath){
+    public InventoryList(String filepath) {
         this.filepath = filepath;
+        irw = new SerReadWriter();
         this.myDict = irw.readFromFile(filepath);
-        }
+    }
 
 
     /**

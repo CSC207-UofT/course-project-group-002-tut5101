@@ -17,7 +17,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static Map<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter = new SerReadWriter();
+    ReadWriter readWriter;
     private String filepath;
 
 
@@ -30,8 +30,8 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     public DishList(String filepath) {
         this.filepath = filepath;
-        HashMap map = readWriter.readFromFile(filepath);
-        menu = map;
+        readWriter = new SerReadWriter();
+        menu = readWriter.readFromFile(filepath);
     }
 
 

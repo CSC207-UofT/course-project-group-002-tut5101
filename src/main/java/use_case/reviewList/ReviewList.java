@@ -1,6 +1,7 @@
 package use_case.reviewList;
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
+import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
-    private static SerReadWriter rrw = new SerReadWriter();
+    private static ReadWriter rrw;
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
 
     public ReviewList() {
@@ -18,8 +19,8 @@ public class ReviewList implements Serializable {
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
-        HashMap map = rrw.readFromFile(filepath);
-        this.reviews  = map;
+        rrw = new SerReadWriter();
+        this.reviews  = rrw.readFromFile(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){

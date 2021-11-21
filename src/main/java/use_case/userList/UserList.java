@@ -13,6 +13,7 @@ import entity.customer.Customer;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
 import java.io.Serializable;
@@ -22,9 +23,9 @@ import java.util.Map;
 
 public class UserList implements Serializable {
 
-    private static Map<String, User> users = new HashMap<>();
+    private static Map<String, User> users;
     private static final long serialVersionUID = 1L;
-    SerReadWriter readWriter = new SerReadWriter();
+    ReadWriter readWriter;
     private String filepath = FileLocation.USER_FILE_LOCATION;
     public UserList() {
         users = readWriter.readFromFile(filepath);
@@ -32,7 +33,8 @@ public class UserList implements Serializable {
 
     public UserList(String filepath) {
         this.filepath = filepath;
-        UserList.users =readWriter.readFromFile(filepath);;
+        readWriter = new SerReadWriter();
+        UserList.users =readWriter.readFromFile(filepath);
     }
 
 
