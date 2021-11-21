@@ -22,4 +22,6 @@
     <string name="deliver_order_header">Delivery System</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+    <string name="dish_names">Dish Names</string>
+    <string name="quantity">Quantity</string>
 </resources>

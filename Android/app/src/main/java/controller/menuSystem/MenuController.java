@@ -1,8 +1,8 @@
 package controller.menuSystem;
 
-import constant.fileSystem.FileLocation;
+import use_case.boundary.output.MenuOutputBoundary;
 import use_case.dishList.DishList;
-import java.util.HashMap;
+
 import java.util.List;
 
 /**
@@ -29,6 +29,18 @@ public class MenuController {
 
     public String dishesInMenuAsString() {
         return dishList.toString();
+    }
+
+    public void numberOfDishesInMenu(MenuOutputBoundary menuOutputBoundary) {
+        dishList.numberOfDishesForPresenter(menuOutputBoundary);
+    }
+
+    public void allDishNames(MenuOutputBoundary menuOutputBoundary) {
+        dishList.getAllDishNamesAsListForPresenter(menuOutputBoundary);
+    }
+
+    public void passDishesOrdered(MenuOutputBoundary menuOutputBoundary, int dishNameIndex, int dishQuantity) {
+        dishList.passDishesOrdered(menuOutputBoundary, dishNameIndex, dishQuantity);
     }
 
     public void saveToFile(){

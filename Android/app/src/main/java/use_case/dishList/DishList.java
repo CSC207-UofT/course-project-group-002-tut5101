@@ -1,9 +1,11 @@
 package use_case.dishList;
 
 import constant.fileSystem.FileLocation;
+import controller.menuSystem.MenuController;
 import entity.orderList.Dish;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
+import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -18,6 +20,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
+    String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
 
 
@@ -27,12 +30,14 @@ public class DishList implements Serializable, Iterable<Dish> {
     public DishList() {
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
+        dishNames = menu.keySet().toArray(new String[menu.size()]);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
+        dishNames = menu.keySet().toArray(new String[menu.size()]);
     }
 
 
@@ -217,6 +222,36 @@ public class DishList implements Serializable, Iterable<Dish> {
     public Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
+
+
+    /**
+     *
+     * @param menuOutputBoundary the presenter that needs the size of the dishList
+     */
+    public void numberOfDishesForPresenter(MenuOutputBoundary menuOutputBoundary){
+        int numberOfDishes = menu.size();
+        menuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+    }
+
+    /**
+     *
+     * @param menuOutputBoundary the presenter that needs the array of dish names
+     */
+    public void getAllDishNamesAsListForPresenter(MenuOutputBoundary menuOutputBoundary) {
+        menuOutputBoundary.setDisplayedDishNames(dishNames);
+    }
+
+    /**
+     *
+     * @param menuOutputBoundary the presenter that needs to update dishes ordered
+     * @param dishNameIndex the index of the dish ordered
+     * @param dishQuantity the quantity of the dish ordered
+     */
+    public void passDishesOrdered(MenuOutputBoundary menuOutputBoundary, int dishNameIndex, int dishQuantity) {
+        String dishName = dishNames[dishNameIndex];
+        menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
+    }
+
 
     public void saveToFile(){
         readWriter.saveToFile(this.filepath, this.menu);
