@@ -1,10 +1,7 @@
 package controller.reviewSystem;
 
 import constant.fileSystem.FileLocation;
-import gateway.ReviewReadWriter;
 import use_case.reviewList.ReviewList;
-
-import java.util.HashMap;
 
 /**
  * Controller class for review.
@@ -12,21 +9,30 @@ import java.util.HashMap;
 
 
 public class ReviewController {
-    private static HashMap map;
+    private final String filepath;
     private static ReviewList reviews;
-    private static ReviewReadWriter rrw = new ReviewReadWriter();
+
 
     public ReviewController() {
-        map = rrw.readFromFile(FileLocation.REVIEW_LIST_LOCATION);
-        reviews = new ReviewList(map);
+        this.filepath = FileLocation.REVIEW_LIST_LOCATION;
+        reviews = new ReviewList(this.filepath);
     }
 
-    public void saveToFile() {
-        rrw.saveToFile(FileLocation.REVIEW_LIST_LOCATION, map);
+    public ReviewController(String filepath) {
+        this.filepath = filepath;
+        reviews = new ReviewList(filepath);
     }
+
 
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
                                 String comment, boolean ifComplain, String complaint) {
         reviews.addReview(name, ifAnonymous, rate, comment, ifComplain, complaint);
     }
+
+    public int sizeofReview(){
+        return this.reviews.sizeofList();
+    }
+
+    public void saveToFile(){
+        reviews.saveToFile();}
 }

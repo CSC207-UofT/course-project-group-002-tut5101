@@ -1,11 +1,10 @@
 package ui.serveDishSystem;
+import java.util.*;
 
 import constant.uiMessage.LoginLogoutUIMessage;
 import constant.uiMessage.StaffUIMessage;
 import controller.staffSystem.StaffController;
 import ui.UserInterface;
-
-import java.util.Scanner;
 
 /**
  * UI class for serving staff.

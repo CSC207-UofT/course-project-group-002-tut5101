@@ -1,6 +1,9 @@
 package use_case.dishList;
 
+import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.*;
@@ -11,25 +14,27 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static Map<String, Dish> menu = new HashMap<>();
+    private static Map<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
+    ReadWriter readWriter;
+    private String filepath = FileLocation.MENU_FILE_LOCATION;
 
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        menu = new HashMap<>();
+        readWriter = new SerReadWriter();
+        menu = readWriter.readFromFile(filepath);
     }
 
-    /**
-     * This constructor is using hash map to initialize dishList
-     * @param map hash map type of dishList
-     */
-    public DishList(HashMap map) {
-        menu = map;
+    public DishList(String filepath) {
+        this.filepath = filepath;
+        readWriter = new SerReadWriter();
+        menu = readWriter.readFromFile(filepath);
     }
+
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -42,15 +47,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         }
     }
 
-    /**
-     * Load a whole hash map
-     * @param hashMap Thehash map to be loaded to menu
-     */
-    public void loadHashMap(HashMap hashMap){
-        if(menu.isEmpty()){
-            menu.putAll(hashMap);
-        }
-    }
 
 
     /**
@@ -68,14 +64,15 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return a string representation of the list of Dishes
      */
+
     @Override
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
-        keySet = new HashMap<Integer, String>();
+        keySet = new HashMap<>();
         for (String dishName : menu.keySet()) {
-            menuString.append(dishNumber + ". " + menu.get(dishName).toString());
-            keySet.put(dishNumber, menu.get(dishName).getName());
+            menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
+            keySet.put(dishNumber, Objects.requireNonNull(menu.get(dishName)).getName());
             dishNumber++;
         }
         return menuString.toString();
@@ -89,7 +86,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return The price of the dish as a double
      */
     public static double getDishPrice(String dishName) {
-        return menu.get(dishName).getPrice();
+        return Objects.requireNonNull(menu.get(dishName)).getPrice();
     }
 
     /**
@@ -98,7 +95,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return The hashMap representing the ingredients and their amount needed for the dish named dishName
      */
     public static HashMap<String, Double> getDishIngredients(String dishName) {
-        return menu.get(dishName).getIngredients();
+        return Objects.requireNonNull(menu.get(dishName)).getIngredients();
     }
 
     /**
@@ -107,7 +104,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return Calories of the dish as double
      */
     public static double getDishCalories(String dishName) {
-        return menu.get(dishName).getCalories();
+        return Objects.requireNonNull(menu.get(dishName)).getCalories();
     }
 
 
@@ -117,7 +114,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return The category of the dish as string
      */
     public static String getDishCategory(String dishName) {
-        return menu.get(dishName).getCategory();
+        return Objects.requireNonNull(menu.get(dishName)).getCategory();
     }
 
     /**
@@ -134,7 +131,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return The dish
      */
     public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
-        List<String> dishes = new ArrayList<String>();
+        List<String> dishes = new ArrayList<>();
         for (int num : orderedNum) {
             dishes.add(keySet.get(num));
         }
@@ -154,7 +151,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     /**
      * An Iterator for DishList.
      */
-    public class DishListIterator implements Iterator<Dish> {
+    public static class DishListIterator implements Iterator<Dish> {
 
         /**
          * The index of the next Dish to return.
@@ -221,6 +218,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menu.get(dishName);
     }
 
+    public void saveToFile(){
+        readWriter.saveToFile(this.filepath, this.menu);
+    }
 
 
 }

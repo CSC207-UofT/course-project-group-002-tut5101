@@ -5,7 +5,6 @@ import controller.managerSystem.ManagerController;
 import ui.UserInterface;
 
 import java.util.Scanner;
-
 /**
  * UI class for manager.
  */

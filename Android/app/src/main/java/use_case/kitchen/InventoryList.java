@@ -2,10 +2,14 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
+
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 public class InventoryList implements Serializable {
@@ -17,10 +21,18 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
+    private ReadWriter irw;
+    private String filepath;
+    public InventoryList(){
+        this.filepath = null;
+        myDict = new HashMap<>();
+    }
 
-    public InventoryList(){ myDict = new HashMap<>();}
-
-    public InventoryList(HashMap map){myDict = map;}
+    public InventoryList(String filepath) {
+        this.filepath = filepath;
+        irw = new SerReadWriter();
+        this.myDict = irw.readFromFile(filepath);
+    }
 
 
     /**
@@ -65,7 +77,7 @@ public class InventoryList implements Serializable {
      * This method should only be called after checkExist to ensure not error occur.
      */
     public String getInfo(String name) {
-        return myDict.get(name).toString();
+        return Objects.requireNonNull(myDict.get(name)).toString();
     }
 
 
@@ -85,7 +97,7 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public String getFreshness(String name) {
-        return ((HasFreshness) myDict.get(name)).getFreshness();
+        return ((HasFreshness) Objects.requireNonNull(myDict.get(name))).getFreshness();
     }
 
 
@@ -97,7 +109,7 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        ((HasFreshness) myDict.get(name)).setFreshness(newFreshness);
+        ((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);
     }
 
 
@@ -138,6 +150,10 @@ public class InventoryList implements Serializable {
             return;
         }
         getItem(name).updateQuantity(usage);
+    }
+
+    public void SavetoFile(){
+        this.irw.saveToFile(this.filepath, this.myDict);
     }
 
 

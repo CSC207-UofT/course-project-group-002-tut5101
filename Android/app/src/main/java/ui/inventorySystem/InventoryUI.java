@@ -5,7 +5,6 @@ import controller.inventorySystem.InventoryManager;
 import ui.UserInterface;
 
 import java.util.Scanner;
-
 /**
  * UI class for inventory staff.
  */

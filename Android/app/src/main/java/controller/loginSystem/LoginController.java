@@ -1,10 +1,9 @@
 package controller.loginSystem;
 
-import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import constant.uiMessage.LoginResult;
-import gateway.UserReadWriter;
 import use_case.boundary.LoginInputBoundary;
+import use_case.boundary.output.LoginOutputBoundary;
 import use_case.userList.LoginUseCase;
 import use_case.userList.UserList;
 
@@ -22,9 +21,8 @@ public class LoginController {
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
-    public LoginController() {
-        UserReadWriter readWriter = new UserReadWriter();
-        this.loginInputBoundary = new LoginUseCase(readWriter.readFromFile(FileLocation.USER_FILE_LOCATION));
+    public LoginController(LoginOutputBoundary loginOutputBoundary) {
+        this.loginInputBoundary = new LoginUseCase(loginOutputBoundary);
     }
 
     /**
@@ -35,17 +33,21 @@ public class LoginController {
      * @return the result of user login attempt
      */
     public LoginResult runLogin(String id, String password) {
-        LoginResult result = loginInputBoundary.logIn(id, password);
-        switch (result) {
-            case SUCCESS:
-                return LoginResult.SUCCESS;
-            case FAILURE:
-                return LoginResult.FAILURE;
-            case NO_SUCH_USER:
-                return LoginResult.NO_SUCH_USER;
-        }
-        return result;
+        return loginInputBoundary.logIn(id, password);
     }
+
+//    public LoginResult runLogin(String id, String password) {
+//        LoginResult result = loginInputBoundary.logIn(id, password);
+//        switch (result) {
+//            case SUCCESS:
+//                return LoginResult.SUCCESS;
+//            case FAILURE:
+//                return LoginResult.FAILURE;
+//            case NO_SUCH_USER:
+//                return LoginResult.NO_SUCH_USER;
+//        }
+//        return result;
+//    }
 
     /**
      * Return UserType based on the login user id
@@ -54,5 +56,10 @@ public class LoginController {
      */
     public UserType getUserTypeById(String id){
         return UserList.getUserTypeById(id);
+    }
+
+    public String RegisterUser(String info){
+        String[] para = info.split(",");
+        return loginInputBoundary.Register(para);
     }
 }

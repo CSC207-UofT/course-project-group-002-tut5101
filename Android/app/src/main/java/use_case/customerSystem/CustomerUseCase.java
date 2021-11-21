@@ -1,8 +1,8 @@
 package use_case.customerSystem;
 
 import entity.customer.Customer;
-import entity.delivery.ServingStaff;
 import entity.orderList.Order;
+import entity.delivery.ServingStaff;
 
 public class CustomerUseCase {
 

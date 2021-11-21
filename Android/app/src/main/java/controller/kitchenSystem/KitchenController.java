@@ -4,7 +4,6 @@ import use_case.dishList.DishList;
 import use_case.kitchen.InventoryList;
 import use_case.kitchen.Kitchen;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -122,7 +121,7 @@ public class KitchenController {
         updateInventory(dishName);
 
         if (dishes.get(dishName) > 1) {
-            dishes.put(dishName, dishes.get(dishName) - 1);
+            dishes.replace(dishName, dishes.get(dishName) - 1);
         } else {
             dishes.remove(dishName);
         }
@@ -144,23 +143,5 @@ public class KitchenController {
     }
 
 
-    /**
-     * @return dishes as list of size 2 string array, each being the name of the dish and
-     * the quantity of the dish.
-     */
-    public ArrayList<String[]> exportDishes() {
-        ArrayList<String[]> displayDishes = new ArrayList<>();
-//        for (String a: dishes.keySet()) {
-//            displayDishes.add(new String[]{a, String.valueOf(dishes.get(a))});
-//        }
-//
-//        return displayDishes;
-        displayDishes.add(new String[]{"Zoulan", "1"});
-        displayDishes.add(new String[]{"Tyrant", "3"});
-        displayDishes.add(new String[]{"Cori", "2"});
-        displayDishes.add(new String[]{"Bobby", "1"});
-        return displayDishes;
-
-    }
 
 }
