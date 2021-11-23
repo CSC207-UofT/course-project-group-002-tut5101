@@ -15,6 +15,5 @@ public class AssistanceUseCase {
     public boolean assistance(Customer customer, ServingStaff serve){
         String help = "help";
         return true;
-
     }
 }
