@@ -24,4 +24,8 @@
     <string name="serve_dish_header">Dish Serve System</string>
     <string name="dish_names">Dish Names</string>
     <string name="quantity">Quantity</string>
+    <string name="edit_order">Edit Order</string>
+    <string name="title_activity_enter_address">EnterAddressActivity</string>
+    <string name="address">Address</string>
+    <string name="location">Location</string>
 </resources>

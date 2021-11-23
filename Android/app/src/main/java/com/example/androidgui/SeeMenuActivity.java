@@ -17,8 +17,7 @@ public class SeeMenuActivity extends AppCompatActivity {
 
         // Get the menu as text and add it to the scroll view
         TextView menuItemsText = new TextView(this);
-        MenuController menuController = new MenuController();
-        menuItemsText.setText(menuController.dishesInMenuAsString());
+        menuItemsText.setText(MainActivity.menuController.dishesInMenuAsString());
 
         LinearLayout menuItems = findViewById(R.id.menuItemsLayout);
         menuItems.addView(menuItemsText);

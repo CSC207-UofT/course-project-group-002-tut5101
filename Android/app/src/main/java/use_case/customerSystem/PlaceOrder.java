@@ -6,6 +6,8 @@ package use_case.customerSystem;
  * 2021-11-03
  */
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 import use_case.dishList.DishList;
 import use_case.kitchen.OrderQueue;
 import use_case.boundary.PlaceOrderInputBoundary;
@@ -28,6 +30,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
      * @param location the table number or delivery information of the order
      * @throws Exception
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void placeOrder(boolean dineIn, String[] dishNames, String location) throws Exception{
         HashMap<String, List<Dish>> dishes = new HashMap<String, List<Dish>>();
 

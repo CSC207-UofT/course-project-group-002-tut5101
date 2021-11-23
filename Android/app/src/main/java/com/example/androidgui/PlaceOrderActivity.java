@@ -1,36 +1,39 @@
 package com.example.androidgui;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import controller.customerSystem.OrderController;
-import controller.menuSystem.MenuController;
+import constant.orderSystem.BuildOrderInfo;
+import constant.orderSystem.OrderType;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputBoundary {
-    MenuController menuController;
-    OrderController orderController;
+
 
     NumberPicker dishQuantityPicker;
     NumberPicker dishNamePicker;
 
-    HashMap<String, Integer> dishesOrdered;
+    LinearLayout orderedDishesLayout;
 
-    public PlaceOrderActivity() {
-        menuController = new MenuController();
-        orderController = new OrderController();
-        dishesOrdered = new HashMap<>();
-    }
+    HashMap<String, Integer> dishesOrdered;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
+
+        dishesOrdered = new HashMap<>();
+        orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
+
+        MainActivity.menuController.setMenuOutputBoundary(this);
 
 
         // get dish quantity
@@ -41,8 +44,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         dishNamePicker = findViewById(R.id.dishNamePicker);
         dishNamePicker.setMinValue(0);
 
-        menuController.numberOfDishesInMenu(this);
-        menuController.allDishNames(this);
+        MainActivity.menuController.numberOfDishesInMenu();
+        MainActivity.menuController.allDishNames();
         /**
          * 1. select dish
          * 2. select quantity
@@ -75,7 +78,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void orderDish(View v) {
         int dishQuantity = dishQuantityPicker.getValue();
         int dishNameIndex = dishNamePicker.getValue();
-        menuController.passDishesOrdered(this, dishNameIndex, dishQuantity);
+        MainActivity.menuController.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
     /**
@@ -90,9 +93,18 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
 
         }
         dishesOrdered.put(dishName, dishQuantity);
+        displayDishesOrdered();
     }
 
-        //TODO: Display the dishes ordered
+    public void displayDishesOrdered() {
+        for (String dishName : dishesOrdered.keySet()) {
+            TextView displayedDish = new TextView(this);
+            String dishNameAndQuantity = dishName = " x " + dishesOrdered.get(dishName);
+            displayedDish.setText(dishNameAndQuantity);
+            orderedDishesLayout.addView(displayedDish);
+        }
+    }
+
 
     /**
      * method that runs on click of place_order button to collect all dishes in an array and then pass to the next
@@ -100,18 +112,40 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
+        String [] dishes = collectDishes();
+
+        Bundle extras = getIntent().getExtras();
+        String orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
+        String location = extras.getString(BuildOrderInfo.LOCATION.name());
+        boolean dineInStatus = orderType.equals(OrderType.DINE_IN.name());
+
+        try {
+            MainActivity.orderController.runPlaceOrder(dineInStatus, dishes, location);
+        }
+        catch (Exception e) {
+            //TODO: Handle exception
+        }
+
+    }
+
+    private String[] collectDishes() {
         ArrayList<String> collectDishes = new ArrayList<String>();
         for (String dishName : dishesOrdered.keySet()) {
-            int count = 0;
+            int count = 1;
             while (count <= dishesOrdered.get(dishName)) {
                 collectDishes.add(dishName);
+                count += 1;
             }
         }
-        String[] dishes = collectDishes.toArray(new String[collectDishes.size()]);
-        // TODO: Pass the dishes onto the page where select dine in or takeout and enter address
+        String[] dishes = collectDishes.toArray(new String[0]);
+        return dishes;
     }
 
 
+    public void selectEditOrder(View view) {
+        Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
+        startActivity(intent);
+    }
 }
 
 

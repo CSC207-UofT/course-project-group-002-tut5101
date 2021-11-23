@@ -13,9 +13,15 @@ import java.util.List;
 public class MenuController {
 
     public DishList dishList;
+    private MenuOutputBoundary menuOutputBoundary;
 
     public MenuController(){
         dishList = new DishList("src/main/resources/menu.ser");
+    }
+
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary){
+        this.menuOutputBoundary = menuOutputBoundary;
+        dishList.setMenuOutputBoundary(menuOutputBoundary);
     }
 
     //TODO: Add methods to get list of dish names from integer in menu
@@ -31,16 +37,16 @@ public class MenuController {
         return dishList.toString();
     }
 
-    public void numberOfDishesInMenu(MenuOutputBoundary menuOutputBoundary) {
-        dishList.numberOfDishesForPresenter(menuOutputBoundary);
+    public void numberOfDishesInMenu() {
+        dishList.numberOfDishesForPresenter();
     }
 
-    public void allDishNames(MenuOutputBoundary menuOutputBoundary) {
-        dishList.getAllDishNamesAsListForPresenter(menuOutputBoundary);
+    public void allDishNames() {
+        dishList.getAllDishNamesAsListForPresenter();
     }
 
-    public void passDishesOrdered(MenuOutputBoundary menuOutputBoundary, int dishNameIndex, int dishQuantity) {
-        dishList.passDishesOrdered(menuOutputBoundary, dishNameIndex, dishQuantity);
+    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
+        dishList.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
     public void saveToFile(){

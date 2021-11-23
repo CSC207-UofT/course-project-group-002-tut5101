@@ -7,6 +7,8 @@ package entity.orderList;
  * 2021-11-03
  */
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 import constant.orderSystem.ItemStatus;
 
 import java.util.ArrayList;
@@ -201,6 +203,7 @@ public class Order {
      * @param o the Dish to compare to
      * @return whether the attributes of the Order are the same.
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -209,6 +212,7 @@ public class Order {
         return dineIn == order.dineIn && getTableNum() == order.getTableNum() && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus() && Objects.equals(getAddress(), order.getAddress());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public int hashCode() {
         return Objects.hash(getDishes(), dineIn, getOrderStatus(), getTableNum(), getAddress());

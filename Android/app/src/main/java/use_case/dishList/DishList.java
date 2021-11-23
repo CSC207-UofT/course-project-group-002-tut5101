@@ -22,6 +22,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     ReadWriter readWriter;
     String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
+    private MenuOutputBoundary menuOutputBoundary;
 
 
     /**
@@ -40,6 +41,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[menu.size()]);
     }
 
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
+    }
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -226,28 +230,28 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     /**
      *
-     * @param menuOutputBoundary the presenter that needs the size of the dishList
+     * updates the number of dishes available to be picked
      */
-    public void numberOfDishesForPresenter(MenuOutputBoundary menuOutputBoundary){
+    public void numberOfDishesForPresenter(){
         int numberOfDishes = menu.size();
         menuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
     }
 
     /**
      *
-     * @param menuOutputBoundary the presenter that needs the array of dish names
+     * updates the array of dish names to be displayed
      */
-    public void getAllDishNamesAsListForPresenter(MenuOutputBoundary menuOutputBoundary) {
+    public void getAllDishNamesAsListForPresenter() {
         menuOutputBoundary.setDisplayedDishNames(dishNames);
     }
 
     /**
      *
-     * @param menuOutputBoundary the presenter that needs to update dishes ordered
+     * updates the dishes ordered
      * @param dishNameIndex the index of the dish ordered
      * @param dishQuantity the quantity of the dish ordered
      */
-    public void passDishesOrdered(MenuOutputBoundary menuOutputBoundary, int dishNameIndex, int dishQuantity) {
+    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         String dishName = dishNames[dishNameIndex];
         menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
     }
