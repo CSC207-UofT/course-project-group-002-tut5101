@@ -11,7 +11,6 @@ import android.os.Bundle;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
 
-import java.util.Objects;
 
 public class SelectDineInTakeOutActivity extends AppCompatActivity {
     NumberPicker selectDineInTakeOut;

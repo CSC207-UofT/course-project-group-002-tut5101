@@ -1,6 +1,7 @@
 package com.example.androidgui;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class EnterLocationActivity extends AppCompatActivity {
 
     }
 
-    public void next() {
+    public void next(View v) {
         String location = enteredLocation.getText().toString();
 
         Intent intent = new Intent(EnterLocationActivity.this, PlaceOrderActivity.class);
