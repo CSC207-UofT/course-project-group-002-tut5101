@@ -32,4 +32,6 @@
     <string name="select_dish_to_remove">Select the dish you would like to remove from your order</string>
     <string name="remove_dish">Remove dish</string>
     <string name="done">Done</string>
+    <string name="order_placed_message">Your order was successfully placed</string>
+    <string name="return_main_menu">Return to Main Menu</string>
 </resources>

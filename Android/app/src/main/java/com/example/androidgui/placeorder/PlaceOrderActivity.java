@@ -145,6 +145,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
             errorMessage.setText(message);
         }
 
+
+    }
+
+    private void orderSuccessfullyPlaced(){
+        Intent intent = new Intent(PlaceOrderActivity.this, OrderSuccessfullyPlacedActivity.class);
+        startActivity(intent);
     }
 
     private String[] collectDishes() {
@@ -178,6 +184,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         startActivity(intent);
     }
+
 }
 
 
