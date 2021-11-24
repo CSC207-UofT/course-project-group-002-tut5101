@@ -98,7 +98,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         displayDishesOrdered();
     }
 
-    public void displayDishesOrdered() {
+    private void displayDishesOrdered() {
         for (String dishName : dishesOrdered.keySet()) {
             TextView displayedDish = new TextView(this);
             String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);

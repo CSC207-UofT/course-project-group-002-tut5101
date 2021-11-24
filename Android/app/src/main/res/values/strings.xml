@@ -29,4 +29,7 @@
     <string name="address">Address</string>
     <string name="location">Location</string>
     <string name="enter_table_number_or_address">Enter Table Number or Address</string>
+    <string name="select_dish_to_remove">Select the dish you would like to remove from your order</string>
+    <string name="remove_dish">Remove dish</string>
+    <string name="done">Done</string>
 </resources>
