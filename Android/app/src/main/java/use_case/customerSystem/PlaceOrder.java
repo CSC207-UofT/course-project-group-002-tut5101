@@ -42,7 +42,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
             else {
                 dishCopyAsList = dishes.get(dishName);
                 dishCopyAsList.add(dishCopy);
-                dishes.replace(dishName, dishCopyAsList);
+                dishes.put(dishName, dishCopyAsList);
             }
         }
         Order order ;

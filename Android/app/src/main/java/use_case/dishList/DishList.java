@@ -1,5 +1,6 @@
 package use_case.dishList;
 
+import android.annotation.SuppressLint;
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
 import gateway.ReadWriter;
@@ -14,7 +15,7 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static Map<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;

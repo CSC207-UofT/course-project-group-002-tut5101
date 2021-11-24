@@ -48,7 +48,7 @@ public class InventoryManager {
     }
 
     public void SavetoFile(){
-        this.inventorys.SavetoFile();
+        this.inventorys.savetoFile();
     }
 
 

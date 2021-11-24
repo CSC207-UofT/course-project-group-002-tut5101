@@ -18,6 +18,7 @@
     <string name="logout">Logout</string>
     <string name="menu_title">~Menu~</string>
     <string name="exit">Exit</string>
+    <string name="Cooked">Cooked</string>
 
     <string name="deliver_order_header">Delivery System</string>
 

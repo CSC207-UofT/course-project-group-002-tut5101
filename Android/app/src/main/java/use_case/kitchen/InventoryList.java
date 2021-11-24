@@ -5,8 +5,6 @@ import entity.inventory.Inventory;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
-
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
@@ -32,6 +30,10 @@ public class InventoryList implements Serializable {
         this.filepath = filepath;
         irw = new SerReadWriter();
         this.myDict = irw.readFromFile(filepath);
+        for (String key: myDict.keySet()) {
+            System.out.print(key + " ");
+            System.out.println(myDict.get(key));
+        }
     }
 
 
@@ -152,7 +154,7 @@ public class InventoryList implements Serializable {
         getItem(name).updateQuantity(usage);
     }
 
-    public void SavetoFile(){
+    public void savetoFile(){
         this.irw.saveToFile(this.filepath, this.myDict);
     }
 

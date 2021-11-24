@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 
-public class KitchenAdapter extends ArrayAdapter {
+public class KitchenAdapter extends ArrayAdapter<String[]> {
 
     private Context kContext;
     int kResource;
@@ -38,7 +38,7 @@ public class KitchenAdapter extends ArrayAdapter {
 
         dn.setText(dishName);
         qt.setText(quantity);
-        bt.setText("Cooked");
+        bt.setText(R.string.Cooked);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +46,7 @@ public class KitchenAdapter extends ArrayAdapter {
                 KitchenActivity.kc.completeDish(dishName);
                 int a = Integer.parseInt(quantity);
                 qt.setText(String.valueOf(a - 1));
+                System.out.println(dishName);
             }
         });
 
