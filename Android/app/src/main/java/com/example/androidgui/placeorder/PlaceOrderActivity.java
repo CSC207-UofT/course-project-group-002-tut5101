@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
+import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
 import use_case.boundary.output.MenuOutputBoundary;
@@ -14,8 +16,12 @@ import use_case.boundary.output.MenuOutputBoundary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
+ */
 public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputBoundary {
 
+    TextView errorMessage;
 
     NumberPicker dishQuantityPicker;
     NumberPicker dishNamePicker;
@@ -29,6 +35,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
+
+        errorMessage = findViewById(R.id.errorMessage);
 
         dishesOrdered = new HashMap<>();
         orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
@@ -46,12 +54,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
 
         MainActivity.menuController.numberOfDishesInMenu();
         MainActivity.menuController.allDishNames();
-        /**
-         * 1. select dish
-         * 2. select quantity
-         * 3. click 'order dish' button
-         * 4. method runs to get current dish and quantity and add them to ordered dishes
-         */
 
         }
 
@@ -99,7 +101,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void displayDishesOrdered() {
         for (String dishName : dishesOrdered.keySet()) {
             TextView displayedDish = new TextView(this);
-            String dishNameAndQuantity = dishName = " x " + dishesOrdered.get(dishName);
+            String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
             displayedDish.setText(dishNameAndQuantity);
             orderedDishesLayout.addView(displayedDish);
         }
@@ -123,13 +125,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
             MainActivity.orderController.runPlaceOrder(dineInStatus, dishes, location);
         }
         catch (Exception e) {
-            //TODO: Handle exception
+            String message = "Error, please try again";
+            errorMessage.setText(message);
         }
 
     }
 
     private String[] collectDishes() {
-        ArrayList<String> collectDishes = new ArrayList<String>();
+        ArrayList<String> collectDishes = new ArrayList<>();
         for (String dishName : dishesOrdered.keySet()) {
             int count = 1;
             while (count <= dishesOrdered.get(dishName)) {
@@ -137,13 +140,23 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
                 count += 1;
             }
         }
-        String[] dishes = collectDishes.toArray(new String[0]);
-        return dishes;
+        return collectDishes.toArray(new String[0]);
     }
 
 
+    /**
+     * Sends the information about order type, location, and dishes ordered to the edit order page to allow for changes
+     * @param view the view on which the user has clicked
+     */
     public void selectEditOrder(View view) {
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
+        Bundle extras = getIntent().getExtras();
+        String orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
+        String location = extras.getString(BuildOrderInfo.LOCATION.name());
+
+        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
+        intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         startActivity(intent);
     }
 }

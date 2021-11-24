@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,8 +6,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 
+/**
+ * If the order is dine in, records the table number
+ * If the order is delivery, records the delivery address
+ */
 public class EnterLocationActivity extends AppCompatActivity {
     TextView askEnterAddressMessage;
     EditText enteredLocation;
