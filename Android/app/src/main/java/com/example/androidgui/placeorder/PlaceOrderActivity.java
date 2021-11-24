@@ -31,6 +31,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     HashMap<String, Integer> dishesOrdered;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         MainActivity.menuController.setMenuOutputBoundary(this);
 
 
-        // get dish quantity
+        generateStartingInformation();
+
+
+
+        }
+
+    @SuppressWarnings("unchecked")
+    private void generateStartingInformation(){
         dishQuantityPicker = findViewById(R.id.dishQuantityPicker);
         dishQuantityPicker.setMinValue(1);
         dishQuantityPicker.setMaxValue(20);
@@ -55,7 +63,13 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         MainActivity.menuController.numberOfDishesInMenu();
         MainActivity.menuController.allDishNames();
 
+        Intent intent = getIntent();
+        if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
+            dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
         }
+
+
+    }
 
     /**
      * method called from the use case through interface to set the number of dish choices
@@ -90,8 +104,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      */
     public void updateDishesOrdered(String dishName, int dishQuantity) {
         if (dishesOrdered.containsKey(dishName)) {
-            int quantity = dishesOrdered.get(dishName);
-            dishQuantity = quantity + dishQuantity;
+            Integer quantity = dishesOrdered.get(dishName);
+            if (quantity != null){
+                dishQuantity = quantity + dishQuantity;
+            }
 
         }
         dishesOrdered.put(dishName, dishQuantity);
@@ -135,9 +151,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         ArrayList<String> collectDishes = new ArrayList<>();
         for (String dishName : dishesOrdered.keySet()) {
             int count = 1;
-            while (count <= dishesOrdered.get(dishName)) {
-                collectDishes.add(dishName);
-                count += 1;
+            Integer quantity = dishesOrdered.get(dishName);
+            if (quantity != null) {
+                while (count <= quantity) {
+                    collectDishes.add(dishName);
+                    count += 1;
+                }
             }
         }
         return collectDishes.toArray(new String[0]);
