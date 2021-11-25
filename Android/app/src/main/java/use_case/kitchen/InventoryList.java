@@ -1,7 +1,9 @@
 package use_case.kitchen;
 
+import android.content.Context;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.AndroidReadWriter;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
@@ -21,8 +23,10 @@ public class InventoryList implements Serializable {
     private static HashMap<String, Inventory> myDict;
     private ReadWriter irw;
     private String filepath;
+    private AndroidReadWriter arw;
+    private Context context;
     public InventoryList(){
-        this.filepath = null;
+        this.filepath = "inventory.ser";
         myDict = new HashMap<>();
     }
 
@@ -30,6 +34,17 @@ public class InventoryList implements Serializable {
         this.filepath = filepath;
         irw = new SerReadWriter();
         this.myDict = irw.readFromFile(filepath);
+        for (String key: myDict.keySet()) {
+            System.out.print(key + " ");
+            System.out.println(myDict.get(key));
+        }
+    }
+
+    public InventoryList(String filepath, Context context) {
+        this.filepath = filepath;
+        arw = new AndroidReadWriter();
+        this.myDict = arw.readFromFile(context, filepath);
+        this.context = context;
         for (String key: myDict.keySet()) {
             System.out.print(key + " ");
             System.out.println(myDict.get(key));
@@ -155,7 +170,7 @@ public class InventoryList implements Serializable {
     }
 
     public void savetoFile(){
-        this.irw.saveToFile(this.filepath, this.myDict);
+        this.arw.writeToFile(myDict, this.context, this.filepath);
     }
 
 

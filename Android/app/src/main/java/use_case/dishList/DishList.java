@@ -1,8 +1,10 @@
 package use_case.dishList;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
+import gateway.AndroidReadWriter;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
@@ -19,6 +21,8 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
+    AndroidReadWriter arw;
+    Context context;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
 
 
@@ -34,6 +38,18 @@ public class DishList implements Serializable, Iterable<Dish> {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
+    }
+
+    public DishList(Context context, String filepath) {
+        this.filepath = filepath;
+        arw = new AndroidReadWriter();
+        menu = arw.readFromFile(context, filepath);
+        this.context = context;
+
+        for (String key: menu.keySet()) {
+            System.out.print(key);
+            System.out.println(menu.get(key));
+        }
     }
 
 
@@ -210,6 +226,19 @@ public class DishList implements Serializable, Iterable<Dish> {
         menu.put(dish.getName(), dish);
     }
 
+
+    public void addDishByPara(String name, Double price, String[][] ingre, Double calory, String category) {
+        HashMap<String, Double> ingredients = new HashMap<>();
+
+        for (String[] para: ingre) {
+            String ingreName = para[0];
+            Double quantity = Double.valueOf(para[1]);
+            ingredients.put(ingreName, quantity);
+        }
+
+        addDish(new Dish(name, price, ingredients, calory, category));
+    }
+
     /**
      * Get Dish by dish name
      * @param dishName name of the dish
@@ -220,8 +249,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile(){
-        readWriter.saveToFile(this.filepath, this.menu);
+        arw.writeToFile(this.menu, this.context, this.filepath);
     }
-
 
 }

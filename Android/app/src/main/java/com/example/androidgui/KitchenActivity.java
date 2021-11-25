@@ -33,19 +33,9 @@ public class KitchenActivity extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.dishToCook);
 
-
-        AndroidReadWriter arw = new AndroidReadWriter();
-        System.out.println(arw.readFromFile(this));
-        // arw.writeToFile("Just testing here", this);
-
-//        for (String key: result.keySet()) {
-//            System.out.print(key);
-//            System.out.println(result.get(key));
-//        }
-
-
-//        // *******Initialization code below, to be deleted later********
-//        InventoryList il = new InventoryList("/data/user" + "/" + "inventory.ser");
+        // *******Initialization code below, to be deleted later********
+        InventoryList il = new InventoryList("inventory.ser", this);
+        DishList dl = new DishList(this, "menu.ser");
 //        il.addInventory(new HasFreshness("Bread", 10.0, 40.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Lettuce", 2.0, 100.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Beef", 10.0, 20.0, "b", 20211123));
@@ -69,77 +59,88 @@ public class KitchenActivity extends AppCompatActivity {
 //        il.savetoFile();
 //
 //        System.out.println("Did");
+
+
+
+//        dl.addDishByPara("Donut sandwich", 5.99, new String[][]{
+//                new String[]{"Bread", "2.0"},
+//                new String[]{"Donut", "1.0"},
+//                new String[]{"Lettuce", "4.0"},
+//                new String[]{"Ketchup", "50.0"},
+//        }, 1000.00, "Food");
 //
-//        DishList dl = new DishList(getFilesDir() + "/" + "menu.ser");
-//        if (dl.size() != 0){
-//            assert false;
-//        }
-//        dl.addDish(new Dish("Doughnut sandwich", 5.99, new HashMap<String, Double>() {{
-//            put("Bread", 2.0);
-//            put("Donut", 1.0);
-//            put("Lettuce", 4.0);
-//            put("Ketchup", 50.0);
-//        }}, 1000, "Food"));
-//        dl.addDish(new Dish("Cheetos sandwich", 6.99, new HashMap<String, Double>(){{
-//            put("Bread", 2.0);
-//            put("Cheetos", 30.0);
-//            put("Ketchup", 50.0);
-//            put("Beef", 1.0);
-//        }}, 800, "Food"));
-//        dl.addDish(new Dish("Maple waffle sandwich", 3.99, new HashMap<String, Double>(){{
-//            put("Waffle", 2.0);
-//            put("Maple syrup", 10.0);
-//            put("Bread", 2.0);
-//        }}, 500, "Food"));
-//        dl.addDish(new Dish("Cheese donut", 6.79, new HashMap<String, Double>(){{
-//            put("Cheese", 25.0);
-//            put("Donut", 1.0);
-//        }}, 700, "Food"));
-//        dl.addDish(new Dish("Ramen burger", 10.99, new HashMap<String, Double>(){{
-//            put("Bread", 2.0);
-//            put("Noodle", 20.0);
-//            put("Ketchup", 50.0);
-//            put("Lettuce", 2.0);
-//            put("Egg", 2.0);
-//            put("Beef", 1.0);
-//            put("Salt", 30.0);
-//        }}, 1200, "Food"));
-//        dl.addDish(new Dish("Meatatarian burger", 12.99, new HashMap<String, Double>(){{
-//            put("Bread", 2.0);
-//            put("Chicken", 1.0);
-//            put("Ketchup", 50.0);
-//            put("Egg", 2.0);
-//            put("Beef", 1.0);
-//            put("Salt", 30.0);
-//        }}, 1300, "Food"));
-//        dl.addDish(new Dish("Bird Nest soup", 7.99, new HashMap<String, Double>(){{
-//            put("Egg", 2.0);
-//            put("Carrot", 3.0);
-//            put("Oatmeal", 150.0);
-//            put("Salt", 30.0);
-//        }}, 100, "Soup"));
-//        dl.addDish(new Dish("Blood soup", 6.99, new HashMap<String, Double>(){{
-//            put("Tomato", 4.0);
-//            put("Salt", 30.0);
-//        }}, 300, "Soup"));
-//        dl.addDish(new Dish("Beer soup", 6.99, new HashMap<String, Double>(){{
-//            put("Beer", 15.0);
-//            put("Milk", 1.5);
-//        }}, 300, "Soup"));
-//        dl.addDish(new Dish("Buffalo latte", 7.50, new HashMap<String, Double>(){{
-//            put("Chilli sauce", 10.0);
-//            put("Milk", 20.0);
-//            put("Sugar", 5.0);
-//        }}, 300, "Drink"));
-//        dl.addDish(new Dish("Beer milk", 3.50, new HashMap<String, Double>(){{
-//            put("Beer", 10.0);
-//            put("Milk", 20.0);
-//            put("Sugar", 5.0);
-//        }}, 400, "Drink"));
-//        dl.addDish(new Dish("Yogurt pepsi", 3.50, new HashMap<String, Double>(){{
-//            put("Yogurt", 12.0);
-//            put("Milk", 14.0);
-//        }}, 300, "Drink"));
+//        dl.addDishByPara("Cheetos sandwich", 6.99, new String[][]{
+//                new String[]{"Bread", "2.0"},
+//                new String[]{"Cheetos", "30.0"},
+//                new String[]{"Beef", "1.0"},
+//                new String[]{"Ketchup", "50.0"},
+//        }, 800.00, "Food");
+//
+//        dl.addDishByPara("Maple waffle sandwich", 3.99, new String[][]{
+//                new String[]{"Waffle", "2.0"},
+//                new String[]{"Maple syrup", "10.0"},
+//                new String[]{"Bread", "2.0"},
+//        }, 500.00, "Food");
+//
+//        dl.addDishByPara("Cheese donut", 6.79, new String[][]{
+//                new String[]{"Cheese", "25.0"},
+//                new String[]{"Donut", "1.0"},
+//        }, 700.00, "Food");
+//
+//        dl.addDishByPara("Ramen burger", 10.99, new String[][]{
+//                new String[]{"Bread", "2.0"},
+//                new String[]{"Noodle", "20.0"},
+//                new String[]{"Ketchup", "50.0"},
+//                new String[]{"Lettuce", "2.0"},
+//                new String[]{"Egg", "2.0"},
+//                new String[]{"Beef", "1.0"},
+//                new String[]{"Salt", "30.0"},
+//        }, 1200.00, "Food");
+//
+//        dl.addDishByPara("Meatatarian burger", 12.99, new String[][]{
+//                new String[]{"Bread", "2.0"},
+//                new String[]{"Chicken", "1.0"},
+//                new String[]{"Ketchup", "50.0"},
+//                new String[]{"Lettuce", "2.0"},
+//                new String[]{"Egg", "2.0"},
+//                new String[]{"Beef", "1.0"},
+//                new String[]{"Salt", "30.0"},
+//        }, 1300.00, "Food");
+//
+//        dl.addDishByPara("Bird Nest soup", 7.99, new String[][]{
+//                new String[]{"Egg", "2.0"},
+//                new String[]{"Carrot", "3.0"},
+//                new String[]{"Oatmeal", "150.0"},
+//                new String[]{"Salt", "30.0"},
+//        }, 100.00, "Soup");
+//
+//        dl.addDishByPara("Blood soup", 6.99, new String[][]{
+//                new String[]{"Tomato", "4.0"},
+//                new String[]{"Salt", "30.0"},
+//        }, 300.00, "Soup");
+//
+//        dl.addDishByPara("Beer soup", 6.99, new String[][]{
+//                new String[]{"Beer", "15.0"},
+//                new String[]{"Milk", "1.5"},
+//        }, 300.00, "Soup");
+//
+//        dl.addDishByPara("Buffalo latte", 7.50, new String[][]{
+//                new String[]{"Chilli sauce", "10.0"},
+//                new String[]{"Milk", "20.0"},
+//                new String[]{"Sugar", "5.0"},
+//        }, 300.00, "Drink");
+//
+//        dl.addDishByPara("Beer milk", 3.50, new String[][]{
+//                new String[]{"Beer", "10.0"},
+//                new String[]{"Milk", "20.0"},
+//                new String[]{"Sugar", "5.0"},
+//        }, 400.00, "Drink");
+//
+//        dl.addDishByPara("Yogurt pepsi", 3.50, new String[][]{
+//                new String[]{"Yogurt", "12.0"},
+//                new String[]{"Milk", "14.0"},
+//        }, 300.00, "Drink");
+//
 //        dl.saveToFile();
 
 
