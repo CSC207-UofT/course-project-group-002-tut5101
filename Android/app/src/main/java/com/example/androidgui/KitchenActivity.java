@@ -35,7 +35,6 @@ public class KitchenActivity extends AppCompatActivity {
 
         // *******Initialization code below, to be deleted later********
         InventoryList il = new InventoryList("inventory.ser", this);
-        DishList dl = new DishList(this, "menu.ser");
 //        il.addInventory(new HasFreshness("Bread", 10.0, 40.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Lettuce", 2.0, 100.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Beef", 10.0, 20.0, "b", 20211123));
@@ -61,7 +60,7 @@ public class KitchenActivity extends AppCompatActivity {
 //        System.out.println("Did");
 
 
-
+        DishList dl = new DishList(this, "menu.ser");
 //        dl.addDishByPara("Donut sandwich", 5.99, new String[][]{
 //                new String[]{"Bread", "2.0"},
 //                new String[]{"Donut", "1.0"},
