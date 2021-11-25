@@ -1,13 +1,9 @@
 package entity.orderList;
 
-/**
- * This is the Order class, which holds all the dishes the customer placed in the order
- *
- * @Author Evelyn Chou
- * 2021-11-03
- */
+
 
 import android.os.Build;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import constant.orderSystem.ItemStatus;
 import constant.orderSystem.OrderType;
@@ -17,6 +13,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+/**This is the Order class, which holds all the dishes the customer placed in the order
+ * by Evelyn Chou
+ * 2021-11-03
+ */
 
 public abstract class Order {
     private HashMap<String, List<Dish>> dishes;
@@ -26,6 +26,7 @@ public abstract class Order {
     private OrderType orderType;
 
     // initialize order
+    public Order() { }
     public Order(HashMap<String, List<Dish>> dishes) {
         this.dishes = dishes;
     }
@@ -45,7 +46,7 @@ public abstract class Order {
      * @return the Dish that was updated
      */
     public Dish setDishStatus(String name) {
-        for (Dish d : dishes.get(name)) {
+        for (Dish d : Objects.requireNonNull(dishes.get(name))) {
             if (d.getStatus().equals(ItemStatus.DISH_PLACED)) {
                 d.setStatus(ItemStatus.DISH_COOKED);
                 updateOrderStatus();
@@ -64,6 +65,7 @@ public abstract class Order {
             for (Dish dish : dishAsList) {
                 if (!dish.getStatus().equals(ItemStatus.DISH_COOKED)) {
                     allComplete = false;
+                    break;
                 }
 
             }
@@ -78,7 +80,6 @@ public abstract class Order {
     /**
      * Returns provided STRING argument.
      * @param status is the status to set the order as
-     * @throws Exception status is not one of the allowable status in statuses
      */
     public void setOrderStatus(ItemStatus status) {
         this.orderStatus = status;
@@ -107,11 +108,9 @@ public abstract class Order {
      * @return The list of all the dishes in the order with duplication
      */
     public List<Dish> getDishes() {
-        List<Dish> dishList = new ArrayList<Dish>();
+        List<Dish> dishList = new ArrayList<>();
         for (List<Dish> dishAsList : dishes.values()) {
-            for (Dish dish : dishAsList) {
-                dishList.add(dish);
-            }
+            dishList.addAll(dishAsList);
         }
         return dishList;
     }
@@ -122,7 +121,7 @@ public abstract class Order {
     public HashMap<String, Integer> getDishAndQuantity() {
         HashMap<String, Integer> dishAndQuantity = new HashMap<>();
         for (String dishName : dishes.keySet()) {
-            dishAndQuantity.put(dishName, dishes.get(dishName).size());
+            dishAndQuantity.put(dishName, Objects.requireNonNull(dishes.get(dishName)).size());
         }
         return dishAndQuantity;
     }
@@ -134,7 +133,7 @@ public abstract class Order {
             content.append("\tDish: ");
             content.append(dishName);
             content.append(" Quantity: ");
-            content.append(dishes.get(dishName).size());
+            content.append(Objects.requireNonNull(dishes.get(dishName)).size());
             content.append("\n");
         }
         content.append("====================");
@@ -146,6 +145,7 @@ public abstract class Order {
      *
      * @return String containing the dish names, quantity, ingredients, price for each dish, and total price of the Order
      */
+    @NonNull
     public String toString() {
         StringBuilder orderString = new StringBuilder();
         String dishInfo;
@@ -155,16 +155,16 @@ public abstract class Order {
         orderString.append("\n------------------------------\n");
 
         for (String key : dishes.keySet()) {
-            Dish dish = dishes.get(key).get(0);
+            Dish dish = Objects.requireNonNull(dishes.get(key)).get(0);
             dishInfo = "Dish Name: " + dish.getName() +
-                    "\n Quantity: " + dishes.get(key).size() +
+                    "\n Quantity: " + Objects.requireNonNull(dishes.get(key)).size() +
                     "\n Ingredients: " + dish.getIngredients() +
                     "\n Price: $" + dish.getPrice() +
                     "\n------------------------------\n";
             totalPrice += dish.getPrice();
             orderString.append(dishInfo);
         }
-        orderString.append("Total Price: $" + (Math.round(totalPrice * 100.0) / 100.0));
+        orderString.append("Total Price: $").append(Math.round(totalPrice * 100.0) / 100.0);
         return orderString.toString();
     }
 

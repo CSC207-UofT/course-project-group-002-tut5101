@@ -13,6 +13,11 @@ public class DineInOrder extends Order{
     private OrderType orderType;
 
 
+    public DineInOrder() {
+        this.orderStatus = ItemStatus.ORDER_PLACED;
+    }
+
+
     public DineInOrder(int tableNum, HashMap<String, List<Dish>> dishes) {
         super(dishes);
         this.orderStatus = ItemStatus.ORDER_PLACED;
