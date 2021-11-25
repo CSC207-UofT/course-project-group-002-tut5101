@@ -133,12 +133,11 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String [] dishes = collectDishes();
 
         Bundle extras = getIntent().getExtras();
-        String orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
+        OrderType orderType = extras.getParcelable(BuildOrderInfo.ORDER_TYPE.name());
         String location = extras.getString(BuildOrderInfo.LOCATION.name());
-        boolean dineInStatus = orderType.equals(OrderType.DINE_IN.name());
 
         try {
-            MainActivity.orderController.runPlaceOrder(dineInStatus, dishes, location);
+            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
         }
         catch (Exception e) {
             String message = "Error, please try again";

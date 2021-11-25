@@ -10,6 +10,7 @@ package entity.orderList;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import constant.orderSystem.ItemStatus;
+import constant.orderSystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,39 +18,24 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class Order {
+public abstract class Order {
     private HashMap<String, List<Dish>> dishes;
-    private boolean dineIn;
+
     private ItemStatus orderStatus;
-    private int tableNum;
     private String address;
+    private OrderType orderType;
 
-    // initialize dine-in order
-    public Order(int tableNum, HashMap<String, List<Dish>> dishes) {
+    // initialize order
+    public Order(HashMap<String, List<Dish>> dishes) {
         this.dishes = dishes;
-        this.dineIn = true;
-        this.orderStatus = ItemStatus.ORDER_PLACED;
-        this.tableNum = tableNum;
-    }
-
-    // initialize delivery order
-    public Order(String address, HashMap<String, List<Dish>> dishes) {
-        this.dishes = dishes;
-        this.dineIn = false;
-        this.orderStatus = ItemStatus.ORDER_PLACED;
-        this.address = address;
     }
 
     /**
      *
-     * @return whether the order is dine in or take out
+     * @return the order type
      */
     public String getOrderDineInOrTakeOut() {
-        if (!this.dineIn) {
-            return "Take Out";
-        } else {
-            return "Dine In";
-        }
+        return orderType.name();
     }
 
 
@@ -114,22 +100,6 @@ public class Order {
             }
         }
         return price;
-    }
-
-    /**
-     * Get the table number to be delivered for the order
-     * @return the table number of the dine-in order.
-     */
-    public int getTableNum() {
-        return this.tableNum;
-    }
-
-    /**
-     * Get the address of the destination of the delivery order
-     * @return the address of the destination of the order
-     */
-    public String getAddress() {
-        return this.address;
     }
 
     /**
@@ -209,12 +179,7 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return dineIn == order.dineIn && getTableNum() == order.getTableNum() && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus() && Objects.equals(getAddress(), order.getAddress());
+        return orderType == order.orderType && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    @Override
-    public int hashCode() {
-        return Objects.hash(getDishes(), dineIn, getOrderStatus(), getTableNum(), getAddress());
-    }
 }

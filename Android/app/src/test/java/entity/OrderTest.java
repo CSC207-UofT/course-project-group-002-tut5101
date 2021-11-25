@@ -3,10 +3,12 @@ package entity;
 import constant.orderSystem.ItemStatus;
 import entity.orderList.Dish;
 import entity.orderList.Order;
+import entity.orderList.DineInOrder;
 import org.junit.Before;
 import org.junit.Test;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,15 +29,15 @@ public class OrderTest {
         String[] dishNames = new String[]{"Quarter pound with cheese", "Small fries", "Coke"};
         String location = "1";
 
-        quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200, "Food");
-        smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200, "Food");
-        coke = new Dish("Coke", 10.0, new HashMap<>(), 180, "Non-Alc Drink");
+        quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
+        smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200);
+        coke = new Dish("Coke", 10.0, new HashMap<>(), 180);
 
         HashMap<String, List<Dish>> dishes = new HashMap<>();
-        dishes.put("Quarter pound with cheese", List.of(new Dish[]{quarterPoundWithCheese}));
-        dishes.put("Small fries", List.of(new Dish[]{smallFries}));
-        dishes.put("Coke", List.of(new Dish[]{coke}));
-        order = new Order(Integer.valueOf(location), dishes);
+        dishes.put("Quarter pound with cheese", Arrays.asList(new Dish[]{quarterPoundWithCheese}));
+        dishes.put("Small fries", Arrays.asList(new Dish[]{smallFries}));
+        dishes.put("Coke", Arrays.asList(new Dish[]{coke}));
+        order = new DineInOrder(Integer.valueOf(location), dishes);
 
         // testToString();
 

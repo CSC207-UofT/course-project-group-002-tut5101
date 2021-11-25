@@ -1,6 +1,7 @@
 package ui.customerSystem;
 
 import constant.customerSystem.CustomerUIMessage;
+import constant.orderSystem.OrderType;
 import controller.menuSystem.MenuController;
 import controller.customerSystem.OrderController;
 import controller.reviewSystem.ReviewController;
@@ -55,9 +56,9 @@ public class CustomerUI implements UserInterface {
                     System.out.println(CustomerUIMessage.CONFIRM_ORDER);
                     System.out.println(dishes);
                     String confirm = scanner.nextLine();
-                    if (confirm.equals("Y")) {
-                        runPlaceOrder(orderController, dineInStatus, dishesAsList, location);
-                    }
+//                    if (confirm.equals("Y")) {
+//                        runPlaceOrder(orderController, dineInStatus, dishesAsList, location);
+//                    }
                     System.out.println(CustomerUIMessage.ORDER_PLACED);
                     break;
 
@@ -185,10 +186,10 @@ public class CustomerUI implements UserInterface {
         return location;
     }
 
-    // TODO: Finish this method (note it needs to catch exception)
-    private void runPlaceOrder(OrderController controller, boolean dineIn, String[] dishes, String location) {
+
+    private void runPlaceOrder(OrderController controller, OrderType orderType, String[] dishes, String location) {
         try {
-            controller.runPlaceOrder(dineIn, dishes, location);
+            controller.runPlaceOrder(orderType, dishes, location);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

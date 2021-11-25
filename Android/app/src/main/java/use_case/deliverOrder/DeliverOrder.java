@@ -1,5 +1,6 @@
 package use_case.deliverOrder;
 
+import entity.orderList.DeliveryOrder;
 import use_case.userList.UserList;
 import use_case.boundary.Delivery;
 import entity.delivery.DeliveryStaff;
@@ -25,7 +26,7 @@ public class DeliverOrder implements Delivery {
     public void getToBeDeliver(String id) throws Exception{
         DeliveryStaff staff = (DeliveryStaff) UserList.getUserByUserId(id);
         if (!staff.hasCurrentOrder()) {
-            staff.setCurrentOrder(DeliveryBuffer.getDeliveryOrder());
+            staff.setCurrentOrder((DeliveryOrder) DeliveryBuffer.getDeliveryOrder());
         } else {
             throw new Exception("Already has one order in hands");
         }

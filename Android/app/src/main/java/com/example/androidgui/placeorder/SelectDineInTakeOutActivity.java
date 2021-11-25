@@ -32,7 +32,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity {
         String askDineInTakeOutMessage = "Is this order Dine In or Delivery?";
         askDineInTakeOut.setText(askDineInTakeOutMessage);
 
-        selectDineInTakeOutOptions = new String[]{OrderType.DINE_IN.name(), OrderType.TAKE_OUT.name()};
+        selectDineInTakeOutOptions = new String[]{OrderType.DINE_IN.name(), OrderType.DELIVERY.name()};
         selectDineInTakeOut.setMinValue(0);
         selectDineInTakeOut.setMaxValue(selectDineInTakeOutOptions.length);
         selectDineInTakeOut.setDisplayedValues(selectDineInTakeOutOptions);

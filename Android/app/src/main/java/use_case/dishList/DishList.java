@@ -117,14 +117,14 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-    /**
-     * Get the category of a dish
-     * @param dishName The name of the dish
-     * @return The category of the dish as string
-     */
-    public static String getDishCategory(String dishName) {
-        return Objects.requireNonNull(menu.get(dishName)).getCategory();
-    }
+//    /**
+//     * Get the category of a dish
+//     * @param dishName The name of the dish
+//     * @return The category of the dish as string
+//     */
+//    public static String getDishCategory(String dishName) {
+//        return Objects.requireNonNull(menu.get(dishName)).getCategory();
+//    }
 
     /**
      * Return the size of the menu (how many dishes in the menu)
