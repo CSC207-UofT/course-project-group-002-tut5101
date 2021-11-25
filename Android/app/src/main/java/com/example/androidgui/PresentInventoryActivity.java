@@ -1,12 +1,12 @@
 package com.example.androidgui;
 
 import android.content.Intent;
-import android.view.View;
+import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
-public class PresentInventoryActivity extends AppCompatActivity implements View.OnClickListener{
+public class PresentInventoryActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +35,12 @@ public class PresentInventoryActivity extends AppCompatActivity implements View.
         }
         mTextView4.setText(num4);
         mTextView5.setText(num5);
+
+        Button btn = findViewById(R.id.button6);
+        btn.setOnClickListener(v -> {
+            Intent intent1 = new Intent(PresentInventoryActivity.this, InventoryStaffStarterActivity.class);
+            startActivity(intent1);
+        });
     }
 
-    @Override
-    public void onClick(View v){
-        Intent intent = new Intent(PresentInventoryActivity.this, InventoryStaffStarterActivity.class);
-        startActivity(intent);
-    }
 }

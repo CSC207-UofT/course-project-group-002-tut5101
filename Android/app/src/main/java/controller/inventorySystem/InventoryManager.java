@@ -5,10 +5,8 @@ import constant.fileSystem.FileLocation;
 import use_case.inventoryFactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
-import java.util.HashMap;
-
 public class InventoryManager {
-    private InventoryList inventorys;
+    private final InventoryList inventorys;
 
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
