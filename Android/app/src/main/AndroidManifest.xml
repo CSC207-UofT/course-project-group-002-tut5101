@@ -9,8 +9,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".KitchenActivity"
-                    android:exported="true">
+        <activity android:name=".UpdateFreshnessActivity">
+        </activity>
+        <activity android:name=".UpdateQuanActivity">
+        </activity>
+        <activity android:name=".PresentInventoryActivity">
+        </activity>
+        <activity android:name=".AddInventoryActivity">
+        </activity>
+        <activity android:name=".InventoryStaffStarterActivity">
+        </activity>
+        <activity android:name=".CheckInventoryActivity">
+        </activity>
+        <activity
+                android:name=".KitchenActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".LoginActivity">
         </activity>

@@ -22,4 +22,8 @@
     <string name="deliver_order_header">Delivery System</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+    <string name="search">Search</string>
+    <string name="name_of_inventory">Name of inventory</string>
+    <string name="price_of_inventory">Price of inventory</string>
+    <string name="quantity_of_inventory_in_kg">quantity_of_inventory, in kg</string>
 </resources>
