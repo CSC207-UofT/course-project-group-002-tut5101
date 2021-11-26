@@ -9,6 +9,7 @@ import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -218,6 +219,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     /**

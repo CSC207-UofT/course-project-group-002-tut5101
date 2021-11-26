@@ -7,28 +7,34 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
+import controller.customerSystem.OrderController;
+import controller.menuSystem.MenuController;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
  */
+
 public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputBoundary {
 
-    TextView errorMessage;
+    private TextView errorMessage;
 
-    NumberPicker dishQuantityPicker;
-    NumberPicker dishNamePicker;
+    private NumberPicker dishQuantityPicker;
+    private NumberPicker dishNamePicker;
 
-    LinearLayout orderedDishesLayout;
+    private LinearLayout orderedDishesLayout;
 
-    HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Integer> dishesOrdered;
+
+    //For testing purposes
+    private MenuController menuController = new MenuController();
+    private OrderController orderController = new OrderController();
+
 
 
 
@@ -37,12 +43,13 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
 
-        errorMessage = findViewById(R.id.errorMessage);
+        this.errorMessage = findViewById(R.id.errorMessage);
 
-        dishesOrdered = new HashMap<>();
-        orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
+        this.dishesOrdered = new HashMap<>();
+        this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
 
-        MainActivity.menuController.setMenuOutputBoundary(this);
+//        MainActivity.menuController.setMenuOutputBoundary(this);
+        this.menuController.setMenuOutputBoundary(this);
 
 
         generateStartingInformation();
@@ -53,15 +60,17 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
 
     @SuppressWarnings("unchecked")
     private void generateStartingInformation(){
-        dishQuantityPicker = findViewById(R.id.dishQuantityPicker);
-        dishQuantityPicker.setMinValue(1);
-        dishQuantityPicker.setMaxValue(20);
+        this.dishQuantityPicker = findViewById(R.id.dishQuantityPicker);
+        this.dishQuantityPicker.setMinValue(1);
+        this.dishQuantityPicker.setMaxValue(20);
 
-        dishNamePicker = findViewById(R.id.dishNamePicker);
-        dishNamePicker.setMinValue(0);
+        this.dishNamePicker = findViewById(R.id.dishNamePicker);
+        this.dishNamePicker.setMinValue(0);
 
-        MainActivity.menuController.numberOfDishesInMenu();
-        MainActivity.menuController.allDishNames();
+//        MainActivity.menuController.numberOfDishesInMenu();
+//        MainActivity.menuController.allDishNames();
+        this.menuController.numberOfDishesInMenu();
+        this.menuController.allDishNames();
 
         Intent intent = getIntent();
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
@@ -76,7 +85,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      * @param size the number of dish choices
      */
     public void setDishNamePickerMaxValue(int size) {
-        dishNamePicker.setMaxValue(size);
+
+        this.dishNamePicker.setMaxValue(size - 1);
     }
 
     /**
@@ -84,6 +94,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      * @param dishNames the array of all dish names
      */
     public void setDisplayedDishNames(String[] dishNames) {
+        System.out.println(dishNames.length);
         dishNamePicker.setDisplayedValues(dishNames);
     }
 
@@ -94,7 +105,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void orderDish(View v) {
         int dishQuantity = dishQuantityPicker.getValue();
         int dishNameIndex = dishNamePicker.getValue();
-        MainActivity.menuController.passDishesOrdered(dishNameIndex, dishQuantity);
+//        MainActivity.menuController.passDishesOrdered(dishNameIndex, dishQuantity);
+        menuController.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
     /**
@@ -110,11 +122,13 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
             }
 
         }
+        dishesOrdered.remove(dishName);
         dishesOrdered.put(dishName, dishQuantity);
         displayDishesOrdered();
     }
 
     private void displayDishesOrdered() {
+        orderedDishesLayout.removeAllViews();
         for (String dishName : dishesOrdered.keySet()) {
             TextView displayedDish = new TextView(this);
             String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
@@ -137,7 +151,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String location = extras.getString(BuildOrderInfo.LOCATION.name());
 
         try {
-            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
+//            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
+            orderController.runPlaceOrder(orderType, dishes, location);
         }
         catch (Exception e) {
             String message = "Error, please try again";

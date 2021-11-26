@@ -32,6 +32,7 @@ public class EnterLocationActivity extends AppCompatActivity {
 
     public void next(View v) {
         String location = enteredLocation.getText().toString();
+        System.out.println(location);
 
         Intent intent = new Intent(EnterLocationActivity.this, PlaceOrderActivity.class);
         Bundle extras = getIntent().getExtras();

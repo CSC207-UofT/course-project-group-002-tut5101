@@ -1,12 +1,10 @@
 package com.example.androidgui;
 
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import controller.menuSystem.MenuController;
 
 public class SeeMenuActivity extends AppCompatActivity {
 
