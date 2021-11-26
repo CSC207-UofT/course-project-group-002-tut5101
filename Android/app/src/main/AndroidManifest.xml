@@ -9,14 +9,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".KitchenActivity"
-                    android:exported="true">
+        <activity android:name=".AddStaffActivity">
+        </activity>
+        <activity android:name=".SeeReviewActivity">
+        </activity>
+        <activity android:name=".DeleteReviewActivity">
+        </activity>
+        <activity android:name=".ManagerPickActionActivity">
+        </activity>
+        <activity android:name=".ManageMenuActivity">
+        </activity>
+        <activity
+                android:name=".KitchenActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
         <activity android:name=".PlaceOrderActivity">
         </activity>
-        <activity android:name=".SeeMenuActivity">
+        <activity
+                android:name=".SeeMenuActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".CustomerPickActionActivity">
         </activity>

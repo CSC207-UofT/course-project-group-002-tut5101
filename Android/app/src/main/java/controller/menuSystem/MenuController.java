@@ -1,8 +1,7 @@
 package controller.menuSystem;
 
-import constant.fileSystem.FileLocation;
 import use_case.dishList.DishList;
-import java.util.HashMap;
+
 import java.util.List;
 
 /**
@@ -18,19 +17,26 @@ public class MenuController {
         dishList = new DishList("src/main/resources/menu.ser");
     }
 
-    //TODO: Add methods to get list of dish names from integer in menu
-
-
-    //TODO: Add method to read things from menu
-
+    /**
+     *
+     * @param orderedNum a List of integers representing numbers from order.
+     * @return a list of strings of dish names from a list of integers from order.
+     */
     public List<String> passDishNumbersOrdered(List<Integer> orderedNum) {
-        return dishList.getDishNamesFromInt(orderedNum);
+        return DishList.getDishNamesFromInt(orderedNum);
     }
 
+    /**
+     *
+     * @return a string representation of dishlist.
+     */
     public String dishesInMenuAsString() {
         return dishList.toString();
     }
 
+    /**
+     * save the dishList(or menu) to file.
+     */
     public void saveToFile(){
         this.dishList.saveToFile();
     }
