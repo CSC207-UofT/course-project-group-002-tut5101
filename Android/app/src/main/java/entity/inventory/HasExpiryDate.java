@@ -52,14 +52,17 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return Wether the inventory is enough to use.
      */
     @Override
-    public void updateQuantity(double usage){
+    public String updateQuantity(double usage){
+        String message;
         if(this.quantity >= usage){
             this.quantity -= usage;
             if(this.quantity == 0){
                 this.usedup = true;
             }
+            message = "Successfully updated";
         }
-        else{System.out.println("Not enough");}
+        else{message = "Not enough";}
+        return message;
     }
 
 

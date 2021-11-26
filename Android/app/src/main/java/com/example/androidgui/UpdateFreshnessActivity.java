@@ -28,6 +28,8 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         String iname = name.getText().toString();
         String ifreshness = fresh.getText().toString();
         im.newFreshness(iname,ifreshness);
+        im.SavetoFile();
         Toast.makeText(UpdateFreshnessActivity.this,"Check in get info",Toast.LENGTH_SHORT).show();
     }
+
 }

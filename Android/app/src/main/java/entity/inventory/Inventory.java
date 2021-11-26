@@ -29,7 +29,7 @@ public interface Inventory extends Serializable {
      * @return Wether the inventory is enough to use.
      */
 
-    void updateQuantity(double usage);
+    String updateQuantity(double usage);
 
 
     String toString();

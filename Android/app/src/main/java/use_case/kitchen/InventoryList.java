@@ -144,12 +144,14 @@ public class InventoryList implements Serializable {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public static void setQuantity(String name, double usage) {
+    public static String setQuantity(String name, double usage) {
+        String message;
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
-            return;
+            message = "wrong name";
         }
-        getItem(name).updateQuantity(usage);
+        message = getItem(name).updateQuantity(usage);
+        return message;
     }
 
     public void SavetoFile(){

@@ -27,7 +27,8 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         String iname = name.getText().toString();
         String iusage = usage.getText().toString();
-        im.newQuantity(iname,iusage);
-        Toast.makeText(UpdateQuanActivity.this,"Check in get info",Toast.LENGTH_SHORT).show();
+        String message = im.newQuantity(iname,iusage);
+        im.SavetoFile();
+        Toast.makeText(UpdateQuanActivity.this,message,Toast.LENGTH_SHORT).show();
     }
 }

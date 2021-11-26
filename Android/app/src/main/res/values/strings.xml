@@ -27,5 +27,5 @@
     <string name="price_of_inventory">Price of inventory</string>
     <string name="quantity_of_inventory_in_kg">quantity_of_inventory, in kg</string>
     <string name="get_info">Get info</string>
-    <string name="name_of_inventory">Name of inventory</string>
+    <string name="Name_of_inventory">Name of inventory</string>
 </resources>

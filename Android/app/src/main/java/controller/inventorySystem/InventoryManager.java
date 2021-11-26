@@ -40,9 +40,10 @@ public class InventoryManager {
         }
     }
 
-    public void newQuantity(String name, String usage){
+    public String newQuantity(String name, String usage){
         double u = Double.parseDouble(usage);
-        InventoryList.setQuantity(name, u);
+        String message = InventoryList.setQuantity(name, u);
+        return message;
     }
 
     public void SavetoFile(){
