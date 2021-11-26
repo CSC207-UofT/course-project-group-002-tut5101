@@ -1,4 +1,4 @@
-package use_case.boundary;
+package use_case.boundary.input;
 
 /**
  * The input use_case.boundary for DeliverOrder use case.

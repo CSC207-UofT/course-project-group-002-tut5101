@@ -1,9 +1,8 @@
 package controller.managerSystem;
 
 
-import use_case.boundary.DeleteReviewInputBoundary;
-import use_case.boundary.ManageMenuInputBoundary;
-import constant.fileSystem.FileLocation;
+import use_case.boundary.input.DeleteReviewInputBoundary;
+import use_case.boundary.input.ManageMenuInputBoundary;
 import use_case.reviewList.DeleteReviewUseCase;
 import use_case.dishList.DishList;
 import use_case.menuManager.ManageMenuUseCase;
