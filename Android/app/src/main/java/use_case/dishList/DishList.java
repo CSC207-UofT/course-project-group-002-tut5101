@@ -47,18 +47,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         }
     }
 
-
-
-    /**
-     * Return list of dishes
-     *
-     * @return the menu
-     */
-    public Map getAllDishes() {
-        return menu;
-    }
-
-
     /**
      * Override the toString method of Object and return a fine illustration of the DishList information
      *
@@ -78,7 +66,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menuString.toString();
 
     }
-    // Methods that allow lookup dish information without returning the dish itself
 
     /**
      * Get the dish's price for a dish named dishName

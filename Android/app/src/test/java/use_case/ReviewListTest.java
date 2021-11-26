@@ -32,4 +32,9 @@ public class ReviewListTest {
         System.out.println(rl);
     }
 
+    @Test
+    public void testToString(){
+        System.out.println(rl);
+    }
+
 }

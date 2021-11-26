@@ -16,7 +16,8 @@ public class SeeMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_menu);
 
-        ScrollView menuItems = (ScrollView) findViewById(R.id.menuItems);
+        // Create a scroll view of the dishes in the menu
+        ScrollView menuItems = findViewById(R.id.menuItems);
 
         // Get the menu as text and add it to the scroll view
         TextView menuItemsText = new TextView(this);

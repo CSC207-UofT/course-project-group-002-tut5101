@@ -28,4 +28,9 @@ public class ManagerPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void selectExit(View v) {
+        Intent intent = new Intent(ManagerPickActionActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -7,11 +7,13 @@ import gateway.SerReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
     private static ReadWriter rrw;
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
+    private static HashMap<Integer, String> keySet = new HashMap<>();
 
     public ReviewList() {
         rrw = new SerReadWriter();
@@ -78,7 +80,15 @@ public class ReviewList implements Serializable {
         rrw.saveToFile(this.filepath, this.reviews);
     }
 
-
-
-
+    @Override
+    public String toString() {
+        int reviewNumber = 1;
+        StringBuilder menuString = new StringBuilder();
+        keySet = new HashMap<>();
+        for (int review : reviews.keySet()) {
+            menuString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
+            reviewNumber++;
+        }
+        return menuString.toString();
+    }
 }

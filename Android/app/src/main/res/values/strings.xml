@@ -10,6 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_customer">Welcome, Customer</string>
+    <string name="welcome_manager">Welcome, Manager</string>
+    <string name="manage_menu">Manage Menu</string>
     <string name="see_menu">See Menu</string>
     <string name="place_order">Place Order</string>
     <string name="order_dish">Order Dish</string>
@@ -22,4 +24,7 @@
     <string name="deliver_order_header">Delivery System</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+    <string name="delete_review">Delete Review</string>
+    <string name="add_staff">Add Staff</string>
+    <string name="review_title">Reviews</string>
 </resources>
