@@ -2,7 +2,7 @@ package controller.loginSystem;
 
 import constant.mangerSystem.UserType;
 import constant.uiMessage.LoginResult;
-import use_case.boundary.LoginInputBoundary;
+import use_case.boundary.input.LoginInputBoundary;
 import use_case.boundary.output.LoginOutputBoundary;
 import use_case.userList.LoginUseCase;
 import use_case.userList.UserList;
@@ -15,13 +15,21 @@ public class LoginController {
     /**
      * The input use_case.boundary for the login use case.
      */
-    private final LoginInputBoundary loginInputBoundary;
+    private LoginInputBoundary loginInputBoundary;
+
 
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
-    public LoginController(LoginOutputBoundary loginOutputBoundary) {
+    public LoginController() {
+    }
+
+    /**
+     * Initialize use case input boundary and passing in the presenter interface
+     * @param loginOutputBoundary instance of output boundary presenter
+     */
+    public void createUseCaseInteractor(LoginOutputBoundary loginOutputBoundary){
         this.loginInputBoundary = new LoginUseCase(loginOutputBoundary);
     }
 
@@ -36,18 +44,6 @@ public class LoginController {
         return loginInputBoundary.logIn(id, password);
     }
 
-//    public LoginResult runLogin(String id, String password) {
-//        LoginResult result = loginInputBoundary.logIn(id, password);
-//        switch (result) {
-//            case SUCCESS:
-//                return LoginResult.SUCCESS;
-//            case FAILURE:
-//                return LoginResult.FAILURE;
-//            case NO_SUCH_USER:
-//                return LoginResult.NO_SUCH_USER;
-//        }
-//        return result;
-//    }
 
     /**
      * Return UserType based on the login user id

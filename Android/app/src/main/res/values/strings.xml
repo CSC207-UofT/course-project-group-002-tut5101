@@ -22,4 +22,7 @@
     <string name="deliver_order_header">Delivery System</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+	<string name="userId">User ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 </resources>

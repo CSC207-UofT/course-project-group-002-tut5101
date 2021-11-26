@@ -9,10 +9,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".KitchenActivity"
-                    android:exported="true">
+        <activity android:name=".KitchenActivity">
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+                  android:exported="true">
         </activity>
         <activity android:name=".PlaceOrderActivity">
         </activity>
