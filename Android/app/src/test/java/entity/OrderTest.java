@@ -51,7 +51,7 @@ public class OrderTest {
 
     @Test(timeout = 50)
     public void testGetOrderDineInOrTakeOut(){
-        assertEquals("Dine In", order.getOrderDineInOrTakeOut());
+        assertEquals("Dine In", order.getOrderType());
     }
 
     @Test(timeout = 50)

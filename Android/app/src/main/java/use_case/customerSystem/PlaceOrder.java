@@ -1,12 +1,5 @@
 package use_case.customerSystem;
-/**
- * This is the PlaceOrder class, which creates copies of dishes ordered based on their information in the menu and creates
- * a new order with the list of dishes
- * @Author Evelyn Chou
- * 2021-11-03
- */
 
-import androidx.annotation.RequiresApi;
 import entity.orderList.DeliveryOrder;
 import entity.orderList.DineInOrder;
 import use_case.dishList.DishList;
@@ -16,12 +9,14 @@ import entity.orderList.Dish;
 import entity.orderList.Order;
 import constant.orderSystem.OrderType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-
+/**
+ * This is the PlaceOrder class, which creates copies of dishes ordered based on their information in the menu and creates
+ * a new order with the list of dishes
+ * by Evelyn Chou
+ * 2021-11-03
+ */
 public class PlaceOrder implements PlaceOrderInputBoundary {
 
     /**
@@ -30,24 +25,24 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
      * @param orderType true if the dish is dineIn, false otherwise
      * @param dishNames string list of the names of dishes ordered
      * @param location the table number or delivery information of the order
-     * @throws Exception
+     * @throws Exception if insufficient inventory
      */
     public void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception{
-        HashMap<String, List<Dish>> dishes = new HashMap<String, List<Dish>>();
+        HashMap<String, List<Dish>> dishes = new HashMap<>();
 
         for (String dishName: dishNames) {
             Dish dishCopy;
             dishCopy = generateDishCopy(dishName, location, orderType);
             List<Dish> dishCopyAsList;
             if (!dishes.containsKey(dishName)) {
-                dishCopyAsList = new ArrayList<>(Arrays.asList(dishCopy));
-                dishes.put(dishName, dishCopyAsList);
+                dishCopyAsList = new ArrayList<>(Collections.singletonList(dishCopy));
             }
             else {
                 dishCopyAsList = dishes.get(dishName);
+                assert dishCopyAsList != null;
                 dishCopyAsList.add(dishCopy);
-                dishes.put(dishName, dishCopyAsList);
             }
+            dishes.put(dishName, dishCopyAsList);
         }
         Order order ;
         if (orderType.equals(OrderType.DINE_IN)) {

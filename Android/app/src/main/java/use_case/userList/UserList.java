@@ -4,6 +4,7 @@ package use_case.userList;
   @author Chan Yu & Naihe Xiao
  */
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.*;
@@ -17,7 +18,6 @@ import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -103,6 +103,7 @@ public class UserList implements Serializable {
      * @return a string representation including all users.
      */
     @Override
+    @NonNull
     public String toString() {
         StringBuilder builder = new StringBuilder();
         for (String userId : users.keySet()){
@@ -111,5 +112,5 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void SavetoFile(){this.readWriter.saveToFile(this.filepath,this.users);}
+    public void SavetoFile(){this.readWriter.saveToFile(this.filepath, users);}
 }

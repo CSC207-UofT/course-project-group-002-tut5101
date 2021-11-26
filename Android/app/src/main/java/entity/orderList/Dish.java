@@ -1,6 +1,7 @@
 package entity.orderList;
 
 
+import androidx.annotation.NonNull;
 import constant.orderSystem.ItemStatus;
 
 import java.io.Serializable;
@@ -42,7 +43,7 @@ public class Dish implements Serializable {
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
-        this.features = new HashMap<String, Boolean>();
+        this.features = new HashMap<>();
         this.allergyInformation = "none";
     }
 
@@ -138,7 +139,7 @@ public class Dish implements Serializable {
     /**
      * Set price of entities.Dish
      *
-     * @param price
+     * @param price the price of the dish
      */
     public void setPrice(double price) {
         this.price = price;
@@ -156,7 +157,7 @@ public class Dish implements Serializable {
     /**
      * Set ingredients of entities.Dish
      *
-     * @param ingredients
+     * @param ingredients the ingredients of the dish
      */
     public void setIngredients(HashMap<String, Double> ingredients) {
         this.ingredients = ingredients;
@@ -174,7 +175,7 @@ public class Dish implements Serializable {
     /**
      * Set features of entities.Dish
      *
-     * @param features
+     * @param features special features of the dish
      */
     public void setFeatures(HashMap<String, Boolean> features) {
         this.features = features;
@@ -192,7 +193,7 @@ public class Dish implements Serializable {
     /**
      * Set calories of entities.Dish
      *
-     * @param calories
+     * @param calories the number of calories the dish has
      */
     public void setCalories(double calories) {
         this.calories = calories;
@@ -210,7 +211,7 @@ public class Dish implements Serializable {
     /**
      * Set allergy information of entities.Dish
      *
-     * @param allergyInformation
+     * @param allergyInformation allergy information of the dish
      */
     public void setAllergyInformation(String allergyInformation) {
         this.allergyInformation = allergyInformation;
@@ -222,11 +223,12 @@ public class Dish implements Serializable {
      * @return a string representation of this dish
      */
     @Override
+    @NonNull
     public String toString() {
 
         StringBuilder ingString = new StringBuilder();
         for (String ing: ingredients.keySet()){
-            ingString.append(ingredients.get(ing) + " " + ing + "  ");
+            ingString.append(ingredients.get(ing)).append(" ").append(ing).append("  ");
         }
 
         return name +

@@ -1,5 +1,8 @@
 package entity.review;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -102,10 +105,12 @@ public class Review implements Reviewable, Serializable {
     @Override
     public String reviewDate() {
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
     }
 
+    @Override
+    @NonNull
     public String toString() {
         return addName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + reviewDate();
     }

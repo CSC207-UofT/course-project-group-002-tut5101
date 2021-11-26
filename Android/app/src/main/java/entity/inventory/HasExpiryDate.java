@@ -1,10 +1,13 @@
 package entity.inventory;
 
+
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
 /**
  * Entity class for alcohol.
  */
-
-import java.io.Serializable;
 
 public class HasExpiryDate implements Inventory, Serializable {
     public String name;
@@ -49,7 +52,7 @@ public class HasExpiryDate implements Inventory, Serializable {
     /**
      * Check wether have enough Inventory for use and change the amount of it
      * @param usage The required amount of usage of this inventory
-     * @return Wether the inventory is enough to use.
+     * @return Whether the inventory is enough to use.
      */
     @Override
     public void updateQuantity(double usage){
@@ -70,10 +73,10 @@ public class HasExpiryDate implements Inventory, Serializable {
 
 
     @Override
+    @NonNull
     public String toString(){
-        String s = this.name+ ","+ this.price +
+        return this.name+ ","+ this.price +
                 ","+ this.quantity +","+ this.ExpiryDate;
-        return s;
 
     }
 }

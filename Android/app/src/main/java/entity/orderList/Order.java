@@ -22,8 +22,7 @@ public abstract class Order {
     private HashMap<String, List<Dish>> dishes;
 
     private ItemStatus orderStatus;
-    private String address;
-    private OrderType orderType;
+
 
     // initialize order
     public Order() { }
@@ -31,13 +30,6 @@ public abstract class Order {
         this.dishes = dishes;
     }
 
-    /**
-     *
-     * @return the order type
-     */
-    public String getOrderDineInOrTakeOut() {
-        return orderType.name();
-    }
 
 
     /**
@@ -179,7 +171,8 @@ public abstract class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderType == order.orderType && Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus();
+        return Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus();
     }
 
+    public abstract String getOrderType();
 }

@@ -18,7 +18,7 @@ public class DineInOrderBuilder implements OrderBuilderInterface{
 
     @Override
     public void reset() {
-        dineInOrder = new DineInOrder();
+//        dineInOrder = new DineInOrder();
     }
 
     @Override

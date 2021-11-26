@@ -32,7 +32,7 @@ public class InventoryList implements Serializable {
     public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
-        this.myDict = irw.readFromFile(filepath);
+        myDict = irw.readFromFile(filepath);
     }
 
 
@@ -154,7 +154,7 @@ public class InventoryList implements Serializable {
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, this.myDict);
+        this.irw.saveToFile(this.filepath, myDict);
     }
 
 
@@ -165,8 +165,7 @@ public class InventoryList implements Serializable {
 
     public HashMap readfromFile() {
         AndroidReadWriter androidReadWriter = new AndroidReadWriter();
-        HashMap result = androidReadWriter.readFromFile("inventory.ser");
-        return result;
+        return androidReadWriter.readFromFile("inventory.ser");
     }
 
 }

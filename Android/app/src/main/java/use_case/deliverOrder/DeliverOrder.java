@@ -36,9 +36,8 @@ public class DeliverOrder implements Delivery {
      * Get description of the current order
      * @param id The id of the user
      * @return String of description of the order
-     * @throws Exception When there is no order, throws exception
      */
-    public String display(String id) throws Exception {
+    public String display(String id) {
         DeliveryStaff staff = (DeliveryStaff) UserList.getUserByUserId(id);
         String orderInfo = staff.displayOrder();
 

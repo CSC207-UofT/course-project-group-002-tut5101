@@ -8,15 +8,14 @@ import java.util.List;
 
 public class DeliveryOrder extends Order{
 
-    private ItemStatus orderStatus;
-    private String address;
+    private final String address;
     private OrderType orderType;
 
     // initialize delivery order
     public DeliveryOrder(String address, HashMap<String, List<Dish>> dishes) {
         super(dishes);
-        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.address = address;
+        this.orderType = OrderType.DELIVERY;
     }
 
     /**
@@ -26,4 +25,13 @@ public class DeliveryOrder extends Order{
     public String getAddress() {
         return this.address;
     }
+
+    /**
+     *
+     * @return the order type
+     */
+    public String getOrderType() {
+        return orderType.name();
+    }
+
 }

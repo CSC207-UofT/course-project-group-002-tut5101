@@ -8,20 +8,15 @@ import java.util.List;
 
 public class DineInOrder extends Order{
 
-    private ItemStatus orderStatus;
     private int tableNum;
     private OrderType orderType;
 
 
-    public DineInOrder() {
-        this.orderStatus = ItemStatus.ORDER_PLACED;
-    }
-
 
     public DineInOrder(int tableNum, HashMap<String, List<Dish>> dishes) {
         super(dishes);
-        this.orderStatus = ItemStatus.ORDER_PLACED;
         this.tableNum = tableNum;
+        this.orderType = OrderType.DINE_IN;
     }
 
     /**
@@ -30,5 +25,13 @@ public class DineInOrder extends Order{
      */
     public int getTableNum() {
         return this.tableNum;
+    }
+
+    /**
+     *
+     * @return the order type
+     */
+    public String getOrderType() {
+        return orderType.name();
     }
 }

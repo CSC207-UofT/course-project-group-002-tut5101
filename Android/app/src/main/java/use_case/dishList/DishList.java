@@ -1,7 +1,7 @@
 package use_case.dishList;
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
-import controller.menuSystem.MenuController;
 import entity.orderList.Dish;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
@@ -16,7 +16,7 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static Map<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
@@ -31,14 +31,14 @@ public class DishList implements Serializable, Iterable<Dish> {
     public DishList() {
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
-        dishNames = menu.keySet().toArray(new String[menu.size()]);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
-        dishNames = menu.keySet().toArray(new String[menu.size()]);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
@@ -63,7 +63,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return the menu
      */
-    public Map getAllDishes() {
+    public HashMap<String, Dish> getAllDishes() {
         return menu;
     }
 
@@ -75,6 +75,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
 
     @Override
+    @NonNull
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
@@ -153,6 +154,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return an iterator for this dishList.
      */
     @Override
+    @NonNull
     public Iterator<Dish> iterator() {
         return new DishListIterator();
     }
@@ -258,7 +260,7 @@ public class DishList implements Serializable, Iterable<Dish> {
 
 
     public void saveToFile(){
-        readWriter.saveToFile(this.filepath, this.menu);
+        readWriter.saveToFile(this.filepath, menu);
     }
 
 
