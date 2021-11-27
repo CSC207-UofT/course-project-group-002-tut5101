@@ -43,13 +43,14 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
             List<Dish> dishCopyAsList;
             if (!dishes.containsKey(dishName)) {
                 dishCopyAsList = new ArrayList<>(Collections.singletonList(dishCopy));
+                dishes.put(dishName, dishCopyAsList);
             }
             else {
                 dishCopyAsList = dishes.get(dishName);
                 assert dishCopyAsList != null;
                 dishCopyAsList.add(dishCopy);
+                dishes.replace(dishName, dishCopyAsList);
             }
-            dishes.put(dishName, dishCopyAsList);
         }
         Order order = orderFactory.OrderType(orderType, location, dishes);
         OrderQueue.addOrder(order);

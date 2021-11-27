@@ -2,6 +2,7 @@ package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
+
+import java.util.Objects;
 
 /**
  * Select whether an order is dine in or take out
@@ -42,7 +45,15 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void next(View v) {
         Intent intent = new Intent(SelectDineInTakeOutActivity.this, EnterLocationActivity.class);
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), selectDineInTakeOutOptions[selectDineInTakeOut.getValue()]);
+        OrderType orderType;
+        String orderTypeName = selectDineInTakeOutOptions[selectDineInTakeOut.getValue()];
+        if (Objects.equals(orderTypeName, OrderType.DINE_IN.toString())) {
+            orderType = OrderType.DINE_IN;
+        }
+        else {
+            orderType = OrderType.DELIVERY;
+        }
+        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         startActivity(intent);
     }
 }

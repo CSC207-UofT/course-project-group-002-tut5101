@@ -1,6 +1,7 @@
 package com.example.androidgui.placeorder;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
+import constant.orderSystem.OrderType;
 
 /**
  * If the order is dine in, records the table number
@@ -35,10 +37,14 @@ public class EnterLocationActivity extends AppCompatActivity {
         System.out.println(location);
 
         Intent intent = new Intent(EnterLocationActivity.this, PlaceOrderActivity.class);
-        Bundle extras = getIntent().getExtras();
-        String orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
-
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
+        Intent extras = getIntent();
+        OrderType orderType = null;
+        if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
+            orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
+        }
+        System.out.println("TESTING123");
+        System.out.println(orderType);
+        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
 
         startActivity(intent);

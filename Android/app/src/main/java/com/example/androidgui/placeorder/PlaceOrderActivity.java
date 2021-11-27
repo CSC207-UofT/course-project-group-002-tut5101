@@ -1,6 +1,7 @@
 package com.example.androidgui.placeorder;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
@@ -55,8 +56,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         generateStartingInformation();
 
 
-
-        }
+    }
 
     @SuppressWarnings("unchecked")
     private void generateStartingInformation(){
@@ -95,7 +95,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      * @param dishNames the array of all dish names
      */
     public void setDisplayedDishNames(String[] dishNames) {
-        System.out.println(dishNames.length);
         dishNamePicker.setDisplayedValues(dishNames);
     }
 
@@ -147,13 +146,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void placeOrder(View v) {
         String [] dishes = collectDishes();
 
-        Bundle extras = getIntent().getExtras();
-        OrderType orderType = extras.getParcelable(BuildOrderInfo.ORDER_TYPE.name());
-        String location = extras.getString(BuildOrderInfo.LOCATION.name());
+        Intent intent = getIntent();
+        OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
+        String location = intent.getStringExtra(BuildOrderInfo.LOCATION.name());
 
         try {
 //            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
             orderController.runPlaceOrder(orderType, dishes, location);
+            orderSuccessfullyPlaced();
         }
         catch (Exception e) {
             String message = "Error, please try again";
@@ -191,17 +191,17 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void selectEditOrder(View view) {
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
         Intent extras = getIntent();
-        String orderType = null;
+        OrderType orderType = null;
         String location = null;
         if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
-            orderType = extras.getExtras().getString(BuildOrderInfo.ORDER_TYPE.name());
+            orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (extras.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = extras.getExtras().getString(BuildOrderInfo.LOCATION.name());
         }
 
         if (orderType != null) {
-            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
+            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         }
         if (location != null){
             intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
