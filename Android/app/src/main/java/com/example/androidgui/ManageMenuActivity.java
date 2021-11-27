@@ -8,11 +8,8 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.androidgui.R;
-import com.example.androidgui.SelectEditOrDeleteActivity;
 import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
-import entity.orderList.Dish;
 
 public class ManageMenuActivity extends AppCompatActivity {
     NumberPicker selectDish;

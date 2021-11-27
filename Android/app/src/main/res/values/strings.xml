@@ -36,4 +36,5 @@
     <string name="delete_title">Delete this dish</string>
     <string name="delete_message">Are you sure you want to delete this dish?</string>
     <string name="confirm">Confirm</string>
+    <string name="delete">delete</string>
 </resources>

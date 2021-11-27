@@ -1,4 +1,5 @@
 package use_case.reviewList;
+
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
 import gateway.ReadWriter;
@@ -13,18 +14,17 @@ public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
     private static ReadWriter rrw;
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
-    private static HashMap<Integer, String> keySet = new HashMap<>();
 
     public ReviewList() {
         rrw = new SerReadWriter();
         HashMap map = rrw.readFromFile(filepath);
-        this.reviews  = map;
+        reviews  = map;
     }
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
         rrw = new SerReadWriter();
-        this.reviews  = rrw.readFromFile(filepath);
+        reviews  = rrw.readFromFile(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
@@ -77,18 +77,34 @@ public class ReviewList implements Serializable {
     }
 
     public void saveToFile() {
-        rrw.saveToFile(this.filepath, this.reviews);
+        rrw.saveToFile(this.filepath, reviews);
     }
 
+    /**
+     *
+     * @return a string representation of this review list.
+     */
     @Override
     public String toString() {
         int reviewNumber = 1;
         StringBuilder menuString = new StringBuilder();
-        keySet = new HashMap<>();
+        HashMap<Integer, String> keySet = new HashMap<>();
         for (int review : reviews.keySet()) {
             menuString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
             reviewNumber++;
         }
         return menuString.toString();
+    }
+
+    public void deleteBelowThree() {
+        reviews.put(3, new ArrayList<>());
+    }
+
+    public void deleteBelowTwo() {
+        reviews.put(2, new ArrayList<>());
+    }
+
+    public void deleteBelowOne() {
+        reviews.put(1, new ArrayList<>());
     }
 }

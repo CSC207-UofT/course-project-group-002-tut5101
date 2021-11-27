@@ -57,4 +57,14 @@ public class ReviewController {
     public String reviewsAsString() {
         return reviews.toString();
     }
+
+    public int length() {
+        return reviews.sizeofList();
+    }
+
+    public void deleteBelowThree() {reviews.deleteBelowThree();}
+
+    public void deleteBelowTwo() {reviews.deleteBelowTwo();}
+
+    public void deleteBelowOne() {reviews.deleteBelowOne();}
 }
