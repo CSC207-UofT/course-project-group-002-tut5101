@@ -2,8 +2,6 @@ package use_case.customerSystem;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import entity.orderList.DeliveryOrder;
-import entity.orderList.DineInOrder;
 import use_case.dishList.DishList;
 import use_case.kitchen.OrderQueue;
 import use_case.boundary.PlaceOrderInputBoundary;
