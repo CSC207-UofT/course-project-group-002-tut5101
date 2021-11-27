@@ -1,6 +1,5 @@
 package com.example.androidgui;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,8 +7,9 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.R;
+import com.example.androidgui.SelectEditOrDeleteActivity;
 import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
 import entity.orderList.Dish;
@@ -19,8 +19,6 @@ public class ManageMenuActivity extends AppCompatActivity {
     TextView askDishNumber;
     String[] managerDecision;
     MenuController menuController = new MenuController();
-//    MenuController menuController = new MenuController();
-//    Dish dish = menuController.passDishByString(id);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +37,6 @@ public class ManageMenuActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void next(View v){
         Intent intent = new Intent(ManageMenuActivity.this, SelectEditOrDeleteActivity.class);
-        Dish dish;
         String dishName = managerDecision[selectDish.getValue()];
         intent.putExtra("dishSelected", dishName);
         startActivity(intent);

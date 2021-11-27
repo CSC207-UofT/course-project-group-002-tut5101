@@ -31,9 +31,9 @@
     <string name="dishName">Dish Name</string>
     <string name="deleteButton">Delete</string>
     <string name="editButton">Edit</string>
-    <string name="DishName">Dish Name</string>
     <string name="agree">Yes</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="delete_title">Delete this dish</string>
     <string name="delete_message">Are you sure you want to delete this dish?</string>
+    <string name="confirm">Confirm</string>
 </resources>
