@@ -1,5 +1,6 @@
 package controller.menuSystem;
 
+import entity.orderList.Dish;
 import use_case.dishList.DishList;
 
 import java.util.List;
@@ -26,12 +27,24 @@ public class MenuController {
         return DishList.getDishNamesFromInt(orderedNum);
     }
 
+    public Dish passDishByString(String dishName){
+        return DishList.getDishByDishName(dishName);
+    }
+
+    public int length(){
+        return dishList.size();
+    }
+
     /**
      *
      * @return a string representation of dishlist.
      */
     public String dishesInMenuAsString() {
         return dishList.toString();
+    }
+
+    public void deleteDishByName(String dishName) {
+        dishList.deleteDishByName(dishName);
     }
 
     /**
@@ -41,4 +54,7 @@ public class MenuController {
         this.dishList.saveToFile();
     }
 
+    public void editDishByName(String dishName) {
+        this.dishList.editDishByName(dishName);
+    }
 }

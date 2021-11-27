@@ -256,4 +256,14 @@ public class Dish implements Serializable {
     public int hashCode() {
         return Objects.hash(getName(), getPrice(), getCategory(), getIngredients(), getFeatures(), getCalories(), getAllergyInformation(), getStatus(), getTableNum());
     }
+
+    public void increasePrice() {
+        double price = this.price;
+        this.setPrice(price + 1);
+    }
+
+    public void decreaseCalories() {
+        double calories = this.calories;
+        this.setCalories(calories - 100);
+    }
 }

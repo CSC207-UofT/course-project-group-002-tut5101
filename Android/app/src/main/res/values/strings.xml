@@ -27,4 +27,13 @@
     <string name="delete_review">Delete Review</string>
     <string name="add_staff">Add Staff</string>
     <string name="review_title">Reviews</string>
+    <string name="see_review">See Review</string>
+    <string name="dishName">Dish Name</string>
+    <string name="deleteButton">Delete</string>
+    <string name="editButton">Edit</string>
+    <string name="DishName">Dish Name</string>
+    <string name="agree">Yes</string>
+    <string name="cancel">cancel</string>
+    <string name="delete_title">Delete this dish</string>
+    <string name="delete_message">Are you sure you want to delete this dish?</string>
 </resources>

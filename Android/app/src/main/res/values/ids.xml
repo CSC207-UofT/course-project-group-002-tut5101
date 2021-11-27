@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="selectDish" type="id">Select Dish</item>
+    <item name="askDishNumber" type="id">What is the number of the dish?</item>
+    <item name="selectEditOrDelete" type="id">Edit or Delete?</item>
+    <item name="askSelection" type="id">Please Select</item>
+</resources>

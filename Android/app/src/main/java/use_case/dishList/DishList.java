@@ -135,6 +135,16 @@ public class DishList implements Serializable, Iterable<Dish> {
         return new DishListIterator();
     }
 
+    public void deleteDishByName(String dishName) {
+        menu.remove(dishName);
+    }
+
+    public void editDishByName(String dishName) {
+        Dish dish = menu.get(dishName);
+        dish.increasePrice();
+        dish.decreaseCalories();
+    }
+
     /**
      * An Iterator for DishList.
      */
@@ -201,12 +211,15 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dishName name of the dish
      * @return the Dish object
      */
-    public Dish getDishByDishName(String dishName) {
+    public static Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
 
+    /**
+     * save the dish list to file.
+     */
     public void saveToFile(){
-        readWriter.saveToFile(this.filepath, this.menu);
+        readWriter.saveToFile(this.filepath, menu);
     }
 
 

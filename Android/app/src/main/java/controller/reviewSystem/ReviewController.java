@@ -45,14 +45,6 @@ public class ReviewController {
     }
 
     /**
-     *
-     * @return the size of the reviewList.
-     */
-    public int sizeofReview(){
-        return this.reviews.sizeofList();
-    }
-
-    /**
      * save the reviewList to file.
      */
     public void saveToFile(){
