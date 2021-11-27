@@ -1,9 +1,12 @@
 package gateway;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.net.Uri;
 import android.util.Log;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
@@ -11,18 +14,12 @@ import java.util.HashMap;
 public class AndroidReadWriter {
     public void writeToFile(HashMap data, Context context, String fileName) {
         try {
-            File file = new File(context.getFilesDir(), fileName);
-            Log.e("LOG", String.valueOf(file.exists()));
-            Log.e("LOG", String.valueOf(file.getAbsolutePath()));
-            if(!file.exists()) {
-                file.createNewFile();
-                Log.e("LOG", "File created");
-            }
+            InputStream inputStream = context.getAssets().open("inventory.ser");
 
-            ObjectOutput output = new ObjectOutputStream(new FileOutputStream(file));
+            //ObjectOutput output = new ObjectOutputStream(new FileOutputStream());
 
-            output.writeObject(data);
-            output.close();
+//            output.writeObject(data);
+//            output.close();
         }
         catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
@@ -36,14 +33,9 @@ public class AndroidReadWriter {
         HashMap result = null;
 
         try {
-            // InputStream inputStream = context.getAssets().open("users.ser");
+            InputStream inputStream = context.getAssets().open(fileName);
 
-            File file = new File(context.getFilesDir(), fileName);
-            Log.e("LOG", String.valueOf(file.exists()));
-            Log.e("LOG", String.valueOf(file.getAbsolutePath()));
-
-            FileInputStream f = new FileInputStream(file);
-            ObjectInput output = new ObjectInputStream(f);
+            ObjectInput output = new ObjectInputStream(inputStream);
             result = (HashMap) output.readObject();
             output.close();
 
@@ -56,5 +48,4 @@ public class AndroidReadWriter {
 
         return result;
     }
-
 }

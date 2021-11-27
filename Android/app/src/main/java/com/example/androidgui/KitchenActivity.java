@@ -60,7 +60,7 @@ public class KitchenActivity extends AppCompatActivity {
 //        System.out.println("Did");
 
 
-        DishList dl = new DishList(this, "menu.ser");
+//        DishList dl = new DishList(this, "menu.ser");
 //        dl.addDishByPara("Donut sandwich", 5.99, new String[][]{
 //                new String[]{"Bread", "2.0"},
 //                new String[]{"Donut", "1.0"},

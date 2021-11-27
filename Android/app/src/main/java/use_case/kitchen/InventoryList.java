@@ -44,6 +44,7 @@ public class InventoryList implements Serializable {
         this.filepath = filepath;
         arw = new AndroidReadWriter();
         this.myDict = arw.readFromFile(context, filepath);
+        // this.myDict = new HashMap<>();
         this.context = context;
         for (String key: myDict.keySet()) {
             System.out.print(key + " ");
