@@ -75,6 +75,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         Intent intent = getIntent();
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
             dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
+            displayDishesOrdered();
         }
 
 
@@ -189,13 +190,25 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
      */
     public void selectEditOrder(View view) {
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
-        Bundle extras = getIntent().getExtras();
-        String orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
-        String location = extras.getString(BuildOrderInfo.LOCATION.name());
+        Intent extras = getIntent();
+        String orderType = null;
+        String location = null;
+        if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
+            orderType = extras.getExtras().getString(BuildOrderInfo.ORDER_TYPE.name());
+        }
+        if (extras.hasExtra(BuildOrderInfo.LOCATION.name())) {
+            location = extras.getExtras().getString(BuildOrderInfo.LOCATION.name());
+        }
 
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
-        intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
-        intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
+        if (orderType != null) {
+            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
+        }
+        if (location != null){
+            intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        }
+        if (dishesOrdered != null){
+            intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
+        }
         startActivity(intent);
     }
 

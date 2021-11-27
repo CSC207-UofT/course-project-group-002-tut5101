@@ -17,13 +17,12 @@ import java.util.HashMap;
  * Edits the existing dishes in the order
  */
 public class EditOrderActivity extends AppCompatActivity {
-    String orderType;
-    String location;
-    HashMap<String, Integer> dishesOrdered;
+    private String orderType;
+    private String location;
+    private HashMap<String, Integer> dishesOrdered;
 
-    NumberPicker orderedDishesPicker;
-    ArrayList<String> collectedDishes;
-    LinearLayout orderedDishesLayout;
+    private NumberPicker orderedDishesPicker;
+    private ArrayList<String> collectedDishes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +40,23 @@ public class EditOrderActivity extends AppCompatActivity {
 
     @SuppressWarnings("unchecked")
     private void collectExtraInformation(){
-        Bundle extras = getIntent().getExtras();
-        orderType = extras.getString(BuildOrderInfo.ORDER_TYPE.name());
-        location = extras.getString(BuildOrderInfo.LOCATION.name());
-        dishesOrdered = (HashMap<String, Integer>) extras.getSerializable(BuildOrderInfo.DISHES.name());
+        Intent intent = getIntent();
+        if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
+            orderType = intent.getExtras().getString(BuildOrderInfo.ORDER_TYPE.name());
+        }
+        if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
+            location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
+        }
+        if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
+            dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
+        }
+
     }
 
 
     private void displayDishesOrdered() {
+        LinearLayout orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
+        orderedDishesLayout.removeAllViews();
         for (String dishNameAndQuantity : collectedDishes) {
             TextView displayedDish = new TextView(this);
             displayedDish.setText(dishNameAndQuantity);
@@ -57,13 +65,19 @@ public class EditOrderActivity extends AppCompatActivity {
     }
 
     private void collectDishes() {
+        orderedDishesPicker.setMinValue(0);
         collectedDishes = new ArrayList<>();
         String dishNameAndQuantity;
-        for (String dishName : dishesOrdered.keySet()) {
-            dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
-            collectedDishes.add(dishNameAndQuantity);
+        int maxValue = 0;
+        if (dishesOrdered != null) {
+            for (String dishName : dishesOrdered.keySet()) {
+                dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
+                collectedDishes.add(dishNameAndQuantity);
+                maxValue += 1;
+            }
+            orderedDishesPicker.setMaxValue(maxValue - 1);
+            orderedDishesPicker.setDisplayedValues(collectedDishes.toArray(new String[0]));
         }
-        orderedDishesPicker.setDisplayedValues(collectedDishes.toArray(new String[0]));
     }
 
     /**
