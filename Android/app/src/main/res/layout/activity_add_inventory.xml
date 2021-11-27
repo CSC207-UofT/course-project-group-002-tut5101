@@ -10,7 +10,7 @@
     <Button
             android:text="ADD"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button1"
+            android:layout_height="wrap_content" android:id="@+id/bt1"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="145dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="145dp" android:layout_marginBottom="144dp"/>
@@ -18,15 +18,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Price"
-            android:id="@+id/textInputEditText2" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="11dp" app:layout_constraintTop_toBottomOf="@+id/textInputEditText1"
+            android:id="@+id/textInputEdit2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="11dp" app:layout_constraintTop_toBottomOf="@+id/textInputEdit1"
             app:layout_constraintEnd_toEndOf="parent"/>
     <com.google.android.material.textfield.TextInputEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Quantity in kg"
             android:id="@+id/textInputEditText3" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="13dp" app:layout_constraintTop_toBottomOf="@+id/textInputEditText2"
+            android:layout_marginTop="13dp" app:layout_constraintTop_toBottomOf="@+id/textInputEdit2"
             app:layout_constraintEnd_toEndOf="parent"/>
     <com.google.android.material.textfield.TextInputEditText
             android:layout_width="0dp"
@@ -39,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Name"
-            android:id="@+id/textInputEditText1" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/textInputEdit1" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="87dp"
             app:layout_constraintEnd_toEndOf="parent"/>
     <com.google.android.material.textfield.TextInputEditText
