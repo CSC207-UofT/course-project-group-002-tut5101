@@ -20,8 +20,8 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
-        button = findViewById(R.id.button7);
-        name = findViewById(R.id.textInputEditText5);
+        button = findViewById(R.id.button1);
+        name = findViewById(R.id.textInputEditText1);
         price = findViewById(R.id.textInputEditText2);
         amount = findViewById(R.id.textInputEditText3);
         date = findViewById(R.id.textInputEditText4);

@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
+        <activity android:name=".AddReviewCommentActivity">
+        </activity>
         <activity android:name=".Review.AddComplainActivity">
         </activity>
         <activity android:name=".Review.IfComplainActivity">
