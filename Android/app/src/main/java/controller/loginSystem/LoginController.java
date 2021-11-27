@@ -2,6 +2,12 @@ package controller.loginSystem;
 
 import constant.mangerSystem.UserType;
 import constant.uiMessage.LoginResult;
+import entity.customer.Customer;
+import entity.delivery.DeliveryStaff;
+import entity.delivery.ServingStaff;
+import entity.inventory.InventoryStaff;
+import entity.kitchen.KitchenStaff;
+import entity.manager.Manager;
 import use_case.boundary.input.LoginInputBoundary;
 import use_case.boundary.output.LoginOutputBoundary;
 import use_case.userList.LoginUseCase;
@@ -16,13 +22,28 @@ public class LoginController {
      * The input use_case.boundary for the login use case.
      */
     private LoginInputBoundary loginInputBoundary;
-
+    private UserList users;
 
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
+        users = new UserList("src/main/resources/users.ser");
+        //TODO hardcode since File I/O issue, need delete later
+        generateUsers();
+    }
+    //TODO hardcode since File I/O issue, need delete later
+    private void generateUsers() {
+        users.addUser(new Manager());
+        users.addUser(new Customer("2", "James", "12345"));
+        users.addUser(new Customer("3", "Steve", "12345"));
+        users.addUser(new Customer("4", "David", "12345"));
+        users.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
+        users.addUser(new ServingStaff("6", "Eve", "12345", 3665));
+        users.addUser(new ServingStaff("7", "Alice", "12345", 3700));
+        users.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
+        users.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
     }
 
     /**
@@ -53,6 +74,7 @@ public class LoginController {
     public UserType getUserTypeById(String id){
         return UserList.getUserTypeById(id);
     }
+
 
     public String RegisterUser(String info){
         String[] para = info.split(",");
