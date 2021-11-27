@@ -16,5 +16,4 @@ public interface OrderBuilderInterface {
 
     Order getProduct();
 
-
 }

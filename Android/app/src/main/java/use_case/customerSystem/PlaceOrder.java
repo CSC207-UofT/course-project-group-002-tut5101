@@ -1,5 +1,7 @@
 package use_case.customerSystem;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 import entity.orderList.DeliveryOrder;
 import entity.orderList.DineInOrder;
 import use_case.dishList.DishList;
@@ -19,6 +21,12 @@ import java.util.*;
  */
 public class PlaceOrder implements PlaceOrderInputBoundary {
 
+    private final OrderFactory orderFactory;
+
+    public PlaceOrder() {
+        orderFactory = new OrderFactory();
+    }
+
     /**
      * Places an order by creating copies of the dishes in the menu then adding them to a new order, then adding the
      * order to the OrderQueue
@@ -27,6 +35,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
      * @param location the table number or delivery information of the order
      * @throws Exception if insufficient inventory
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception{
         HashMap<String, List<Dish>> dishes = new HashMap<>();
 
@@ -44,14 +53,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
             }
             dishes.put(dishName, dishCopyAsList);
         }
-        Order order ;
-        if (orderType.equals(OrderType.DINE_IN)) {
-            int tableNum = Integer.parseInt(location);
-            order = new DineInOrder(tableNum, dishes);
-        }
-        else {
-            order = new DeliveryOrder(location, dishes);
-        }
+        Order order = orderFactory.OrderType(orderType, location, dishes);
         OrderQueue.addOrder(order);
     }
 

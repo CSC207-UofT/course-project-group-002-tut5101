@@ -20,16 +20,13 @@ import java.util.Objects;
 
 public abstract class Order {
     private HashMap<String, List<Dish>> dishes;
-
     private ItemStatus orderStatus;
-
 
     // initialize order
     public Order() { }
     public Order(HashMap<String, List<Dish>> dishes) {
         this.dishes = dishes;
     }
-
 
 
     /**
