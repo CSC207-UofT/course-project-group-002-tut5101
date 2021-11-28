@@ -120,8 +120,26 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void SavetoFile() {
+    public void savetoFile() {
         this.readWriter.saveToFile(this.filepath, users);
     }
 
+    public void addStaff(String id, String name, String password, String userType, int salary) {
+        switch (UserType.valueOf(userType)){
+            case KITCHEN:
+                users.put(id, new KitchenStaff(id, name, password, salary));
+                break;
+            case SERVING_STAFF:
+                users.put(id, new ServingStaff(id, name, password, salary));
+                break;
+            case DELIVERY_STAFF:
+                users.put(id, new DeliveryStaff(id, name, password, salary));
+                break;
+            case INVENTORY_STAFF:
+                users.put(id, new InventoryStaff(id, name, password, salary));
+                break;
+        }
+        //Save the updated user list to file
+        savetoFile();
+    }
 }

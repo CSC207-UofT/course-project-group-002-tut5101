@@ -16,7 +16,7 @@ public class Manager extends User {
      * Constructor of UseCase.Manager with default info
      */
     public Manager() {
-        super("100", "Professor", "999");
+        super("000", "Boss", "999");
 
     }
 
