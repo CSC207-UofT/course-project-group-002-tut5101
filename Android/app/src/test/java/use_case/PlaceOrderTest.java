@@ -1,13 +1,14 @@
 package use_case;
-/**
- * Test for the PlaceOrder class
- */
+
+// Test for the PlaceOrder class
+
 
 import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.customerSystem.PlaceOrder;
 import use_case.dishList.DishList;
+import constant.orderSystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,8 +34,8 @@ public class PlaceOrderTest {
 
     @Test
     public void testGenerateDishCopy() {
-        Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200, "Food");
-        Dish dishCopy = placeOrder.generateDishCopy("Quarter pound with cheese", "None", false);
+        Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
+        Dish dishCopy = placeOrder.generateDishCopy("Quarter pound with cheese", "None", OrderType.DELIVERY);
 
         assert(quarterPoundWithCheese.equals(dishCopy));
     }
@@ -50,7 +51,7 @@ public class PlaceOrderTest {
         String location = "1";
 
         try{
-            placeOrder.placeOrder(true, dishNames, location);
+            placeOrder.placeOrder(OrderType.DINE_IN, dishNames, location);
             assert true;
         } catch (Exception ignored) {
             assert false;
@@ -83,7 +84,7 @@ public class PlaceOrderTest {
         String location = "Toronto, ON";
 
         try{
-            placeOrder.placeOrder(false, dishNames, location);
+            placeOrder.placeOrder(OrderType.DELIVERY, dishNames, location);
             assert true;
         } catch (Exception ignored) {
             assert false;
@@ -103,13 +104,13 @@ public class PlaceOrderTest {
 
     public static ArrayList<Dish> generateDishList() {
         ArrayList<Dish> dishes = new ArrayList<>();
-        dishes.add(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200, "Food"));
-        dishes.add(new Dish("Small fries", 1.99, new HashMap<>(), 200, "Food"));
-        dishes.add(new Dish("Median fries", 2.50, new HashMap<>(), 250, "Food"));
-        dishes.add(new Dish("Large fries", 3.25, new HashMap<>(), 350, "Food"));
-        dishes.add(new Dish("Coke", 10.0, new HashMap<>(), 180, "Non-Alc Drink"));
-        dishes.add(new Dish("Coffee", 10.0, new HashMap<>(), 0, "Non-Alc Drink"));
-        dishes.add(new Dish("Tea", 10.0, new HashMap<>(), 0, "Non-Alc Drink"));
+        dishes.add(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
+        dishes.add(new Dish("Small fries", 1.99, new HashMap<>(), 200));
+        dishes.add(new Dish("Median fries", 2.50, new HashMap<>(), 250));
+        dishes.add(new Dish("Large fries", 3.25, new HashMap<>(), 350));
+        dishes.add(new Dish("Coke", 10.0, new HashMap<>(), 180));
+        dishes.add(new Dish("Coffee", 10.0, new HashMap<>(), 0));
+        dishes.add(new Dish("Tea", 10.0, new HashMap<>(), 0));
         return dishes;
     }
 }

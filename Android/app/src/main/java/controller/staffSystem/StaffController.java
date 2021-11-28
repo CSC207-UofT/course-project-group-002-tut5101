@@ -1,6 +1,6 @@
 package controller.staffSystem;
 
-import use_case.boundary.Delivery;
+import use_case.boundary.input.Delivery;
 import constant.mangerSystem.UserType;
 import use_case.deliverOrder.DeliverOrder;
 import use_case.serveDish.ServeOrder;
@@ -23,12 +23,8 @@ public class StaffController {
      */
     public void getNext(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            staff.getToBeDeliver(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        staff.getToBeDeliver(id);
     }
 
     /**
@@ -40,12 +36,8 @@ public class StaffController {
      */
     public String displayCurrent(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            return staff.display(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        return staff.display(id);
     }
 
     /**
@@ -55,12 +47,8 @@ public class StaffController {
      */
     public void completeCurrent(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            staff.delivered(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        staff.delivered(id);
     }
 
     /**

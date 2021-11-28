@@ -17,8 +17,7 @@ public class ReviewList implements Serializable {
 
     public ReviewList() {
         rrw = new SerReadWriter();
-        HashMap map = rrw.readFromFile(filepath);
-        reviews  = map;
+        reviews  = rrw.readFromFile(filepath);
     }
 
     public ReviewList(String filepath) {
@@ -27,8 +26,8 @@ public class ReviewList implements Serializable {
         reviews  = rrw.readFromFile(filepath);
     }
 
-    public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
-        addReview(new Review(name, ifAnonymouse, rate, comment, ifComplain, complain));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
+        addReview(new Review(name, ifAnonymous, rate, comment, ifComplain, complain));
     }
     /**
      * Add review to this review list.
@@ -37,9 +36,9 @@ public class ReviewList implements Serializable {
      */
     public void addReview(Review r) {
         if(reviews.containsKey(r.addRate())){
-            reviews.get(r.addRate()).add(r);
+            Objects.requireNonNull(reviews.get(r.addRate())).add(r);
         } else {
-            ArrayList<Review> review = new ArrayList<Review>();
+            ArrayList<Review> review = new ArrayList<>();
             review.add(r);
             reviews.put(r.addRate(), review);
         }

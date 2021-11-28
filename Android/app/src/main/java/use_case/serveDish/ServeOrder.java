@@ -1,7 +1,7 @@
 package use_case.serveDish;
 
 import use_case.userList.UserList;
-import use_case.boundary.Delivery;
+import use_case.boundary.input.Delivery;
 import entity.delivery.ServingStaff;
 import entity.User;
 
@@ -34,9 +34,8 @@ public class ServeOrder implements Delivery {
      * @param id The id of the serving staff that has logged in.
      * @return A string representation of the information in the current dish of the serving staff
      * corresponding to the given id.
-     * @throws Exception if the given id does not correspond to a serving staff.
      */
-    public String display(String id) throws Exception{
+    public String display(String id){
         User user = UserList.getUserByUserId(id);
         String dishInfo = ((ServingStaff) user).displayDish();
 

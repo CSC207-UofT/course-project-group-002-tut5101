@@ -1,14 +1,11 @@
 package entity.orderList;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.os.Build;
+
+import androidx.annotation.NonNull;
 import constant.orderSystem.ItemStatus;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Objects;
-
 
 /**
  * Public class  that contains basic features of a single dish
@@ -16,19 +13,19 @@ import java.util.Objects;
  * @author Chan Yu & Naihe Xiao
  */
 public class Dish implements Serializable {
-    private String name;
-    private double price;
-    private String category;
+    private String name; // required
+    private double price; //required
+//    private String category;
 
     /**
      * A Hashmap that maps ingredient name to the quantity needed for this dish.
      */
-    private HashMap<String, Double> ingredients;
-    private HashMap<String, Boolean> features;
-    private double calories;
-    private String allergyInformation;
+    private HashMap<String, Double> ingredients; // required
+    private HashMap<String, Boolean> features; // optional
+    private double calories; // required
+    private String allergyInformation; // optional
     private ItemStatus status = ItemStatus.DISH_PLACED;
-    private int tableNum;
+    private int tableNum; // optional
 
     private static final long serialVersionUID = 1L;
 
@@ -46,53 +43,53 @@ public class Dish implements Serializable {
         this.price = price;
         this.ingredients = ingredients;
         this.calories = calories;
-        this.features = new HashMap<String, Boolean>();
+        this.features = new HashMap<>();
         this.allergyInformation = "none";
     }
 
-    /**
-     * Constructor of entities.Dish with name, price, ingredients and calories provided.
-     *
-     * @param name        name of the entities.Dish
-     * @param price       price of the entities.Dish
-     * @param ingredients ingredients of the entities.Dish
-     * @param calories    calories of the entities.Dish
-     * @param category    category of the entities.Dish, ie Food/Soup/Drink
-     */
-    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
-        this.name = name;
-        this.price = price;
-        this.ingredients = ingredients;
-        this.calories = calories;
-        this.features = new HashMap<String, Boolean>();
-        this.allergyInformation = "none";
-        this.category = category;
-    }
+//    /**
+//     * Constructor of entities.Dish with name, price, ingredients and calories provided.
+//     *
+//     * @param name        name of the entities.Dish
+//     * @param price       price of the entities.Dish
+//     * @param ingredients ingredients of the entities.Dish
+//     * @param calories    calories of the entities.Dish
+//     * @param category    category of the entities.Dish, ie Food/Soup/Drink
+//     */
+//    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
+//        this.name = name;
+//        this.price = price;
+//        this.ingredients = ingredients;
+//        this.calories = calories;
+//        this.features = new HashMap<String, Boolean>();
+//        this.allergyInformation = "none";
+////        this.category = category;
+//    }
 
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
     }
 
-    /**
-     * Return category of entities.Dish
-     * @return category of entities.Dish
-     */
-    public String getCategory() {
-        return category;
-    }
+//    /**
+//     * Return category of entities.Dish
+//     * @return category of entities.Dish
+//     */
+//    public String getCategory() {
+//        return category;
+//    }
 
     /**
      * @return the table number for this dish.
      */
     public int getTableNum() { return tableNum;}
 
-    /**
-     * Set category of entities.Dish
-     * @param category category of entities.Dish
-     */
-    public void setCategory(String category) {
-        this.category = category;
-    }
+//    /**
+//     * Set category of entities.Dish
+//     * @param category category of entities.Dish
+//     */
+//    public void setCategory(String category) {
+//        this.category = category;
+//    }
 
     /**
      * Return status of entities.Dish
@@ -142,7 +139,7 @@ public class Dish implements Serializable {
     /**
      * Set price of entities.Dish
      *
-     * @param price
+     * @param price the price of the dish
      */
     public void setPrice(double price) {
         this.price = price;
@@ -160,7 +157,7 @@ public class Dish implements Serializable {
     /**
      * Set ingredients of entities.Dish
      *
-     * @param ingredients
+     * @param ingredients the ingredients of the dish
      */
     public void setIngredients(HashMap<String, Double> ingredients) {
         this.ingredients = ingredients;
@@ -178,7 +175,7 @@ public class Dish implements Serializable {
     /**
      * Set features of entities.Dish
      *
-     * @param features
+     * @param features special features of the dish
      */
     public void setFeatures(HashMap<String, Boolean> features) {
         this.features = features;
@@ -196,7 +193,7 @@ public class Dish implements Serializable {
     /**
      * Set calories of entities.Dish
      *
-     * @param calories
+     * @param calories the number of calories the dish has
      */
     public void setCalories(double calories) {
         this.calories = calories;
@@ -214,7 +211,7 @@ public class Dish implements Serializable {
     /**
      * Set allergy information of entities.Dish
      *
-     * @param allergyInformation
+     * @param allergyInformation allergy information of the dish
      */
     public void setAllergyInformation(String allergyInformation) {
         this.allergyInformation = allergyInformation;
@@ -226,11 +223,12 @@ public class Dish implements Serializable {
      * @return a string representation of this dish
      */
     @Override
+    @NonNull
     public String toString() {
 
         StringBuilder ingString = new StringBuilder();
         for (String ing: ingredients.keySet()){
-            ingString.append(ingredients.get(ing) + " " + ing + "  ");
+            ingString.append(ingredients.get(ing)).append(" ").append(ing).append("  ");
         }
 
         return name +
@@ -242,21 +240,6 @@ public class Dish implements Serializable {
                 "\n------------------------------\n";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Dish dish = (Dish) o;
-        return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getCategory().equals(dish.getCategory()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
-    }
-
-
-    @SuppressLint("NewApi")
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getPrice(), getCategory(), getIngredients(), getFeatures(), getCalories(), getAllergyInformation(), getStatus(), getTableNum());
-    }
-
     public void increasePrice() {
         double price = this.price;
         this.setPrice(price + 1);
@@ -266,4 +249,14 @@ public class Dish implements Serializable {
         double calories = this.calories;
         this.setCalories(calories - 100);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
+    }
+
+
 }
