@@ -9,17 +9,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".ManagerActivities.SelectEditOrDeleteActivity"
-                  android:exported="true">
+        <activity android:name=".AddInfoActivity">
         </activity>
-        <activity android:name=".ManagerActivities.AddStaffActivity">
+        <activity
+                android:name=".ManagerActivities.SelectEditOrDeleteActivity"
+                android:exported="true">
         </activity>
         <activity
                 android:name=".ManagerActivities.SeeReviewActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".ManagerActivities.DeleteReviewActivity"
-                  android:exported="true">
+        <activity
+                android:name=".ManagerActivities.DeleteReviewActivity"
+                android:exported="true">
         </activity>
         <activity
                 android:name=".ManagerActivities.ManagerPickActionActivity"
