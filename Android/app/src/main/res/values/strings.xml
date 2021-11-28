@@ -25,4 +25,5 @@
     <string name="serve_dish_header">Dish Serve System</string>
     <string name="serve_dish_complete">Dish Served</string>
     <string name="title_activity_deliver_order">DeliverOrderActivity</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
