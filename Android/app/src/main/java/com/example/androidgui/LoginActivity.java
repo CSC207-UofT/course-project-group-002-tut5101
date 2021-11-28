@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
      * @param editText that are required to be fille.
      */
     private void setEmptyErrorMessage(EditText editText) {
-        if (TextUtils.isEmpty(editText.getText()))
+        if (editText.getText().toString().trim().length() <= 0)
             editText.setError(EnrollUserMessage.INFO_REQUIRED);
     }
 
