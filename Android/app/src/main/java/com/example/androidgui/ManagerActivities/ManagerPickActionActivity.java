@@ -1,9 +1,12 @@
-package com.example.androidgui;
+package com.example.androidgui.ManagerActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.MainActivity;
+import com.example.androidgui.R;
+import com.example.androidgui.SeeMenuActivity;
 
 public class ManagerPickActionActivity extends AppCompatActivity {
 

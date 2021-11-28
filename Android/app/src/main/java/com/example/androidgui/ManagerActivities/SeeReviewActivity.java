@@ -1,9 +1,10 @@
-package com.example.androidgui;
+package com.example.androidgui.ManagerActivities;
 
 import android.os.Bundle;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.R;
 import controller.reviewSystem.ReviewController;
 
 public class SeeReviewActivity extends AppCompatActivity {

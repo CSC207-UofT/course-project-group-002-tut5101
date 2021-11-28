@@ -1,7 +1,8 @@
-package com.example.androidgui;
+package com.example.androidgui.ManagerActivities;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.R;
 
 public class AddStaffActivity extends AppCompatActivity {
 
