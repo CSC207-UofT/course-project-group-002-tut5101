@@ -27,9 +27,9 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         String iname = name.getText().toString();
         String ifreshness = fresh.getText().toString();
-        im.newFreshness(iname,ifreshness);
+        String message = im.newFreshness(iname,ifreshness);
         im.SavetoFile();
-        Toast.makeText(UpdateFreshnessActivity.this,"Check in get info",Toast.LENGTH_SHORT).show();
+        Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
     }
 
 }

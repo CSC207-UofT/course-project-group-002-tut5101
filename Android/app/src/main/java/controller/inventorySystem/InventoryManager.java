@@ -6,48 +6,51 @@ import use_case.inventoryFactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
 public class InventoryManager {
-    private final InventoryList inventorys;
+    private final InventoryList inventories;
 
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
     public InventoryManager(){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.inventorys = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath);
     }
 
     public InventoryManager(String filepath){
         this.filepath = filepath;
-        this.inventorys = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath);
     }
 
 
 
     public String getInfo(String name){
-        if(this.inventorys.checkExist(name)){
-        return this.inventorys.getInfo(name);}
+        if(this.inventories.checkExist(name)){
+        return this.inventories.getInfo(name);}
         else{return "Invalid name";}
     }
 
     public void addNewInventory(String[] para){
-        this.inventorys.addFromFactory(this.infc, para);
+        this.inventories.addFromFactory(this.infc, para);
     }
 
 
-    public void newFreshness(String name, String newFreshness){
-        if(this.inventorys.isHasFreshness(name)){
-            this.inventorys.setFreshness(name, newFreshness);
+    public String newFreshness(String name, String newFreshness){
+        String message;
+        if(this.inventories.isHasFreshness(name)){
+            this.inventories.setFreshness(name, newFreshness);
+            message = "updated";
         }
+        else{message = "item does not have freshness";}
+        return message;
     }
 
     public String newQuantity(String name, String usage){
         double u = Double.parseDouble(usage);
-        String message = InventoryList.setQuantity(name, u);
-        return message;
+        return InventoryList.setQuantity(name, u);
     }
 
     public void SavetoFile(){
-        this.inventorys.SavetoFile();
+        this.inventories.SavetoFile();
     }
 
 
