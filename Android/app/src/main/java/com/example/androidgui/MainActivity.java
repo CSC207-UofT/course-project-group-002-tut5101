@@ -14,14 +14,14 @@ import controller.reviewSystem.ReviewController;
 import controller.staffSystem.StaffController;
 
 public class MainActivity extends AppCompatActivity {
-    public static OrderController orderController;
-    public static InventoryManager inventoryManager;
-    public static KitchenController kitchenController;
+    public static OrderController orderController = new OrderController();
+    public static InventoryManager inventoryManager = new InventoryManager();
+    public static KitchenController kitchenController = new KitchenController();
     public static LoginController loginController;
-    public static ManagerController managerController;
-    public static MenuController menuController;
-    public static ReviewController reviewController;
-    public static StaffController staffController;
+    public static ManagerController managerController = new ManagerController();
+    public static MenuController menuController = new MenuController();
+    public static ReviewController reviewController = new ReviewController();
+    public static StaffController staffController = new StaffController();
 
 
     @Override

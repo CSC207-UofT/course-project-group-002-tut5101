@@ -1,7 +1,7 @@
 package entity.delivery;
 
 import constant.orderSystem.ItemStatus;
-import entity.orderList.Order;
+import entity.orderList.DeliveryOrder;
 
 /**
  * Class for delivery staff
@@ -11,7 +11,7 @@ import entity.orderList.Order;
 
 public class DeliveryStaff extends Staff {
 
-    private Order currentOrder;
+    private DeliveryOrder currentOrder;
 
     /**
      * Construct an instance of s delivery staff
@@ -23,7 +23,7 @@ public class DeliveryStaff extends Staff {
         super(staffNumber, staffName, password, staffSalary);
     }
 
-    public void setCurrentOrder(Order order) {
+    public void setCurrentOrder(DeliveryOrder order) {
         this.currentOrder = order;
     }
 

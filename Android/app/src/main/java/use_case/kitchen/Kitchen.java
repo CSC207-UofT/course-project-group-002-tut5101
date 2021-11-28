@@ -40,7 +40,7 @@ public class Kitchen {
     public static void cookedDish(String dishName) {
         Dish dishCooked = currentOrder.setDishStatus(dishName);
 
-        if (currentOrder.getOrderDineInOrTakeOut().equals("Dine In")) {
+        if (currentOrder.getOrderType().equals("Dine In")) {
             ServingBuffer.addDish(dishCooked);
         } else if (currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED) {
             DeliveryBuffer.addDeliveryOrder(currentOrder);

@@ -1,12 +1,11 @@
 package entity.inventory;
 
-/**
- * Interface inventory.
- */
-
 
 import java.io.Serializable;
 
+/**
+ * Inventory interface
+ */
 public interface Inventory extends Serializable {
 
 
@@ -24,9 +23,9 @@ public interface Inventory extends Serializable {
     double getQuantity();
 
     /**
-     * Check wether have enough Inventory for use and change the amount of it
+     * Check whether have enough Inventory for use and change the amount of it
      * @param usage The required amount of usage of this inventory
-     * @return Wether the inventory is enough to use.
+     * @return Whether the inventory is enough to use.
      */
 
     void updateQuantity(double usage);
