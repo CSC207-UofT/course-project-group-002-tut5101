@@ -27,8 +27,6 @@ public class DeliverOrderActivity extends AppCompatActivity {
         // Get next order to be delivered
         if (mode.equals("GET_NEXT")) {
             Toast toast;
-//            toast = Toast.makeText(getApplicationContext(), "GET NEXT", Toast.LENGTH_SHORT);
-//            toast.show();
             try {
                 controller.getNext(this.id);
             } catch (Exception e) {
