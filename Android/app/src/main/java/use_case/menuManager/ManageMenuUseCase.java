@@ -1,6 +1,5 @@
 package use_case.menuManager;
 
-import use_case.boundary.ManageMenuInputBoundary;
 import use_case.boundary.input.ManageMenuInputBoundary;
 import entity.orderList.Dish;
 import use_case.dishList.DishList;

@@ -8,7 +8,6 @@ package controller.customerSystem;
  */
 
 import constant.orderSystem.OrderType;
-import use_case.boundary.PlaceOrderInputBoundary;
 import use_case.boundary.input.PlaceOrderInputBoundary;
 import use_case.customerSystem.PlaceOrder;
 
