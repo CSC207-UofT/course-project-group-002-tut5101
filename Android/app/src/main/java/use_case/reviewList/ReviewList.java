@@ -7,6 +7,7 @@ import gateway.SerReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
@@ -15,18 +16,17 @@ public class ReviewList implements Serializable {
 
     public ReviewList() {
         rrw = new SerReadWriter();
-        HashMap map = rrw.readFromFile(filepath);
-        this.reviews  = map;
+        reviews  = rrw.readFromFile(filepath);
     }
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
         rrw = new SerReadWriter();
-        this.reviews  = rrw.readFromFile(filepath);
+        reviews  = rrw.readFromFile(filepath);
     }
 
-    public void addReview(String name, boolean ifAnonymouse, int rate, String comment, boolean ifComplain, String complain){
-        addReview(new Review(name, ifAnonymouse, rate, comment, ifComplain, complain));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
+        addReview(new Review(name, ifAnonymous, rate, comment, ifComplain, complain));
     }
     /**
      * Add review to this review list.
@@ -35,9 +35,9 @@ public class ReviewList implements Serializable {
      */
     public void addReview(Review r) {
         if(reviews.containsKey(r.addRate())){
-            reviews.get(r.addRate()).add(r);
+            Objects.requireNonNull(reviews.get(r.addRate())).add(r);
         } else {
-            ArrayList<Review> review = new ArrayList<Review>();
+            ArrayList<Review> review = new ArrayList<>();
             review.add(r);
             reviews.put(r.addRate(), review);
         }
@@ -75,7 +75,7 @@ public class ReviewList implements Serializable {
     }
 
     public void saveToFile() {
-        rrw.saveToFile(this.filepath, this.reviews);
+        rrw.saveToFile(this.filepath, reviews);
     }
 
 

@@ -1,5 +1,6 @@
 package entity.manager;
 
+import androidx.annotation.NonNull;
 import entity.User;
 
 /**
@@ -25,6 +26,7 @@ public class Manager extends User {
      * @return a string representation of this UseCase.Manager
      */
     @Override
+    @NonNull
     public String toString() {
         return "(Manager) " + super.toString();
     }
