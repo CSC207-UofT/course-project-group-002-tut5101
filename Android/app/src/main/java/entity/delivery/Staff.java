@@ -12,13 +12,6 @@ public class Staff extends User {
     protected int staffSalary;
 
     /**
-     * Empty constructor to set up default staff
-     */
-    public Staff() {
-        super();
-    }
-
-    /**
      * Construct a staff using the staff's name, staffNumber, and staffSalary
      * @param staffName The name of a staff
      * @param staffID The staff number of a staff

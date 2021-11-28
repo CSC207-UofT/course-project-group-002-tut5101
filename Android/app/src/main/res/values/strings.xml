@@ -22,4 +22,16 @@
     <string name="deliver_order_header">Delivery System</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+    <string name="dish_names">Dish Names</string>
+    <string name="quantity">Quantity</string>
+    <string name="edit_order">Edit Order</string>
+    <string name="title_activity_enter_address">EnterAddressActivity</string>
+    <string name="address">Address</string>
+    <string name="location">Location</string>
+    <string name="enter_table_number_or_address">Enter Table Number or Address</string>
+    <string name="select_dish_to_remove">Select the dish you would like to remove from your order</string>
+    <string name="remove_dish">Remove dish</string>
+    <string name="done">Done</string>
+    <string name="order_placed_message">Your order was successfully placed</string>
+    <string name="return_main_menu">Return to Main Menu</string>
 </resources>

@@ -1,7 +1,5 @@
 package use_case.menuManager;
 
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import use_case.boundary.ManageMenuInputBoundary;
 import entity.orderList.Dish;
 import use_case.dishList.DishList;

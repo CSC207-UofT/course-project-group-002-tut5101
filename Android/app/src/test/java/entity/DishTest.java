@@ -23,8 +23,8 @@ public class DishTest {
         ingredient2.put("Ketchup", 2.1);
         ingredient2.put("Cheese", 2.4);
 
-        dish1 = new Dish("MaPoTouFu", 12.5, ingredient1, 200,"Food");
-        dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500,"Food");
+        dish1 = new Dish("MaPoTouFu", 12.5, ingredient1, 200);
+        dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500);
     }
 
     @Test(timeout = 50)

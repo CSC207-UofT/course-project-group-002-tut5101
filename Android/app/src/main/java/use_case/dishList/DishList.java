@@ -1,12 +1,15 @@
 package use_case.dishList;
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
+import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -14,11 +17,13 @@ import java.util.*;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static Map<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
     private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
+    String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
+    private MenuOutputBoundary menuOutputBoundary;
 
 
     /**
@@ -27,14 +32,19 @@ public class DishList implements Serializable, Iterable<Dish> {
     public DishList() {
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
         menu = readWriter.readFromFile(filepath);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
+    }
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -54,7 +64,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return the menu
      */
-    public Map getAllDishes() {
+    public HashMap<String, Dish> getAllDishes() {
         return menu;
     }
 
@@ -66,6 +76,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
 
     @Override
+    @NonNull
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
@@ -108,14 +119,14 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-    /**
-     * Get the category of a dish
-     * @param dishName The name of the dish
-     * @return The category of the dish as string
-     */
-    public static String getDishCategory(String dishName) {
-        return Objects.requireNonNull(menu.get(dishName)).getCategory();
-    }
+//    /**
+//     * Get the category of a dish
+//     * @param dishName The name of the dish
+//     * @return The category of the dish as string
+//     */
+//    public static String getDishCategory(String dishName) {
+//        return Objects.requireNonNull(menu.get(dishName)).getCategory();
+//    }
 
     /**
      * Return the size of the menu (how many dishes in the menu)
@@ -144,6 +155,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @return an iterator for this dishList.
      */
     @Override
+    @NonNull
     public Iterator<Dish> iterator() {
         return new DishListIterator();
     }
@@ -207,6 +219,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     /**
@@ -218,8 +231,38 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menu.get(dishName);
     }
 
+
+    /**
+     *
+     * updates the number of dishes available to be picked
+     */
+    public void numberOfDishesForPresenter(){
+        int numberOfDishes = menu.size();
+        menuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+    }
+
+    /**
+     *
+     * updates the array of dish names to be displayed
+     */
+    public void getAllDishNamesAsListForPresenter() {
+        menuOutputBoundary.setDisplayedDishNames(dishNames);
+    }
+
+    /**
+     *
+     * updates the dishes ordered
+     * @param dishNameIndex the index of the dish ordered
+     * @param dishQuantity the quantity of the dish ordered
+     */
+    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
+        String dishName = dishNames[dishNameIndex];
+        menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
+    }
+
+
     public void saveToFile(){
-        readWriter.saveToFile(this.filepath, this.menu);
+        readWriter.saveToFile(this.filepath, menu);
     }
 
 
