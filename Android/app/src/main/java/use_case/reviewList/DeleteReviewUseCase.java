@@ -1,6 +1,6 @@
 package use_case.reviewList;
 
-import use_case.boundary.DeleteReviewInputBoundary;
+import use_case.boundary.input.DeleteReviewInputBoundary;
 
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
