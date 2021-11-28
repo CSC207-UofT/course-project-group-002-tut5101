@@ -11,16 +11,6 @@
             android:theme="@style/Theme.AndroidGUI">
         <activity android:name=".AddReviewCommentActivity">
         </activity>
-        <activity android:name=".Review.AddComplainActivity">
-        </activity>
-        <activity android:name=".Review.IfComplainActivity">
-        </activity>
-        <activity android:name=".Review.AddCommentActivity">
-        </activity>
-        <activity android:name=".Review.AddRateActivity">
-        </activity>
-        <activity android:name=".Review.IfAnonymousActivity">
-        </activity>
         <activity android:name=".UpdateFreshnessActivity">
         </activity>
         <activity android:name=".UpdateQuanActivity">
