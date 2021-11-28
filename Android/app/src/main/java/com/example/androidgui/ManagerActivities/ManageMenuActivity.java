@@ -27,7 +27,7 @@ public class ManageMenuActivity extends AppCompatActivity {
         String askingDishNumber = ManagerUIMessage.MANAGE_DISH;
         askDishNumber.setText(askingDishNumber);
         managerDecision = new String[]{};
-        selectDish.setMaxValue(menuController.length());
+        selectDish.setMaxValue(menuController.length() - 1);
         selectDish.setMinValue(0);
         selectDish.setDisplayedValues(managerDecision);
     }
@@ -39,31 +39,5 @@ public class ManageMenuActivity extends AppCompatActivity {
         intent.putExtra("dishSelected", dishName);
         startActivity(intent);
     }
-//    public void deleteDish(View v) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        // set the messages.
-//        builder.setMessage(R.string.delete_message)
-//                .setTitle(R.string.delete_title);
-//        // Add the buttons
-//        builder.setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int id) {
-//                // Manager clicked OK button
-//                menuController.deleteDishByName(dish.getName());
-//            }
-//        });
-//        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int id) {
-//                // Manager cancelled the dialog
-//                dialog.cancel();
-//                ManageMenuActivity.this.finish();
-//            }
-//        });
-//
-//        // Create the AlertDialog
-//        AlertDialog dialog = builder.create();
-//    }
-//
-//    public void editDish(View v) {
-//
-//    }
+
 }
