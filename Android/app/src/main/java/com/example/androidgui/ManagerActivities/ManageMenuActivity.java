@@ -12,6 +12,9 @@ import com.example.androidgui.R;
 import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
 
+/**
+ * Activity class for the manager to manage menu.
+ */
 public class ManageMenuActivity extends AppCompatActivity {
 
     NumberPicker selectDish;

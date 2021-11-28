@@ -16,6 +16,10 @@ import entity.orderList.Dish;
 
 import java.util.Objects;
 
+/**
+ * Activity class for the manager to pick whether to edit or to delete the dish.
+ *
+ */
 public class SelectEditOrDeleteActivity extends AppCompatActivity {
 
     NumberPicker selectEditOrDelete;

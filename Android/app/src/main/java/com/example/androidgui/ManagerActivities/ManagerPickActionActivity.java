@@ -8,6 +8,10 @@ import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import com.example.androidgui.SeeMenuActivity;
 
+/**
+ * Activity class for the manager the pick the activities he or she wants to do.
+ *
+ */
 public class ManagerPickActionActivity extends AppCompatActivity {
 
 

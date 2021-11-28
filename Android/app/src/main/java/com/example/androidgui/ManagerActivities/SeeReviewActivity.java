@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import controller.reviewSystem.ReviewController;
 
+/**
+ * Activity class for the manager to see the reviews, and thus decide to delete the reviews or not.
+ */
 public class SeeReviewActivity extends AppCompatActivity {
 
     /**
