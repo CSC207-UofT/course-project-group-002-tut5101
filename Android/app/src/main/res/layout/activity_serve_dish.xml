@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".ServeDishActivity">
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="400dp"
             android:layout_height="75dp" android:id="@+id/CurrentDish"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -16,21 +16,21 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="224dp"
             android:layout_marginBottom="250dp" app:layout_constraintBottom_toTopOf="@+id/ReturnButton"/>
     <Button
-            android:text="Return"
+            android:text="@string/return_button"
             android:layout_width="200dp"
             android:layout_height="50dp" android:id="@+id/ReturnButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            app:backgroundTint="#03A9F4" android:layout_marginRight="16dp" android:layout_marginEnd="16dp"
-            android:onClick="selectReturn" tools:ignore="MissingConstraints"
+            app:backgroundTint="#03A9F4" android:layout_marginEnd="16dp"
+            android:onClick="selectReturn" tools:ignore="MissingConstraints,UsingOnClickInXml"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
     <Button
-            android:text="Complete Serve"
+            android:text="@string/complete_serve"
             android:layout_width="200dp"
             android:layout_height="50dp" android:id="@+id/CompleteButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ReturnButton" android:layout_marginLeft="8dp"
+            app:layout_constraintStart_toEndOf="@+id/ReturnButton"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"
-            android:onClick="selectCompleteDish" tools:ignore="MissingConstraints"
+            android:onClick="selectCompleteDish" tools:ignore="MissingConstraints,UsingOnClickInXml"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

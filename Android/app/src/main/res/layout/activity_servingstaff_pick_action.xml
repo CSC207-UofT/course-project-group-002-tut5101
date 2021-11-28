@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <TextView
-            android:text="Header"
+            android:text="@string/header"
             android:layout_width="match_parent"
             android:layout_height="48dp" android:id="@+id/header" android:visibility="visible" android:textSize="34sp"
             android:textStyle="bold" android:lineSpacingExtra="8sp"/>
-    <EditText
-            android:layout_width="198dp"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/editTextDate"/>
-    <EditText
-            android:layout_width="198dp"
-            android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/editTextTime"/>
     <Button
-            android:text="Get Next Dish"
+            android:text="@string/get_next_dish"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/getNextDishButton" android:onClick="selectGetNextDish"/>
+            android:layout_height="124dp" android:id="@+id/getNextDishButton" android:onClick="selectGetNextDish"
+            tools:ignore="UsingOnClickInXml"/>
     <Button
-            android:text="View Current Dish"
+            android:text="@string/view_current_dish"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/viewCurrentDishButton" android:onClick="seeCurrentDish"/>
+            android:layout_height="124dp" android:id="@+id/viewCurrentDishButton" android:onClick="seeCurrentDish"
+            tools:ignore="UsingOnClickInXml"/>
     <Button
-            android:text="Logout"
+            android:text="@string/logout_button"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/logoutButton" android:onClick="selectExit"/>
+            android:layout_height="124dp" android:id="@+id/logoutButton" android:onClick="selectExit"
+            tools:ignore="UsingOnClickInXml"/>
 </LinearLayout>

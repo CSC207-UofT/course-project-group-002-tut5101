@@ -27,8 +27,9 @@
         -->
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
-                android:value="${MAPS_API_KEY}" />
-
+                android:value="null"/>
+        <!-- Need change previous line to real "value"
+        -->
         <activity
                 android:name=".MapsActivity"
                 android:label="@string/title_activity_maps">
