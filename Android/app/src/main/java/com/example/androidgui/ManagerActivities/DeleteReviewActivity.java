@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.mangerSystem.ManagerDecision;
+import constant.mangerSystem.ReviewMessage;
 import constant.uiMessage.ManagerUIMessage;
 import controller.reviewSystem.ReviewController;
 import entity.orderList.Dish;
@@ -38,14 +40,26 @@ public class DeleteReviewActivity extends AppCompatActivity {
         askDeleteCriteria.setText(askingDeleteCriteria);
         managerDecision = new String[]{ManagerDecision.ONE.name(), ManagerDecision.TWO.name(),
                 ManagerDecision.THREE.name()};
-        selectAction.setMaxValue(reviewController.length());
-        selectAction.setMinValue(0);
         selectAction.setDisplayedValues(managerDecision);
+        selectAction.setMaxValue(managerDecision.length - 1);
+        selectAction.setMinValue(0);
     }
 
+    /**
+     * Method to delete the reviews.
+     *
+     * @param v
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void deleteReview(View v) {
         String action = managerDecision[selectAction.getValue()];
+        AlertDialog alertDlg = new AlertDialog.Builder(this)
+                .setTitle(ReviewMessage.CONFIRM)
+                .setMessage(ReviewMessage.DELETE_REVIEW)
+                .setPositiveButton(ReviewMessage.YES, (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(ReviewMessage.NO, (dialog, which) -> finish())
+                .create();
+        alertDlg.show();
         if (Objects.equals(action,ManagerDecision.ONE.toString())){
             reviewController.deleteBelowOne();
         }
@@ -56,6 +70,21 @@ public class DeleteReviewActivity extends AppCompatActivity {
             reviewController.deleteBelowThree();
         }
     }
+
+    /**
+     * Display AlertDialog to ask manager confirm to delete the reiews.
+     *
+     * @param view android view
+     */
+//    public void cancelUserEnroll(View view) {
+//        AlertDialog alertDlg = new AlertDialog.Builder(this)
+//                .setTitle(ReviewMessage.CONFIRM)
+//                .setMessage(ReviewMessage.DELETE_REVIEW)
+//                .setPositiveButton(ReviewMessage.YES, (dialog, which) -> finish())
+//                .setNegativeButton(ReviewMessage.NO, (dialog, which) -> dialog.dismiss())
+//                .create();
+//        alertDlg.show();
+//    }
 
 }
 
