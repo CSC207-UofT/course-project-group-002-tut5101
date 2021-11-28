@@ -18,6 +18,7 @@ import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 
