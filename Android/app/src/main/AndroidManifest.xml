@@ -9,8 +9,16 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".KitchenActivity"
-                    android:exported="true">
+        <activity android:name=".ServeDishActivity">
+        </activity>
+        <activity
+                android:name=".DeliverOrderActivity"
+                android:label="@string/title_activity_deliver_order"
+                android:theme="@style/Theme.AndroidGUI.NoActionBar">
+        </activity>
+        <activity
+                android:name=".KitchenActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".LoginActivity">
         </activity>
@@ -20,8 +28,8 @@
         </activity>
         <activity android:name=".CustomerPickActionActivity">
         </activity>
-        <activity android:name=".ServeDishActivity"></activity>
-        <activity android:name=".DeliverOrderActivity"></activity>
+        <activity android:name=".ServingStaffPickActionActivity"/>
+        <activity android:name=".DeliveryStaffPickActionActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
