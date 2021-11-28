@@ -1,5 +1,7 @@
 package use_case.kitchen;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 import entity.orderList.Dish;
 import entity.orderList.Order;
 
@@ -14,18 +16,19 @@ import java.util.*;
 
 public class OrderQueue {
 
-    private static Queue<Order> placedOrderQueue = new ArrayDeque<Order>();
+    private static Queue<Order> placedOrderQueue = new ArrayDeque<>();
 
     public OrderQueue() {
-        placedOrderQueue = new ArrayDeque<Order>();
+        placedOrderQueue = new ArrayDeque<>();
     }
 
     /**
      * Try adding order to the placedOrderList, if order location too far or not possible to do the
      * order, reject the order.
      * @param newOrder The order to be added to the orderList
-     * @return True on successful add, false on order too far or not enough ingredients
+     * @throws Exception throws exception on order too far or not enough ingredients
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void addOrder(Order newOrder) throws Exception {
         // Check if the inventory is sufficient for cooking the order
         // If not enough, reject the order.
@@ -49,6 +52,7 @@ public class OrderQueue {
      * @param dishes The list of dishes to check the ingredients availability
      * @return True when the list of dishes can be made, false otherwise.
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private static boolean inventoryAvailable(List<Dish> dishes) {
         if (dishes.isEmpty()) {
             return true;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:text="@string/header"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" android:id="@+id/header" android:visibility="visible" android:textSize="34sp"
+            android:textStyle="bold" android:lineSpacingExtra="8sp"/>
+    <Button
+            android:text="@string/get_next_dish"
+            android:layout_width="match_parent"
+            android:layout_height="124dp" android:id="@+id/getNextDishButton" android:onClick="selectGetNextDish"
+            tools:ignore="UsingOnClickInXml"/>
+    <Button
+            android:text="@string/view_current_dish"
+            android:layout_width="match_parent"
+            android:layout_height="124dp" android:id="@+id/viewCurrentDishButton" android:onClick="seeCurrentDish"
+            tools:ignore="UsingOnClickInXml"/>
+    <Button
+            android:text="@string/logout_button"
+            android:layout_width="match_parent"
+            android:layout_height="124dp" android:id="@+id/logoutButton" android:onClick="selectExit"
+            tools:ignore="UsingOnClickInXml"/>
+</LinearLayout>

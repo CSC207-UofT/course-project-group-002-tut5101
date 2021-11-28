@@ -31,7 +31,7 @@ public class InventoryList implements Serializable {
     public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
-        this.myDict = irw.readFromFile(filepath);
+        myDict = irw.readFromFile(filepath);
     }
 
 
@@ -155,8 +155,9 @@ public class InventoryList implements Serializable {
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, this.myDict);
+        this.irw.saveToFile(this.filepath, myDict);
     }
+
 
 
 }
