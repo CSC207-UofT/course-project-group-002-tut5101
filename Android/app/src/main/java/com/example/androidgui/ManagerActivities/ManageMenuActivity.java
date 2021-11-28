@@ -26,7 +26,6 @@ public class ManageMenuActivity extends AppCompatActivity {
     String[] managerDecision;
     MenuController menuController = new MenuController();
 
-
     /**
      * Activity basic function.
      *
