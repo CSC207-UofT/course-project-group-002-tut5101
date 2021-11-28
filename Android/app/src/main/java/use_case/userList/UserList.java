@@ -4,6 +4,7 @@ package use_case.userList;
   @author Chan Yu & Naihe Xiao
  */
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.User;
@@ -13,7 +14,6 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import gateway.AndReadWriter;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
@@ -46,7 +46,7 @@ public class UserList implements Serializable {
      *
      * @param user the user to add
      */
-    public void addUser(User user) {
+    public static void addUser(User user) {
         users.put(user.getId(), user);
     }
 
@@ -107,6 +107,7 @@ public class UserList implements Serializable {
      * @return a string representation including all users.
      */
     @Override
+    @NonNull
     public String toString() {
         StringBuilder builder = new StringBuilder();
         for (String userId : users.keySet()) {
@@ -116,7 +117,7 @@ public class UserList implements Serializable {
     }
 
     public void SavetoFile() {
-        this.readWriter.saveToFile(this.filepath, this.users);
+        this.readWriter.saveToFile(this.filepath, users);
     }
 
 }

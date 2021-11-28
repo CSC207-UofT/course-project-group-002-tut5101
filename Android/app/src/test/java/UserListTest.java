@@ -1,8 +1,3 @@
-/**
- * Tests for UseCase.entity.UserList Class
- *
- * @author Chan Yu & Naihe Xiao
- */
 
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
@@ -20,6 +15,11 @@ import use_case.userList.UserList;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests for UseCase.entity.UserList Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 public class UserListTest {
     UserList userList = new UserList();
 
