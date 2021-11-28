@@ -81,4 +81,6 @@
     <string name="re_enter_password">Re-enter Password</string>
     <string name="pick_user_type">Pick User Type</string>
     <string name="enter_salary">Enter Salary</string>
+    <string name="get_info">Get Information</string>
+    <string name="name_of_inventory">Name of Inventory Item</string>
 </resources>
