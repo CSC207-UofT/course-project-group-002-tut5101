@@ -146,6 +146,15 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     /**
+     *
+     * @return a list of dish names.
+     */
+    public String[] passDishesAsList() {
+        Set<String> keySet = menu.keySet();
+        return keySet.toArray(new String[0]);
+    }
+
+    /**
      * An Iterator for DishList.
      */
     public static class DishListIterator implements Iterator<Dish> {

@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
+import entity.orderList.Dish;
+import use_case.dishList.DishList;
+
+import java.util.Map;
 
 /**
  * Activity class for the manager to manage menu.
@@ -36,8 +40,8 @@ public class ManageMenuActivity extends AppCompatActivity {
         askDishNumber = findViewById(R.id.askDishNumber);
         String askingDishNumber = ManagerUIMessage.MANAGE_DISH;
         askDishNumber.setText(askingDishNumber);
-        managerDecision = new String[]{};
-        selectDish.setMaxValue(menuController.length() - 1);
+        managerDecision = menuController.passDishesAsList();
+        selectDish.setMaxValue(managerDecision.length - 1);
         selectDish.setMinValue(0);
         selectDish.setDisplayedValues(managerDecision);
     }

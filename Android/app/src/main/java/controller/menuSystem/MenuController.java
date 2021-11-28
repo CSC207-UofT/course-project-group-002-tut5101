@@ -54,7 +54,17 @@ public class MenuController {
         this.dishList.saveToFile();
     }
 
+    /**
+     * Edit the dish by passing in the dish name.
+     *
+     * @param dishName
+     */
     public void editDishByName(String dishName) {
         this.dishList.editDishByName(dishName);
     }
+
+    public String[] passDishesAsList(){
+        return this.dishList.passDishesAsList();
+    }
+
 }
