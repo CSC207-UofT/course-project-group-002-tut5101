@@ -33,8 +33,12 @@ public class KitchenActivity extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.dishToCook);
 
+        AndroidReadWriter arw = new AndroidReadWriter();
+//        System.out.println(arw.saveFile(this, "Lets see"));
+        System.out.println(arw.load(this));
+
         // *******Initialization code below, to be deleted later********
-        InventoryList il = new InventoryList("inventory.ser", this);
+//        InventoryList il = new InventoryList("inventory.ser", this);
 //        il.addInventory(new HasFreshness("Bread", 10.0, 40.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Lettuce", 2.0, 100.0, "a", 20211123));
 //        il.addInventory(new HasFreshness("Beef", 10.0, 20.0, "b", 20211123));
@@ -56,7 +60,6 @@ public class KitchenActivity extends AppCompatActivity {
 //        il.addInventory(new HasExpiryDate("Sugar", 2.0, 700.00,20231205));
 //        il.addInventory(new HasExpiryDate("Yogurt", 5.0, 400.00,20211205));
 //        il.savetoFile();
-//
 //        System.out.println("Did");
 
 
@@ -139,7 +142,7 @@ public class KitchenActivity extends AppCompatActivity {
 //                new String[]{"Yogurt", "12.0"},
 //                new String[]{"Milk", "14.0"},
 //        }, 300.00, "Drink");
-//
+
 //        dl.saveToFile();
 
 

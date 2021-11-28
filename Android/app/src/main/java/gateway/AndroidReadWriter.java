@@ -32,6 +32,7 @@ public class AndroidReadWriter {
         String ret = "";
         HashMap result = null;
 
+
         try {
             InputStream inputStream = context.getAssets().open(fileName);
 
@@ -47,5 +48,43 @@ public class AndroidReadWriter {
         }
 
         return result;
+    }
+
+
+
+
+
+    //-----------------------------Gotta solve this bro---------------DWg%!UP{K7V46,_L----------------------
+    public boolean saveFile(Context context, String mytext){
+        Log.i("TESTE", "SAVE");
+        try {
+            FileOutputStream fos = context.openFileOutput("testing"+".txt",Context.MODE_PRIVATE);
+
+            Writer out = new OutputStreamWriter(fos);
+            System.out.println("Writer initialized");
+            out.write(mytext);
+            System.out.println("Text written");
+            out.close();
+
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public String load(Context context){
+        Log.i("TESTE", "FILE");
+        try {
+            FileInputStream fis = context.openFileInput("testing"+".txt");
+            BufferedReader r = new BufferedReader(new InputStreamReader(fis));
+            String line= r.readLine();
+            r.close();
+            return line;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.i("TESTE", "FILE - false");
+            return null;
+        }
     }
 }
