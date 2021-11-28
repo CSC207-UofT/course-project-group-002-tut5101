@@ -3,16 +3,49 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.androidgui">
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidGUI" >
-        <activity android:name=".EnrollUserActivity" >
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.AndroidGUI">
+          <activity android:name=".EnrollUserActivity" >
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="null"/>
+        <!-- Need change previous line to real "value"
+        -->
+        <activity
+                android:name=".MapsActivity"
+                android:label="@string/title_activity_maps">
         </activity>
-        <activity android:name=".KitchenActivity" >
+        <activity android:name=".ServeDishActivity">
+        </activity>
+        <activity
+                android:name=".DeliverOrderActivity"
+                android:label="@string/title_activity_deliver_order"
+                android:theme="@style/Theme.AndroidGUI.NoActionBar">
+        </activity>
+        <activity
+                android:name=".KitchenActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".LoginActivity"
             android:exported="true" >
@@ -27,8 +60,10 @@
         </activity>
         <activity android:name=".CustomerPickActionActivity" >
         </activity>
-        <activity
-            android:name=".MainActivity" >
+
+        <activity android:name=".ServingStaffPickActionActivity"/>
+        <activity android:name=".DeliveryStaffPickActionActivity"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

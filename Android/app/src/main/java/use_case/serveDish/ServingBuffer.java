@@ -10,7 +10,7 @@ public class ServingBuffer {
      * The buffer queue where each element is a "tuple" of table number and a dish; the serving
      * staff calls method to access the next dish to be served.
      */
-    private static Queue<Dish> servingBuffer = new ArrayDeque<>();
+    private static final Queue<Dish> servingBuffer = new ArrayDeque<>();
 
     /**
      * The getter method for UseCase.ServingStaff to call to get the next dish to serve.
