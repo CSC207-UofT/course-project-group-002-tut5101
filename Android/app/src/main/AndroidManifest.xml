@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.androidgui">
 
     <!--
@@ -17,7 +16,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-          <activity android:name=".EnrollUserActivity" >
+          <activity android:name=".EnrollUserActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,9 +57,7 @@
                 android:name=".SeeMenuActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".CustomerPickActionActivity" >
-        </activity>
-
+        <activity android:name=".CustomerPickActionActivity" />
         <activity android:name=".ServingStaffPickActionActivity"/>
         <activity android:name=".DeliveryStaffPickActionActivity"/>
         <activity android:name=".MainActivity">
