@@ -2,7 +2,6 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
-import gateway.AndroidReadWriter;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 import use_case.inventoryFactory.InventoryFactory;
@@ -158,14 +157,5 @@ public class InventoryList implements Serializable {
     }
 
 
-    public void savetoFile(){
-        AndroidReadWriter androidReadWriter = new AndroidReadWriter();
-        androidReadWriter.writeToFile(myDict, "inventory.ser");
-    }
-
-    public HashMap readfromFile() {
-        AndroidReadWriter androidReadWriter = new AndroidReadWriter();
-        return androidReadWriter.readFromFile("inventory.ser");
-    }
 
 }
