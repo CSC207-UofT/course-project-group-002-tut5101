@@ -1,5 +1,6 @@
 package entity.customer;
 
+import androidx.annotation.NonNull;
 import entity.User;
 
 /**
@@ -33,6 +34,7 @@ public class Customer extends User {
      * @return a string representation of this customer
      */
     @Override
+    @NonNull
     public String toString() {
         return "(UseCase.Customer) " + super.toString();
     }
