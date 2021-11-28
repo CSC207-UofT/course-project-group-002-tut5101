@@ -5,6 +5,7 @@ import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.orderList.Dish;
 import entity.orderList.Order;
+import entity.orderList.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliverOrder.DeliveryBuffer;
@@ -26,7 +27,7 @@ public class StaffControllerTest {
         users.addUser(b);
         Dish dish1 = new Dish("m", 10.0, new HashMap<>(), 0);
         dish1.setTableNum(10);
-        Order order1 = new Order("123 King's Street, M5S 2Z1, Toronto, ON", new HashMap<>());
+        Order order1 = new DeliveryOrder("123 King's Street, M5S 2Z1, Toronto, ON", new HashMap<>());
         ServingBuffer.addDish(dish1);
         DeliveryBuffer.addDeliveryOrder(order1);
     }

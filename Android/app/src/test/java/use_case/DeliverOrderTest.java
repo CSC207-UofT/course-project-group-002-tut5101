@@ -2,6 +2,7 @@ package use_case;
 
 import entity.delivery.DeliveryStaff;
 import entity.orderList.Order;
+import entity.orderList.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliverOrder.DeliverOrder;
@@ -17,7 +18,7 @@ public class DeliverOrderTest {
     @Before
     public void setUp() throws Exception {
         deliver = new DeliverOrder();
-        Order order1 = new Order("1", new HashMap<>());
+        Order order1 = new DeliveryOrder("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);
         users.addUser(new DeliveryStaff("1", "a", "abc", 10));
     }
