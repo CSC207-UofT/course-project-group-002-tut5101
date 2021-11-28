@@ -2,12 +2,14 @@ package com.example.androidgui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import constant.mangerSystem.UserType;
+import constant.uiMessage.EnrollUserMessage;
 import constant.uiMessage.LoginLogoutUIMessage;
 import constant.uiMessage.LoginResult;
 import controller.loginSystem.LoginController;
@@ -16,8 +18,9 @@ import use_case.boundary.output.LoginOutputBoundary;
 public class LoginActivity extends AppCompatActivity implements LoginOutputBoundary {
 
     private LoginController controller;
-    private TextView userIdText;
-    private TextView passwordText;
+    private EditText editTextUserId;
+    private EditText editTextPassword;
+    private LoginResult loginResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +30,11 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
         this.controller = new LoginController();
         this.controller.createUseCaseInteractor(LoginActivity.this);
 
-        userIdText = findViewById(R.id.editTextUserId);
-        passwordText = findViewById(R.id.editTextPassword);
+        editTextUserId = findViewById(R.id.editTextUserId);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
-        userIdText.setFocusable(true);
-        //TODO need test in different jumps
-        passwordText.setText("");
+        editTextUserId.setFocusable(true);
+        editTextPassword.setText("");
 
     }
 
@@ -42,18 +44,43 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
      * @param view current Android view
      */
     public void runLogin(View view) {
-        String id = userIdText.getText().toString();
-        String password = passwordText.getText().toString();
-        switch (this.controller.runLogin(id, password)) {
-            case FAILURE:
-                loginFailed();
-                break;
-            case SUCCESS:
-                loginSucceed(id);
-                break;
-            default:
-                userNotFound();
+        if (!isAllInfoFilled()) {
+            setEmptyErrorMessage(editTextUserId);
+            setEmptyErrorMessage(editTextPassword);
+        } else {
+            String id = editTextUserId.getText().toString();
+            this.controller.runLogin(id, editTextPassword.getText().toString());
+            switch (this.loginResult) {
+                case FAILURE:
+                    loginFailed();
+                    break;
+                case SUCCESS:
+                    loginSucceed(id);
+                    break;
+                default:
+                    userNotFound();
+            }
         }
+    }
+
+    /**
+     * Return ture if and only if both user id and password EditText are filled in.
+     *
+     * @return true iff both user id and password EditText are filled in.
+     */
+    private boolean isAllInfoFilled() {
+        return editTextUserId.getText().toString().trim().length() > 0 &&
+                editTextPassword.getText().toString().trim().length() > 0;
+    }
+
+    /**
+     * Add error message on EditText that is not filled.
+     *
+     * @param editText that are required to be fille.
+     */
+    private void setEmptyErrorMessage(EditText editText) {
+        if (TextUtils.isEmpty(editText.getText()))
+            editText.setError(EnrollUserMessage.INFO_REQUIRED);
     }
 
     /**
@@ -75,8 +102,8 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     private void loginFailed() {
         showAlertDialogOneBtn(LoginLogoutUIMessage.LOGIN_FAILED, LoginLogoutUIMessage.LOGIN_FAILED_MESSAGE);
         //clear content of password TextView and auto-focus on it
-        passwordText.setText("");
-        passwordText.setFocusable(true);
+        editTextPassword.setText("");
+        editTextPassword.setFocusable(true);
     }
 
     /**
@@ -85,9 +112,9 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     private void userNotFound() {
         showAlertDialogOneBtn(LoginLogoutUIMessage.SIGN_UP, LoginLogoutUIMessage.STAFF_SIGNUP);
         //clear content of TextViews
-        userIdText.setText("");
-        passwordText.setText("");
-        userIdText.setFocusable(true);
+        editTextUserId.setText("");
+        editTextPassword.setText("");
+        editTextUserId.setFocusable(true);
     }
 
     /**
@@ -133,10 +160,11 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     }
 
     @Override
-    public LoginResult presentLoginResult(LoginResult result) {
-        return result;
+    public void presentLoginResult(LoginResult result) {
+        this.loginResult = result;
     }
 
+    //TODO this method to be relocated to manager activity
     public void enrollStaff(View view) {
         Intent intent = new Intent(LoginActivity.this, EnrollUserActivity.class);
         startActivity(intent);
