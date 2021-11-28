@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
             case KITCHEN:
                 return KitchenActivity.class;
             case INVENTORY_STAFF:
-//                return InventoryActivity.class;
+                return InventoryStaffStarterActivity.class;
             case SERVING_STAFF:
 //                return ServingActivity.class;
         }

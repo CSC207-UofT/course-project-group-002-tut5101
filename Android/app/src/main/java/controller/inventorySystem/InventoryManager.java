@@ -2,54 +2,58 @@ package controller.inventorySystem;
 
 
 import constant.fileSystem.FileLocation;
+import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryFactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
-import java.util.HashMap;
-
 public class InventoryManager {
-    private InventoryList inventorys;
+    private final InventoryList inventories;
 
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
-    public InventoryManager(){
+    public InventoryManager(InventoryOutputBoundary boundary){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.inventorys = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath, boundary);
     }
 
-    public InventoryManager(String filepath){
+    public InventoryManager(String filepath, InventoryOutputBoundary boundary){
         this.filepath = filepath;
-        this.inventorys = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath,boundary);
     }
 
 
 
     public String getInfo(String name){
-        if(this.inventorys.checkExist(name)){
-        return this.inventorys.getInfo(name);}
+        if(this.inventories.checkExist(name)){
+        return this.inventories.getInfo(name);}
         else{return "Invalid name";}
     }
 
     public void addNewInventory(String[] para){
-        this.inventorys.addFromFactory(this.infc, para);
+        this.inventories.addFromFactory(this.infc, para);
     }
 
 
-    public void newFreshness(String name, String newFreshness){
-        if(this.inventorys.isHasFreshness(name)){
-            this.inventorys.setFreshness(name, newFreshness);
+    public String newFreshness(String name, String newFreshness){
+        String message;
+        if(this.inventories.isHasFreshness(name)){
+            this.inventories.setFreshness(name, newFreshness);
+            message = "updated";
         }
+        else{message = "item does not have freshness";}
+        return message;
     }
 
-    public void newQuantity(String name, String usage){
+    public String newQuantity(String name, String usage){
         double u = Double.parseDouble(usage);
-        InventoryList.setQuantity(name, u);
+        return inventories.setQuantity(name, u);
     }
 
     public void SavetoFile(){
-        this.inventorys.SavetoFile();
+        this.inventories.SavetoFile();
     }
+
 
 
 }
