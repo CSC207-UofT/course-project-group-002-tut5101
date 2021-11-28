@@ -16,6 +16,30 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
+        <activity android:name=".ManagerActivities.SelectEditOrDeleteActivity"
+                  android:exported="true">
+        </activity>
+        <activity android:name=".ManagerActivities.AddStaffActivity">
+        </activity>
+        <activity
+                android:name=".ManagerActivities.SeeReviewActivity"
+                android:exported="true">
+        </activity>
+        <activity android:name=".ManagerActivities.DeleteReviewActivity"
+                  android:exported="true">
+        </activity>
+        <activity
+                android:name=".ManagerActivities.ManagerPickActionActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".ManagerActivities.ManageMenuActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".KitchenActivity"
+                android:exported="true">
+        </activity>
           <activity android:name=".EnrollUserActivity" />
 
         <!--
@@ -41,10 +65,6 @@
                 android:name=".DeliverOrderActivity"
                 android:label="@string/title_activity_deliver_order"
                 android:theme="@style/Theme.AndroidGUI.NoActionBar">
-        </activity>
-        <activity
-                android:name=".KitchenActivity"
-                android:exported="true">
         </activity>
         <activity android:name=".LoginActivity"
             android:exported="true" >

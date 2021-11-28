@@ -89,7 +89,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menuString.toString();
 
     }
-    // Methods that allow lookup dish information without returning the dish itself
 
     /**
      * Get the dish's price for a dish named dishName
@@ -160,6 +159,25 @@ public class DishList implements Serializable, Iterable<Dish> {
         return new DishListIterator();
     }
 
+    public void deleteDishByName(String dishName) {
+        menu.remove(dishName);
+    }
+
+    public void editDishByName(String dishName) {
+        Dish dish = menu.get(dishName);
+        dish.increasePrice();
+        dish.decreaseCalories();
+    }
+
+    /**
+     *
+     * @return a list of dish names.
+     */
+    public String[] passDishesAsList() {
+        Set<String> keySet = menu.keySet();
+        return keySet.toArray(new String[0]);
+    }
+
     /**
      * An Iterator for DishList.
      */
@@ -227,10 +245,13 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dishName name of the dish
      * @return the Dish object
      */
-    public Dish getDishByDishName(String dishName) {
+    public static Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
 
+    /**
+     * save the dish list to file.
+     */
 
     /**
      *

@@ -114,5 +114,53 @@ public class Review implements Reviewable, Serializable {
     public String toString() {
         return addName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + reviewDate();
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public boolean isIfAnonymous() {
+        return ifAnonymous;
+    }
+
+    public void setIfAnonymous(boolean ifAnonymous) {
+        this.ifAnonymous = ifAnonymous;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
+    public String getNewComment() {
+        return newComment;
+    }
+
+    public void setNewComment(String newComment) {
+        this.newComment = newComment;
+    }
+
+    public boolean isIfComplain() {
+        return ifComplain;
+    }
+
+    public void setIfComplain(boolean ifComplain) {
+        this.ifComplain = ifComplain;
+    }
+
+    public String getNewComplain() {
+        return newComplain;
+    }
+
+    public void setNewComplain(String newComplain) {
+        this.newComplain = newComplain;
+    }
 }
 

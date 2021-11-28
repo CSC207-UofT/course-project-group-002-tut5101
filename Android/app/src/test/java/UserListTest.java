@@ -23,15 +23,15 @@ public class UserListTest {
 
     @Before
     public void setUp() {
-        userList.addUser(new Manager());
-        userList.addUser(new Customer("2", "James", "12345"));
-        userList.addUser(new Customer("3", "Steve", "12345"));
-        userList.addUser(new Customer("4", "David", "12345"));
-        userList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
-        userList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
-        userList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
-        userList.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
-        userList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
+        UserList.addUser(new Manager());
+        UserList.addUser(new Customer("2", "James", "12345"));
+        UserList.addUser(new Customer("3", "Steve", "12345"));
+        UserList.addUser(new Customer("4", "David", "12345"));
+        UserList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
+        UserList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
+        UserList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
+        UserList.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
+        UserList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
     }
 
     @Test

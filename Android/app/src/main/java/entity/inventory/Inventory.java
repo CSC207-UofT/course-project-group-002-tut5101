@@ -25,7 +25,7 @@ public interface Inventory extends Serializable {
     /**
      * Check whether have enough Inventory for use and change the amount of it
      * @param usage The required amount of usage of this inventory
-     * @return Whether the inventory is enough to use.
+     * Whether the inventory is enough to use.
      */
 
     String updateQuantity(double usage);
