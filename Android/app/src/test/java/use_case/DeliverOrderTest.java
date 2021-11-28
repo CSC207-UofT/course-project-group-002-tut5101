@@ -12,13 +12,14 @@ import java.util.HashMap;
 
 public class DeliverOrderTest {
     DeliverOrder deliver;
+    UserList users = new UserList();
 
     @Before
     public void setUp() throws Exception {
         deliver = new DeliverOrder();
         Order order1 = new Order("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);
-        UserList.addUser(new DeliveryStaff("1", "a", "abc", 10));
+        users.addUser(new DeliveryStaff("1", "a", "abc", 10));
     }
 
     @Test
