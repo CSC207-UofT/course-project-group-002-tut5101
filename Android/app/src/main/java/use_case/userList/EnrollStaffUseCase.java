@@ -18,20 +18,34 @@ public class EnrollStaffUseCase implements EnrollUserInputBoundary {
         this.enrollUserOutputBoundary = enrollUserOutputBoundary;
     }
 
+    /**
+     * Set available user type options for presenter through output boundary
+     */
     @Override
     public void getStaffTypes() {
         String[] staffTypes = {UserType.SERVING_STAFF.toString(),
                 UserType.DELIVERY_STAFF.toString(),
                 UserType.KITCHEN.toString(),
                 UserType.INVENTORY_STAFF.toString()};
-        this.enrollUserOutputBoundary.setNumPickerUserType(staffTypes, staffTypes.length - 1);
+        this.enrollUserOutputBoundary.setAvailUserTypeOptions(staffTypes, staffTypes.length - 1);
     }
 
+    /**
+     * Add new staff user to user list
+     * @param id        id of the new staff
+     * @param name      name of the new staff
+     * @param password  password of the new staff
+     * @param userType  user type of the new staff
+     * @param salary    salary of the new staff
+     */
     @Override
     public void enrollNewStaff(String id, String name, String password, String userType, int salary) {
         userList.addStaff(id, name, password, userType, salary);
     }
 
+    /**
+     * Set new user id to next available number in presenter through output boundary
+     */
     @Override
     public void getNewUserId() {
         int userListSize = this.userList.getUsers().size();

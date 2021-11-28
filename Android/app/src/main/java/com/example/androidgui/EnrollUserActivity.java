@@ -2,7 +2,6 @@ package com.example.androidgui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -43,10 +42,14 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
 
     }
 
+    /**
+     * Get required information for new user, including user id and options of user type.
+     */
     private void generateRequiredInfo() {
         managerController.getNewUserId();
         managerController.getStaffTypes();
     }
+
 
     @Override
     public void setNewUserId(String id) {
@@ -54,13 +57,18 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
     }
 
     @Override
-    public void setNumPickerUserType(String[] staffTypes, int maxValue) {
+    public void setAvailUserTypeOptions(String[] staffTypes, int maxValue) {
         numPickerUserType.setDisplayedValues(staffTypes);
         numPickerUserType.setMinValue(0);
         numPickerUserType.setMaxValue(maxValue);
         numPickerUserType.setWrapSelectorWheel(false);
     }
 
+    /**
+     * Enroll Button onClick listener
+     *
+     * @param view android view
+     */
     public void enrollNewUser(View view) {
         //Info are not all filled
         if (!isAllInfoFilled()) {
@@ -80,6 +88,9 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         }
     }
 
+    /**
+     * Enroll new staff information and pop-up succeed dialog.
+     */
     private void enroll() {
         managerController.enrollNewUser(editTextUserId.getText().toString(),
                 editTextUserName.getText().toString(),
@@ -113,15 +124,30 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         alertDlg.show();
     }
 
+    /**
+     * Set error message for EditText that required to be filled.
+     *
+     * @param editText that required to be filled.
+     */
     private void setEmptyErrorMessage(EditText editText) {
-        if (TextUtils.isEmpty(editText.getText()))
+        if (editText.getText().toString().trim().length() == 0)
             editText.setError(EnrollUserMessage.INFO_REQUIRED);
     }
 
+    /**
+     * Return true iff user entered passwords matches with each other.
+     *
+     * @return true iff password matches
+     */
     private boolean isConfirmPasswordMatch() {
         return editTextConfirmPassword.getText().toString().equals(editTextPassword.getText().toString());
     }
 
+    /**
+     * Return true iff all EditText are filled as required.
+     *
+     * @return true iff all EditText are filled.
+     */
     private boolean isAllInfoFilled() {
         return editTextUserName.getText().toString().trim().length() > 0 &&
                 editTextPassword.getText().toString().trim().length() > 0 &&
@@ -129,6 +155,11 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
                 editNumSalary.getText().toString().trim().length() > 0;
     }
 
+    /**
+     * Display AlertDialog to ask user confirm enrollment cancelling.
+     *
+     * @param view android view
+     */
     public void cancelUserEnroll(View view) {
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(EnrollUserMessage.ARE_YOU_SURE)
