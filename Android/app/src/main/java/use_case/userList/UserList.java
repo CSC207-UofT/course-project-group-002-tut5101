@@ -116,8 +116,8 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void SavetoFile() {
-        this.readWriter.saveToFile(this.filepath, this.users);
+    public void savetoFile() {
+        this.readWriter.saveToFile(this.filepath, users);
     }
 
     public void addStaff(String id, String name, String password, String userType, int salary) {
@@ -135,5 +135,7 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password, salary));
                 break;
         }
+        //Save the updated user list to file
+        savetoFile();
     }
 }
