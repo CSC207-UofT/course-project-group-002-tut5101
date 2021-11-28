@@ -77,7 +77,7 @@ public class ServeDishActivity extends AppCompatActivity {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
         } else if (e.getMessage() != null && e.getMessage().equals("No current dish to be displayed")) {
-            toast = Toast.makeText(getApplicationContext(), "No current dish", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), R.string.no_current_dish, Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page
             goBackPickAction();

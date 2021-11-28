@@ -79,7 +79,7 @@ public class DeliverOrderActivity extends AppCompatActivity {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
         } else if (e.getMessage() != null && e.getMessage().equals("No current order to be displayed")) {
-            toast = Toast.makeText(getApplicationContext(), "No current order", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), R.string.no_current_order, Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page
             goBackPickAction();
