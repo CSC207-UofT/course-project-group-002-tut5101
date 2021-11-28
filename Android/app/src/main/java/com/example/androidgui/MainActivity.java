@@ -28,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        orderController = new OrderController();
+        inventoryManager = new InventoryManager();
+        kitchenController = new KitchenController();
+//        loginController = new LoginController();
+        managerController = new ManagerController();
+        menuController = new MenuController();
+        reviewController = new ReviewController();
+        staffController = new StaffController();
+
     }
 
     public void selectCustomerPickAction(View v) {
