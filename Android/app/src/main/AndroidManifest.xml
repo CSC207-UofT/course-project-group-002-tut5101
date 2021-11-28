@@ -10,15 +10,15 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI"
             tools:ignore="AllowBackup">
-        <activity android:name=".placeorder.OrderSuccessfullyPlacedActivity">
+        <activity android:name=".OrderSuccessfullyPlacedActivity">
         </activity>
-        <activity android:name=".placeorder.EnterLocationActivity">
+        <activity android:name=".EnterLocationActivity">
         </activity>
-        <activity android:name=".placeorder.EditOrderActivity"
+        <activity android:name=".EditOrderActivity"
             android:exported="true">
         </activity>
         <activity
-                android:name=".placeorder.SelectDineInTakeOutActivity"
+                android:name=".SelectDineInTakeOutActivity"
                 android:exported="true">
         </activity>
         <activity
@@ -28,7 +28,7 @@
         <activity android:name=".LoginActivity">
         </activity>
         <activity
-                android:name=".placeorder.PlaceOrderActivity"
+                android:name=".PlaceOrderActivity"
                 android:exported="true">
         </activity>
         <activity

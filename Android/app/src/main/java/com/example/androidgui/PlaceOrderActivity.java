@@ -1,4 +1,4 @@
-package com.example.androidgui.placeorder;
+package com.example.androidgui;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -32,12 +32,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
 
     private HashMap<String, Integer> dishesOrdered;
 
-    //For testing purposes
-    private MenuController menuController = new MenuController();
-    private OrderController orderController = new OrderController();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +43,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         this.dishesOrdered = new HashMap<>();
         this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
 
-//        MainActivity.menuController.setMenuOutputBoundary(this);
-        this.menuController.setMenuOutputBoundary(this);
-
+        MainActivity.menuController.setMenuOutputBoundary(this);
 
         generateStartingInformation();
 
@@ -67,10 +59,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         this.dishNamePicker = findViewById(R.id.dishNamePicker);
         this.dishNamePicker.setMinValue(0);
 
-//        MainActivity.menuController.numberOfDishesInMenu();
-//        MainActivity.menuController.allDishNames();
-        this.menuController.numberOfDishesInMenu();
-        this.menuController.allDishNames();
+        MainActivity.menuController.numberOfDishesInMenu();
+        MainActivity.menuController.allDishNames();
 
         Intent intent = getIntent();
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
@@ -105,8 +95,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
     public void orderDish(View v) {
         int dishQuantity = dishQuantityPicker.getValue();
         int dishNameIndex = dishNamePicker.getValue();
-//        MainActivity.menuController.passDishesOrdered(dishNameIndex, dishQuantity);
-        menuController.passDishesOrdered(dishNameIndex, dishQuantity);
+        MainActivity.menuController.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
     /**
@@ -147,12 +136,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String [] dishes = collectDishes();
 
         Intent intent = getIntent();
+        System.out.println(BuildOrderInfo.ORDER_TYPE.name());
         OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         String location = intent.getStringExtra(BuildOrderInfo.LOCATION.name());
 
         try {
-//            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
-            orderController.runPlaceOrder(orderType, dishes, location);
+            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
             orderSuccessfullyPlaced();
         }
         catch (Exception e) {

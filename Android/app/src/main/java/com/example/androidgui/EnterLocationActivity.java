@@ -1,4 +1,4 @@
-package com.example.androidgui.placeorder;
+package com.example.androidgui;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
 

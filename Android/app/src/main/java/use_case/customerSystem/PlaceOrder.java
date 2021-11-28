@@ -40,6 +40,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
         for (String dishName: dishNames) {
             Dish dishCopy;
             dishCopy = generateDishCopy(dishName, location, orderType);
+
             List<Dish> dishCopyAsList;
             if (!dishes.containsKey(dishName)) {
                 dishCopyAsList = new ArrayList<>(Collections.singletonList(dishCopy));

@@ -1,4 +1,4 @@
-package com.example.androidgui.placeorder;
+package com.example.androidgui;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
 
@@ -37,7 +36,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity {
 
         selectDineInTakeOutOptions = new String[]{OrderType.DINE_IN.name(), OrderType.DELIVERY.name()};
         selectDineInTakeOut.setMinValue(0);
-        selectDineInTakeOut.setMaxValue(selectDineInTakeOutOptions.length);
+        selectDineInTakeOut.setMaxValue(selectDineInTakeOutOptions.length - 1);
         selectDineInTakeOut.setDisplayedValues(selectDineInTakeOutOptions);
 
     }
