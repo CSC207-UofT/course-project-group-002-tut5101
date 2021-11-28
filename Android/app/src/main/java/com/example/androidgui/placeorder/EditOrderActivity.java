@@ -1,6 +1,7 @@
 package com.example.androidgui.placeorder;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
+import constant.orderSystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +19,7 @@ import java.util.HashMap;
  * Edits the existing dishes in the order
  */
 public class EditOrderActivity extends AppCompatActivity {
-    private String orderType;
+    private OrderType orderType;
     private String location;
     private HashMap<String, Integer> dishesOrdered;
 
@@ -42,7 +44,7 @@ public class EditOrderActivity extends AppCompatActivity {
     private void collectExtraInformation(){
         Intent intent = getIntent();
         if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
-            orderType = intent.getExtras().getString(BuildOrderInfo.ORDER_TYPE.name());
+            orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
@@ -100,7 +102,7 @@ public class EditOrderActivity extends AppCompatActivity {
     public void returnToOrder(View v) {
         Intent intent = new Intent(EditOrderActivity.this, PlaceOrderActivity.class);
 
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), orderType);
+        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
         intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         startActivity(intent);
