@@ -7,12 +7,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.inventorySystem.InventoryManager;
+import use_case.boundary.output.InventoryOutputBoundary;
 
-public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener{
+public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary {
     Button btn;
     EditText name;
     EditText fresh;
-    InventoryManager im = new InventoryManager();
+    InventoryManager im = new InventoryManager(UpdateFreshnessActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,10 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         String message = im.newFreshness(iname,ifreshness);
         im.SavetoFile();
         Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
+    }
+
+    public String getMessage(String message){
+        return message;
     }
 
 }

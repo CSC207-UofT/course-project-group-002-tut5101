@@ -7,12 +7,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.inventorySystem.InventoryManager;
+import use_case.boundary.output.InventoryOutputBoundary;
 
-public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener{
+public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary {
     Button btn;
     EditText name;
     EditText usage;
-    InventoryManager im = new InventoryManager();
+    InventoryManager im = new InventoryManager(UpdateQuanActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +31,8 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
         String message = im.newQuantity(iname,iusage);
         im.SavetoFile();
         Toast.makeText(UpdateQuanActivity.this,message,Toast.LENGTH_SHORT).show();
+    }
+    public String getMessage(String message){
+        return message;
     }
 }

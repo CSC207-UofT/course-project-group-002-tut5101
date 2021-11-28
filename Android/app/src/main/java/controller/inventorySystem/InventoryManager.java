@@ -2,6 +2,7 @@ package controller.inventorySystem;
 
 
 import constant.fileSystem.FileLocation;
+import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryFactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
@@ -11,14 +12,14 @@ public class InventoryManager {
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
-    public InventoryManager(){
+    public InventoryManager(InventoryOutputBoundary boundary){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.inventories = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath, boundary);
     }
 
-    public InventoryManager(String filepath){
+    public InventoryManager(String filepath, InventoryOutputBoundary boundary){
         this.filepath = filepath;
-        this.inventories = new InventoryList(filepath);
+        this.inventories = new InventoryList(filepath,boundary);
     }
 
 
@@ -46,12 +47,13 @@ public class InventoryManager {
 
     public String newQuantity(String name, String usage){
         double u = Double.parseDouble(usage);
-        return InventoryList.setQuantity(name, u);
+        return inventories.setQuantity(name, u);
     }
 
     public void SavetoFile(){
         this.inventories.SavetoFile();
     }
+
 
 
 }
