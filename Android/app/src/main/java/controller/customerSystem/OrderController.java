@@ -7,7 +7,7 @@ package controller.customerSystem;
  * 2021-11-03
  */
 
-import use_case.boundary.PlaceOrderInputBoundary;
+import use_case.boundary.input.PlaceOrderInputBoundary;
 import use_case.customerSystem.PlaceOrder;
 
 public class OrderController {

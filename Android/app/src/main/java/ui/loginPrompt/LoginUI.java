@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class LoginUI {
 
     private final LoginPresenter presenter = new LoginPresenter();
-    private final LoginController controller = new LoginController(presenter);
+    private final LoginController controller = new LoginController();
 
     /**
      * Cmd UI of login.
@@ -17,6 +17,7 @@ public class LoginUI {
      * @return id of the user if login succeed, otherwise, return null;
      */
     public String loadUi() {
+        this.controller.createUseCaseInteractor(presenter);
         System.out.println(LoginLogoutUIMessage.ASK_FOR_ID);
         Scanner scanner = new Scanner(System.in);
         String id = scanner.nextLine();

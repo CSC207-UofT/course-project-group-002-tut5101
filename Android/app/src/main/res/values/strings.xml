@@ -28,4 +28,10 @@
     <string name="quantity_of_inventory_in_kg">quantity_of_inventory, in kg</string>
     <string name="get_info">Get info</string>
     <string name="Name_of_inventory">Name of inventory</string>
+	<string name="userId">User ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+	<string name="enter_id">Enter ID</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enroll_new_staff">Enroll New Staff</string>
 </resources>

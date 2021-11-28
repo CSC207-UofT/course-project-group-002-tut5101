@@ -6,13 +6,14 @@ package use_case.userList;
 
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
-import entity.*;
+import entity.User;
+import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
-import entity.customer.Customer;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.AndReadWriter;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
@@ -23,10 +24,11 @@ import java.util.Map;
 
 public class UserList implements Serializable {
 
-    private static Map<String, User> users;
+    private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
     private String filepath = FileLocation.USER_FILE_LOCATION;
+
     public UserList() {
         readWriter = new SerReadWriter();
         users = readWriter.readFromFile(filepath);
@@ -35,10 +37,8 @@ public class UserList implements Serializable {
     public UserList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
-        UserList.users =readWriter.readFromFile(filepath);
+        users = readWriter.readFromFile(filepath);
     }
-
-
 
 
     /**
@@ -46,15 +46,18 @@ public class UserList implements Serializable {
      *
      * @param user the user to add
      */
-    public static void addUser(User user) {
+    public void addUser(User user) {
         users.put(user.getId(), user);
     }
 
     public String addNewUser(String id, String name, String password) {
-        User user = new Customer(id,name,password);
-        if(users.containsKey(user.getId())){return "Used id, please change";}
-        else{users.put(user.getId(), user);
-        return "Successfully added";}
+        User user = new Customer(id, name, password);
+        if (users.containsKey(user.getId())) {
+            return "Used id, please change";
+        } else {
+            users.put(user.getId(), user);
+            return "Successfully added";
+        }
 
     }
 
@@ -91,9 +94,10 @@ public class UserList implements Serializable {
 
     /**
      * Return all users as a map.
+     *
      * @return a UserList contains
      */
-    public Map getUsers(){
+    public Map getUsers() {
         return users;
     }
 
@@ -105,11 +109,14 @@ public class UserList implements Serializable {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (String userId : users.keySet()){
+        for (String userId : users.keySet()) {
             builder.append(UserList.getUserByUserId(userId));
         }
         return builder.toString();
     }
 
-    public void SavetoFile(){this.readWriter.saveToFile(this.filepath,this.users);}
+    public void SavetoFile() {
+        this.readWriter.saveToFile(this.filepath, this.users);
+    }
+
 }
