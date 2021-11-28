@@ -32,6 +32,10 @@ public class UserList implements Serializable {
         users = readWriter.readFromFile(filepath);
     }
 
+    public UserList(int i) {
+        users = new HashMap<>();
+    }
+
     public UserList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();

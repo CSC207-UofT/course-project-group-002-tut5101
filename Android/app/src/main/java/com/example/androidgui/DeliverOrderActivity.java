@@ -10,6 +10,7 @@ import controller.staffSystem.StaffController;
 
 public class DeliverOrderActivity extends AppCompatActivity {
     private String id;
+    private String mode;
     private StaffController controller;
 
     @Override
@@ -21,15 +22,25 @@ public class DeliverOrderActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if(b != null) {
             id = b.getString("id");
+            mode = b.getString("action");
         }
         // Get next order to be delivered
-        try {
-            controller.getNext(this.id);
-        } catch (Exception e) {
-            exceptionHandler(e);
+        if (mode.equals("GET_NEXT")) {
+            Toast toast;
+//            toast = Toast.makeText(getApplicationContext(), "GET NEXT", Toast.LENGTH_SHORT);
+//            toast.show();
+            try {
+                controller.getNext(this.id);
+            } catch (Exception e) {
+                if (!e.getMessage().equals("Already has one order in hands")) {
+                    toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                    toast.show();
+                    goBackPickAction();
+                }
+            }
         }
         // Display current order to be delivered
-        TextView currentOrder = findViewById(R.id.CurrentDish);
+        TextView currentOrder = findViewById(R.id.CurrentOrder);
         try {
             currentOrder.setText(controller.displayCurrent(this.id));
         } catch (Exception e) {
@@ -65,10 +76,21 @@ public class DeliverOrderActivity extends AppCompatActivity {
      */
     private void exceptionHandler(Exception e) {
         // When exception, throw exception as toast then back to menu
-        Toast toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
-        toast.show();
-        // Jump back to pick action page
-        goBackPickAction();
+        Toast toast;
+        if (e.getMessage() == "Already has one order in hands") {
+            toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (e.getMessage() == "No current order to be displayed") {
+            toast = Toast.makeText(getApplicationContext(), "No current order", Toast.LENGTH_SHORT);
+            toast.show();
+            // Jump back to pick action page
+            goBackPickAction();
+        } else {
+            toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+            toast.show();
+            // Jump back to pick action page
+            goBackPickAction();
+        }
     }
 
     /**
@@ -80,6 +102,7 @@ public class DeliverOrderActivity extends AppCompatActivity {
         b = new Bundle();
         b.putString("id", this.id); //Your id
         intent.putExtras(b); //Put your id to next activity
+        startActivity(intent);
     }
 
 }

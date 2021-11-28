@@ -27,6 +27,11 @@ public class StaffController {
             staff = selectStaffTypeById(id);
             staff.getToBeDeliver(id);
         } catch (Exception e) {
+//            if (e.getMessage() == "wrong id for staff") {
+//                throw e;
+//            } else {
+//                throw new Exception("There's no next item");
+//            }
             throw e;
         }
     }

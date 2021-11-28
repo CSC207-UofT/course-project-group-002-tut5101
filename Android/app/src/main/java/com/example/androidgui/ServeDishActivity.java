@@ -2,6 +2,7 @@ package com.example.androidgui;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,17 +21,19 @@ public class ServeDishActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if (b != null)
             id = b.getString("id");
+        // Get next dish to be served
         try {
             controller.getNext(this.id);
         } catch (Exception e) {
-            // When exception, throw exception as toast then back to menu
-            Toast toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
-            toast.show();
-            // Jump back to pick action page
-            Intent intent = new Intent(ServeDishActivity.this, ServingStaffPickActionActivity.class);
-            b = new Bundle();
-            b.putString("id", this.id); //Your id
-            intent.putExtras(b); //Put your id to next activity
+            exceptionHandler(e);
+            return;
+        }
+        // Display current dish to be served
+        TextView currentOrder = findViewById(R.id.CurrentDish);
+        try {
+            currentOrder.setText(controller.displayCurrent(this.id));
+        } catch (Exception e) {
+            exceptionHandler(e);
         }
     }
     /**
@@ -76,5 +79,6 @@ public class ServeDishActivity extends AppCompatActivity {
         b = new Bundle();
         b.putString("id", this.id); //Your id
         intent.putExtras(b); //Put your id to next activity
+        startActivity(intent);
     }
 }

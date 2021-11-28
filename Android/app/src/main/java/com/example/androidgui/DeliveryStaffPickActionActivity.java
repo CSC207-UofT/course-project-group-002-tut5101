@@ -27,6 +27,7 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, DeliverOrderActivity.class);
         Bundle b = new Bundle();
         b.putString("id", this.id); //Your id
+        b.putString("action", "GET_NEXT");
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
@@ -36,6 +37,7 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, DeliverOrderActivity.class);
         Bundle b = new Bundle();
         b.putString("id", this.id); //Your id
+        b.putString("action", "VIEW_CURRENT");
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
