@@ -30,11 +30,11 @@ public class DeliverOrderActivity extends AppCompatActivity {
             try {
                 controller.getNext(this.id);
             } catch (Exception e) {
-                if (!e.getMessage().equals("Already has one order in hands")) {
+                if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
                     toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
                     toast.show();
-                    goBackPickAction();
                 }
+                goBackPickAction();
             }
         }
         // Display current order to be delivered
@@ -75,10 +75,10 @@ public class DeliverOrderActivity extends AppCompatActivity {
     private void exceptionHandler(Exception e) {
         // When exception, throw exception as toast then back to menu
         Toast toast;
-        if (e.getMessage().equals("Already has one order in hands")) {
+        if (e.getMessage() != null && e.getMessage().equals("Already has one order in hands")) {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
-        } else if (e.getMessage().equals("No current order to be displayed")) {
+        } else if (e.getMessage() != null && e.getMessage().equals("No current order to be displayed")) {
             toast = Toast.makeText(getApplicationContext(), "No current order", Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page

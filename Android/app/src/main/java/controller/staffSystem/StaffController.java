@@ -23,17 +23,8 @@ public class StaffController {
      */
     public void getNext(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            staff.getToBeDeliver(id);
-        } catch (Exception e) {
-//            if (e.getMessage() == "wrong id for staff") {
-//                throw e;
-//            } else {
-//                throw new Exception("There's no next item");
-//            }
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        staff.getToBeDeliver(id);
     }
 
     /**
@@ -45,12 +36,8 @@ public class StaffController {
      */
     public String displayCurrent(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            return staff.display(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        return staff.display(id);
     }
 
     /**
@@ -60,12 +47,8 @@ public class StaffController {
      */
     public void completeCurrent(String id) throws Exception {
         Delivery staff;
-        try {
-            staff = selectStaffTypeById(id);
-            staff.delivered(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        staff = selectStaffTypeById(id);
+        staff.delivered(id);
     }
 
     /**

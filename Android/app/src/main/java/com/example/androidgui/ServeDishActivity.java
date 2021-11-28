@@ -23,44 +23,26 @@ public class ServeDishActivity extends AppCompatActivity {
             id = b.getString("id");
             mode = b.getString("action");
         }
-        // Get next order to be delivered
-        if (mode.equals("GET_NEXT")) {
+        // Get next dish to be delivered
+        if (mode != null && mode.equals("GET_NEXT")) {
             Toast toast;
             try {
                 controller.getNext(this.id);
             } catch (Exception e) {
-                if (!e.getMessage().equals("Already has one dish in hands")) {
+                if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
                     toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
                     toast.show();
-                    goBackPickAction();
                 }
+                goBackPickAction();
             }
         }
-        // Display current order to be delivered
+        // Display current dish to be delivered
         TextView currentDish = findViewById(R.id.CurrentDish);
         try {
             currentDish.setText(controller.displayCurrent(this.id));
         } catch (Exception e) {
             exceptionHandler(e);
         }
-//        // Get id for method calls
-//        Bundle b = getIntent().getExtras();
-//        if (b != null)
-//            id = b.getString("id");
-//        // Get next dish to be served
-//        try {
-//            controller.getNext(this.id);
-//        } catch (Exception e) {
-//            exceptionHandler(e);
-//            return;
-//        }
-//        // Display current dish to be served
-//        TextView currentOrder = findViewById(R.id.CurrentDish);
-//        try {
-//            currentOrder.setText(controller.displayCurrent(this.id));
-//        } catch (Exception e) {
-//            exceptionHandler(e);
-//        }
     }
     /**
      * When select to complete the dish in hand, try to call completeCurrent
@@ -91,10 +73,10 @@ public class ServeDishActivity extends AppCompatActivity {
     private void exceptionHandler(Exception e) {
         // When exception, throw exception as toast then back to menu
         Toast toast;
-        if (e.getMessage().equals("Already has one dish in hands")) {
+        if (e.getMessage() != null && e.getMessage().equals("Already has one dish in hands")) {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
-        } else if (e.getMessage().equals("No current dish to be displayed")) {
+        } else if (e.getMessage() != null && e.getMessage().equals("No current dish to be displayed")) {
             toast = Toast.makeText(getApplicationContext(), "No current dish", Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page
