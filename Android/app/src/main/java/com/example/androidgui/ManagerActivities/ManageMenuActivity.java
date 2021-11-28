@@ -13,11 +13,18 @@ import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
 
 public class ManageMenuActivity extends AppCompatActivity {
+
     NumberPicker selectDish;
     TextView askDishNumber;
     String[] managerDecision;
     MenuController menuController = new MenuController();
 
+
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,11 @@ public class ManageMenuActivity extends AppCompatActivity {
         selectDish.setDisplayedValues(managerDecision);
     }
 
+    /**
+     * Function to approach the next activity.
+     *
+     * @param v View parameter.
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void next(View v){
         Intent intent = new Intent(ManageMenuActivity.this, SelectEditOrDeleteActivity.class);

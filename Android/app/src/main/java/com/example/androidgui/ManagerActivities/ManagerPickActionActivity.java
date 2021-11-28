@@ -10,6 +10,12 @@ import com.example.androidgui.SeeMenuActivity;
 
 public class ManagerPickActionActivity extends AppCompatActivity {
 
+
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

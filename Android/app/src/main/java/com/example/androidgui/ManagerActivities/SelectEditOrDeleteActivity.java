@@ -23,6 +23,12 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
     String[] selectOption;
     MenuController menuController = new MenuController();
 
+
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

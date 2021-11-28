@@ -6,6 +6,11 @@ import com.example.androidgui.R;
 
 public class AddStaffActivity extends AppCompatActivity {
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

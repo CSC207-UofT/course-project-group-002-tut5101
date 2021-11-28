@@ -22,6 +22,12 @@ public class DeleteReviewActivity extends AppCompatActivity {
     String[] managerDecision;
     ReviewController reviewController = new ReviewController();
 
+
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
