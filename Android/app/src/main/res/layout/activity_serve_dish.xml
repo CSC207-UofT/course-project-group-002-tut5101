@@ -6,5 +6,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ServeDishActivity">
-
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="75dp" android:id="@+id/CurrentDish" tools:layout_editor_absoluteY="224dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0" android:textSize="24sp" android:textStyle="bold"
+            android:textAllCaps="false" android:typeface="normal" tools:ignore="MissingConstraints"/>
+    <Button
+            android:text="Return"
+            android:layout_width="200dp"
+            android:layout_height="50dp" android:id="@+id/ReturnButton" tools:layout_editor_absoluteY="556dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:backgroundTint="#03A9F4" android:layout_marginRight="16dp" android:layout_marginEnd="16dp"
+            android:onClick="selectReturn" tools:ignore="MissingConstraints"/>
+    <Button
+            android:text="Complete Serve"
+            android:layout_width="200dp"
+            android:layout_height="50dp" android:id="@+id/CompleteButton" tools:layout_editor_absoluteY="556dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ReturnButton" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"
+            android:onClick="selectCompleteDish" tools:ignore="MissingConstraints"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

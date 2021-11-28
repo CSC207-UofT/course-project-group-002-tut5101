@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class ServingStaffPickActionActivity extends AppCompatActivity {
+    private String id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -14,17 +15,28 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_servingstaff_pick_action);
         TextView header = findViewById(R.id.header);
         header.setText(R.string.serve_dish_header);
+        // Get id for further use
+        Bundle b = getIntent().getExtras();
+        if(b != null) {
+            id = b.getString("id");
+        }
     }
 
     // When the user selects to get the next dish, try to get a dish to be delivered.
     public void selectGetNextDish(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, ServeDishActivity.class);
+        Bundle b = new Bundle();
+        b.putString("id", this.id); //Your id
+        intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
 
     // When the user selects to check the current dish, show the current dish to be served.
     public void seeCurrentDish(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, ServeDishActivity.class);
+        Bundle b = new Bundle();
+        b.putString("id", this.id); //Your id
+        intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
 

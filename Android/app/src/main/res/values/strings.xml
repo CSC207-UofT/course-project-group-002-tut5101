@@ -20,7 +20,9 @@
     <string name="exit">Exit</string>
 
     <string name="deliver_order_header">Delivery System</string>
+    <string name="deliver_order_complete">Order Completed</string>
 
     <string name="serve_dish_header">Dish Serve System</string>
+    <string name="serve_dish_complete">Dish Served</string>
     <string name="title_activity_deliver_order">DeliverOrderActivity</string>
 </resources>
