@@ -36,14 +36,11 @@ public class LoginController {
     //TODO hardcode since File I/O issue, need delete later
     private void generateUsers() {
         users.addUser(new Manager());
-        users.addUser(new Customer("2", "James", "12345"));
-        users.addUser(new Customer("3", "Steve", "12345"));
-        users.addUser(new Customer("4", "David", "12345"));
-        users.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
-        users.addUser(new ServingStaff("6", "Eve", "12345", 3665));
-        users.addUser(new ServingStaff("7", "Alice", "12345", 3700));
-        users.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
-        users.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
+        users.addUser(new Customer("1", "James", "12345"));
+        users.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
+        users.addUser(new ServingStaff("3", "Eve", "12345", 3665));
+        users.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
+        users.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
     }
 
     /**
@@ -75,9 +72,4 @@ public class LoginController {
         return UserList.getUserTypeById(id);
     }
 
-
-    public String RegisterUser(String info){
-        String[] para = info.split(",");
-        return loginInputBoundary.Register(para);
-    }
 }
