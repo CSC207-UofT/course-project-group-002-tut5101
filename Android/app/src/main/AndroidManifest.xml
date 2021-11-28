@@ -11,8 +11,7 @@
             android:theme="@style/Theme.AndroidGUI">
         <activity android:name=".KitchenActivity">
         </activity>
-        <activity android:name=".LoginActivity"
-                  android:exported="true">
+        <activity android:name=".LoginActivity">
         </activity>
         <activity android:name=".PlaceOrderActivity">
         </activity>
@@ -20,7 +19,8 @@
         </activity>
         <activity android:name=".CustomerPickActionActivity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

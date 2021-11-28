@@ -26,7 +26,7 @@
 		android:ems="10"
 		android:inputType="textPersonName"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.601"
+		app:layout_constraintHorizontal_bias="0.60"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		android:hint="@string/enter_id"
@@ -52,23 +52,36 @@
 		android:ems="10"
 		android:inputType="textPassword"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.601"
+		app:layout_constraintHorizontal_bias="0.60"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/editTextUserId"
 		android:hint="@string/enter_password"
 		android:autofillHints="@string/enter_password"/>
 
 	<Button
-		android:id="@+id/button"
+		android:id="@+id/loginBtn"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="60dp"
 		android:onClick="runLogin"
 		android:text="@string/login"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.498"
+		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+
+	<Button
+		android:id="@+id/enrollNewStaffBtn"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="60dp"
+		android:onClick="enrollStaff"
+		android:text="@string/enroll_new_staff"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.5"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
