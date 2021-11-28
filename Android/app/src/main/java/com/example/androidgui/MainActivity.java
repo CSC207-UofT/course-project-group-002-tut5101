@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectCustomerPickAction(View v) {
-        Intent intent = new Intent(MainActivity.this, CustomerPickActionActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         startActivity(intent);
     }
 
