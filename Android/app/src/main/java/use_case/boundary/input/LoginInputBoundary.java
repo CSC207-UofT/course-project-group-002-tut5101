@@ -8,5 +8,4 @@ import constant.uiMessage.LoginResult;
 
 public interface LoginInputBoundary {
     LoginResult logIn(String username, String password);
-    String Register(String[] para);
 }

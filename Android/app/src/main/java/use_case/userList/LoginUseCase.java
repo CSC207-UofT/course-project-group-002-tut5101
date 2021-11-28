@@ -8,15 +8,12 @@ import use_case.boundary.output.LoginOutputBoundary;
 
 public class LoginUseCase implements LoginInputBoundary {
 
-    /**
-     * A list of users organized by id.
-     */
-    private final UserList users;
+//    private final UserList users;
     private final LoginOutputBoundary outputBoundary;
 
 
     public LoginUseCase(LoginOutputBoundary loginOutputBoundary){
-        this.users = new UserList(FileLocation.USER_FILE_LOCATION);
+//        this.users = new UserList(FileLocation.USER_FILE_LOCATION);
         this.outputBoundary = loginOutputBoundary;
     }
     /**
@@ -27,7 +24,6 @@ public class LoginUseCase implements LoginInputBoundary {
      * @return whether the attempt matches the password associated with id
      */
     public LoginResult logIn(String id, String password) {
-
         User user = UserList.getUserByUserId(id);
         if (user == null) {
             return outputBoundary.presentLoginResult(LoginResult.NO_SUCH_USER);
@@ -39,11 +35,4 @@ public class LoginUseCase implements LoginInputBoundary {
         }
     }
 
-
-    public String Register(String[] para){
-
-        String message =  this.users.addNewUser(para[0],para[1],para[2]);
-        this.users.SavetoFile();
-        return message;
-    }
 }
