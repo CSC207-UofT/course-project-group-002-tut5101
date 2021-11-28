@@ -11,9 +11,9 @@ import use_case.boundary.input.DeleteReviewInputBoundary;
 import use_case.boundary.input.EnrollUserInputBoundary;
 import use_case.boundary.input.ManageMenuInputBoundary;
 import use_case.boundary.output.EnrollUserOutputBoundary;
-import use_case.reviewList.DeleteReviewUseCase;
 import use_case.dishList.DishList;
 import use_case.menuManager.ManageMenuUseCase;
+import use_case.reviewList.DeleteReviewUseCase;
 import use_case.reviewList.ReviewList;
 import use_case.userList.EnrollStaffUseCase;
 import use_case.userList.UserList;
@@ -53,12 +53,12 @@ public class ManagerController {
      *
      * @return the ReviewList type object that contains all reviews saved in the review file.
      */
-    private ReviewList loadReviewList(){
+    private ReviewList loadReviewList() {
         return new ReviewList();
     }
 
     //todo add doc
-    private UserList loadUserList(){
+    private UserList loadUserList() {
 //        return new UserList();
         //TODO hardcode since File I/O issue, need delete later
         UserList users = new UserList();
@@ -85,33 +85,36 @@ public class ManagerController {
     /**
      * Run the manage menu use case.
      */
-    public void manageMenu(){
+    public void manageMenu() {
         manageMenuInputBoundary.manageMenu();
     }
 
     /**
      * Run delete review use case.
      */
-    public void deleteReview(){
+    public void deleteReview() {
         deleteReviewInputBoundary.deleteReview();
     }
 
     //todo add doc
     public void enrollNewUser(String newUserId, String newUserName, String newUserPassword,
-                              String userType, String salary){
-        enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword, userType, Integer.parseInt(salary));
+                              String userType, String salary) {
+        enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword,
+                userType, Integer.parseInt(salary));
     }
 
     //todo add doc
-    public void getNewUserId(){
+    public void getNewUserId() {
         enrollUserInputBoundary.getNewUserId();
     }
+
     //todo add doc
-    public void setEnrollUserOutputBoundary(EnrollUserOutputBoundary outputBoundary){
+    public void setEnrollUserOutputBoundary(EnrollUserOutputBoundary outputBoundary) {
         enrollUserInputBoundary.setOutputBoundary(outputBoundary);
     }
+
     //todo add doc
-    public void getStaffTypes(){
+    public void getStaffTypes() {
         enrollUserInputBoundary.getStaffTypes();
     }
 }

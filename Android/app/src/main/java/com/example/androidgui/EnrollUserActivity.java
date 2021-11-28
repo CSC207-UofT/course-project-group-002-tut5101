@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import constant.uiMessage.EnrollUserMessage;
@@ -59,23 +58,24 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         numPickerUserType.setDisplayedValues(staffTypes);
         numPickerUserType.setMinValue(0);
         numPickerUserType.setMaxValue(maxValue);
+        numPickerUserType.setWrapSelectorWheel(false);
     }
 
     public void enrollNewUser(View view) {
         //Info are not all filled
-        if (!isAllInfoFilled()){
+        if (!isAllInfoFilled()) {
             setEmptyErrorMessage(editTextUserName);
             setEmptyErrorMessage(editTextPassword);
             setEmptyErrorMessage(editTextConfirmPassword);
+            setEmptyErrorMessage(editNumSalary);
         }
         //Password does not match
-        else if(!isConfirmPasswordMatch()){
+        else if (!isConfirmPasswordMatch()) {
             showAlertDialogOneBtn(EnrollUserMessage.PASSWORD_NOT_MATCH, EnrollUserMessage.PASSWORD_NOT_MATCH_MESSAGE);
             editTextPassword.setText("");
             editTextConfirmPassword.setText("");
             editTextPassword.setFocusable(true);
-        }
-        else{
+        } else {
             enroll();
         }
     }
@@ -86,10 +86,16 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
                 editTextPassword.getText().toString(),
                 numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()],
                 editNumSalary.getText().toString());
-        Toast toast = Toast.makeText(getApplicationContext(), EnrollUserMessage.ENROLL_SUCCEED, Toast.LENGTH_LONG);
-        toast.show();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+
+        AlertDialog alertDlg = new AlertDialog.Builder(this)
+                .setTitle(EnrollUserMessage.SUCCEED)
+                .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE)
+                .setPositiveButton(LoginLogoutUIMessage.OK, (dialog, which) -> {
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                })
+                .create();
+        alertDlg.show();
     }
 
     /**
@@ -119,10 +125,17 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
     private boolean isAllInfoFilled() {
         return editTextUserName.getText().toString().trim().length() > 0 &&
                 editTextPassword.getText().toString().trim().length() > 0 &&
-                editTextConfirmPassword.getText().toString().trim().length() > 0;
+                editTextConfirmPassword.getText().toString().trim().length() > 0 &&
+                editNumSalary.getText().toString().trim().length() > 0;
     }
 
     public void cancelUserEnroll(View view) {
-
+        AlertDialog alertDlg = new AlertDialog.Builder(this)
+                .setTitle(EnrollUserMessage.ARE_YOU_SURE)
+                .setMessage(EnrollUserMessage.CANCEL_ENROLLMENT)
+                .setPositiveButton(EnrollUserMessage.YES, (dialog, which) -> finish())
+                .setNegativeButton(EnrollUserMessage.NO, (dialog, which) -> dialog.dismiss())
+                .create();
+        alertDlg.show();
     }
 }
