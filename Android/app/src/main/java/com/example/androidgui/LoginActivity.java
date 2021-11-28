@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     /**
      * Execute login button onClick action
      *
-     * @param view  current Android view
+     * @param view current Android view
      */
     public void runLogin(View view) {
         String id = userIdText.getText().toString();
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
      * Display Toast message at bottom of device that login success, then jump to activity corresponding the UserType of
      * the login user.
      *
-     * @param id    the user id of the login user
+     * @param id the user id of the login user
      */
     private void loginSucceed(String id) {
         Toast toast = Toast.makeText(getApplicationContext(), LoginLogoutUIMessage.LOGIN_SUCCEED, Toast.LENGTH_SHORT);
@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
         //clear content of TextViews
         userIdText.setText("");
         passwordText.setText("");
+        userIdText.setFocusable(true);
     }
 
     /**
@@ -108,8 +109,8 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     /**
      * Helper method that returns proper Activity.class based on user type.
      *
-     * @param id    the user id
-     * @return      Activity.class of the login user to jump to
+     * @param id the user id
+     * @return Activity.class of the login user to jump to
      */
     //TODO fill in activity.class
     private Class factoryMethod(String id) {
@@ -137,5 +138,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     }
 
     public void enrollStaff(View view) {
+        Intent intent = new Intent(LoginActivity.this, EnrollUserActivity.class);
+        startActivity(intent);
     }
 }
