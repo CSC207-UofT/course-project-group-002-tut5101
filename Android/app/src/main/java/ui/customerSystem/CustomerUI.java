@@ -68,7 +68,7 @@ public class CustomerUI implements UserInterface {
                     ifAnonymous = ifAnonymousUI();
                     System.out.println(CustomerUIMessage.ASK_FOR_RATE);
                     int rate = scanner.nextInt();
-                    // String rn = scanner.nextLine();
+                    String rn = scanner.nextLine();
                     System.out.println(CustomerUIMessage.ASK_FOR_COMMENT);
                     String comment = scanner.nextLine();
                     ifComplain = ifComplainUI();
