@@ -7,5 +7,5 @@ import constant.uiMessage.LoginResult;
  */
 
 public interface LoginInputBoundary {
-    LoginResult logIn(String username, String password);
+    void logIn(String username, String password);
 }

@@ -56,10 +56,9 @@ public class LoginController {
      * account with a password attempt.
      * @param id the id
      * @param password the password attempt
-     * @return the result of user login attempt
      */
-    public LoginResult runLogin(String id, String password) {
-        return loginInputBoundary.logIn(id, password);
+    public void runLogin(String id, String password) {
+        loginInputBoundary.logIn(id, password);
     }
 
 
