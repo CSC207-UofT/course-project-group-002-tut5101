@@ -2,7 +2,7 @@ package use_case.deliverOrder;
 
 import entity.orderList.DeliveryOrder;
 import use_case.userList.UserList;
-import use_case.boundary.Delivery;
+import use_case.boundary.input.Delivery;
 import entity.delivery.DeliveryStaff;
 import entity.User;
 

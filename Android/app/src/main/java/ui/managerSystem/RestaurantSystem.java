@@ -11,8 +11,12 @@ public class RestaurantSystem {
     private boolean login;
     private String currentUserId;
 
-    private final LoginController loginController = new LoginController(new LoginPresenter());
+    private final LoginController loginController = new LoginController();
 
+    public RestaurantSystem() {
+        LoginPresenter loginPresenter = new LoginPresenter();
+        loginController.createUseCaseInteractor(loginPresenter);
+    }
 
     /**
      * User Login

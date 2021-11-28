@@ -3,7 +3,7 @@ package use_case.userList;
 import constant.fileSystem.FileLocation;
 import constant.uiMessage.LoginResult;
 import entity.User;
-import use_case.boundary.LoginInputBoundary;
+import use_case.boundary.input.LoginInputBoundary;
 import use_case.boundary.output.LoginOutputBoundary;
 
 public class LoginUseCase implements LoginInputBoundary {
@@ -38,17 +38,6 @@ public class LoginUseCase implements LoginInputBoundary {
             return outputBoundary.presentLoginResult(LoginResult.FAILURE);
         }
     }
-//    public LoginResult logIn(String id, String password) {
-//        User user = UserList.getUserByUserId(id);
-//        if (user == null) {
-//            return LoginResult.NO_SUCH_USER;
-//        }
-//        if (user.passwordMatches(password)) {
-//            return LoginResult.SUCCESS;
-//        } else {
-//            return LoginResult.FAILURE;
-//        }
-//    }
 
 
     public String Register(String[] para){

@@ -1,7 +1,7 @@
 package use_case.serveDish;
 
 import use_case.userList.UserList;
-import use_case.boundary.Delivery;
+import use_case.boundary.input.Delivery;
 import entity.delivery.ServingStaff;
 import entity.User;
 
