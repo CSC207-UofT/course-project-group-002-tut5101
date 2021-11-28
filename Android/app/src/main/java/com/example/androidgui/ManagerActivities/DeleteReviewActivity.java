@@ -1,5 +1,6 @@
 package com.example.androidgui.ManagerActivities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,19 +57,22 @@ public class DeleteReviewActivity extends AppCompatActivity {
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(ReviewMessage.CONFIRM)
                 .setMessage(ReviewMessage.DELETE_REVIEW)
-                .setPositiveButton(ReviewMessage.YES, (dialog, which) -> dialog.dismiss())
-                .setNegativeButton(ReviewMessage.NO, (dialog, which) -> finish())
+                .setPositiveButton(ReviewMessage.YES, (dialog, which) -> {
+                    if (Objects.equals(action,ManagerDecision.ONE.toString())){
+                        reviewController.deleteBelowOne();
+                    }
+                    else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
+                        reviewController.deleteBelowTwo();
+                    }
+                    else {
+                        reviewController.deleteBelowThree();
+                    }
+                    finish();
+                })
+                .setNegativeButton(ReviewMessage.NO, (dialog, which) -> dialog.dismiss())
                 .create();
         alertDlg.show();
-        if (Objects.equals(action,ManagerDecision.ONE.toString())){
-            reviewController.deleteBelowOne();
-        }
-        else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
-            reviewController.deleteBelowTwo();
-        }
-        else {
-            reviewController.deleteBelowThree();
-        }
+
     }
 
     /**
