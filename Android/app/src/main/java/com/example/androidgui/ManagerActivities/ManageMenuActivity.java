@@ -11,10 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uiMessage.ManagerUIMessage;
 import controller.menuSystem.MenuController;
-import entity.orderList.Dish;
-import use_case.dishList.DishList;
-
-import java.util.Map;
 
 /**
  * Activity class for the manager to manage menu.

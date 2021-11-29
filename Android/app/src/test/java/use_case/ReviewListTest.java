@@ -1,13 +1,10 @@
 package use_case;
-import constant.fileSystem.FileLocation;
 import entity.review.Review;
 import use_case.reviewList.ReviewList;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
 
 public class ReviewListTest {
     ReviewList rl = new ReviewList();

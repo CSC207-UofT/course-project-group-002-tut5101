@@ -1,11 +1,10 @@
 package entity.inventory;
 
+import java.io.Serializable;
 /**
  * Entity class for dairy soy.
  */
 
-
-import java.io.Serializable;
 
 public class HasFreshness implements Inventory, Serializable {
     public String name;
@@ -96,9 +95,8 @@ public class HasFreshness implements Inventory, Serializable {
 
     @Override
     public String toString(){
-        String s = this.name+ ","+ this.price +
-                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
-        return s;
+        return this.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.freshness+","+ this.ImportDate;
 
     }
 

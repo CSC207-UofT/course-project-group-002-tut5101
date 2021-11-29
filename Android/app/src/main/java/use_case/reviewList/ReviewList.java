@@ -1,5 +1,6 @@
 package use_case.reviewList;
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
 import gateway.ReadWriter;
@@ -83,6 +84,7 @@ public class ReviewList implements Serializable {
      *
      * @return a string representation of this review list.
      */
+    @NonNull
     @Override
     public String toString() {
         int reviewNumber = 1;

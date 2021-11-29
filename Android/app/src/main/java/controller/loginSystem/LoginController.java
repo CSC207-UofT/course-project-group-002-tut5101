@@ -1,7 +1,6 @@
 package controller.loginSystem;
 
 import constant.mangerSystem.UserType;
-import constant.uiMessage.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;

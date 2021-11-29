@@ -1,5 +1,8 @@
 package entity;
 
+
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -51,6 +54,7 @@ public class User implements Serializable {
      *
      * @return entities.User's basic info
      */
+    @NonNull
     @Override
     public String toString() {
         return this.name + ": {" +

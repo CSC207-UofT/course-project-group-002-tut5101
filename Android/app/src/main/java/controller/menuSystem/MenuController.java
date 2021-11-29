@@ -1,7 +1,6 @@
 package controller.menuSystem;
 
 import entity.orderList.Dish;
-import entity.orderList.Dish;
 import use_case.boundary.output.MenuOutputBoundary;
 import use_case.dishList.DishList;
 

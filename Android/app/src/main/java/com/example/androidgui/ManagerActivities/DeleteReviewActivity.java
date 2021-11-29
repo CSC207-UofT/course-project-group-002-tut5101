@@ -1,7 +1,5 @@
 package com.example.androidgui.ManagerActivities;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +13,6 @@ import constant.mangerSystem.ManagerDecision;
 import constant.mangerSystem.ReviewMessage;
 import constant.uiMessage.ManagerUIMessage;
 import controller.reviewSystem.ReviewController;
-import entity.orderList.Dish;
 
 import java.util.Objects;
 
@@ -75,11 +72,11 @@ public class DeleteReviewActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Display AlertDialog to ask manager confirm to delete the reiews.
-     *
-     * @param view android view
-     */
+//    /**
+//     * Display AlertDialog to ask manager confirm to delete the reiews.
+//     *
+//     * @param view android view
+//     */
 //    public void cancelUserEnroll(View view) {
 //        AlertDialog alertDlg = new AlertDialog.Builder(this)
 //                .setTitle(ReviewMessage.CONFIRM)

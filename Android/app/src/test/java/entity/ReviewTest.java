@@ -1,9 +1,5 @@
 package entity;
-/**
- * Tests for Review Class
- *
- * @author Mingyang Li
- */
+
 
 import entity.review.Review;
 import org.junit.Before;
@@ -11,7 +7,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * Tests for Review Class
+ *
+ * @author Mingyang Li
+ */
 public class ReviewTest {
     Review review1;
 

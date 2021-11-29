@@ -1,15 +1,16 @@
 package entity;
-/**
- * Tests for UseCase.Customer Class
- *
- * @author Chan Yu & Naihe Xiao
- */
 
 import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+
+/**
+ * Tests for UseCase.Customer Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 
 public class CustomerTest {
     Customer customer1;

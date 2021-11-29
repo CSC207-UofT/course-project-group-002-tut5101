@@ -1,18 +1,12 @@
 package com.example.androidgui;
 
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.Facade.KitchenFacade;
 import controller.kitchenSystem.KitchenController;
-import use_case.boundary.output.InventoryOutputBoundary;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class KitchenActivity extends AppCompatActivity{
 

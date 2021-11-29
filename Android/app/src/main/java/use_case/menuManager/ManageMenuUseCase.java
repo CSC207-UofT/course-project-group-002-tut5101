@@ -5,8 +5,6 @@ import entity.orderList.Dish;
 import use_case.dishList.DishList;
 import use_case.dishList.DishListIterator;
 
-import java.util.*;
-
 public class ManageMenuUseCase implements ManageMenuInputBoundary {
 
     private final DishList dishList;
