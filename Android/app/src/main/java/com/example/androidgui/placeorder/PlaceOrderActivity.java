@@ -145,6 +145,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         catch (Exception e) {
             String message = "Error, please try again";
             errorMessage.setText(message);
+            e.printStackTrace();
         }
 
 
