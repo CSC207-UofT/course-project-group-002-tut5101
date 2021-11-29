@@ -1,17 +1,23 @@
 package entity.orderList;
 
-import constant.orderSystem.ItemStatus;
 import constant.orderSystem.OrderType;
 
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * A Delivery Order
+ */
 public class DeliveryOrder extends Order{
 
     private final String address;
-    private OrderType orderType;
+    private final OrderType orderType;
 
-    // initialize delivery order
+    /**
+     * initialize a delivery order
+     * @param address the address for the order to be delivered to
+     * @param dishes the dishes ordered
+     */
     public DeliveryOrder(String address, HashMap<String, List<Dish>> dishes) {
         super(dishes);
         this.address = address;
@@ -27,7 +33,6 @@ public class DeliveryOrder extends Order{
     }
 
     /**
-     *
      * @return the order type
      */
     public OrderType getOrderType() {
