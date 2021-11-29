@@ -1,5 +1,6 @@
 
 import constant.mangerSystem.UserType;
+import entity.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -38,12 +39,22 @@ public class UserListTest {
     }
 
     /**
-     * Testing the user type by id.
+     * Testing get the user type by id.
      *
      */
     @Test
     public void testUserTypeById() {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
+    }
+
+    /**
+     * Testing get the user by id.
+     *
+     */
+    @Test
+    public void testUserById() {
+        User user2 = UserList.getUserByUserId("3");
+
     }
 
 
