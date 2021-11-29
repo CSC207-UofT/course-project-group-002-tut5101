@@ -46,7 +46,6 @@
     <string name="logout_button_text">Logout</string>
     <string name="view_current_order">View Current Order</string>
     <string name="get_next_order">Get Next Order</string>
-    <string name="textview">TextView</string>
     <string name="return_button">Return</string>
     <string name="completed_order">Completed Order</string>
     <string name="header_1">Header</string>
@@ -85,5 +84,20 @@
     <string name="name_of_inventory">Name of Inventory Item</string>
     <string name="welcome_manager">Welcome, Manager</string>
     <string name="manage_menu">Manage Menu</string>
+    <string name="price">Price</string>
+    <string name="quantity_in_kg">Quantity in kg</string>
+    <string name="date_import_or_expiry_eg_20201212">Date(Import or Expiry eg 20201212)</string>
+    <string name="freshness_n_a_when_do_not_have_in_a_b_c_d">Freshness(N/A when do not have in a,b,c,d)</string>
+    <string name="add">Add</string>
+    <string name="freshness">Freshness</string>
+    <string name="update">Update</string>
+    <string name="name">Name</string>
+    <string name="usage">Usage</string>
+    <string name="add_inventory">Add Inventory</string>
+    <string name="check_info">Check info</string>
+    <string name="update_amount">Update amount</string>
+    <string name="update_freshness">update freshness</string>
+    <string name="textview">TextView</string>
+    <string name="return_to_starter">Return to Starter</string>
 
 </resources>
