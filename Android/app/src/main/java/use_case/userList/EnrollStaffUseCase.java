@@ -4,16 +4,28 @@ import constant.mangerSystem.UserType;
 import use_case.boundary.input.EnrollUserInputBoundary;
 import use_case.boundary.output.EnrollUserOutputBoundary;
 
+/**
+ * Class for enrolling new staffs.
+ */
+
 public class EnrollStaffUseCase implements EnrollUserInputBoundary {
 
     private EnrollUserOutputBoundary enrollUserOutputBoundary;
     private final UserList userList;
 
+    /**
+     * Constructor for this class.
+     * @param userList a list of users.
+     */
     public EnrollStaffUseCase(UserList userList) {
         this.userList = userList;
 
     }
 
+    /**
+     * Set the output boundary for enrolling user.
+     * @param enrollUserOutputBoundary the output boundary for enrolling user.
+     */
     public void setOutputBoundary(EnrollUserOutputBoundary enrollUserOutputBoundary) {
         this.enrollUserOutputBoundary = enrollUserOutputBoundary;
     }
