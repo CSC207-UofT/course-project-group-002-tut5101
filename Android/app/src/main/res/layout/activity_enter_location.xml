@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EnterLocationActivity">
+        tools:context=".placeorder.EnterLocationActivity">
 
     <EditText
             android:layout_width="wrap_content"
@@ -16,7 +16,7 @@
             android:id="@+id/enteredLocation"
             android:layout_marginTop="105dp"
             app:layout_constraintTop_toBottomOf="@+id/askEnterAddressMessage"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="99dp"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="99dp" android:autofillHints="Enter Table Number or Address"
             android:hint="@string/enter_table_number_or_address"/>
     <TextView
@@ -25,12 +25,12 @@
             android:layout_height="wrap_content" android:id="@+id/askEnterAddressMessage"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="133dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="105dp" android:layout_marginStart="105dp"/>
+            android:layout_marginStart="105dp"/>
     <Button
             android:text="@string/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/next"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="155dp"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="155dp" android:layout_marginTop="187dp"
             app:layout_constraintTop_toBottomOf="@+id/askEnterAddressMessage"
             android:onClick="next" tools:ignore="OnClick,UsingOnClickInXml"/>

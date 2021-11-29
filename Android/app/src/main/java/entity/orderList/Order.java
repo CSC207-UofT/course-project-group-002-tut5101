@@ -1,13 +1,13 @@
 package entity.orderList;
 
 
-
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import constant.orderSystem.ItemStatus;
 import constant.orderSystem.OrderType;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,11 +19,13 @@ import java.util.Objects;
  */
 
 public abstract class Order {
-    private HashMap<String, List<Dish>> dishes;
+    private final HashMap<String, List<Dish>> dishes;
     private ItemStatus orderStatus;
 
-    // initialize order
-    public Order() { }
+    /**
+     * Initialize an order (used by subclasses)
+     * @param dishes the dishes ordered
+     */
     public Order(HashMap<String, List<Dish>> dishes) {
         this.dishes = dishes;
     }
@@ -45,7 +47,9 @@ public abstract class Order {
         return null;
     }
 
-
+    /**
+     * Update the order status to complete if all dishes are complete
+     */
     private void updateOrderStatus() {
         // Check if all dishes are complete.
         boolean allComplete = true;
@@ -82,14 +86,20 @@ public abstract class Order {
         return orderStatus;
     }
 
+    /**
+     * @return the total price of the order
+     */
     public double getOrderPrice() {
-        double price = 0;
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        int price = 0;
         for (List<Dish> dishAsList : dishes.values()) {
             for (Dish dish : dishAsList) {
-                price += dish.getPrice();
+                price += dish.getPrice() * 100;
             }
         }
-        return price;
+        double p = price / 100.0;
+        return Double.parseDouble(df.format(p));
     }
 
     /**
@@ -115,6 +125,9 @@ public abstract class Order {
         return dishAndQuantity;
     }
 
+    /**
+     * @return information on the dishes in the order
+     */
     public String getOrderContent() {
         StringBuilder content = new StringBuilder();
         content.append("Order contents: \n");
@@ -171,5 +184,8 @@ public abstract class Order {
         return Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus();
     }
 
-    public abstract String getOrderType();
+    /**
+     * @return the type of order
+     */
+    public abstract OrderType getOrderType();
 }

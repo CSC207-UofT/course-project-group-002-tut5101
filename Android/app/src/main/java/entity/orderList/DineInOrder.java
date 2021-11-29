@@ -1,18 +1,23 @@
 package entity.orderList;
 
-import constant.orderSystem.ItemStatus;
 import constant.orderSystem.OrderType;
 
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * A Dine In Order
+ */
 public class DineInOrder extends Order{
 
-    private int tableNum;
-    private OrderType orderType;
+    private final int tableNum;
+    private final OrderType orderType;
 
-
-
+    /**
+     * initialize a dine in order
+     * @param tableNum the table number the order belongs to
+     * @param dishes the dishes in the order
+     */
     public DineInOrder(int tableNum, HashMap<String, List<Dish>> dishes) {
         super(dishes);
         this.tableNum = tableNum;
@@ -28,10 +33,9 @@ public class DineInOrder extends Order{
     }
 
     /**
-     *
      * @return the order type
      */
-    public String getOrderType() {
-        return orderType.name();
+    public OrderType getOrderType() {
+        return orderType;
     }
 }

@@ -1,9 +1,11 @@
-package com.example.androidgui;
+package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.CustomerPickActionActivity;
+import com.example.androidgui.R;
 
 public class OrderSuccessfullyPlacedActivity extends AppCompatActivity {
 

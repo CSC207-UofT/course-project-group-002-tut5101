@@ -13,19 +13,18 @@ import java.util.HashMap;
  * @author Chan Yu & Naihe Xiao
  */
 public class Dish implements Serializable {
-    private String name; // required
-    private double price; //required
-//    private String category;
+    private String name;
+    private double price;
 
     /**
      * A Hashmap that maps ingredient name to the quantity needed for this dish.
      */
-    private HashMap<String, Double> ingredients; // required
-    private HashMap<String, Boolean> features; // optional
-    private double calories; // required
-    private String allergyInformation; // optional
+    private HashMap<String, Double> ingredients;
+    private HashMap<String, Boolean> features;
+    private double calories;
+    private String allergyInformation;
     private ItemStatus status = ItemStatus.DISH_PLACED;
-    private int tableNum; // optional
+    private int tableNum;
 
     private static final long serialVersionUID = 1L;
 
@@ -47,49 +46,19 @@ public class Dish implements Serializable {
         this.allergyInformation = "none";
     }
 
-//    /**
-//     * Constructor of entities.Dish with name, price, ingredients and calories provided.
-//     *
-//     * @param name        name of the entities.Dish
-//     * @param price       price of the entities.Dish
-//     * @param ingredients ingredients of the entities.Dish
-//     * @param calories    calories of the entities.Dish
-//     * @param category    category of the entities.Dish, ie Food/Soup/Drink
-//     */
-//    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories, String category) {
-//        this.name = name;
-//        this.price = price;
-//        this.ingredients = ingredients;
-//        this.calories = calories;
-//        this.features = new HashMap<String, Boolean>();
-//        this.allergyInformation = "none";
-////        this.category = category;
-//    }
 
+    /**
+     * Set the table number of the dish
+     * @param tableNum the table number of the dish
+     */
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
     }
-
-//    /**
-//     * Return category of entities.Dish
-//     * @return category of entities.Dish
-//     */
-//    public String getCategory() {
-//        return category;
-//    }
 
     /**
      * @return the table number for this dish.
      */
     public int getTableNum() { return tableNum;}
-
-//    /**
-//     * Set category of entities.Dish
-//     * @param category category of entities.Dish
-//     */
-//    public void setCategory(String category) {
-//        this.category = category;
-//    }
 
     /**
      * Return status of entities.Dish
@@ -218,7 +187,7 @@ public class Dish implements Serializable {
     }
 
     /**
-     * Override the toString method of Object and return a fine illustration of a entities.Dish information
+     * Override the toString method of Object and return a fine illustration of entities.Dish information
      *
      * @return a string representation of this dish
      */
@@ -233,23 +202,32 @@ public class Dish implements Serializable {
 
         return name +
                 "\n\t\t$$" + price +
-//                "\n\t\tIngredients: " + ingString +
-//                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
                 "\n\t\tallergyInformation: " + allergyInformation +
                 "\n------------------------------\n";
     }
 
+    /**
+     * increases the price of the dish by $1
+     */
     public void increasePrice() {
         double price = this.price;
         this.setPrice(price + 1);
     }
 
+    /**
+     * decreases the number of calories of the dish by 100
+     */
     public void decreaseCalories() {
         double calories = this.calories;
         this.setCalories(calories - 100);
     }
 
+    /**
+     * compares two dishes to see if contents are the same
+     * @param o The dish to compare to
+     * @return whether the contents (e.g. ingredients, name, price) of the two dishes are the same
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
