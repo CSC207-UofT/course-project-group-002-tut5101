@@ -1,8 +1,4 @@
 package use_case.userList;
-/*
-  Public class storing information for all users using a Hashmap.
-  @author Chan Yu & Naihe Xiao
- */
 
 import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
@@ -21,27 +17,45 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Public class storing information for all users using a Hashmap.
+ *
+ */
 
 public class UserList implements Serializable {
 
+    /**
+     * Private instances used in the class.
+     */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
     private String filepath = FileLocation.USER_FILE_LOCATION;
 
+    /**
+     * First constructor: directly read from file.
+     */
     public UserList() {
         readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
+        users = readWriter.readFromFileUser(filepath);
     }
 
+    /**
+     *  Second constructor: construct with size of the UserList.
+     * @param i: number of users in the list.
+     */
     public UserList(int i) {
         users = new HashMap<>();
     }
 
+    /**
+     * Third constructor: construct with the path of the userList file.
+     * @param filepath: path of the userList file.
+     */
     public UserList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
+        users = readWriter.readFromFileUser(filepath);
     }
 
 

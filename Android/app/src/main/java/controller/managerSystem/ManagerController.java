@@ -7,12 +7,8 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import use_case.boundary.input.DeleteReviewInputBoundary;
 import use_case.boundary.input.EnrollUserInputBoundary;
 import use_case.boundary.output.EnrollUserOutputBoundary;
-import use_case.dishList.DishList;
-import use_case.reviewList.DeleteReviewUseCase;
-import use_case.reviewList.ReviewList;
 import use_case.userList.EnrollStaffUseCase;
 import use_case.userList.UserList;
 
@@ -30,24 +26,10 @@ public class ManagerController {
 
 
     /**
-     * Read menu from file. The menu file location is saved in constant.fileSystem.FileLocation.MENU_FILE_LOCATION.
+     * Method to generate a userList.
      *
-     * @return the DishList type object that contains all dishes saved in menu file.
+     * @return a UserList.
      */
-    private DishList loadMenu() {
-        return new DishList();
-    }
-
-    /**
-     * Read reviews from file. The file location is saved in constant.fileSystem.FileLocation.REVIEW_LIST_LOCATION.
-     *
-     * @return the ReviewList type object that contains all reviews saved in the review file.
-     */
-    private ReviewList loadReviewList() {
-        return new ReviewList();
-    }
-
-    //todo add doc
     private UserList loadUserList() {
 //        return new UserList();
         //TODO hardcode since File I/O issue, need delete later

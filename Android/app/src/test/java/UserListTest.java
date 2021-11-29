@@ -1,5 +1,4 @@
 
-import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -11,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import use_case.userList.UserList;
 
+//TODO: fix this test issue.
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -19,8 +20,10 @@ import static org.junit.Assert.assertEquals;
  * @author Chan Yu & Naihe Xiao
  */
 public class UserListTest {
-    UserList userList = new UserList();
 
+    /**
+     * Setting up the test.
+     */
     @Before
     public void setUp() {
         UserList.addUser(new Manager());
@@ -34,6 +37,10 @@ public class UserListTest {
         UserList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
     }
 
+    /**
+     * Testing the user type by id.
+     *
+     */
     @Test
     public void testUserTypeById() {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);

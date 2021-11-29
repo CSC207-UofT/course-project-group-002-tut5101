@@ -17,13 +17,13 @@ public class ReviewList implements Serializable {
 
     public ReviewList() {
         rrw = new SerReadWriter();
-        reviews  = rrw.readFromFile(filepath);
+        reviews  = rrw.readFromFileReview(filepath);
     }
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
         rrw = new SerReadWriter();
-        reviews  = rrw.readFromFile(filepath);
+        reviews  = rrw.readFromFileReview(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
