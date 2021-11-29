@@ -1,6 +1,8 @@
 package entity.inventory;
 
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -31,6 +33,8 @@ public interface Inventory extends Serializable {
     String updateQuantity(double usage);
 
 
+    @NonNull
+    @Override
     String toString();
 
 }

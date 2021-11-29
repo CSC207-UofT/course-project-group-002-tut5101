@@ -4,8 +4,6 @@ import controller.inventorySystem.InventoryManager;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-
 import static org.junit.Assert.assertEquals;
 
 public class InventoryManagerTest {

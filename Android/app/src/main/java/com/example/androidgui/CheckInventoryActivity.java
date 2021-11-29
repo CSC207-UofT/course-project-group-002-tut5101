@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.inventory.PresentInventoryActivity;
 import controller.inventorySystem.InventoryManager;
 
 

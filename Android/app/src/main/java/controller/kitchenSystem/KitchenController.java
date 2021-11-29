@@ -96,7 +96,7 @@ public class KitchenController {
     public String displayIngredient(String dishName) {
         HashMap<String, Double> in = DishList.getDishIngredients(dishName);
         StringBuilder sb = new StringBuilder();
-        sb.append(dishName + "\n" + "# Ingredient ---- Quantity #\n");
+        sb.append(dishName).append("\n").append("# Ingredient ---- Quantity #\n");
         for (String ingreName: in.keySet()) {
             StringBuilder space = new StringBuilder();
             for (int i = 0; i < 16 - ingreName.length(); i++){
@@ -141,7 +141,7 @@ public class KitchenController {
         HashMap<String, Double> ingredientInfo = DishList.getDishIngredients(dishName);
 
         for (String dish: ingredientInfo.keySet()) {
-            double oriQuantity = this.inventories.getTotalQuantity(dish);
+            double oriQuantity = InventoryList.getTotalQuantity(dish);
             this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
         }
     }

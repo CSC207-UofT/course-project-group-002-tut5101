@@ -33,13 +33,13 @@ public class ManagerController {
     private UserList loadUserList() {
 //        return new UserList();
         //TODO hardcode since File I/O issue, need delete later
-        UserList users = new UserList();
-        users.addUser(new Manager());
-        users.addUser(new Customer("1", "James", "12345"));
-        users.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
-        users.addUser(new ServingStaff("3", "Eve", "12345", 3665));
-        users.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
-        users.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
+        UserList users = new UserList(6);
+        UserList.addUser(new Manager());
+        UserList.addUser(new Customer("1", "James", "12345"));
+        UserList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
+        UserList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
+        UserList.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
+        UserList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
         return users;
     }
 

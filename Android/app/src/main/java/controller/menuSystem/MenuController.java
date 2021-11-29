@@ -1,7 +1,6 @@
 package controller.menuSystem;
 
 import entity.orderList.Dish;
-import entity.orderList.Dish;
 import use_case.boundary.output.MenuOutputBoundary;
 import use_case.dishList.DishList;
 
@@ -17,7 +16,6 @@ import java.util.List;
 public class MenuController {
 
     public DishList dishList;
-    private MenuOutputBoundary menuOutputBoundary;
 
     public MenuController(){
         dishList = new DishList("src/main/resources/menu.ser");
@@ -28,7 +26,6 @@ public class MenuController {
 
     public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary){
         dishList.setMenuOutputBoundary(menuOutputBoundary);
-        this.menuOutputBoundary = menuOutputBoundary;
     }
 
 
@@ -83,7 +80,7 @@ public class MenuController {
     /**
      * Edit the dish by passing in the dish name.
      *
-     * @param dishName
+     * @param dishName the name of the dish
      */
     public void editDishByName(String dishName) {
         this.dishList.editDishByName(dishName);

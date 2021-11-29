@@ -17,23 +17,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-        <activity android:name=".UpdateQuanActivity">
+        <activity android:name=".inventory.UpdateQuanActivity">
         </activity>
-        <activity android:name=".UpdateFreshnessActivity">
+        <activity android:name=".inventory.UpdateFreshnessActivity">
         </activity>
-        <activity android:name=".AddInventoryActivity">
+        <activity android:name=".inventory.AddInventoryActivity">
         </activity>
         <activity android:name=".CheckInventoryActivity">
         </activity>
-        <activity android:name=".InventoryStarterActivity">
+        <activity android:name=".inventory.InventoryStarterActivity">
         </activity>
         <activity android:name=".EnrollUserActivity">
         </activity>
         <activity
                 android:name=".ManagerActivities.SelectEditOrDeleteActivity"
                 android:exported="true">
-        </activity>
-        <activity android:name=".ManagerActivities.AddStaffActivity">
         </activity>
         <activity
                 android:name=".ManagerActivities.SeeReviewActivity"

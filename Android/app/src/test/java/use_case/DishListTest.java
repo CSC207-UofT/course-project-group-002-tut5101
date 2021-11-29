@@ -1,7 +1,6 @@
 package use_case;
 
 
-import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,32 +12,26 @@ import static org.junit.Assert.assertEquals;
 
 public class DishListTest {
     DishList menu = new DishList();
-    private static HashMap<String, Double> ingredient1;
-    private static HashMap<String, Double> ingredient2;
-    private static HashMap<String, Double> ingredient3;
-    private static HashMap<String, Double> ingredient4;
-    private static HashMap<String, Double> ingredient5;
-    private static HashMap<String, Double> ingredient6;
 
     @Before
     public void setUp() {
-        ingredient1 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient1 = new HashMap<String, Double>() {{
             put("Meat", 10.0);
             put("Cheese", 13.0);
         }};
-        ingredient2 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient2 = new HashMap<String, Double>() {{
             put("Potato", 11.0);
         }};
-        ingredient3 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient3 = new HashMap<String, Double>() {{
             put("Coke", 1.0);
         }};
-        ingredient4 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient4 = new HashMap<String, Double>() {{
             put("Coffee", 1.0);
         }};
-        ingredient5 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient5 = new HashMap<String, Double>() {{
             put("Milk Tea", 1.0);
         }};
-        ingredient6 = new HashMap<String, Double>() {{
+        HashMap<String, Double> ingredient6 = new HashMap<String, Double>() {{
             put("Potato", 1.0);
             put("Cheese", 2.5);
         }};
@@ -63,7 +56,7 @@ public class DishListTest {
     public void testDishListAddDish() {
         Dish testDish = new Dish("Poutine", 10.0, new HashMap<>(), 400);
         menu.addDish(testDish);
-        assertEquals(menu.getDishByDishName("Poutine"), testDish);
+        assertEquals(DishList.getDishByDishName("Poutine"), testDish);
     }
 
 

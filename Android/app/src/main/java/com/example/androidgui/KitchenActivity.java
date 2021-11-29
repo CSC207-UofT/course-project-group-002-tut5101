@@ -1,18 +1,12 @@
 package com.example.androidgui;
 
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.Facade.KitchenFacade;
 import controller.kitchenSystem.KitchenController;
-import use_case.boundary.output.InventoryOutputBoundary;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class KitchenActivity extends AppCompatActivity{
 
@@ -25,7 +19,7 @@ public class KitchenActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen);
 
-        ListView list = (ListView) findViewById(R.id.dishToCook);
+        ListView list = findViewById(R.id.dishToCook);
 
         ArrayList<String[]> displayDishes = kc.exportDishes();
 
@@ -48,5 +42,5 @@ public class KitchenActivity extends AppCompatActivity{
     public String getMessage(String message){
         return message;
     }
-    public KitchenController getKitchen() {return this.kc;}
+    public KitchenController getKitchen() {return kc;}
 }

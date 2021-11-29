@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.inventory;
 
 import android.view.View;
 import android.widget.Button;
@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.R;
 import controller.inventorySystem.InventoryManager;
 import use_case.boundary.output.InventoryOutputBoundary;
 

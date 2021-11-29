@@ -7,9 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import controller.kitchenSystem.KitchenController;
 
 import java.util.ArrayList;
 
@@ -33,21 +30,18 @@ public class KitchenAdapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(kContext);
         convertView = inflater.inflate(kResource, parent, false);
 
-        TextView dn = (TextView) convertView.findViewById(R.id.kitchenDishName);
-        TextView qt = (TextView) convertView.findViewById(R.id.kitchenQuantity);
-        Button bt = (Button) convertView.findViewById(R.id.kitchenButton);
+        TextView dn = convertView.findViewById(R.id.kitchenDishName);
+        TextView qt = convertView.findViewById(R.id.kitchenQuantity);
+        Button bt = convertView.findViewById(R.id.kitchenButton);
 
         dn.setText(dishName);
         qt.setText(quantity);
         bt.setText("Cooked");
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                KitchenActivity.kc.completeDish(dishName);
-                int a = Integer.parseInt(quantity);
-                qt.setText(String.valueOf(a - 1));
-            }
+        bt.setOnClickListener(view -> {
+            KitchenActivity.kc.completeDish(dishName);
+            int a = Integer.parseInt(quantity);
+            qt.setText(String.valueOf(a - 1));
         });
 
 
