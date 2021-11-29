@@ -29,7 +29,7 @@ public class InventoryManagerTest {
     @Test
     public void testSet(){
         im.newFreshness("potato","A");
-        im.newQuantity("potato","3");
+//        im.newQuantity("potato","3");
         im.SavetoFile();
         String info = "vegefruit,potato,2.99,31.0,A,20211028";
         assertEquals(info, im.getInfo("potato"));

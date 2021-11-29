@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">AndroidGUI</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -81,4 +81,9 @@
     <string name="re_enter_password">Re-enter Password</string>
     <string name="pick_user_type">Pick User Type</string>
     <string name="enter_salary">Enter Salary</string>
+    <string name="get_info">Get Information</string>
+    <string name="name_of_inventory">Name of Inventory Item</string>
+    <string name="welcome_manager">Welcome, Manager</string>
+    <string name="manage_menu">Manage Menu</string>
+
 </resources>
