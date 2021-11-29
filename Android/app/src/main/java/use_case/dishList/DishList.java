@@ -9,7 +9,6 @@ import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -64,7 +63,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return the menu
      */
-    public HashMap<String, Dish> getAllDishes() {
+    public static HashMap<String, Dish> getAllDishes() {
         return menu;
     }
 
@@ -89,7 +88,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         return menuString.toString();
 
     }
-    // Methods that allow lookup dish information without returning the dish itself
 
     /**
      * Get the dish's price for a dish named dishName
@@ -119,15 +117,6 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-//    /**
-//     * Get the category of a dish
-//     * @param dishName The name of the dish
-//     * @return The category of the dish as string
-//     */
-//    public static String getDishCategory(String dishName) {
-//        return Objects.requireNonNull(menu.get(dishName)).getCategory();
-//    }
-
     /**
      * Return the size of the menu (how many dishes in the menu)
      * @return The number of dishes in the menu
@@ -156,61 +145,28 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @Override
     @NonNull
-    public Iterator<Dish> iterator() {
+    public DishListIterator iterator() {
         return new DishListIterator();
     }
 
+    public void deleteDishByName(String dishName) {
+        menu.remove(dishName);
+    }
+
+    public void editDishByName(String dishName) {
+        Dish dish = menu.get(dishName);
+        assert dish != null;
+        dish.increasePrice();
+        dish.decreaseCalories();
+    }
+
     /**
-     * An Iterator for DishList.
+     *
+     * @return a list of dish names.
      */
-    public static class DishListIterator implements Iterator<Dish> {
-
-        /**
-         * The index of the next Dish to return.
-         */
-        private int current = 0;
-
-        /**
-         * Returns whether there is another Dish to return.
-         *
-         * @return whether there is another Dish to return.
-         */
-        @Override
-        public boolean hasNext() {
-            return current < menu.size();
-        }
-
-        /**
-         * Returns the next Contact.
-         *
-         * @return the next Contact.
-         */
-        @Override
-        public Dish next() {
-            Dish dish;
-            try {
-                Set<String> keySet = menu.keySet();
-                List<String> list = new ArrayList<>(keySet);
-                String dishName = list.get(current);
-                dish = menu.get(dishName);
-            } catch (IndexOutOfBoundsException e) {
-                throw new NoSuchElementException();
-            }
-            current += 1;
-            return dish;
-        }
-
-        /**
-         * Replace a dish in the dishList using the new dish
-         * @param dish The new dish that will replace the dish with the same name in the list
-         */
-        public void replace(Dish dish) {
-            Set<String> keySet = menu.keySet();
-            List<String> list = new ArrayList<>(keySet);
-            String dishName = list.get(current);
-            menu.put(dishName, dish);
-        }
-
+    public String[] passDishesAsList() {
+        Set<String> keySet = menu.keySet();
+        return keySet.toArray(new String[0]);
     }
 
     /**
@@ -227,7 +183,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dishName name of the dish
      * @return the Dish object
      */
-    public Dish getDishByDishName(String dishName) {
+    public static Dish getDishByDishName(String dishName) {
         return menu.get(dishName);
     }
 

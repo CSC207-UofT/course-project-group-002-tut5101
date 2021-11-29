@@ -240,6 +240,16 @@ public class Dish implements Serializable {
                 "\n------------------------------\n";
     }
 
+    public void increasePrice() {
+        double price = this.price;
+        this.setPrice(price + 1);
+    }
+
+    public void decreaseCalories() {
+        double calories = this.calories;
+        this.setCalories(calories - 100);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -247,5 +257,6 @@ public class Dish implements Serializable {
         Dish dish = (Dish) o;
         return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
     }
+
 
 }

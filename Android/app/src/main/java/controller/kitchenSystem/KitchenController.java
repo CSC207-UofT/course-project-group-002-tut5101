@@ -29,6 +29,9 @@ public class KitchenController {
      * to its quantity.
      */
     HashMap<String, Integer> dishes;
+    InventoryList inventories;
+
+    public KitchenController(InventoryList inventories){this.inventories = inventories;}
 
     /**
      *
@@ -80,7 +83,7 @@ public class KitchenController {
             for (int i = 0; i < 10 - dish.length(); i++){
                 space.append(" ");
             }
-            sb.append("# " + dish + space + dishes.get(dish) + "\n");
+            sb.append("# ").append(dish).append(space).append(dishes.get(dish)).append("\n");
         }
         return sb.toString();
     }
@@ -99,7 +102,7 @@ public class KitchenController {
             for (int i = 0; i < 16 - ingreName.length(); i++){
                 space.append(" ");
             }
-            sb.append("# " + ingreName + space + in.get(ingreName) + "\n");
+            sb.append("# ").append(ingreName).append(space).append(in.get(ingreName)).append("\n");
         }
         return sb.toString();
     }
@@ -138,8 +141,8 @@ public class KitchenController {
         HashMap<String, Double> ingredientInfo = DishList.getDishIngredients(dishName);
 
         for (String dish: ingredientInfo.keySet()) {
-            double oriQuantity = InventoryList.getTotalQuantity(dish);
-            InventoryList.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
+            double oriQuantity = this.inventories.getTotalQuantity(dish);
+            this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
         }
     }
 

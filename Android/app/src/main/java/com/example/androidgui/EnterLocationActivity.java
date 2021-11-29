@@ -31,6 +31,10 @@ public class EnterLocationActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Switch to the next activity when the "next" button is clicked
+     * @param v the current view
+     */
     public void next(View v) {
         String location = enteredLocation.getText().toString();
         System.out.println(location);
@@ -41,8 +45,6 @@ public class EnterLocationActivity extends AppCompatActivity {
         if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
             orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
-        System.out.println("TESTING123");
-        System.out.println(orderType);
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
 

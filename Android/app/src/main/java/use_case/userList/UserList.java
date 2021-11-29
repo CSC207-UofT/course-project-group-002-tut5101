@@ -18,6 +18,7 @@ import gateway.ReadWriter;
 import gateway.SerReadWriter;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -33,6 +34,10 @@ public class UserList implements Serializable {
         users = readWriter.readFromFile(filepath);
     }
 
+    public UserList(int i) {
+        users = new HashMap<>();
+    }
+
     public UserList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
@@ -45,7 +50,7 @@ public class UserList implements Serializable {
      *
      * @param user the user to add
      */
-    public void addUser(User user) {
+    public static void addUser(User user) {
         users.put(user.getId(), user);
     }
 
@@ -115,8 +120,26 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void SavetoFile() {
-        this.readWriter.saveToFile(this.filepath, this.users);
+    public void savetoFile() {
+        this.readWriter.saveToFile(this.filepath, users);
     }
 
+    public void addStaff(String id, String name, String password, String userType, int salary) {
+        switch (UserType.valueOf(userType)){
+            case KITCHEN:
+                users.put(id, new KitchenStaff(id, name, password, salary));
+                break;
+            case SERVING_STAFF:
+                users.put(id, new ServingStaff(id, name, password, salary));
+                break;
+            case DELIVERY_STAFF:
+                users.put(id, new DeliveryStaff(id, name, password, salary));
+                break;
+            case INVENTORY_STAFF:
+                users.put(id, new InventoryStaff(id, name, password, salary));
+                break;
+        }
+        //Save the updated user list to file
+        savetoFile();
+    }
 }

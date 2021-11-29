@@ -136,7 +136,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String [] dishes = collectDishes();
 
         Intent intent = getIntent();
-        System.out.println(BuildOrderInfo.ORDER_TYPE.name());
         OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         String location = intent.getStringExtra(BuildOrderInfo.LOCATION.name());
 

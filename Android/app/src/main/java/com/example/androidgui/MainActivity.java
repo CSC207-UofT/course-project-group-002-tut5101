@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import controller.Facade.KitchenFacade;
 import controller.customerSystem.OrderController;
 import controller.inventorySystem.InventoryManager;
 import controller.kitchenSystem.KitchenController;
@@ -16,7 +17,8 @@ import controller.staffSystem.StaffController;
 public class MainActivity extends AppCompatActivity {
     public static OrderController orderController = new OrderController();
     public static InventoryManager inventoryManager = new InventoryManager();
-    public static KitchenController kitchenController = new KitchenController();
+    public static KitchenFacade kitchenFacade = new KitchenFacade();
+    public static KitchenController kitchenController = kitchenFacade.createKitchen();
     public static LoginController loginController;
     public static ManagerController managerController = new ManagerController();
     public static MenuController menuController = new MenuController();
@@ -28,6 +30,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        orderController = new OrderController();
+        inventoryManager = new InventoryManager();
+        kitchenFacade = new KitchenFacade();
+        kitchenController = kitchenFacade.createKitchen();
+//        loginController = new LoginController();
+        managerController = new ManagerController();
+        menuController = new MenuController();
+        reviewController = new ReviewController();
+        staffController = new StaffController();
+
     }
 
     public void selectCustomerPickAction(View v) {

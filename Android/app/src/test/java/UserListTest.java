@@ -1,25 +1,23 @@
-/**
- * Tests for UseCase.entity.UserList Class
- *
- * @author Chan Yu & Naihe Xiao
- */
 
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
+import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
-import entity.customer.Customer;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.userList.UserList;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests for UseCase.entity.UserList Class
+ *
+ * @author Chan Yu & Naihe Xiao
+ */
 public class UserListTest {
     UserList userList = new UserList();
 
@@ -41,15 +39,5 @@ public class UserListTest {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
     }
 
-    @Test
-    public void testSaveToFile(){
-        ReadWriter rw = new SerReadWriter();
-        rw.saveToFile(FileLocation.USER_FILE_LOCATION, userList.getUsers());
-    }
 
-    @Test
-    public void testReadFromFile(){
-        ReadWriter rw = new SerReadWriter();
-        System.out.println(rw.readFromFile(FileLocation.USER_FILE_LOCATION));
-    }
 }
