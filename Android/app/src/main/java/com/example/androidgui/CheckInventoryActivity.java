@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.inventorySystem.InventoryManager;
-import use_case.boundary.output.InventoryOutputBoundary;
+
 
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
@@ -19,9 +19,9 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_inventory);
-        button = (Button)findViewById(R.id.button);
-        name = (EditText)findViewById(R.id.textInputEditText);
+        setContentView(R.layout.activity_check_inventory2);
+        button = findViewById(R.id.button7);
+        name = findViewById(R.id.editTextTextName);
         button.setOnClickListener(this);
     }
 

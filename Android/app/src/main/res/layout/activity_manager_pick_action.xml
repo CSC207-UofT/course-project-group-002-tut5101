@@ -9,7 +9,7 @@
 
 
     <TextView
-            android:text="@string/welcome_manager"
+            android:text="welcome_manager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/welcome_manager"
             app:layout_constraintTop_toTopOf="parent"
@@ -18,7 +18,7 @@
             android:layout_marginRight="139dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"/>
     <Button
-            android:text="@string/manage_menu"
+            android:text="manage_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/manageMenuBtn"
             android:onClick="ManageMenu"
