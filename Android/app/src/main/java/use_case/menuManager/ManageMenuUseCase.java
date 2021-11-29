@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ManageMenuUseCase implements ManageMenuInputBoundary {
 
-    private DishList dishList;
+    private final DishList dishList;
 
 
     public ManageMenuUseCase(DishList dishList) {

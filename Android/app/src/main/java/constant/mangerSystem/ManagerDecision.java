@@ -5,5 +5,5 @@ package constant.mangerSystem;
  */
 
 public enum ManagerDecision {
-    EDIT, DELETE, THREE, TWO, ONE;
+    EDIT, DELETE, THREE, TWO, ONE
 }

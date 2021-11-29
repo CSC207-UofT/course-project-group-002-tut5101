@@ -12,6 +12,7 @@ import constant.uiMessage.LoginLogoutUIMessage;
 import controller.managerSystem.ManagerController;
 import use_case.boundary.output.EnrollUserOutputBoundary;
 
+@SuppressWarnings("SameParameterValue")
 public class EnrollUserActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
 
     private EditText editTextUserId;

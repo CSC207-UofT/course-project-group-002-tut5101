@@ -23,7 +23,7 @@ public class InventoryList implements Serializable {
      */
     private static HashMap<String, Inventory> myDict;
     private ReadWriter irw;
-    private String filepath;
+    private final String filepath;
     private InventoryOutputBoundary boundary;
     public InventoryList(){
         this.filepath = null;
@@ -33,7 +33,7 @@ public class InventoryList implements Serializable {
     public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
-        this.myDict = irw.readFromFile(filepath);
+        myDict = irw.readFromFile(filepath);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -153,12 +153,11 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        String message = this.boundary.getMessage(getItem(name).updateQuantity(usage));
-        return message;
+        return this.boundary.getMessage(getItem(name).updateQuantity(usage));
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, this.myDict);
+        this.irw.saveToFile(this.filepath, myDict);
     }
 
 

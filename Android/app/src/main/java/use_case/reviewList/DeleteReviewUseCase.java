@@ -2,6 +2,7 @@ package use_case.reviewList;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
     private ReviewList reviewList;

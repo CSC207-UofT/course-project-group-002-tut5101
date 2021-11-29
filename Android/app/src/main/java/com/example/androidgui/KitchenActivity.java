@@ -25,7 +25,7 @@ public class KitchenActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen);
 
-        ListView list = (ListView) findViewById(R.id.dishToCook);
+        ListView list = findViewById(R.id.dishToCook);
 
         ArrayList<String[]> displayDishes = kc.exportDishes();
 
@@ -48,5 +48,5 @@ public class KitchenActivity extends AppCompatActivity{
     public String getMessage(String message){
         return message;
     }
-    public KitchenController getKitchen() {return this.kc;}
+    public KitchenController getKitchen() {return kc;}
 }
