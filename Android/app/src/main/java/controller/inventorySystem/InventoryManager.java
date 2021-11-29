@@ -12,14 +12,14 @@ public class InventoryManager {
     private final InventoryFactory infc = new InventoryFactory();
     private final String filepath;
 
-    public InventoryManager(InventoryOutputBoundary boundary){
+    public InventoryManager( ){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.inventories = new InventoryList(filepath, boundary);
+        this.inventories = new InventoryList(filepath);
     }
 
-    public InventoryManager(String filepath, InventoryOutputBoundary boundary){
+    public InventoryManager(String filepath){
         this.filepath = filepath;
-        this.inventories = new InventoryList(filepath,boundary);
+        this.inventories = new InventoryList(filepath);
     }
 
 
@@ -45,7 +45,8 @@ public class InventoryManager {
         return message;
     }
 
-    public String newQuantity(String name, String usage){
+    public String newQuantity(String name, String usage,InventoryOutputBoundary boundary){
+        this.inventories.setBoundary(boundary);
         double u = Double.parseDouble(usage);
         return inventories.setQuantity(name, u);
     }

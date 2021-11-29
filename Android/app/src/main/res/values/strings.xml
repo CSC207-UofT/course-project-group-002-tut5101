@@ -1,17 +1,15 @@
-<resources>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AndroidGUI</string>
-	<string name="action_settings">Settings</string>
-	<!-- Strings used for fragments for navigation -->
-	<string name="first_fragment_label">First Fragment</string>
-	<string name="second_fragment_label">Second Fragment</string>
-	<string name="next">Next</string>
-	<string name="previous">Previous</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_customer">Welcome, Customer</string>
-    <string name="welcome_manager">Welcome, Manager</string>
-    <string name="manage_menu">Manage Menu</string>
     <string name="see_menu">See Menu</string>
     <string name="place_order">Place Order</string>
     <string name="order_dish">Order Dish</string>
@@ -44,16 +42,19 @@
 
     <string name="title_activity_deliver_order">DeliverOrderActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="header">Header</string>
     <string name="logout_button_text">Logout</string>
     <string name="view_current_order">View Current Order</string>
     <string name="get_next_order">Get Next Order</string>
+    <string name="textview">TextView</string>
+    <string name="return_button">Return</string>
     <string name="completed_order">Completed Order</string>
-    <string name="header">Header</string>
+    <string name="header_1">Header</string>
     <string name="get_next_dish">Get Next Dish</string>
     <string name="view_current_dish">View Current Dish</string>
     <string name="logout_button">Logout</string>
-    <string name="textview">TextView</string>
-    <string name="return_button">Return</string>
+    <string name="textview_1">TextView</string>
+    <string name="return_button_1">Return</string>
     <string name="complete_serve">Complete Serve</string>
     <string name="dish_names">Dish Names</string>
     <string name="quantity">Quantity</string>
@@ -67,7 +68,6 @@
     <string name="done">Done</string>
     <string name="order_placed_message">Your order was successfully placed</string>
     <string name="return_main_menu">Return to Main Menu</string>
-
     <string name="userId">User ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -81,6 +81,4 @@
     <string name="re_enter_password">Re-enter Password</string>
     <string name="pick_user_type">Pick User Type</string>
     <string name="enter_salary">Enter Salary</string>
-    <string name="get_info">Get Information</string>
-    <string name="name_of_inventory">Name of Inventory Item</string>
 </resources>

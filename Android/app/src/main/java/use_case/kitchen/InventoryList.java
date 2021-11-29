@@ -25,19 +25,20 @@ public class InventoryList implements Serializable {
     private ReadWriter irw;
     private String filepath;
     private InventoryOutputBoundary boundary;
-    public InventoryList(InventoryOutputBoundary boundary){
+    public InventoryList(){
         this.filepath = null;
         myDict = new HashMap<>();
-        this.boundary = boundary;
     }
 
-    public InventoryList(String filepath, InventoryOutputBoundary boundary) {
+    public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
         this.myDict = irw.readFromFile(filepath);
-        this.boundary = boundary;
     }
 
+    public void setBoundary(InventoryOutputBoundary boundary) {
+        this.boundary = boundary;
+    }
 
     /**
      * Add new Inventory item to myDict.
@@ -149,13 +150,11 @@ public class InventoryList implements Serializable {
      * @param usage the quantity used for this ingredient.
      */
     public String setQuantity(String name, double usage) {
-        String message;
         if (!myDict.containsKey(name)){
-            //TODO: implement exceptions for cases of wrong key
-            message = "wrong name";
+            return "wrong name";
         }
-        message = getItem(name).updateQuantity(usage);
-        return this.boundary.getMessage(message);
+        String message = this.boundary.getMessage(getItem(name).updateQuantity(usage));
+        return message;
     }
 
     public void SavetoFile(){

@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import controller.inventorySystem.InventoryManager;
+import use_case.boundary.output.InventoryOutputBoundary;
 
 public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
@@ -44,4 +45,5 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         im.addNewInventory(paras);
         im.SavetoFile();
         }
+
     }
