@@ -38,13 +38,10 @@ public class KitchenAdapter extends ArrayAdapter {
         qt.setText(quantity);
         bt.setText("Cooked");
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                KitchenActivity.kc.completeDish(dishName);
-                int a = Integer.parseInt(quantity);
-                qt.setText(String.valueOf(a - 1));
-            }
+        bt.setOnClickListener(view -> {
+            KitchenActivity.kc.completeDish(dishName);
+            int a = Integer.parseInt(quantity);
+            qt.setText(String.valueOf(a - 1));
         });
 
 

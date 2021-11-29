@@ -46,7 +46,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
     /**
      * Method to delete the reviews.
      *
-     * @param v
+     * @param v the current view
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void deleteReview(View v) {

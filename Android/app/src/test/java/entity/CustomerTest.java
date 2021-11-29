@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for UseCase.Customer Class
@@ -26,14 +27,14 @@ public class CustomerTest {
     public void testCustomerConstructor1() {
         assertEquals(customer1.getId(), "defaultuserid");
         assertEquals(customer1.getName(), "Default entities.User");
-        assertEquals(customer1.passwordMatches("12345"), true);
+        assertTrue(customer1.passwordMatches("12345"));
     }
 
     @Test(timeout = 50)
     public void testCustomerConstructor2() {
         assertEquals(customer2.getId(), "2");
         assertEquals(customer2.getName(), "NaiHe");
-        assertEquals(customer2.passwordMatches("12345"), true);
+        assertTrue(customer2.passwordMatches("12345"));
     }
 
 }

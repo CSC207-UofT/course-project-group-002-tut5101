@@ -33,8 +33,6 @@
                 android:name=".ManagerActivities.SelectEditOrDeleteActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".ManagerActivities.AddStaffActivity">
-        </activity>
         <activity
                 android:name=".ManagerActivities.SeeReviewActivity"
                 android:exported="true">

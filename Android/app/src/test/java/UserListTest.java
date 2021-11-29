@@ -1,5 +1,6 @@
 
 import constant.mangerSystem.UserType;
+import entity.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -10,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import use_case.userList.UserList;
 
+//TODO: fix this test issue.
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -18,8 +21,10 @@ import static org.junit.Assert.assertEquals;
  * @author Chan Yu & Naihe Xiao
  */
 public class UserListTest {
-    UserList userList = new UserList();
 
+    /**
+     * Setting up the test.
+     */
     @Before
     public void setUp() {
         UserList.addUser(new Manager());
@@ -33,9 +38,23 @@ public class UserListTest {
         UserList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
     }
 
+    /**
+     * Testing get the user type by id.
+     *
+     */
     @Test
     public void testUserTypeById() {
         assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
+    }
+
+    /**
+     * Testing get the user by id.
+     *
+     */
+    @Test
+    public void testUserById() {
+        User user2 = UserList.getUserByUserId("3");
+
     }
 
 

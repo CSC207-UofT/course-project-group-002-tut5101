@@ -1,5 +1,7 @@
 package entity.inventory;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 /**
  * Entity class for dairy soy.
@@ -93,6 +95,7 @@ public class HasFreshness implements Inventory, Serializable {
         this.freshness = NewFreshness;
     }
 
+    @NonNull
     @Override
     public String toString(){
         return this.name+ ","+ this.price +

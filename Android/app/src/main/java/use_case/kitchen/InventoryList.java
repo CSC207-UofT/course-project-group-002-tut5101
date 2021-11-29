@@ -2,8 +2,6 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryFactory.InventoryFactory;
 
@@ -33,7 +31,7 @@ public class InventoryList implements Serializable {
     public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
-        myDict = irw.readFromFile(filepath);
+        myDict = irw.readFromFileInventory(filepath);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -153,11 +151,12 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        return this.boundary.getMessage(getItem(name).updateQuantity(usage));
+        String message = this.boundary.getMessage(getItem(name).updateQuantity(usage));
+        return message;
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, myDict);
+        this.irw.saveToFile(this.filepath, this.myDict);
     }
 
 

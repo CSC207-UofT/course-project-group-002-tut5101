@@ -34,6 +34,7 @@ public interface Inventory extends Serializable {
 
 
     @NonNull
+    @Override
     String toString();
 
 }

@@ -28,7 +28,8 @@ public class LoginController {
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-        users = new UserList("src/main/resources/users.ser");
+//        users = new UserList("src/main/resources/users.ser");
+        users = new UserList(6);
         //TODO hardcode since File I/O issue, need delete later
         generateUsers();
     }

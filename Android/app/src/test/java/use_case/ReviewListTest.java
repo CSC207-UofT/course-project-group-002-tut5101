@@ -16,11 +16,6 @@ public class ReviewListTest {
         rl.addReview(new Review("Cissy", true, 1, "not good", true, "bad"));
     }
 
-    @Test
-    public void testSaveToFile() throws IOException {
-
-        rl.saveToFile();
-    }
 
     @Test
     public void testReadFromFile(){

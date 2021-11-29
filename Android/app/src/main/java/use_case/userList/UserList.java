@@ -1,11 +1,6 @@
 package use_case.userList;
-/*
-  Public class storing information for all users using a Hashmap.
-  @author Chan Yu & Naihe Xiao
- */
 
 import androidx.annotation.NonNull;
-import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.User;
 import entity.customer.Customer;
@@ -14,34 +9,30 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Public class storing information for all users using a Hashmap.
+ *
+ */
 
 public class UserList implements Serializable {
 
+    /**
+     * Private instances used in the class.
+     */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter;
-    private String filepath = FileLocation.USER_FILE_LOCATION;
 
-    public UserList() {
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
-    }
-
+    /**
+     *  Second constructor: construct with size of the UserList.
+     * @param i: number of users in the list.
+     */
     public UserList(int i) {
-        users = new HashMap<>();
-    }
-
-    public UserList(String filepath) {
-        this.filepath = filepath;
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
+        users = new HashMap<>(i);
     }
 
 
@@ -54,16 +45,24 @@ public class UserList implements Serializable {
         users.put(user.getId(), user);
     }
 
-    public String addNewUser(String id, String name, String password) {
-        User user = new Customer(id, name, password);
-        if (users.containsKey(user.getId())) {
-            return "Used id, please change";
-        } else {
-            users.put(user.getId(), user);
-            return "Successfully added";
-        }
 
-    }
+//    /**
+//     *
+//     * @param id id of the new user.
+//     * @param name name of the new user.
+//     * @param password password of the new user.
+//     * @return a string representation of the new user.
+//     */
+//    public String addNewUser(String id, String name, String password) {
+//        User user = new Customer(id, name, password);
+//        if (users.containsKey(user.getId())) {
+//            return "Used id, please change";
+//        } else {
+//            users.put(user.getId(), user);
+//            return "Successfully added";
+//        }
+
+//    }
 
     /**
      * Return user by its id
@@ -101,7 +100,7 @@ public class UserList implements Serializable {
      *
      * @return a UserList contains
      */
-    public Map getUsers() {
+    public HashMap<String, User> getUsers() {
         return users;
     }
 
@@ -120,10 +119,16 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void savetoFile() {
-        this.readWriter.saveToFile(this.filepath, users);
-    }
 
+    /**
+     *  method to add staffs.
+     *
+     * @param id id of the new staff.
+     * @param name name  of the new staff.
+     * @param password password of the new staff.
+     * @param userType type of the new staff.
+     * @param salary salary of the new staff.
+     */
     public void addStaff(String id, String name, String password, String userType, int salary) {
         switch (UserType.valueOf(userType)){
             case KITCHEN:
@@ -139,7 +144,5 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password, salary));
                 break;
         }
-        //Save the updated user list to file
-        savetoFile();
     }
 }

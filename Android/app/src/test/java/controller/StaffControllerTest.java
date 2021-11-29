@@ -16,7 +16,6 @@ import java.util.HashMap;
 
 public class StaffControllerTest {
     StaffController staff;
-    UserList users = new UserList();
 
     @Before
     public void setUp() {
