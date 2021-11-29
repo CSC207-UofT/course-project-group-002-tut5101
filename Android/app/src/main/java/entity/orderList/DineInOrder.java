@@ -31,7 +31,7 @@ public class DineInOrder extends Order{
      *
      * @return the order type
      */
-    public String getOrderType() {
-        return orderType.name();
+    public OrderType getOrderType() {
+        return orderType;
     }
 }
