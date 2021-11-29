@@ -1,6 +1,12 @@
 package gateway;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -8,15 +14,13 @@ import java.net.URLEncoder;
 public class PutData extends Thread {
     private String url, method;
     String result_data = "Empty";
-    String[] data, field;
+    String name, id;
 
-    public PutData(String url, String method, String[] field, String[] data) {
+    public PutData(String url, String method, String name, String id) {
         this.url = url;
         this.method = method;
-        this.data = new String[data.length];
-        this.field = new String[field.length];
-        System.arraycopy(field, 0, this.field, 0, field.length);
-        System.arraycopy(data, 0, this.data, 0, data.length);
+        this.name = name;
+        this.id = id;
     }
 
     @Override
@@ -31,15 +35,16 @@ public class PutData extends Thread {
             OutputStream outputStream = httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, UTF8));
             StringBuilder post_data = new StringBuilder();
-            for (int i = 0; i < this.field.length; i++) {
-                post_data.append(URLEncoder.encode(this.field[i], "UTF-8")).append("=").append(URLEncoder.encode(this.data[i], UTF8)).append("&");
-            }
+            post_data.append(URLEncoder.encode("name", "UTF-8")).append("=").append(URLEncoder.encode(this.name, UTF8)).append("&");
+            post_data.append(URLEncoder.encode("id", "UTF-8")).append("=").append(URLEncoder.encode(this.id, UTF8)).append("&");
             bufferedWriter.write(post_data.toString());
             bufferedWriter.flush();
             bufferedWriter.close();
             outputStream.close();
+
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, iso));
+
             StringBuilder result = new StringBuilder();
             String result_line;
             while ((result_line = bufferedReader.readLine()) != null) {

@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -8,11 +8,10 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
-import controller.customerSystem.OrderController;
-import controller.menuSystem.MenuController;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.util.ArrayList;
@@ -136,7 +135,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String [] dishes = collectDishes();
 
         Intent intent = getIntent();
-        System.out.println(BuildOrderInfo.ORDER_TYPE.name());
         OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         String location = intent.getStringExtra(BuildOrderInfo.LOCATION.name());
 

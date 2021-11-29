@@ -4,6 +4,7 @@ import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
+import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryFactory.InventoryFactory;
 
 
@@ -23,6 +24,7 @@ public class InventoryList implements Serializable {
     private static HashMap<String, Inventory> myDict;
     private ReadWriter irw;
     private String filepath;
+    private InventoryOutputBoundary boundary;
     public InventoryList(){
         this.filepath = null;
         myDict = new HashMap<>();
@@ -31,9 +33,12 @@ public class InventoryList implements Serializable {
     public InventoryList(String filepath) {
         this.filepath = filepath;
         irw = new SerReadWriter();
-        myDict = irw.readFromFile(filepath);
+        this.myDict = irw.readFromFile(filepath);
     }
 
+    public void setBoundary(InventoryOutputBoundary boundary) {
+        this.boundary = boundary;
+    }
 
     /**
      * Add new Inventory item to myDict.
@@ -144,17 +149,18 @@ public class InventoryList implements Serializable {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public static void setQuantity(String name, double usage) {
+    public String setQuantity(String name, double usage) {
         if (!myDict.containsKey(name)){
-            //TODO: implement exceptions for cases of wrong key
-            return;
+            return "wrong name";
         }
-        getItem(name).updateQuantity(usage);
+        String message = this.boundary.getMessage(getItem(name).updateQuantity(usage));
+        return message;
     }
 
     public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, myDict);
+        this.irw.saveToFile(this.filepath, this.myDict);
     }
+
 
 
 

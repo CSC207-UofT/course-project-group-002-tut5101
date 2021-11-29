@@ -23,7 +23,6 @@ public abstract class Order {
     private ItemStatus orderStatus;
 
     // initialize order
-    public Order() { }
     public Order(HashMap<String, List<Dish>> dishes) {
         this.dishes = dishes;
     }
@@ -83,13 +82,13 @@ public abstract class Order {
     }
 
     public double getOrderPrice() {
-        double price = 0;
+        int price = 0;
         for (List<Dish> dishAsList : dishes.values()) {
             for (Dish dish : dishAsList) {
-                price += dish.getPrice();
+                price += dish.getPrice() * 100;
             }
         }
-        return price;
+        return (double) price / 100;
     }
 
     /**
@@ -171,5 +170,5 @@ public abstract class Order {
         return Objects.equals(getDishes(), order.getDishes()) && getOrderStatus() == order.getOrderStatus();
     }
 
-    public abstract String getOrderType();
+    public abstract OrderType getOrderType();
 }
