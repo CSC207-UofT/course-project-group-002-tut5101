@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 
+/**
+ * Class for adding dish activity.
+ */
+
 public class AddDishActivity extends AppCompatActivity {
 
     @Override

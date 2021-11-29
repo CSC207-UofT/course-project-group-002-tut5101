@@ -9,10 +9,8 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import use_case.boundary.input.DeleteReviewInputBoundary;
 import use_case.boundary.input.EnrollUserInputBoundary;
-import use_case.boundary.input.ManageMenuInputBoundary;
 import use_case.boundary.output.EnrollUserOutputBoundary;
 import use_case.dishList.DishList;
-import use_case.menuManager.ManageMenuUseCase;
 import use_case.reviewList.DeleteReviewUseCase;
 import use_case.reviewList.ReviewList;
 import use_case.userList.EnrollStaffUseCase;
@@ -25,14 +23,6 @@ import use_case.userList.UserList;
 
 public class ManagerController {
 
-    /**
-     * The input use_case.boundary for the manage menu use case.
-     */
-    private final ManageMenuInputBoundary manageMenuInputBoundary;
-    /**
-     * The input use_case.boundary for delete review use case.
-     */
-    private final DeleteReviewInputBoundary deleteReviewInputBoundary;
     /**
      * The input and output user_case.boundary for enrolling new staff use case.
      */
@@ -75,45 +65,44 @@ public class ManagerController {
      * Constructor of the ManagerController
      */
     public ManagerController() {
-        ReviewList reviewList = loadReviewList();
-        DishList dishList = loadMenu();
-        this.manageMenuInputBoundary = new ManageMenuUseCase(dishList);
-        this.deleteReviewInputBoundary = new DeleteReviewUseCase(reviewList);
         this.enrollUserInputBoundary = new EnrollStaffUseCase(loadUserList());
     }
 
     /**
-     * Run the manage menu use case.
+     * Main method for enrolling new user.
+     *
+     * @param newUserId id of new user
+     * @param newUserName name of new user
+     * @param newUserPassword password of new user
+     * @param userType type of new user
+     * @param salary salary of new user
      */
-    public void manageMenu() {
-        manageMenuInputBoundary.manageMenu();
-    }
-
-    /**
-     * Run delete review use case.
-     */
-    public void deleteReview() {
-        deleteReviewInputBoundary.deleteReview();
-    }
-
-    //todo add doc
     public void enrollNewUser(String newUserId, String newUserName, String newUserPassword,
                               String userType, String salary) {
         enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword,
                 userType, Integer.parseInt(salary));
     }
 
-    //todo add doc
+    /**
+     *
+     * Get the id of the new user.
+     */
     public void getNewUserId() {
         enrollUserInputBoundary.getNewUserId();
     }
 
-    //todo add doc
+    /**
+     *
+     * Set output boundary for enroll user.
+     */
     public void setEnrollUserOutputBoundary(EnrollUserOutputBoundary outputBoundary) {
         enrollUserInputBoundary.setOutputBoundary(outputBoundary);
     }
 
-    //todo add doc
+    /**
+     *
+     * Get the types of staffs.
+     */
     public void getStaffTypes() {
         enrollUserInputBoundary.getStaffTypes();
     }
