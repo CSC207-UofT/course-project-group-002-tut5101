@@ -2,8 +2,6 @@ package use_case.reviewList;
 
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,7 +1,6 @@
 package use_case.userList;
 
 import androidx.annotation.NonNull;
-import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
 import entity.User;
 import entity.customer.Customer;
@@ -10,8 +9,6 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -29,33 +26,13 @@ public class UserList implements Serializable {
      */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter;
-    private String filepath = FileLocation.USER_FILE_LOCATION;
-
-    /**
-     * First constructor: directly read from file.
-     */
-    public UserList() {
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFileUser(filepath);
-    }
 
     /**
      *  Second constructor: construct with size of the UserList.
      * @param i: number of users in the list.
      */
     public UserList(int i) {
-        users = new HashMap<>();
-    }
-
-    /**
-     * Third constructor: construct with the path of the userList file.
-     * @param filepath: path of the userList file.
-     */
-    public UserList(String filepath) {
-        this.filepath = filepath;
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFileUser(filepath);
+        users = new HashMap<>(i);
     }
 
 
@@ -68,6 +45,14 @@ public class UserList implements Serializable {
         users.put(user.getId(), user);
     }
 
+
+    /**
+     *
+     * @param id id of the new user.
+     * @param name name of the new user.
+     * @param password password of the new user.
+     * @return
+     */
     public String addNewUser(String id, String name, String password) {
         User user = new Customer(id, name, password);
         if (users.containsKey(user.getId())) {
@@ -134,10 +119,16 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void savetoFile() {
-        this.readWriter.saveToFile(this.filepath, users);
-    }
 
+    /**
+     *  method to add staffs.
+     *
+     * @param id
+     * @param name
+     * @param password
+     * @param userType
+     * @param salary
+     */
     public void addStaff(String id, String name, String password, String userType, int salary) {
         switch (UserType.valueOf(userType)){
             case KITCHEN:
@@ -153,7 +144,5 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password, salary));
                 break;
         }
-        //Save the updated user list to file
-        savetoFile();
     }
 }

@@ -3,8 +3,6 @@ package use_case.dishList;
 import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
@@ -30,14 +28,14 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public DishList() {
         readWriter = new SerReadWriter();
-        menu = readWriter.readFromFile(filepath);
+        menu = readWriter.readFromFileDish(filepath);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
         readWriter = new SerReadWriter();
-        menu = readWriter.readFromFile(filepath);
+        menu = readWriter.readFromFileDish(filepath);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
