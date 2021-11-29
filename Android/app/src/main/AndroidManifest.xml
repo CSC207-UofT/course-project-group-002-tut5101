@@ -10,12 +10,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-            android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.AndroidGUI">
+            android:theme="@style/Theme.AndroidGUI"
+            android:allowBackup="false">
         <activity android:name=".InventoryStarterActivity">
         </activity>
         <activity android:name=".EnrollUserActivity">
@@ -71,18 +71,25 @@
         <activity android:name=".LoginActivity"
             android:exported="true" >
         </activity>
-        <activity
-                android:name=".PlaceOrderActivity"
-                android:exported="true">
+        <activity android:name=".CustomerPickActionActivity">
         </activity>
         <activity
                 android:name=".SeeMenuActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".CustomerPickActionActivity">
-        </activity>
         <activity android:name=".SelectDineInTakeOutActivity"
                   android:exported="true">
+        </activity>
+        <activity android:name=".EnterLocationActivity"
+                  android:exported="true">
+        </activity>
+        <activity
+                android:name=".PlaceOrderActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".EditOrderActivity"
+                android:exported="true">
         </activity>
         <activity android:name=".ServingStaffPickActionActivity"/>
         <activity android:name=".DeliveryStaffPickActionActivity"/>
