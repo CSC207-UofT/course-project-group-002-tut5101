@@ -46,23 +46,23 @@ public class UserList implements Serializable {
     }
 
 
-    /**
-     *
-     * @param id id of the new user.
-     * @param name name of the new user.
-     * @param password password of the new user.
-     * @return
-     */
-    public String addNewUser(String id, String name, String password) {
-        User user = new Customer(id, name, password);
-        if (users.containsKey(user.getId())) {
-            return "Used id, please change";
-        } else {
-            users.put(user.getId(), user);
-            return "Successfully added";
-        }
+//    /**
+//     *
+//     * @param id id of the new user.
+//     * @param name name of the new user.
+//     * @param password password of the new user.
+//     * @return a string representation of the new user.
+//     */
+//    public String addNewUser(String id, String name, String password) {
+//        User user = new Customer(id, name, password);
+//        if (users.containsKey(user.getId())) {
+//            return "Used id, please change";
+//        } else {
+//            users.put(user.getId(), user);
+//            return "Successfully added";
+//        }
 
-    }
+//    }
 
     /**
      * Return user by its id
@@ -100,7 +100,7 @@ public class UserList implements Serializable {
      *
      * @return a UserList contains
      */
-    public Map getUsers() {
+    public HashMap<String, User> getUsers() {
         return users;
     }
 
@@ -123,11 +123,11 @@ public class UserList implements Serializable {
     /**
      *  method to add staffs.
      *
-     * @param id
-     * @param name
-     * @param password
-     * @param userType
-     * @param salary
+     * @param id id of the new staff.
+     * @param name name  of the new staff.
+     * @param password password of the new staff.
+     * @param userType type of the new staff.
+     * @param salary salary of the new staff.
      */
     public void addStaff(String id, String name, String password, String userType, int salary) {
         switch (UserType.valueOf(userType)){
