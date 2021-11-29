@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.placeorder;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -8,6 +8,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.R;
 import constant.orderSystem.BuildOrderInfo;
 import constant.orderSystem.OrderType;
 
