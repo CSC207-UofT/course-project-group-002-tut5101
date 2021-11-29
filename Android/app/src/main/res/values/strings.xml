@@ -99,5 +99,6 @@
     <string name="update_freshness">update freshness</string>
     <string name="textview">TextView</string>
     <string name="return_to_starter">Return to Starter</string>
+    <string name="email">Email</string>
 
 </resources>

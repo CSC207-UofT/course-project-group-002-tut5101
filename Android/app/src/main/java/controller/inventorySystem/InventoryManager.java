@@ -51,9 +51,9 @@ public class InventoryManager {
         return inventories.setQuantity(name, u);
     }
 
-    public void SavetoFile(){
-        this.inventories.SavetoFile();
-    }
+//    public void SavetoFile(){
+//        this.inventories.SavetoFile();
+//    }
 
 
 

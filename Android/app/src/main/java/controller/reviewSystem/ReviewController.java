@@ -43,12 +43,12 @@ public class ReviewController {
                                 String comment, boolean ifComplain, String complaint) {
         reviews.addReview(name, ifAnonymous, rate, comment, ifComplain, complaint);
     }
-
-    /**
-     * save the reviewList to file.
-     */
-    public void saveToFile(){
-        reviews.saveToFile();}
+//
+//    /**
+//     * save the reviewList to file.
+//     */
+//    public void saveToFile(){
+//        reviews.saveToFile();}
 
     /**
      *

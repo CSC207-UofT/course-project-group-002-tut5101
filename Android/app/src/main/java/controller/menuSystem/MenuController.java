@@ -70,12 +70,12 @@ public class MenuController {
         dishList.deleteDishByName(dishName);
     }
 
-    /**
-     * save the dishList(or menu) to file.
-     */
-    public void saveToFile(){
-        this.dishList.saveToFile();
-    }
+//    /**
+//     * save the dishList(or menu) to file.
+//     */
+//    public void saveToFile(){
+//        this.dishList.saveToFile();
+//    }
 
     /**
      * Edit the dish by passing in the dish name.

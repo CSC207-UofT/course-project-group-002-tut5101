@@ -43,7 +43,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         else{para = iname+","+iprice+","+iamount+","+ifreshness+","+idate;}
         String[] paras = para.split(",");
         im.addNewInventory(paras);
-        im.SavetoFile();
+//        im.SavetoFile();
     }
 
 }
