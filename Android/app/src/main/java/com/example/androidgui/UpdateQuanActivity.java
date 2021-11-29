@@ -18,10 +18,10 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_freshness);
-        btn = findViewById(R.id.button9);
-        name = findViewById(R.id.textInputEditText9);
-        usage = findViewById(R.id.textInputEditText10);
+        setContentView(R.layout.activity_update_quan2);
+        btn = findViewById(R.id.button8);
+        name = findViewById(R.id.editTextTextPersonName6);
+        usage = findViewById(R.id.editTextTextPersonName7);
         btn.setOnClickListener(this);
     }
     @Override

@@ -20,13 +20,13 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_inventory);
-        button = findViewById(R.id.btn1);
-        name = findViewById(R.id.textInputEditText1);
-        price = findViewById(R.id.textInputEditText2);
-        amount = findViewById(R.id.textInputEditText3);
-        date = findViewById(R.id.textInputEditText4);
-        freshness = findViewById(R.id.textInputEditText6);
+        setContentView(R.layout.activity_add_inventory2);
+        button = findViewById(R.id.button10);
+        name = findViewById(R.id.editTextTextPersonName);
+        price = findViewById(R.id.editTextTextPersonName2);
+        amount = findViewById(R.id.editTextTextPersonName3);
+        date = findViewById(R.id.editTextTextPersonName4);
+        freshness = findViewById(R.id.editTextTextPersonName5);
         button.setOnClickListener(this);
     }
     @Override
@@ -44,6 +44,6 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         String[] paras = para.split(",");
         im.addNewInventory(paras);
         im.SavetoFile();
-        }
-
     }
+
+}

@@ -18,10 +18,10 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_freshness);
-        btn = findViewById(R.id.button8);
-        name = findViewById(R.id.textInputEditText7);
-        fresh = findViewById(R.id.textInputEditText8);
+        setContentView(R.layout.activity_update_freshness2);
+        btn = findViewById(R.id.button11);
+        name = findViewById(R.id.editTextTextPersonName8);
+        fresh = findViewById(R.id.editTextTextPersonName9);
         btn.setOnClickListener(this);
     }
     @Override
