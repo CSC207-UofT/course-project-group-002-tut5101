@@ -47,6 +47,10 @@ public class Dish implements Serializable {
     }
 
 
+    /**
+     * Set the table number of the dish
+     * @param tableNum the table number of the dish
+     */
     public void setTableNum(int tableNum) {
         this.tableNum = tableNum;
     }
@@ -183,7 +187,7 @@ public class Dish implements Serializable {
     }
 
     /**
-     * Override the toString method of Object and return a fine illustration of a entities.Dish information
+     * Override the toString method of Object and return a fine illustration of entities.Dish information
      *
      * @return a string representation of this dish
      */
@@ -198,23 +202,32 @@ public class Dish implements Serializable {
 
         return name +
                 "\n\t\t$$" + price +
-//                "\n\t\tIngredients: " + ingString +
-//                "\n\t\tfeatures: " + features +
                 "\n\t\tcalories: " + calories + " cal/100g" +
                 "\n\t\tallergyInformation: " + allergyInformation +
                 "\n------------------------------\n";
     }
 
+    /**
+     * increases the price of the dish by $1
+     */
     public void increasePrice() {
         double price = this.price;
         this.setPrice(price + 1);
     }
 
+    /**
+     * decreases the number of calories of the dish by 100
+     */
     public void decreaseCalories() {
         double calories = this.calories;
         this.setCalories(calories - 100);
     }
 
+    /**
+     * compares two dishes to see if contents are the same
+     * @param o The dish to compare to
+     * @return whether the contents (e.g. ingredients, name, price) of the two dishes are the same
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
