@@ -5,31 +5,31 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InventoryStaffStarterActivity extends AppCompatActivity {
+public class InventoryStarterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inventory_staff_starter);
+        setContentView(R.layout.activity_inventory_starter);
     }
 
     public void AddInventory(View v) {
-        Intent intent = new Intent(InventoryStaffStarterActivity.this, AddInventoryActivity.class);
+        Intent intent = new Intent(InventoryStarterActivity.this, AddInventoryActivity.class);
         startActivity(intent);
     }
 
     public void GetInventoryInfo(View v) {
-        Intent intent = new Intent(InventoryStaffStarterActivity.this, CheckInventoryActivity.class);
+        Intent intent = new Intent(InventoryStarterActivity.this, CheckInventoryActivity.class);
         startActivity(intent);
     }
 
     public void UpdateQuan(View v) {
-        Intent intent = new Intent(InventoryStaffStarterActivity.this, UpdateQuanActivity.class);
+        Intent intent = new Intent(InventoryStarterActivity.this, UpdateQuanActivity.class);
         startActivity(intent);
     }
 
     public void UpdateFreshness(View v) {
-        Intent intent = new Intent(InventoryStaffStarterActivity.this, UpdateFreshnessActivity.class);
+        Intent intent = new Intent(InventoryStarterActivity.this, UpdateFreshnessActivity.class);
         startActivity(intent);
     }
 }

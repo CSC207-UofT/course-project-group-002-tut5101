@@ -9,11 +9,11 @@ import android.os.Bundle;
 import controller.inventorySystem.InventoryManager;
 import use_case.boundary.output.InventoryOutputBoundary;
 
-public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary {
+public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener{
     Button btn;
     EditText name;
     EditText fresh;
-    InventoryManager im = new InventoryManager(UpdateFreshnessActivity.this);
+    InventoryManager im = new InventoryManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,6 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
     }
 
-    public String getMessage(String message){
-        return message;
-    }
+
 
 }

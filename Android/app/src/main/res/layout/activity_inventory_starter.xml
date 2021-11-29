@@ -5,38 +5,38 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".InventoryStaffStarterActivity">
+        tools:context=".InventoryStarterActivity">
 
     <Button
-            android:text="Add inventory"
+            android:text="Add Inventory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button2"
-            android:layout_marginEnd="15dp" android:layout_marginRight="15dp"
-            android:layout_marginBottom="54dp" app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintStart_toStartOf="@+id/button3"
+            android:layout_marginStart="8dp" android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toTopOf="@+id/button3"
             android:onClick="AddInventory"/>
     <Button
-            android:text="Get inventory info"
+            android:text="Check info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button3"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="104dp" android:layout_marginStart="104dp" android:layout_marginBottom="56dp"
+            app:layout_constraintStart_toStartOf="@+id/button4"
+            android:layout_marginStart="28dp" android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toTopOf="@+id/button4"
             android:onClick="GetInventoryInfo"/>
     <Button
-            android:text="Update quantity"
+            android:text="Update amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button4"
-            app:layout_constraintStart_toStartOf="@+id/button5"
-            android:layout_marginLeft="2dp" android:layout_marginStart="2dp" android:layout_marginBottom="52dp"
-            app:layout_constraintBottom_toTopOf="@+id/button5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="296dp"
+            android:layout_marginStart="100dp"
             android:onClick="UpdateQuan"/>
     <Button
-            android:text="Update freshness"
+            android:text="update freshness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button5"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="112dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="112dp" android:layout_marginBottom="264dp"
+            app:layout_constraintStart_toStartOf="@+id/button4"
+            android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/button4"
+            android:layout_marginStart="16dp"
             android:onClick="UpdateFreshness"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

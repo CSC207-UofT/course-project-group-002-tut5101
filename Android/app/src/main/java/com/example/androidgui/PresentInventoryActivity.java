@@ -38,7 +38,7 @@ public class PresentInventoryActivity extends AppCompatActivity{
 
         Button btn = findViewById(R.id.button6);
         btn.setOnClickListener(v -> {
-            Intent intent1 = new Intent(PresentInventoryActivity.this, InventoryStaffStarterActivity.class);
+            Intent intent1 = new Intent(PresentInventoryActivity.this, InventoryStarterActivity.class);
             startActivity(intent1);
         });
     }

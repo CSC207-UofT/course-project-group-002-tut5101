@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import controller.inventorySystem.InventoryManager;
+import use_case.boundary.output.InventoryOutputBoundary;
 
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
@@ -38,4 +39,5 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
             startActivity(intent);
         }
     }
+
 }

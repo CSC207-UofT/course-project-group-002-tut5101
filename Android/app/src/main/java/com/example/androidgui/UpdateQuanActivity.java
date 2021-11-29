@@ -13,7 +13,7 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     Button btn;
     EditText name;
     EditText usage;
-    InventoryManager im = new InventoryManager(UpdateQuanActivity.this);
+    InventoryManager im = new InventoryManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         String iname = name.getText().toString();
         String iusage = usage.getText().toString();
-        String message = im.newQuantity(iname,iusage);
+        String message = im.newQuantity(iname,iusage,UpdateQuanActivity.this);
         im.SavetoFile();
         Toast.makeText(UpdateQuanActivity.this,message,Toast.LENGTH_SHORT).show();
     }

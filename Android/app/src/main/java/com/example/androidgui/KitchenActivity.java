@@ -6,16 +6,19 @@ import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import controller.Facade.KitchenFacade;
 import controller.kitchenSystem.KitchenController;
+import use_case.boundary.output.InventoryOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class KitchenActivity extends AppCompatActivity {
+public class KitchenActivity extends AppCompatActivity{
 
     // TODO: improve the design here, try to make it not public.
-    public static KitchenController kc = new KitchenController();
+    public static KitchenFacade kf = new KitchenFacade();
+    public static KitchenController kc = kf.createKitchen();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +43,10 @@ public class KitchenActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        }
+    public String getMessage(String message){
+        return message;
     }
+    public KitchenController getKitchen() {return this.kc;}
 }
