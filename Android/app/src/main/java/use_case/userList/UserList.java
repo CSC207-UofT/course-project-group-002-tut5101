@@ -41,7 +41,7 @@ public class UserList implements Serializable {
      *
      * @param user the user to add
      */
-    public static void addUser(User user) {
+    public void addUser(User user) {
         users.put(user.getId(), user);
     }
 

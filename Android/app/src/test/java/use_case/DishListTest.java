@@ -10,9 +10,16 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Testing DishList.
+ */
 public class DishListTest {
     DishList menu = new DishList();
 
+    /**
+     *
+     * Setting up the test.
+     */
     @Before
     public void setUp() {
         HashMap<String, Double> ingredient1 = new HashMap<String, Double>() {{
@@ -47,17 +54,28 @@ public class DishListTest {
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
     }
 
+    /**
+     *
+     * Testing DishListSize method.
+     */
     @Test
     public void testDishListSize() {
         assertEquals(menu.size(), 9);
     }
 
+    /**
+     *
+     * Testing DishListAddDish method.
+     */
     @Test
     public void testDishListAddDish() {
-        Dish testDish = new Dish("Poutine", 10.0, new HashMap<>(), 400);
+        Dish testDish = new Dish("Pork", 10.0, new HashMap<>(), 400);
         menu.addDish(testDish);
-        assertEquals(DishList.getDishByDishName("Poutine"), testDish);
+        assertEquals(DishList.getDishByDishName("Pork"), testDish);
     }
+
+
+
 
 
 

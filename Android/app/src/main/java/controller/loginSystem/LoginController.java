@@ -21,26 +21,25 @@ public class LoginController {
      * The input use_case.boundary for the login use case.
      */
     private LoginInputBoundary loginInputBoundary;
-    private final UserList users;
+    private final UserList userList;
 
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-//        users = new UserList("src/main/resources/users.ser");
-        users = new UserList(6);
+        userList = new UserList(6);
         //TODO hardcode since File I/O issue, need delete later
         generateUsers();
     }
     //TODO hardcode since File I/O issue, need delete later
     private void generateUsers() {
-        UserList.addUser(new Manager());
-        UserList.addUser(new Customer("1", "James", "12345"));
-        UserList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
-        UserList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
-        UserList.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
-        UserList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
+        userList.addUser(new Manager());
+        userList.addUser(new Customer("1", "James", "12345"));
+        userList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
+        userList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
+        userList.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
+        userList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
     }
 
     /**

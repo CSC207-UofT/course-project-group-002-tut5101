@@ -16,14 +16,15 @@ import java.util.HashMap;
 
 public class StaffControllerTest {
     StaffController staff;
+    UserList userList;
 
     @Before
     public void setUp() {
         staff = new StaffController();
         ServingStaff a = new ServingStaff("1", "a", "b", 10);
         DeliveryStaff b = new DeliveryStaff("2", "b", "0", 10);
-        UserList.addUser(a);
-        UserList.addUser(b);
+        userList.addUser(a);
+        userList.addUser(b);
         Dish dish1 = new Dish("m", 10.0, new HashMap<>(), 0);
         dish1.setTableNum(10);
         Order order1 = new DeliveryOrder("123 King's Street, M5S 2Z1, Toronto, ON", new HashMap<>());
