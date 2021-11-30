@@ -1,4 +1,4 @@
-package com.example.androidgui.placeorder;
+package com.example.androidgui.UserActivities;
 
 import android.content.Intent;
 import android.os.Parcelable;

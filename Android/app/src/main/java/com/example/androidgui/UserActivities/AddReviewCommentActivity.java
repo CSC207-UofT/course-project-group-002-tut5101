@@ -1,10 +1,11 @@
-package com.example.androidgui;
+package com.example.androidgui.UserActivities;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.R;
 import controller.reviewSystem.ReviewController;
 
 public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{

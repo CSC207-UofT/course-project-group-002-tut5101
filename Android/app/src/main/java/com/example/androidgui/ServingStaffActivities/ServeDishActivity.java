@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.ServingStaffActivities;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,9 +6,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.R;
 import controller.staffSystem.StaffController;
 
-public class DeliverOrderActivity extends AppCompatActivity {
+public class ServeDishActivity extends AppCompatActivity {
     private String id;
     private String mode;
     private StaffController controller;
@@ -17,46 +18,44 @@ public class DeliverOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         controller = new StaffController();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deliver_order);
-        // Get id for method calls
+        setContentView(R.layout.activity_serve_dish);
         Bundle b = getIntent().getExtras();
         if(b != null) {
             id = b.getString("id");
             mode = b.getString("action");
         }
-        // Get next order to be delivered
-        if (mode.equals("GET_NEXT")) {
+        // Get next dish to be delivered
+        if (mode != null && mode.equals("GET_NEXT")) {
             Toast toast;
             try {
                 controller.getNext(this.id);
             } catch (Exception e) {
-                if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
+                if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
                     toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 goBackPickAction();
             }
         }
-        // Display current order to be delivered
-        TextView currentOrder = findViewById(R.id.CurrentOrder);
+        // Display current dish to be delivered
+        TextView currentDish = findViewById(R.id.CurrentDish);
         try {
-            currentOrder.setText(controller.displayCurrent(this.id));
+            currentDish.setText(controller.displayCurrent(this.id));
         } catch (Exception e) {
             exceptionHandler(e);
         }
     }
-
     /**
-     * When select to finish the order in hand, try to call completeCurrent
+     * When select to complete the dish in hand, try to call completeCurrent
      */
-    public void selectFinishOrder(View v) {
+    public void selectCompleteDish(View v) {
         try {
             controller.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
         // After finishing the current order, first send a message saying that, then return to select action page
-        Toast toast = Toast.makeText(getApplicationContext(), R.string.deliver_order_complete, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), R.string.serve_dish_complete, Toast.LENGTH_SHORT);
         toast.show();
         goBackPickAction();
     }
@@ -75,11 +74,11 @@ public class DeliverOrderActivity extends AppCompatActivity {
     private void exceptionHandler(Exception e) {
         // When exception, throw exception as toast then back to menu
         Toast toast;
-        if (e.getMessage() != null && e.getMessage().equals("Already has one order in hands")) {
+        if (e.getMessage() != null && e.getMessage().equals("Already has one dish in hands")) {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
-        } else if (e.getMessage() != null && e.getMessage().equals("No current order to be displayed")) {
-            toast = Toast.makeText(getApplicationContext(), R.string.no_current_order, Toast.LENGTH_SHORT);
+        } else if (e.getMessage() != null && e.getMessage().equals("No current dish to be displayed")) {
+            toast = Toast.makeText(getApplicationContext(), R.string.no_current_dish, Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page
             goBackPickAction();
@@ -95,12 +94,11 @@ public class DeliverOrderActivity extends AppCompatActivity {
      * Helper method for go back to pick action screen
      */
     private void goBackPickAction() {
-        Intent intent = new Intent(DeliverOrderActivity.this, DeliveryStaffPickActionActivity.class);
+        Intent intent = new Intent(ServeDishActivity.this, ServingStaffPickActionActivity.class);
         Bundle b;
         b = new Bundle();
         b.putString("id", this.id); //Your id
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
-
 }

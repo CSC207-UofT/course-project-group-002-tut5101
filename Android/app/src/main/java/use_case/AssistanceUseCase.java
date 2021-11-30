@@ -6,7 +6,7 @@ import entity.delivery.ServingStaff;
 public class AssistanceUseCase {
 
     /**
-     * Ask for assistance from ServingStaff.
+     * Ask for assistance from com.example.androidgui.ServingStaff.
      *
      * @param customer
      * @param serve

@@ -11,7 +11,7 @@ public class LeaveReviewUseCase {
      * Leave review for a meal.
      *
      * @param customer: a Customer.
-     * @param serve: the ServingStaff.
+     * @param serve: the com.example.androidgui.ServingStaff.
      * @param order: the order.
      * @return a string containing comments and suggestions.
      */

@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.UserActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.androidgui.inventory.InventoryStarterActivity;
+import com.example.androidgui.DeliveryStaffActivities.DeliverOrderActivity;
+
+import com.example.androidgui.KitchenActivities.KitchenActivity;
+import com.example.androidgui.R;
 import constant.mangerSystem.UserType;
 import constant.uiMessage.EnrollUserMessage;
 import constant.uiMessage.LoginLogoutUIMessage;
@@ -148,15 +151,15 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
             case CUSTOMER:
                 return CustomerPickActionActivity.class;
             case MANAGER:
-//                return ManagerActivity.class;
+//              return ManagerActivity.class;
             case DELIVERY_STAFF:
                 return DeliverOrderActivity.class;
             case KITCHEN:
                 return KitchenActivity.class;
             case INVENTORY_STAFF:
-                return InventoryStarterActivity.class;
+//                return InventoryStarterActivity.class;
             case SERVING_STAFF:
-//                return ServingActivity.class;
+//                return ServeDishActivity.class;
         }
         return LoginActivity.class;
     }

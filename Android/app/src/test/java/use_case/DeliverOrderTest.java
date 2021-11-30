@@ -11,6 +11,9 @@ import use_case.userList.UserList;
 
 import java.util.HashMap;
 
+/**
+ * Unit test class for DeliverOrder.
+ */
 public class DeliverOrderTest {
     DeliverOrder deliver;
     UserList userList;
@@ -22,6 +25,9 @@ public class DeliverOrderTest {
         userList.addUser(new DeliveryStaff("1", "a", "abc", 10));
     }
 
+    /**
+     * Testing getToBeDeliver method.
+     */
     @Test
     public void getToBeDeliver() {
         try {
@@ -31,7 +37,10 @@ public class DeliverOrderTest {
         }
     }
 
-
+    /**
+     *
+     * Testing delivered method.
+     */
     @Test
     public void delivered() {
         try {

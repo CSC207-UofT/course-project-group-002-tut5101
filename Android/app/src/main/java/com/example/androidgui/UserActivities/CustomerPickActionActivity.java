@@ -1,10 +1,11 @@
-package com.example.androidgui;
+package com.example.androidgui.UserActivities;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import com.example.androidgui.placeorder.SelectDineInTakeOutActivity;
+import com.example.androidgui.MainActivity;
+import com.example.androidgui.R;
 
 public class CustomerPickActionActivity extends AppCompatActivity {
 

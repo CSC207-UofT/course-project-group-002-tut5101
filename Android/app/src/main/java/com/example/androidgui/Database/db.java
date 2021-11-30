@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.Database;
 
 import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;

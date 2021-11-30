@@ -1,4 +1,4 @@
-package com.example.androidgui.inventory;
+package com.example.androidgui.InventoryActivities;
 
 import android.content.Intent;
 import android.os.Bundle;

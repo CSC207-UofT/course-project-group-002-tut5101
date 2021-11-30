@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.androidgui.KitchenActivities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import com.example.androidgui.R;
 
 import java.util.ArrayList;
 

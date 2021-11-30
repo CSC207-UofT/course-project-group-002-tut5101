@@ -1,9 +1,10 @@
-package com.example.androidgui;
+package com.example.androidgui.DeliveryStaffActivities;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.androidgui.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

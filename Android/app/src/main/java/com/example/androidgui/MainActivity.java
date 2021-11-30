@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.UserActivities.CustomerPickActionActivity;
+import com.example.androidgui.UserActivities.LoginActivity;
 import controller.Facade.KitchenFacade;
 import controller.customerSystem.OrderController;
 import controller.inventorySystem.InventoryManager;

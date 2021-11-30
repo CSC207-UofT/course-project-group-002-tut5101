@@ -1,10 +1,12 @@
-package com.example.androidgui;
+package com.example.androidgui.ServingStaffActivities;
 
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
+import com.example.androidgui.R;
 
 public class ServingStaffPickActionActivity extends AppCompatActivity {
     private String id;

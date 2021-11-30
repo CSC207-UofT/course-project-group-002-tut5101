@@ -12,7 +12,7 @@ public class DeliveryBuffer {
     public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
 
     /**
-     * The getter method for UseCase.DeliveryStaff to call to get the next order to delivery.
+     * The getter method for UseCase.com.example.androidgui.DeliveryStaff to call to get the next order to delivery.
      * @return an entities.Order instance to be delivered.
      */
     public static Order getDeliveryOrder() throws Exception {

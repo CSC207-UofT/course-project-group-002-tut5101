@@ -1,8 +1,9 @@
-package com.example.androidgui;
+package com.example.androidgui.KitchenActivities;
 
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.R;
 import controller.Facade.KitchenFacade;
 import controller.kitchenSystem.KitchenController;
 
