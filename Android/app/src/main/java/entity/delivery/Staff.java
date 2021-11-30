@@ -24,6 +24,13 @@ public class Staff extends User {
     }
 
     /**
+     *
+     * Empty constructor for testing.
+     */
+    public Staff(){
+    }
+
+    /**
      * Increase the salary of a staff by increment
      * @param increment The value added to the current salary of a staff
      */
