@@ -9,7 +9,7 @@ public class KitchenFacade {
     final InventoryList inventoryList;
 
     public KitchenFacade(){
-        this.inventoryList = new InventoryList(filepath);
+        this.inventoryList = new InventoryList();
     }
 
     public KitchenController createKitchen(){

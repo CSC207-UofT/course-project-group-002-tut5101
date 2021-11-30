@@ -1,10 +1,10 @@
 package use_case.customersystem;
 
 import constant.ordersystem.OrderType;
-import entity.orderList.DeliveryOrder;
-import entity.orderList.DineInOrder;
-import entity.orderList.Dish;
-import entity.orderList.Order;
+import entity.orderlist.DeliveryOrder;
+import entity.orderlist.DineInOrder;
+import entity.orderlist.Dish;
+import entity.orderlist.Order;
 
 import java.util.HashMap;
 import java.util.List;

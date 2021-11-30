@@ -2,7 +2,7 @@ package use_case.dishlist;
 
 import androidx.annotation.NonNull;
 import constant.filesystem.FileLocation;
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;

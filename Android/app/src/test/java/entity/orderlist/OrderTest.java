@@ -1,11 +1,11 @@
-package entity;
+package entity.orderlist;
 
 import constant.ordersystem.ItemStatus;
 import constant.ordersystem.OrderType;
-import entity.orderList.DeliveryOrder;
-import entity.orderList.Dish;
-import entity.orderList.Order;
-import entity.orderList.DineInOrder;
+import entity.orderlist.DeliveryOrder;
+import entity.orderlist.Dish;
+import entity.orderlist.Order;
+import entity.orderlist.DineInOrder;
 import org.junit.Before;
 import org.junit.Test;
 

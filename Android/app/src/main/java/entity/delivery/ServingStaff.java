@@ -2,7 +2,7 @@ package entity.delivery;
 
 
 import constant.ordersystem.ItemStatus;
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes

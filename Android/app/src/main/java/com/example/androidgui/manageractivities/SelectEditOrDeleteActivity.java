@@ -12,7 +12,7 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
 import controller.menusystem.MenuController;
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 
 import java.util.Objects;
 

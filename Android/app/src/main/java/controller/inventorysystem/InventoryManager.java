@@ -14,12 +14,12 @@ public class InventoryManager {
 
     public InventoryManager( ){
         this.filepath = FileLocation.INVENTORY_FILE_LOCATION;
-        this.inventories = new InventoryList(filepath);
+        this.inventories = new InventoryList();
     }
 
     public InventoryManager(String filepath){
         this.filepath = filepath;
-        this.inventories = new InventoryList(filepath);
+        this.inventories = new InventoryList();
     }
 
 

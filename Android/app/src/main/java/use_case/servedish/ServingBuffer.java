@@ -2,7 +2,7 @@ package use_case.servedish;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 // import use_case.boundary.ServeBufferInterface;
 
 public class ServingBuffer {

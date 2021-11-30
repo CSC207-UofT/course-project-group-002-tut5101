@@ -1,7 +1,7 @@
 package use_case;
 
 
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dishlist.DishList;

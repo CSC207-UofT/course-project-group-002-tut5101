@@ -3,7 +3,7 @@ package use_case.review;
 
 import entity.customer.Customer;
 import entity.delivery.ServingStaff;
-import entity.orderList.Order;
+import entity.orderlist.Order;
 
 public class LeaveReviewUseCase {
 
