@@ -73,7 +73,8 @@
         <activity
                 android:name=".deliverystaffactivities.DeliverOrderActivity"
                 android:label="@string/title_activity_deliver_order"
-                android:theme="@style/Theme.AndroidGUI.NoActionBar">
+                android:theme="@style/Theme.AndroidGUI.NoActionBar"
+                android:exported="false">
         </activity>
         <activity
                 android:name=".useractivities.LoginActivity"

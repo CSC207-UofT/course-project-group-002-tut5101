@@ -49,7 +49,7 @@ public class DeliverOrderActivity extends AppCompatActivity {
     }
 
     /**
-     * Launch Google maps to show directions
+     * Launch Google Maps to show directions
      */
     public void selectShowMap(View v) {
         Uri gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University College, Toronto, ON, Canada");
