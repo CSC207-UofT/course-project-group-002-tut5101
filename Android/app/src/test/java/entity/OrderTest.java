@@ -15,7 +15,9 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-
+/**
+ * Test Order class and its subclasses DineInOrder and DeliveryOrder
+ */
 public class OrderTest {
 
     DineInOrder dineInOrder;
@@ -25,6 +27,9 @@ public class OrderTest {
     Dish smallFries;
     Dish coke;
 
+    /**
+     * setup before tests
+     */
     @Before
     public void setUp() {
 
@@ -47,6 +52,9 @@ public class OrderTest {
         sameDishOrder = new DineInOrder(Integer.parseInt(location), dishes2);
     }
 
+    /**
+     * test Order class for setting the status of a dish in the order
+     */
     @Test(timeout = 50)
     public void testSetDishStatus(){
 
@@ -97,6 +105,9 @@ public class OrderTest {
 
     }
 
+    /**
+     * test Order class for updating the order status
+     */
     @Test(timeout = 50)
     public void testUpdateOrderStatus(){
         dineInOrder.setOrderStatus(ItemStatus.ORDER_PLACED);
@@ -153,6 +164,9 @@ public class OrderTest {
         setUp();
     }
 
+    /**
+     * test Order class getting and setting order status
+     */
     @Test(timeout = 50)
     public void testSetAndGetOrderStatus(){
         dineInOrder.setOrderStatus(ItemStatus.ORDER_DELIVERED);
@@ -162,6 +176,9 @@ public class OrderTest {
         setUp();
     }
 
+    /**
+     * Test Order class getting price of order
+     */
     @Test(timeout = 50)
     public void testGetOrderPrice(){
         double actual1 = dineInOrder.getOrderPrice();
@@ -173,6 +190,9 @@ public class OrderTest {
 
     }
 
+    /**
+     * test Order class getting dishes in the order
+     */
     @Test(timeout = 50)
     public void testGetDishes() {
         List<Dish> expected1 = new ArrayList<>();
@@ -194,6 +214,9 @@ public class OrderTest {
 
     }
 
+    /**
+     * Test Order class getting dish names and quantity of dish in order
+     */
     @Test(timeout = 50)
     public void testGetDishAndQuantity() {
         HashMap<String, Integer> expected1 = new HashMap<>();
@@ -212,6 +235,9 @@ public class OrderTest {
         assertEquals(expected2, actual3);
     }
 
+    /**
+     * test getting the order content
+     */
     @Test(timeout = 50)
     public void testGetOrderContent() {
         String actual1 = dineInOrder.getOrderContent();
@@ -233,6 +259,9 @@ public class OrderTest {
 
     }
 
+    /**
+     * test Order class toString method
+     */
     @Test(timeout = 50)
     public void testToString(){
         String actual1 = dineInOrder.toString();
@@ -255,6 +284,9 @@ public class OrderTest {
 
     }
 
+    /**
+     * test Order class equals method
+     */
     @Test(timeout = 50)
     public void testEquals() {
         DineInOrder dineInOrder2;
@@ -267,14 +299,20 @@ public class OrderTest {
         assert(dineInOrder.equals(dineInOrder2));
     }
 
-
+    /**
+     * test Order class get order type
+     */
     @Test(timeout = 50)
-    public void testGetOrderDineInOrTakeOut() {
+    public void testGetOrderType() {
         assertEquals(OrderType.DINE_IN, dineInOrder.getOrderType());
         assertEquals(OrderType.DELIVERY, deliveryOrder.getOrderType());
     }
 
     // For Dine In Orders only
+
+    /**
+     * Test getting table number for a DineInOrder
+     */
     @Test(timeout = 50)
     public void testGetTableNum(){
         int expected = 1;
@@ -283,6 +321,10 @@ public class OrderTest {
     }
 
     // For Delivery Orders only
+
+    /**
+     * Test getting address for a DeliveryOrder
+     */
     @Test(timeout = 50)
     public void testGetAddress() {
         String expected = "testing123";

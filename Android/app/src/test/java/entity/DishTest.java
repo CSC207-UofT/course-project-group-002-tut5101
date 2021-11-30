@@ -9,10 +9,16 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Test the Dish class
+ */
 public class DishTest {
     Dish dish1;
     Dish dish2;
 
+    /**
+     * before running tests
+     */
     @Before
     public void setUp() {
         HashMap<String, Double> ingredient1 = new HashMap<>();
@@ -28,6 +34,9 @@ public class DishTest {
         dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500);
     }
 
+    /**
+     * test the Dish class constructor
+     */
     @Test(timeout = 50)
     public void testDishConstructor1() {
         assertEquals(dish1.getName(), "MaPoTouFu");
@@ -35,6 +44,9 @@ public class DishTest {
         assertEquals(3, dish2.getIngredients().size());
     }
 
+    /**
+     * test Dish class getter and setter method for table number
+     */
     @Test(timeout = 50)
     public void testGetSetTableNum() {
         dish1.setTableNum(4);
@@ -43,6 +55,9 @@ public class DishTest {
 
     }
 
+    /**
+     * test Dish class getter and setter method for dish status
+     */
     @Test(timeout = 50)
     public void testGetSetItemStatus() {
         dish1.setStatus(ItemStatus.DISH_COOKED);
@@ -50,6 +65,9 @@ public class DishTest {
         assertEquals(ItemStatus.DISH_COOKED, status);
     }
 
+    /**
+     * test Dish class getter and setter method for dish name
+     */
     @Test(timeout = 50)
     public void testGetSetName() {
         dish1.setName("BLAAAAH");
@@ -57,6 +75,9 @@ public class DishTest {
         assertEquals("BLAAAAH", name);
     }
 
+    /**
+     * test Dish class getter and setter method for dish price
+     */
     @Test(timeout = 50)
     public void testGetSetPrice() {
         dish1.setPrice(2000);
@@ -68,6 +89,9 @@ public class DishTest {
         assert(5.50 == price2);
     }
 
+    /**
+     * test Dish class getter and setter method for ingredients
+     */
     @Test(timeout = 50)
     public void testGetSetIngredients() {
         HashMap<String, Double> ingredients = new HashMap<>();
@@ -79,6 +103,9 @@ public class DishTest {
         assertEquals(ingredients, actual);
     }
 
+    /**
+     * test Dish class getter and setter method for dish features
+     */
     @Test(timeout = 50)
     public void testGetSetFeatures() {
         HashMap<String, Boolean> features = new HashMap<>();
@@ -90,6 +117,9 @@ public class DishTest {
         assertEquals(features, actual);
     }
 
+    /**
+     * test Dish class getter and setter method for dish calories
+     */
     @Test(timeout = 50)
     public void testGetSetCalories() {
         dish1.setCalories(20.0);
@@ -97,6 +127,9 @@ public class DishTest {
         assert(20.0 == actual);
     }
 
+    /**
+     * test Dish class getter and setter method for dish allergy information
+     */
     @Test(timeout = 50)
     public void testGetSetAllergyInformation() {
         dish1.setAllergyInformation("May Contain Peanuts");
@@ -104,6 +137,9 @@ public class DishTest {
         assertEquals("May Contain Peanuts", actual);
     }
 
+    /**
+     * test Dish class toString method
+     */
     @Test(timeout = 50)
     public void testToString() {
         setUp();
@@ -116,6 +152,9 @@ public class DishTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * test Dish class increase price method
+     */
     @Test(timeout = 50)
     public void testIncreasePrice() {
         setUp();
@@ -125,6 +164,9 @@ public class DishTest {
         assert(expected == actual);
     }
 
+    /**
+     * test Dish class decrease calorie method
+     */
     @Test(timeout = 50)
     public void testDecreaseCalories() {
         double expected = dish1.getCalories() - 100;
@@ -133,6 +175,9 @@ public class DishTest {
         assert(expected == actual);
     }
 
+    /**
+     * test Dish class equals method
+     */
     @Test(timeout = 50)
     public void testEquals() {
         setUp();
