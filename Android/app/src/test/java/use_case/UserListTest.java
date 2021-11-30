@@ -55,8 +55,8 @@ public class UserListTest {
      */
     @Test
     public void testUserById() {
-        User user2 = UserList.getUserByUserId("3");
-
+        User user = UserList.getUserByUserId("3");
+        assertEquals(user.toString(), "(UseCase.Customer)");
     }
 
 
