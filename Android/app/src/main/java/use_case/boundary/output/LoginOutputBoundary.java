@@ -1,6 +1,6 @@
 package use_case.boundary.output;
 
-import constant.uiMessage.LoginResult;
+import constant.uimessage.LoginResult;
 
 public interface LoginOutputBoundary {
     void presentLoginResult(LoginResult result);

@@ -1,6 +1,6 @@
 package use_case.boundary.input;
 
-import constant.orderSystem.OrderType;
+import constant.ordersystem.OrderType;
 
 /**
  * The input use_case.boundary for ManageMenu use case.

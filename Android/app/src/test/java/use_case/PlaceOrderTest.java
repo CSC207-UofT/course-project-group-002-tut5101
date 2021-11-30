@@ -6,9 +6,9 @@ package use_case;
 import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.customerSystem.PlaceOrder;
-import use_case.dishList.DishList;
-import constant.orderSystem.OrderType;
+import use_case.customersystem.PlaceOrder;
+import use_case.dishlist.DishList;
+import constant.ordersystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

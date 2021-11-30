@@ -1,10 +1,10 @@
 package use_case.kitchen;
 
-import constant.orderSystem.ItemStatus;
+import constant.ordersystem.ItemStatus;
 import entity.orderList.Dish;
 import entity.orderList.Order;
-import use_case.deliverOrder.DeliveryBuffer;
-import use_case.serveDish.ServingBuffer;
+import use_case.deliverorder.DeliveryBuffer;
+import use_case.servedish.ServingBuffer;
 
 import java.util.HashMap;
 

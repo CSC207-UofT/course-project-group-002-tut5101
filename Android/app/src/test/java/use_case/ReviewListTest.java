@@ -1,10 +1,8 @@
 package use_case;
 import entity.review.Review;
-import use_case.reviewList.ReviewList;
+import use_case.review.ReviewList;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.IOException;
 
 public class ReviewListTest {
     ReviewList rl = new ReviewList();

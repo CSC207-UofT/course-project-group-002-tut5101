@@ -1,7 +1,7 @@
 package entity.delivery;
 
 
-import constant.orderSystem.ItemStatus;
+import constant.ordersystem.ItemStatus;
 import entity.orderList.Dish;
 
 /**

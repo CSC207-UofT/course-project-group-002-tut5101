@@ -2,7 +2,7 @@ package entity.orderList;
 
 
 import androidx.annotation.NonNull;
-import constant.orderSystem.ItemStatus;
+import constant.ordersystem.ItemStatus;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -3,7 +3,7 @@ package use_case.kitchen;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import use_case.boundary.output.InventoryOutputBoundary;
-import use_case.inventoryFactory.InventoryFactory;
+import use_case.inventoryfactory.InventoryFactory;
 
 
 import java.io.Serializable;
@@ -20,18 +20,11 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private final String filepath;
     private InventoryOutputBoundary boundary;
     public InventoryList(){
-        this.filepath = null;
         myDict = new HashMap<>();
     }
 
-    public InventoryList(String filepath) {
-        this.filepath = filepath;
-//        irw = new SerReadWriter();
-//        myDict = irw.readFromFileInventory(filepath);
-    }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
         this.boundary = boundary;
@@ -59,12 +52,6 @@ public class InventoryList implements Serializable {
 
 
     /**
-     * Check if the inventoryList is empty
-     * @return true when the inventoryList is empty
-     */
-    public boolean checkEmpty(){return myDict.isEmpty();}
-
-    /**
      * Check if an ingredient is in the inventoryList, return true if present
      * @param name Name of the ingredient
      * @return true only if the ingredient with name is found in the list
@@ -89,17 +76,6 @@ public class InventoryList implements Serializable {
      */
     public boolean isHasFreshness(String name) {
         return myDict.get(name) instanceof HasFreshness;
-    }
-
-
-    /**
-     * @param name an inventory item
-     * @return The freshness of this given item.
-     *
-     * NOTE: This method should only be called after the isHasFreshness check.
-     */
-    public String getFreshness(String name) {
-        return ((HasFreshness) Objects.requireNonNull(myDict.get(name))).getFreshness();
     }
 
 
@@ -152,10 +128,6 @@ public class InventoryList implements Serializable {
         }
         return this.boundary.getMessage(getItem(name).updateQuantity(usage));
     }
-
-//    public void SavetoFile(){
-//        this.irw.saveToFile(this.filepath, this.myDict);
-//    }
 
 
 

@@ -4,15 +4,17 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import controller.Facade.KitchenFacade;
-import controller.customerSystem.OrderController;
-import controller.inventorySystem.InventoryManager;
-import controller.kitchenSystem.KitchenController;
-import controller.loginSystem.LoginController;
-import controller.managerSystem.ManagerController;
-import controller.menuSystem.MenuController;
-import controller.reviewSystem.ReviewController;
-import controller.staffSystem.StaffController;
+import com.example.androidgui.useractivities.CustomerPickActionActivity;
+import com.example.androidgui.useractivities.LoginActivity;
+import controller.facade.KitchenFacade;
+import controller.customersystem.OrderController;
+import controller.inventorysystem.InventoryManager;
+import controller.kitchensystem.KitchenController;
+import controller.loginsystem.LoginController;
+import controller.managersystem.ManagerController;
+import controller.menusystem.MenuController;
+import controller.reviewsystem.ReviewController;
+import controller.staffsystem.StaffController;
 
 public class MainActivity extends AppCompatActivity {
     public static OrderController orderController = new OrderController();
