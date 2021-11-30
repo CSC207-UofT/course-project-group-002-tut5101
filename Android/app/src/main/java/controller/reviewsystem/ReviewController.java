@@ -71,12 +71,12 @@ public class ReviewController {
      *
      * Delete all reviews with rate below or equal to 2.
      */
-    public void deleteBelowTwo() {deleteReviewInputBoundary.deleteBelowThree();}
+    public void deleteBelowTwo() {deleteReviewInputBoundary.deleteBelowTwo();}
 
 
     /**
      *
      * Delete all reviews with rate below or equal to 1.
      */
-    public void deleteBelowOne() {deleteReviewInputBoundary.deleteBelowThree();}
+    public void deleteBelowOne() {deleteReviewInputBoundary.deleteBelowOne();}
 }
