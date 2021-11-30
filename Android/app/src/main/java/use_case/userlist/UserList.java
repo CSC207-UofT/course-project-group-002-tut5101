@@ -45,24 +45,6 @@ public class UserList implements Serializable {
     }
 
 
-//    /**
-//     *
-//     * @param id id of the new user.
-//     * @param name name of the new user.
-//     * @param password password of the new user.
-//     * @return a string representation of the new user.
-//     */
-//    public String addNewUser(String id, String name, String password) {
-//        User user = new Customer(id, name, password);
-//        if (users.containsKey(user.getId())) {
-//            return "Used id, please change";
-//        } else {
-//            users.put(user.getId(), user);
-//            return "Successfully added";
-//        }
-
-//    }
-
     /**
      * Return user by its id
      *
