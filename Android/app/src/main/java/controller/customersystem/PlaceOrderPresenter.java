@@ -20,7 +20,7 @@ import java.util.HashMap;
  */
 
 public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
-    //Controller class that interacts with use_case.customerSystem.PlaceOrder to place an order from the customer
+
     private HashMap<String, Integer> dishesOrdered;
     private final DishList dishList;
 
