@@ -1,6 +1,7 @@
 package com.example.androidgui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,16 @@ public class DeliverOrderActivity extends AppCompatActivity {
         } catch (Exception e) {
             exceptionHandler(e);
         }
+    }
+
+    /**
+     * Launch Google maps to show directions
+     */
+    public void selectShowMap(View v) {
+        Uri gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University College, Toronto, ON, Canada");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
 
     /**
