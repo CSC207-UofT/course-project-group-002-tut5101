@@ -1,6 +1,8 @@
 package controller.reviewsystem;
 
 import constant.filesystem.FileLocation;
+import use_case.boundary.input.DeleteReviewInputBoundary;
+import use_case.review.DeleteReviewUseCase;
 import use_case.review.ReviewList;
 
 /**
@@ -9,26 +11,22 @@ import use_case.review.ReviewList;
 
 
 public class ReviewController {
-    private final String filepath;
     private static ReviewList reviews;
-
+    /**
+     * The input use_case.boundary for delete review use case.
+     */
+    private final DeleteReviewInputBoundary deleteReviewInputBoundary;
     /**
      * Reading from file constructor.
      */
     public ReviewController() {
-        this.filepath = FileLocation.REVIEW_LIST_LOCATION;
-        reviews = new ReviewList(this.filepath);
+        reviews = new ReviewList();
+        /**
+         * The input use_case.boundary for delete review use case.
+         */
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase(reviews);
     }
 
-    //TODO: delete this useless constructor?
-    /**
-     *
-     * @param filepath default constructor.
-     */
-    public ReviewController(String filepath) {
-        this.filepath = filepath;
-        reviews = new ReviewList(filepath);
-    }
 
     /**
      *
@@ -43,12 +41,6 @@ public class ReviewController {
                                 String comment, boolean ifComplain, String complaint) {
         reviews.addReview(name, ifAnonymous, rate, comment, ifComplain, complaint);
     }
-//
-//    /**
-//     * save the reviewList to file.
-//     */
-//    public void saveToFile(){
-//        reviews.saveToFile();}
 
     /**
      *
@@ -58,13 +50,34 @@ public class ReviewController {
         return reviews.toString();
     }
 
+    /**
+     *
+     * @return the length of the review list.
+     */
     public int length() {
         return reviews.sizeofList();
     }
 
-    public void deleteBelowThree() {reviews.deleteBelowThree();}
 
-    public void deleteBelowTwo() {reviews.deleteBelowTwo();}
+    /**
+     *
+     * Delete all reviews with rate below or equal to 3.
+     */
+    public void deleteBelowThree() {
+        deleteReviewInputBoundary.deleteBelowThree();
+    }
 
-    public void deleteBelowOne() {reviews.deleteBelowOne();}
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 2.
+     */
+    public void deleteBelowTwo() {deleteReviewInputBoundary.deleteBelowThree();}
+
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 1.
+     */
+    public void deleteBelowOne() {deleteReviewInputBoundary.deleteBelowThree();}
 }

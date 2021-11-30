@@ -2,6 +2,8 @@ package use_case.review;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
 
+import java.util.ArrayList;
+
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
@@ -15,11 +17,33 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
         this.reviewList = reviewList;
     }
 
-    /**
-     * Delete reviews from a reviewList
-     */
-    public void deleteReview() {
-        reviewList.deleteReviews();
 
+    /**
+     *
+     * Delete all reviews with rate below or equal to 3.
+     */
+    @Override
+    public void deleteBelowThree() {
+        reviewList.deleteBelowThree();
+    }
+
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 2.
+     */
+    @Override
+    public void deleteBelowTwo() {
+        reviewList.deleteBelowTwo();
+    }
+
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 1.
+     */
+    @Override
+    public void deleteBelowOne() {
+        reviewList.deleteBelowOne();
     }
 }

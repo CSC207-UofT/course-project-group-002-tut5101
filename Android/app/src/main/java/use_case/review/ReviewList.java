@@ -1,7 +1,6 @@
 package use_case.review;
 
 import androidx.annotation.NonNull;
-import constant.filesystem.FileLocation;
 import entity.review.Review;
 
 import java.io.Serializable;
@@ -9,16 +8,18 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * A list of reviews.
+ */
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
-    private String filepath = FileLocation.REVIEW_LIST_LOCATION;
 
+    /**
+     * Empty constructor.
+     */
     public ReviewList() {
     }
 
-    public ReviewList(String filepath) {
-        this.filepath = filepath;
-    }
 
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
         addReview(new Review(name, ifAnonymous, rate, comment, ifComplain, complain));
@@ -40,38 +41,12 @@ public class ReviewList implements Serializable {
 
 
     /**
-     * Return reviews by the rate
      *
-     * @return a Hashmap with review's rate mapping with reviews
+     * @return the size of the review list.
      */
-    public ArrayList<Review> getReviewByRate(int rate) {
-        if (rate < 0) {
-            return null;
-        } else if (rate <= 5) {
-            return reviews.get(rate);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Delete the reviews
-     */
-    public void deleteReviews(){
-        reviews.put(1, new ArrayList<>());
-        reviews.put(2, new ArrayList<>());
-        reviews.put(3, new ArrayList<>());
-        reviews.put(4, new ArrayList<>());
-        reviews.put(5, new ArrayList<>());
-    }
-
     public int sizeofList(){
         return reviews.size();
     }
-
-//    public void saveToFile() {
-//        rrw.saveToFile(this.filepath, reviews);
-//    }
 
     /**
      *
@@ -82,7 +57,6 @@ public class ReviewList implements Serializable {
     public String toString() {
         int reviewNumber = 1;
         StringBuilder menuString = new StringBuilder();
-        HashMap<Integer, String> keySet = new HashMap<>();
         for (int review : reviews.keySet()) {
             menuString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
             reviewNumber++;
@@ -90,14 +64,32 @@ public class ReviewList implements Serializable {
         return menuString.toString();
     }
 
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 3.
+     */
     public void deleteBelowThree() {
         reviews.put(3, new ArrayList<>());
+        reviews.put(2, new ArrayList<>());
+        reviews.put(1, new ArrayList<>());
     }
 
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 2.
+     */
     public void deleteBelowTwo() {
         reviews.put(2, new ArrayList<>());
+        reviews.put(1, new ArrayList<>());
     }
 
+
+    /**
+     *
+     * Delete all reviews with rate below or equal to 1.
+     */
     public void deleteBelowOne() {
         reviews.put(1, new ArrayList<>());
     }
