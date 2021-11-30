@@ -2,8 +2,8 @@ package use_case.kitchen;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import entity.orderList.Dish;
-import entity.orderList.Order;
+import entity.orderlist.Dish;
+import entity.orderlist.Order;
 
 import java.util.*;
 
@@ -57,7 +57,7 @@ public class OrderQueue {
         if (dishes.isEmpty()) {
             return true;
         }
-        HashMap<String, Double> ingredientsRequired = new HashMap<String, Double>(); // A dictionary with key the ingredient, 
+        HashMap<String, Double> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
                                                                         // value the ingredient needed
         // Calculate the total amount of each ingredient needed in the list of dishes
         for (Dish dish: dishes) {

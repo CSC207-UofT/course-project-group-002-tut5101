@@ -1,10 +1,11 @@
 package use_case.kitchen;
 
-import constant.orderSystem.ItemStatus;
-import entity.orderList.Dish;
-import entity.orderList.Order;
-import use_case.deliverOrder.DeliveryBuffer;
-import use_case.serveDish.ServingBuffer;
+import constant.ordersystem.ItemStatus;
+import constant.ordersystem.OrderType;
+import entity.orderlist.Dish;
+import entity.orderlist.Order;
+import use_case.deliverorder.DeliveryBuffer;
+import use_case.servedish.ServingBuffer;
 
 import java.util.HashMap;
 
@@ -40,7 +41,7 @@ public class Kitchen {
     public static void cookedDish(String dishName) {
         Dish dishCooked = currentOrder.setDishStatus(dishName);
 
-        if (currentOrder.getOrderType().equals("Dine In")) {
+        if (currentOrder.getOrderType().equals(OrderType.DINE_IN)) {
             ServingBuffer.addDish(dishCooked);
         } else if (currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED) {
             DeliveryBuffer.addDeliveryOrder(currentOrder);

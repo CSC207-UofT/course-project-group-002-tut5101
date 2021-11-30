@@ -3,23 +3,19 @@ package use_case;
 // Test for the PlaceOrder class
 
 
-import entity.orderList.Dish;
+import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.customerSystem.PlaceOrder;
-import use_case.dishList.DishList;
-import constant.orderSystem.OrderType;
+import use_case.customersystem.PlaceOrder;
+import use_case.dishlist.DishList;
+import constant.ordersystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 public class PlaceOrderTest {
-    private static List<Dish> menu = null;
     private PlaceOrder placeOrder;
-    private DishList dishList;
 
     Dish quarterPoundWithCheese;
     Dish smallFries;
@@ -27,8 +23,8 @@ public class PlaceOrderTest {
 
     @Before
     public void setUp() {
-        menu = generateDishList();
-        dishList = new DishList(menu);
+        List<Dish> menu = generateDishList();
+        DishList dishList = new DishList(menu);
         placeOrder = new PlaceOrder();
     }
 

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ServeDishActivity">
+        tools:context=".servingstaffactivities.ServeDishActivity">
     <TextView
             android:text="@string/textview"
             android:layout_width="400dp"
@@ -27,7 +27,7 @@
     <Button
             android:text="@string/complete_serve"
             android:layout_width="200dp"
-            android:layout_height="50dp" android:id="@+id/CompleteButton"
+            android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ReturnButton"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"

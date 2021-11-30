@@ -1,7 +1,7 @@
 package entity.delivery;
 
-import constant.orderSystem.ItemStatus;
-import entity.orderList.DeliveryOrder;
+import constant.ordersystem.ItemStatus;
+import entity.orderlist.DeliveryOrder;
 
 /**
  * Class for delivery staff
@@ -23,6 +23,10 @@ public class DeliveryStaff extends Staff {
         super(staffNumber, staffName, password, staffSalary);
     }
 
+    /**
+     * Set the current order of the delivery staff
+     * @param order the current order of this delivery staff
+     */
     public void setCurrentOrder(DeliveryOrder order) {
         this.currentOrder = order;
     }
@@ -33,6 +37,10 @@ public class DeliveryStaff extends Staff {
      */
     public boolean hasCurrentOrder() {return currentOrder != null;}
 
+    /**
+     * Complete the current delivery order
+     * @throws Exception if there is no order to be delivered
+     */
     public void completeOrderDelivery() throws Exception{
         if (currentOrder != null) {
             this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETED);
@@ -42,6 +50,10 @@ public class DeliveryStaff extends Staff {
         }
     }
 
+    /**
+     * display the current order
+     * @return string representation of current order
+     */
     public String displayOrder(){
         if (currentOrder != null){
             return "Address: " + currentOrder.getAddress() + "\n" + currentOrder.getOrderContent();

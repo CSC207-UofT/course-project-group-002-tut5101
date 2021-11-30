@@ -4,14 +4,12 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".LoginActivity">
+	tools:context=".useractivities.LoginActivity">
 
 	<TextView
-		android:id="@+id/textView1"
-		android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="10dp"
-		android:layout_marginRight="10dp"
 		android:text="@string/userId"
 		android:textSize="16sp"
 		android:textStyle="bold"
@@ -37,7 +35,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="10dp"
-		android:layout_marginRight="10dp"
 		android:text="@string/password"
 		android:textSize="16sp"
 		android:textStyle="bold"
@@ -59,29 +56,28 @@
 		android:autofillHints="@string/enter_password"/>
 
 	<Button
-		android:id="@+id/loginBtn"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="60dp"
-		android:onClick="runLogin"
-		android:text="@string/login"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.5"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+			android:id="@+id/loginBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="60dp"
+			android:onClick="runLogin"
+			android:text="@string/login"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/editTextPassword" tools:ignore="UsingOnClickInXml"/>
 
 
 	<Button
-		android:id="@+id/enrollNewStaffBtn"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="60dp"
-		android:onClick="enrollStaff"
-		android:text="@string/enroll_new_staff"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.5"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="60dp"
+			android:onClick="enrollStaff"
+			android:text="@string/enroll_new_staff"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/loginBtn" tools:ignore="UsingOnClickInXml"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

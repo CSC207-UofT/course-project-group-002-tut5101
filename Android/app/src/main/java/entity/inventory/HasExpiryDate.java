@@ -10,9 +10,9 @@ import java.io.Serializable;
  */
 
 public class HasExpiryDate implements Inventory, Serializable {
-    public String name;
+    public final String name;
     protected boolean usedup;
-    protected double price;
+    protected final double price;
     protected double quantity;
     public final int ExpiryDate;
 
@@ -55,14 +55,17 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return Whether the inventory is enough to use.
      */
     @Override
-    public void updateQuantity(double usage){
+    public String updateQuantity(double usage){
+        String message;
         if(this.quantity >= usage){
             this.quantity -= usage;
             if(this.quantity == 0){
                 this.usedup = true;
             }
+            message = "Successfully updated";
         }
-        else{System.out.println("Not enough");}
+        else{message = "Not enough";}
+        return message;
     }
 
 

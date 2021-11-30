@@ -5,5 +5,7 @@ package use_case.boundary.input;
  */
 
 public interface DeleteReviewInputBoundary {
-    void deleteReview();
+    void deleteBelowThree();
+    void deleteBelowTwo();
+    void deleteBelowOne();
 }

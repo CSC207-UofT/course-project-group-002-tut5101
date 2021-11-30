@@ -1,8 +1,4 @@
 package use_case;
-/**
- * Tests for InventoryList Class
- */
-
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +6,11 @@ import use_case.kitchen.InventoryList;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests for InventoryList Class
+ */
 public class InventoryListTest {
-    InventoryList invList = new InventoryList();
+    final InventoryList invList = new InventoryList();
 
     @Before
     public void setUp() {

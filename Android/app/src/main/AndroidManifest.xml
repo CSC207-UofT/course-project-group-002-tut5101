@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.androidgui">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -10,6 +8,8 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -17,7 +17,42 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
-
+        <activity android:name=".inventoryactivities.UpdateQuanActivity">
+        </activity>
+        <activity android:name=".inventoryactivities.UpdateFreshnessActivity">
+        </activity>
+        <activity android:name=".inventoryactivities.AddInventoryActivity">
+        </activity>
+        <activity android:name=".inventoryactivities.CheckInventoryActivity">
+        </activity>
+        <activity android:name=".inventoryactivities.InventoryStarterActivity">
+        </activity>
+        <activity android:name=".useractivities.EnrollUserActivity">
+        </activity>
+        <activity
+                android:name=".manageractivities.SelectEditOrDeleteActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".manageractivities.SeeReviewActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".manageractivities.DeleteReviewActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".manageractivities.ManagerPickActionActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".manageractivities.ManageMenuActivity"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".kitchenactivities.KitchenActivity"
+                android:exported="true">
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -28,38 +63,46 @@
         -->
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
-                android:value="null"/>
-        <!-- Need change previous line to real "value"
-        -->
+                android:value="null"/> <!-- Need change previous line to real "value" -->
         <activity
-                android:name=".MapsActivity"
+                android:name=".deliverystaffactivities.MapsActivity"
                 android:label="@string/title_activity_maps">
         </activity>
-        <activity android:name=".ServeDishActivity">
+        <activity android:name=".servingstaffactivities.ServeDishActivity">
         </activity>
         <activity
-                android:name=".DeliverOrderActivity"
+                android:name=".deliverystaffactivities.DeliverOrderActivity"
                 android:label="@string/title_activity_deliver_order"
                 android:theme="@style/Theme.AndroidGUI.NoActionBar">
         </activity>
         <activity
-                android:name=".KitchenActivity"
+                android:name=".useractivities.LoginActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".LoginActivity">
+
+        <activity android:name=".useractivities.SelectDineInTakeOutActivity"
+                  android:exported="true">
+        </activity>
+        <activity android:name=".useractivities.EnterLocationActivity"
+                  android:exported="true">
         </activity>
         <activity
-                android:name=".PlaceOrderActivity"
+                android:name=".useractivities.PlaceOrderActivity"
                 android:exported="true">
         </activity>
+        <activity android:name=".useractivities.OrderSuccessfullyPlacedActivity"
+        android:exported="true">
+    </activity>
         <activity
-                android:name=".SeeMenuActivity"
+                android:name=".useractivities.SeeMenuActivity">
+          </activity>
+        <activity android:name=".useractivities.EditOrderActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".CustomerPickActionActivity">
+        <activity android:name=".useractivities.CustomerPickActionActivity">
         </activity>
-        <activity android:name=".ServingStaffPickActionActivity"/>
-        <activity android:name=".DeliveryStaffPickActionActivity"/>
+        <activity android:name=".servingstaffactivities.ServingStaffPickActionActivity"/>
+        <activity android:name=".deliverystaffactivities.DeliveryStaffPickActionActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

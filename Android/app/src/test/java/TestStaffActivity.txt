@@ -3,10 +3,10 @@ import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.MapsActivity;
-import com.example.androidgui.ServingStaffPickActionActivity;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
+import com.example.androidgui.DeliveryStaff.MapsActivity;
+import com.example.androidgui.ServingStaff.ServingStaffPickActionActivity;
+import entity.delivery.com.example.androidgui.DeliveryStaff;
+import entity.delivery.com.example.androidgui.ServingStaff;
 import use_case.deliverOrder.DeliveryBuffer;
 import entity.orderList.Order;
 import entity.orderList.Dish;
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void selectLogin(View v) {
         UserList userList = new UserList(0);
-        User deliveryStaff = new DeliveryStaff("1", "a", "123456", 10);
+        User deliveryStaff = new com.example.androidgui.DeliveryStaff("1", "a", "123456", 10);
         userList.addUser(deliveryStaff);
-        User servingStaff = new ServingStaff("2", "a", "123456", 10);
+        User servingStaff = new com.example.androidgui.ServingStaff("2", "a", "123456", 10);
         userList.addUser(servingStaff);
         HashMap dishes = new HashMap<String, List<Dish>>();
         List<Dish> dishList = new ArrayList<Dish>();
