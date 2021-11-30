@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.useractivities.CustomerPickActionActivity;
 import com.example.androidgui.useractivities.LoginActivity;
-import controller.facade.KitchenFacade;
+import controller.kitchensystem.KitchenFacade;
 import controller.customersystem.OrderController;
 import controller.inventorysystem.InventoryManager;
 import controller.kitchensystem.KitchenController;

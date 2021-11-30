@@ -1,9 +1,12 @@
-package controller.facade;
+package controller.kitchensystem;
 
 import constant.filesystem.FileLocation;
 import controller.kitchensystem.KitchenController;
 import use_case.kitchen.InventoryList;
 
+/**
+ *
+ */
 public class KitchenFacade {
     final String filepath = FileLocation.INVENTORY_FILE_LOCATION;
     final InventoryList inventoryList;

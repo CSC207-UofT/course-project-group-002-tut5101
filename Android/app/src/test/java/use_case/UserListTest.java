@@ -1,3 +1,4 @@
+package use_case;
 
 import constant.mangersystem.UserType;
 import entity.User;

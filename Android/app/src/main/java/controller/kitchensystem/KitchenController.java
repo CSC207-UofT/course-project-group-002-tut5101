@@ -123,11 +123,13 @@ public class KitchenController {
         // need to check if the given dishName is valid.
         Kitchen.cookedDish(dishName);
         updateInventory(dishName);
-
-        if (dishes.get(dishName) > 1) {
-            dishes.put(dishName, dishes.get(dishName) - 1);
-        } else {
-            dishes.remove(dishName);
+        Integer name = dishes.get(dishName);
+        if (name != null){
+            if (name > 1) {
+                dishes.put(dishName, name - 1);
+            } else {
+                dishes.remove(dishName);
+            }
         }
         return 0 == dishes.size();
     }
@@ -142,7 +144,10 @@ public class KitchenController {
 
         for (String dish: ingredientInfo.keySet()) {
             double oriQuantity = InventoryList.getTotalQuantity(dish);
-            this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
+            Double temp = ingredientInfo.get(dish);
+            if (temp != null){
+                this.inventories.setQuantity(dish, oriQuantity - temp);
+            }
         }
     }
 
@@ -153,11 +158,6 @@ public class KitchenController {
      */
     public ArrayList<String[]> exportDishes() {
         ArrayList<String[]> displayDishes = new ArrayList<>();
-//        for (String a: dishes.keySet()) {
-//            displayDishes.add(new String[]{a, String.valueOf(dishes.get(a))});
-//        }
-//
-//        return displayDishes;
         displayDishes.add(new String[]{"Zoulan", "1"});
         displayDishes.add(new String[]{"Tyrant", "3"});
         displayDishes.add(new String[]{"Cori", "2"});
