@@ -3,9 +3,11 @@ package controller.customersystem;
 import android.content.Intent;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
+import entity.orderlist.Dish;
 import use_case.boundary.input.PlaceOrderInputBoundary;
 import use_case.customersystem.PlaceOrder;
 import use_case.customersystem.PlaceOrderOutputBoundary;
+import use_case.dishlist.DishList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import java.util.HashMap;
 public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     //Controller class that interacts with use_case.customerSystem.PlaceOrder to place an order from the customer
     private HashMap<String, Integer> dishesOrdered;
+    private DishList dishList;
 
     /**
      * The input use_case.boundary for the place order.
@@ -32,8 +35,13 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
      */
     public PlaceOrderPresenter() {
         this.dishesOrdered = new HashMap<>();
+
         this.placeOrderInputBoundary = new PlaceOrder();
         placeOrderInputBoundary.setPlaceOrderOutputBoundary(this);
+
+        this.dishList = new DishList();
+        dishList.setPlaceOrderOutputBoundary(this);
+
     }
 
     public void setPlaceOrderViewInterface(PlaceOrderViewInterface placeOrderViewInterface) {
@@ -45,6 +53,16 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
             placeOrderViewInterface.displayDishesOrdered(dishesOrdered);
         }
+    }
+
+    @Override
+    public void setDishNamePickerMaxValue(int size) {
+        placeOrderViewInterface.setDishNamePickerMaxValue(size);
+    }
+
+    @Override
+    public void setDisplayedDishNames(String[] dishNames) {
+        placeOrderViewInterface.setDisplayedDishNames(dishNames);
     }
 
     /**
@@ -108,6 +126,19 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         }
         return collectDishes.toArray(new String[0]);
     }
+
+    public void numberOfDishesInMenu() {
+        dishList.numberOfDishesForPresenter();
+    }
+
+    public void allDishNames() {
+        dishList.getAllDishNamesAsListForPresenter();
+    }
+
+    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
+        dishList.passDishesOrdered(dishNameIndex, dishQuantity);
+    }
+
 
 
 

@@ -3,7 +3,7 @@ package use_case.dishlist;
 import androidx.annotation.NonNull;
 import constant.filesystem.FileLocation;
 import entity.orderlist.Dish;
-import use_case.boundary.output.MenuOutputBoundary;
+import use_case.customersystem.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -19,7 +19,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static final long serialVersionUID = 1L;
     String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
-    private MenuOutputBoundary menuOutputBoundary;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
 
 
     /**
@@ -38,8 +38,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
-        this.menuOutputBoundary = menuOutputBoundary;
+
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
     }
 
     /**
@@ -191,7 +192,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void numberOfDishesForPresenter(){
         int numberOfDishes = menu.size();
-        menuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+        placeOrderOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
     }
 
     /**
@@ -199,7 +200,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * updates the array of dish names to be displayed
      */
     public void getAllDishNamesAsListForPresenter() {
-        menuOutputBoundary.setDisplayedDishNames(dishNames);
+        placeOrderOutputBoundary.setDisplayedDishNames(dishNames);
     }
 
     /**
@@ -210,13 +211,10 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         String dishName = dishNames[dishNameIndex];
-        menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
+        placeOrderOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
     }
 
 
-//    public void saveToFile(){
-//        readWriter.saveToFile(this.filepath, menu);
-//    }
 
 
 }

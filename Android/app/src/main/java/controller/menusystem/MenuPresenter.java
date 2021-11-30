@@ -1,7 +1,6 @@
 package controller.menusystem;
 
 import entity.orderlist.Dish;
-import use_case.boundary.output.MenuOutputBoundary;
 import use_case.dishlist.DishList;
 
 
@@ -25,9 +24,6 @@ public class MenuPresenter {
         generateDishList();
     }
 
-    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary){
-        dishList.setMenuOutputBoundary(menuOutputBoundary);
-    }
 
     public void setDisplayDishesViewInterface(DisplayDishesViewInterface displayDishesViewInterface) {
         this.displayDishesViewInterface = displayDishesViewInterface;
@@ -58,28 +54,9 @@ public class MenuPresenter {
         return dishList.toString();
     }
 
-    public void numberOfDishesInMenu() {
-        dishList.numberOfDishesForPresenter();
-    }
-
-    public void allDishNames() {
-        dishList.getAllDishNamesAsListForPresenter();
-    }
-
-    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
-        dishList.passDishesOrdered(dishNameIndex, dishQuantity);
-    }
-
     public void deleteDishByName(String dishName) {
         dishList.deleteDishByName(dishName);
     }
-
-//    /**
-//     * save the dishList(or menu) to file.
-//     */
-//    public void saveToFile(){
-//        this.dishList.saveToFile();
-//    }
 
     /**
      * Edit the dish by passing in the dish name.

@@ -31,7 +31,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     private LinearLayout orderedDishesLayout;
 
     private PlaceOrderPresenter placeOrderPresenter;
-    private MenuPresenter menuPresenter;
 
 
     @Override
@@ -41,9 +40,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
         placeOrderPresenter = new PlaceOrderPresenter();
         placeOrderPresenter.setPlaceOrderViewInterface(this);
-
-        menuPresenter = new MenuPresenter();
-        menuPresenter.setDisplayDishesViewInterface(this);
 
         this.errorMessage = findViewById(R.id.errorMessage);
 
@@ -61,8 +57,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         this.dishNamePicker = findViewById(R.id.dishNamePicker);
         this.dishNamePicker.setMinValue(0);
 
-        menuPresenter.numberOfDishesInMenu();
-        menuPresenter.allDishNames();
+        placeOrderPresenter.numberOfDishesInMenu();
+        placeOrderPresenter.allDishNames();
 
         Intent intent = getIntent();
         placeOrderPresenter.checkIntentDishes(intent);
@@ -93,7 +89,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     public void orderDish(View v) {
         int dishQuantity = dishQuantityPicker.getValue();
         int dishNameIndex = dishNamePicker.getValue();
-        menuPresenter.passDishesOrdered(dishNameIndex, dishQuantity);
+        placeOrderPresenter.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
 
