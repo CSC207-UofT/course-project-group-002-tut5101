@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".managerActivities.ManageMenuActivity">
+        tools:context=".manageractivities.ManageMenuActivity">
     <NumberPicker android:layout_width="160dp" android:layout_height="66dp"
                   app:layout_constraintTop_toTopOf="parent"
                   android:layout_marginTop="284dp" app:layout_constraintStart_toStartOf="parent"

@@ -3,7 +3,7 @@ package use_case.kitchen;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import use_case.boundary.output.InventoryOutputBoundary;
-import use_case.inventoryFactory.InventoryFactory;
+import use_case.inventoryfactory.InventoryFactory;
 
 
 import java.io.Serializable;

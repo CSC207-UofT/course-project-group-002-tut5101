@@ -1,6 +1,6 @@
 package entity.orderList;
 
-import constant.orderSystem.OrderType;
+import constant.ordersystem.OrderType;
 
 import java.util.HashMap;
 import java.util.List;

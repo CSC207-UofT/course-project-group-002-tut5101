@@ -1,5 +1,5 @@
 
-import constant.mangerSystem.UserType;
+import constant.mangersystem.UserType;
 import entity.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -9,7 +9,7 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.userList.UserList;
+import use_case.userlist.UserList;
 
 //TODO: fix this test issue.
 

@@ -1,7 +1,7 @@
 package use_case.review;
 
 import androidx.annotation.NonNull;
-import constant.fileSystem.FileLocation;
+import constant.filesystem.FileLocation;
 import entity.review.Review;
 
 import java.io.Serializable;

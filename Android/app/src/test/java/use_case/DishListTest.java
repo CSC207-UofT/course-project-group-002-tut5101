@@ -4,7 +4,7 @@ package use_case;
 import entity.orderList.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishList.DishList;
+import use_case.dishlist.DishList;
 
 import java.util.HashMap;
 

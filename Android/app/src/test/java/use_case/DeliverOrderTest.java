@@ -5,9 +5,9 @@ import entity.orderList.Order;
 import entity.orderList.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.deliverOrder.DeliverOrder;
-import use_case.deliverOrder.DeliveryBuffer;
-import use_case.userList.UserList;
+import use_case.deliverorder.DeliverOrder;
+import use_case.deliverorder.DeliveryBuffer;
+import use_case.userlist.UserList;
 
 import java.util.HashMap;
 

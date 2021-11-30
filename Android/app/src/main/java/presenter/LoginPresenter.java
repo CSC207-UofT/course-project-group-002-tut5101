@@ -1,6 +1,6 @@
 package presenter;
 
-import constant.uiMessage.LoginResult;
+import constant.uimessage.LoginResult;
 import use_case.boundary.output.LoginOutputBoundary;
 
 public class LoginPresenter implements LoginOutputBoundary {

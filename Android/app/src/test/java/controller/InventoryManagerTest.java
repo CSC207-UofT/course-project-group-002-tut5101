@@ -1,6 +1,6 @@
 package controller;
 
-import controller.inventorySystem.InventoryManager;
+import controller.inventorysystem.InventoryManager;
 
 import org.junit.Test;
 
