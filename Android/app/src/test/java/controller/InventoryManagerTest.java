@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class InventoryManagerTest {
 
-    InventoryManager im = new InventoryManager();
+    final InventoryManager im = new InventoryManager();
 
     @Test
     public void testGetinfo(){

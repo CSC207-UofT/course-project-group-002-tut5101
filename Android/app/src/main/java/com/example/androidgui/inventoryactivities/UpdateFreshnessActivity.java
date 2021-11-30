@@ -13,7 +13,7 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
     Button btn;
     EditText name;
     EditText fresh;
-    InventoryManager im = new InventoryManager();
+    final InventoryManager im = new InventoryManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

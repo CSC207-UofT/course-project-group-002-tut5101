@@ -8,7 +8,7 @@
         tools:context=".inventoryactivities.CheckInventoryActivity">
 
     <Button
-            android:text="Search"
+            android:text="@string/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button7"
             app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name of inventory"
+            android:text="@string/name_of_inventory"
             android:ems="10"
             android:id="@+id/editTextTextName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="151dp"
-            android:layout_marginStart="80dp"/>
+            android:layout_marginStart="80dp" android:autofillHints="Name of Inventory" tools:ignore="LabelFor"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

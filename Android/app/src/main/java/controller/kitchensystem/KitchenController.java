@@ -29,7 +29,7 @@ public class KitchenController {
      * to its quantity.
      */
     HashMap<String, Integer> dishes;
-    InventoryList inventories;
+    final InventoryList inventories;
 
     public KitchenController(InventoryList inventories){this.inventories = inventories;}
 

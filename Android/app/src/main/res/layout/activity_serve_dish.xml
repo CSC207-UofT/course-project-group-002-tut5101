@@ -27,7 +27,7 @@
     <Button
             android:text="@string/complete_serve"
             android:layout_width="200dp"
-            android:layout_height="50dp" android:id="@+id/CompleteButton"
+            android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ReturnButton"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"

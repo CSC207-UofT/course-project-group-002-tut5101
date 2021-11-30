@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class FetchData extends Thread {
-    public String url;
+    public final String url;
     String data = "Empty";
 
     public FetchData(String url) {

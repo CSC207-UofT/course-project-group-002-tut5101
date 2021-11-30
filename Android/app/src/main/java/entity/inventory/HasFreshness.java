@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 
 public class HasFreshness implements Inventory, Serializable {
-    public String name;
+    public final String name;
     private boolean usedup;
     private final double price;
     private double quantity;

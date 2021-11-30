@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
  * Tests for InventoryList Class
  */
 public class InventoryListTest {
-    InventoryList invList = new InventoryList();
+    final InventoryList invList = new InventoryList();
 
     @Before
     public void setUp() {

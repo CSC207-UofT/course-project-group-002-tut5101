@@ -20,7 +20,7 @@ public class ManageMenuActivity extends AppCompatActivity {
     NumberPicker selectDish;
     TextView askDishNumber;
     String[] managerDecision;
-    MenuController menuController = new MenuController();
+    final MenuController menuController = new MenuController();
 
     /**
      * Activity basic function.

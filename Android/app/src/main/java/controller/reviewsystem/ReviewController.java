@@ -1,6 +1,5 @@
 package controller.reviewsystem;
 
-import constant.filesystem.FileLocation;
 import use_case.boundary.input.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
 import use_case.review.ReviewList;
@@ -21,8 +20,8 @@ public class ReviewController {
      */
     public ReviewController() {
         reviews = new ReviewList();
-        /**
-         * The input use_case.boundary for delete review use case.
+        /*
+          The input use_case.boundary for delete review use case.
          */
         this.deleteReviewInputBoundary = new DeleteReviewUseCase(reviews);
     }

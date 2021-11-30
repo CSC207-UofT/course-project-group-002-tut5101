@@ -17,13 +17,13 @@ import controller.reviewsystem.ReviewController;
 import controller.staffsystem.StaffController;
 
 public class MainActivity extends AppCompatActivity {
-    public static OrderController orderController = new OrderController();
+    public static final OrderController orderController = new OrderController();
     public static InventoryManager inventoryManager = new InventoryManager();
-    public static KitchenFacade kitchenFacade = new KitchenFacade();
+    public static final KitchenFacade kitchenFacade = new KitchenFacade();
     public static KitchenController kitchenController = kitchenFacade.createKitchen();
     public static LoginController loginController;
     public static ManagerController managerController = new ManagerController();
-    public static MenuController menuController = new MenuController();
+    public static final MenuController menuController = new MenuController();
     public static ReviewController reviewController = new ReviewController();
     public static StaffController staffController = new StaffController();
 

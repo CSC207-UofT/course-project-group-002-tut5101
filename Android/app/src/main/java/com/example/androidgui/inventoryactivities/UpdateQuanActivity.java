@@ -14,7 +14,7 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     Button btn;
     EditText name;
     EditText usage;
-    InventoryManager im = new InventoryManager();
+    final InventoryManager im = new InventoryManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

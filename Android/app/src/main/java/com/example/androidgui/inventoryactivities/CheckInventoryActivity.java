@@ -15,7 +15,7 @@ import controller.inventorysystem.InventoryManager;
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
     EditText name;
-    InventoryManager im = new InventoryManager();
+    final InventoryManager im = new InventoryManager();
 
 
     @Override

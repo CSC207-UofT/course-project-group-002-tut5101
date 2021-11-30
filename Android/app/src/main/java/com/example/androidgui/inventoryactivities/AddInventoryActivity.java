@@ -15,7 +15,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     EditText amount;
     EditText date;
     EditText freshness;
-    InventoryManager im = new InventoryManager();
+    final InventoryManager im = new InventoryManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ReviewListTest {
-    ReviewList rl = new ReviewList();
+    final ReviewList rl = new ReviewList();
 
     @Before
     public void setUp(){

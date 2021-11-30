@@ -16,7 +16,7 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     EditText comment;
     EditText ifComplain;
     EditText complain;
-    ReviewController rc = new ReviewController();
+    final ReviewController rc = new ReviewController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

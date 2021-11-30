@@ -5,8 +5,8 @@ import controller.kitchensystem.KitchenController;
 import use_case.kitchen.InventoryList;
 
 public class KitchenFacade {
-    String filepath = FileLocation.INVENTORY_FILE_LOCATION;
-    InventoryList inventoryList;
+    final String filepath = FileLocation.INVENTORY_FILE_LOCATION;
+    final InventoryList inventoryList;
 
     public KitchenFacade(){
         this.inventoryList = new InventoryList(filepath);

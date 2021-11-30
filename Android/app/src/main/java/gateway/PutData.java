@@ -12,9 +12,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class PutData extends Thread {
-    private String url, method;
+    private final String url;
+    private final String method;
     String result_data = "Empty";
-    String name, id;
+    final String name;
+    final String id;
 
     public PutData(String url, String method, String name, String id) {
         this.url = url;

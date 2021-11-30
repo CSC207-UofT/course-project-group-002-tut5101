@@ -44,7 +44,7 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // When selected Exit, return to login activity.
+    // When selected Exit, return to log in activity.
     public void selectExit(View v) {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, MainActivity.class);
         startActivity(intent);

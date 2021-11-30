@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class KitchenActivity extends AppCompatActivity{
 
     // TODO: improve the design here, try to make it not public.
-    public static KitchenFacade kf = new KitchenFacade();
-    public static KitchenController kc = kf.createKitchen();
+    public static final KitchenFacade kf = new KitchenFacade();
+    public static final KitchenController kc = kf.createKitchen();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

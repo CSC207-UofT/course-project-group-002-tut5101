@@ -25,7 +25,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
     NumberPicker selectEditOrDelete;
     TextView askSelection;
     String[] selectOption;
-    MenuController menuController = new MenuController();
+    final MenuController menuController = new MenuController();
 
 
     /**

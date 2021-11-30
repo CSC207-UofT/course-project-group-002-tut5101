@@ -12,8 +12,8 @@ import use_case.userlist.UserList;
 
 
 public class StaffController {
-    ServeOrder servingStaff = new ServeOrder();
-    DeliverOrder deliveryStaff = new DeliverOrder();
+    final ServeOrder servingStaff = new ServeOrder();
+    final DeliverOrder deliveryStaff = new DeliverOrder();
 
     /**
      * Get the next item to be delivered by the staff with the id

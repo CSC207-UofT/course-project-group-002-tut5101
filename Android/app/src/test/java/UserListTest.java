@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class UserListTest {
 
-    UserList userList = new UserList(9);
+    final UserList userList = new UserList(9);
     /**
      * Setting up the test.
      */

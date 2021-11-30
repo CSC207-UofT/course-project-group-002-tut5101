@@ -7,7 +7,7 @@
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="62dp"
-              android:text="Dish Name"
+              android:text="@string/dish_name"
               android:gravity="center"
               android:textAlignment="center"
               android:id="@+id/kitchenDishName"
@@ -15,7 +15,7 @@
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="85dp"
-              android:text="quantity"
+              android:text="@string/quantity"
               android:gravity="center"
               android:textAlignment="center"
               android:id="@+id/kitchenQuantity"
@@ -24,7 +24,7 @@
     <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="25"
-            android:text="Cooked"
+            android:text="@string/cooked"
             android:id="@+id/kitchenButton"/>
 
 

@@ -1,6 +1,7 @@
 package use_case.kitchen;
 
 import constant.ordersystem.ItemStatus;
+import constant.ordersystem.OrderType;
 import entity.orderList.Dish;
 import entity.orderList.Order;
 import use_case.deliverorder.DeliveryBuffer;
@@ -40,7 +41,7 @@ public class Kitchen {
     public static void cookedDish(String dishName) {
         Dish dishCooked = currentOrder.setDishStatus(dishName);
 
-        if (currentOrder.getOrderType().equals("Dine In")) {
+        if (currentOrder.getOrderType().equals(OrderType.DINE_IN)) {
             ServingBuffer.addDish(dishCooked);
         } else if (currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED) {
             DeliveryBuffer.addDeliveryOrder(currentOrder);

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MenuController {
 
-    public DishList dishList;
+    public final DishList dishList;
 
     public MenuController(){
         dishList = new DishList("src/main/resources/menu.ser");

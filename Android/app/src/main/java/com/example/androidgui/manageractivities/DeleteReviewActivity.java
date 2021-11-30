@@ -20,7 +20,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
     NumberPicker selectAction;
     TextView askDeleteCriteria;
     String[] managerDecision;
-    ReviewController reviewController = new ReviewController();
+    final ReviewController reviewController = new ReviewController();
 
 
     /**

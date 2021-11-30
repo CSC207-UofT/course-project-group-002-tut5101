@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class KitchenAdapter extends ArrayAdapter {
 
-    private Context kContext;
-    int kResource;
+    private final Context kContext;
+    final int kResource;
 
     public KitchenAdapter(Context context, int resource, ArrayList<String[]> displayDishes) {
         super(context, resource, displayDishes);

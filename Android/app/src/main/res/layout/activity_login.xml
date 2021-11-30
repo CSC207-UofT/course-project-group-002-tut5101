@@ -7,8 +7,7 @@
 	tools:context=".useractivities.LoginActivity">
 
 	<TextView
-		android:id="@+id/textView1"
-		android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="10dp"
 		android:text="@string/userId"
@@ -70,8 +69,7 @@
 
 
 	<Button
-			android:id="@+id/enrollNewStaffBtn"
-			android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="60dp"
 			android:onClick="enrollStaff"

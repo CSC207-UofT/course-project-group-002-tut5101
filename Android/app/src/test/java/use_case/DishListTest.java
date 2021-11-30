@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  * Testing DishList.
  */
 public class DishListTest {
-    DishList menu = new DishList();
+    final DishList menu = new DishList();
 
     /**
      *

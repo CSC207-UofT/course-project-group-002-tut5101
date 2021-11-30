@@ -10,7 +10,7 @@ public class AssistanceUseCase {
      *
      * @param customer
      * @param serve
-     * @return true if assistance if provided.
+     * @return true if assistance is provided.
      */
     public boolean assistance(Customer customer, ServingStaff serve){
         String help = "help";

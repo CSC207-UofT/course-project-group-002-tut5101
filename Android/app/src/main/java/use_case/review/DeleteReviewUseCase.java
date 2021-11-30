@@ -2,12 +2,10 @@ package use_case.review;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
 
-import java.util.ArrayList;
-
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
-    private ReviewList reviewList;
+    private final ReviewList reviewList;
 
     /**
      * Constructor
