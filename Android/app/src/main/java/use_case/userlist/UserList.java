@@ -34,6 +34,14 @@ public class UserList implements Serializable {
         users = new HashMap<>(i);
     }
 
+    /**
+     *
+     * @return the length of the user list.
+     */
+    public int length(){
+        return users.size();
+    }
+
 
     /**
      * Add user to this user list.

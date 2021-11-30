@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class UserListTest {
 
-    final UserList userList = new UserList(9);
+    final UserList userList = new UserList(20);
     /**
      * Setting up the test.
      */
@@ -38,6 +38,15 @@ public class UserListTest {
         userList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
         userList.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
         userList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
+    }
+
+    /**
+     * Testing addUser.
+     *
+     */
+    @Test
+    public void testAddUser() {
+        assert(!userList.toString().equals(" "));
     }
 
     /**
@@ -56,8 +65,27 @@ public class UserListTest {
     @Test
     public void testUserById() {
         User user = UserList.getUserByUserId("3");
-        assertEquals(user.toString(), "(UseCase.Customer)");
+        assertEquals(user.toString(), "(UseCase.Customer) Steve: {id='3'}");
     }
 
+    /**
+     * Testing length.
+     *
+     */
+    @Test
+    public void testLength() {
+        assertEquals(userList.length(), 9);
+    }
+
+    /**
+     * Testing get the user by id.
+     *
+     */
+    @Test
+    public void testAddStaff() {
+        userList.addStaff("21", "May", "32345", "KITCHEN", 200);
+        userList.addStaff("20", "April", "22345", "DELIVERY_STAFF", 100);
+        assertEquals(userList.length(), 11);
+    }
 
 }
