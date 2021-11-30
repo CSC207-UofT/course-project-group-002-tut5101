@@ -15,14 +15,16 @@ import constant.ordersystem.OrderType;
  * If the order is dine in, records the table number
  * If the order is delivery, records the delivery address
  */
-public class EnterLocationActivity extends AppCompatActivity {
+public class EnterLocationActivity extends AppCompatActivity{
     TextView askEnterAddressMessage;
     EditText enteredLocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_location);
+
 
         askEnterAddressMessage = findViewById(R.id.askEnterAddressMessage);
         String enterLocationMessage = "Please enter the table number or delivery address below";

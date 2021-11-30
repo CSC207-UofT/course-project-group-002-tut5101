@@ -2,6 +2,7 @@ package use_case.customersystem;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
+import controller.customersystem.PlaceOrderPresenter;
 import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
 import use_case.boundary.input.PlaceOrderInputBoundary;
@@ -20,9 +21,15 @@ import java.util.*;
 public class PlaceOrder implements PlaceOrderInputBoundary {
 
     private final OrderFactory orderFactory;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
 
     public PlaceOrder() {
         orderFactory = new OrderFactory();
+    }
+
+    @Override
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
     }
 
     /**
@@ -56,6 +63,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
         Order order = orderFactory.OrderType(orderType, location, dishes);
         OrderQueue.addOrder(order);
     }
+
 
     /**
      * Lookup the dish in the Menu then create a copy of that dish

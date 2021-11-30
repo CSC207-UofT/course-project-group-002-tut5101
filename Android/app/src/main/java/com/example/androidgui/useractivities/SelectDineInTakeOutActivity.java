@@ -11,8 +11,8 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import controller.customersystem.OrderPresenter;
-import controller.viewinterface.SelectDineInTakeOutViewInterface;
+import controller.customersystem.DineInTakeOutPresenter;
+import controller.customersystem.SelectDineInTakeOutViewInterface;
 
 
 /**
@@ -23,7 +23,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
     private TextView askDineInTakeOut;
     private String[] selectDineInTakeOutOptions;
     private Button selectDineInTakeOutBtn;
-    private OrderPresenter orderPresenter;
+    private DineInTakeOutPresenter dineInTakeOutPresenter;
 
 
     @Override
@@ -31,7 +31,8 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_dine_in_take_out);
 
-        orderPresenter = new OrderPresenter(this);
+        dineInTakeOutPresenter = new DineInTakeOutPresenter();
+        dineInTakeOutPresenter.setSelectDineInTakeOutViewInterface(this);
 
         selectDineInTakeOut = findViewById(R.id.selectDineInTakeOut);
         askDineInTakeOut = findViewById(R.id.askDineInTakeOut);
@@ -57,7 +58,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
     }
 
     public void next(View v) {
-        orderPresenter.retrieveOrderType(selectDineInTakeOutOptions[selectDineInTakeOut.getValue()]);
+        dineInTakeOutPresenter.retrieveOrderType(selectDineInTakeOutOptions[selectDineInTakeOut.getValue()]);
     }
     public void updateOrderType(OrderType orderType){
         Intent intent = new Intent(SelectDineInTakeOutActivity.this, EnterLocationActivity.class);

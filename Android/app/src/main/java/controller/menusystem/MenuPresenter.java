@@ -13,11 +13,12 @@ import java.util.List;
  */
 
 
-public class MenuController {
+public class MenuPresenter {
 
     public final DishList dishList;
+    private DisplayDishesViewInterface displayDishesViewInterface;
 
-    public MenuController(){
+    public MenuPresenter(){
         dishList = new DishList("src/main/resources/menu.ser");
 
         //TODO: Delete later
@@ -28,6 +29,9 @@ public class MenuController {
         dishList.setMenuOutputBoundary(menuOutputBoundary);
     }
 
+    public void setDisplayDishesViewInterface(DisplayDishesViewInterface displayDishesViewInterface) {
+        this.displayDishesViewInterface = displayDishesViewInterface;
+    }
 
     /**
      *
