@@ -12,6 +12,7 @@ import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
+import controller.customersystem.OrderPresenter;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
 
     private HashMap<String, Integer> dishesOrdered;
 
+    private OrderPresenter orderPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         this.dishesOrdered = new HashMap<>();
         this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
 
-        MainActivity.menuController.setMenuOutputBoundary(this);
+        MainActivity.menuPresenter.setMenuOutputBoundary(this);
 
         generateStartingInformation();
 
@@ -139,7 +142,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements MenuOutputB
         String location = intent.getStringExtra(BuildOrderInfo.LOCATION.name());
 
         try {
-            MainActivity.orderController.runPlaceOrder(orderType, dishes, location);
+            MainActivity.ORDER_PRESENTER.runPlaceOrder(orderType, dishes, location);
             orderSuccessfullyPlaced();
         }
         catch (Exception e) {
