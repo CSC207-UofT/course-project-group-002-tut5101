@@ -2,10 +2,6 @@ package entity.orderlist;
 
 import constant.ordersystem.ItemStatus;
 import constant.ordersystem.OrderType;
-import entity.orderlist.DeliveryOrder;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
-import entity.orderlist.DineInOrder;
 import org.junit.Before;
 import org.junit.Test;
 
