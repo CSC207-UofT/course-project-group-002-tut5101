@@ -54,7 +54,7 @@ public class InventoryList implements Serializable {
     /**
      * Check if an ingredient is in the inventoryList, return true if present
      * @param name Name of the ingredient
-     * @return true only if the ingredient with name is foudn in the list
+     * @return true only if the ingredient with name is found in the list
      */
     public boolean checkExist(String name){return myDict.containsKey(name);}
 
