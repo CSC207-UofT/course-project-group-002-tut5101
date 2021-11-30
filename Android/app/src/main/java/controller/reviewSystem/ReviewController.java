@@ -1,7 +1,7 @@
 package controller.reviewSystem;
 
 import constant.fileSystem.FileLocation;
-import use_case.reviewList.ReviewList;
+import use_case.review.ReviewList;
 
 /**
  * Controller class for review.

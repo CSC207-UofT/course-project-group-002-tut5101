@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".InventoryActivities.InventoryStarterActivity">
+        tools:context=".inventoryActivities.InventoryStarterActivity">
 
     <Button
             android:text="@string/add_inventory"
