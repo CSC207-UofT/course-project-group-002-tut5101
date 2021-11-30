@@ -26,6 +26,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
+        menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -33,6 +34,7 @@ public class DishList implements Serializable, Iterable<Dish> {
         this.filepath = filepath;
 //        readWriter = new SerReadWriter();
 //        menu = readWriter.readFromFileDish(filepath);
+        menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
