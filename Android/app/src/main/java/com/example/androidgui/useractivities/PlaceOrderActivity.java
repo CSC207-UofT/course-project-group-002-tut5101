@@ -13,15 +13,13 @@ import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import controller.customersystem.PlaceOrderPresenter;
 import controller.customersystem.PlaceOrderViewInterface;
-import controller.menusystem.DisplayDishesViewInterface;
-import controller.menusystem.MenuPresenter;
 
 import java.util.HashMap;
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
  */
 
-public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface, DisplayDishesViewInterface {
+public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
 
     private TextView errorMessage;
 

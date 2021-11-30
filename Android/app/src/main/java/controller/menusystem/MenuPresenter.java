@@ -2,40 +2,32 @@ package controller.menusystem;
 
 import entity.orderlist.Dish;
 import use_case.dishlist.DishList;
+import use_case.dishlist.MenuOutputBoundary;
 
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Controller class for menu.
  */
 
 
-public class MenuPresenter {
+public class MenuPresenter implements MenuOutputBoundary {
 
     public final DishList dishList;
-    private DisplayDishesViewInterface displayDishesViewInterface;
+    private DisplayMenuViewInterface displayMenuViewInterface;
 
     public MenuPresenter(){
         dishList = new DishList("src/main/resources/menu.ser");
+        dishList.setMenuOutputBoundary(this);
 
         //TODO: Delete later
         generateDishList();
     }
 
 
-    public void setDisplayDishesViewInterface(DisplayDishesViewInterface displayDishesViewInterface) {
-        this.displayDishesViewInterface = displayDishesViewInterface;
-    }
-
-    /**
-     *
-     * @param orderedNum a List of integers representing numbers from order.
-     * @return a list of strings of dish names from a list of integers from order.
-     */
-    public List<String> passDishNumbersOrdered(List<Integer> orderedNum) {
-        return DishList.getDishNamesFromInt(orderedNum);
+    public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
+        this.displayMenuViewInterface = displayMenuViewInterface;
     }
 
     public Dish passDishByString(String dishName){
@@ -47,13 +39,24 @@ public class MenuPresenter {
     }
 
     /**
-     *
-     * @return a string representation of dishlist.
+     * get string representation of dishes in menu from dishList use case
      */
-    public String dishesInMenuAsString() {
-        return dishList.toString();
+    public void dishesInMenuAsString() {
+        dishList.dishesString();
     }
 
+    /**
+     * update the display to show dishes in menu
+     * @param menuItems the items in the menu as a string
+     */
+    public void updateMenuItemsDisplay(String menuItems) {
+        displayMenuViewInterface.setMenuItemsText(menuItems);
+    }
+
+    /**
+     * delete a dish by the dish name
+     * @param dishName name of dish
+     */
     public void deleteDishByName(String dishName) {
         dishList.deleteDishByName(dishName);
     }

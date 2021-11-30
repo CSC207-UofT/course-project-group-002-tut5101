@@ -20,6 +20,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
     private PlaceOrderOutputBoundary placeOrderOutputBoundary;
+    private MenuOutputBoundary menuOutputBoundary;
 
 
     /**
@@ -41,6 +42,10 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
         this.placeOrderOutputBoundary = placeOrderOutputBoundary;
+    }
+
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
     }
 
     /**
@@ -215,6 +220,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-
-
+    public void dishesString() {
+        menuOutputBoundary.updateMenuItemsDisplay(this.toString());
+    }
 }
