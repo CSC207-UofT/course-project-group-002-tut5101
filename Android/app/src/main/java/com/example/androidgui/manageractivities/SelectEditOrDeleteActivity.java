@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
-import controller.menusystem.MenuController;
+import controller.menusystem.MenuPresenter;
 import entity.orderlist.Dish;
 
 import java.util.Objects;
@@ -25,7 +25,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
     NumberPicker selectEditOrDelete;
     TextView askSelection;
     String[] selectOption;
-    final MenuController menuController = new MenuController();
+    final MenuPresenter menuPresenter = new MenuPresenter();
 
 
     /**
@@ -53,12 +53,12 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
         String action = selectOption[selectEditOrDelete.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        Dish dish = menuController.passDishByString(dishName);
+        Dish dish = menuPresenter.passDishByString(dishName);
         if (Objects.equals(action,ManagerDecision.EDIT.toString())){
-            menuController.deleteDishByName(dishName);
+            menuPresenter.deleteDishByName(dishName);
         }
         else {
-            menuController.editDishByName(dishName);
+            menuPresenter.editDishByName(dishName);
         }
     }
 

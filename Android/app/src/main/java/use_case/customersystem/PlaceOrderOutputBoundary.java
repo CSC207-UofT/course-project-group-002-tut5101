@@ -1,6 +1,6 @@
-package use_case.boundary.output;
+package use_case.customersystem;
 
-public interface MenuOutputBoundary {
+public interface PlaceOrderOutputBoundary {
     void setDishNamePickerMaxValue(int size);
 
     void setDisplayedDishNames(String[] dishNames);
