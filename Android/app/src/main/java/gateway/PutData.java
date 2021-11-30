@@ -34,10 +34,9 @@ public class PutData extends Thread {
             httpURLConnection.setDoInput(true);
             OutputStream outputStream = httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, UTF8));
-            StringBuilder post_data = new StringBuilder();
-            post_data.append(URLEncoder.encode("name", "UTF-8")).append("=").append(URLEncoder.encode(this.name, UTF8)).append("&");
-            post_data.append(URLEncoder.encode("id", "UTF-8")).append("=").append(URLEncoder.encode(this.id, UTF8)).append("&");
-            bufferedWriter.write(post_data.toString());
+            String post_data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(this.name, UTF8) + "&" +
+                    URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(this.id, UTF8) + "&";
+            bufferedWriter.write(post_data);
             bufferedWriter.flush();
             bufferedWriter.close();
             outputStream.close();

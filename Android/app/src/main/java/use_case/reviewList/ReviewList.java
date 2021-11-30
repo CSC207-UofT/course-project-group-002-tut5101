@@ -1,5 +1,6 @@
 package use_case.reviewList;
 
+import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
 
@@ -10,18 +11,13 @@ import java.util.Objects;
 
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
-    private static ReadWriter rrw;
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
 
     public ReviewList() {
-        rrw = new SerReadWriter();
-        reviews  = rrw.readFromFileReview(filepath);
     }
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
-        rrw = new SerReadWriter();
-        reviews  = rrw.readFromFileReview(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
@@ -73,14 +69,15 @@ public class ReviewList implements Serializable {
         return reviews.size();
     }
 
-    public void saveToFile() {
-        rrw.saveToFile(this.filepath, reviews);
-    }
+//    public void saveToFile() {
+//        rrw.saveToFile(this.filepath, reviews);
+//    }
 
     /**
      *
      * @return a string representation of this review list.
      */
+    @NonNull
     @Override
     public String toString() {
         int reviewNumber = 1;

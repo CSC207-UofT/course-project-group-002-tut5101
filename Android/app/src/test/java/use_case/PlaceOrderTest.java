@@ -14,12 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 public class PlaceOrderTest {
-    private static List<Dish> menu = null;
     private PlaceOrder placeOrder;
-    private DishList dishList;
 
     Dish quarterPoundWithCheese;
     Dish smallFries;
@@ -27,8 +23,8 @@ public class PlaceOrderTest {
 
     @Before
     public void setUp() {
-        menu = generateDishList();
-        dishList = new DishList(menu);
+        List<Dish> menu = generateDishList();
+        DishList dishList = new DishList(menu);
         placeOrder = new PlaceOrder();
     }
 

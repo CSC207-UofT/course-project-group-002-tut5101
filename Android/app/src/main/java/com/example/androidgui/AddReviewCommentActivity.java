@@ -34,11 +34,11 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     public void onClick(View v) {
         String iname = name.getText().toString();
         boolean iifAnonymous = ifAnonymous.getText().toString().equals("Y");
-        Integer irate = Integer.valueOf(rate.getText().toString());
+        int irate = Integer.parseInt(rate.getText().toString());
         String icomment = comment.getText().toString();
         boolean iifComplain = ifComplain.getText().toString().equals("Y");
         String icomplain = complain.getText().toString();
         rc.addToReviewList(iname,iifAnonymous, irate, icomment, iifComplain, icomplain);
-        rc.saveToFile();
+//        rc.saveToFile();
     }
 }

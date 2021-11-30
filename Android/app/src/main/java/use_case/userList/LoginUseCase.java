@@ -1,6 +1,5 @@
 package use_case.userList;
 
-import constant.fileSystem.FileLocation;
 import constant.uiMessage.LoginResult;
 import entity.User;
 import use_case.boundary.input.LoginInputBoundary;

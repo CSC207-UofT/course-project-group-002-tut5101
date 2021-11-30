@@ -1,9 +1,11 @@
-package com.example.androidgui;
+package com.example.androidgui.inventory;
 
 import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.CheckInventoryActivity;
+import com.example.androidgui.R;
 
 public class InventoryStarterActivity extends AppCompatActivity {
 

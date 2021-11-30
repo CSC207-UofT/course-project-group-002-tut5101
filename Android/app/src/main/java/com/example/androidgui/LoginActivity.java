@@ -7,12 +7,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.inventory.InventoryStarterActivity;
 import constant.mangerSystem.UserType;
 import constant.uiMessage.EnrollUserMessage;
 import constant.uiMessage.LoginLogoutUIMessage;
 import constant.uiMessage.LoginResult;
 import controller.loginSystem.LoginController;
 import use_case.boundary.output.LoginOutputBoundary;
+
+import java.lang.reflect.GenericDeclaration;
 
 public class LoginActivity extends AppCompatActivity implements LoginOutputBoundary {
 
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     private void loginSucceed(String id) {
         Toast toast = Toast.makeText(getApplicationContext(), LoginLogoutUIMessage.LOGIN_SUCCEED, Toast.LENGTH_SHORT);
         toast.show();
-        Intent intent = new Intent(LoginActivity.this, factoryMethod(id));
+        Intent intent = new Intent(LoginActivity.this, (Class<?>) factoryMethod(id));
         startActivity(intent);
     }
 
@@ -139,7 +142,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
      * @return Activity.class of the login user to jump to
      */
     //TODO fill in activity.class
-    private Class factoryMethod(String id) {
+    private GenericDeclaration factoryMethod(String id) {
         UserType loginUserType = this.controller.getUserTypeById(id);
         switch (loginUserType) {
             case CUSTOMER:

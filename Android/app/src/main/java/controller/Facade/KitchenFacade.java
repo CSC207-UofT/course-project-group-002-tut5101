@@ -2,7 +2,6 @@ package controller.Facade;
 
 import constant.fileSystem.FileLocation;
 import controller.kitchenSystem.KitchenController;
-import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
 
 public class KitchenFacade {

@@ -1,7 +1,6 @@
 package controller.loginSystem;
 
 import constant.mangerSystem.UserType;
-import constant.uiMessage.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -22,25 +21,26 @@ public class LoginController {
      * The input use_case.boundary for the login use case.
      */
     private LoginInputBoundary loginInputBoundary;
-    private UserList users;
+    private final UserList users;
 
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary.
      */
     public LoginController() {
-        users = new UserList("src/main/resources/users.ser");
+//        users = new UserList("src/main/resources/users.ser");
+        users = new UserList(6);
         //TODO hardcode since File I/O issue, need delete later
         generateUsers();
     }
     //TODO hardcode since File I/O issue, need delete later
     private void generateUsers() {
-        users.addUser(new Manager());
-        users.addUser(new Customer("1", "James", "12345"));
-        users.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
-        users.addUser(new ServingStaff("3", "Eve", "12345", 3665));
-        users.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
-        users.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
+        UserList.addUser(new Manager());
+        UserList.addUser(new Customer("1", "James", "12345"));
+        UserList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
+        UserList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
+        UserList.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
+        UserList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
     }
 
     /**
