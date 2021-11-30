@@ -37,12 +37,9 @@
     <string name="textview">TextView</string>
     <string name="return_button">Return</string>
     <string name="completed_order">Completed Order</string>
-    <string name="header">Header</string>
     <string name="get_next_dish">Get Next Dish</string>
     <string name="view_current_dish">View Current Dish</string>
     <string name="logout_button">Logout</string>
-    <string name="textview">TextView</string>
-    <string name="return_button">Return</string>
     <string name="complete_serve">Complete Serve</string>
     <string name="dish_names">Dish Names</string>
     <string name="quantity">Quantity</string>
