@@ -1,14 +1,14 @@
-package com.example.androidgui.useractivities;
+package com.example.androidgui.orderactivities;
 
 import android.content.Intent;
 import android.os.Parcelable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
+import com.example.androidgui.useractivities.EnterLocationActivity;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import controller.customersystem.DineInTakeOutPresenter;
@@ -22,7 +22,6 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
     private NumberPicker selectDineInTakeOut;
     private TextView askDineInTakeOut;
     private String[] selectDineInTakeOutOptions;
-    private Button selectDineInTakeOutBtn;
     private DineInTakeOutPresenter dineInTakeOutPresenter;
 
 
@@ -36,8 +35,6 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
 
         selectDineInTakeOut = findViewById(R.id.selectDineInTakeOut);
         askDineInTakeOut = findViewById(R.id.askDineInTakeOut);
-
-        selectDineInTakeOutBtn = findViewById(R.id.selectDineInTakeOutBtn);
 
         setupMessage();
 
@@ -60,6 +57,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
     public void next(View v) {
         dineInTakeOutPresenter.retrieveOrderType(selectDineInTakeOutOptions[selectDineInTakeOut.getValue()]);
     }
+
     public void updateOrderType(OrderType orderType){
         Intent intent = new Intent(SelectDineInTakeOutActivity.this, EnterLocationActivity.class);
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);

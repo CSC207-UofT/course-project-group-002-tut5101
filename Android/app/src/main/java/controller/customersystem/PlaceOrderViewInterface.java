@@ -9,4 +9,6 @@ public interface PlaceOrderViewInterface {
 
     void setDishNamePickerMaxValue(int size);
     void setDisplayedDishNames(String[] dishNames);
+
+    void setDishesOrdered(HashMap<String, Integer> dishesOrdered);
 }

@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * This is the Order controller which takes input of list of dish names that is passed from the UI and passes it to the
- * PlaceOrder use case to create a new order.
+ * This is the Order presenter corresponding to the PlaceOrderActivity, that takes input from the activity, does stuff,
+ * then tells the activity what to show to the user
  * by Evelyn Chou
  * 2021-11-03
  */
@@ -22,7 +22,8 @@ import java.util.HashMap;
 public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     //Controller class that interacts with use_case.customerSystem.PlaceOrder to place an order from the customer
     private HashMap<String, Integer> dishesOrdered;
-    private DishList dishList;
+    private final DishList dishList;
+
 
     /**
      * The input use_case.boundary for the place order.
@@ -42,24 +43,44 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         this.dishList = new DishList();
         dishList.setPlaceOrderOutputBoundary(this);
 
+        //TODO: Delete later
+        generateDishList();
+
     }
 
+    /**
+     * set the PlaceOrderViewInterface attribute
+     * @param placeOrderViewInterface the PlaceOrderViewInterface
+     */
     public void setPlaceOrderViewInterface(PlaceOrderViewInterface placeOrderViewInterface) {
         this.placeOrderViewInterface = placeOrderViewInterface;
     }
 
-    public void checkIntentDishes(Intent intent) {
-        if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
-            dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
-            placeOrderViewInterface.displayDishesOrdered(dishesOrdered);
+    /**
+     * get the current ordered dishes
+     * @param dishesOrdered dishes ordered
+     */
+    public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
+       this.dishesOrdered = dishesOrdered;
+    }
+
+    /**
+     * set the number of dishes ordered on view
+     * @param size the number of dishes
+     */
+    @Override
+    public void setDishNamePickerMaxValue(int size) {
+        if (size >= 1) {
+            placeOrderViewInterface.setDishNamePickerMaxValue(size);
+        }
+        else {placeOrderViewInterface.setDishNamePickerMaxValue(0);
         }
     }
 
-    @Override
-    public void setDishNamePickerMaxValue(int size) {
-        placeOrderViewInterface.setDishNamePickerMaxValue(size);
-    }
-
+    /**
+     * set the view to display dishes ordered
+     * @param dishNames dishes ordered
+     */
     @Override
     public void setDisplayedDishNames(String[] dishNames) {
         placeOrderViewInterface.setDisplayedDishNames(dishNames);
@@ -85,7 +106,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
         /**
          * runs the placeOrder method defined in the PlaceOrderInputBoundary
-         * @param orderType true if the order is dine in, false otherwise
+         * @param orderType the type of order
          * @param dishNames list of dish names ordered
          * @param location the table number if dine in, otherwise the address for the order to be delivered
          * @throws Exception if the place order fails
@@ -127,19 +148,55 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         return collectDishes.toArray(new String[0]);
     }
 
+    /**
+     * Get number of dishes in menu from dishList use case
+     */
     public void numberOfDishesInMenu() {
         dishList.numberOfDishesForPresenter();
     }
 
+    /**
+     * Get names of all dishes from dishList use case
+     */
     public void allDishNames() {
         dishList.getAllDishNamesAsListForPresenter();
     }
 
+    /**
+     * pass the index of the dish ordered and the quantity ordered to the dishList
+     * @param dishNameIndex index referring to dish ordered
+     * @param dishQuantity quantity ordered
+     */
     public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         dishList.passDishesOrdered(dishNameIndex, dishQuantity);
     }
 
+    /**
+     * update the ordered dishes in the view
+     */
+    public void updateDishesOrdered() {
+        placeOrderViewInterface.setDishesOrdered(dishesOrdered);
+    }
 
+    // TODO: Delete hardcoded dishes later
+    //Hardcoded dishList for testing
+
+    private void generateDishList() {
+        Dish d1 = new Dish("dish1", 10, new HashMap<>(), 20);
+        Dish d2 = new Dish("dish2", 30, new HashMap<>(), 200);
+        Dish d3 = new Dish("dish3", 100, new HashMap<>(), 10);
+        Dish d4 = new Dish("dish4", 10, new HashMap<>(), 20);
+        Dish d5 = new Dish("dish5", 10, new HashMap<>(), 20);
+        Dish d6 = new Dish("dish6", 10, new HashMap<>(), 20);
+        Dish d7 = new Dish("dish7", 10, new HashMap<>(), 20);
+        dishList.addDish(d1);
+        dishList.addDish(d2);
+        dishList.addDish(d3);
+        dishList.addDish(d4);
+        dishList.addDish(d5);
+        dishList.addDish(d6);
+        dishList.addDish(d7);
+    }
 
 
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.orderactivities.SelectDineInTakeOutActivity;
 
 public class CustomerPickActionActivity extends AppCompatActivity {
 

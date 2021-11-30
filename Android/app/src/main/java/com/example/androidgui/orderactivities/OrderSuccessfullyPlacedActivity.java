@@ -1,10 +1,11 @@
-package com.example.androidgui.useractivities;
+package com.example.androidgui.orderactivities;
 
 import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
+import com.example.androidgui.useractivities.CustomerPickActionActivity;
 
 public class OrderSuccessfullyPlacedActivity extends AppCompatActivity {
 

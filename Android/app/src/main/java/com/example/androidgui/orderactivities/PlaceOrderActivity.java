@@ -1,4 +1,4 @@
-package com.example.androidgui.useractivities;
+package com.example.androidgui.orderactivities;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -20,6 +20,11 @@ import java.util.HashMap;
  */
 
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
+
+    private HashMap<String, Integer> dishesOrdered;
+    private OrderType orderType;
+    private String location;
+
 
     private TextView errorMessage;
 
@@ -44,9 +49,13 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
 
         generateStartingInformation();
+        collectDishInformation();
 
     }
 
+    /**
+     * generate attributes corresponding to user view
+     */
     private void generateStartingInformation(){
         this.dishQuantityPicker = findViewById(R.id.dishQuantityPicker);
         this.dishQuantityPicker.setMinValue(1);
@@ -58,9 +67,30 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         placeOrderPresenter.numberOfDishesInMenu();
         placeOrderPresenter.allDishNames();
 
-        Intent intent = getIntent();
-        placeOrderPresenter.checkIntentDishes(intent);
+    }
 
+    /**
+     * collect information passed from last activity
+     */
+    @SuppressWarnings("unchecked")
+    private void collectDishInformation(){
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
+            dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
+        }
+        else {
+            dishesOrdered = new HashMap<>();
+        }
+
+        if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
+            orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
+        }
+        if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
+            location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
+        }
+
+        placeOrderPresenter.setDishesOrdered(dishesOrdered);
     }
 
     /**
@@ -68,7 +98,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param size the number of dish choices
      */
     public void setDishNamePickerMaxValue(int size) {
-
         this.dishNamePicker.setMaxValue(size - 1);
     }
 
@@ -78,6 +107,15 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     public void setDisplayedDishNames(String[] dishNames) {
         dishNamePicker.setDisplayedValues(dishNames);
+    }
+
+    /**
+     * Update dishes ordered
+     * @param dishesOrdered new dishes ordered
+     */
+    @Override
+    public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
+        this.dishesOrdered = dishesOrdered;
     }
 
     /**
@@ -91,6 +129,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     }
 
 
+    /**
+     * display dishes ordered in the ordered dishes
+     * @param dishesOrdered dishes to display
+     */
     public void displayDishesOrdered(HashMap<String, Integer> dishesOrdered) {
         orderedDishesLayout.removeAllViews();
         for (String dishName : dishesOrdered.keySet()) {
@@ -108,18 +150,23 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
-
         Intent intent = getIntent();
         placeOrderPresenter.collectRunPlaceOrderInformation(intent);
 
-
     }
 
+    /**
+     * show the order successfully placed view
+     */
     public void orderSuccessfullyPlaced(){
         Intent intent = new Intent(PlaceOrderActivity.this, OrderSuccessfullyPlacedActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * set the error message
+     * @param message message to display
+     */
     public void setErrorMessage(String message) {
         errorMessage.setText(message);
     }
@@ -131,24 +178,22 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     public void selectEditOrder(View view) {
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
-        Intent extras = getIntent();
-        OrderType orderType = null;
-        String location = null;
-        if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
-            orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
-        }
-        if (extras.hasExtra(BuildOrderInfo.LOCATION.name())) {
-            location = extras.getExtras().getString(BuildOrderInfo.LOCATION.name());
-        }
-        if (orderType != null) {
-            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
-        }
-        if (location != null){
-            intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
-        }
-        if (placeOrderPresenter != null){
-            intent.putExtra("Place Order Presenter", (Parcelable) placeOrderPresenter);
-        }
+
+        passInformationToEditOrder();
+
+        startActivity(intent);
+    }
+
+    /**
+     * pass information to the next activity
+     */
+    private void passInformationToEditOrder() {
+        placeOrderPresenter.updateDishesOrdered();
+
+        Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
+        intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
+        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
+        intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
         startActivity(intent);
     }
 
