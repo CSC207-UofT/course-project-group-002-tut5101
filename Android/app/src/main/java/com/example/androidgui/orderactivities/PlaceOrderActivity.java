@@ -22,6 +22,7 @@ import java.util.HashMap;
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
 
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
     private OrderType orderType;
     private String location;
 
@@ -83,14 +84,20 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         else {
             dishesOrdered = new HashMap<>();
         }
-
         if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
             orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
         }
+        if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
+            dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
+        }
+        else {
+            dishPrices = new HashMap<>();
+        }
         placeOrderPresenter.setDishesOrdered(dishesOrdered);
+        placeOrderPresenter.setDishPrices(dishPrices);
     }
 
     /**
@@ -116,6 +123,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     @Override
     public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
         this.dishesOrdered = dishesOrdered;
+    }
+
+
+    @Override
+    public void setDishPrices(HashMap<String, Double> dishPrices) {
+        this.dishPrices = dishPrices;
     }
 
     /**
@@ -177,11 +190,16 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param view the view on which the user has clicked
      */
     public void selectEditOrder(View view) {
-        Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
+        System.out.println("Select edit order");
+        placeOrderPresenter.checkRunEditOrder();
+
+    }
+
+    public void runEditOrder() {
+        System.out.println("running edit order");
 
         passInformationToEditOrder();
 
-        startActivity(intent);
     }
 
     /**
@@ -189,11 +207,23 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     private void passInformationToEditOrder() {
         placeOrderPresenter.updateDishesOrdered();
+        placeOrderPresenter.updateDishPrices();
 
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
-        intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
-        intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        System.out.println("Place Order Activity Pass info to edit");
+        System.out.println(dishesOrdered);
+        if (!dishesOrdered.isEmpty()) {
+            intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
+        }
+        if (orderType != null ){
+            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
+        }
+        if (location != null) {
+            intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        }
+        if (!dishPrices.isEmpty()) {
+            intent.putExtra(BuildOrderInfo.PRICES.name(), dishPrices);
+        }
         startActivity(intent);
     }
 

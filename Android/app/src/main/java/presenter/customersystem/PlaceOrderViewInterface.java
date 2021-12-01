@@ -11,4 +11,7 @@ public interface PlaceOrderViewInterface {
     void setDisplayedDishNames(String[] dishNames);
 
     void setDishesOrdered(HashMap<String, Integer> dishesOrdered);
+    void setDishPrices(HashMap<String, Double> dishPrices);
+
+    void runEditOrder();
 }

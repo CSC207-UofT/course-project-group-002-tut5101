@@ -50,11 +50,8 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     }
 
-    private void getDishPrices() {
-        dishPrices = new HashMap<>();
-        for (String dishName : dishesOrdered.keySet()) {
-            dishList.dishPrice(dishName);
-        }
+    private void getDishPrices(String dishName) {
+        dishList.dishPrice(dishName);
     }
 
     public void addDishPrices(String dishName, double price) {
@@ -78,6 +75,9 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     }
 
 
+    public void setDishPrices(HashMap<String, Double> dishPrices) {
+        this.dishPrices = dishPrices;
+    }
     /**
      * set the number of dishes ordered on view
      * @param size the number of dishes
@@ -113,24 +113,30 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
                 dishQuantity = quantity + dishQuantity;
             }
         }
+        else {
+            getDishPrices(dishName);
+        }
         dishesOrdered.remove(dishName);
         dishesOrdered.put(dishName, dishQuantity);
-        getDishPrices();
         displayDishesOrdered();
     }
 
     public void displayDishesOrdered() {
         DecimalFormat df = new DecimalFormat("0.00");
-        getDishPrices();
         ArrayList<String> dishesString = new ArrayList<>();
         double totalPrice = 0;
         for (String dishName : dishesOrdered.keySet()) {
-            int quantity = dishesOrdered.get(dishName);
-            String dishNameAndQuantity = dishName + " x " + quantity + "   $" +
-                    dishPrices.get(dishName) + "\t each";
-            dishesString.add(dishNameAndQuantity);
-            for (int i = 1; i <= quantity; i++) {
-                totalPrice += dishPrices.get(dishName) * 100;
+            Integer tempQuantity = dishesOrdered.get(dishName);
+            Double tempPrice = dishPrices.get(dishName);
+            if (tempQuantity != null && tempPrice != null){
+                int quantity = tempQuantity;
+                double price = tempPrice;
+                String dishNameAndQuantity = dishName + " x " + quantity + "   $" +
+                        price + "\t each";
+                dishesString.add(dishNameAndQuantity);
+                for (int i = 1; i <= quantity; i++) {
+                    totalPrice += price * 100;
+                }
             }
         }
         totalPrice = totalPrice / 100;
@@ -213,6 +219,10 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         placeOrderViewInterface.setDishesOrdered(dishesOrdered);
     }
 
+    public void updateDishPrices() {
+        placeOrderViewInterface.setDishPrices(dishPrices);
+    }
+
     // TODO: Delete hardcoded dishes later
     //Hardcoded dishList for testing
 
@@ -234,6 +244,13 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     }
 
 
-
+    public void checkRunEditOrder() {
+        if (!dishesOrdered.isEmpty()) {
+            placeOrderViewInterface.runEditOrder();
+        }
+        else {
+            placeOrderViewInterface.setErrorMessage("No Dishes Ordered");
+        }
+    }
 }
 
