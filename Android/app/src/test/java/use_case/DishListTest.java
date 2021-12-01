@@ -56,22 +56,13 @@ public class DishListTest {
 
     /**
      *
-     * Testing DishListSize method.
-     */
-    @Test
-    public void testDishListSize() {
-        assertEquals(menu.size(), 9);
-    }
-
-    /**
-     *
      * Testing DishListAddDish method.
      */
     @Test
     public void testDishListAddDish() {
         Dish testDish = new Dish("Pork", 10.0, new HashMap<>(), 400);
         menu.addDish(testDish);
-        assertEquals(DishList.getDishByDishName("Pork"), testDish);
+        assertEquals(DishList.getAllDishes().get("Pork"), testDish);
     }
 
 

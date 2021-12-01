@@ -109,7 +109,7 @@ public class InventoryList implements Serializable {
      * @param name The name of this inventory
      * @return the quantity of inventory required.
      */
-    public static double getTotalQuantity(String name){
+    public static int getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return 0;
@@ -122,7 +122,7 @@ public class InventoryList implements Serializable {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public String setQuantity(String name, double usage) {
+    public String setQuantity(String name, int usage) {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }

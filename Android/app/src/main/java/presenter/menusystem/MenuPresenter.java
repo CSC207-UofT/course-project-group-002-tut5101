@@ -37,13 +37,6 @@ public class MenuPresenter implements MenuOutputBoundary {
     }
 
 
-    /**
-     *
-     * @return the length of the dishList.
-     */
-    public int length(){
-        return dishList.size();
-    }
 
     /**
      * get string representation of dishes in menu from dishList use case
