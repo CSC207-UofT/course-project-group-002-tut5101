@@ -4,26 +4,32 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
+import controller.menusystem.DisplayMenuViewInterface;
+import controller.menusystem.MenuPresenter;
 
 
-public class SeeMenuActivity extends AppCompatActivity {
+public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuViewInterface {
+    private LinearLayout menuItemsLayout;
+    private MenuPresenter menuPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_menu);
 
-        // Get the menu as text and add it to the scroll view
+        menuPresenter.setDisplayDishesViewInterface(this);
+
+        menuPresenter.dishesInMenuAsString();
+
+        menuItemsLayout = findViewById(R.id.menuItemsLayout);
+    }
+
+    public void setMenuItemsText(String menuItems) {
         TextView menuItemsText = new TextView(this);
-        menuItemsText.setText(MainActivity.menuController.dishesInMenuAsString());
+        menuItemsText.setText(menuItems);
 
-        LinearLayout menuItems = findViewById(R.id.menuItemsLayout);
-        menuItems.addView(menuItemsText);
-
-
-        // Add menu items to scroll view;
+        menuItemsLayout.addView(menuItemsText);
     }
 
 

@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
+import com.example.androidgui.orderactivities.PlaceOrderActivity;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 
@@ -15,14 +16,16 @@ import constant.ordersystem.OrderType;
  * If the order is dine in, records the table number
  * If the order is delivery, records the delivery address
  */
-public class EnterLocationActivity extends AppCompatActivity {
+public class EnterLocationActivity extends AppCompatActivity{
     TextView askEnterAddressMessage;
     EditText enteredLocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_location);
+
 
         askEnterAddressMessage = findViewById(R.id.askEnterAddressMessage);
         String enterLocationMessage = "Please enter the table number or delivery address below";
