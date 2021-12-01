@@ -3,6 +3,8 @@ package entity.inventory;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Entity class for dairy soy.
  */
@@ -101,6 +103,10 @@ public class HasFreshness implements Inventory, Serializable {
         this.freshness = NewFreshness;
     }
 
+    /**
+     *
+     * @return the string representation of the inventory item
+     */
     @NonNull
     @Override
     public String toString(){
@@ -109,6 +115,17 @@ public class HasFreshness implements Inventory, Serializable {
 
     }
 
+    /**
+     * @param o object to compare to
+     * @return true if contents of inventory item (name, quantity, price, etc.) are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HasFreshness)) return false;
+        HasFreshness that = (HasFreshness) o;
+        return usedup == that.usedup && Double.compare(that.price, price) == 0 && quantity == that.quantity && ImportDate == that.ImportDate && Objects.equals(name, that.name) && Objects.equals(freshness, that.freshness);
+    }
 
 }
 
