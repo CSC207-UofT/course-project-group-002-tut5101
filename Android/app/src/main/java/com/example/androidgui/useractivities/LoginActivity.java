@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
 
+import com.example.androidgui.inventoryactivities.InventoryStarterActivity;
 import com.example.androidgui.kitchenactivities.KitchenActivity;
 import com.example.androidgui.R;
 import constant.mangersystem.UserType;
@@ -157,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
             case KITCHEN:
                 return KitchenActivity.class;
             case INVENTORY_STAFF:
-//                return InventoryStarterActivity.class;
+                return InventoryStarterActivity.class;
             case SERVING_STAFF:
 //                return ServeDishActivity.class;
         }

@@ -17,11 +17,6 @@ public class InventoryManager {
         this.inventories = new InventoryList();
     }
 
-    public InventoryManager(String filepath){
-        this.filepath = filepath;
-        this.inventories = new InventoryList();
-    }
-
 
 
     public String getInfo(String name){

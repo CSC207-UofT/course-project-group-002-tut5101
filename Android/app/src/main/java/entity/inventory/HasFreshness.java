@@ -74,15 +74,6 @@ public class HasFreshness implements Inventory, Serializable {
     }
 
 
-    /**
-     * Get the freshness of a Material
-     * @return The freshness of the Material as a string.
-     */
-
-
-    public String getFreshness(){
-        return this.freshness;
-    }
 
 
 
