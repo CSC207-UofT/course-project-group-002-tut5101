@@ -95,6 +95,14 @@ public class OrderTest {
         }
         catch (Exception ignored) {
         }
+
+        setUp();
+        try {
+            assertEquals(smallFries, sameDishOrder.setDishStatus("Small fries"));
+            assertNull(sameDishOrder.setDishStatus("Small fries"));
+        }
+        catch (Exception ignored) {
+        }
         setUp();
 
     }
