@@ -3,7 +3,7 @@ package use_case.dishlist;
 import androidx.annotation.NonNull;
 import constant.filesystem.FileLocation;
 import entity.orderlist.Dish;
-import use_case.customersystem.PlaceOrderOutputBoundary;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;

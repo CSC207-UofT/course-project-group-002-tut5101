@@ -1,13 +1,12 @@
 package presenter.customersystem;
 
 import android.content.Intent;
-import android.widget.TextView;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import use_case.boundary.input.PlaceOrderInputBoundary;
-import use_case.customersystem.PlaceOrder;
-import use_case.customersystem.PlaceOrderOutputBoundary;
+import use_case.placeorder.PlaceOrder;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 import use_case.dishlist.DishList;
 
 import java.text.DecimalFormat;

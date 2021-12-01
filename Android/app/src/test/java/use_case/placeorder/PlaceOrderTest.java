@@ -1,33 +1,34 @@
-package use_case;
+package use_case.placeorder;
 
-// Test for the PlaceOrder class
 
 
 import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.customersystem.PlaceOrder;
 import use_case.dishlist.DishList;
 import constant.ordersystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
+/**
+ * Test PlaceOrder class
+ */
 public class PlaceOrderTest {
     private PlaceOrder placeOrder;
 
-    Dish quarterPoundWithCheese;
-    Dish smallFries;
-    Dish coke;
-
+    /**
+     * Setup before tests
+     */
     @Before
     public void setUp() {
-        List<Dish> menu = generateDishList();
-        DishList dishList = new DishList(menu);
+        new DishList(generateDishList());
         placeOrder = new PlaceOrder();
     }
 
+    /**
+     * Test generateDishCopy method
+     */
     @Test
     public void testGenerateDishCopy() {
         Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
@@ -39,11 +40,12 @@ public class PlaceOrderTest {
 
 
     /**
-     * Test placing a dine in order with table number
+     * Test placing a Dine In order with table number
      */
     @Test(timeout = 50)
     public void testPlaceOrderDineInTrue(){
         String[] dishNames = new String[]{"Quarter pound with cheese", "Small fries", "Coke"};
+        String[] dishNames2 = new String[]{"Coke", "Coke"};
         String location = "1";
 
         try{
@@ -52,21 +54,18 @@ public class PlaceOrderTest {
         } catch (Exception ignored) {
             assert false;
         }
-//
-//        quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200, "Food");
-//        smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200, "Food");
-//        coke = new Dish("Coke", 10.0, new HashMap<>(), 180, "Non-Alc Drink");
-//
-//        HashMap<String, List<Dish>> dishes = new HashMap<>();
-//        dishes.put("Quarter pound with cheese", List.of(new Dish[]{quarterPoundWithCheese}));
-//        dishes.put("Small fries", List.of(new Dish[]{smallFries}));
-//        dishes.put("Coke", List.of(new Dish[]{coke}));
-//
-//        quarterPoundWithCheese.setTableNum(1);
-//        smallFries.setTableNum(1);
-//        coke.setTableNum(1);
-//
-//        assertEquals(1, placeOrder.getNextOrder().getTableNum());
+        try{
+            placeOrder.placeOrder(OrderType.DINE_IN, dishNames2, location);
+            assert true;
+        } catch (Exception ignored) {
+            assert false;
+        }
+        try{
+            placeOrder.placeOrder(OrderType.DINE_IN, dishNames, "blah");
+            assert false;
+        } catch (Exception ignored) {
+            assert true;
+        }
     }
 
 
@@ -85,16 +84,8 @@ public class PlaceOrderTest {
         } catch (Exception ignored) {
             assert false;
         }
-//
-//        HashMap<String, List<Dish>> dishes = new HashMap<>();
-//        dishes.put("Quarter pound with cheese", List.of(new Dish[]{new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200, "Food")}));
-//        dishes.put("Small fries", List.of(new Dish[]{new Dish("Small fries", 1.99, new HashMap<>(), 200, "Food")}));
-//        dishes.put("Coke", List.of(new Dish[]{new Dish("Coke", 10.0, new HashMap<>(), 180, "Non-Alc Drink")}));
-//        Order order = new Order(location, dishes);
-//
-//        assert(order.equals(OrderQueue.getNextOrder()));
-    }
 
+    }
 
 
 
