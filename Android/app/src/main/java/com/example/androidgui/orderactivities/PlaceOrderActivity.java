@@ -37,6 +37,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     private PlaceOrderPresenter placeOrderPresenter;
 
 
+    /**
+     * Method that runs on creation of this class
+     * @param savedInstanceState The saved state of this class
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +130,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     }
 
 
+    /**
+     * Set dish prices
+     * @param dishPrices prices of dishes ordered
+     */
     @Override
     public void setDishPrices(HashMap<String, Double> dishPrices) {
         this.dishPrices = dishPrices;
@@ -195,17 +203,11 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     }
 
-    public void runEditOrder() {
-        System.out.println("running edit order");
-
-        passInformationToEditOrder();
-
-    }
-
     /**
-     * pass information to the next activity
+     * pass information to the next activity and run the edit order activity
      */
-    private void passInformationToEditOrder() {
+    @Override
+    public void runEditOrder() {
         placeOrderPresenter.updateDishesOrdered();
         placeOrderPresenter.updateDishPrices();
 

@@ -50,10 +50,19 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     }
 
+    /**
+     * get dish price from dishList
+     * @param dishName name of dish to get price for
+     */
     private void getDishPrices(String dishName) {
         dishList.dishPrice(dishName);
     }
 
+    /**
+     * Add a dish price to the dishPrices hashmap
+     * @param dishName name of dish
+     * @param price price of dish
+     */
     public void addDishPrices(String dishName, double price) {
         dishPrices.put(dishName, price);
     }
@@ -75,9 +84,14 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     }
 
 
+    /**
+     * Set the dish prices
+     * @param dishPrices hashmap of dish name referring to price
+     */
     public void setDishPrices(HashMap<String, Double> dishPrices) {
         this.dishPrices = dishPrices;
     }
+
     /**
      * set the number of dishes ordered on view
      * @param size the number of dishes
@@ -121,6 +135,9 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         displayDishesOrdered();
     }
 
+    /**
+     * Collect all the dishes ordered and their prices and tell the view to display them
+     */
     public void displayDishesOrdered() {
         DecimalFormat df = new DecimalFormat("0.00");
         ArrayList<String> dishesString = new ArrayList<>();
@@ -158,7 +175,11 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             placeOrderInputBoundary.placeOrder(orderType, dishNames, location);
         }
 
-        public void collectRunPlaceOrderInformation(Intent intent) {
+    /**
+     * Collect the information needed to place an order from the view
+     * @param intent the object where information is stored
+     */
+    public void collectRunPlaceOrderInformation(Intent intent) {
             String [] dishes = collectDishes();
 
             OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
@@ -174,6 +195,10 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             }
         }
 
+    /**
+     * Collect array representation of dish names
+     * @return the array of dish names
+     */
     private String[] collectDishes() {
         ArrayList<String> collectDishes = new ArrayList<>();
         for (String dishName : dishesOrdered.keySet()) {
@@ -219,6 +244,9 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         placeOrderViewInterface.setDishesOrdered(dishesOrdered);
     }
 
+    /**
+     * update teh dish prices in the view
+     */
     public void updateDishPrices() {
         placeOrderViewInterface.setDishPrices(dishPrices);
     }
@@ -244,6 +272,9 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     }
 
 
+    /**
+     * Decide if the edit order activity should be shown on the view
+     */
     public void checkRunEditOrder() {
         if (!dishesOrdered.isEmpty()) {
             placeOrderViewInterface.runEditOrder();
