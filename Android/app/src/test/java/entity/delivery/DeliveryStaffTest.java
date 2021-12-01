@@ -8,25 +8,26 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import static org.junit.Assert.*;
 
+/**
+ * Test the DeliveryStaff class
+ */
 public class DeliveryStaffTest {
-    DeliveryStaff deliveryStaff;
-    DeliveryOrder deliveryOrder;
+    private DeliveryStaff deliveryStaff;
+    private DeliveryOrder deliveryOrder;
 
-    Dish quarterPoundWithCheese;
-    Dish smallFries;
-    Dish coke;
-
+    /**
+     * Run before the tests
+     */
     @Before
     public void setUp() {
         deliveryStaff = new DeliveryStaff("staffNumber", "staffName", "password");
 
-        quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
-        smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200);
-        coke = new Dish("Coke", 10.0, new HashMap<>(), 180);
+        Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
+        Dish smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200);
+        Dish coke = new Dish("Coke", 10.0, new HashMap<>(), 180);
 
         HashMap<String, List<Dish>> dishes = new HashMap<>();
         dishes.put("Quarter pound with cheese", Collections.singletonList(quarterPoundWithCheese));
@@ -36,6 +37,9 @@ public class DeliveryStaffTest {
         deliveryOrder = new DeliveryOrder("testing123", dishes);
     }
 
+    /**
+     * Test setting DeliveryStaff current order and checking if DeliveryStaff has order
+     */
     @Test(timeout = 50)
     public void testSetHasCurrentOrder() {
         boolean before = deliveryStaff.hasCurrentOrder();
@@ -45,6 +49,9 @@ public class DeliveryStaffTest {
         assertTrue(after);
     }
 
+    /**
+     * Test completeOrderDelivery method when there is no order and when there is an order
+     */
     @Test(timeout = 50)
     public void testCompleteOrderDelivery() {
         setUp();
@@ -72,6 +79,9 @@ public class DeliveryStaffTest {
 
     }
 
+    /**
+     * Test displayOrder method
+     */
     @Test(timeout = 50)
     public void testDisplayOrder() {
         setUp();

@@ -9,12 +9,11 @@ import static org.junit.Assert.assertTrue;
 /**
  * Tests for UseCase.Customer Class
  *
- * @author Chan Yu & Naihe Xiao
  */
 
 public class CustomerTest {
-    Customer customer1;
-    Customer customer2;
+    private Customer customer1;
+    private Customer customer2;
 
     /**
      * setup before tests

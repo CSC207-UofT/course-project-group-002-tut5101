@@ -20,6 +20,9 @@ public class HasFreshnessTest {
         hasFreshness = new HasFreshness("Test", 40.0, 20, "Fresh", 20220731);
     }
 
+    /**
+     * Test the getName method
+     */
     @Test(timeout = 50)
     public void testGetName() {
         String expected = "Test";
@@ -27,12 +30,18 @@ public class HasFreshnessTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test whether inventory item is used up
+     */
     @Test(timeout = 50)
     public void testGetUsedUp() {
         boolean actual = hasFreshness.getUsedUp();
         assertFalse(actual);
     }
 
+    /**
+     * Test the getQuantity method
+     */
     @Test(timeout = 50)
     public void testGetQuantity() {
         int expected = 20;
@@ -40,6 +49,9 @@ public class HasFreshnessTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test the updateQuantity method
+     */
     @Test(timeout = 50)
     public void testUpdateQuantity() {
         String expectedMessage = "Successfully updated";
@@ -59,6 +71,9 @@ public class HasFreshnessTest {
         assertTrue(actualUsedUp);
     }
 
+    /**
+     * Test the getFreshness method
+     */
     @Test(timeout = 50)
     public void testGetFreshness() {
         String expected = "Fresh";
@@ -67,6 +82,9 @@ public class HasFreshnessTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test the setFreshness method
+     */
     @Test(timeout = 50)
     public void testSetFreshness() {
         hasFreshness.setFreshness("Not Fresh");
@@ -76,6 +94,9 @@ public class HasFreshnessTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test the toString method
+     */
     @Test(timeout = 50)
     public void testToString() {
         String expected = "Test"+ ","+ 40.0 +
@@ -83,6 +104,5 @@ public class HasFreshnessTest {
         String actual = hasFreshness.toString();
         assertEquals(expected, actual);
     }
-
 
 }

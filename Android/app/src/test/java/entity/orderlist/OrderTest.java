@@ -16,12 +16,12 @@ import static org.junit.Assert.assertNull;
  */
 public class OrderTest {
 
-    DineInOrder dineInOrder;
-    DeliveryOrder deliveryOrder;
-    Order sameDishOrder;
-    Dish quarterPoundWithCheese;
-    Dish smallFries;
-    Dish coke;
+    private DineInOrder dineInOrder;
+    private DeliveryOrder deliveryOrder;
+    private Order sameDishOrder;
+    private Dish quarterPoundWithCheese;
+    private Dish smallFries;
+    private Dish coke;
 
     /**
      * setup before tests
@@ -90,7 +90,8 @@ public class OrderTest {
             e.printStackTrace();
         }
         try {
-            assertNull(deliveryOrder.setDishStatus("blah"));
+            deliveryOrder.setDishStatus("Small fries");
+            assertNull(deliveryOrder.setDishStatus("Small fries"));
         }
         catch (Exception ignored) {
         }
