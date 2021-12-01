@@ -12,5 +12,4 @@ import use_case.customersystem.PlaceOrderOutputBoundary;
 public interface PlaceOrderInputBoundary {
     void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception;
 
-    void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary);
 }

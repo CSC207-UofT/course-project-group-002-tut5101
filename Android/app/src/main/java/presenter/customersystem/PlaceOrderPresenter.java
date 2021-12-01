@@ -41,7 +41,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         this.dishesOrdered = new HashMap<>();
 
         this.placeOrderInputBoundary = new PlaceOrder();
-        placeOrderInputBoundary.setPlaceOrderOutputBoundary(this);
 
         this.dishList = new DishList();
         dishList.setPlaceOrderOutputBoundary(this);

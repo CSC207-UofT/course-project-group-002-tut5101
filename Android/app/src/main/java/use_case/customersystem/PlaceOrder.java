@@ -20,16 +20,11 @@ import java.util.*;
 public class PlaceOrder implements PlaceOrderInputBoundary {
 
     private final OrderFactory orderFactory;
-    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
 
     public PlaceOrder() {
         orderFactory = new OrderFactory();
     }
 
-    @Override
-    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
-        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
-    }
 
     /**
      * Places an order by creating copies of the dishes in the menu then adding them to a new order, then adding the
