@@ -11,8 +11,8 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import controller.customersystem.EditOrderPresenter;
-import controller.customersystem.EditOrderViewInterface;
+import presenter.customersystem.EditOrderPresenter;
+import presenter.customersystem.EditOrderViewInterface;
 
 import java.util.HashMap;
 

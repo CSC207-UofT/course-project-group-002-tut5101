@@ -6,8 +6,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.useractivities.CustomerPickActionActivity;
 import com.example.androidgui.useractivities.LoginActivity;
+import presenter.kitchensystem.KitchenFacade;
+import presenter.inventorysystem.InventoryManager;
+import presenter.kitchensystem.KitchenController;
+import presenter.loginsystem.LoginController;
+import presenter.managersystem.ManagerController;
+import presenter.menusystem.MenuPresenter;
+import presenter.reviewsystem.ReviewController;
+import presenter.staffsystem.StaffController;
 
 public class MainActivity extends AppCompatActivity {
+    public static InventoryManager inventoryManager = new InventoryManager();
+    public static final KitchenFacade kitchenFacade = new KitchenFacade();
+    public static KitchenController kitchenController = kitchenFacade.createKitchen();
+    public static LoginController loginController;
+    public static ManagerController managerController = new ManagerController();
+    public static final MenuPresenter menuController = new MenuPresenter();
+    public static ReviewController reviewController = new ReviewController();
+    public static StaffController staffController = new StaffController();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

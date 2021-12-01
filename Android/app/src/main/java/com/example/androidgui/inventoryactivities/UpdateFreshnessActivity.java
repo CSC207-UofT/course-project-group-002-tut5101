@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import controller.inventorysystem.InventoryManager;
+import presenter.inventorysystem.InventoryManager;
 
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener{
     Button btn;

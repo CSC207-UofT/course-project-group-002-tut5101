@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.ManagerUIMessage;
-import controller.menusystem.MenuPresenter;
+import presenter.menusystem.MenuPresenter;
 
 /**
  * Activity class for the manager to manage menu.

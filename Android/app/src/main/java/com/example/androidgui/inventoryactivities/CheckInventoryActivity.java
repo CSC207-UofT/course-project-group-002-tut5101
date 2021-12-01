@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 //import com.example.androidgui.inventory.PresentInventoryActivity;
 import com.example.androidgui.R;
-import controller.inventorysystem.InventoryManager;
+import presenter.inventorysystem.InventoryManager;
 
 
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener{
