@@ -205,7 +205,13 @@ public class DishList implements Serializable, Iterable<Dish> {
      * updates the array of dish names to be displayed
      */
     public void getAllDishNamesAsListForPresenter() {
-        placeOrderOutputBoundary.setDisplayedDishNames(dishNames);
+        ArrayList<String> dishNamesAndPrice = new ArrayList<>();
+        String nameAndPrice;
+        for (String name : dishNames) {
+            nameAndPrice = name + "   $" + Objects.requireNonNull(menu.get(name)).getPrice();
+            dishNamesAndPrice.add(nameAndPrice);
+        }
+        placeOrderOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
 
     /**
@@ -222,5 +228,10 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
+    }
+
+    public void dishPrice(String dishName) {
+        double price = Objects.requireNonNull(menu.get(dishName)).getPrice();
+        placeOrderOutputBoundary.addDishPrices(dishName, price);
     }
 }

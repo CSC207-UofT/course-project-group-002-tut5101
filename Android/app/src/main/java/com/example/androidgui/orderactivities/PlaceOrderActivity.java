@@ -51,6 +51,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         generateStartingInformation();
         collectDishInformation();
 
+        placeOrderPresenter.displayDishesOrdered();
     }
 
     /**
@@ -89,7 +90,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
         }
-
         placeOrderPresenter.setDishesOrdered(dishesOrdered);
     }
 
@@ -131,14 +131,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * display dishes ordered in the ordered dishes
-     * @param dishesOrdered dishes to display
+     * @param displayedText text to display
      */
-    public void displayDishesOrdered(HashMap<String, Integer> dishesOrdered) {
+    @Override
+    public void displayDishesOrdered(String[] displayedText) {
         orderedDishesLayout.removeAllViews();
-        for (String dishName : dishesOrdered.keySet()) {
+        for (String text : displayedText) {
             TextView displayedDish = new TextView(this);
-            String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
-            displayedDish.setText(dishNameAndQuantity);
+            displayedDish.setText(text);
             orderedDishesLayout.addView(displayedDish);
         }
     }

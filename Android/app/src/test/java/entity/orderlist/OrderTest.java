@@ -71,8 +71,7 @@ public class OrderTest {
         try {
             assertNull(dineInOrder.setDishStatus("blah"));
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ignored) {
         }
 
         setUp();
@@ -81,8 +80,7 @@ public class OrderTest {
         try {
             assertEquals(quarterPoundWithCheese, deliveryOrder.setDishStatus("Quarter pound with cheese"));
             assertEquals(ItemStatus.DISH_COOKED, quarterPoundWithCheese.getStatus());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
 
         try {
@@ -94,8 +92,7 @@ public class OrderTest {
         try {
             assertNull(deliveryOrder.setDishStatus("blah"));
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ignored) {
         }
         setUp();
 

@@ -1,6 +1,7 @@
 package controller.customersystem;
 
 import android.content.Intent;
+import android.widget.TextView;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
@@ -9,6 +10,7 @@ import use_case.customersystem.PlaceOrder;
 import use_case.customersystem.PlaceOrderOutputBoundary;
 import use_case.dishlist.DishList;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,6 +24,7 @@ import java.util.HashMap;
 public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
     private final DishList dishList;
 
 
@@ -48,6 +51,17 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     }
 
+    private void getDishPrices() {
+        dishPrices = new HashMap<>();
+        for (String dishName : dishesOrdered.keySet()) {
+            dishList.dishPrice(dishName);
+        }
+    }
+
+    public void addDishPrices(String dishName, double price) {
+        dishPrices.put(dishName, price);
+    }
+
     /**
      * set the PlaceOrderViewInterface attribute
      * @param placeOrderViewInterface the PlaceOrderViewInterface
@@ -63,6 +77,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
        this.dishesOrdered = dishesOrdered;
     }
+
 
     /**
      * set the number of dishes ordered on view
@@ -101,7 +116,25 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         }
         dishesOrdered.remove(dishName);
         dishesOrdered.put(dishName, dishQuantity);
-        placeOrderViewInterface.displayDishesOrdered(dishesOrdered);
+        getDishPrices();
+        displayDishesOrdered();
+    }
+
+    public void displayDishesOrdered() {
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        ArrayList<String> dishesString = new ArrayList<>();
+        double totalPrice = 0;
+        for (String dishName : dishesOrdered.keySet()) {
+            String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName) + "   $" +
+                    dishPrices.get(dishName) + "\t each";
+            dishesString.add(dishNameAndQuantity);
+            totalPrice += dishPrices.get(dishName) * 100;
+        }
+        totalPrice = totalPrice / 100;
+        String totalPriceText = "\n\nTOTAL PRICE: " + df.format(totalPrice);
+        dishesString.add(totalPriceText);
+        placeOrderViewInterface.displayDishesOrdered(dishesString.toArray(new String[0]));
     }
 
         /**
