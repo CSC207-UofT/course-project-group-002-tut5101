@@ -1,4 +1,4 @@
-package use_case;
+package userlist;
 
 import constant.mangersystem.UserType;
 import entity.User;
@@ -24,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 public class UserListTest {
 
     final UserList userList = new UserList(20);
+
     /**
      * Setting up the test.
      */
