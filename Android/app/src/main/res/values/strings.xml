@@ -89,5 +89,6 @@
     <string name="search">Search</string>
     <string name="dish_name">Dish Name</string>
     <string name="cooked">Cooked</string>
+    <string name="add_review">addReview</string>
 
 </resources>
