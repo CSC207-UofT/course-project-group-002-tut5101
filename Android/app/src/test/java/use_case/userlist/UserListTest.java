@@ -1,4 +1,4 @@
-package userlist;
+package use_case.userlist;
 
 import constant.mangersystem.UserType;
 import entity.User;
@@ -10,7 +10,6 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.userlist.UserList;
 
 //TODO: fix this test issue.
 
@@ -37,7 +36,7 @@ public class UserListTest {
         userList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
         userList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
         userList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
-        userList.addUser(new KitchenStaff("8", "Bob", "12345", 5000));
+        userList.addUser(new KitchenStaff("8", "Bob", "12345"));
         userList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
     }
 

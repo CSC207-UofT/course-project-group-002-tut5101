@@ -25,7 +25,7 @@ public class StaffTest {
     @Test(timeout = 50)
     public void testGetName() {
         assertEquals("Default entities.User", staff.getName());
-        staff = new Staff("1", "a", "1", 0);
+        staff = new Staff("1", "a", "1");
         assertEquals("a", staff.getName());
     }
 
@@ -36,40 +36,8 @@ public class StaffTest {
     @Test(timeout = 50)
     public void testGetStaffNumber() {
         assertEquals("defaultUserId", staff.getId());
-        staff = new Staff("1", "a", "1", 0);
+        staff = new Staff("1", "a", "1");
         assertEquals("1", staff.getId());
     }
 
-    /**
-     *
-     * Testing getStaffSalary method.
-     */
-    @Test(timeout = 50)
-    public void testGetStaffSalary() {
-        assertEquals(0, staff.getStaffSalary());
-        staff = new Staff("1", "a", "1", 10);
-        assertEquals(10, staff.getStaffSalary());
-    }
-
-    /**
-     *
-     * Testing increaseSalary method.
-     */
-    @Test(timeout = 50)
-    public void testIncreaseSalary() {
-        assertEquals(0, staff.getStaffSalary());
-        staff.increaseSalary(10);
-        assertEquals(10, staff.getStaffSalary());
-    }
-
-    /**
-     *
-     * Testing decreaseSalary method.
-     */
-    @Test(timeout = 50)
-    public void testDecreaseSalary() {
-        staff = new Staff("1", "a", "1", 20);
-        staff.decreaseSalary(10);
-        assertEquals(10, staff.getStaffSalary());
-    }
 }

@@ -37,7 +37,7 @@ public class ManagerController {
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
         userList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
-        userList.addUser(new KitchenStaff("4", "Bob", "12345", 5000));
+        userList.addUser(new KitchenStaff("4", "Bob", "12345"));
         userList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
         return userList;
     }
@@ -56,12 +56,11 @@ public class ManagerController {
      * @param newUserName name of new user
      * @param newUserPassword password of new user
      * @param userType type of new user
-     * @param salary salary of new user
      */
     public void enrollNewUser(String newUserId, String newUserName, String newUserPassword,
-                              String userType, String salary) {
+                              String userType) {
         enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword,
-                userType, Integer.parseInt(salary));
+                userType);
     }
 
     /**

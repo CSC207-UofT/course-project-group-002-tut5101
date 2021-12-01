@@ -116,21 +116,20 @@ public class UserList implements Serializable {
      * @param name name  of the new staff.
      * @param password password of the new staff.
      * @param userType type of the new staff.
-     * @param salary salary of the new staff.
      */
-    public void addStaff(String id, String name, String password, String userType, int salary) {
+    public void addStaff(String id, String name, String password, String userType) {
         switch (UserType.valueOf(userType)){
             case KITCHEN:
-                users.put(id, new KitchenStaff(id, name, password, salary));
+                users.put(id, new KitchenStaff(id, name, password));
                 break;
             case SERVING_STAFF:
-                users.put(id, new ServingStaff(id, name, password, salary));
+                users.put(id, new ServingStaff(id, name, password));
                 break;
             case DELIVERY_STAFF:
-                users.put(id, new DeliveryStaff(id, name, password, salary));
+                users.put(id, new DeliveryStaff(id, name, password));
                 break;
             case INVENTORY_STAFF:
-                users.put(id, new InventoryStaff(id, name, password, salary));
+                users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
     }
