@@ -21,8 +21,8 @@ public class StaffControllerTest {
     @Before
     public void setUp() {
         staff = new StaffController();
-        ServingStaff a = new ServingStaff("1", "a", "b", 10);
-        DeliveryStaff b = new DeliveryStaff("2", "b", "0", 10);
+        ServingStaff a = new ServingStaff("1", "a", "b");
+        DeliveryStaff b = new DeliveryStaff("2", "b", "0");
         userList.addUser(a);
         userList.addUser(b);
         Dish dish1 = new Dish("m", 10.0, new HashMap<>(), 0);

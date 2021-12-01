@@ -36,10 +36,10 @@ public class LoginController {
     private void generateUsers() {
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
-        userList.addUser(new DeliveryStaff("2", "Amy", "12345", 3500));
-        userList.addUser(new ServingStaff("3", "Eve", "12345", 3665));
+        userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
+        userList.addUser(new ServingStaff("3", "Eve", "12345"));
         userList.addUser(new KitchenStaff("4", "Bob", "12345"));
-        userList.addUser(new InventoryStaff("5", "Frank", "12345", 3600));
+        userList.addUser(new InventoryStaff("5", "Frank", "12345"));
     }
 
     /**

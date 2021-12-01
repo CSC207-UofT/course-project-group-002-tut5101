@@ -33,11 +33,11 @@ public class UserListTest {
         userList.addUser(new Customer("2", "James", "12345"));
         userList.addUser(new Customer("3", "Steve", "12345"));
         userList.addUser(new Customer("4", "David", "12345"));
-        userList.addUser(new DeliveryStaff("5", "Amy", "12345", 3500));
-        userList.addUser(new ServingStaff("6", "Eve", "12345", 3665));
-        userList.addUser(new ServingStaff("7", "Alice", "12345", 3700));
+        userList.addUser(new DeliveryStaff("5", "Amy", "12345"));
+        userList.addUser(new ServingStaff("6", "Eve", "12345"));
+        userList.addUser(new ServingStaff("7", "Alice", "12345"));
         userList.addUser(new KitchenStaff("8", "Bob", "12345"));
-        userList.addUser(new InventoryStaff("9", "Frank", "12345", 3600));
+        userList.addUser(new InventoryStaff("9", "Frank", "12345"));
     }
 
     /**
@@ -83,8 +83,8 @@ public class UserListTest {
      */
     @Test
     public void testAddStaff() {
-        userList.addStaff("21", "May", "32345", "KITCHEN", 200);
-        userList.addStaff("20", "April", "22345", "DELIVERY_STAFF", 100);
+        userList.addStaff("21", "May", "32345", "KITCHEN");
+        userList.addStaff("20", "April", "22345", "DELIVERY_STAFF");
         assertEquals(userList.length(), 11);
     }
 
