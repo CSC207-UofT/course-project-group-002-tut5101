@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
-import controller.menusystem.MenuPresenter;
+import presenter.menusystem.MenuPresenter;
 
 import java.util.Objects;
 

@@ -11,8 +11,8 @@ import com.example.androidgui.R;
 import com.example.androidgui.useractivities.EnterLocationActivity;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import controller.customersystem.DineInTakeOutPresenter;
-import controller.customersystem.SelectDineInTakeOutViewInterface;
+import presenter.customersystem.DineInTakeOutPresenter;
+import presenter.customersystem.SelectDineInTakeOutViewInterface;
 
 
 /**

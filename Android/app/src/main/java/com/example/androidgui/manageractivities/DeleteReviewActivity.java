@@ -12,7 +12,7 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
-import controller.reviewsystem.ReviewController;
+import presenter.reviewsystem.ReviewController;
 
 import java.util.Objects;
 

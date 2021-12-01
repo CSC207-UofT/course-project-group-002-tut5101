@@ -1,4 +1,4 @@
-package controller.inventorysystem;
+package presenter.inventorysystem;
 
 
 import constant.filesystem.FileLocation;

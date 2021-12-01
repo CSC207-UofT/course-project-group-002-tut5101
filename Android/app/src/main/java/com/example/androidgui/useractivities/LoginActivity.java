@@ -15,7 +15,7 @@ import constant.mangersystem.UserType;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
 import constant.uimessage.LoginResult;
-import controller.loginsystem.LoginController;
+import presenter.loginsystem.LoginController;
 import use_case.boundary.output.LoginOutputBoundary;
 
 import java.lang.reflect.GenericDeclaration;

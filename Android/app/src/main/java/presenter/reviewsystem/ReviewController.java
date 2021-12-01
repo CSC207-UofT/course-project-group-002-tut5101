@@ -1,4 +1,4 @@
-package controller.reviewsystem;
+package presenter.reviewsystem;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;

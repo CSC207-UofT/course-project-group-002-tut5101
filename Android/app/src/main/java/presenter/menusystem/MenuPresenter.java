@@ -1,4 +1,4 @@
-package controller.menusystem;
+package presenter.menusystem;
 
 import entity.orderlist.Dish;
 import use_case.dishlist.DishList;
@@ -17,6 +17,9 @@ public class MenuPresenter implements MenuOutputBoundary {
     public final DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
 
+    /**
+     * Presenter class for menu.
+     */
     public MenuPresenter(){
         dishList = new DishList("src/main/resources/menu.ser");
         dishList.setMenuOutputBoundary(this);
@@ -25,15 +28,19 @@ public class MenuPresenter implements MenuOutputBoundary {
         generateDishList();
     }
 
-
+    /**
+     * Setting up the DisplayDishesViewInterface.
+     * @param displayMenuViewInterface
+     */
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;
     }
 
-    public Dish passDishByString(String dishName){
-        return DishList.getDishByDishName(dishName);
-    }
 
+    /**
+     *
+     * @return the length of the dishList.
+     */
     public int length(){
         return dishList.size();
     }

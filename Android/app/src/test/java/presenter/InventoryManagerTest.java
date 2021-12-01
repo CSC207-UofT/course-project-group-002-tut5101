@@ -1,6 +1,6 @@
-package controller;
+package presenter;
 
-import controller.inventorysystem.InventoryManager;
+import presenter.inventorysystem.InventoryManager;
 
 import org.junit.Test;
 

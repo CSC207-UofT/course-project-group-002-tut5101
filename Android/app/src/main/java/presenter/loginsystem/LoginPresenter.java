@@ -1,4 +1,4 @@
-package presenter;
+package presenter.loginsystem;
 
 import constant.uimessage.LoginResult;
 import use_case.boundary.output.LoginOutputBoundary;

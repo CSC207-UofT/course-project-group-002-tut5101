@@ -1,4 +1,4 @@
-package controller.kitchensystem;
+package presenter.kitchensystem;
 
 import use_case.dishlist.DishList;
 import use_case.kitchen.InventoryList;

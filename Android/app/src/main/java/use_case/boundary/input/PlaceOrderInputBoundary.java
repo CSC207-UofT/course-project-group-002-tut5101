@@ -1,7 +1,6 @@
 package use_case.boundary.input;
 
 import constant.ordersystem.OrderType;
-import controller.customersystem.PlaceOrderPresenter;
 import use_case.customersystem.PlaceOrderOutputBoundary;
 
 /**

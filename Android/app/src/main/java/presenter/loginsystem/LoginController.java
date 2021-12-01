@@ -1,4 +1,4 @@
-package controller.loginsystem;
+package presenter.loginsystem;
 
 import constant.mangersystem.UserType;
 import entity.customer.Customer;

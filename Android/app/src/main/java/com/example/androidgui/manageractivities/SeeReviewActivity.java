@@ -5,7 +5,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import controller.reviewsystem.ReviewController;
+import presenter.reviewsystem.ReviewController;
 
 /**
  * Activity class for the manager to see the reviews, and thus decide to delete the reviews or not.

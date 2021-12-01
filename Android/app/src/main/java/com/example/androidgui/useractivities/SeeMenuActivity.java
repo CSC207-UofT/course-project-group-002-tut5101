@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import controller.menusystem.DisplayMenuViewInterface;
-import controller.menusystem.MenuPresenter;
+import presenter.menusystem.DisplayMenuViewInterface;
+import presenter.menusystem.MenuPresenter;
 
 
 public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuViewInterface {

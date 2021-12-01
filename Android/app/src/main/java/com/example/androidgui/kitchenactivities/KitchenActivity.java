@@ -4,8 +4,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import controller.kitchensystem.KitchenFacade;
-import controller.kitchensystem.KitchenController;
+import presenter.kitchensystem.KitchenFacade;
+import presenter.kitchensystem.KitchenController;
 
 import java.util.ArrayList;
 
