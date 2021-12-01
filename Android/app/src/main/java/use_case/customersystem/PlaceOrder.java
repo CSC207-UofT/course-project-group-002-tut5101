@@ -20,7 +20,6 @@ import java.util.*;
 public class PlaceOrder implements PlaceOrderInputBoundary {
 
     private final OrderFactory orderFactory;
-    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
 
     public PlaceOrder() {
         orderFactory = new OrderFactory();
@@ -28,7 +27,6 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
 
     @Override
     public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
-        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
     }
 
     /**

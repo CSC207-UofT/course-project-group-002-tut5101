@@ -12,7 +12,9 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
+import presenter.managersystem.DeleteReviewViewInterface;
 import presenter.reviewsystem.ReviewController;
+import presenter.reviewsystem.DeleteReviewPresenter;
 
 import java.util.Objects;
 
@@ -20,10 +22,10 @@ import java.util.Objects;
  *
  * Activity class for deleting reviews.
  */
-public class DeleteReviewActivity extends AppCompatActivity {
-    NumberPicker selectAction;
-    TextView askDeleteCriteria;
-    String[] managerDecision;
+public class DeleteReviewActivity extends AppCompatActivity implements DeleteReviewViewInterface {
+    private NumberPicker selectAction;
+    private String[] managerDecision;
+    private DeleteReviewPresenter deleteReviewPresenter;
     final ReviewController reviewController = new ReviewController();
 
 
@@ -37,7 +39,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_review);
         selectAction = findViewById(R.id.selectAction);
-        askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
+        TextView askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
         String askingDeleteCriteria = ManagerUIMessage.DELETE_REVIEW;
         askDeleteCriteria.setText(askingDeleteCriteria);
         managerDecision = new String[]{ManagerDecision.ONE.name(), ManagerDecision.TWO.name(),
