@@ -97,8 +97,7 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         managerController.enrollNewUser(editTextUserId.getText().toString(),
                 editTextUserName.getText().toString(),
                 editTextPassword.getText().toString(),
-                numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()],
-                editNumSalary.getText().toString());
+                numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()]);
 
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(EnrollUserMessage.SUCCEED)

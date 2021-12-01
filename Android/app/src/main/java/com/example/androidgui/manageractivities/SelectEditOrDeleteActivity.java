@@ -12,7 +12,6 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
 import controller.menusystem.MenuPresenter;
-import entity.orderlist.Dish;
 
 import java.util.Objects;
 
@@ -48,12 +47,16 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
         selectEditOrDelete.setDisplayedValues(selectOption);
     }
 
+    /**
+     * Manager selects manage menu.
+     *
+     * @param v android view.
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void manageMenu(View v){
         String action = selectOption[selectEditOrDelete.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        Dish dish = menuPresenter.passDishByString(dishName);
         if (Objects.equals(action,ManagerDecision.EDIT.toString())){
             menuPresenter.deleteDishByName(dishName);
         }

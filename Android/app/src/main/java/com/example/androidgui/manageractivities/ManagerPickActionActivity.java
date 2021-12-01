@@ -46,10 +46,6 @@ public class ManagerPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void AddDish(View v){
-        Intent intent = new Intent(ManagerPickActionActivity.this, AddDishActivity.class);
-        startActivity(intent);
-    }
     
     public void selectExit(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, MainActivity.class);
