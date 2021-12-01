@@ -74,7 +74,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
      */
     public Dish generateDishCopy(String dishName, String location, OrderType orderType){
         double price = DishList.getDishPrice(dishName);
-        HashMap<String, Double> ingredients = DishList.getDishIngredients(dishName);
+        HashMap<String, Integer> ingredients = DishList.getDishIngredients(dishName);
         double calories = DishList.getDishCalories(dishName);
 //        String category = DishList.getDishCategory(dishName);
 

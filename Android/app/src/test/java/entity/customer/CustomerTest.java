@@ -1,6 +1,5 @@
 package entity.customer;
 
-import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;
 

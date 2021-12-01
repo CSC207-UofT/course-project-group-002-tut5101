@@ -9,10 +9,10 @@ import java.io.Serializable;
 
 
 public class HasFreshness implements Inventory, Serializable {
-    public final String name;
+    private final String name;
     private boolean usedup;
     private final double price;
-    private double quantity;
+    private int quantity;
     private String freshness;
     private final int ImportDate;
 
@@ -26,7 +26,7 @@ public class HasFreshness implements Inventory, Serializable {
      * @param ImportDate The ImportDate of the Material
      */
 
-    public HasFreshness(String name, double price, double quantity, String freshness,
+    public HasFreshness(String name, double price, int quantity, String freshness,
                         int ImportDate){
         this.name = name;
         this.price = price;
@@ -36,11 +36,17 @@ public class HasFreshness implements Inventory, Serializable {
         this.usedup = quantity == 0;
     }
 
+    /**
+     * @return the name of the item
+     */
     @Override
     public String getName(){return this.name;}
 
+    /**
+     * @return if the item is used up
+     */
     @Override
-    public boolean getUsedup(){
+    public boolean getUsedUp(){
         return this.usedup;
     }
 
@@ -50,17 +56,17 @@ public class HasFreshness implements Inventory, Serializable {
      * @return The quantity of the Inventory as a double.
      */
     @Override
-    public double getQuantity(){
+    public int getQuantity(){
         return this.quantity;
     }
 
     /**
-     * Check wether have enough Inventory for use and change the amount of it
+     * Check whether have enough Inventory for use and change the amount of it
      * @param usage The required amount of usage of this inventory
-     * @return Wether the inventory is enough to use.
+     * @return Whether the inventory is enough to use.
      */
     @Override
-    public String updateQuantity(double usage){
+    public String updateQuantity(int usage){
         String message;
         if(this.quantity >= usage){
             this.quantity -= usage;

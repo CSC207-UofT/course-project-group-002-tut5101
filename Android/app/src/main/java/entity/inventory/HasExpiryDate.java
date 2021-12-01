@@ -10,11 +10,11 @@ import java.io.Serializable;
  */
 
 public class HasExpiryDate implements Inventory, Serializable {
-    public final String name;
-    protected boolean usedup;
-    protected final double price;
-    protected double quantity;
-    public final int ExpiryDate;
+    private final String name;
+    private boolean usedup;
+    private final double price;
+    private int quantity;
+    private final int ExpiryDate;
 
     /**
      * Construct an instance of Product
@@ -24,18 +24,25 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @param ExpiryDate The ExiryDate of the Product
      */
 
-    public HasExpiryDate(String name, double price, double quantity, int ExpiryDate){
+    public HasExpiryDate(String name, double price, int quantity, int ExpiryDate){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.ExpiryDate = ExpiryDate;
         this.usedup = quantity == 0;
     }
+
+    /**
+     * @return the name of the item
+     */
     @Override
     public String getName(){return this.name;}
 
+    /**
+     * @return whether the item has been used up
+     */
     @Override
-    public boolean getUsedup(){
+    public boolean getUsedUp(){
         return this.usedup;
     }
 
@@ -45,7 +52,7 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return The quantity of the Inventory as a double.
      */
     @Override
-    public double getQuantity(){
+    public int getQuantity(){
         return this.quantity;
     }
 
@@ -55,7 +62,7 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return Whether the inventory is enough to use.
      */
     @Override
-    public String updateQuantity(double usage){
+    public String updateQuantity(int usage){
         String message;
         if(this.quantity >= usage){
             this.quantity -= usage;

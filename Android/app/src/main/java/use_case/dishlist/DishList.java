@@ -106,7 +106,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dishName The name of the dish to be look up
      * @return The hashMap representing the ingredients and their amount needed for the dish named dishName
      */
-    public static HashMap<String, Double> getDishIngredients(String dishName) {
+    public static HashMap<String, Integer> getDishIngredients(String dishName) {
         return Objects.requireNonNull(menu.get(dishName)).getIngredients();
     }
 

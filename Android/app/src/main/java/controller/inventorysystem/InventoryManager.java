@@ -47,7 +47,7 @@ public class InventoryManager {
 
     public String newQuantity(String name, String usage,InventoryOutputBoundary boundary){
         this.inventories.setBoundary(boundary);
-        double u = Double.parseDouble(usage);
+        int u = Integer.parseInt(usage);
         return inventories.setQuantity(name, u);
     }
 
