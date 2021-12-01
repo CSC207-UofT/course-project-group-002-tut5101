@@ -143,12 +143,12 @@ public class KitchenController {
         HashMap<String, Integer> ingredientInfo = DishList.getDishIngredients(dishName);
 
         for (String dish: ingredientInfo.keySet()) {
-            double oriQuantity = InventoryList.getTotalQuantity(dish);
-            Double temp = ingredientInfo.get(dish);
-            if (temp != null){
+            int oriQuantity = InventoryList.getTotalQuantity(dish);
+            int temp = ingredientInfo.get(dish);
+            if (temp != 0){
                 this.inventories.setQuantity(dish, oriQuantity - temp);
             }
-            int oriQuantity = InventoryList.getTotalQuantity(dish);
+            oriQuantity = InventoryList.getTotalQuantity(dish);
             this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
         }
     }

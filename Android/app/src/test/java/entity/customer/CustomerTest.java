@@ -30,8 +30,8 @@ public class CustomerTest {
      */
     @Test(timeout = 50)
     public void testCustomerConstructor1() {
-        assertEquals(customer1.getId(), "defaultuserid");
-        assertEquals(customer1.getName(), "Default entities.User");
+        assertEquals("defaultUserId", customer1.getId());
+        assertEquals("Default entities.User", customer1.getName());
         assertTrue(customer1.passwordMatches("12345"));
     }
 
@@ -40,8 +40,8 @@ public class CustomerTest {
      */
     @Test(timeout = 50)
     public void testCustomerConstructor2() {
-        assertEquals(customer2.getId(), "2");
-        assertEquals(customer2.getName(), "NaiHe");
+        assertEquals("2", customer2.getId());
+        assertEquals("NaiHe", customer2.getName());
         assertTrue(customer2.passwordMatches("12345"));
     }
 
@@ -52,10 +52,6 @@ public class CustomerTest {
     public void testCustomerToString() {
         String expected = "(UseCase.Customer) " + "NaiHe" + ": {" +
                 "id='" + 2 + '\'' +
-                ", address='" + "Toronto" + '\'' +
-                ", gender='" + "N/A" + '\'' +
-                ", phone='" + "12306" + '\'' +
-                ", email='" + "defaultemail@gmail.com" + '\'' +
                 '}';
         assertEquals(expected, customer2.toString());
     }
