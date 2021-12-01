@@ -119,28 +119,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         return Objects.requireNonNull(menu.get(dishName)).getCalories();
     }
 
-
-    /**
-     * Return the size of the menu (how many dishes in the menu)
-     * @return The number of dishes in the menu
-     */
-    public int size() {
-        return menu.size();
-    }
-
-    /**
-     * Get the dishNames from integer(index)
-     * @param orderedNum The dish numbered in the arrayList data structure to store
-     * @return The dish
-     */
-    public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
-        List<String> dishes = new ArrayList<>();
-        for (int num : orderedNum) {
-            dishes.add(keySet.get(num));
-        }
-        return dishes;
-    }
-
     /**
      * Returns an iterator for this dishList.
      *
@@ -179,15 +157,6 @@ public class DishList implements Serializable, Iterable<Dish> {
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
         dishNames = menu.keySet().toArray(new String[0]);
-    }
-
-    /**
-     * Get Dish by dish name
-     * @param dishName name of the dish
-     * @return the Dish object
-     */
-    public static Dish getDishByDishName(String dishName) {
-        return menu.get(dishName);
     }
 
 
