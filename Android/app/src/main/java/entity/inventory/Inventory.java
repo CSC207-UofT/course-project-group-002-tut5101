@@ -14,7 +14,7 @@ public interface Inventory extends Serializable {
 
     String getName();
 
-    boolean getUsedup();
+    boolean getUsedUp();
 
 
     /**
@@ -22,7 +22,7 @@ public interface Inventory extends Serializable {
      * @return The quantity of the Inventory as a double.
      */
 
-    double getQuantity();
+    int getQuantity();
 
     /**
      * Check whether have enough Inventory for use and change the amount of it
@@ -30,7 +30,7 @@ public interface Inventory extends Serializable {
      * Whether the inventory is enough to use.
      */
 
-    String updateQuantity(double usage);
+    String updateQuantity(int usage);
 
 
     @NonNull

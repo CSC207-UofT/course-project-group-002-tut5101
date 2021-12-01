@@ -9,7 +9,7 @@ public class InventoryFactory {
         if(paras.length == 5){
                 String name = paras[0];
                 double price = Double.parseDouble(paras[1]);
-                double quantity = Double.parseDouble(paras[2]);
+                int quantity = Integer.parseInt(paras[2]);
                 String freshness = paras[3];
                 int importdate = Integer.parseInt(paras[4]);
                 return new HasFreshness(name, price, quantity, freshness, importdate);
@@ -18,7 +18,7 @@ public class InventoryFactory {
         else if(paras.length == 4){
                 String name = paras[0];
                 double price = Double.parseDouble(paras[1]);
-                double quantity = Double.parseDouble(paras[2]);
+                int quantity = Integer.parseInt(paras[2]);
                 int expiry = Integer.parseInt(paras[3]);
                 return new HasExpiryDate(name, price, quantity, expiry);
             }

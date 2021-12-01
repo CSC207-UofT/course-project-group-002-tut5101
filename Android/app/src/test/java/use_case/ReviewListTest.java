@@ -15,16 +15,5 @@ public class ReviewListTest {
     }
 
 
-    @Test
-    public void testReadFromFile(){
-
-        ReviewList rl = new ReviewList();
-        System.out.println(rl);
-    }
-
-    @Test
-    public void testToString(){
-        System.out.println(rl);
-    }
 
 }

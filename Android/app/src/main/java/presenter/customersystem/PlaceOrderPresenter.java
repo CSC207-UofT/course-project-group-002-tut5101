@@ -5,10 +5,11 @@ import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import use_case.boundary.input.PlaceOrderInputBoundary;
-import use_case.customersystem.PlaceOrder;
-import use_case.customersystem.PlaceOrderOutputBoundary;
+import use_case.placeorder.PlaceOrder;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 import use_case.dishlist.DishList;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,6 +23,7 @@ import java.util.HashMap;
 public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
     private final DishList dishList;
 
 
@@ -38,7 +40,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         this.dishesOrdered = new HashMap<>();
 
         this.placeOrderInputBoundary = new PlaceOrder();
-        placeOrderInputBoundary.setPlaceOrderOutputBoundary(this);
 
         this.dishList = new DishList();
         dishList.setPlaceOrderOutputBoundary(this);
@@ -46,6 +47,23 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         //TODO: Delete later
         generateDishList();
 
+    }
+
+    /**
+     * get dish price from dishList
+     * @param dishName name of dish to get price for
+     */
+    private void getDishPrices(String dishName) {
+        dishList.dishPrice(dishName);
+    }
+
+    /**
+     * Add a dish price to the dishPrices hashmap
+     * @param dishName name of dish
+     * @param price price of dish
+     */
+    public void addDishPrices(String dishName, double price) {
+        dishPrices.put(dishName, price);
     }
 
     /**
@@ -62,6 +80,15 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
      */
     public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
        this.dishesOrdered = dishesOrdered;
+    }
+
+
+    /**
+     * Set the dish prices
+     * @param dishPrices hashmap of dish name referring to price
+     */
+    public void setDishPrices(HashMap<String, Double> dishPrices) {
+        this.dishPrices = dishPrices;
     }
 
     /**
@@ -99,9 +126,39 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
                 dishQuantity = quantity + dishQuantity;
             }
         }
+        else {
+            getDishPrices(dishName);
+        }
         dishesOrdered.remove(dishName);
         dishesOrdered.put(dishName, dishQuantity);
-        placeOrderViewInterface.displayDishesOrdered(dishesOrdered);
+        displayDishesOrdered();
+    }
+
+    /**
+     * Collect all the dishes ordered and their prices and tell the view to display them
+     */
+    public void displayDishesOrdered() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        ArrayList<String> dishesString = new ArrayList<>();
+        double totalPrice = 0;
+        for (String dishName : dishesOrdered.keySet()) {
+            Integer tempQuantity = dishesOrdered.get(dishName);
+            Double tempPrice = dishPrices.get(dishName);
+            if (tempQuantity != null && tempPrice != null){
+                int quantity = tempQuantity;
+                double price = tempPrice;
+                String dishNameAndQuantity = dishName + " x " + quantity + "   $" +
+                        price + "\t each";
+                dishesString.add(dishNameAndQuantity);
+                for (int i = 1; i <= quantity; i++) {
+                    totalPrice += price * 100;
+                }
+            }
+        }
+        totalPrice = totalPrice / 100;
+        String totalPriceText = "\n\nTOTAL PRICE: " + df.format(totalPrice);
+        dishesString.add(totalPriceText);
+        placeOrderViewInterface.displayDishesOrdered(dishesString.toArray(new String[0]));
     }
 
         /**
@@ -117,7 +174,11 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             placeOrderInputBoundary.placeOrder(orderType, dishNames, location);
         }
 
-        public void collectRunPlaceOrderInformation(Intent intent) {
+    /**
+     * Collect the information needed to place an order from the view
+     * @param intent the object where information is stored
+     */
+    public void collectRunPlaceOrderInformation(Intent intent) {
             String [] dishes = collectDishes();
 
             OrderType orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
@@ -133,6 +194,10 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             }
         }
 
+    /**
+     * Collect array representation of dish names
+     * @return the array of dish names
+     */
     private String[] collectDishes() {
         ArrayList<String> collectDishes = new ArrayList<>();
         for (String dishName : dishesOrdered.keySet()) {
@@ -178,6 +243,13 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         placeOrderViewInterface.setDishesOrdered(dishesOrdered);
     }
 
+    /**
+     * update teh dish prices in the view
+     */
+    public void updateDishPrices() {
+        placeOrderViewInterface.setDishPrices(dishPrices);
+    }
+
     // TODO: Delete hardcoded dishes later
     //Hardcoded dishList for testing
 
@@ -199,6 +271,16 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     }
 
 
-
+    /**
+     * Decide if the edit order activity should be shown on the view
+     */
+    public void checkRunEditOrder() {
+        if (!dishesOrdered.isEmpty()) {
+            placeOrderViewInterface.runEditOrder();
+        }
+        else {
+            placeOrderViewInterface.setErrorMessage("No Dishes Ordered");
+        }
+    }
 }
 

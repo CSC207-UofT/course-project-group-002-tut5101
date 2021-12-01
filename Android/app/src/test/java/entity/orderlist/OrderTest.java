@@ -16,12 +16,12 @@ import static org.junit.Assert.assertNull;
  */
 public class OrderTest {
 
-    DineInOrder dineInOrder;
-    DeliveryOrder deliveryOrder;
-    Order sameDishOrder;
-    Dish quarterPoundWithCheese;
-    Dish smallFries;
-    Dish coke;
+    private DineInOrder dineInOrder;
+    private DeliveryOrder deliveryOrder;
+    private Order sameDishOrder;
+    private Dish quarterPoundWithCheese;
+    private Dish smallFries;
+    private Dish coke;
 
     /**
      * setup before tests
@@ -71,8 +71,7 @@ public class OrderTest {
         try {
             assertNull(dineInOrder.setDishStatus("blah"));
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ignored) {
         }
 
         setUp();
@@ -81,8 +80,7 @@ public class OrderTest {
         try {
             assertEquals(quarterPoundWithCheese, deliveryOrder.setDishStatus("Quarter pound with cheese"));
             assertEquals(ItemStatus.DISH_COOKED, quarterPoundWithCheese.getStatus());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
 
         try {
@@ -92,10 +90,18 @@ public class OrderTest {
             e.printStackTrace();
         }
         try {
-            assertNull(deliveryOrder.setDishStatus("blah"));
+            deliveryOrder.setDishStatus("Small fries");
+            assertNull(deliveryOrder.setDishStatus("Small fries"));
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ignored) {
+        }
+
+        setUp();
+        try {
+            assertEquals(smallFries, sameDishOrder.setDishStatus("Small fries"));
+            assertNull(sameDishOrder.setDishStatus("Small fries"));
+        }
+        catch (Exception ignored) {
         }
         setUp();
 

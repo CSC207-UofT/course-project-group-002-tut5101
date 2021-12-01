@@ -83,7 +83,7 @@
         <activity android:name=".orderactivities.SelectDineInTakeOutActivity"
                   android:exported="true">
         </activity>
-        <activity android:name=".useractivities.EnterLocationActivity"
+        <activity android:name=".orderactivities.EnterLocationActivity"
                   android:exported="true">
         </activity>
         <activity

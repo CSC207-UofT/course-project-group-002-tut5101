@@ -18,17 +18,18 @@ public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_menu);
 
+        menuPresenter = new MenuPresenter();
         menuPresenter.setDisplayDishesViewInterface(this);
 
         menuPresenter.dishesInMenuAsString();
 
-        menuItemsLayout = findViewById(R.id.menuItemsLayout);
     }
 
     public void setMenuItemsText(String menuItems) {
         TextView menuItemsText = new TextView(this);
         menuItemsText.setText(menuItems);
 
+        menuItemsLayout = findViewById(R.id.menuItemsLayout);
         menuItemsLayout.addView(menuItemsText);
     }
 

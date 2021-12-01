@@ -30,12 +30,12 @@ public class ReviewList implements Serializable {
      * @param r is the review to add in the list
      */
     public void addReview(Review r) {
-        if(reviews.containsKey(r.addRate())){
-            Objects.requireNonNull(reviews.get(r.addRate())).add(r);
+        if(reviews.containsKey(r.getRate())){
+            Objects.requireNonNull(reviews.get(r.getRate())).add(r);
         } else {
             ArrayList<Review> review = new ArrayList<>();
             review.add(r);
-            reviews.put(r.addRate(), review);
+            reviews.put(r.getRate(), review);
         }
     }
 
