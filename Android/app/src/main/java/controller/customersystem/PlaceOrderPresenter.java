@@ -122,14 +122,17 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
 
     public void displayDishesOrdered() {
         DecimalFormat df = new DecimalFormat("0.00");
-
+        getDishPrices();
         ArrayList<String> dishesString = new ArrayList<>();
         double totalPrice = 0;
         for (String dishName : dishesOrdered.keySet()) {
-            String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName) + "   $" +
+            int quantity = dishesOrdered.get(dishName);
+            String dishNameAndQuantity = dishName + " x " + quantity + "   $" +
                     dishPrices.get(dishName) + "\t each";
             dishesString.add(dishNameAndQuantity);
-            totalPrice += dishPrices.get(dishName) * 100;
+            for (int i = 1; i <= quantity; i++) {
+                totalPrice += dishPrices.get(dishName) * 100;
+            }
         }
         totalPrice = totalPrice / 100;
         String totalPriceText = "\n\nTOTAL PRICE: " + df.format(totalPrice);
