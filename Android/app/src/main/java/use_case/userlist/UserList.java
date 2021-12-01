@@ -34,6 +34,14 @@ public class UserList implements Serializable {
         users = new HashMap<>(i);
     }
 
+    /**
+     *
+     * @return the length of the user list.
+     */
+    public int length(){
+        return users.size();
+    }
+
 
     /**
      * Add user to this user list.
@@ -44,24 +52,6 @@ public class UserList implements Serializable {
         users.put(user.getId(), user);
     }
 
-
-//    /**
-//     *
-//     * @param id id of the new user.
-//     * @param name name of the new user.
-//     * @param password password of the new user.
-//     * @return a string representation of the new user.
-//     */
-//    public String addNewUser(String id, String name, String password) {
-//        User user = new Customer(id, name, password);
-//        if (users.containsKey(user.getId())) {
-//            return "Used id, please change";
-//        } else {
-//            users.put(user.getId(), user);
-//            return "Successfully added";
-//        }
-
-//    }
 
     /**
      * Return user by its id
@@ -126,21 +116,20 @@ public class UserList implements Serializable {
      * @param name name  of the new staff.
      * @param password password of the new staff.
      * @param userType type of the new staff.
-     * @param salary salary of the new staff.
      */
-    public void addStaff(String id, String name, String password, String userType, int salary) {
+    public void addStaff(String id, String name, String password, String userType) {
         switch (UserType.valueOf(userType)){
             case KITCHEN:
-                users.put(id, new KitchenStaff(id, name, password, salary));
+                users.put(id, new KitchenStaff(id, name, password));
                 break;
             case SERVING_STAFF:
-                users.put(id, new ServingStaff(id, name, password, salary));
+                users.put(id, new ServingStaff(id, name, password));
                 break;
             case DELIVERY_STAFF:
-                users.put(id, new DeliveryStaff(id, name, password, salary));
+                users.put(id, new DeliveryStaff(id, name, password));
                 break;
             case INVENTORY_STAFF:
-                users.put(id, new InventoryStaff(id, name, password, salary));
+                users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
     }

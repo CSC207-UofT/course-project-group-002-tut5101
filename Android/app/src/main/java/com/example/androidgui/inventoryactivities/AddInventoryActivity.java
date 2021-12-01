@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import controller.inventorysystem.InventoryManager;
+import presenter.inventorysystem.InventoryManager;
 
 public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;

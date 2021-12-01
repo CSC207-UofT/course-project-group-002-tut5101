@@ -2,7 +2,6 @@ package use_case.customersystem;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import controller.customersystem.PlaceOrderPresenter;
 import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
 import use_case.boundary.input.PlaceOrderInputBoundary;

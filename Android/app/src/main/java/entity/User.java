@@ -14,22 +14,14 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String password;
-    private String address;
-    private String gender;
-    private String phone;
-    private String email;
 
     /**
      * Constructor of entities.User without parameter
      */
     public User() {
-        this.id = "defaultuserid"; //UUID.randomUUID().toString();
+        this.id = "defaultUserId"; //UUID.randomUUID().toString();
         this.name = "Default entities.User";
         this.password = "12345";
-        this.gender = "N/A";
-        this.address = "Toronto";
-        this.phone = "12306";
-        this.email = "defaultemail@gmail.com";
     }
 
     /**
@@ -43,10 +35,6 @@ public class User implements Serializable {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.gender = "N/A";
-        this.address = "Toronto";
-        this.phone = "12306";
-        this.email = "defaultemail@gmail.com";
     }
 
     /**
@@ -59,10 +47,6 @@ public class User implements Serializable {
     public String toString() {
         return this.name + ": {" +
                 "id='" + id + '\'' +
-                ", address='" + address + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -124,74 +108,9 @@ public class User implements Serializable {
     }
 
     /**
-     * Get address of entities.User
+     * Get password of entities.User
      *
-     * @return address of entities.User
+     * @return the name of entities.User
      */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * Set address of entities.User
-     *
-     * @param address of entities.User
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * Get gender of entities.User
-     *
-     * @return gender of entities.User
-     */
-    public String getGender() {
-        return gender;
-    }
-
-    /**
-     * Set gender of entities.User
-     *
-     * @param gender gender of entities.User
-     */
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    /**
-     * Get PhoneNumber of entities.User
-     *
-     * @return phone of entities.User
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * Set phoneNumber of entities.User
-     *
-     * @param phone entities.User's phone number
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    /**
-     * Get emailAddress of entities.User
-     *
-     * @return email of entities.User
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Set emailAddress of entities.User
-     *
-     * @param email of entities.User
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getPassword(){return this.password;}
 }

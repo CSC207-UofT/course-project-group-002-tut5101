@@ -11,8 +11,8 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import controller.customersystem.PlaceOrderPresenter;
-import controller.customersystem.PlaceOrderViewInterface;
+import presenter.customersystem.PlaceOrderPresenter;
+import presenter.customersystem.PlaceOrderViewInterface;
 
 import java.util.HashMap;
 /**
