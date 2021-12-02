@@ -21,7 +21,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * Presenter class for menu.
      */
     public MenuPresenter(){
-        dishList = new DishList("src/main/resources/menu.ser");
+        dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
 
         //TODO: Delete later
@@ -30,7 +30,7 @@ public class MenuPresenter implements MenuOutputBoundary {
 
     /**
      * Setting up the DisplayDishesViewInterface.
-     * @param displayMenuViewInterface
+     * @param displayMenuViewInterface interface for displaying menu.
      */
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;

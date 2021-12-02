@@ -13,10 +13,8 @@ import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
 import presenter.managersystem.DeleteReviewViewInterface;
-import presenter.reviewsystem.ReviewController;
 import presenter.reviewsystem.DeleteReviewPresenter;
 
-import java.util.Objects;
 
 /**
  *
@@ -25,9 +23,8 @@ import java.util.Objects;
 public class DeleteReviewActivity extends AppCompatActivity implements DeleteReviewViewInterface {
     private NumberPicker selectAction;
     private String[] managerDecision;
+    private TextView askDeleteCriteria;
     private DeleteReviewPresenter deleteReviewPresenter;
-    final ReviewController reviewController = new ReviewController();
-
 
     /**
      * Activity basic function.
@@ -38,15 +35,38 @@ public class DeleteReviewActivity extends AppCompatActivity implements DeleteRev
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_review);
+
+        deleteReviewPresenter = new DeleteReviewPresenter();
+        deleteReviewPresenter.setDeleteReviewViewInterface(this);
+        askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
         selectAction = findViewById(R.id.selectAction);
-        TextView askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
-        String askingDeleteCriteria = ManagerUIMessage.DELETE_REVIEW;
-        askDeleteCriteria.setText(askingDeleteCriteria);
+
+
+        setupMessage();
+        setupOptions();
+    }
+
+
+    /**
+     * Set up the message for text.
+     */
+    private void setupMessage() {
+        askDeleteCriteria.setText(ManagerUIMessage.DELETE_REVIEW);
+    }
+
+    /**
+     * Set up manager options.
+     */
+    private void setupOptions(){
         managerDecision = new String[]{ManagerDecision.ONE.name(), ManagerDecision.TWO.name(),
                 ManagerDecision.THREE.name()};
         selectAction.setDisplayedValues(managerDecision);
         selectAction.setMaxValue(managerDecision.length - 1);
         selectAction.setMinValue(0);
+    }
+
+    public void decideReview(String action){
+
     }
 
     /**
@@ -61,15 +81,7 @@ public class DeleteReviewActivity extends AppCompatActivity implements DeleteRev
                 .setTitle(ReviewMessage.CONFIRM)
                 .setMessage(ReviewMessage.DELETE_REVIEW)
                 .setPositiveButton(ReviewMessage.YES, (dialog, which) -> {
-                    if (Objects.equals(action,ManagerDecision.ONE.toString())){
-                        reviewController.deleteBelowOne();
-                    }
-                    else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
-                        reviewController.deleteBelowTwo();
-                    }
-                    else {
-                        reviewController.deleteBelowThree();
-                    }
+                    deleteReviewPresenter.decideReview(action);
                     finish();
                 })
                 .setNegativeButton(ReviewMessage.NO, (dialog, which) -> dialog.dismiss())

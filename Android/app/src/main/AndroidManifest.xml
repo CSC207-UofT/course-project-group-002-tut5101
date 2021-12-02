@@ -53,6 +53,10 @@
                 android:name=".kitchenactivities.KitchenActivity"
                 android:exported="true">
         </activity>
+        <activity
+                android:name=".database.db"
+                android:exported="true">
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
