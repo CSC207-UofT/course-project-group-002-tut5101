@@ -1,8 +1,22 @@
 package presenter.managersystem;
 
+/**
+ * ViewInterface of enroll staff presenter
+ */
 public interface EnrollStaffViewInterface {
 
-    void setAvailUserTypeOptions(String[] staffTypes);
+    /**
+     * Set available staff types for view
+     *
+     * @param staffTypes array of available staff types
+     */
+    void setAvailStaffTypeOptions(String[] staffTypes);
+
+    /**
+     * Set next available user id for view
+     *
+     * @param id id of the new staff
+     */
     void setNewUserId(String id);
 
 }

@@ -15,8 +15,6 @@ import use_case.userlist.UserList;
 /**
  * Controller class for manager.
  */
-
-
 public class ManagerController implements EnrollStaffOutputBoundary {
 
     /**
@@ -51,6 +49,10 @@ public class ManagerController implements EnrollStaffOutputBoundary {
         this.enrollUserInputBoundary.setOutputBoundary(this);
     }
 
+    /**
+     * Set view interface for presenter.
+     * @param viewInterface     view interface
+     */
     public void setViewInterface(EnrollStaffViewInterface viewInterface) {
         this.enrollStaffViewInterface = viewInterface;
     }
@@ -99,6 +101,6 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      */
     @Override
     public void setAvailStaffTypeOptions(String[] staffTypes) {
-        this.enrollStaffViewInterface.setAvailUserTypeOptions(staffTypes);
+        this.enrollStaffViewInterface.setAvailStaffTypeOptions(staffTypes);
     }
 }

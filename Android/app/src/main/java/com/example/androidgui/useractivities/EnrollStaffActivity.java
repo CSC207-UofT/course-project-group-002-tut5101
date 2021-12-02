@@ -30,6 +30,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
 
     /**
      * On create method.
+     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
@@ -75,7 +76,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
      * @param staffTypes string array of staff types
      */
     @Override
-    public void setAvailUserTypeOptions(String[] staffTypes) {
+    public void setAvailStaffTypeOptions(String[] staffTypes) {
         numPickerUserType.setDisplayedValues(staffTypes);
         numPickerUserType.setMinValue(0);
         numPickerUserType.setMaxValue(staffTypes.length - 1);
