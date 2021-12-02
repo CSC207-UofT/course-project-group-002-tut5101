@@ -37,7 +37,7 @@ public class Review implements Reviewable, Serializable {
 
     /**
      *
-     * @return id of the review.
+     * @return id of the use_case.review.
      */
     public String getReviewID() {
         return reviewID;
@@ -97,12 +97,13 @@ public class Review implements Reviewable, Serializable {
 
     /**
      *
-     * @return a string representation of this review.
+     * @return a string representation of this use_case.review.
      */
     @Override
     @NonNull
     public String toString() {
-        return getName() + ";" + this.rate + ";" + this.newComment + ";" + this.reviewID + ";" + getReviewDate();
+        return this.reviewID + ". " + getName() + ": rate = " + this.rate +
+                "; comment = " + this.newComment + " ;" + getReviewDate();
     }
 
 }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import entity.orderlist.Dish;
 import use_case.boundary.output.ManageMenuOutputBoundary;
 import use_case.boundary.output.MenuOutputBoundary;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;

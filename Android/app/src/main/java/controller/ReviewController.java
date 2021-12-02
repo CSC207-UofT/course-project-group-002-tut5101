@@ -5,14 +5,14 @@ import use_case.review.DeleteReviewUseCase;
 import use_case.review.ReviewList;
 
 /**
- * Controller class for review.
+ * Controller class for use_case.review.
  */
 
 
 public class ReviewController {
     private static ReviewList reviews;
     /**
-     * The input use_case.boundary for delete review use case.
+     * The input use_case.boundary for delete use_case.review use case.
      */
     private final DeleteReviewInputBoundary deleteReviewInputBoundary;
     /**
@@ -21,7 +21,7 @@ public class ReviewController {
     public ReviewController() {
         reviews = new ReviewList();
         /*
-          The input use_case.boundary for delete review use case.
+          The input use_case.boundary for delete use_case.review use case.
          */
         this.deleteReviewInputBoundary = new DeleteReviewUseCase(reviews);
     }
@@ -30,8 +30,8 @@ public class ReviewController {
     /**
      *
      * @param name name of the customer.
-     * @param ifAnonymous whether the review is anonymous.
-     * @param rate the rate of the review.
+     * @param ifAnonymous whether the use_case.review is anonymous.
+     * @param rate the rate of the use_case.review.
      * @param comment comments left.
 
      */
@@ -40,17 +40,10 @@ public class ReviewController {
         reviews.addReview(name, ifAnonymous, rate, comment, ID);
     }
 
-    /**
-     *
-     * @return a string representation of the reviewList.
-     */
-    public String reviewsAsString() {
-        return reviews.toString();
-    }
 
     /**
      *
-     * @return the length of the review list.
+     * @return the length of the use_case.review list.
      */
     public int length() {
         return reviews.sizeofList();

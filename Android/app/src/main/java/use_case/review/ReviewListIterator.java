@@ -10,7 +10,7 @@ import java.util.*;
 public class ReviewListIterator implements Iterator<Review> {
 
     /**
-     * The index of the next review to return.
+     * The index of the next use_case.review to return.
      */
     public int curr = 0;
     public static HashMap<String, Review> reviewList;
@@ -26,9 +26,9 @@ public class ReviewListIterator implements Iterator<Review> {
     }
 
     /**
-     * Returns the next review.
+     * Returns the next use_case.review.
      *
-     * @return the next review.
+     * @return the next use_case.review.
      */
     @Override
     public Review next() {
@@ -45,7 +45,7 @@ public class ReviewListIterator implements Iterator<Review> {
     }
 
     /**
-     * Remove the current review.
+     * Remove the current use_case.review.
      */
     @Override
     public void remove() {

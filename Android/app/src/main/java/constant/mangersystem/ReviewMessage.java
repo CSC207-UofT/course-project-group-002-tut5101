@@ -1,7 +1,7 @@
 package constant.mangersystem;
 
 /**
- * Class for review messages.
+ * Class for use_case.review messages.
  */
 public class ReviewMessage {
 

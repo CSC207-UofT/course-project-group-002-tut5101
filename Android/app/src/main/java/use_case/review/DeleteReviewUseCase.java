@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 /**
  *
- * Use case class for deleting review functionality.
+ * Use case class for deleting use_case.review functionality.
  */
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
@@ -15,7 +15,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
     /**
      * Constructor
-     * @param reviewList The list of review
+     * @param reviewList The list of use_case.review
      */
     public DeleteReviewUseCase(ReviewList reviewList) {
         this.reviewList = reviewList;

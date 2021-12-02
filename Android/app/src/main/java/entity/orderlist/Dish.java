@@ -195,11 +195,6 @@ public class Dish implements Serializable {
     @NonNull
     public String toString() {
 
-        StringBuilder ingString = new StringBuilder();
-        for (String ing: ingredients.keySet()){
-            ingString.append(ingredients.get(ing)).append(" ").append(ing).append("  ");
-        }
-
         return name +
                 "\n\t\t$$" + price +
                 "\n\t\tcalories: " + calories + " cal/100g" +

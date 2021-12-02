@@ -6,7 +6,6 @@ import use_case.boundary.output.ReviewOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -20,6 +19,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Empty constructor.
      */
     public ReviewList() {
+        reviews = new HashMap<>();
     }
 
     /**
@@ -34,8 +34,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
     /**
      *
      * @param name name.
-     * @param ifAnonymous whether review is anonymous.
-     * @param rate rate of the review.
+     * @param ifAnonymous whether use_case.review is anonymous.
+     * @param rate rate of the use_case.review.
      * @param comment comment left.
      */
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, String ID){
@@ -43,9 +43,9 @@ public class ReviewList implements Serializable, Iterable<Review> {
     }
 
     /**
-     * Add review to this review list.
+     * Add use_case.review to this use_case.review list.
      *
-     * @param r is the review to add in the list
+     * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
         reviews.put(r.getReviewID(), r);
@@ -53,7 +53,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
 
     /**
      *
-     * @param reviewOutputBoundary setting the output boundary for review.
+     * @param reviewOutputBoundary setting the output boundary for use_case.review.
      */
     public void setReviewOutputBoundary(ReviewOutputBoundary reviewOutputBoundary){
         this.reviewOutputBoundary = reviewOutputBoundary;
@@ -70,7 +70,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
 
     /**
      *
-     * @return the size of the review list.
+     * @return the size of the use_case.review list.
      */
     public int sizeofList(){
         return reviews.size();
@@ -78,7 +78,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
 
     /**
      *
-     * @return a string representation of this review list.
+     * @return a string representation of this use_case.review list.
      */
     @NonNull
     @Override
@@ -86,15 +86,16 @@ public class ReviewList implements Serializable, Iterable<Review> {
         int reviewNumber = 1;
         StringBuilder reviewString = new StringBuilder();
         for (String review : reviews.keySet()) {
-            reviewString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
-            reviewNumber = reviewNumber + 1;
+            reviewString.append(reviewNumber);
+            reviewString.append(". ").append(Objects.requireNonNull(reviews.get(review)));
+            reviewNumber ++;
         }
         return reviewString.toString();
     }
 
 
     /**
-     * pass review as string.
+     * pass use_case.review as string.
      */
     public void reviewAsString() {
         reviewOutputBoundary.updateReviewDisplay(this.toString());

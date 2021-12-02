@@ -9,7 +9,7 @@ import com.example.androidgui.R;
 import controller.ReviewController;
 
 /**
- * Activity class for adding review.
+ * Activity class for adding use_case.review.
  */
 public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;

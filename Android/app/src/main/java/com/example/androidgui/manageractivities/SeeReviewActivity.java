@@ -31,7 +31,7 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
 
     /**
      *
-     * @param reviewsText texts of review.
+     * @param reviewsText texts of use_case.review.
      */
     public void setReviewsText(String reviewsText){
         TextView reviewText = new TextView(this);
