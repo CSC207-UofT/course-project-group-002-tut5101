@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.reviewsystem.ReviewController;
+import controller.ReviewController;
 
 public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;

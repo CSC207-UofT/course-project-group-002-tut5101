@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
-import presenter.managersystem.ManagerController;
+import controller.ManagerController;
 import use_case.boundary.output.EnrollUserOutputBoundary;
 
 /**

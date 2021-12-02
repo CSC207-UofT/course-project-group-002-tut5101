@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.StaffController;
+import controller.StaffController;
 
 public class ServeDishActivity extends AppCompatActivity {
     private String id;
