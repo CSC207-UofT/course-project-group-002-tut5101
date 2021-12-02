@@ -1,23 +1,22 @@
 package presenter.menusystem;
 
 import entity.orderlist.Dish;
-import presenter.managersystem.ManageMenuViewInterface;
 import use_case.dishlist.DishList;
 import use_case.boundary.output.MenuOutputBoundary;
 
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Presenter class for menu.
  */
 
 
-public class MenuPresenter implements MenuOutputBoundary {
+public class MenuPresenter implements MenuOutputBoundary{
 
     public final DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
-    private ManageMenuViewInterface manageMenuViewInterface;
     /**
      * Presenter class for menu.
      */
@@ -36,8 +35,6 @@ public class MenuPresenter implements MenuOutputBoundary {
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;
     }
-
-
 
     /**
      * get string representation of dishes in menu from dishList use case
@@ -71,9 +68,7 @@ public class MenuPresenter implements MenuOutputBoundary {
         this.dishList.editDishByName(dishName);
     }
 
-    public String[] passDishesAsList(){
-        return this.dishList.passDishesAsList();
-    }
+
 
 
     // TODO: Delete hardcoded dishes later

@@ -1,12 +1,19 @@
 package presenter.managersystem;
 
+import use_case.boundary.output.ManageMenuOutputBoundary;
+import use_case.dishlist.DishList;
+
 /**
  * Presenter class for managing menu.
  */
-public class ManageMenuPresenter {
+public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     ManageMenuViewInterface manageMenuViewInterface;
+    private final DishList dishList;
 
-    public ManageMenuPresenter(){}
+    public ManageMenuPresenter(){
+        this.dishList = new DishList();
+        dishList.setManageMenuOutputBoundary(this);
+    }
 
     /**
      *
@@ -23,5 +30,14 @@ public class ManageMenuPresenter {
      */
     public void getDish(String dishName) {
         manageMenuViewInterface.getDish(dishName);
+    }
+
+    public void getDishList(){
+        dishList.passDishesAsList();
+    }
+
+    @Override
+    public void passingDishesAsList(String[] s) {
+        manageMenuViewInterface.gettingDishList(s);
     }
 }
