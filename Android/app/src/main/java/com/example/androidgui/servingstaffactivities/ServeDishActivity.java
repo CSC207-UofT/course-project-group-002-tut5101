@@ -7,50 +7,43 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.StaffController;
+import presenter.staffsystem.StaffPresenter;
+import presenter.staffsystem.StaffViewInterface;
 
-public class ServeDishActivity extends AppCompatActivity {
+public class ServeDishActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
-    private StaffController controller;
+    private StaffPresenter presenter;
+    private TextView dishContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new StaffController();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serve_dish);
+        // Setup view bonded attributes
+        presenter = new StaffPresenter();
+        presenter.setStaffView(this);
+        dishContent = findViewById(R.id.CurrentDish);
+        // Get staff id for method calls
         Bundle b = getIntent().getExtras();
         if(b != null) {
             id = b.getString("id");
             mode = b.getString("action");
         }
-        // Get next dish to be delivered
+        // Get next dish to be delivered if entered this screen
         if (mode != null && mode.equals("GET_NEXT")) {
-            Toast toast;
-            try {
-                controller.getNext(this.id);
-            } catch (Exception e) {
-                if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
-                    toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                goBackPickAction();
-            }
+            getNextDish();
         }
         // Display current dish to be delivered
-        TextView currentDish = findViewById(R.id.CurrentDish);
-        try {
-            currentDish.setText(controller.displayCurrent(this.id));
-        } catch (Exception e) {
-            exceptionHandler(e);
-        }
+        getCurrentDish();
     }
+
     /**
      * When select to complete the dish in hand, try to call completeCurrent
      */
     public void selectCompleteDish(View v) {
         try {
-            controller.completeCurrent(this.id);
+            presenter.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -65,6 +58,16 @@ public class ServeDishActivity extends AppCompatActivity {
      */
     public void selectReturn(View v) {
         goBackPickAction();
+    }
+
+
+    /**
+     * Put the current item(dish) information to user's view
+     * @param info Dish information
+     */
+    @Override
+    public void displayCurrentItem(String info) {
+        dishContent.setText(info);
     }
 
     /**
@@ -86,6 +89,36 @@ public class ServeDishActivity extends AppCompatActivity {
             toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
             toast.show();
             // Jump back to pick action page
+            goBackPickAction();
+        }
+    }
+
+    /**
+     * Try to get the current dish to be served
+     * Catch exceptions, if needed, handle them
+     */
+    private void getCurrentDish() {
+        try {
+            presenter.displayCurrent(this.id);
+        } catch (Exception e) {
+            exceptionHandler(e);
+        }
+    }
+
+    /**
+     * Get next dish
+     */
+    private void getNextDish() {
+        Toast toast;
+        try {
+            presenter.getNext(this.id);
+            toast = Toast.makeText(getApplicationContext(), R.string.MessageNewDishArrived, Toast.LENGTH_SHORT);
+            toast.show();
+        } catch (Exception e) {
+            if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
+                toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                toast.show();
+            }
             goBackPickAction();
         }
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidGUI</string>
+    <string name="app_name">RestaurantSystem</string>
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
 
@@ -92,5 +92,7 @@
     <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
         address below
     </string>
+    <string name="show_map">Show Map</string>
+    <string name="MessageNewDishArrived">New dish arrived!</string>
 
 </resources>
