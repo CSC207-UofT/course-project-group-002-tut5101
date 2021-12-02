@@ -11,13 +11,13 @@ import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
 import presenter.managersystem.ManagerController;
-import use_case.boundary.output.EnrollUserOutputBoundary;
+import use_case.enrollstaff.EnrollUserOutputBoundary;
 
 /**
- * Activity class for enrolling new users.
+ * Activity class for enrolling new staff.
  */
 @SuppressWarnings("SameParameterValue")
-public class EnrollUserActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
+public class EnrollStaffActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
 
     private EditText editTextUserId;
     private EditText editTextUserName;
@@ -35,7 +35,7 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enroll_user);
+        setContentView(R.layout.activity_enroll_staff);
 
         managerController = new ManagerController();
         managerController.setEnrollUserOutputBoundary(this);
