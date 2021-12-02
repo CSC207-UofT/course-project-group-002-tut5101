@@ -27,6 +27,11 @@ public class CustomerPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void selectAddReview(View v) {
+        Intent intent = new Intent(CustomerPickActionActivity.this, AddReviewCommentActivity.class);
+        startActivity(intent);
+    }
+
     public void selectExit(View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, MainActivity.class);
         startActivity(intent);

@@ -99,6 +99,10 @@
         <activity android:name=".orderactivities.EditOrderActivity"
                 android:exported="true">
         </activity>
+        <activity
+                android:name=".useractivities.AddReviewCommentActivity"
+                android:exported="true">
+        </activity>
         <activity android:name=".useractivities.CustomerPickActionActivity">
         </activity>
         <activity android:name=".servingstaffactivities.ServingStaffPickActionActivity"/>
