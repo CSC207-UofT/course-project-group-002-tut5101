@@ -7,9 +7,9 @@ import use_case.userlist.UserList;
  * Class for enrolling new staffs.
  */
 
-public class EnrollStaffUseCase implements EnrollUserInputBoundary {
+public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
 
-    private EnrollUserOutputBoundary enrollUserOutputBoundary;
+    private EnrollStaffOutputBoundary enrollUserOutputBoundary;
     private final UserList userList;
 
     /**
@@ -25,7 +25,7 @@ public class EnrollStaffUseCase implements EnrollUserInputBoundary {
      * Set the output boundary for enrolling user.
      * @param enrollUserOutputBoundary the output boundary for enrolling user.
      */
-    public void setOutputBoundary(EnrollUserOutputBoundary enrollUserOutputBoundary) {
+    public void setOutputBoundary(EnrollStaffOutputBoundary enrollUserOutputBoundary) {
         this.enrollUserOutputBoundary = enrollUserOutputBoundary;
     }
 
@@ -38,7 +38,7 @@ public class EnrollStaffUseCase implements EnrollUserInputBoundary {
                 UserType.DELIVERY_STAFF.toString(),
                 UserType.KITCHEN.toString(),
                 UserType.INVENTORY_STAFF.toString()};
-        this.enrollUserOutputBoundary.setAvailUserTypeOptions(staffTypes, staffTypes.length - 1);
+        this.enrollUserOutputBoundary.setAvailStaffTypeOptions(staffTypes);
     }
 
     /**
