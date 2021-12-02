@@ -196,9 +196,5 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         this.loginResult = result;
     }
 
-    //TODO this method to be relocated to manager activity
-    public void enrollStaff(View view) {
-        Intent intent = new Intent(LoginActivity.this, EnrollStaffActivity.class);
-        startActivity(intent);
-    }
+
 }
