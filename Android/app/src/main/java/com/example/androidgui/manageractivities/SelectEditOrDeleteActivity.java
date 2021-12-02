@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import constant.mangersystem.DishMessage;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
 import presenter.menusystem.MenuPresenter;
@@ -72,11 +74,21 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
         if (Objects.equals(action,ManagerDecision.EDIT.toString())){
-            menuPresenter.deleteDishByName(dishName);
-        }
-        else {
             menuPresenter.editDishByName(dishName);
         }
+        else {
+            AlertDialog alertDlg = new AlertDialog.Builder(this)
+                    .setTitle(DishMessage.CONFIRM)
+                    .setMessage(DishMessage.DELETE_MENU)
+                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
+                        menuPresenter.deleteDishByName(dishName);
+                        finish();
+                    })
+                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
+                    .create();
+            alertDlg.show();
+        }
+        finish();
     }
 
 }
