@@ -1,6 +1,4 @@
-package use_case.boundary.input;
-
-import use_case.boundary.output.EnrollUserOutputBoundary;
+package use_case.enrollstaff;
 
 public interface EnrollUserInputBoundary {
     void enrollNewStaff(String id, String name, String password, String userType);
