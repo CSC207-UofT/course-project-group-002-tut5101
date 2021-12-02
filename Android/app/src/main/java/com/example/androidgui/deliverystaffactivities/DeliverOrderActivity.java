@@ -1,5 +1,6 @@
 package com.example.androidgui.deliverystaffactivities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
@@ -8,16 +9,20 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.StaffController;
+import presenter.staffsystem.StaffPresenter;
+import presenter.staffsystem.StaffViewInterface;
 
-public class DeliverOrderActivity extends AppCompatActivity {
+public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
-    private StaffController controller;
+    private StaffPresenter controller;
+    private TextView currentOrder;
+    private String destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new StaffController();
+        controller = new StaffPresenter();
+        controller.setStaffView(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_order);
         // Get id for method calls
@@ -40,9 +45,16 @@ public class DeliverOrderActivity extends AppCompatActivity {
             }
         }
         // Display current order to be delivered
-        TextView currentOrder = findViewById(R.id.CurrentOrder);
+        currentOrder = findViewById(R.id.CurrentOrder);
+        getCurrentOrder();
+    }
+
+    /**
+     * Get the current order to be delivered
+     */
+    private void getCurrentOrder() {
         try {
-            currentOrder.setText(controller.displayCurrent(this.id));
+            controller.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -115,4 +127,22 @@ public class DeliverOrderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Display the information of the current order on view
+     * @param info The content of the order
+     */
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void displayCurrentItem(String info) {
+        currentOrder.setText("Address: " + destination + "\n" + info);
+    }
+
+    /**
+     * Set destination of the order
+     * @param destination Destination of the order, real address
+     */
+    @Override
+    public void setItemDestination(String destination) {
+        this.destination = destination;
+    }
 }

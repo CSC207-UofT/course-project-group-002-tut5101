@@ -1,9 +1,10 @@
 package presenter.staffsystem;
 
-import use_case.boundary.input.Delivery;
+import use_case.boundary.input.DeliveryInputBoundary;
 import constant.mangersystem.UserType;
 import use_case.deliverorder.DeliverOrder;
-import use_case.servedish.ServeOrder;
+import use_case.deliverorder.ServeDish;
+import use_case.deliverorder.StaffDeliveryOutputBoundary;
 import use_case.userlist.UserList;
 
 /**
@@ -11,9 +12,15 @@ import use_case.userlist.UserList;
  */
 
 
-public class StaffController {
-    final ServeOrder servingStaff = new ServeOrder();
-    final DeliverOrder deliveryStaff = new DeliverOrder();
+public class StaffPresenter implements StaffDeliveryOutputBoundary {
+    private final DeliveryInputBoundary servingStaff = new ServeDish();
+    private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
+    private StaffViewInterface staffView;
+
+    public StaffPresenter() {
+        servingStaff.setOutputBoundary(this);
+        deliveryStaff.setOutputBoundary(this);
+    }
 
     /**
      * Get the next item to be delivered by the staff with the id
@@ -22,7 +29,7 @@ public class StaffController {
      * @throws Exception Throws Exception from getToBeDeliver and "id not staff" exception.
      */
     public void getNext(String id) throws Exception {
-        Delivery staff;
+        DeliveryInputBoundary staff;
         staff = selectStaffTypeById(id);
         staff.getToBeDeliver(id);
     }
@@ -31,13 +38,12 @@ public class StaffController {
      * Display the current item to be delivered,
      * either a dish for serving staff or order for delivery staff.
      * @param id The id of the staff whose current item be viewed.
-     * @return String with the infomation of the item to be delivered.
      * @throws Exception Throws Exception from staff.display() and "id not staff" exception.
      */
-    public String displayCurrent(String id) throws Exception {
-        Delivery staff;
+    public void displayCurrent(String id) throws Exception {
+        DeliveryInputBoundary staff;
         staff = selectStaffTypeById(id);
-        return staff.display(id);
+        staff.getItemInfo(id);
     }
 
     /**
@@ -46,7 +52,7 @@ public class StaffController {
      * @throws Exception Throws Exception from staff.delivered() and "id not staff" exception.
      */
     public void completeCurrent(String id) throws Exception {
-        Delivery staff;
+        DeliveryInputBoundary staff;
         staff = selectStaffTypeById(id);
         staff.delivered(id);
     }
@@ -58,9 +64,9 @@ public class StaffController {
      * @throws Exception Throws "id not staff" exception when the id does not correspond to a staff
      * (servingStaff or deliveryStaff)
      */
-    private Delivery selectStaffTypeById(String id) throws Exception {
+    private DeliveryInputBoundary selectStaffTypeById(String id) throws Exception {
         UserType staffType = UserList.getUserTypeById(id);
-        Delivery staff;
+        DeliveryInputBoundary staff;
         if (staffType == UserType.SERVING_STAFF) {
             staff = servingStaff;
         } else if (staffType == UserType.DELIVERY_STAFF) {
@@ -69,5 +75,22 @@ public class StaffController {
             throw new Exception("wrong id for staff");
         }
         return staff;
+    }
+
+    /**
+     * Set the view targeted by the presenter
+     * @param view The view to be updated by the presenter
+     */
+    public void setStaffView(StaffViewInterface view) {staffView = view;}
+
+    /**
+     * Set the current item's info to view to present to user
+     * @param destination Destination of the item(order or dish)
+     * @param info Content of the item(dish names)
+     */
+    @Override
+    public void setCurrentItemInfo(String destination, String info) {
+        staffView.setItemDestination(destination);
+        staffView.displayCurrentItem(info);
     }
 }

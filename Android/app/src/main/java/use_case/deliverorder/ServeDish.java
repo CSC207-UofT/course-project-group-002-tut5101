@@ -1,12 +1,12 @@
-package use_case.servedish;
+package use_case.deliverorder;
 
 import use_case.userlist.UserList;
-import use_case.boundary.input.Delivery;
+import use_case.boundary.input.DeliveryInputBoundary;
 import entity.delivery.ServingStaff;
 import entity.User;
 
-public class ServeOrder implements Delivery {
-
+public class ServeDish implements DeliveryInputBoundary {
+    private StaffDeliveryOutputBoundary outputBoundary;
 
     /**
      * @param id The id of the serving staff that has logged in.
@@ -31,17 +31,22 @@ public class ServeOrder implements Delivery {
     }
 
     /**
+     * Set the output adapter for serving staff
+     * @param boundary The output adapter
+     */
+    public void setOutputBoundary(StaffDeliveryOutputBoundary boundary) {outputBoundary = boundary;}
+
+    /**
      * @param id The id of the serving staff that has logged in.
-     * @return A string representation of the information in the current dish of the serving staff
      * corresponding to the given id.
      */
-    public String display(String id){
+    public void getItemInfo(String id){
         User user = UserList.getUserByUserId(id);
         String dishInfo = ((ServingStaff) user).displayDish();
 
         if (dishInfo.equals("")){
-            return "No current dish to be displayed";
+            outputBoundary.setCurrentItemInfo("", "No current dish to be displayed");
         }
-        return dishInfo;
+        outputBoundary.setCurrentItemInfo("", dishInfo);
     }
 }

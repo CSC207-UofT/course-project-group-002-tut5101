@@ -7,16 +7,19 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.StaffController;
+import presenter.staffsystem.StaffPresenter;
+import presenter.staffsystem.StaffViewInterface;
 
-public class ServeDishActivity extends AppCompatActivity {
+public class ServeDishActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
-    private StaffController controller;
+    private StaffPresenter controller;
+    private final TextView dishContent = findViewById(R.id.CurrentDish);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new StaffController();
+        controller = new StaffPresenter();
+        controller.setStaffView(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serve_dish);
         Bundle b = getIntent().getExtras();
@@ -38,12 +41,7 @@ public class ServeDishActivity extends AppCompatActivity {
             }
         }
         // Display current dish to be delivered
-        TextView currentDish = findViewById(R.id.CurrentDish);
-        try {
-            currentDish.setText(controller.displayCurrent(this.id));
-        } catch (Exception e) {
-            exceptionHandler(e);
-        }
+        getCurrentDish();
     }
     /**
      * When select to complete the dish in hand, try to call completeCurrent
@@ -90,6 +88,14 @@ public class ServeDishActivity extends AppCompatActivity {
         }
     }
 
+    private void getCurrentDish() {
+        try {
+            controller.displayCurrent(this.id);
+        } catch (Exception e) {
+            exceptionHandler(e);
+        }
+    }
+
     /**
      * Helper method for go back to pick action screen
      */
@@ -100,5 +106,14 @@ public class ServeDishActivity extends AppCompatActivity {
         b.putString("id", this.id); //Your id
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
+    }
+
+    @Override
+    public void displayCurrentItem(String info) {
+        dishContent.setText(info);
+    }
+
+    @Override
+    public void setItemDestination(String destination) {
     }
 }
