@@ -33,12 +33,11 @@ public class ReviewController {
      * @param ifAnonymous whether the review is anonymous.
      * @param rate the rate of the review.
      * @param comment comments left.
-     * @param ifComplain whether the customer complains.
-     * @param complaint if complains, content of the complaint.
+
      */
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
-                                String comment, boolean ifComplain, String complaint) {
-        reviews.addReview(name, ifAnonymous, rate, comment, ifComplain, complaint);
+                                String comment, String ID) {
+        reviews.addReview(name, ifAnonymous, rate, comment, ID);
     }
 
     /**
@@ -63,7 +62,7 @@ public class ReviewController {
      * Delete all reviews with rate below or equal to 3.
      */
     public void deleteBelowThree() {
-        deleteReviewInputBoundary.deleteBelowThree();
+        deleteReviewInputBoundary.delete(3);
     }
 
 
@@ -71,12 +70,12 @@ public class ReviewController {
      *
      * Delete all reviews with rate below or equal to 2.
      */
-    public void deleteBelowTwo() {deleteReviewInputBoundary.deleteBelowTwo();}
+    public void deleteBelowTwo() {deleteReviewInputBoundary.delete(2);}
 
 
     /**
      *
      * Delete all reviews with rate below or equal to 1.
      */
-    public void deleteBelowOne() {deleteReviewInputBoundary.deleteBelowOne();}
+    public void deleteBelowOne() {deleteReviewInputBoundary.delete(1);}
 }

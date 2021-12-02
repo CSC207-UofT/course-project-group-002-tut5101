@@ -10,6 +10,9 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     ManageMenuViewInterface manageMenuViewInterface;
     private final DishList dishList;
 
+    /**
+     * Constructor.
+     */
     public ManageMenuPresenter(){
         this.dishList = new DishList();
         dishList.setManageMenuOutputBoundary(this);
@@ -32,10 +35,19 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
         manageMenuViewInterface.getDish(dishName);
     }
 
+    /**
+     *
+     * getting the dish list.
+     */
     public void getDishList(){
         dishList.passDishesAsList();
     }
 
+    /**
+     * passing dishList as array.
+     *
+     * @param s array of string.
+     */
     @Override
     public void passingDishesAsList(String[] s) {
         manageMenuViewInterface.gettingDishList(s);

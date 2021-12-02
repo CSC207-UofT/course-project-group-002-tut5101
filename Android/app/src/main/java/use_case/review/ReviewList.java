@@ -12,8 +12,8 @@ import java.util.Objects;
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable {
-    private static HashMap<Integer, ArrayList<Review>> reviews;
+public class ReviewList implements Serializable, Iterable<Review> {
+    private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
 
     /**
@@ -22,32 +22,51 @@ public class ReviewList implements Serializable {
     public ReviewList() {
     }
 
-    public static void setReviews(HashMap<Integer, ArrayList<Review>> reviews) {
+    /**
+     *
+     * @param reviews setting the reviews.
+     */
+    public static void setReviews(HashMap<String, Review> reviews) {
         ReviewList.reviews = reviews;
     }
 
 
-    public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
-        addReview(new Review(name, ifAnonymous, rate, comment, ifComplain, complain));
+    /**
+     *
+     * @param name name.
+     * @param ifAnonymous whether review is anonymous.
+     * @param rate rate of the review.
+     * @param comment comment left.
+     */
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment, String ID){
+        addReview(new Review(name, ifAnonymous, rate, comment, ID));
     }
+
     /**
      * Add review to this review list.
      *
      * @param r is the review to add in the list
      */
     public void addReview(Review r) {
-        if(reviews.containsKey(r.getRate())){
-            Objects.requireNonNull(reviews.get(r.getRate())).add(r);
-        } else {
-            ArrayList<Review> review = new ArrayList<>();
-            review.add(r);
-            reviews.put(r.getRate(), review);
-        }
+        reviews.put(r.getReviewID(), r);
     }
 
+    /**
+     *
+     * @param reviewOutputBoundary setting the output boundary for review.
+     */
     public void setReviewOutputBoundary(ReviewOutputBoundary reviewOutputBoundary){
         this.reviewOutputBoundary = reviewOutputBoundary;
     }
+
+    /**
+     * Returns an iterator for this reviewList.
+     *
+     * @return an iterator for this reviewList.
+     */
+    @Override
+    @NonNull
+    public ReviewListIterator iterator(){return new ReviewListIterator();}
 
     /**
      *
@@ -65,44 +84,18 @@ public class ReviewList implements Serializable {
     @Override
     public String toString() {
         int reviewNumber = 1;
-        StringBuilder menuString = new StringBuilder();
-        for (int review : reviews.keySet()) {
-            menuString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
-            reviewNumber++;
+        StringBuilder reviewString = new StringBuilder();
+        for (String review : reviews.keySet()) {
+            reviewString.append(reviewNumber).append(". ").append(Objects.requireNonNull(reviews.get(review)));
+            reviewNumber = reviewNumber + 1;
         }
-        return menuString.toString();
+        return reviewString.toString();
     }
 
 
     /**
-     *
-     * Delete all reviews with rate below or equal to 3.
+     * pass review as string.
      */
-    public void deleteBelowThree() {
-        reviews.put(3, new ArrayList<>());
-        reviews.put(2, new ArrayList<>());
-        reviews.put(1, new ArrayList<>());
-    }
-
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 2.
-     */
-    public void deleteBelowTwo() {
-        reviews.put(2, new ArrayList<>());
-        reviews.put(1, new ArrayList<>());
-    }
-
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 1.
-     */
-    public void deleteBelowOne() {
-        reviews.put(1, new ArrayList<>());
-    }
-
     public void reviewAsString() {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }

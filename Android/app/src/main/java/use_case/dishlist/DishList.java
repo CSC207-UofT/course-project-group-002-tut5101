@@ -66,7 +66,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         }
     }
 
-
     /**
      * Return list of dishes
      *
@@ -219,11 +218,4 @@ public class DishList implements Serializable, Iterable<Dish> {
         placeOrderOutputBoundary.addDishPrices(dishName, price);
     }
 
-    /**
-     *
-     * @return the key set of this dishList.
-     */
-    public Set<String> keySet() {
-        return menu.keySet();
-    }
 }

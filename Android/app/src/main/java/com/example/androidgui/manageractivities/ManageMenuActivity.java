@@ -12,7 +12,6 @@ import com.example.androidgui.R;
 import constant.uimessage.ManagerUIMessage;
 import presenter.managersystem.ManageMenuPresenter;
 import presenter.managersystem.ManageMenuViewInterface;
-import presenter.menusystem.MenuPresenter;
 
 /**
  * Activity class for the manager to manage menu.

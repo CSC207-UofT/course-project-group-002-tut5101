@@ -8,16 +8,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import controller.ReviewController;
 
+/**
+ * Activity class for adding review.
+ */
 public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
     EditText name;
     EditText ifAnonymous;
     EditText rate;
     EditText comment;
-    EditText ifComplain;
-    EditText complain;
+    EditText id;
     final ReviewController rc = new ReviewController();
 
+    /**
+     *
+     * @param savedInstanceState fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,19 +33,22 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
         ifAnonymous = findViewById(R.id.textInputEdit1);
         rate = findViewById(R.id.textInputEdit2);
         comment = findViewById(R.id.textInputEdit3);
-        ifComplain = findViewById(R.id.textInputEdit4);
-        complain = findViewById(R.id.textInputEdit5);
+        id = findViewById(R.id.textInputEdit4);
         button.setOnClickListener(this);
     }
+
+    /**
+     * Clicking response.
+     * @param v view.
+     */
     @Override
     public void onClick(View v) {
         String iname = name.getText().toString();
         boolean iifAnonymous = ifAnonymous.getText().toString().equals("Y");
         int irate = Integer.parseInt(rate.getText().toString());
         String icomment = comment.getText().toString();
-        boolean iifComplain = ifComplain.getText().toString().equals("Y");
-        String icomplain = complain.getText().toString();
-        rc.addToReviewList(iname,iifAnonymous, irate, icomment, iifComplain, icomplain);
+        String identity = id.getText().toString();
+        rc.addToReviewList(iname,iifAnonymous, irate, icomment, identity);
 //        rc.saveToFile();
     }
 }
