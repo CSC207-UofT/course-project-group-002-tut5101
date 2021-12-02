@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
-import presenter.managersystem.EditOrDeleteViewInterface;
 import presenter.menusystem.MenuPresenter;
 
 import java.util.Objects;
@@ -20,7 +19,7 @@ import java.util.Objects;
  * Activity class for the manager to pick whether to edit or to delete the dish.
  *
  */
-public class SelectEditOrDeleteActivity extends AppCompatActivity implements EditOrDeleteViewInterface {
+public class SelectEditOrDeleteActivity extends AppCompatActivity {
 
     NumberPicker selectEditOrDelete;
     TextView askSelection;

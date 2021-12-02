@@ -1,6 +1,7 @@
 package presenter.menusystem;
 
 import entity.orderlist.Dish;
+import presenter.managersystem.ManageMenuViewInterface;
 import use_case.dishlist.DishList;
 import use_case.boundary.output.MenuOutputBoundary;
 
@@ -16,7 +17,7 @@ public class MenuPresenter implements MenuOutputBoundary {
 
     public final DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
-
+    private ManageMenuViewInterface manageMenuViewInterface;
     /**
      * Presenter class for menu.
      */
