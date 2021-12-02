@@ -1,7 +1,6 @@
 package use_case.review;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
-import use_case.boundary.output.DeleteReviewOutputBoundary;
 
 /**
  *
@@ -9,7 +8,6 @@ import use_case.boundary.output.DeleteReviewOutputBoundary;
  */
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
-    private DeleteReviewOutputBoundary deleteReviewOutputBoundary;
     private final ReviewList reviewList;
 
     /**
