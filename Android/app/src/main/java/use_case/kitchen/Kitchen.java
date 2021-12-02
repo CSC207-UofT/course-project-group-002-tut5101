@@ -5,7 +5,7 @@ import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
 import use_case.deliverorder.DeliveryBuffer;
-import use_case.servedish.ServingBuffer;
+import use_case.deliverorder.ServingBuffer;
 
 import java.util.HashMap;
 
