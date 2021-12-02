@@ -14,15 +14,18 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
     private String id;
     private String mode;
     private StaffPresenter controller;
-    private final TextView dishContent = findViewById(R.id.CurrentDish);
+    private TextView dishContent;
     private String table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new StaffPresenter();
-        controller.setStaffView(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serve_dish);
+        // Setup view bonded attributes
+        controller = new StaffPresenter();
+        controller.setStaffView(this);
+        dishContent = findViewById(R.id.CurrentDish);
+        // Get staff id for method calls
         Bundle b = getIntent().getExtras();
         if(b != null) {
             id = b.getString("id");

@@ -12,6 +12,8 @@ import com.example.androidgui.R;
 import presenter.staffsystem.StaffPresenter;
 import presenter.staffsystem.StaffViewInterface;
 
+import java.util.Objects;
+
 public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
@@ -21,10 +23,12 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        controller = new StaffPresenter();
-        controller.setStaffView(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_order);
+        // Setup view bonded attributes
+        controller = new StaffPresenter();
+        controller.setStaffView(this);
+        currentOrder = findViewById(R.id.CurrentOrder);
         // Get id for method calls
         Bundle b = getIntent().getExtras();
         if(b != null) {
@@ -64,7 +68,12 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      * Launch Google Maps to show directions
      */
     public void selectShowMap(View v) {
-        Uri gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=" + destination);
+        Uri gmmIntentUri;
+        if (Objects.equals(destination, "")) {
+            gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University of Toronto, Toronto, ON, Canada");
+        } else {
+            gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=" + destination);
+        }
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
