@@ -1,4 +1,4 @@
-package use_case.boundary.output;
+package use_case.enrollstaff;
 
 public interface EnrollUserOutputBoundary {
     void setNewUserId(String id);

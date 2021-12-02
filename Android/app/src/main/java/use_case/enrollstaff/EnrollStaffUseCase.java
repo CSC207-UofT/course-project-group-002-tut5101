@@ -1,8 +1,7 @@
-package use_case.userlist;
+package use_case.enrollstaff;
 
 import constant.mangersystem.UserType;
-import use_case.boundary.input.EnrollUserInputBoundary;
-import use_case.boundary.output.EnrollUserOutputBoundary;
+import use_case.userlist.UserList;
 
 /**
  * Class for enrolling new staffs.

@@ -1,4 +1,4 @@
-package use_case.boundary.input;
+package use_case.login;
 
 /**
  * The input use_case.boundary for the login use case.
