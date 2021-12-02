@@ -1,6 +1,6 @@
     name: GitHub Classroom Workflow
 
-    on: [push]
+    on: []
 
     jobs:
       build:
