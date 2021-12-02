@@ -6,14 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.useractivities.CustomerPickActionActivity;
 import com.example.androidgui.useractivities.LoginActivity;
-import presenter.kitchensystem.KitchenFacade;
-import presenter.inventorysystem.InventoryManager;
-import presenter.kitchensystem.KitchenController;
-import presenter.loginsystem.LoginController;
-import presenter.managersystem.ManagerController;
-import presenter.menusystem.MenuPresenter;
-import presenter.reviewsystem.ReviewController;
-import presenter.staffsystem.StaffController;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,32 +1,29 @@
 package com.example.androidgui.inventoryactivities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-//import com.example.androidgui.inventory.PresentInventoryActivity;
 import com.example.androidgui.R;
-import controller.inventorysystem.CheckInventoryInterface;
-import presenter.inventorysystem.InventoryManager;
-import presenter.inventorysystem.InventoryPresenter;
+import presenter.inventorysystem.CheckInventoryPresenter;
+
+//import com.example.androidgui.inventory.PresentInventoryActivity;
 
 
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener, presenter.inventorysystem.CheckInventoryInterface {
-    Button button;
-    EditText name;
-    final InventoryManager im = new InventoryManager();
-    InventoryPresenter ip = new InventoryPresenter();
+    private EditText name;
+    private final CheckInventoryPresenter cip = new CheckInventoryPresenter();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ip.setCheckInventoryInterface(this);
+        cip.setCheckInventoryInterface(this);
         setContentView(R.layout.activity_check_inventory2);
-        button = findViewById(R.id.button7);
+        Button button = findViewById(R.id.button7);
         name = findViewById(R.id.editTextTextName);
         button.setOnClickListener(this);
     }
@@ -34,8 +31,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         String iName = name.getText().toString();
-        String info = im.getInfo(iName);
-        this.ip.checkValidity(info);
+        this.cip.checkValidity(iName);
 
     }
     @Override

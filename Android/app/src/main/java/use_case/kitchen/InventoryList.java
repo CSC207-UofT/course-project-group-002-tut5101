@@ -34,8 +34,12 @@ public class InventoryList implements Serializable {
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public void addInventory(Inventory item){
-        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
+    public String addInventory(Inventory item){
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item)))
+        {myDict.put(item.getName(), item);
+            return "Successful";
+        }
+        else{return "Occupied name or item";}
     }
 
 
@@ -46,8 +50,8 @@ public class InventoryList implements Serializable {
      * @param inf an InventoryFactory instance
      * @param paras The given String parameters needed to create it.
      */
-    public void addFromFactory(InventoryFactory inf, String[] paras) {
-        addInventory(inf.getInventory(paras));
+    public String addFromFactory(InventoryFactory inf, String[] paras) {
+        return addInventory(inf.getInventory(paras));
     }
 
 
