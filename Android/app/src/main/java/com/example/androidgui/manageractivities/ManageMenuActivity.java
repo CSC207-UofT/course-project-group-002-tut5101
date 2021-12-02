@@ -80,4 +80,17 @@ public class ManageMenuActivity extends AppCompatActivity implements ManageMenuV
         startActivity(intent);
     }
 
+
+    /**
+     * Manager decides to go back.
+     *
+     * @param v view
+     */
+    public void selectExit(View v) {
+        Intent intent = new Intent(ManageMenuActivity.this, ManagerPickActionActivity.class);
+        startActivity(intent);
+    }
+
+
+
 }
