@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
@@ -16,9 +15,14 @@ import constant.ordersystem.OrderType;
  * If the order is delivery, records the delivery address
  */
 public class EnterLocationActivity extends AppCompatActivity{
-    EditText enteredLocation;
+    private EditText enteredLocation;
+    private OrderType orderType;
 
 
+    /**
+     * Method that runs on creation of class
+     * @param savedInstanceState saved state of class
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,23 +30,28 @@ public class EnterLocationActivity extends AppCompatActivity{
 
         enteredLocation = findViewById(R.id.enteredLocation);
 
+        collectIntentExtras();
     }
 
     /**
-     * Switch to the next activity when the "next" button is clicked
+     * Collect information passed through the intent
+     */
+    private void collectIntentExtras() {
+        Intent extras = getIntent();
+        if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
+            orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
+        }
+    }
+
+    /**
+     * Switch to the next activity when the "next" button is clicked and pass information to the next class
      * @param v the current view
      */
     public void next(View v) {
         String location = enteredLocation.getText().toString();
-        System.out.println(location);
 
         Intent intent = new Intent(EnterLocationActivity.this, PlaceOrderActivity.class);
-        Intent extras = getIntent();
 
-        OrderType orderType = null;
-        if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
-            orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
-        }
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
 

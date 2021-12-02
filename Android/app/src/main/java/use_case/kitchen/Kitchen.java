@@ -31,6 +31,13 @@ public class Kitchen {
         return !(currentOrder == null);
     }
 
+    /**
+     * reset the current class
+     */
+    public static void reset() {
+        currentOrder = null;
+    }
+
 
     /**
      * Update the status of the dish cooked. Depending on the type of the order, add the dish to

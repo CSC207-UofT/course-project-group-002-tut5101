@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
@@ -19,11 +18,14 @@ import presenter.customersystem.SelectDineInTakeOutViewInterface;
  */
 public class SelectDineInTakeOutActivity extends AppCompatActivity implements SelectDineInTakeOutViewInterface {
     private NumberPicker selectDineInTakeOut;
-    private TextView askDineInTakeOut;
     private String[] selectDineInTakeOutOptions;
     private DineInTakeOutPresenter dineInTakeOutPresenter;
 
 
+    /**
+     * Method that runs on creation of class
+     * @param savedInstanceState saved state of the class
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,19 +35,13 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
         dineInTakeOutPresenter.setSelectDineInTakeOutViewInterface(this);
 
         selectDineInTakeOut = findViewById(R.id.selectDineInTakeOut);
-        askDineInTakeOut = findViewById(R.id.askDineInTakeOut);
-
-        setupMessage();
 
         setupOptions();
-
     }
 
-    private void setupMessage() {
-        String askDineInTakeOutMessage = "Is this order Dine In or Delivery?";
-        askDineInTakeOut.setText(askDineInTakeOutMessage);
-    }
-
+    /**
+     * Set up order options available
+     */
     private void setupOptions() {
         selectDineInTakeOutOptions = new String[]{OrderType.DINE_IN.name(), OrderType.DELIVERY.name()};
         selectDineInTakeOut.setMinValue(0);
@@ -53,10 +49,18 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
         selectDineInTakeOut.setDisplayedValues(selectDineInTakeOutOptions);
     }
 
+    /**
+     * Method that runs on click of button to pass the input to the presenter
+     * @param v current view
+     */
     public void next(View v) {
         dineInTakeOutPresenter.retrieveOrderType(selectDineInTakeOutOptions[selectDineInTakeOut.getValue()]);
     }
 
+    /**
+     * Presenter passes type of order back to activity, then activity runs next view to be displayed
+     * @param orderType type of order
+     */
     public void updateOrderType(OrderType orderType){
         Intent intent = new Intent(SelectDineInTakeOutActivity.this, EnterLocationActivity.class);
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
