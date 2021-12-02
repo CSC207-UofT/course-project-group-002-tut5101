@@ -9,12 +9,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
+import presenter.staffsystem.GeoDestination;
 import presenter.staffsystem.StaffPresenter;
 import presenter.staffsystem.StaffViewInterface;
 
 import java.util.Objects;
 
-public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface {
+public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface, GeoDestination {
     private String id;
     private String mode;
     private StaffPresenter controller;

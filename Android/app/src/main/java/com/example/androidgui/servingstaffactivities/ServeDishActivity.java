@@ -13,17 +13,16 @@ import presenter.staffsystem.StaffViewInterface;
 public class ServeDishActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
-    private StaffPresenter controller;
+    private StaffPresenter presenter;
     private TextView dishContent;
-    private String table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serve_dish);
         // Setup view bonded attributes
-        controller = new StaffPresenter();
-        controller.setStaffView(this);
+        presenter = new StaffPresenter();
+        presenter.setStaffView(this);
         dishContent = findViewById(R.id.CurrentDish);
         // Get staff id for method calls
         Bundle b = getIntent().getExtras();
@@ -44,7 +43,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
      */
     public void selectCompleteDish(View v) {
         try {
-            controller.completeCurrent(this.id);
+            presenter.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -69,15 +68,6 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
     @Override
     public void displayCurrentItem(String info) {
         dishContent.setText(info);
-    }
-
-    /**
-     * Set the destination table of the dish
-     * @param destination The table the dish is sending to
-     */
-    @Override
-    public void setItemDestination(String destination) {
-        this.table = destination;
     }
 
     /**
@@ -109,7 +99,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
      */
     private void getCurrentDish() {
         try {
-            controller.displayCurrent(this.id);
+            presenter.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -121,7 +111,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
     private void getNextDish() {
         Toast toast;
         try {
-            controller.getNext(this.id);
+            presenter.getNext(this.id);
             toast = Toast.makeText(getApplicationContext(), R.string.MessageNewDishArrived, Toast.LENGTH_SHORT);
             toast.show();
         } catch (Exception e) {

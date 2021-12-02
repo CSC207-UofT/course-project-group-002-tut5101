@@ -90,7 +90,9 @@ public class StaffPresenter implements StaffDeliveryOutputBoundary {
      */
     @Override
     public void setCurrentItemInfo(String destination, String info) {
-        staffView.setItemDestination(destination);
+        if (staffView instanceof GeoDestination) {
+            ((GeoDestination) staffView).setItemDestination(destination);
+        }
         staffView.displayCurrentItem(info);
     }
 }
