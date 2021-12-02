@@ -34,6 +34,10 @@ public class ReviewPresenter implements ReviewOutputBoundary {
         reviewList.reviewAsString();
     }
 
+    /**
+     *
+     * @param toString string representation of the reviews.
+     */
     @Override
     public void updateReviewDisplay(String toString) {
         displayReviewViewInterface.setReviewsText(toString);

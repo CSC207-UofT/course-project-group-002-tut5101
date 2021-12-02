@@ -22,6 +22,10 @@ public class ReviewList implements Serializable {
     public ReviewList() {
     }
 
+    public static void setReviews(HashMap<Integer, ArrayList<Review>> reviews) {
+        ReviewList.reviews = reviews;
+    }
+
 
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
         addReview(new Review(name, ifAnonymous, rate, comment, ifComplain, complain));

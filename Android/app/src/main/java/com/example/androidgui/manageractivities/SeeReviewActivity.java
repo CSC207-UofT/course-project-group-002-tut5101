@@ -2,12 +2,9 @@ package com.example.androidgui.manageractivities;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import controller.ReviewController;
-import presenter.menusystem.DisplayMenuViewInterface;
 import presenter.reviewsystem.DisplayReviewViewInterface;
 import presenter.reviewsystem.ReviewPresenter;
 
@@ -30,14 +27,6 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
         reviewPresenter.setDisplayReviewViewInterface(this);
 
         reviewPresenter.reviewsInListAsString();
-//
-//        // Get the review as text and add it to the scroll view
-//        TextView reviewText = new TextView(this);
-//        ReviewController reviewController = new ReviewController();
-//        reviewText.setText(reviewController.reviewsAsString());
-//
-//        // Add reviews to scroll view
-//        reviewItems.addView(reviewText);
     }
 
     /**
