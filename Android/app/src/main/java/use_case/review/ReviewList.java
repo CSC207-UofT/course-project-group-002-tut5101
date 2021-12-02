@@ -83,12 +83,9 @@ public class ReviewList implements Serializable, Iterable<Review> {
     @NonNull
     @Override
     public String toString() {
-        int reviewNumber = 1;
         StringBuilder reviewString = new StringBuilder();
         for (String review : reviews.keySet()) {
-            reviewString.append(reviewNumber);
-            reviewString.append(". ").append(Objects.requireNonNull(reviews.get(review)));
-            reviewNumber ++;
+            reviewString.append(Objects.requireNonNull(reviews.get(review)));
         }
         return reviewString.toString();
     }

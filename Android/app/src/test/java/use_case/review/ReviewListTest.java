@@ -45,17 +45,17 @@ public class ReviewListTest {
      */
     @Test
     public void testToString() {
-        assertEquals(reviewList.toString(), "" +
-                "1. 1;5;nice;1;2021-12-022. " +
-                "2;4;nice;2;2021-12-023. " +
-                "3;3;nice;3;2021-12-024. " +
-                "4;2;nice;4;2021-12-025. " +
-                "5;1;nice;5;2021-12-026. " +
-                "6;2;nice;6;2021-12-027. " +
-                "7;3;nice;7;2021-12-028. " +
-                "8;4;nice;8;2021-12-029. " +
-                "9;5;nice;9;2021-12-0210. " +
-                "10;2;nice;10;2021-12-02");
+        assertEquals(reviewList.toString(),
+                "1. 1: rate = 5; comment = nice ;2021-12-022. " +
+                "2: rate = 4; comment = nice ;2021-12-023. " +
+                "3: rate = 3; comment = nice ;2021-12-024. " +
+                "4: rate = 2; comment = nice ;2021-12-025. " +
+                "5: rate = 1; comment = nice ;2021-12-026. " +
+                "6: rate = 2; comment = nice ;2021-12-027. " +
+                "7: rate = 3; comment = nice ;2021-12-028. " +
+                "8: rate = 4; comment = nice ;2021-12-029. " +
+                "9: rate = 5; comment = nice ;2021-12-0210. " +
+                "10: rate = 2; comment = nice ;2021-12-02");
     }
 
 
