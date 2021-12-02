@@ -18,6 +18,7 @@ public class LoginUseCase {
 
     /**
      * set output boundary for soft dependency
+     *
      * @param loginOutputBoundary output boundary to presenter
      */
     public void setOutputBoundary(LoginOutputBoundary loginOutputBoundary) {

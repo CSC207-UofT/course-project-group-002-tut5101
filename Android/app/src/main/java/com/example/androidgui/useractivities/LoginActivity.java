@@ -7,10 +7,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
-
-import com.example.androidgui.kitchenactivities.KitchenActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
+import com.example.androidgui.kitchenactivities.KitchenActivity;
 import constant.mangersystem.UserType;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
@@ -29,9 +28,11 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     private EditText editTextUserId;
     private EditText editTextPassword;
     private LoginResult loginResult;
+    private UserType loginUserType;
 
     /**
      * On create method
+     *
      * @param savedInstanceState android state
      */
     @Override
@@ -88,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     /**
      * Add error message on EditText that is not filled.
      *
-     * @param editText that are required to be fille.
+     * @param editText that are required to be filled.
      */
     private void setEmptyErrorMessage(EditText editText) {
         if (editText.getText().toString().trim().length() <= 0)
@@ -157,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      */
     //TODO fill in activity.class
     private GenericDeclaration factoryMethod(String id) {
-        UserType loginUserType = this.loginPresenter.getUserTypeById(id);
+        this.loginPresenter.getUserTypeById(id);
         switch (loginUserType) {
             case CUSTOMER:
                 return CustomerPickActionActivity.class;
@@ -175,6 +176,21 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         return LoginActivity.class;
     }
 
+    /**
+     * ViewInterface method implementation
+     *
+     * @param userType user type
+     */
+    @Override
+    public void setUserType(UserType userType) {
+        this.loginUserType = userType;
+    }
+
+    /**
+     * ViewInterface method implementation
+     *
+     * @param result login result
+     */
     @Override
     public void presentLoginResult(LoginResult result) {
         this.loginResult = result;
