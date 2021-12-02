@@ -48,11 +48,10 @@ public class EnrollStaffUseCase implements EnrollUserInputBoundary {
      * @param name      name of the new staff
      * @param password  password of the new staff
      * @param userType  user type of the new staff
-     * @param salary    salary of the new staff
      */
     @Override
-    public void enrollNewStaff(String id, String name, String password, String userType, int salary) {
-        userList.addStaff(id, name, password, userType, salary);
+    public void enrollNewStaff(String id, String name, String password, String userType) {
+        userList.addStaff(id, name, password, userType);
     }
 
     /**

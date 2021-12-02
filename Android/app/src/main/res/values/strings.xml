@@ -89,5 +89,8 @@
     <string name="search">Search</string>
     <string name="dish_name">Dish Name</string>
     <string name="cooked">Cooked</string>
+    <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
+        address below
+    </string>
 
 </resources>

@@ -9,39 +9,22 @@ import entity.User;
  */
 
 public class Staff extends User {
-    protected int staffSalary;
 
     /**
      * Construct a staff using the staff's name, staffNumber, and staffSalary
      * @param staffName The name of a staff
      * @param staffID The staff number of a staff
      * @param password The password of a staff
-     * @param staffSalary The salary of a staff
      */
-    public Staff(String staffID, String staffName, String password, int staffSalary) {
+    public Staff(String staffID, String staffName, String password) {
         super(staffID, staffName, password);
-        this.staffSalary = staffSalary;
     }
 
     /**
-     * Increase the salary of a staff by increment
-     * @param increment The value added to the current salary of a staff
+     *
+     * Empty constructor for testing.
      */
-    public void increaseSalary(int increment) {
-        staffSalary += increment;
+    public Staff(){
     }
 
-    /**
-     * Reduce the salary of a staff by reduction
-     * @param reduction The value added to the current salary of a staff
-     */
-    public void decreaseSalary(int reduction) {
-        staffSalary -= reduction;
-    }
-
-    /**
-     * Get the staffSalary, the salary of a staff
-     * @return The salary of the staff
-     */
-    public int getStaffSalary() { return staffSalary;}
 }

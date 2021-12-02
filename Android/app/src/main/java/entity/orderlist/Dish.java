@@ -19,7 +19,7 @@ public class Dish implements Serializable {
     /**
      * A Hashmap that maps ingredient name to the quantity needed for this dish.
      */
-    private HashMap<String, Double> ingredients;
+    private HashMap<String, Integer> ingredients;
     private HashMap<String, Boolean> features;
     private double calories;
     private String allergyInformation;
@@ -37,7 +37,7 @@ public class Dish implements Serializable {
      * @param ingredients ingredients of the entities.Dish
      * @param calories    calories of the entities.Dish
      */
-    public Dish(String name, double price, HashMap<String, Double> ingredients, double calories) {
+    public Dish(String name, double price, HashMap<String, Integer> ingredients, double calories) {
         this.name = name;
         this.price = price;
         this.ingredients = ingredients;
@@ -119,7 +119,7 @@ public class Dish implements Serializable {
      *
      * @return the ingredients of entities.Dish
      */
-    public HashMap<String, Double> getIngredients() {
+    public HashMap<String, Integer> getIngredients() {
         return ingredients;
     }
 
@@ -128,7 +128,7 @@ public class Dish implements Serializable {
      *
      * @param ingredients the ingredients of the dish
      */
-    public void setIngredients(HashMap<String, Double> ingredients) {
+    public void setIngredients(HashMap<String, Integer> ingredients) {
         this.ingredients = ingredients;
     }
 

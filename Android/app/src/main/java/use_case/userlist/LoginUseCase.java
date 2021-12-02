@@ -7,14 +7,19 @@ import use_case.boundary.output.LoginOutputBoundary;
 
 import java.util.Objects;
 
+/**
+ * Use case class for user login.
+ */
 public class LoginUseCase implements LoginInputBoundary {
 
 //    private final UserList users;
     private final LoginOutputBoundary outputBoundary;
 
-
+    /**
+     *
+     * @param loginOutputBoundary output boundary for login in.
+     */
     public LoginUseCase(LoginOutputBoundary loginOutputBoundary){
-//        this.users = new UserList(FileLocation.USER_FILE_LOCATION);
         this.outputBoundary = loginOutputBoundary;
     }
     /**

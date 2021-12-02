@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public enum BuildOrderInfo implements Parcelable {
-    ORDER_TYPE, LOCATION, DISHES;
+    ORDER_TYPE, LOCATION, DISHES, PRICES;
 
     @Override
     public int describeContents(){

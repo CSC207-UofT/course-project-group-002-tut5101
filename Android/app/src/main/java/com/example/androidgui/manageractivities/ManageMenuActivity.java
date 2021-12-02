@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.ManagerUIMessage;
-import controller.menusystem.MenuController;
+import presenter.menusystem.MenuPresenter;
 
 /**
  * Activity class for the manager to manage menu.
@@ -20,7 +20,7 @@ public class ManageMenuActivity extends AppCompatActivity {
     NumberPicker selectDish;
     TextView askDishNumber;
     String[] managerDecision;
-    final MenuController menuController = new MenuController();
+    final MenuPresenter menuPresenter = new MenuPresenter();
 
     /**
      * Activity basic function.
@@ -35,7 +35,7 @@ public class ManageMenuActivity extends AppCompatActivity {
         askDishNumber = findViewById(R.id.askDishNumber);
         String askingDishNumber = ManagerUIMessage.MANAGE_DISH;
         askDishNumber.setText(askingDishNumber);
-        managerDecision = menuController.passDishesAsList();
+        managerDecision = menuPresenter.passDishesAsList();
         selectDish.setMaxValue(managerDecision.length - 1);
         selectDish.setMinValue(0);
         selectDish.setDisplayedValues(managerDecision);

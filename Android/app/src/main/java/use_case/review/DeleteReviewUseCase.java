@@ -2,6 +2,10 @@ package use_case.review;
 
 import use_case.boundary.input.DeleteReviewInputBoundary;
 
+/**
+ *
+ * Use case class for deleting review functionality.
+ */
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 

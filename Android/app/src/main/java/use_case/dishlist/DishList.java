@@ -3,7 +3,7 @@ package use_case.dishlist;
 import androidx.annotation.NonNull;
 import constant.filesystem.FileLocation;
 import entity.orderlist.Dish;
-import use_case.boundary.output.MenuOutputBoundary;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -19,6 +19,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static final long serialVersionUID = 1L;
     String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
 
 
@@ -38,6 +39,11 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
+
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
+    }
+
     public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
         this.menuOutputBoundary = menuOutputBoundary;
     }
@@ -52,7 +58,6 @@ public class DishList implements Serializable, Iterable<Dish> {
             menu.put(d.getName(), d);
         }
     }
-
 
 
     /**
@@ -100,7 +105,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dishName The name of the dish to be look up
      * @return The hashMap representing the ingredients and their amount needed for the dish named dishName
      */
-    public static HashMap<String, Double> getDishIngredients(String dishName) {
+    public static HashMap<String, Integer> getDishIngredients(String dishName) {
         return Objects.requireNonNull(menu.get(dishName)).getIngredients();
     }
 
@@ -111,28 +116,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public static double getDishCalories(String dishName) {
         return Objects.requireNonNull(menu.get(dishName)).getCalories();
-    }
-
-
-    /**
-     * Return the size of the menu (how many dishes in the menu)
-     * @return The number of dishes in the menu
-     */
-    public int size() {
-        return menu.size();
-    }
-
-    /**
-     * Get the dishNames from integer(index)
-     * @param orderedNum The dish numbered in the arrayList data structure to store
-     * @return The dish
-     */
-    public static List<String> getDishNamesFromInt(List<Integer> orderedNum) {
-        List<String> dishes = new ArrayList<>();
-        for (int num : orderedNum) {
-            dishes.add(keySet.get(num));
-        }
-        return dishes;
     }
 
     /**
@@ -175,15 +158,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    /**
-     * Get Dish by dish name
-     * @param dishName name of the dish
-     * @return the Dish object
-     */
-    public static Dish getDishByDishName(String dishName) {
-        return menu.get(dishName);
-    }
-
 
     /**
      *
@@ -191,7 +165,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void numberOfDishesForPresenter(){
         int numberOfDishes = menu.size();
-        menuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+        placeOrderOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
     }
 
     /**
@@ -199,7 +173,13 @@ public class DishList implements Serializable, Iterable<Dish> {
      * updates the array of dish names to be displayed
      */
     public void getAllDishNamesAsListForPresenter() {
-        menuOutputBoundary.setDisplayedDishNames(dishNames);
+        ArrayList<String> dishNamesAndPrice = new ArrayList<>();
+        String nameAndPrice;
+        for (String name : dishNames) {
+            nameAndPrice = name + "   $" + Objects.requireNonNull(menu.get(name)).getPrice();
+            dishNamesAndPrice.add(nameAndPrice);
+        }
+        placeOrderOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
 
     /**
@@ -210,13 +190,16 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         String dishName = dishNames[dishNameIndex];
-        menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
+        placeOrderOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
     }
 
 
-//    public void saveToFile(){
-//        readWriter.saveToFile(this.filepath, menu);
-//    }
+    public void dishesString() {
+        menuOutputBoundary.updateMenuItemsDisplay(this.toString());
+    }
 
-
+    public void dishPrice(String dishName) {
+        double price = Objects.requireNonNull(menu.get(dishName)).getPrice();
+        placeOrderOutputBoundary.addDishPrices(dishName, price);
+    }
 }

@@ -12,10 +12,14 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
-import controller.reviewsystem.ReviewController;
+import presenter.reviewsystem.ReviewController;
 
 import java.util.Objects;
 
+/**
+ *
+ * Activity class for deleting reviews.
+ */
 public class DeleteReviewActivity extends AppCompatActivity {
     NumberPicker selectAction;
     TextView askDeleteCriteria;
@@ -72,20 +76,6 @@ public class DeleteReviewActivity extends AppCompatActivity {
 
     }
 
-//    /**
-//     * Display AlertDialog to ask manager confirm to delete the reiews.
-//     *
-//     * @param view android view
-//     */
-//    public void cancelUserEnroll(View view) {
-//        AlertDialog alertDlg = new AlertDialog.Builder(this)
-//                .setTitle(ReviewMessage.CONFIRM)
-//                .setMessage(ReviewMessage.DELETE_REVIEW)
-//                .setPositiveButton(ReviewMessage.YES, (dialog, which) -> finish())
-//                .setNegativeButton(ReviewMessage.NO, (dialog, which) -> dialog.dismiss())
-//                .create();
-//        alertDlg.show();
-//    }
 
 }
 

@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
-import controller.managersystem.ManagerController;
+import presenter.managersystem.ManagerController;
 import use_case.boundary.output.EnrollUserOutputBoundary;
 
+/**
+ * Activity class for enrolling new users.
+ */
 @SuppressWarnings("SameParameterValue")
 public class EnrollUserActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
 
@@ -25,6 +28,10 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
 
     ManagerController managerController;
 
+    /**
+     * On create method.
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +59,11 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         managerController.getStaffTypes();
     }
 
-
+    /**
+     * Set id for new user.
+     *
+     * @param id id of new user.
+     */
     @Override
     public void setNewUserId(String id) {
         editTextUserId.setText(id);
@@ -97,8 +108,7 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         managerController.enrollNewUser(editTextUserId.getText().toString(),
                 editTextUserName.getText().toString(),
                 editTextPassword.getText().toString(),
-                numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()],
-                editNumSalary.getText().toString());
+                numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()]);
 
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(EnrollUserMessage.SUCCEED)

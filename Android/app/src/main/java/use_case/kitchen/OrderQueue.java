@@ -57,17 +57,17 @@ public class OrderQueue {
         if (dishes.isEmpty()) {
             return true;
         }
-        HashMap<String, Double> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
+        HashMap<String, Integer> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
                                                                         // value the ingredient needed
         // Calculate the total amount of each ingredient needed in the list of dishes
         for (Dish dish: dishes) {
-            HashMap<String, Double> dishIngredients = dish.getIngredients();
+            HashMap<String, Integer> dishIngredients = dish.getIngredients();
             // Add the amount of an ingredient needed for a dish to the dictionary
             for (String ingredient: dishIngredients.keySet()) {
                 if (!ingredientsRequired.containsKey(ingredient)) {
                     ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
                 } else {
-                    double previousValue = ingredientsRequired.get(ingredient);
+                    int previousValue = ingredientsRequired.get(ingredient);
                     ingredientsRequired.replace(ingredient, previousValue + dishIngredients.get(ingredient));
                 }
             }

@@ -26,31 +26,55 @@ public class ManagerPickActionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manager_pick_action);
     }
 
+    /**
+     * Manager decides to manage menu.
+     *
+     * @param v view
+     */
     public void ManageMenu(View v){
         Intent intent = new Intent(ManagerPickActionActivity.this, ManageMenuActivity.class);
         startActivity(intent);
     }
 
+
+    /**
+     * Manager decides to see menu.
+     *
+     * @param v view
+     */
     public void SeeMenu(View v){
         Intent intent = new Intent(ManagerPickActionActivity.this, SeeMenuActivity.class);
         startActivity(intent);
     }
 
+
+    /**
+     * Manager decides to see reviews.
+     *
+     * @param v view
+     */
     public void SeeReview(View v){
         Intent intent = new Intent(ManagerPickActionActivity.this, SeeReviewActivity.class);
         startActivity(intent);
     }
 
+
+    /**
+     * Manager decides to delete reviews.
+     *
+     * @param v view
+     */
     public void DeleteReview(View v){
         Intent intent = new Intent(ManagerPickActionActivity.this, DeleteReviewActivity.class);
         startActivity(intent);
     }
 
-    public void AddDish(View v){
-        Intent intent = new Intent(ManagerPickActionActivity.this, AddDishActivity.class);
-        startActivity(intent);
-    }
-    
+
+    /**
+     * Manager decides exit log in.
+     *
+     * @param v view
+     */
     public void selectExit(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, MainActivity.class);
         startActivity(intent);
