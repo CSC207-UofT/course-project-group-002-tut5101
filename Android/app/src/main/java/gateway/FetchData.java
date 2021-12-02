@@ -19,8 +19,9 @@ public class FetchData extends Thread {
     public void run() {
         try {
             URL url = new URL(this.url);
+
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("GET");
+               httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Connection", "keep-alive");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.connect();
