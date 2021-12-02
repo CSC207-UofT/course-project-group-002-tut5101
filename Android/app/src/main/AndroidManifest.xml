@@ -27,7 +27,7 @@
         </activity>
         <activity android:name=".inventoryactivities.InventoryStarterActivity">
         </activity>
-        <activity android:name=".useractivities.EnrollUserActivity">
+        <activity android:name=".useractivities.EnrollStaffActivity">
         </activity>
         <activity
                 android:name=".manageractivities.SelectEditOrDeleteActivity"
