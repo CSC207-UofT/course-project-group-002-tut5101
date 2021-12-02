@@ -16,7 +16,14 @@ import java.util.*;
 
 public class OrderQueue {
 
-    private static final Queue<Order> placedOrderQueue = new ArrayDeque<>();
+    private static Queue<Order> placedOrderQueue = new ArrayDeque<>();
+
+    /**
+     * reset the current class
+     */
+    public static void reset() {
+        placedOrderQueue = new ArrayDeque<>();
+    }
 
     /**
      * Try adding order to the placedOrderList, if order location too far or not possible to do the

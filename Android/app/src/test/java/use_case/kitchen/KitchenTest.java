@@ -21,9 +21,6 @@ public class KitchenTest {
     private DineInOrder dineInOrder;
     private DeliveryOrder deliveryOrder;
     private Order sameDishOrder;
-    private Dish quarterPoundWithCheese;
-    private Dish smallFries;
-    private Dish coke;
 
 
     /**
@@ -31,12 +28,15 @@ public class KitchenTest {
      */
     @Before
     public void setUp() {
+        Kitchen.reset();
+        OrderQueue.reset();
+
 
         String location = "1";
 
-        quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
-        smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200);
-        coke = new Dish("Coke", 10.0, new HashMap<>(), 180);
+        Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
+        Dish smallFries = new Dish("Small fries", 1.99, new HashMap<>(), 200);
+        Dish coke = new Dish("Coke", 10.0, new HashMap<>(), 180);
 
         HashMap<String, List<Dish>> dishes = new HashMap<>();
         dishes.put("Quarter pound with cheese", Collections.singletonList(quarterPoundWithCheese));
@@ -81,6 +81,9 @@ public class KitchenTest {
      */
     @Test
     public void testDishAndQuantity() {
+        addOrders();
+        Kitchen.getNextToCook();
+
         HashMap<String, Integer> expected = new HashMap<>();
         expected.put("Quarter pound with cheese", 1);
         expected.put("Small fries", 1);
@@ -96,6 +99,8 @@ public class KitchenTest {
      */
     @Test
     public void testCookedDish() {
+        addOrders();
+        Kitchen.getNextToCook();
         Kitchen.cookedDish("Small fries");
         Dish actualFries = null;
         try{

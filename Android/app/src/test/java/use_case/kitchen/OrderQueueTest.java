@@ -24,6 +24,8 @@ public class OrderQueueTest {
      */
     @Before
     public void setUp() {
+        OrderQueue.reset();
+
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
         InventoryList inventoryList = new InventoryList();
         inventoryList.addInventory(hasExpiryDate);

@@ -18,6 +18,7 @@ public class ReviewList implements Serializable {
      * Empty constructor.
      */
     public ReviewList() {
+        reviews = new HashMap<>();
     }
 
 
