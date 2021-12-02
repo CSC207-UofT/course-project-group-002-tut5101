@@ -22,6 +22,7 @@ import java.util.HashMap;
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
 
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
     private OrderType orderType;
     private String location;
 
@@ -36,6 +37,10 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     private PlaceOrderPresenter placeOrderPresenter;
 
 
+    /**
+     * Method that runs on creation of this class
+     * @param savedInstanceState The saved state of this class
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         generateStartingInformation();
         collectDishInformation();
 
+        placeOrderPresenter.displayDishesOrdered();
     }
 
     /**
@@ -82,15 +88,20 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         else {
             dishesOrdered = new HashMap<>();
         }
-
         if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
             orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
         }
-
+        if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
+            dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
+        }
+        else {
+            dishPrices = new HashMap<>();
+        }
         placeOrderPresenter.setDishesOrdered(dishesOrdered);
+        placeOrderPresenter.setDishPrices(dishPrices);
     }
 
     /**
@@ -118,6 +129,16 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         this.dishesOrdered = dishesOrdered;
     }
 
+
+    /**
+     * Set dish prices
+     * @param dishPrices prices of dishes ordered
+     */
+    @Override
+    public void setDishPrices(HashMap<String, Double> dishPrices) {
+        this.dishPrices = dishPrices;
+    }
+
     /**
      * Method for order_dish button that runs on click
      * @param v the view on which the user has clicked
@@ -131,14 +152,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * display dishes ordered in the ordered dishes
-     * @param dishesOrdered dishes to display
+     * @param displayedText text to display
      */
-    public void displayDishesOrdered(HashMap<String, Integer> dishesOrdered) {
+    @Override
+    public void displayDishesOrdered(String[] displayedText) {
         orderedDishesLayout.removeAllViews();
-        for (String dishName : dishesOrdered.keySet()) {
+        for (String text : displayedText) {
             TextView displayedDish = new TextView(this);
-            String dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
-            displayedDish.setText(dishNameAndQuantity);
+            displayedDish.setText(text);
             orderedDishesLayout.addView(displayedDish);
         }
     }
@@ -177,23 +198,34 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param view the view on which the user has clicked
      */
     public void selectEditOrder(View view) {
-        Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
+        System.out.println("Select edit order");
+        placeOrderPresenter.checkRunEditOrder();
 
-        passInformationToEditOrder();
-
-        startActivity(intent);
     }
 
     /**
-     * pass information to the next activity
+     * pass information to the next activity and run the edit order activity
      */
-    private void passInformationToEditOrder() {
+    @Override
+    public void runEditOrder() {
         placeOrderPresenter.updateDishesOrdered();
+        placeOrderPresenter.updateDishPrices();
 
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
-        intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
-        intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
-        intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        System.out.println("Place Order Activity Pass info to edit");
+        System.out.println(dishesOrdered);
+        if (!dishesOrdered.isEmpty()) {
+            intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
+        }
+        if (orderType != null ){
+            intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
+        }
+        if (location != null) {
+            intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        }
+        if (!dishPrices.isEmpty()) {
+            intent.putExtra(BuildOrderInfo.PRICES.name(), dishPrices);
+        }
         startActivity(intent);
     }
 

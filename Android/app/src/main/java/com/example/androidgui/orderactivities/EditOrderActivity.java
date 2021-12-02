@@ -21,6 +21,7 @@ import java.util.HashMap;
  */
 public class EditOrderActivity extends AppCompatActivity implements EditOrderViewInterface {
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
 
     private OrderType orderType;
     private String location;
@@ -50,22 +51,33 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
     @SuppressWarnings("unchecked")
     private void collectDishInformation(){
         Intent intent = getIntent();
-
+        System.out.println(intent.getExtras());
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
+            System.out.println("has Dishes");
             dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
         }
         else {
             dishesOrdered = new HashMap<>();
         }
-
+        System.out.println("Edit Order Activity collect Dish Info");
+        System.out.println(dishesOrdered);
         if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
             orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
             location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
         }
-
+        if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
+            System.out.println("Has prices");
+            dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
+        }
+        else {
+            dishPrices = new HashMap<>();
+        }
+        System.out.println(dishPrices);
         editOrderPresenter.setDishesOrdered(dishesOrdered);
+        editOrderPresenter.setDishPrices(dishPrices);
+        editOrderPresenter.collectDishes();
     }
 
     /**
@@ -129,6 +141,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
         intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         intent.putExtra(BuildOrderInfo.LOCATION.name(), location);
+        intent.putExtra(BuildOrderInfo.PRICES.name(), dishPrices);
         startActivity(intent);
     }
 

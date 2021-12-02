@@ -5,16 +5,18 @@ package entity.inventory;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Entity class for alcohol.
  */
 
 public class HasExpiryDate implements Inventory, Serializable {
-    public final String name;
-    protected boolean usedup;
-    protected final double price;
-    protected double quantity;
-    public final int ExpiryDate;
+    private final String name;
+    private boolean usedup;
+    private final double price;
+    private int quantity;
+    private final int ExpiryDate;
 
     /**
      * Construct an instance of Product
@@ -24,18 +26,25 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @param ExpiryDate The ExiryDate of the Product
      */
 
-    public HasExpiryDate(String name, double price, double quantity, int ExpiryDate){
+    public HasExpiryDate(String name, double price, int quantity, int ExpiryDate){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.ExpiryDate = ExpiryDate;
         this.usedup = quantity == 0;
     }
+
+    /**
+     * @return the name of the item
+     */
     @Override
     public String getName(){return this.name;}
 
+    /**
+     * @return whether the item has been used up
+     */
     @Override
-    public boolean getUsedup(){
+    public boolean getUsedUp(){
         return this.usedup;
     }
 
@@ -45,7 +54,7 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return The quantity of the Inventory as a double.
      */
     @Override
-    public double getQuantity(){
+    public int getQuantity(){
         return this.quantity;
     }
 
@@ -55,7 +64,7 @@ public class HasExpiryDate implements Inventory, Serializable {
      * @return Whether the inventory is enough to use.
      */
     @Override
-    public String updateQuantity(double usage){
+    public String updateQuantity(int usage){
         String message;
         if(this.quantity >= usage){
             this.quantity -= usage;
@@ -70,11 +79,9 @@ public class HasExpiryDate implements Inventory, Serializable {
 
 
     /**
-     * Get the ExpiryDate of a Product
-     * @return The ExpiryDate of the Product as an int.
+     *
+     * @return the string representation of the inventory item
      */
-
-
     @Override
     @NonNull
     public String toString(){
@@ -82,6 +89,20 @@ public class HasExpiryDate implements Inventory, Serializable {
                 ","+ this.quantity +","+ this.ExpiryDate;
 
     }
+
+    /**
+     *
+     * @param o object to compare to
+     * @return true if contents of inventory item (name, quantity, price, etc.) are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HasExpiryDate)) return false;
+        HasExpiryDate that = (HasExpiryDate) o;
+        return usedup == that.usedup && Double.compare(that.price, price) == 0 && quantity == that.quantity && ExpiryDate == that.ExpiryDate && Objects.equals(name, that.name);
+    }
+
 }
 
 

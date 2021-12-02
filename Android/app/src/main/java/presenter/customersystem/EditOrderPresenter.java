@@ -1,6 +1,7 @@
 package presenter.customersystem;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,6 +13,7 @@ public class EditOrderPresenter {
     private EditOrderViewInterface editOrderViewInterface;
 
     private HashMap<String, Integer> dishesOrdered;
+    private HashMap<String, Double> dishPrices;
     private ArrayList<String> collectedDishes;
 
     /**
@@ -35,24 +37,27 @@ public class EditOrderPresenter {
      */
     public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
         this.dishesOrdered = dishesOrdered;
-        collectDishes();
+    }
+
+    public void setDishPrices(HashMap<String, Double> dishPrices) {
+        this.dishPrices = dishPrices;
     }
 
     /**
      * Takes the dishes ordered and collects them in string format into an array before updating the options to be picked
      */
    public void collectDishes() {
-        collectedDishes = new ArrayList<>();
-        String dishNameAndQuantity;
-        if (dishesOrdered != null) {
-            for (String dishName : dishesOrdered.keySet()) {
-                dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName);
-                collectedDishes.add(dishNameAndQuantity);
-            }
-        }
+       collectedDishes = new ArrayList<>();
+       String dishNameAndQuantity;
+       if (!dishesOrdered.isEmpty()) {
+           for (String dishName : dishesOrdered.keySet()) {
+               dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName) + "   $" +
+                       dishPrices.get(dishName) + "\t each";
+               collectedDishes.add(dishNameAndQuantity);
+           }
+       }
+   }
 
-        setOrderedDishesPicker();
-    }
 
     /**
      * Set the number of options
@@ -60,18 +65,45 @@ public class EditOrderPresenter {
     private void setOrderedDishesPicker(){
         if (collectedDishes.size() >= 1) {
             editOrderViewInterface.setOrderedDishesPickerMax(collectedDishes.size() - 1);
+            editOrderViewInterface.setOrderedDishesPickerValues(collectedDishes.toArray(new String[0]));
         }
         else {
             editOrderViewInterface.setOrderedDishesPickerMax(0);
+            editOrderViewInterface.setOrderedDishesPickerValues(new String[]{"No Dishes"});
         }
-        editOrderViewInterface.setOrderedDishesPickerValues(collectedDishes.toArray(new String[0]));
     }
 
     /**
      * Display the dishes available to edit
      */
     public void displayDishesOrdered() {
-        editOrderViewInterface.displayDishesOrdered(collectedDishes.toArray(new String[0]));
+        setOrderedDishesPicker();
+        if (!collectedDishes.isEmpty()) {
+            ArrayList<String> dishesString = new ArrayList<>(collectedDishes);
+            dishesString.add(getTotalPriceString());
+            editOrderViewInterface.displayDishesOrdered(dishesString.toArray(new String[0]));
+        }
+        else {
+            editOrderViewInterface.displayDishesOrdered(new String[0]);
+        }
+    }
+
+    private String getTotalPriceString() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        double totalPrice = 0;
+        for (String dishName : dishesOrdered.keySet()) {
+            Integer tempQuantity = dishesOrdered.get(dishName);
+            Double tempPrice = dishPrices.get(dishName);
+            if (tempQuantity != null && tempPrice != null){
+                int quantity = tempQuantity;
+                double price = tempPrice;
+                for (int i = 1; i <= quantity; i++) {
+                    totalPrice += price * 100;
+                }
+            }
+        }
+        totalPrice = totalPrice / 100;
+        return "\n\nTOTAL PRICE: " + df.format(totalPrice);
     }
 
     /**
@@ -79,10 +111,12 @@ public class EditOrderPresenter {
      * @param dishIndex the index corresponding to the dish to be removed
      */
     public void removeOrderedDish(int dishIndex) {
-        String dishName = collectedDishes.get(dishIndex).split(" x ")[0];
-        dishesOrdered.remove(dishName);
-        collectDishes();
-        displayDishesOrdered();
+        if (!collectedDishes.isEmpty()) {
+            String dishName = collectedDishes.get(dishIndex).split(" x ")[0];
+            dishesOrdered.remove(dishName);
+            collectDishes();
+            displayDishesOrdered();
+        }
     }
 
     /**

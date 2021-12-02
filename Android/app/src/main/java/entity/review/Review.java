@@ -11,14 +11,13 @@ import java.util.Date;
  * Entity class for reviews.
  */
 
-
 public class Review implements Reviewable, Serializable {
-    public String userName;
-    public boolean ifAnonymous;
-    public int rate;
-    public String newComment;
-    public boolean ifComplain;
-    public String newComplain;
+    private final String userName;
+    private final boolean ifAnonymous;
+    private final int rate;
+    private final String newComment;
+    private final boolean ifComplain;
+    private final String newComplain;
 
     /**
      * Construct an instance of Material
@@ -28,7 +27,7 @@ public class Review implements Reviewable, Serializable {
      * @param rate        an int in 0-5 rate for the food
      * @param newComment  The comment that the user want to add
      * @param ifComplain  true if the user want to add complain to stuff, false if the user doesn't want to
-     * @param newComplain the complain that the user want to add
+     * @param newComplain the complaint that the user want to add
      */
 
     public Review(String userName, boolean ifAnonymous, int rate, String newComment,
@@ -48,7 +47,7 @@ public class Review implements Reviewable, Serializable {
      * @return The String of the userName, return "Anonymous" if the user want to anonymous.
      */
     @Override
-    public String addName() {
+    public String getName() {
         if (ifAnonymous) {
             return "Anonymous";
         } else {
@@ -63,11 +62,10 @@ public class Review implements Reviewable, Serializable {
      * @return an int of the rate from 0-5.
      */
     @Override
-    public int addRate() {
+    public int getRate() {
         if (rate <= 0) {
             return 0;
         } else return Math.min(rate, 5);
-
     }
 
 
@@ -77,15 +75,15 @@ public class Review implements Reviewable, Serializable {
      * @return The String of the comment.
      */
     @Override
-    public String addComment() {
+    public String getComment() {
         return newComment;
     }
 
 
     /**
-     * Get the complain for the stuff.
+     * Get the complaint for the stuff.
      *
-     * @return The String of the complain.
+     * @return The String of the complaint.
      */
     @Override
     public String complainStuff() {
@@ -103,7 +101,7 @@ public class Review implements Reviewable, Serializable {
      * @return The LocalDateTime when the user makes a comment.
      */
     @Override
-    public String reviewDate() {
+    public String getReviewDate() {
         Date date = new Date();
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
@@ -116,7 +114,7 @@ public class Review implements Reviewable, Serializable {
     @Override
     @NonNull
     public String toString() {
-        return addName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + reviewDate();
+        return getName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + getReviewDate();
     }
 
 }

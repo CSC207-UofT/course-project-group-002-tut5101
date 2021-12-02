@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import com.example.androidgui.useractivities.EnterLocationActivity;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 import presenter.customersystem.DineInTakeOutPresenter;

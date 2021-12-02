@@ -1,4 +1,4 @@
-package com.example.androidgui.useractivities;
+package com.example.androidgui.orderactivities;
 
 import android.content.Intent;
 import android.os.Parcelable;
@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import com.example.androidgui.orderactivities.PlaceOrderActivity;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
 
@@ -17,7 +16,6 @@ import constant.ordersystem.OrderType;
  * If the order is delivery, records the delivery address
  */
 public class EnterLocationActivity extends AppCompatActivity{
-    TextView askEnterAddressMessage;
     EditText enteredLocation;
 
 
@@ -25,11 +23,6 @@ public class EnterLocationActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_location);
-
-
-        askEnterAddressMessage = findViewById(R.id.askEnterAddressMessage);
-        String enterLocationMessage = "Please enter the table number or delivery address below";
-        askEnterAddressMessage.setText(enterLocationMessage);
 
         enteredLocation = findViewById(R.id.enteredLocation);
 
@@ -45,6 +38,7 @@ public class EnterLocationActivity extends AppCompatActivity{
 
         Intent intent = new Intent(EnterLocationActivity.this, PlaceOrderActivity.class);
         Intent extras = getIntent();
+
         OrderType orderType = null;
         if (extras.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
             orderType = extras.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());

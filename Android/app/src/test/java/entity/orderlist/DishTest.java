@@ -21,14 +21,14 @@ public class DishTest {
      */
     @Before
     public void setUp() {
-        HashMap<String, Double> ingredient1 = new HashMap<>();
-        ingredient1.put("Tofu", 10.0);
-        ingredient1.put("Spice", 1.0);
-        ingredient1.put("Garlic", 15.0);
-        HashMap<String, Double> ingredient2 = new HashMap<>();
-        ingredient2.put("Bread", 30.4);
-        ingredient2.put("Ketchup", 2.1);
-        ingredient2.put("Cheese", 2.4);
+        HashMap<String, Integer> ingredient1 = new HashMap<>();
+        ingredient1.put("Tofu", 10);
+        ingredient1.put("Spice", 1);
+        ingredient1.put("Garlic", 15);
+        HashMap<String, Integer> ingredient2 = new HashMap<>();
+        ingredient2.put("Bread", 30);
+        ingredient2.put("Ketchup", 2);
+        ingredient2.put("Cheese", 2);
 
         dish1 = new Dish("MaPoTouFu", 12.5, ingredient1, 200);
         dish2 = new Dish("RoYaleWithCheese", 10, ingredient2, 500);
@@ -94,12 +94,12 @@ public class DishTest {
      */
     @Test(timeout = 50)
     public void testGetSetIngredients() {
-        HashMap<String, Double> ingredients = new HashMap<>();
-        ingredients.put("ingredient1", 10.0);
-        ingredients.put("ingredien2", 20.0);
+        HashMap<String, Integer> ingredients = new HashMap<>();
+        ingredients.put("ingredient1", 10);
+        ingredients.put("ingredient2", 20);
         dish1.setIngredients(ingredients);
 
-        HashMap<String, Double> actual = dish1.getIngredients();
+        HashMap<String, Integer> actual = dish1.getIngredients();
         assertEquals(ingredients, actual);
     }
 
@@ -143,8 +143,8 @@ public class DishTest {
     @Test(timeout = 50)
     public void testToString() {
         setUp();
-        HashMap<String, Double> ingredients = new HashMap<>();
-        ingredients.put("ingredient1", 10.0);
+        HashMap<String, Integer> ingredients = new HashMap<>();
+        ingredients.put("ingredient1", 10);
         dish1.setIngredients(ingredients);
         String actual = dish1.toString();
         String expected = "MaPoTouFu" + "\n\t\t$$" + 12.5 + "\n\t\tcalories: " + 200.0 + " cal/100g" +
@@ -182,10 +182,10 @@ public class DishTest {
     public void testEquals() {
         setUp();
 
-        HashMap<String, Double> ingredient1 = new HashMap<>();
-        ingredient1.put("Tofu", 10.0);
-        ingredient1.put("Spice", 1.0);
-        ingredient1.put("Garlic", 15.0);
+        HashMap<String, Integer> ingredient1 = new HashMap<>();
+        ingredient1.put("Tofu", 10);
+        ingredient1.put("Spice", 1);
+        ingredient1.put("Garlic", 15);
 
         Dish newDish = new Dish("MaPoTouFu", 12.5, ingredient1, 200);
         assert(newDish.equals(dish1));
