@@ -1,6 +1,5 @@
 package presenter.loginsystem;
 
-import constant.mangersystem.UserType;
 import constant.uimessage.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -73,14 +72,14 @@ public class LoginPresenter implements LoginOutputBoundary {
      * Return UserType based on the login user id
      *
      * @param id the login user id
-     * @return UserType of the user
      */
-    public UserType getUserTypeById(String id) {
-        return UserList.getUserTypeById(id);
+    public void getUserTypeById(String id) {
+        this.loginViewInterface.setUserType(UserList.getUserTypeById(id));
     }
 
     /**
      * Implement output boundary method to present login result
+     *
      * @param result of login
      */
     @Override
