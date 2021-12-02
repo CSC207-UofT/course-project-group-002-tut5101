@@ -18,7 +18,7 @@ import java.util.Objects;
 public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface, GeoDestination {
     private String id;
     private String mode;
-    private StaffPresenter controller;
+    private StaffPresenter presenter;
     private TextView currentOrder;
     private String destination;
 
@@ -27,8 +27,8 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_order);
         // Setup view bonded attributes
-        controller = new StaffPresenter();
-        controller.setStaffView(this);
+        presenter = new StaffPresenter();
+        presenter.setStaffView(this);
         currentOrder = findViewById(R.id.CurrentOrder);
         // Get id for method calls
         Bundle b = getIntent().getExtras();
@@ -40,7 +40,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
         if (mode.equals("GET_NEXT")) {
             Toast toast;
             try {
-                controller.getNext(this.id);
+                presenter.getNext(this.id);
             } catch (Exception e) {
                 if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
                     toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
@@ -59,7 +59,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      */
     private void getCurrentOrder() {
         try {
-            controller.displayCurrent(this.id);
+            presenter.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -85,7 +85,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      */
     public void selectFinishOrder(View v) {
         try {
-            controller.completeCurrent(this.id);
+            presenter.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
