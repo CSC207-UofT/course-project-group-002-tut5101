@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
+import presenter.managersystem.EnrollStaffViewInterface;
 import presenter.managersystem.ManagerController;
-import use_case.enrollstaff.EnrollUserOutputBoundary;
 
 /**
  * Activity class for enrolling new staff.
  */
 @SuppressWarnings("SameParameterValue")
-public class EnrollStaffActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
+public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaffViewInterface {
 
     private EditText editTextUserId;
     private EditText editTextUserName;
@@ -26,7 +26,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollUser
     private EditText editNumSalary;
     private NumberPicker numPickerUserType;
 
-    ManagerController managerController;
+    private ManagerController managerController;
 
     /**
      * On create method.
@@ -38,7 +38,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollUser
         setContentView(R.layout.activity_enroll_staff);
 
         managerController = new ManagerController();
-        managerController.setEnrollUserOutputBoundary(this);
+        managerController.setViewInterface(this);
 
         editTextUserId = findViewById(R.id.editTextNewUserId);
         editTextUserName = findViewById(R.id.editTextNewUserName);
@@ -60,7 +60,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollUser
     }
 
     /**
-     * Set id for new user.
+     * ViewInterface method implementation
      *
      * @param id id of new user.
      */
@@ -69,11 +69,16 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollUser
         editTextUserId.setText(id);
     }
 
+    /**
+     * ViewInterface method implementation
+     *
+     * @param staffTypes string array of staff types
+     */
     @Override
-    public void setAvailUserTypeOptions(String[] staffTypes, int maxValue) {
+    public void setAvailUserTypeOptions(String[] staffTypes) {
         numPickerUserType.setDisplayedValues(staffTypes);
         numPickerUserType.setMinValue(0);
-        numPickerUserType.setMaxValue(maxValue);
+        numPickerUserType.setMaxValue(staffTypes.length - 1);
         numPickerUserType.setWrapSelectorWheel(false);
     }
 
