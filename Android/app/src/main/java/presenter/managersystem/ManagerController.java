@@ -7,9 +7,9 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import use_case.boundary.input.EnrollUserInputBoundary;
-import use_case.boundary.output.EnrollUserOutputBoundary;
-import use_case.userlist.EnrollStaffUseCase;
+import use_case.enrollstaff.EnrollUserInputBoundary;
+import use_case.enrollstaff.EnrollUserOutputBoundary;
+import use_case.enrollstaff.EnrollStaffUseCase;
 import use_case.userlist.UserList;
 
 /**
