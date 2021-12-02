@@ -92,5 +92,6 @@
     <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
         address below
     </string>
+    <string name="dine_in_or_delivery">Is this order Dine In or Delivery?</string>
 
 </resources>

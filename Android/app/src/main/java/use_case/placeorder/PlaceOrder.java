@@ -17,14 +17,13 @@ import java.util.*;
  * by Evelyn Chou
  * 2021-11-03
  */
-public class PlaceOrder implements PlaceOrderInputBoundary {
+public class PlaceOrder implements PlaceOrderInputBoundary{
 
     private final OrderFactory orderFactory;
 
     public PlaceOrder() {
         orderFactory = new OrderFactory();
     }
-
 
     /**
      * Places an order by creating copies of the dishes in the menu then adding them to a new order, then adding the
