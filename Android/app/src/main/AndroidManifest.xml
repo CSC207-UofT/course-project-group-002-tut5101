@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
             android:allowBackup="false"
             android:fullBackupContent="@xml/backup_rules"
@@ -12,6 +13,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
+        <activity android:name=".testActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".inventoryactivities.UpdateQuanActivity">
         </activity>
         <activity android:name=".inventoryactivities.UpdateFreshnessActivity">
@@ -67,32 +75,34 @@
         </activity>
         <activity
                 android:name=".deliverystaffactivities.DeliverOrderActivity"
+                android:exported="false"
                 android:label="@string/title_activity_deliver_order"
-                android:theme="@style/Theme.AndroidGUI.NoActionBar"
-                android:exported="false">
+                android:theme="@style/Theme.AndroidGUI.NoActionBar">
         </activity>
         <activity
                 android:name=".useractivities.LoginActivity"
                 android:exported="true">
         </activity>
-
-        <activity android:name=".orderactivities.SelectDineInTakeOutActivity"
-                  android:exported="true">
+        <activity
+                android:name=".orderactivities.SelectDineInTakeOutActivity"
+                android:exported="true">
         </activity>
-        <activity android:name=".orderactivities.EnterLocationActivity"
-                  android:exported="true">
+        <activity
+                android:name=".orderactivities.EnterLocationActivity"
+                android:exported="true">
         </activity>
         <activity
                 android:name=".orderactivities.PlaceOrderActivity"
                 android:exported="true">
         </activity>
-        <activity android:name=".orderactivities.OrderSuccessfullyPlacedActivity"
-        android:exported="true">
-    </activity>
         <activity
-                android:name=".useractivities.SeeMenuActivity">
-          </activity>
-        <activity android:name=".orderactivities.EditOrderActivity"
+                android:name=".orderactivities.OrderSuccessfullyPlacedActivity"
+                android:exported="true">
+        </activity>
+        <activity android:name=".useractivities.SeeMenuActivity">
+        </activity>
+        <activity
+                android:name=".orderactivities.EditOrderActivity"
                 android:exported="true">
         </activity>
         <activity android:name=".useractivities.CustomerPickActionActivity">

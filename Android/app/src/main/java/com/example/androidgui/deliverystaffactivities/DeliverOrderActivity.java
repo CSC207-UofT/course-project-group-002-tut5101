@@ -64,7 +64,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      * Launch Google Maps to show directions
      */
     public void selectShowMap(View v) {
-        Uri gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University College, Toronto, ON, Canada");
+        Uri gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=" + destination);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);

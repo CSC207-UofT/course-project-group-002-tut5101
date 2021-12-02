@@ -15,6 +15,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
     private String mode;
     private StaffPresenter controller;
     private final TextView dishContent = findViewById(R.id.CurrentDish);
+    private String table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +28,14 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
             id = b.getString("id");
             mode = b.getString("action");
         }
-        // Get next dish to be delivered
+        // Get next dish to be delivered if entered this screen
         if (mode != null && mode.equals("GET_NEXT")) {
-            Toast toast;
-            try {
-                controller.getNext(this.id);
-            } catch (Exception e) {
-                if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
-                    toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                goBackPickAction();
-            }
+            getNextDish();
         }
         // Display current dish to be delivered
         getCurrentDish();
     }
+
     /**
      * When select to complete the dish in hand, try to call completeCurrent
      */
@@ -63,6 +56,25 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
      */
     public void selectReturn(View v) {
         goBackPickAction();
+    }
+
+
+    /**
+     * Put the current item(dish) information to user's view
+     * @param info Dish information
+     */
+    @Override
+    public void displayCurrentItem(String info) {
+        dishContent.setText(info);
+    }
+
+    /**
+     * Set the destination table of the dish
+     * @param destination The table the dish is sending to
+     */
+    @Override
+    public void setItemDestination(String destination) {
+        this.table = destination;
     }
 
     /**
@@ -88,11 +100,33 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
         }
     }
 
+    /**
+     * Try to get the current dish to be served
+     * Catch exceptions, if needed, handle them
+     */
     private void getCurrentDish() {
         try {
             controller.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
+        }
+    }
+
+    /**
+     * Get next dish
+     */
+    private void getNextDish() {
+        Toast toast;
+        try {
+            controller.getNext(this.id);
+            toast = Toast.makeText(getApplicationContext(), R.string.MessageNewDishArrived, Toast.LENGTH_SHORT);
+            toast.show();
+        } catch (Exception e) {
+            if (e.getMessage() != null && !e.getMessage().equals("Already has one dish in hands")) {
+                toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            goBackPickAction();
         }
     }
 
@@ -106,14 +140,5 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
         b.putString("id", this.id); //Your id
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
-    }
-
-    @Override
-    public void displayCurrentItem(String info) {
-        dishContent.setText(info);
-    }
-
-    @Override
-    public void setItemDestination(String destination) {
     }
 }
