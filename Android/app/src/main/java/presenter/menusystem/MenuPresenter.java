@@ -8,7 +8,7 @@ import use_case.boundary.output.MenuOutputBoundary;
 import java.util.HashMap;
 
 /**
- * Controller class for menu.
+ * Presenter class for menu.
  */
 
 

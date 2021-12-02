@@ -2,6 +2,7 @@ package use_case.review;
 
 import androidx.annotation.NonNull;
 import entity.review.Review;
+import use_case.boundary.output.ReviewOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.Objects;
  */
 public class ReviewList implements Serializable {
     private static HashMap<Integer, ArrayList<Review>> reviews;
+    private ReviewOutputBoundary reviewOutputBoundary;
 
     /**
      * Empty constructor.
@@ -39,6 +41,9 @@ public class ReviewList implements Serializable {
         }
     }
 
+    public void setReviewOutputBoundary(ReviewOutputBoundary reviewOutputBoundary){
+        this.reviewOutputBoundary = reviewOutputBoundary;
+    }
 
     /**
      *
@@ -92,5 +97,9 @@ public class ReviewList implements Serializable {
      */
     public void deleteBelowOne() {
         reviews.put(1, new ArrayList<>());
+    }
+
+    public void reviewAsString() {
+        reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
 }
