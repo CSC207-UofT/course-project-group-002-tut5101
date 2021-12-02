@@ -12,7 +12,6 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
-import presenter.managersystem.DeleteReviewViewInterface;
 import presenter.reviewsystem.DeleteReviewPresenter;
 
 
@@ -20,7 +19,7 @@ import presenter.reviewsystem.DeleteReviewPresenter;
  *
  * Activity class for deleting reviews.
  */
-public class DeleteReviewActivity extends AppCompatActivity implements DeleteReviewViewInterface {
+public class DeleteReviewActivity extends AppCompatActivity {
     private NumberPicker selectAction;
     private String[] managerDecision;
     private TextView askDeleteCriteria;
@@ -36,11 +35,9 @@ public class DeleteReviewActivity extends AppCompatActivity implements DeleteRev
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_review);
 
-        deleteReviewPresenter = new DeleteReviewPresenter();
-        deleteReviewPresenter.setDeleteReviewViewInterface(this);
         askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
         selectAction = findViewById(R.id.selectAction);
-
+        this.deleteReviewPresenter = new DeleteReviewPresenter();
 
         setupMessage();
         setupOptions();
@@ -65,9 +62,6 @@ public class DeleteReviewActivity extends AppCompatActivity implements DeleteRev
         selectAction.setMinValue(0);
     }
 
-    public void decideReview(String action){
-
-    }
 
     /**
      * Method to delete the reviews.
@@ -89,7 +83,6 @@ public class DeleteReviewActivity extends AppCompatActivity implements DeleteRev
         alertDlg.show();
 
     }
-
 
 }
 

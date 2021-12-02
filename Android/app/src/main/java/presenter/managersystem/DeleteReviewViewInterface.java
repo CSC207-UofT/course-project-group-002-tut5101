@@ -1,8 +1,13 @@
 package presenter.managersystem;
 
-import constant.mangersystem.ManagerDecision;
-
+/**
+ * View interface for deleting reviews.
+ */
 public interface DeleteReviewViewInterface {
-    void decideReview(String decision);
-
+//
+//    void decideReviewOne();
+//
+//    void decideReviewTwo();
+//
+//    void decideReviewThree();
 }

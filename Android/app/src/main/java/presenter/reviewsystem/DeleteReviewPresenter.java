@@ -1,23 +1,19 @@
 package presenter.reviewsystem;
 
 import constant.mangersystem.ManagerDecision;
-import presenter.managersystem.DeleteReviewViewInterface;
-
 import java.util.Objects;
 
 /**
  * Presenter class for deleting reviews.
  */
 public class DeleteReviewPresenter {
-    DeleteReviewViewInterface deleteReviewViewInterface;
+    private final ReviewController reviewController;
 
     /**
      * Empty constructor.
      */
-    public DeleteReviewPresenter(){}
-
-    public void setDeleteReviewViewInterface(DeleteReviewViewInterface deleteReviewViewInterface){
-        this.deleteReviewViewInterface = deleteReviewViewInterface;
+    public DeleteReviewPresenter(){
+        this.reviewController = new ReviewController();
     }
 
     /**
@@ -26,13 +22,13 @@ public class DeleteReviewPresenter {
      */
     public void decideReview(String action){
         if (Objects.equals(action, ManagerDecision.ONE.toString())){
-            deleteReviewViewInterface.decideReview(ManagerDecision.ONE.toString());
+            reviewController.deleteBelowOne();
         }
         else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
-            deleteReviewViewInterface.decideReview(ManagerDecision.ONE.toString());
+            reviewController.deleteBelowTwo();
         }
         else {
-            deleteReviewViewInterface.decideReview(ManagerDecision.ONE.toString());
+            reviewController.deleteBelowThree();
         }
     }
 }
