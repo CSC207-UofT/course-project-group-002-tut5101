@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidGUI</string>
+    <string name="app_name">RestaurantSystem</string>
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
 
