@@ -18,7 +18,7 @@ public class ReviewPresenterTest {
     @Before
     public void setUp() {
         reviewPresenter = new ReviewPresenter();
-        TestClass testPresenter = new ReviewPresenterTest.TestClass();
+        TestClass testPresenter = new TestClass();
         reviewPresenter.setDisplayReviewViewInterface(testPresenter);
     }
 
