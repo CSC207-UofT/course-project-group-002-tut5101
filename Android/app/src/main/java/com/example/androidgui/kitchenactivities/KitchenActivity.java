@@ -9,12 +9,20 @@ import controller.KitchenController;
 
 import java.util.ArrayList;
 
+/**
+ * Kitchen activity class.
+ */
 public class KitchenActivity extends AppCompatActivity{
 
     // TODO: improve the design here, try to make it not public.
     public static final KitchenFacade kf = new KitchenFacade();
     public static final KitchenController kc = kf.createKitchen();
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

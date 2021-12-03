@@ -7,8 +7,16 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 
+/**
+ * Activity class for presenting inventory.
+ */
 public class PresentInventoryActivity extends AppCompatActivity{
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

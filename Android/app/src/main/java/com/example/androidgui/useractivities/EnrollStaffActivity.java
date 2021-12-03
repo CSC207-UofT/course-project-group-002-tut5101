@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
+import controller.ManagerController;
 import presenter.managersystem.EnrollStaffViewInterface;
-import presenter.managersystem.ManagerController;
 
 /**
  * Activity class for enrolling new staff.
