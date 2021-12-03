@@ -27,6 +27,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private NumberPicker numPickerUserType;
 
     private ManagerController managerController;
+    private String newUserId;
 
     /**
      * On create method.
@@ -48,6 +49,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
         numPickerUserType = findViewById(R.id.numPickerUserType);
         editNumSalary = findViewById(R.id.editNumSalary);
 
+
         generateRequiredInfo();
 
     }
@@ -68,6 +70,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     @Override
     public void setNewUserId(String id) {
         editTextUserId.setText(id);
+        newUserId = id;
     }
 
     /**
@@ -118,7 +121,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
 
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(EnrollUserMessage.SUCCEED)
-                .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE)
+                .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE + this.newUserId)
                 .setPositiveButton(LoginLogoutUIMessage.OK, (dialog, which) -> {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
