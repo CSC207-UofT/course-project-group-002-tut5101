@@ -38,14 +38,14 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review4);
         deleteReviewUseCase = new DeleteReviewUseCase(reviewList);
     }
-//
-//    /**
-//     * Test deleteBelowThree method
-//     */
-//    @Test
-//    public void testDeleteBelowThree(){
-//        assertEquals(4, reviewList.sizeofList());
-//        deleteReviewUseCase.delete(3);
-//    }
+
+    /**
+     * Test deleteBelowThree method
+     */
+    @Test
+    public void testDeleteBelowThree(){
+        assertEquals(4, reviewList.sizeofList());
+        deleteReviewUseCase.delete(3);
+    }
 
 }

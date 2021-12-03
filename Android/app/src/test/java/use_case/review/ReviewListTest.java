@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 import static org.junit.Assert.*;
@@ -83,10 +84,41 @@ public class ReviewListTest {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
-                "; comment = " + "good food" + " ;" + dateFormat.format(date);
+                "; comment = " + "good food";
 
         String actual = reviewList.toString();
         assert(actual.contains(review));
+    }
+
+    /**
+     * Test the getAllReviews method
+     */
+    @Test
+    public void testGetAllReviews() {
+        HashMap<String, Review> expected = new HashMap<>();
+        expected.put("1", review1);
+        expected.put("2", review2);
+        reviewList.addReview(review1);
+        reviewList.addReview(review2);
+        assertEquals(expected, ReviewList.getAllReviews());
+    }
+
+    /**
+     * Test the next method for review iterator
+     */
+    @Test
+    public void testIteratorNext() {
+        Iterator<Review> reviewIterator = reviewList.iterator();
+        while (reviewIterator.hasNext()){
+            Review review = reviewIterator.next();
+        }
+        try {
+            reviewIterator.next();
+            assert false;
+        }
+        catch (Exception ignored){
+            assert true;
+        }
     }
 
 

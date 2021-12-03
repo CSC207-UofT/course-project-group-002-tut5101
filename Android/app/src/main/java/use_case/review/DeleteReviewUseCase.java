@@ -30,7 +30,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
         Iterator<Review> reviewIterator = reviewList.iterator();
         while (reviewIterator.hasNext()){
             Review review = reviewIterator.next();
-            if (review.getRate() < i + 1){
+            if (review != null && review.getRate() < i + 1) {
                 reviewIterator.remove();
             }
         }

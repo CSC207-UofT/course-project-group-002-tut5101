@@ -24,7 +24,9 @@ public class DishInformationTest {
     @Before
     public void setUp() {
         TestClass testPresenter = new TestClass();
+        TestClass2 testPresenter2 = new TestClass2();
         menu.setPlaceOrderOutputBoundary(testPresenter);
+        menu.setPlaceOrderMenuOutputBoundary(testPresenter2);
 
         menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
