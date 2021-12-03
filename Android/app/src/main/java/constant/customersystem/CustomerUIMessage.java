@@ -7,7 +7,7 @@ package constant.customersystem;
 public class CustomerUIMessage {
     public static final String MENU_TITLE = "~~~~~~~~~~~~~~~~~~~ M E N U ~~~~~~~~~~~~~~~~~~~~~";
     public static final String CUSTOMER_ACTIONS = "1. Place Order\n2. Ask for assistance \n3. Pay bill\n" +
-            "4. Leave a review \n0. Logout";
+            "4. Leave a use_case.review \n0. Logout";
     public static final String SELECT_ACTION = "Please enter the number of your selection";
     public static final String SELECT_ORDER_TYPE = "Is this order \n1. Dine in \n2. Take out";
     public static final String ENTER_TABLE_NUMBER = "Please enter your table number";

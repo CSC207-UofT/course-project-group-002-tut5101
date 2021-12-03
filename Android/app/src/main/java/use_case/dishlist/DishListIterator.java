@@ -30,9 +30,9 @@ public class DishListIterator implements Iterator<Dish> {
     }
 
     /**
-     * Returns the next Contact.
+     * Returns the next Dish.
      *
-     * @return the next Contact.
+     * @return the next Dish.
      */
     @Override
     public Dish next() {

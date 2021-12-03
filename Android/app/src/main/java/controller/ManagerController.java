@@ -1,4 +1,4 @@
-package presenter.managersystem;
+package controller;
 
 
 import entity.customer.Customer;
@@ -7,6 +7,7 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import presenter.managersystem.EnrollStaffViewInterface;
 import use_case.enrollstaff.EnrollStaffInputBoundary;
 import use_case.enrollstaff.EnrollStaffOutputBoundary;
 import use_case.enrollstaff.EnrollStaffUseCase;

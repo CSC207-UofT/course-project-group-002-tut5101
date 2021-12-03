@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.kitchensystem.KitchenFacade;
-import presenter.kitchensystem.KitchenController;
+import controller.KitchenController;
 
 import java.util.ArrayList;
 

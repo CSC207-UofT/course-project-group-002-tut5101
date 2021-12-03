@@ -1,7 +1,6 @@
 package entity.orderlist;
 
 import constant.ordersystem.ItemStatus;
-import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
 
