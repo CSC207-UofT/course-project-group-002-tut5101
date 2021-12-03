@@ -7,7 +7,7 @@ import entity.orderlist.Order;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliverorder.DeliveryBuffer;
-import use_case.servedish.ServingBuffer;
+import use_case.deliverorder.ServingBuffer;
 
 import java.util.*;
 
