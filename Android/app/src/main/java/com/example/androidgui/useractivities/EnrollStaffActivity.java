@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
-import controller.ManagerController;
 import presenter.managersystem.EnrollStaffViewInterface;
+import controller.ManagerController;
 
 /**
  * Activity class for enrolling new staff.
@@ -31,7 +31,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
 
     /**
      * On create method.
-     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
@@ -48,7 +47,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
         editTextConfirmPassword = findViewById(R.id.editTextNewUserConfirmPassword);
         numPickerUserType = findViewById(R.id.numPickerUserType);
         editNumSalary = findViewById(R.id.editNumSalary);
-
 
         generateRequiredInfo();
 

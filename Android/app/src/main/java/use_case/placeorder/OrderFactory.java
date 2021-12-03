@@ -1,4 +1,4 @@
-package use_case.customer;
+package use_case.placeorder;
 
 import constant.ordersystem.OrderType;
 import entity.orderlist.DeliveryOrder;

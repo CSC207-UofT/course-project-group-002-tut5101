@@ -11,15 +11,17 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import presenter.customersystem.PlaceOrderPresenter;
-import presenter.customersystem.PlaceOrderViewInterface;
+import presenter.ordersystem.PlaceOrderMenuPresenter;
+import presenter.ordersystem.PlaceOrderMenuViewInterface;
+import presenter.ordersystem.PlaceOrderPresenter;
+import presenter.ordersystem.PlaceOrderViewInterface;
 
 import java.util.HashMap;
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
  */
 
-public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
+public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface, PlaceOrderMenuViewInterface {
 
     // Information needed to place order
     private HashMap<String, Integer> dishesOrdered;
@@ -33,7 +35,9 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     private NumberPicker dishQuantityPicker;
     private NumberPicker dishNamePicker;
     private LinearLayout orderedDishesLayout;
+
     private PlaceOrderPresenter placeOrderPresenter;
+    private PlaceOrderMenuPresenter placeOrderMenuPresenter;
 
     /**
      * Method that runs on creation of this class
@@ -46,6 +50,9 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
         placeOrderPresenter = new PlaceOrderPresenter();
         placeOrderPresenter.setPlaceOrderViewInterface(this);
+
+        placeOrderMenuPresenter = new PlaceOrderMenuPresenter();
+        placeOrderMenuPresenter.setPlaceOrderMenuViewInterface(this);
 
         this.errorMessage = findViewById(R.id.errorMessage);
         this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
@@ -67,8 +74,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         this.dishNamePicker = findViewById(R.id.dishNamePicker);
         this.dishNamePicker.setMinValue(0);
 
-        placeOrderPresenter.numberOfDishesInMenu();
-        placeOrderPresenter.allDishNames();
+        placeOrderMenuPresenter.numberOfDishesInMenu();
+        placeOrderMenuPresenter.allDishNames();
 
     }
 
@@ -169,7 +176,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
-        Intent intent = getIntent();
+
         placeOrderPresenter.runPlaceOrderInformation(orderType, location);
 
     }
@@ -196,7 +203,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param view the view on which the user has clicked
      */
     public void selectEditOrder(View view) {
-        System.out.println("Select edit order");
         placeOrderPresenter.checkRunEditOrder();
 
     }
@@ -206,12 +212,11 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     @Override
     public void runEditOrder() {
-        placeOrderPresenter.updateDishesOrdered();
+        placeOrderPresenter.updateDishesOrderedInView();
         placeOrderPresenter.updateDishPrices();
 
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
-        System.out.println("Place Order Activity Pass info to edit");
-        System.out.println(dishesOrdered);
+
         if (!dishesOrdered.isEmpty()) {
             intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         }

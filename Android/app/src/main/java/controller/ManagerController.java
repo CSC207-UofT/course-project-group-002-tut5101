@@ -1,6 +1,7 @@
 package controller;
 
 
+import constant.mangersystem.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -23,6 +24,7 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      */
     private final EnrollStaffInputBoundary enrollUserInputBoundary;
     private EnrollStaffViewInterface enrollStaffViewInterface;
+    private UserList userList;
 
 
     /**
@@ -68,7 +70,14 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      * @param userType        type of new user
      */
     public void enrollNewUser(String newUserId, String newUserName, String newUserPassword, String userType) {
-        enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword, userType);
+        UserType currentUserType = null;
+        for (UserType type : UserType.values()) {
+            if (type.toString().equals(userType)){
+                currentUserType = type;
+                break;
+            }
+        }
+        enrollUserInputBoundary.enrollNewStaff(newUserId, newUserName, newUserPassword, currentUserType);
     }
 
     /**

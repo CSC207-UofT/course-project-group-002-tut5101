@@ -12,14 +12,17 @@ public class ReviewListIterator implements Iterator<Review> {
     /**
      * The index of the next use_case.review to return.
      */
-    public int curr = 0;
-    public static HashMap<String, Review> reviewList;
+    private int curr = 0;
+    private static HashMap<String, Review> reviewList;
+    private static List<String> lstReviews;
+
 
     /**
      * Constructor for this iterator.
      */
     public ReviewListIterator(){
         reviewList = ReviewList.getAllReviews();
+        lstReviews = new ArrayList<>(reviewList.keySet());
     }
 
 
@@ -42,8 +45,7 @@ public class ReviewListIterator implements Iterator<Review> {
     public Review next() {
         Review review;
         try {
-            List<String> lst = new ArrayList<>(reviewList.keySet());
-            String reviewName = lst.get(curr);
+            String reviewName = lstReviews.get(curr);
             review = reviewList.get(reviewName);
         } catch (IndexOutOfBoundsException e) {
             throw new NoSuchElementException();
@@ -57,6 +59,8 @@ public class ReviewListIterator implements Iterator<Review> {
      */
     @Override
     public void remove() {
-        Iterator.super.remove();
+        String reviewName = lstReviews.get(curr);
+        String reviewID = Objects.requireNonNull(reviewList.get(reviewName)).getReviewID();
+        ReviewList.getAllReviews().remove(reviewID);
     }
 }

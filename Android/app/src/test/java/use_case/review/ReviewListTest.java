@@ -4,63 +4,131 @@ import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.HashMap;
+import java.util.Iterator;
+
+
+import static org.junit.Assert.*;
 
 /**
- * Testing reviewList.
+ * Test the ReviewList class
  */
 public class ReviewListTest {
-    final ReviewList reviewList = new ReviewList();
+    private ReviewList reviewList;
+    private Review review1;
+    private Review review2;
 
     /**
-     * Setting up.
+     * Setup before tests
      */
     @Before
-    public void setUp(){
-        Review r1 = new Review("1", false, 5, "nice",  "1");
-        Review r2 = new Review("2", false, 4, "nice",  "2");
-        Review r3 = new Review("3", false, 3, "nice",  "3");
-        Review r4 = new Review("4", false, 2, "nice",  "4");
-        Review r5 = new Review("5", false, 1, "nice", "5");
-        Review r6 = new Review("6", false, 2, "nice", "6");
-        Review r7 = new Review("7", false, 3, "nice", "7");
-        Review r8 = new Review("8", false, 4, "nice", "8");
-        Review r9 = new Review("9", false, 5, "nice", "9");
-        Review r10 = new Review("10", false, 2, "nice", "10");
-        reviewList.addReview(r1);
-        reviewList.addReview(r2);
-        reviewList.addReview(r3);
-        reviewList.addReview(r4);
-        reviewList.addReview(r5);
-        reviewList.addReview(r6);
-        reviewList.addReview(r7);
-        reviewList.addReview(r8);
-        reviewList.addReview(r9);
-        reviewList.addReview(r10);
+    public void setUp() {
+        reviewList = new ReviewList();
+        review1 = new Review("Amy", true, 5, "good food", "1");
+        review2 = new Review("Bob", false, 5, "Nice staff",
+                "2");
+
+        TestClass testPresenter = new TestClass();
+        reviewList.setReviewOutputBoundary(testPresenter);
     }
 
     /**
-     *
-     * Testing toString method.
+     * Test the setReviews method
      */
     @Test
-    public void testToString() {
-        assertEquals(reviewList.toString(),
-                "1. 1: rate = 5; comment = nice ;" +
-                        "2. 2: rate = 4; comment = nice ;" +
-                        "3. 3: rate = 3; comment = nice ;" +
-                        "4. 4: rate = 2; comment = nice ;" +
-                        "5. 5: rate = 1; comment = nice ;" +
-                        "6. 6: rate = 2; comment = nice ;" +
-                        "7. 7: rate = 3; comment = nice ;" +
-                        "8. 8: rate = 4; comment = nice ;" +
-                        "9. 9: rate = 5; comment = nice ;" +
-                        "10. 10: rate = 2; comment = nice ;");
+    public void testSetReviews() {
+        HashMap<String, Review> reviews = new HashMap<>();
+        reviews.put("1", review1);
+        ReviewList.setReviews(reviews);
+        assertEquals(1, reviewList.sizeofList());
+    }
+    /**
+     * Test the add review method
+     */
+    @Test
+    public void testAddReview() {
+        reviewList.addReview(review1);
+        reviewList.addReview(review2);
+        reviewList.addReview("Amy", true, 5, "good food", "1");
+    }
+
+    /**
+     * Test the sizeOfList method
+     */
+    @Test
+    public void testSizeOfList(){
+        reviewList.addReview(review1);
+        reviewList.addReview(review2);
+        assertEquals(2, reviewList.sizeofList());
+    }
+
+    /**
+     * Test the reviewAsString method
+     */
+    @Test
+    public void testReviewAsString() {
+        reviewList.reviewAsString();
     }
 
 
+    /**
+     * Test the toString method
+     */
+    @Test
+    public void testToString(){
+        reviewList.addReview(review1);
+
+        String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
+                "; comment = " + "good food";
+
+        String actual = reviewList.toString();
+        assert(actual.contains(review));
+    }
+
+    /**
+     * Test the getAllReviews method
+     */
+    @Test
+    public void testGetAllReviews() {
+        HashMap<String, Review> expected = new HashMap<>();
+        expected.put("1", review1);
+        expected.put("2", review2);
+        reviewList.addReview(review1);
+        reviewList.addReview(review2);
+        assertEquals(expected, ReviewList.getAllReviews());
+    }
+
+    /**
+     * Test the next method for review iterator
+     */
+    @Test
+    public void testIteratorNext() {
+        Iterator<Review> reviewIterator = reviewList.iterator();
+        while (reviewIterator.hasNext()){
+            reviewIterator.next();
+        }
+        try {
+            reviewIterator.next();
+            assert false;
+        }
+        catch (Exception ignored){
+            assert true;
+        }
+    }
 
 
+    /**
+     * Empty fake presenter class implementing the output boundary
+     */
+    private static class TestClass implements ReviewOutputBoundary {
 
-
+        /**
+         * Test if this method is called
+         * @param toString string to display
+         */
+        @Override
+        public void updateReviewDisplay(String toString) {
+            assert true;
+        }
+    }
 }
