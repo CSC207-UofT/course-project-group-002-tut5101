@@ -2,7 +2,7 @@ package presenter.inventorysystem;
 
 
 import constant.filesystem.FileLocation;
-import use_case.boundary.output.InventoryOutputBoundary;
+import use_case.inventoryfactory.InventoryOutputBoundary;
 import use_case.inventoryfactory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
