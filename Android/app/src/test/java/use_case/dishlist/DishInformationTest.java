@@ -5,6 +5,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.HashMap;
@@ -77,24 +78,6 @@ public class DishInformationTest {
 
         /**
          * Test if this method is called from DishInformation
-         * @param size the size of the number picker
-         */
-        @Override
-        public void setDishNamePickerMaxValue(int size) {
-            assertEquals(9, size);
-        }
-
-        /**
-         * Test if this method is called from DishInformation
-         * @param dishNames names of dishes
-         */
-        @Override
-        public void setDisplayedDishNames(String[] dishNames) {
-            assert(dishNames.length == 9);
-        }
-
-        /**
-         * Test if this method is called from DishInformation
          * @param dishName name of dish
          * @param dishQuantity quantity of dish
          */
@@ -113,6 +96,26 @@ public class DishInformationTest {
             assertEquals("Coffee", dishName);
             assertEquals(10.0, price, 0.1);
         }
+    }
+    private class TestClass2 implements PlaceOrderMenuOutputBoundary {
+        /**
+         * Test if this method is called from DishInformation
+         * @param size the size of the number picker
+         */
+        @Override
+        public void setDishNamePickerMaxValue(int size) {
+            assertEquals(9, size);
+        }
+
+        /**
+         * Test if this method is called from DishInformation
+         * @param dishNames names of dishes
+         */
+        @Override
+        public void setDisplayedDishNames(String[] dishNames) {
+            assert(dishNames.length == 9);
+        }
+
     }
 
 }

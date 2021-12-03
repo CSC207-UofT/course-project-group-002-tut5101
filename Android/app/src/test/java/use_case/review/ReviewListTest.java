@@ -95,6 +95,10 @@ public class ReviewListTest {
      */
     private static class TestClass implements ReviewOutputBoundary {
 
+        /**
+         * Test if this method is called
+         * @param toString string to display
+         */
         @Override
         public void updateReviewDisplay(String toString) {
             assert true;

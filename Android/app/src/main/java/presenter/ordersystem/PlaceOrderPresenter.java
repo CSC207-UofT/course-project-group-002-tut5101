@@ -1,4 +1,4 @@
-package presenter.customersystem;
+package presenter.ordersystem;
 
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
@@ -25,7 +25,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
     private final DishInformation dishInformation;
-    private DishList dishList;
+    private final DishList dishList;
 
     /**
      * The input use_case.boundary for the place order.
@@ -108,19 +108,19 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
     // calls use case DishInformation (called from activity)
 
 
-    /**
-     * Get number of dishes in menu from DishInformation use case
-     */
-    public void numberOfDishesInMenu() {
-        dishInformation.numberOfDishesForPresenter();
-    }
-
-    /**
-     * Get names of all dishes from DishInformation use case
-     */
-    public void allDishNames() {
-        dishInformation.getAllDishNamesAsListForPresenter();
-    }
+//    /**
+//     * Get number of dishes in menu from DishInformation use case
+//     */
+//    public void numberOfDishesInMenu() {
+//        dishInformation.numberOfDishesForPresenter();
+//    }
+//
+//    /**
+//     * Get names of all dishes from DishInformation use case
+//     */
+//    public void allDishNames() {
+//        dishInformation.getAllDishNamesAsListForPresenter();
+//    }
 
     /**
      * pass the index of the dish ordered and the quantity ordered to the dishInformation
@@ -134,18 +134,18 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
     // called from use case dishInformation
 
-    /**
-     * set the number of dishes ordered on view
-     * @param size the number of dishes
-     */
-    @Override
-    public void setDishNamePickerMaxValue(int size) {
-        if (size >= 1) {
-            placeOrderViewInterface.setDishNamePickerMaxValue(size);
-        }
-        else {placeOrderViewInterface.setDishNamePickerMaxValue(0);
-        }
-    }
+//    /**
+//     * set the number of dishes ordered on view
+//     * @param size the number of dishes
+//     */
+//    @Override
+//    public void setDishNamePickerMaxValue(int size) {
+//        if (size >= 1) {
+//            placeOrderViewInterface.setDishNamePickerMaxValue(size);
+//        }
+//        else {placeOrderViewInterface.setDishNamePickerMaxValue(0);
+//        }
+//    }
 
 
     /**
@@ -157,14 +157,14 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
         dishPrices.put(dishName, price);
     }
 
-    /**
-     * set the view to display dishes ordered
-     * @param dishNames dishes ordered
-     */
-    @Override
-    public void setDisplayedDishNames(String[] dishNames) {
-        placeOrderViewInterface.setDisplayedDishNames(dishNames);
-    }
+//    /**
+//     * set the view to display dishes ordered
+//     * @param dishNames dishes ordered
+//     */
+//    @Override
+//    public void setDisplayedDishNames(String[] dishNames) {
+//        placeOrderViewInterface.setDisplayedDishNames(dishNames);
+//    }
 
 
     /**
