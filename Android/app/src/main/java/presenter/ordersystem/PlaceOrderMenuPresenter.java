@@ -6,10 +6,16 @@ import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 
 import java.util.HashMap;
 
+/**
+ * Presenter class for the PlaceOrder activity that displays information on menu
+ */
 public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
     private final DishInformation dishInformation;
     private PlaceOrderMenuViewInterface placeOrderMenuViewInterface;
 
+    /**
+     * Constructor for this class
+     */
     public PlaceOrderMenuPresenter( ) {
         this.dishInformation = new DishInformation();
         dishInformation.setPlaceOrderMenuOutputBoundary(this);
@@ -18,6 +24,10 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
         generateDishList();
     }
 
+    /**
+     * Set the view interface
+     * @param placeOrderMenuViewInterface the view interface
+     */
     public void setPlaceOrderMenuViewInterface(PlaceOrderMenuViewInterface placeOrderMenuViewInterface) {
         this.placeOrderMenuViewInterface = placeOrderMenuViewInterface;
     }
