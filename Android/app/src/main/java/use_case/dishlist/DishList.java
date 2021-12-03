@@ -2,10 +2,11 @@ package use_case.dishlist;
 
 import androidx.annotation.NonNull;
 import entity.orderlist.Dish;
-import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Public class storing all dishes information using an ArrayList.
@@ -16,7 +17,6 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     String[] dishNames;
-    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
@@ -38,17 +38,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         this.manageMenuOutputBoundary = manageMenuOutputBoundary;
     }
 
-
-    /**
-     * This constructor constructs dishList from a list of dishes
-     * @param dishes The list of dishes to create the dishList
-     */
-    public DishList(List<Dish> dishes) {
-        menu = new HashMap<>();
-        for (Dish d : dishes) {
-            menu.put(d.getName(), d);
-        }
-    }
 
     /**
      * Return list of dishes

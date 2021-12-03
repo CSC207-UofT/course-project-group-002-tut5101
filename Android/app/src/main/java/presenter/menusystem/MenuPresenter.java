@@ -23,6 +23,7 @@ public class MenuPresenter implements MenuOutputBoundary {
     public MenuPresenter(){
         dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
+        generateDishList();
     }
 
 
