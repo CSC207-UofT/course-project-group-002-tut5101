@@ -1,7 +1,7 @@
 package use_case.review;
 
 /**
- * The input use_case.boundary for PlaceOrder use case.
+ * The input use_case.boundary for deleting review use case.
  */
 
 public interface DeleteReviewInputBoundary {

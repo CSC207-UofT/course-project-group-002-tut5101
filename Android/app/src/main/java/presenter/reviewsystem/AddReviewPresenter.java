@@ -1,6 +1,7 @@
 package presenter.reviewsystem;
 
-import use_case.review.ReviewList;
+import use_case.review.AddReviewInputBoundary;
+import use_case.review.AddReviewUseCase;
 
 /**
  * Controller class for use_case.review.
@@ -8,13 +9,13 @@ import use_case.review.ReviewList;
 
 
 public class AddReviewPresenter {
-    private static ReviewList reviews;
+    private final AddReviewInputBoundary addReviewInputBoundary;
 
     /**
      * Reading from file constructor.
      */
     public AddReviewPresenter() {
-        reviews = new ReviewList();
+        this.addReviewInputBoundary = new AddReviewUseCase();
 
     }
 
@@ -29,7 +30,7 @@ public class AddReviewPresenter {
      */
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
                                 String comment, String ID) {
-        reviews.addReview(name, ifAnonymous, rate, comment, ID);
+        this.addReviewInputBoundary.addToReviewList(name, ifAnonymous, rate, comment, ID);
     }
 
 
@@ -38,7 +39,7 @@ public class AddReviewPresenter {
      * @return the length of the use_case.review list.
      */
     public int length() {
-        return reviews.sizeofList();
+        return this.addReviewInputBoundary.length();
     }
 
 }
