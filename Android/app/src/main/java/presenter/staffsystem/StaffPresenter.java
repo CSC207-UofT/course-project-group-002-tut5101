@@ -1,6 +1,6 @@
 package presenter.staffsystem;
 
-import use_case.boundary.input.DeliveryInputBoundary;
+import use_case.deliverorder.DeliveryInputBoundary;
 import constant.mangersystem.UserType;
 import use_case.deliverorder.DeliverOrder;
 import use_case.deliverorder.ServeDish;

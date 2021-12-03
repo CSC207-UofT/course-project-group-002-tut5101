@@ -1,4 +1,4 @@
-package use_case.boundary.input;
+package use_case.deliverorder;
 
 import use_case.deliverorder.StaffDeliveryOutputBoundary;
 
