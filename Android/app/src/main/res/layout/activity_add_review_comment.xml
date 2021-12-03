@@ -17,14 +17,7 @@
     <com.google.android.material.textfield.TextInputEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/write_complain"
-            android:id="@+id/textInputEdit5" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="208dp" app:layout_constraintTop_toBottomOf="@+id/textInputEdit1"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
-    <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/if_complain_y_or_n"
+            android:hint="@string/add_identity"
             android:id="@+id/textInputEdit4" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="144dp" app:layout_constraintTop_toBottomOf="@+id/textInputEdit1"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
