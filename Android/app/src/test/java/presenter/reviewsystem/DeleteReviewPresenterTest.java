@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test the DeleteReviewPresenterTest class.
+ * Test the DeleteReviewPresenter class.
  */
 public class DeleteReviewPresenterTest {
 
