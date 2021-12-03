@@ -31,11 +31,19 @@ public class ManageMenuPresenterTest {
     }
 
     /**
-     * Test the getDish method
+     * Test the getting dish list method
      */
     @Test
     public void testGettingDishList(){
         manager.getDishList();
+    }
+
+    /**
+     * Test the PassingDishesAsList method
+     */
+    @Test
+    public void testPassingDishesAsList(){
+        manager.passingDishesAsList(new String[]{"good"});
     }
 
     /**
