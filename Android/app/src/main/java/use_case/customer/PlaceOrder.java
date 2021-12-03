@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
-import use_case.boundary.input.PlaceOrderInputBoundary;
+import use_case.placeorder.PlaceOrderInputBoundary;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
 import constant.ordersystem.OrderType;

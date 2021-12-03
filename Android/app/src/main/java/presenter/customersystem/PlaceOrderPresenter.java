@@ -2,7 +2,7 @@ package presenter.customersystem;
 
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
-import use_case.boundary.input.PlaceOrderInputBoundary;
+import use_case.placeorder.PlaceOrderInputBoundary;
 import use_case.customer.PlaceOrder;
 import use_case.customer.PlaceOrderOutputBoundary;
 import use_case.placeorder.DishInformation;
