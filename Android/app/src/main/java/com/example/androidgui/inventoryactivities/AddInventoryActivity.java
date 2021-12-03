@@ -13,14 +13,14 @@ import presenter.inventorysystem.AddinventoryViewInterface;
 /**
  * Activity class for adding inventory.
  */
-public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener {
-    Button button;
-    EditText name;
-    EditText price;
-    EditText amount;
-    EditText date;
-    EditText freshness;
-    AddInventoryPresenter aip = new AddInventoryPresenter();
+public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
+    private Button button;
+    private EditText name;
+    private EditText price;
+    private EditText amount;
+    private EditText date;
+    private EditText freshness;
+    private AddInventoryPresenter aip = new AddInventoryPresenter();
 
     /**
      * Activity basic function.

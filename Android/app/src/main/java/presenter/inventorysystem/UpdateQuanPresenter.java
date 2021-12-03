@@ -1,5 +1,6 @@
 package presenter.inventorysystem;
 
+import com.example.androidgui.inventoryactivities.UpdateQuanActivity;
 import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
 
@@ -22,7 +23,7 @@ public class UpdateQuanPresenter {
         return inventories.setQuantity(name, u);
     }
 
-    public void showInfo(String name, String usage, InventoryOutputBoundary boundary){
+    public void showInfo(String name, String usage, UpdateQuanActivity boundary){
         String message = this.newQuantity(name, usage, boundary);
         this.updateQuanInterface.popInfo(message);
     }

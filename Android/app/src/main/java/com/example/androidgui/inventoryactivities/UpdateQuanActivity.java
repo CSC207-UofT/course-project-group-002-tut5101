@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.inventorysystem.UpdateQuanInterface;
 import presenter.inventorysystem.UpdateQuanPresenter;
-import use_case.boundary.output.InventoryOutputBoundary;
+import use_case.inventoryfactory.InventoryOutputBoundary;
 
 public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary,
         UpdateQuanInterface{

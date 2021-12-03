@@ -11,17 +11,13 @@ import presenter.inventorysystem.UpdateFreshnessPresenter;
 
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener,
         presenter.inventorysystem.UpdateFreshnessInterface {
-    private EditText name;
-    private EditText fresh;
-    private final UpdateFreshnessPresenter ufp = new UpdateFreshnessPresenter();
 /**
  * Activity class for updating freshness.
  */
-public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener{
     Button btn;
     EditText name;
     EditText fresh;
-    final InventoryManager im = new InventoryManager();
+    private final UpdateFreshnessPresenter ufp = new UpdateFreshnessPresenter();
 
     /**
      * Activity basic function.
@@ -33,7 +29,7 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         ufp.setUpdateFreshnessInterface(this);
         setContentView(R.layout.activity_update_freshness2);
-        Button btn = findViewById(R.id.button11);
+        btn = findViewById(R.id.button11);
         name = findViewById(R.id.editTextTextPersonName8);
         fresh = findViewById(R.id.editTextTextPersonName9);
         btn.setOnClickListener(this);
