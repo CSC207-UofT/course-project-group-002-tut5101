@@ -8,8 +8,16 @@ import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import com.example.androidgui.orderactivities.SelectDineInTakeOutActivity;
 
+/**
+ * Activity class for the customer to pick action.
+ */
 public class CustomerPickActionActivity extends AppCompatActivity {
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

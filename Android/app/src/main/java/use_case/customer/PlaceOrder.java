@@ -1,10 +1,10 @@
-package use_case.placeorder;
+package use_case.customer;
 
+import android.annotation.TargetApi;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
-import use_case.boundary.input.PlaceOrderInputBoundary;
+import use_case.placeorder.PlaceOrderInputBoundary;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
 import constant.ordersystem.OrderType;
@@ -33,7 +33,8 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
      * @param location the table number or delivery information of the order
      * @throws Exception if insufficient inventory
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
+    @TargetApi(Build.VERSION_CODES.N)
     public void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception{
         HashMap<String, List<Dish>> dishes = new HashMap<>();
 

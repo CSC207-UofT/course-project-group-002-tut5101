@@ -8,9 +8,17 @@ import android.os.Bundle;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 
+/**
+ * Activity class for delivery staff.
+ */
 public class DeliveryStaffPickActionActivity extends AppCompatActivity {
     private String id;
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +42,10 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // When the user selects to check the current order, show the current order to be delivered.
+    /**
+     * When the user selects to check the current order, show the current order to be delivered.
+      */
+
     public void seeCurrentOrder(View v) {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, DeliverOrderActivity.class);
         Bundle b = new Bundle();
@@ -44,7 +55,10 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // When selected Exit, return to log in activity.
+    /**
+     * // When selected Exit, return to log in activity.
+     * @param v view.
+     */
     public void selectExit(View v) {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, MainActivity.class);
         startActivity(intent);

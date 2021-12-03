@@ -2,7 +2,7 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
-import use_case.boundary.output.InventoryOutputBoundary;
+import use_case.inventoryfactory.InventoryOutputBoundary;
 import use_case.inventoryfactory.InventoryFactory;
 
 

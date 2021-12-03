@@ -16,8 +16,7 @@ public class Review implements Reviewable, Serializable {
     private final boolean ifAnonymous;
     private final int rate;
     private final String newComment;
-    private final boolean ifComplain;
-    private final String newComplain;
+    private final String reviewID;
 
     /**
      * Construct an instance of Material
@@ -26,20 +25,23 @@ public class Review implements Reviewable, Serializable {
      * @param ifAnonymous ture if the user want to anonymous, false if the user want to show the userName
      * @param rate        an int in 0-5 rate for the food
      * @param newComment  The comment that the user want to add
-     * @param ifComplain  true if the user want to add complain to stuff, false if the user doesn't want to
-     * @param newComplain the complaint that the user want to add
      */
 
-    public Review(String userName, boolean ifAnonymous, int rate, String newComment,
-                  boolean ifComplain, String newComplain) {
+    public Review(String userName, boolean ifAnonymous, int rate, String newComment, String ID) {
         this.userName = userName;
         this.ifAnonymous = ifAnonymous;
         this.rate = rate;
         this.newComment = newComment;
-        this.ifComplain = ifComplain;
-        this.newComplain = newComplain;
+        this.reviewID = ID;
     }
 
+    /**
+     *
+     * @return id of the use_case.review.
+     */
+    public String getReviewID() {
+        return reviewID;
+    }
 
     /**
      * Get the name of the user
@@ -80,20 +82,6 @@ public class Review implements Reviewable, Serializable {
     }
 
 
-    /**
-     * Get the complaint for the stuff.
-     *
-     * @return The String of the complaint.
-     */
-    @Override
-    public String complainStuff() {
-        if (ifComplain) {
-            return newComplain;
-        } else {
-            return "no complaint";
-        }
-    }
-
 
     /**
      * Get the date when the user comment
@@ -109,12 +97,13 @@ public class Review implements Reviewable, Serializable {
 
     /**
      *
-     * @return a string representation of this review.
+     * @return a string representation of this use_case.review.
      */
     @Override
     @NonNull
     public String toString() {
-        return getName() + ";" + this.rate + ";" + this.newComment + ";" + this.newComplain + ";" + getReviewDate();
+        return this.reviewID + ". " + getName() + ": rate = " + this.rate +
+                "; comment = " + this.newComment + " ;";
     }
 
 }

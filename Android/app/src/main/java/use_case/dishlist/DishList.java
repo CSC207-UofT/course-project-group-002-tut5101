@@ -1,9 +1,8 @@
 package use_case.dishlist;
 
 import androidx.annotation.NonNull;
-import constant.filesystem.FileLocation;
 import entity.orderlist.Dish;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -15,11 +14,11 @@ import java.util.*;
  */
 public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
-    private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
     String[] dishNames;
-    private String filepath = FileLocation.MENU_FILE_LOCATION;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
+    private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
 
     /**
@@ -30,17 +29,25 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    public DishList(String filepath) {
-        this.filepath = filepath;
-//        readWriter = new SerReadWriter();
-//        menu = readWriter.readFromFileDish(filepath);
-        menu = new HashMap<>();
-        dishNames = menu.keySet().toArray(new String[0]);
+    /**
+     *
+     * @param placeOrderOutputBoundary output boundary for placing order.
+     */
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
     }
 
     /**
-     * Set the menuOutputBoundary of this class
-     * @param menuOutputBoundary the menu output boundary
+     *
+     * @param manageMenuOutputBoundary output boundary for managing menu.
+     */
+    public void setManageMenuOutputBoundary(ManageMenuOutputBoundary manageMenuOutputBoundary) {
+        this.manageMenuOutputBoundary = manageMenuOutputBoundary;
+    }
+
+    /**
+     *
+     * @param menuOutputBoundary output boundary for menu.
      */
     public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
         this.menuOutputBoundary = menuOutputBoundary;
@@ -56,7 +63,6 @@ public class DishList implements Serializable, Iterable<Dish> {
             menu.put(d.getName(), d);
         }
     }
-
 
     /**
      * Return list of dishes
@@ -79,10 +85,8 @@ public class DishList implements Serializable, Iterable<Dish> {
     public String toString() {
         int dishNumber = 1;
         StringBuilder menuString = new StringBuilder();
-        keySet = new HashMap<>();
         for (String dishName : menu.keySet()) {
             menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
-            keySet.put(dishNumber, Objects.requireNonNull(menu.get(dishName)).getName());
             dishNumber++;
         }
         return menuString.toString();
@@ -127,10 +131,21 @@ public class DishList implements Serializable, Iterable<Dish> {
         return new DishListIterator();
     }
 
+    /**
+     * Delete the dish by its name.
+     *
+     * @param dishName name of the dish to be deleted.
+     */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
     }
 
+
+    /**
+     * Edit the dish by its name.
+     *
+     * @param dishName name of the dish to be edited.
+     */
     public void editDishByName(String dishName) {
         Dish dish = menu.get(dishName);
         assert dish != null;
@@ -140,11 +155,11 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     /**
      *
-     * @return a list of dish names.
+     * a list of dish names.
      */
-    public String[] passDishesAsList() {
+    public void passDishesAsList() {
         Set<String> keySet = menu.keySet();
-        return keySet.toArray(new String[0]);
+        manageMenuOutputBoundary.passingDishesAsList(keySet.toArray(new String[0]));
     }
 
     /**
@@ -157,9 +172,48 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
+    /**
+     *
+     * updates the number of dishes available to be picked
+     */
+    public void numberOfDishesForPresenter(){
+        int numberOfDishes = menu.size();
+        placeOrderOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+    }
+
+    /**
+     *
+     * updates the array of dish names to be displayed
+     */
+    public void getAllDishNamesAsListForPresenter() {
+        ArrayList<String> dishNamesAndPrice = new ArrayList<>();
+        String nameAndPrice;
+        for (String name : dishNames) {
+            nameAndPrice = name + "   $" + Objects.requireNonNull(menu.get(name)).getPrice();
+            dishNamesAndPrice.add(nameAndPrice);
+        }
+        placeOrderOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
+    }
+
+    /**
+     *
+     * updates the dishes ordered
+     * @param dishNameIndex the index of the dish ordered
+     * @param dishQuantity the quantity of the dish ordered
+     */
+    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
+        String dishName = dishNames[dishNameIndex];
+        placeOrderOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
+    }
+
 
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
+    }
+
+    public void dishPrice(String dishName) {
+        double price = Objects.requireNonNull(menu.get(dishName)).getPrice();
+        placeOrderOutputBoundary.addDishPrices(dishName, price);
     }
 
 }

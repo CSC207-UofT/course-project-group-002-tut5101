@@ -15,6 +15,9 @@ import presenter.staffsystem.StaffViewInterface;
 
 import java.util.Objects;
 
+/**
+ * Activity class for delivering order.
+ */
 public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface, GeoDestination {
     private String id;
     private String mode;
@@ -22,6 +25,11 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
     private TextView currentOrder;
     private String destination;
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -10,8 +10,10 @@ import com.example.androidgui.R;
 import presenter.inventorysystem.AddInventoryPresenter;
 import presenter.inventorysystem.AddinventoryViewInterface;
 
-
-public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
+/**
+ * Activity class for adding inventory.
+ */
+public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener {
     Button button;
     EditText name;
     EditText price;
@@ -20,6 +22,11 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     EditText freshness;
     AddInventoryPresenter aip = new AddInventoryPresenter();
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,12 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         freshness = findViewById(R.id.editTextTextPersonName10);
         button.setOnClickListener(this);
     }
+
+    /**
+     * when clicked.
+     *
+     * @param v view
+     */
     @Override
     public void onClick(View v) {
         String iname = name.getText().toString();
