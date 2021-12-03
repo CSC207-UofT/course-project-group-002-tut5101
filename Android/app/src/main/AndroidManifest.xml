@@ -67,6 +67,9 @@
 		<activity
 			android:name=".orderactivities.EditOrderActivity"
 			android:exported="true"/>
+		<activity
+				android:name=".useractivities.AddReviewCommentActivity"
+				android:exported="true"/>
 		<activity android:name=".useractivities.CustomerPickActionActivity"/>
 		<activity android:name=".servingstaffactivities.ServingStaffPickActionActivity" />
 		<activity android:name=".deliverystaffactivities.DeliveryStaffPickActionActivity" />
