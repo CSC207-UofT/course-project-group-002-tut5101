@@ -65,7 +65,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     @NonNull
     @Override
-    @NonNull
     public ReviewListIterator iterator(){return new ReviewListIterator();}
 
     /**
@@ -86,7 +85,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     @NonNull
     @Override
-    @NonNull
     public String toString() {
         StringBuilder reviewString = new StringBuilder();
         for (String review : reviews.keySet()) {

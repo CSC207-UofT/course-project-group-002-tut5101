@@ -2,7 +2,6 @@ package use_case.dishlist;
 
 import androidx.annotation.NonNull;
 import entity.orderlist.Dish;
-import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -16,7 +15,6 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     String[] dishNames;
-    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
@@ -29,13 +27,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    /**
-     *
-     * @param placeOrderOutputBoundary output boundary for placing order.
-     */
-    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
-        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
-    }
 
     /**
      *
@@ -172,48 +163,13 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-    /**
-     *
-     * updates the number of dishes available to be picked
-     */
-    public void numberOfDishesForPresenter(){
-        int numberOfDishes = menu.size();
-        placeOrderOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
-    }
 
     /**
-     *
-     * updates the array of dish names to be displayed
+     * Dishes as string.
      */
-    public void getAllDishNamesAsListForPresenter() {
-        ArrayList<String> dishNamesAndPrice = new ArrayList<>();
-        String nameAndPrice;
-        for (String name : dishNames) {
-            nameAndPrice = name + "   $" + Objects.requireNonNull(menu.get(name)).getPrice();
-            dishNamesAndPrice.add(nameAndPrice);
-        }
-        placeOrderOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
-    }
-
-    /**
-     *
-     * updates the dishes ordered
-     * @param dishNameIndex the index of the dish ordered
-     * @param dishQuantity the quantity of the dish ordered
-     */
-    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
-        String dishName = dishNames[dishNameIndex];
-        placeOrderOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
-    }
-
-
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
 
-    public void dishPrice(String dishName) {
-        double price = Objects.requireNonNull(menu.get(dishName)).getPrice();
-        placeOrderOutputBoundary.addDishPrices(dishName, price);
-    }
 
 }
