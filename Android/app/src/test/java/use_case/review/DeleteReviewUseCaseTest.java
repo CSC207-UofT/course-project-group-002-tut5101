@@ -36,7 +36,7 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        deleteReviewUseCase = new DeleteReviewUseCase(reviewList);
+        deleteReviewUseCase = new DeleteReviewUseCase();
     }
 
     /**
