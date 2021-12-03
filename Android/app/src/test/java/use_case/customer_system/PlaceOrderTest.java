@@ -1,17 +1,14 @@
 package use_case.customer_system;
 
 
-
+import constant.ordersystem.OrderType;
 import entity.order_system.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;
-import constant.ordersystem.OrderType;
 import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Test PlaceOrder class

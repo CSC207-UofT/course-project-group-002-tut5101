@@ -144,12 +144,13 @@ public class KitchenController {
 
         for (String dish: ingredientInfo.keySet()) {
             int oriQuantity = InventoryList.getTotalQuantity(dish);
+            if (ingredientInfo.get(dish) != null){
             int temp = ingredientInfo.get(dish);
             if (temp != 0){
                 this.inventories.setQuantity(dish, oriQuantity - temp);
             }
             oriQuantity = InventoryList.getTotalQuantity(dish);
-            this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
+            this.inventories.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));}
         }
     }
 

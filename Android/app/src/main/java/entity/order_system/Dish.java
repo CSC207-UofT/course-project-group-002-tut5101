@@ -1,6 +1,7 @@
 package entity.order_system;
 
 
+import androidx.annotation.NonNull;
 import constant.ordersystem.ItemStatus;
 
 import java.io.Serializable;
@@ -191,6 +192,7 @@ public class Dish implements Serializable {
      *
      * @return a string representation of this dish
      */
+    @NonNull
     @Override
     public String toString() {
 
