@@ -11,13 +11,13 @@ import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
 import controller.ManagerController;
-import use_case.boundary.output.EnrollUserOutputBoundary;
+import presenter.managersystem.EnrollStaffViewInterface;
 
 /**
- * Activity class for enrolling new users.
+ * Activity class for enrolling new staff.
  */
 @SuppressWarnings("SameParameterValue")
-public class EnrollUserActivity extends AppCompatActivity implements EnrollUserOutputBoundary {
+public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaffViewInterface {
 
     private EditText editTextUserId;
     private EditText editTextUserName;
@@ -26,19 +26,20 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
     private EditText editNumSalary;
     private NumberPicker numPickerUserType;
 
-    ManagerController managerController;
+    private ManagerController managerController;
 
     /**
      * On create method.
+     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enroll_user);
+        setContentView(R.layout.activity_enroll_staff);
 
         managerController = new ManagerController();
-        managerController.setEnrollUserOutputBoundary(this);
+        managerController.setViewInterface(this);
 
         editTextUserId = findViewById(R.id.editTextNewUserId);
         editTextUserName = findViewById(R.id.editTextNewUserName);
@@ -60,7 +61,7 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
     }
 
     /**
-     * Set id for new user.
+     * ViewInterface method implementation
      *
      * @param id id of new user.
      */
@@ -69,11 +70,16 @@ public class EnrollUserActivity extends AppCompatActivity implements EnrollUserO
         editTextUserId.setText(id);
     }
 
+    /**
+     * ViewInterface method implementation
+     *
+     * @param staffTypes string array of staff types
+     */
     @Override
-    public void setAvailUserTypeOptions(String[] staffTypes, int maxValue) {
+    public void setAvailStaffTypeOptions(String[] staffTypes) {
         numPickerUserType.setDisplayedValues(staffTypes);
         numPickerUserType.setMinValue(0);
-        numPickerUserType.setMaxValue(maxValue);
+        numPickerUserType.setMaxValue(staffTypes.length - 1);
         numPickerUserType.setWrapSelectorWheel(false);
     }
 

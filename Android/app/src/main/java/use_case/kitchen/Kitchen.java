@@ -5,7 +5,7 @@ import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
 import use_case.deliverorder.DeliveryBuffer;
-import use_case.servedish.ServingBuffer;
+import use_case.deliverorder.ServingBuffer;
 
 import java.util.HashMap;
 
@@ -29,6 +29,13 @@ public class Kitchen {
     public static boolean getNextToCook(){
         currentOrder = OrderQueue.getNextOrder();
         return !(currentOrder == null);
+    }
+
+    /**
+     * reset the current class
+     */
+    public static void reset() {
+        currentOrder = null;
     }
 
 

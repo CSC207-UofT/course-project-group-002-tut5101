@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.useractivities.EnrollStaffActivity;
+import com.example.androidgui.useractivities.LoginActivity;
 import com.example.androidgui.useractivities.SeeMenuActivity;
 
 /**
@@ -77,6 +79,15 @@ public class ManagerPickActionActivity extends AppCompatActivity {
      */
     public void selectExit(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Manager enroll new staff
+     * @param view view
+     */
+    public void enrollStaff(View view) {
+        Intent intent = new Intent(this, EnrollStaffActivity.class);
         startActivity(intent);
     }
 

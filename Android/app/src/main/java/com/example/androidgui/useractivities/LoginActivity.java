@@ -7,33 +7,41 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
-
-import com.example.androidgui.kitchenactivities.KitchenActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
+import com.example.androidgui.kitchenactivities.KitchenActivity;
 import constant.mangersystem.UserType;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
 import constant.uimessage.LoginResult;
-import controller.LoginController;
-import use_case.boundary.output.LoginOutputBoundary;
+import presenter.loginsystem.LoginPresenter;
+import presenter.loginsystem.LoginViewInterface;
 
 import java.lang.reflect.GenericDeclaration;
 
-public class LoginActivity extends AppCompatActivity implements LoginOutputBoundary {
+/**
+ * Android Activity implementing login function
+ */
+public class LoginActivity extends AppCompatActivity implements LoginViewInterface {
 
-    private LoginController controller;
+    private LoginPresenter loginPresenter;
     private EditText editTextUserId;
     private EditText editTextPassword;
     private LoginResult loginResult;
+    private UserType loginUserType;
 
+    /**
+     * On create method
+     *
+     * @param savedInstanceState android state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        this.controller = new LoginController();
-        this.controller.createUseCaseInteractor(LoginActivity.this);
+        this.loginPresenter = new LoginPresenter();
+        this.loginPresenter.setViewInterface(LoginActivity.this);
 
         editTextUserId = findViewById(R.id.editTextUserId);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -54,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
             setEmptyErrorMessage(editTextPassword);
         } else {
             String id = editTextUserId.getText().toString();
-            this.controller.runLogin(id, editTextPassword.getText().toString());
+            this.loginPresenter.runLogin(id, editTextPassword.getText().toString());
             switch (this.loginResult) {
                 case FAILURE:
                     loginFailed();
@@ -81,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
     /**
      * Add error message on EditText that is not filled.
      *
-     * @param editText that are required to be fille.
+     * @param editText that are required to be filled.
      */
     private void setEmptyErrorMessage(EditText editText) {
         if (editText.getText().toString().trim().length() <= 0)
@@ -98,6 +106,10 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
         Toast toast = Toast.makeText(getApplicationContext(), LoginLogoutUIMessage.LOGIN_SUCCEED, Toast.LENGTH_SHORT);
         toast.show();
         Intent intent = new Intent(LoginActivity.this, (Class<?>) factoryMethod(id));
+        //Pass id to next activity after login
+        Bundle b = new Bundle();
+        b.putString("id", id);
+        intent.putExtras(b);
         startActivity(intent);
     }
 
@@ -146,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
      */
     //TODO fill in activity.class
     private GenericDeclaration factoryMethod(String id) {
-        UserType loginUserType = this.controller.getUserTypeById(id);
+        this.loginPresenter.getUserTypeById(id);
         switch (loginUserType) {
             case CUSTOMER:
                 return CustomerPickActionActivity.class;
@@ -164,14 +176,25 @@ public class LoginActivity extends AppCompatActivity implements LoginOutputBound
         return LoginActivity.class;
     }
 
+    /**
+     * ViewInterface method implementation
+     *
+     * @param userType user type
+     */
+    @Override
+    public void setUserType(UserType userType) {
+        this.loginUserType = userType;
+    }
+
+    /**
+     * ViewInterface method implementation
+     *
+     * @param result login result
+     */
     @Override
     public void presentLoginResult(LoginResult result) {
         this.loginResult = result;
     }
 
-    //TODO this method to be relocated to manager activity
-    public void enrollStaff(View view) {
-        Intent intent = new Intent(LoginActivity.this, EnrollUserActivity.class);
-        startActivity(intent);
-    }
+
 }

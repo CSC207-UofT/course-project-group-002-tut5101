@@ -6,6 +6,7 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import org.junit.Before;
+import use_case.enrollstaff.EnrollStaffUseCase;
 
 public class EnrolStaffUseCaseTest {
     final UserList userList = new UserList(20);
