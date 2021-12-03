@@ -2,7 +2,7 @@ package presenter.kitchensystem;
 
 import constant.filesystem.FileLocation;
 import controller.KitchenController;
-import use_case.kitchen.InventoryList;
+import use_case.kitchen_system.InventoryList;
 
 /**
  *

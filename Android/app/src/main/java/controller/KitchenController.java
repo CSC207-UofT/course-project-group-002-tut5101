@@ -1,8 +1,8 @@
 package controller;
 
-import use_case.dishlist.DishList;
-import use_case.kitchen.InventoryList;
-import use_case.kitchen.Kitchen;
+import use_case.dish_list.DishList;
+import use_case.kitchen_system.InventoryList;
+import use_case.kitchen_system.Kitchen;
 
 import java.util.ArrayList;
 import java.util.HashMap;

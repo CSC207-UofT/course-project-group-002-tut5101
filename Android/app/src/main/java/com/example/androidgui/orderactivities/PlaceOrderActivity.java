@@ -11,10 +11,10 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import presenter.ordersystem.PlaceOrderMenuPresenter;
-import presenter.ordersystem.PlaceOrderMenuViewInterface;
-import presenter.ordersystem.PlaceOrderPresenter;
-import presenter.ordersystem.PlaceOrderViewInterface;
+import presenter.order_system.PlaceOrderMenuPresenter;
+import presenter.order_system.PlaceOrderMenuViewInterface;
+import presenter.order_system.PlaceOrderPresenter;
+import presenter.order_system.PlaceOrderViewInterface;
 
 import java.util.HashMap;
 /**

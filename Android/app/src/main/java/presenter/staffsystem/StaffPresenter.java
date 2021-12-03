@@ -1,11 +1,11 @@
 package presenter.staffsystem;
 
-import use_case.deliverorder.DeliveryInputBoundary;
+import use_case.deliver_order_system.DeliveryInputBoundary;
 import constant.mangersystem.UserType;
-import use_case.deliverorder.DeliverOrder;
-import use_case.deliverorder.ServeDish;
-import use_case.deliverorder.StaffDeliveryOutputBoundary;
-import use_case.userlist.UserList;
+import use_case.deliver_order_system.DeliverOrder;
+import use_case.deliver_order_system.ServeDish;
+import use_case.deliver_order_system.StaffDeliveryOutputBoundary;
+import use_case.user_list.UserList;
 
 /**
  * Controller class for staff.

@@ -1,16 +1,16 @@
 package presenter;
 
 import presenter.staffsystem.StaffPresenter;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
-import entity.orderlist.DeliveryOrder;
+import entity.delivery_system.DeliveryStaff;
+import entity.delivery_system.ServingStaff;
+import entity.order_system.Dish;
+import entity.order_system.Order;
+import entity.order_system.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.deliverorder.DeliveryBuffer;
-import use_case.deliverorder.ServingBuffer;
-import use_case.userlist.UserList;
+import use_case.deliver_order_system.DeliveryBuffer;
+import use_case.deliver_order_system.ServingBuffer;
+import use_case.user_list.UserList;
 
 import java.util.HashMap;
 

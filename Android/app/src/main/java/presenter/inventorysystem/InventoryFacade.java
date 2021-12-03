@@ -1,6 +1,6 @@
 package presenter.inventorysystem;
 
-import use_case.kitchen.InventoryList;
+import use_case.kitchen_system.InventoryList;
 
 public class InventoryFacade {
     InventoryList inventories;

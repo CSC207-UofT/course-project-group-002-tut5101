@@ -1,7 +1,7 @@
 package presenter.inventorysystem;
 
-import use_case.inventoryfactory.InventoryFactory;
-import use_case.kitchen.InventoryList;
+import use_case.inventory_system.InventoryFactory;
+import use_case.kitchen_system.InventoryList;
 
 public class AddInventoryPresenter {
     private AddinventoryViewInterface addinventoryViewInterface;

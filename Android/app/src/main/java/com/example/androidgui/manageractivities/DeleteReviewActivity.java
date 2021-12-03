@@ -12,7 +12,7 @@ import com.example.androidgui.R;
 import constant.mangersystem.ManagerDecision;
 import constant.mangersystem.ReviewMessage;
 import constant.uimessage.ManagerUIMessage;
-import presenter.reviewsystem.DeleteReviewPresenter;
+import presenter.review_system.DeleteReviewPresenter;
 
 
 /**

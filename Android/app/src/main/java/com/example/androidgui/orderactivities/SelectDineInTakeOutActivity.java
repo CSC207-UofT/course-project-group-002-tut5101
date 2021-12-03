@@ -9,8 +9,8 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.ordersystem.BuildOrderInfo;
 import constant.ordersystem.OrderType;
-import presenter.ordersystem.DineInTakeOutPresenter;
-import presenter.ordersystem.SelectDineInTakeOutViewInterface;
+import presenter.order_system.DineInTakeOutPresenter;
+import presenter.order_system.SelectDineInTakeOutViewInterface;
 
 
 /**

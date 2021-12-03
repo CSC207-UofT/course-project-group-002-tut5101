@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.reviewsystem.AddReviewPresenter;
+import presenter.review_system.AddReviewPresenter;
 
 /**
  * Activity class for adding use_case.review.

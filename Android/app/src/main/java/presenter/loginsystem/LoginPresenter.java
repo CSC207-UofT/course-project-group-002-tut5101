@@ -1,15 +1,15 @@
 package presenter.loginsystem;
 
 import constant.uimessage.LoginResult;
-import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
-import entity.manager.Manager;
-import use_case.login.LoginOutputBoundary;
-import use_case.login.LoginUseCase;
-import use_case.userlist.UserList;
+import entity.customer_system.Customer;
+import entity.delivery_system.DeliveryStaff;
+import entity.delivery_system.ServingStaff;
+import entity.inventory_system.InventoryStaff;
+import entity.kitchen_system.KitchenStaff;
+import entity.manager_system.Manager;
+import use_case.login_system.LoginOutputBoundary;
+import use_case.login_system.LoginUseCase;
+import use_case.user_list.UserList;
 
 /**
  * Controls the process for logging in.
