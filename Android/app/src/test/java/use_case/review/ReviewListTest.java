@@ -1,12 +1,9 @@
 package use_case.review;
 
-import android.annotation.SuppressLint;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -80,8 +77,6 @@ public class ReviewListTest {
     @Test
     public void testToString(){
         reviewList.addReview(review1);
-        Date date = new Date();
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
                 "; comment = " + "good food";
@@ -110,7 +105,7 @@ public class ReviewListTest {
     public void testIteratorNext() {
         Iterator<Review> reviewIterator = reviewList.iterator();
         while (reviewIterator.hasNext()){
-            Review review = reviewIterator.next();
+            reviewIterator.next();
         }
         try {
             reviewIterator.next();

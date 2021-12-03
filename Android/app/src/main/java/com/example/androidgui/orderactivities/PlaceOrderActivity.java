@@ -212,7 +212,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     @Override
     public void runEditOrder() {
-        placeOrderPresenter.updateDishesOrdered();
+        placeOrderPresenter.updateDishesOrderedInView();
         placeOrderPresenter.updateDishPrices();
 
         Intent intent = new Intent(PlaceOrderActivity.this, EditOrderActivity.class);
