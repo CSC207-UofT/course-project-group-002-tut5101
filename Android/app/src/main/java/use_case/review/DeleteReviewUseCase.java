@@ -14,10 +14,9 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
     /**
      * Constructor
-     * @param reviewList The list of use_case.review
      */
-    public DeleteReviewUseCase(ReviewList reviewList) {
-        this.reviewList = reviewList;
+    public DeleteReviewUseCase() {
+        this.reviewList = new ReviewList();
     }
 
 

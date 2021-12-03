@@ -23,7 +23,7 @@ public class ReviewController {
         /*
           The input use_case.boundary for delete use_case.review use case.
          */
-        this.deleteReviewInputBoundary = new DeleteReviewUseCase(reviews);
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase();
     }
 
 
