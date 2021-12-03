@@ -1,6 +1,6 @@
 package use_case.login;
 
-import constant.uimessage.LoginResult;
+import constant.ui_message.LoginResult;
 import entity.User;
 import use_case.userlist.UserList;
 

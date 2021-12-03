@@ -7,10 +7,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.inventorysystem.UpdateFreshnessPresenter;
+import presenter.inventory_system.UpdateFreshnessPresenter;
 
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener,
-        presenter.inventorysystem.UpdateFreshnessInterface {
+        presenter.inventory_system.UpdateFreshnessInterface {
 /**
  * Activity class for updating freshness.
  */

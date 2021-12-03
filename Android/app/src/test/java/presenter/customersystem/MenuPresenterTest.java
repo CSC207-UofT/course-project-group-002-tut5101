@@ -2,8 +2,8 @@ package presenter.customersystem;
 
 import org.junit.Before;
 import org.junit.Test;
-import presenter.menusystem.DisplayMenuViewInterface;
-import presenter.menusystem.MenuPresenter;
+import presenter.menu_system.DisplayMenuViewInterface;
+import presenter.menu_system.MenuPresenter;
 
 /**
  * Testing menu presenter.

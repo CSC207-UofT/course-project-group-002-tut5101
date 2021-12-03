@@ -4,8 +4,8 @@ package entity.orderlist;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import constant.ordersystem.ItemStatus;
-import constant.ordersystem.OrderType;
+import constant.order_system.ItemStatus;
+import constant.order_system.OrderType;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

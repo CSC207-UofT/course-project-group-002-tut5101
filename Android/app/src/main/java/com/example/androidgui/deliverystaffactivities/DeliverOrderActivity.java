@@ -9,9 +9,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.GeoDestination;
-import presenter.staffsystem.StaffPresenter;
-import presenter.staffsystem.StaffViewInterface;
+import presenter.staff_system.GeoDestination;
+import presenter.staff_system.StaffPresenter;
+import presenter.staff_system.StaffViewInterface;
 
 import java.util.Objects;
 

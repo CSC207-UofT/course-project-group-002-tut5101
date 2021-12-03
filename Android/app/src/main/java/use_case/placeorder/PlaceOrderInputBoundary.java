@@ -1,6 +1,6 @@
 package use_case.placeorder;
 
-import constant.ordersystem.OrderType;
+import constant.order_system.OrderType;
 
 /**
  * The input use_case.boundary for ManageMenu use case.

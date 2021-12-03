@@ -7,8 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staffsystem.StaffPresenter;
-import presenter.staffsystem.StaffViewInterface;
+import presenter.staff_system.StaffPresenter;
+import presenter.staff_system.StaffViewInterface;
 
 /**
  * Activity class for selecting dish.

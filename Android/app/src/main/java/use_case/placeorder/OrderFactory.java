@@ -1,6 +1,6 @@
 package use_case.placeorder;
 
-import constant.ordersystem.OrderType;
+import constant.order_system.OrderType;
 import entity.orderlist.DeliveryOrder;
 import entity.orderlist.DineInOrder;
 import entity.orderlist.Dish;

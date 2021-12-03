@@ -8,10 +8,10 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import constant.uimessage.EnrollUserMessage;
-import constant.uimessage.LoginLogoutUIMessage;
-import presenter.managersystem.ManagerPresenter;
-import presenter.managersystem.EnrollStaffViewInterface;
+import constant.ui_message.EnrollUserMessage;
+import constant.ui_message.LoginLogoutUIMessage;
+import presenter.manager_system.ManagerPresenter;
+import presenter.manager_system.EnrollStaffViewInterface;
 
 /**
  * Activity class for enrolling new staff.

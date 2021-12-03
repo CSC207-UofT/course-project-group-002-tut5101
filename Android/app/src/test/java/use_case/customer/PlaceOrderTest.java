@@ -6,7 +6,7 @@ import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dishlist.DishList;
-import constant.ordersystem.OrderType;
+import constant.order_system.OrderType;
 import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;

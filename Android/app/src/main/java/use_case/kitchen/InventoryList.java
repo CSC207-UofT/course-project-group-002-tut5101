@@ -2,8 +2,8 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
-import use_case.inventoryfactory.InventoryOutputBoundary;
-import use_case.inventoryfactory.InventoryFactory;
+import use_case.inventory_factory.InventoryOutputBoundary;
+import use_case.inventory_factory.InventoryFactory;
 
 
 import java.io.Serializable;

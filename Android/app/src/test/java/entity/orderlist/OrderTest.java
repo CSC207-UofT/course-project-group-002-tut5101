@@ -1,7 +1,7 @@
 package entity.orderlist;
 
-import constant.ordersystem.ItemStatus;
-import constant.ordersystem.OrderType;
+import constant.order_system.ItemStatus;
+import constant.order_system.OrderType;
 import org.junit.Before;
 import org.junit.Test;
 

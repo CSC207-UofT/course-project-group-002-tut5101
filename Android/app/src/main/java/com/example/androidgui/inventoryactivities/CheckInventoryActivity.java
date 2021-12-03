@@ -8,13 +8,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.inventorysystem.CheckInventoryPresenter;
-import presenter.inventorysystem.InventoryFacade;
+import presenter.inventory_system.CheckInventoryPresenter;
+import presenter.inventory_system.InventoryFacade;
 
 //import com.example.androidgui.inventory.PresentInventoryActivity;
 
 
-public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener, presenter.inventorysystem.CheckInventoryInterface {
+public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener, presenter.inventory_system.CheckInventoryInterface {
     /**
      * Activity class for checking inventory.
      */

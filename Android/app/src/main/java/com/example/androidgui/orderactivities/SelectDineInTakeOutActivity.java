@@ -7,10 +7,10 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import constant.ordersystem.BuildOrderInfo;
-import constant.ordersystem.OrderType;
-import presenter.ordersystem.DineInTakeOutPresenter;
-import presenter.ordersystem.SelectDineInTakeOutViewInterface;
+import constant.order_system.BuildOrderInfo;
+import constant.order_system.OrderType;
+import presenter.order_system.DineInTakeOutPresenter;
+import presenter.order_system.SelectDineInTakeOutViewInterface;
 
 
 /**

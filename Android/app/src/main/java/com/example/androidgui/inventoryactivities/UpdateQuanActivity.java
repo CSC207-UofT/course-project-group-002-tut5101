@@ -7,9 +7,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.inventorysystem.UpdateQuanInterface;
-import presenter.inventorysystem.UpdateQuanPresenter;
-import use_case.inventoryfactory.InventoryOutputBoundary;
+import presenter.inventory_system.UpdateQuanInterface;
+import presenter.inventory_system.UpdateQuanPresenter;
+import use_case.inventory_factory.InventoryOutputBoundary;
 
 public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary,
         UpdateQuanInterface{

@@ -13,12 +13,12 @@ import com.example.androidgui.inventoryactivities.InventoryStarterActivity;
 import com.example.androidgui.kitchenactivities.KitchenActivity;
 import com.example.androidgui.manageractivities.ManagerPickActionActivity;
 import com.example.androidgui.servingstaffactivities.ServingStaffPickActionActivity;
-import constant.mangersystem.UserType;
-import constant.uimessage.EnrollUserMessage;
-import constant.uimessage.LoginLogoutUIMessage;
-import constant.uimessage.LoginResult;
-import presenter.loginsystem.LoginPresenter;
-import presenter.loginsystem.LoginViewInterface;
+import constant.manger_system.UserType;
+import constant.ui_message.EnrollUserMessage;
+import constant.ui_message.LoginLogoutUIMessage;
+import constant.ui_message.LoginResult;
+import presenter.login_system.LoginPresenter;
+import presenter.login_system.LoginViewInterface;
 
 import java.lang.reflect.GenericDeclaration;
 

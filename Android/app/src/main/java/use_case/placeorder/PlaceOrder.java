@@ -6,7 +6,7 @@ import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
-import constant.ordersystem.OrderType;
+import constant.order_system.OrderType;
 
 import java.util.*;
 
