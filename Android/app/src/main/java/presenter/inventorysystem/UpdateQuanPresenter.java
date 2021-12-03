@@ -1,7 +1,7 @@
 package presenter.inventorysystem;
 
 import com.example.androidgui.inventoryactivities.UpdateQuanActivity;
-import use_case.boundary.output.InventoryOutputBoundary;
+import use_case.inventoryfactory.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
 
 public class UpdateQuanPresenter {

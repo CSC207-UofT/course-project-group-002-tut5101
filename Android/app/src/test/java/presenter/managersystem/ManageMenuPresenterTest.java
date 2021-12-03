@@ -30,6 +30,13 @@ public class ManageMenuPresenterTest {
         manager.getDish("1");
     }
 
+    /**
+     * Test the getDish method
+     */
+    @Test
+    public void testGettingDishList(){
+        manager.getDishList();
+    }
 
     /**
      * Empty fake presenter class implementing the output boundary
