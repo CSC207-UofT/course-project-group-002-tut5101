@@ -1,7 +1,7 @@
 package use_case.dishlist;
 
 import entity.orderlist.Dish;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;

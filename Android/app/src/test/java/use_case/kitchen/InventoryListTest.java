@@ -4,8 +4,9 @@ import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryfactory.InventoryFactory;
+import use_case.inventoryfactory.InventoryOutputBoundary;
+
 import static org.junit.Assert.*;
 
 

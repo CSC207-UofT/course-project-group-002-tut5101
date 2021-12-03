@@ -109,15 +109,6 @@ public class DishListTest {
     }
 
     /**
-     * Test the passDishesAsList method
-     */
-    @Test
-    public void testPassDishesAsList() {
-        String[] actual = menu.passDishesAsList();
-        assert(actual.length == 9);
-    }
-
-    /**
      *
      * Testing DishList addDishes method
      */

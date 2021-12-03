@@ -5,7 +5,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.util.HashMap;
 

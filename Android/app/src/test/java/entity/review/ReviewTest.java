@@ -74,7 +74,8 @@ public class ReviewTest {
     public void testToString() {
         Date date = new Date();
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String expected = "Anonymous" + ";" + 5 + ";" + "good food" + ";" + "bad stuff" + ";" + dateFormat.format(date);
+        String expected = "1" + ". " + "Anonymous" + ": rate = " + "5" +
+                "; comment = " + "good food" + " ;" + dateFormat.format(date);
         String actual = review1.toString();
         assertEquals(expected, actual);
     }

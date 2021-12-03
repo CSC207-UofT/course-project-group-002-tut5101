@@ -29,13 +29,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    /**
-     *
-     * @param placeOrderOutputBoundary output boundary for placing order.
-     */
-    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
-        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
-    }
 
     /**
      *
@@ -45,13 +38,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         this.manageMenuOutputBoundary = manageMenuOutputBoundary;
     }
 
-    /**
-     *
-     * @param menuOutputBoundary output boundary for menu.
-     */
-    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
-        this.menuOutputBoundary = menuOutputBoundary;
-    }
 
     /**
      * This constructor constructs dishList from a list of dishes
