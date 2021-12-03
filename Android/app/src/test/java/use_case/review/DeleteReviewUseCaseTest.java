@@ -11,10 +11,6 @@ import static org.junit.Assert.*;
  */
 public class DeleteReviewUseCaseTest {
     private ReviewList reviewList;
-    private Review review1;
-    private Review review2;
-    private Review review3;
-    private Review review4;
     private DeleteReviewUseCase deleteReviewUseCase;
 
     /**
@@ -24,13 +20,13 @@ public class DeleteReviewUseCaseTest {
     public void setUp(){
 
         reviewList = new ReviewList();
-        review1 = new Review("Amy", true, 5, "good food",
+        Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
-        review2 = new Review("Bob", false, 2, "Nice staff",
+        Review review2 = new Review("Bob", false, 2, "Nice staff",
                 "2");
-        review3 = new Review("Amy", true, 1, "good food",
+        Review review3 = new Review("Amy", true, 1, "good food",
                 "3");
-        review4 = new Review("Amy", true, 0, "good food",
+        Review review4 = new Review("Amy", true, 0, "good food",
                 "4");
         reviewList.addReview(review1);
         reviewList.addReview(review2);

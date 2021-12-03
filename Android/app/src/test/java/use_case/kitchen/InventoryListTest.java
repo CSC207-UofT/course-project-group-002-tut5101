@@ -82,15 +82,6 @@ public class InventoryListTest {
         assertTrue(inventoryList.isHasFreshness("Test2"));
     }
 
-    /**
-     * Test setFreshness method
-     */
-    @Test
-    public void testSetFreshness() {
-        inventoryList.addInventory(hasFreshness);
-        inventoryList.setFreshness("Test2", "Not fresh");
-        assertEquals("Not fresh", hasFreshness.getFreshness());
-    }
 
     /**
      * Test the getter and setter methods for quantity
