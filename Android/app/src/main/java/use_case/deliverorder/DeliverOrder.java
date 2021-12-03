@@ -2,11 +2,12 @@ package use_case.deliverorder;
 
 import entity.orderlist.DeliveryOrder;
 import use_case.userlist.UserList;
-import use_case.boundary.input.Delivery;
+import use_case.boundary.input.DeliveryInputBoundary;
 import entity.delivery.DeliveryStaff;
 import entity.User;
 
-public class DeliverOrder implements Delivery {
+public class DeliverOrder implements DeliveryInputBoundary {
+    private StaffDeliveryOutputBoundary outputBoundary;
 
     /**
      * Mark the current order as delivered
@@ -33,17 +34,23 @@ public class DeliverOrder implements Delivery {
     }
 
     /**
+     * Set output adapter for delivery Staff
+     * @param boundary The output adapter that processes the outputs.
+     */
+    public void setOutputBoundary(StaffDeliveryOutputBoundary boundary) {outputBoundary = boundary;}
+
+    /**
      * Get description of the current order
      * @param id The id of the user
-     * @return String of description of the order
      */
-    public String display(String id) {
+    public void getItemInfo(String id) {
         DeliveryStaff staff = (DeliveryStaff) UserList.getUserByUserId(id);
         String orderInfo = staff.displayOrder();
+        String destination = staff.getOrderDestination();
 
         if (orderInfo.equals("")){
-            return "No current order to be displayed";
+            outputBoundary.setCurrentItemInfo("", "No current order to be displayed");
         }
-        return orderInfo;
+        outputBoundary.setCurrentItemInfo(destination, orderInfo);
     }
 }

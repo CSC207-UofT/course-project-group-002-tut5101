@@ -21,21 +21,19 @@ import java.util.HashMap;
 
 public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderViewInterface {
 
+    // Information needed to place order
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
     private OrderType orderType;
     private String location;
 
-
+    // Displayed texts and number pickers
     private TextView errorMessage;
 
     private NumberPicker dishQuantityPicker;
     private NumberPicker dishNamePicker;
-
     private LinearLayout orderedDishesLayout;
-
     private PlaceOrderPresenter placeOrderPresenter;
-
 
     /**
      * Method that runs on creation of this class
@@ -50,7 +48,6 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         placeOrderPresenter.setPlaceOrderViewInterface(this);
 
         this.errorMessage = findViewById(R.id.errorMessage);
-
         this.orderedDishesLayout = findViewById(R.id.orderedDishesLayout);
 
         generateStartingInformation();
@@ -102,6 +99,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         }
         placeOrderPresenter.setDishesOrdered(dishesOrdered);
         placeOrderPresenter.setDishPrices(dishPrices);
+
     }
 
     /**
@@ -172,7 +170,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     public void placeOrder(View v) {
         Intent intent = getIntent();
-        placeOrderPresenter.collectRunPlaceOrderInformation(intent);
+        placeOrderPresenter.runPlaceOrderInformation(orderType, location);
 
     }
 

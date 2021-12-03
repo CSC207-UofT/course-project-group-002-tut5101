@@ -1,19 +1,21 @@
 package use_case.review;
 
+import entity.review.Review;
 import use_case.boundary.input.DeleteReviewInputBoundary;
+
+import java.util.Iterator;
 
 /**
  *
- * Use case class for deleting review functionality.
+ * Use case class for deleting use_case.review functionality.
  */
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
-
     private final ReviewList reviewList;
 
     /**
      * Constructor
-     * @param reviewList The list of review
+     * @param reviewList The list of use_case.review
      */
     public DeleteReviewUseCase(ReviewList reviewList) {
         this.reviewList = reviewList;
@@ -25,27 +27,14 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
      * Delete all reviews with rate below or equal to 3.
      */
     @Override
-    public void deleteBelowThree() {
-        reviewList.deleteBelowThree();
+    public void delete(int i) {
+        Iterator<Review> reviewIterator = reviewList.iterator();
+        while (reviewIterator.hasNext()){
+            Review review = reviewIterator.next();
+            if (review.getRate() < i + 1){
+                reviewIterator.remove();
+            }
+        }
     }
 
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 2.
-     */
-    @Override
-    public void deleteBelowTwo() {
-        reviewList.deleteBelowTwo();
-    }
-
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 1.
-     */
-    @Override
-    public void deleteBelowOne() {
-        reviewList.deleteBelowOne();
-    }
 }

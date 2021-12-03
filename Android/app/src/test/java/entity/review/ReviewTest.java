@@ -24,13 +24,13 @@ public class ReviewTest {
     @Before
     public void setUp() {
         review1 = new Review("Amy", true, 5, "good food",
-                true, "bad stuff");
+                "1");
         review2 = new Review("Bob", false, -1, "Nice staff",
-                false,"good");
+                "2");
     }
 
     /**
-     * Test getName method for review
+     * Test getName method for use_case.review
      */
     @Test(timeout = 50)
     public void testReviewGetName() {
@@ -39,7 +39,7 @@ public class ReviewTest {
     }
 
     /**
-     * Test getRate method for review
+     * Test getRate method for use_case.review
      */
     @Test(timeout = 50)
     public void testReviewGetRate() {
@@ -48,24 +48,16 @@ public class ReviewTest {
     }
 
     /**
-     * Test getComment method for review
+     * Test getComment method for use_case.review
      */
     @Test(timeout = 50)
     public void testReviewGetComment() {
         assertEquals("good food", review1.getComment());
     }
 
-    /**
-     * Test complainStuff method for review
-     */
-    @Test(timeout = 50)
-    public void testReviewComplainStuff() {
-        assertEquals("bad stuff", review1.complainStuff());
-        assertEquals("no complaint", review2.complainStuff());
-    }
 
     /**
-     * Test getReviewDate method for review
+     * Test getReviewDate method for use_case.review
      */
     @Test(timeout = 50)
     public void testGetReviewDate() {
@@ -76,7 +68,7 @@ public class ReviewTest {
     }
 
     /**
-     * Test toString method for review
+     * Test toString method for use_case.review
      */
     @Test(timeout = 50)
     public void testToString() {

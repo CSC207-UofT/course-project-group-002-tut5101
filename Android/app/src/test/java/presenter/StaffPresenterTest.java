@@ -1,6 +1,6 @@
 package presenter;
 
-import presenter.staffsystem.StaffController;
+import presenter.staffsystem.StaffPresenter;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.orderlist.Dish;
@@ -9,18 +9,18 @@ import entity.orderlist.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliverorder.DeliveryBuffer;
-import use_case.servedish.ServingBuffer;
+import use_case.deliverorder.ServingBuffer;
 import use_case.userlist.UserList;
 
 import java.util.HashMap;
 
-public class StaffControllerTest {
-    StaffController staff;
+public class StaffPresenterTest {
+    StaffPresenter staff;
     UserList userList;
 
     @Before
     public void setUp() {
-        staff = new StaffController();
+        staff = new StaffPresenter();
         ServingStaff a = new ServingStaff("1", "a", "b");
         DeliveryStaff b = new DeliveryStaff("2", "b", "0");
         userList.addUser(a);

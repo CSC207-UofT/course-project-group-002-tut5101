@@ -18,7 +18,10 @@ public class OrderQueue {
 
     private static Queue<Order> placedOrderQueue = new ArrayDeque<>();
 
-    public OrderQueue() {
+    /**
+     * reset the current class
+     */
+    public static void reset() {
         placedOrderQueue = new ArrayDeque<>();
     }
 
@@ -59,7 +62,7 @@ public class OrderQueue {
         }
         HashMap<String, Integer> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
                                                                         // value the ingredient needed
-        // Calculate the total amount of each ingredient needed in the list of dishes
+        // To Calculate the total amount of each ingredient needed in the list of dishes
         for (Dish dish: dishes) {
             HashMap<String, Integer> dishIngredients = dish.getIngredients();
             // Add the amount of an ingredient needed for a dish to the dictionary
@@ -67,16 +70,26 @@ public class OrderQueue {
                 if (!ingredientsRequired.containsKey(ingredient)) {
                     ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
                 } else {
-                    int previousValue = ingredientsRequired.get(ingredient);
-                    ingredientsRequired.replace(ingredient, previousValue + dishIngredients.get(ingredient));
+                    Integer tempValue = ingredientsRequired.get(ingredient);
+                    Integer tempIngredients = dishIngredients.get(ingredient);
+                    if (tempValue != null && tempIngredients != null) {
+                        int previousValue = tempValue;
+                        int dishIngredientsTemp = tempIngredients;
+                        ingredientsRequired.replace(ingredient, previousValue + dishIngredientsTemp);
+                    }
+
                 }
             }
         }
         // For all the ingredients needed in the list of dishes, check if inventory is enough to do
         // If one ingredient has more needed than inventory has, we can't make the list of dishes, so return false
         for (String ingredientRequired: ingredientsRequired.keySet()) {
-            if (InventoryList.getTotalQuantity(ingredientRequired) < ingredientsRequired.get(ingredientRequired)) {
-                return false;
+            Integer tempIngredients = ingredientsRequired.get(ingredientRequired);
+            if (tempIngredients != null) {
+                int ingredients = tempIngredients;
+                if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
+                    return false;
+                }
             }
         }
         return true;

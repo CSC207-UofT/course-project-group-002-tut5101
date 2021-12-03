@@ -7,20 +7,9 @@ package use_case.boundary.input;
 public interface DeleteReviewInputBoundary {
 
     /**
+     * delete reviews.
      *
-     * Delete all reviews with rate below or equal to 3.
+     * @param i rate to delete.
      */
-    void deleteBelowThree();
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 2.
-     */
-    void deleteBelowTwo();
-
-    /**
-     *
-     * Delete all reviews with rate below or equal to 1.
-     */
-    void deleteBelowOne();
+    void delete(int i);
 }

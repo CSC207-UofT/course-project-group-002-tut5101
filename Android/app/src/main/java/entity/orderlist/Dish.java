@@ -1,11 +1,11 @@
 package entity.orderlist;
 
 
-import androidx.annotation.NonNull;
 import constant.ordersystem.ItemStatus;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Public class  that contains basic features of a single dish
@@ -192,13 +192,7 @@ public class Dish implements Serializable {
      * @return a string representation of this dish
      */
     @Override
-    @NonNull
     public String toString() {
-
-        StringBuilder ingString = new StringBuilder();
-        for (String ing: ingredients.keySet()){
-            ingString.append(ingredients.get(ing)).append(" ").append(ing).append("  ");
-        }
 
         return name +
                 "\n\t\t$$" + price +
@@ -231,10 +225,9 @@ public class Dish implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Dish)) return false;
         Dish dish = (Dish) o;
-        return Double.compare(dish.getPrice(), getPrice()) == 0 && Double.compare(dish.getCalories(), getCalories()) == 0 && getTableNum() == dish.getTableNum() && getName().equals(dish.getName()) && getIngredients().equals(dish.getIngredients()) && getFeatures().equals(dish.getFeatures()) && getAllergyInformation().equals(dish.getAllergyInformation()) && getStatus() == dish.getStatus();
+        return (-0.1 <= dish.price - price && dish.price - price <= 0.1) && (-0.1 <= dish.calories - calories && dish.calories - calories <= 0.1) && tableNum == dish.tableNum && Objects.equals(name, dish.name) && Objects.equals(ingredients, dish.ingredients) && Objects.equals(features, dish.features) && Objects.equals(allergyInformation, dish.allergyInformation);
     }
-
 
 }
