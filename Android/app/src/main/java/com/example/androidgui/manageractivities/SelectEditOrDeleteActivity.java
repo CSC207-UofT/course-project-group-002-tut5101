@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
+import constant.mangersystem.DishMessage;
 import constant.mangersystem.ManagerDecision;
 import constant.uimessage.ManagerUIMessage;
 import presenter.menusystem.MenuPresenter;
@@ -17,7 +20,6 @@ import java.util.Objects;
 
 /**
  * Activity class for the manager to pick whether to edit or to delete the dish.
- *
  */
 public class SelectEditOrDeleteActivity extends AppCompatActivity {
 
@@ -39,10 +41,24 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
 
         selectEditOrDelete = findViewById(R.id.selectEditOrDelete);
         askSelection = findViewById(R.id.askSelection);
-        String askingSelection = ManagerUIMessage.EDIT_DELETE;
-        askSelection.setText(askingSelection);
-        selectOption = new String[]{ManagerDecision.DELETE.name(), ManagerDecision.EDIT.name()};
-        selectEditOrDelete.setMaxValue(selectOption.length);
+
+        setupMessage();
+        setupOptions();
+    }
+
+    /**
+     * Setting up message.
+     */
+    private void setupMessage() {
+        askSelection.setText(ManagerUIMessage.EDIT_DELETE);
+    }
+
+    /**
+     * Setting up options.
+     */
+    private void setupOptions() {
+        selectOption = new String[]{ManagerDecision.EDIT.toString(), ManagerDecision.DELETE.toString()};
+        selectEditOrDelete.setMaxValue(selectOption.length - 1);
         selectEditOrDelete.setMinValue(0);
         selectEditOrDelete.setDisplayedValues(selectOption);
     }
@@ -53,16 +69,34 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
      * @param v android view.
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void manageMenu(View v){
+    public void manageMenu(View v) {
         String action = selectOption[selectEditOrDelete.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        if (Objects.equals(action,ManagerDecision.EDIT.toString())){
-            menuPresenter.deleteDishByName(dishName);
-        }
-        else {
-            menuPresenter.editDishByName(dishName);
+        if (Objects.equals(action, ManagerDecision.EDIT.toString())) {
+            AlertDialog alertDlg = new AlertDialog.Builder(this)
+                    .setTitle(DishMessage.CONFIRMING)
+                    .setMessage(DishMessage.EDIT_MENU)
+                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
+                        menuPresenter.editDishByName(dishName);
+                        finish();
+                    })
+                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
+                    .create();
+            alertDlg.show();
+        } else {
+            AlertDialog alertDlg = new AlertDialog.Builder(this)
+                    .setTitle(DishMessage.CONFIRM)
+                    .setMessage(DishMessage.DELETE_MENU)
+                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
+                        menuPresenter.deleteDishByName(dishName);
+                        finish();
+                    })
+                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
+                    .create();
+            alertDlg.show();
         }
     }
+
 
 }

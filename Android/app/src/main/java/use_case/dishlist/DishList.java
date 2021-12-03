@@ -1,9 +1,8 @@
 package use_case.dishlist;
 
 import androidx.annotation.NonNull;
-import constant.filesystem.FileLocation;
 import entity.orderlist.Dish;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.customer.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -16,7 +15,10 @@ import java.util.*;
 public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
+    String[] dishNames;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
+    private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
 
     /**
@@ -24,8 +26,43 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public DishList() {
         menu = new HashMap<>();
+        dishNames = menu.keySet().toArray(new String[0]);
     }
 
+    /**
+     *
+     * @param placeOrderOutputBoundary output boundary for placing order.
+     */
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
+    }
+
+    /**
+     *
+     * @param manageMenuOutputBoundary output boundary for managing menu.
+     */
+    public void setManageMenuOutputBoundary(ManageMenuOutputBoundary manageMenuOutputBoundary) {
+        this.manageMenuOutputBoundary = manageMenuOutputBoundary;
+    }
+
+    /**
+     *
+     * @param menuOutputBoundary output boundary for menu.
+     */
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
+    }
+
+    /**
+     * This constructor constructs dishList from a list of dishes
+     * @param dishes The list of dishes to create the dishList
+     */
+    public DishList(List<Dish> dishes) {
+        menu = new HashMap<>();
+        for (Dish d : dishes) {
+            menu.put(d.getName(), d);
+        }
+    }
 
     /**
      * Return list of dishes
@@ -83,8 +120,9 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     /**
-     * Edit a dish information by its name
-     * @param dishName the name of the dish to be edited
+     * Edit the dish by its name.
+     *
+     * @param dishName name of the dish to be edited.
      */
     public void editDishByName(String dishName) {
         Dish dish = menu.get(dishName);
@@ -95,11 +133,11 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     /**
      *
-     * @return a list of dish names.
+     * a list of dish names.
      */
-    public String[] passDishesAsList() {
+    public void passDishesAsList() {
         Set<String> keySet = menu.keySet();
-        return keySet.toArray(new String[0]);
+        manageMenuOutputBoundary.passingDishesAsList(keySet.toArray(new String[0]));
     }
 
     /**

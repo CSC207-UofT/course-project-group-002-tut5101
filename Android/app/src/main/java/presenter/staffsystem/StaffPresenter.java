@@ -1,6 +1,6 @@
 package presenter.staffsystem;
 
-import use_case.boundary.input.DeliveryInputBoundary;
+import use_case.deliverorder.DeliveryInputBoundary;
 import constant.mangersystem.UserType;
 import use_case.deliverorder.DeliverOrder;
 import use_case.deliverorder.ServeDish;
@@ -15,7 +15,7 @@ import use_case.userlist.UserList;
 public class StaffPresenter implements StaffDeliveryOutputBoundary {
     private final DeliveryInputBoundary servingStaff = new ServeDish();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
-    private StaffViewInterface staffView;
+    private presenter.staffsystem.StaffViewInterface staffView;
 
     public StaffPresenter() {
         servingStaff.setOutputBoundary(this);
@@ -81,7 +81,7 @@ public class StaffPresenter implements StaffDeliveryOutputBoundary {
      * Set the view targeted by the presenter
      * @param view The view to be updated by the presenter
      */
-    public void setStaffView(StaffViewInterface view) {staffView = view;}
+    public void setStaffView(presenter.staffsystem.StaffViewInterface view) {staffView = view;}
 
     /**
      * Set the current item's info to view to present to user

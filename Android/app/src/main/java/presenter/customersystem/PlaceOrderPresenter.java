@@ -19,7 +19,7 @@ import java.util.HashMap;
  * 2021-11-03
  */
 
-public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
+public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
@@ -251,7 +251,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             String [] dishes = collectDishes();
 
             try {
-
                 placeOrderInputBoundary.placeOrder(orderType, dishes, location);
                 placeOrderViewInterface.orderSuccessfullyPlaced();
             }

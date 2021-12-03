@@ -12,6 +12,7 @@ import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
 import presenter.managersystem.EnrollStaffViewInterface;
 import presenter.managersystem.ManagerController;
+import controller.ManagerController;
 
 /**
  * Activity class for enrolling new staff.
@@ -27,10 +28,10 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private NumberPicker numPickerUserType;
 
     private ManagerController managerController;
+    private String newUserId;
 
     /**
      * On create method.
-     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
@@ -68,6 +69,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     @Override
     public void setNewUserId(String id) {
         editTextUserId.setText(id);
+        newUserId = id;
     }
 
     /**
@@ -118,7 +120,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
 
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(EnrollUserMessage.SUCCEED)
-                .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE)
+                .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE + this.newUserId)
                 .setPositiveButton(LoginLogoutUIMessage.OK, (dialog, which) -> {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);

@@ -1,7 +1,6 @@
 package use_case.deliverorder;
 
 import use_case.userlist.UserList;
-import use_case.boundary.input.DeliveryInputBoundary;
 import entity.delivery.ServingStaff;
 import entity.User;
 

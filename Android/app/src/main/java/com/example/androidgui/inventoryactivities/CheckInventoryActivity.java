@@ -11,13 +11,19 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.inventorysystem.InventoryManager;
 
-
+/**
+ * Activity class for checking inventory.
+ */
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
     EditText name;
     final InventoryManager im = new InventoryManager();
 
-
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,10 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         button.setOnClickListener(this);
     }
 
+    /**
+     *
+     * @param v view
+     */
     @Override
     public void onClick(View v) {
         String iName = name.getText().toString();

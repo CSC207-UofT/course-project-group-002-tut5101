@@ -1,4 +1,4 @@
-package use_case.boundary.input;
+package use_case.placeorder;
 
 import constant.ordersystem.OrderType;
 

@@ -12,7 +12,5 @@ public interface Reviewable {
 
     String getReviewDate();
 
-    String complainStuff();
-
     String getComment();
 }
