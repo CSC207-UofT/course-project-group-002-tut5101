@@ -66,7 +66,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * @param dishName the name of the dish
      */
     public void editDishByName(String dishName) {
-        this.dishList.editDishByName(dishName);
+        dishList.editDishByName(dishName);
     }
 
 

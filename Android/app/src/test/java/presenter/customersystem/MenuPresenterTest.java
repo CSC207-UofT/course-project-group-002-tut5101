@@ -1,13 +1,9 @@
 package presenter.customersystem;
 
 import org.junit.Before;
-import org.junit.runners.model.TestClass;
-import presenter.managersystem.ManageMenuPresenter;
-import presenter.managersystem.ManageMenuPresenterTest;
-import presenter.managersystem.ManageMenuViewInterface;
+import org.junit.Test;
 import presenter.menusystem.DisplayMenuViewInterface;
 import presenter.menusystem.MenuPresenter;
-import use_case.dishlist.DishList;
 
 /**
  * Testing menu presenter.
@@ -25,6 +21,37 @@ public class MenuPresenterTest {
         menuPresenter.setDisplayDishesViewInterface(testPresenter);
     }
 
+    /**
+     * Test the dishesInMenuAsString method
+     */
+    @Test
+    public void dishesInMenuAsString(){
+        menuPresenter.dishesInMenuAsString();
+    }
+
+    /**
+     * Test the dishesInMenuAsString method
+     */
+    @Test
+    public void updateMenuItemsDisplay(){
+        menuPresenter.updateMenuItemsDisplay("dish1");
+    }
+
+    /**
+     * Test the dishesInMenuAsString method
+     */
+    @Test
+    public void deleteDishByName(){
+        menuPresenter.deleteDishByName("dish2");
+    }
+
+    /**
+     * Test the dishesInMenuAsString method
+     */
+    @Test
+    public void editDishByName(){
+        menuPresenter.editDishByName("dish2");
+    }
 
     /**
      * Empty fake presenter class implementing the output boundary
