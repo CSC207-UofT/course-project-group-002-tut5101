@@ -16,6 +16,14 @@ public class ReviewListIterator implements Iterator<Review> {
     public static HashMap<String, Review> reviewList;
 
     /**
+     * Constructor for this iterator.
+     */
+    public ReviewListIterator(){
+        reviewList = ReviewList.getAllReviews();
+    }
+
+
+    /**
      * Returns whether there is another Review to return.
      *
      * @return whether there is another Review to return.

@@ -103,7 +103,7 @@ public class Review implements Reviewable, Serializable {
     @NonNull
     public String toString() {
         return this.reviewID + ". " + getName() + ": rate = " + this.rate +
-                "; comment = " + this.newComment + " ;" + getReviewDate();
+                "; comment = " + this.newComment + " ;";
     }
 
 }

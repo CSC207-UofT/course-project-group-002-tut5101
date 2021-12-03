@@ -63,6 +63,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      *
      * @return an iterator for this reviewList.
      */
+    @NonNull
     @Override
     @NonNull
     public ReviewListIterator iterator(){return new ReviewListIterator();}
@@ -75,10 +76,15 @@ public class ReviewList implements Serializable, Iterable<Review> {
         return reviews.size();
     }
 
+    public static HashMap<String, Review> getAllReviews(){
+        return reviews;
+    }
+
     /**
      *
      * @return a string representation of this use_case.review list.
      */
+    @NonNull
     @Override
     @NonNull
     public String toString() {
