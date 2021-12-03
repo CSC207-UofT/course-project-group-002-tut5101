@@ -7,7 +7,7 @@ import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 import java.util.HashMap;
 
 public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
-    private DishInformation dishInformation = new DishInformation();
+    private final DishInformation dishInformation;
     private PlaceOrderMenuViewInterface placeOrderMenuViewInterface;
 
     public PlaceOrderMenuPresenter( ) {
