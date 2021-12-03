@@ -101,9 +101,25 @@ public class DeliveryStaffTest {
         }
         content.append("====================");
 
-        String expected = "Address: " + "testing123" + "\n" + content;
+        String expected = content.toString();
         String actual = deliveryStaff.displayOrder();
         assertEquals(expectedNone, actualNone);
         assertEquals(expected, actual);
+    }
+
+    /**
+     * Test the getOrderDestination method
+     */
+    @Test
+    public void testGetOrderDestination() {
+        setUp();
+        String expectedNone = "";
+        String actualNone = deliveryStaff.getOrderDestination();
+        deliveryStaff.setCurrentOrder(deliveryOrder);
+        String expected = "testing123";
+        String actual = deliveryStaff.getOrderDestination();
+        assertEquals(expectedNone, actualNone);
+        assertEquals(expected, actual);
+
     }
 }

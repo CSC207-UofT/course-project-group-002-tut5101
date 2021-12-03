@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
  * Test the Dish class
  */
 public class DishTest {
-    Dish dish1;
-    Dish dish2;
+    private Dish dish1;
+    private Dish dish2;
 
     /**
      * before running tests

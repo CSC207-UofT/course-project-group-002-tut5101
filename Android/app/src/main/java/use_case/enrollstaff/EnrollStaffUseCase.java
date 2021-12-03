@@ -9,7 +9,7 @@ import use_case.userlist.UserList;
 
 public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
 
-    private EnrollStaffOutputBoundary enrollUserOutputBoundary;
+    private EnrollStaffOutputBoundary enrollStaffOutputBoundary;
     private final UserList userList;
 
     /**
@@ -26,7 +26,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
      * @param enrollUserOutputBoundary the output boundary for enrolling user.
      */
     public void setOutputBoundary(EnrollStaffOutputBoundary enrollUserOutputBoundary) {
-        this.enrollUserOutputBoundary = enrollUserOutputBoundary;
+        this.enrollStaffOutputBoundary = enrollUserOutputBoundary;
     }
 
     /**
@@ -38,7 +38,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
                 UserType.DELIVERY_STAFF.toString(),
                 UserType.KITCHEN.toString(),
                 UserType.INVENTORY_STAFF.toString()};
-        this.enrollUserOutputBoundary.setAvailStaffTypeOptions(staffTypes);
+        this.enrollStaffOutputBoundary.setAvailStaffTypeOptions(staffTypes);
     }
 
     /**
@@ -49,7 +49,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
      * @param userType  user type of the new staff
      */
     @Override
-    public void enrollNewStaff(String id, String name, String password, String userType) {
+    public void enrollNewStaff(String id, String name, String password, UserType userType) {
         userList.addStaff(id, name, password, userType);
     }
 
@@ -59,7 +59,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
     @Override
     public void getNewUserId() {
         int userListSize = this.userList.getUsers().size();
-        this.enrollUserOutputBoundary.setNewUserId(String.valueOf(userListSize));
+        this.enrollStaffOutputBoundary.setNewUserId(String.valueOf(userListSize));
     }
 
 

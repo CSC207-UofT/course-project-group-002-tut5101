@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 /**
- * Abstract class of entities.User that contains basic properties for a single user
+ * Class of entities.User that contains basic properties for a single user
  *
  * @author Chan Yu & Naihe Xiao
  */

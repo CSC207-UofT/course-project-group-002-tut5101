@@ -6,6 +6,7 @@ import entity.orderlist.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.userlist.UserList;
+import static org.junit.Assert.*;
 
 import java.util.HashMap;
 
@@ -14,15 +15,22 @@ import java.util.HashMap;
  * Unit test class for DeliverOrder.
  */
 public class DeliverOrderTest {
-    DeliverOrder deliver;
-    UserList userList;
+    private DeliverOrder deliver;
+
+    /**
+     * Setup before tests
+     * @throws Exception if order could not be added to DeliveryBuffer
+     */
     @Before
     public void setUp() throws Exception {
-        userList = new UserList(1);
+        TestClass testPresenter = new TestClass();
+        UserList userList = new UserList(1);
         deliver = new DeliverOrder();
         Order order1 = new DeliveryOrder("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);
         userList.addUser(new DeliveryStaff("1", "a", "abc"));
+
+        deliver.setOutputBoundary(testPresenter);
     }
 
     /**
@@ -54,6 +62,22 @@ public class DeliverOrderTest {
 
     }
 
+
+    /**
+     * Test the getItemInfo method
+     */
+    @Test
+    public void testGetItemInfo() {
+        deliver.getItemInfo("1");
+        try {
+            deliver.getToBeDeliver("1");
+        }
+        catch (Exception ignored) {
+            assertFalse(false);
+        }
+        deliver.getItemInfo("1");
+    }
+
     /**
      *
      * Testing delivered method.
@@ -69,24 +93,14 @@ public class DeliverOrderTest {
         }
     }
 
-//    /**
-//     * Testing display method
-//     */
-//    @Test
-//    public void testDisplay() {
-//        String expectedNone = "No current order to be displayed";
-//        String actualNone = deliver.getItemInfo("1");
-//        try {
-//            deliver.getToBeDeliver("1");
-//        }
-//        catch (Exception e) {
-//            assert false;
-//        }
-//        String content = "Order contents: \n" +
-//                "====================";
-//        String expected = "Address: " + "1" + "\n" + content;
-//        String actual = deliver.getItemInfo("1");
-//        assertEquals(expectedNone, actualNone);
-//        assertEquals(expected, actual);
-//    }
+    /**
+     * Empty fake presenter class implementing the output boundary
+     */
+    private static class TestClass implements StaffDeliveryOutputBoundary {
+
+        @Override
+        public void setCurrentItemInfo(String destination, String info) {
+            assertTrue(true);
+        }
+    }
 }

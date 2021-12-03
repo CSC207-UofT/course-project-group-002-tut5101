@@ -1,10 +1,9 @@
-package use_case.customer;
+package use_case.placeorder;
 
 import android.annotation.TargetApi;
 import android.os.Build;
 import use_case.dishlist.DishList;
 import use_case.kitchen.OrderQueue;
-import use_case.placeorder.PlaceOrderInputBoundary;
 import entity.orderlist.Dish;
 import entity.orderlist.Order;
 import constant.ordersystem.OrderType;
@@ -36,6 +35,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
 
     @TargetApi(Build.VERSION_CODES.N)
     public void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception{
+        System.out.println("PLACING ORDER");
         HashMap<String, List<Dish>> dishes = new HashMap<>();
 
         for (String dishName: dishNames) {
@@ -54,7 +54,9 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
                 dishes.replace(dishName, dishCopyAsList);
             }
         }
+        System.out.println(dishes);
         Order order = orderFactory.OrderType(orderType, location, dishes);
+        System.out.println(order);
         OrderQueue.addOrder(order);
     }
 
@@ -67,14 +69,26 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
      * @return a Dish with same information as the corresponding dish in the menu
      */
     public Dish generateDishCopy(String dishName, String location, OrderType orderType){
+        System.out.println("GENERATE DISH COPY");
+        System.out.println(dishName);
+        System.out.println(location);
+        System.out.println(orderType);
+        System.out.println(DishList.getDishPrice(dishName));
+        System.out.println(DishList.getDishIngredients(dishName));
+        System.out.println(DishList.getDishCalories(dishName));
+
+
         double price = DishList.getDishPrice(dishName);
         HashMap<String, Integer> ingredients = DishList.getDishIngredients(dishName);
         double calories = DishList.getDishCalories(dishName);
-//        String category = DishList.getDishCategory(dishName);
+        System.out.println(price);
 
+        System.out.println(new Dish(dishName, price, ingredients, calories));
 
         Dish dishCopy = new Dish(dishName, price, ingredients, calories);
+        System.out.println(dishCopy);
         if (orderType.equals(OrderType.DINE_IN)) {
+            System.out.println("IS DINE IN");
             try {
                 int tableNum = Integer.parseInt(location);
                 dishCopy.setTableNum(tableNum);
@@ -82,6 +96,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
 
             }
         }
+
 
         return dishCopy;
     }

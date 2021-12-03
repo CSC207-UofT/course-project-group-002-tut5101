@@ -18,6 +18,7 @@ public class OrderQueueTest {
     private Order sameDishOrder;
     private Order ingredientOrder;
     private Order emptyOrder;
+    private Order sufficientIngredients;
 
     /**
      * Setup before tests
@@ -58,6 +59,20 @@ public class OrderQueueTest {
 
         // New order with no dishes
         emptyOrder = new DineInOrder(2, new HashMap<>());
+
+        // New order with sufficient inventory
+        Inventory hasExpiryDate2 = new HasExpiryDate("Potato2", 40.0, 30, 20220731);
+        inventoryList.addInventory(hasExpiryDate2);
+
+        HashMap<String, Integer> friesIngredients2 = new HashMap<>();
+        friesIngredients.put("Potato2", 3);
+
+        Dish smallFries2 = new Dish("Small fries", 1.99, friesIngredients2, 200);
+
+        HashMap<String, List<Dish>> dishes4 = new HashMap<>();
+        dishes4.put("Small fries", Collections.singletonList(smallFries2));
+        sufficientIngredients = new DineInOrder(2, dishes4);
+
     }
 
     @Test
@@ -92,7 +107,15 @@ public class OrderQueueTest {
         catch (Exception ignored) {
             assert false;
         }
+        try {
+            OrderQueue.addOrder(sufficientIngredients);
+            assert true;
+        }
+        catch (Exception ignored) {
+            assert false;
+        }
     }
+
 
 
 }

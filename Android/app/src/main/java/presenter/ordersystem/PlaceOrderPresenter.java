@@ -1,15 +1,16 @@
-package presenter.customersystem;
+package presenter.ordersystem;
 
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
+import use_case.placeorder.PlaceOrder;
+import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.dishlist.DishList;
+import use_case.dishlist.DishInformation;
 import use_case.placeorder.PlaceOrderInputBoundary;
-import use_case.customer.PlaceOrder;
-import use_case.customer.PlaceOrderOutputBoundary;
-import use_case.placeorder.DishInformation;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * This is the Order presenter corresponding to the PlaceOrderActivity, that takes input from the activity, does stuff,
@@ -23,6 +24,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
     private final DishInformation dishInformation;
+    private final DishList dishList;
 
     /**
      * The input use_case.boundary for the place order.
@@ -35,6 +37,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      */
     public PlaceOrderPresenter() {
         this.dishesOrdered = new HashMap<>();
+        this.dishList = new DishList();
 
         this.placeOrderInputBoundary = new PlaceOrder();
 
@@ -89,7 +92,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
     /**
      * update the ordered dishes in the view
      */
-    public void updateDishesOrdered() {
+    public void updateDishesOrderedInView() {
         placeOrderViewInterface.setDishesOrdered(dishesOrdered);
     }
 
@@ -103,21 +106,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
     // calls use case DishInformation (called from activity)
 
-
-    /**
-     * Get number of dishes in menu from DishInformation use case
-     */
-    public void numberOfDishesInMenu() {
-        dishInformation.numberOfDishesForPresenter();
-    }
-
-    /**
-     * Get names of all dishes from DishInformation use case
-     */
-    public void allDishNames() {
-        dishInformation.getAllDishNamesAsListForPresenter();
-    }
-
     /**
      * pass the index of the dish ordered and the quantity ordered to the dishInformation
      * @param dishNameIndex index referring to dish ordered
@@ -125,22 +113,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      */
     public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         dishInformation.passDishesOrdered(dishNameIndex, dishQuantity);
-    }
-
-
-    // called from use case dishInformation
-
-    /**
-     * set the number of dishes ordered on view
-     * @param size the number of dishes
-     */
-    @Override
-    public void setDishNamePickerMaxValue(int size) {
-        if (size >= 1) {
-            placeOrderViewInterface.setDishNamePickerMaxValue(size);
-        }
-        else {placeOrderViewInterface.setDishNamePickerMaxValue(0);
-        }
     }
 
 
@@ -153,14 +125,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
         dishPrices.put(dishName, price);
     }
 
-    /**
-     * set the view to display dishes ordered
-     * @param dishNames dishes ordered
-     */
-    @Override
-    public void setDisplayedDishNames(String[] dishNames) {
-        placeOrderViewInterface.setDisplayedDishNames(dishNames);
-    }
 
 
     /**
@@ -196,15 +160,17 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      * Collect all the dishes ordered and their prices and tell the view to display them
      */
     public void displayDishesOrdered() {
-        DecimalFormat df = new DecimalFormat("0.00");
+
         ArrayList<String> dishesString = new ArrayList<>();
         double totalPrice = 0;
 
         for (String dishName : dishesOrdered.keySet()) {
             totalPrice = getPriceAndAddStringToArrayList(dishesString, totalPrice, dishName);
         }
-        totalPrice = totalPrice / 100;
-        String totalPriceText = "\n\nTOTAL PRICE: " + df.format(totalPrice);
+        totalPrice = (totalPrice / 100);
+
+        String s = String.format(Locale.CANADA, "%.2f", totalPrice);
+        String totalPriceText = "\n\nTOTAL PRICE: $" + s;
         dishesString.add(totalPriceText);
         placeOrderViewInterface.displayDishesOrdered(dishesString.toArray(new String[0]));
     }
@@ -223,9 +189,10 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
         if (tempQuantity != null && tempPrice != null){
             int quantity = tempQuantity;
             double price = tempPrice;
+            String p = String.format(Locale.CANADA, "%.2f", price);
 
             dishesString.add(dishName + " x " + quantity + "   $" +
-                    price + "\t each");
+                    p + "\t each");
 
             for (int i = 1; i <= quantity; i++) {
                 totalPrice += price * 100;
@@ -296,6 +263,14 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
         dishInformation.addDish(d5);
         dishInformation.addDish(d6);
         dishInformation.addDish(d7);
+
+        dishList.addDish(d1);
+        dishList.addDish(d2);
+        dishList.addDish(d3);
+        dishList.addDish(d4);
+        dishList.addDish(d5);
+        dishList.addDish(d6);
+        dishList.addDish(d7);
     }
 
 }
