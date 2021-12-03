@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import controller.ReviewController;
+import presenter.reviewsystem.AddReviewPresenter;
 
 /**
  * Activity class for adding use_case.review.
@@ -18,7 +18,7 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     EditText editTextRate;
     EditText editTextComment;
     EditText editTextId;
-    final ReviewController rc = new ReviewController();
+    final AddReviewPresenter rc = new AddReviewPresenter();
 
     /**
      *
