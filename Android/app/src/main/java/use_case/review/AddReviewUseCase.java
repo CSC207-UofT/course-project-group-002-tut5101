@@ -28,6 +28,10 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
         reviewList.addReview(name, ifAnonymous, rate, comment, ID);
     }
 
+    /**
+     *
+     * @return length of the reviewList.
+     */
     @Override
     public int length() {
         return reviewList.sizeofList();
