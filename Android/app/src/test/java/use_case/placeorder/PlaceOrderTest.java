@@ -10,19 +10,32 @@ import constant.ordersystem.OrderType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test PlaceOrder class
  */
 public class PlaceOrderTest {
     private PlaceOrder placeOrder;
+    private final DishList menu = new DishList();
 
     /**
      * Setup before tests
      */
     @Before
     public void setUp() {
-        new DishList(generateDishList());
+
+        menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
+        menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
+        menu.addDish(new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
+        menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
+        menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
+        menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
+        menu.addDish(new Dish("Coke", 10.0, new HashMap<>(), 180));
+        menu.addDish(new Dish("Coffee", 10.0, new HashMap<>(), 0));
+        menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
+
         placeOrder = new PlaceOrder();
     }
 
@@ -31,6 +44,7 @@ public class PlaceOrderTest {
      */
     @Test
     public void testGenerateDishCopy() {
+
         Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
         Dish dishCopy = placeOrder.generateDishCopy("Quarter pound with cheese", "None", OrderType.DELIVERY);
 
@@ -89,15 +103,4 @@ public class PlaceOrderTest {
 
 
 
-    public static ArrayList<Dish> generateDishList() {
-        ArrayList<Dish> dishes = new ArrayList<>();
-        dishes.add(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
-        dishes.add(new Dish("Small fries", 1.99, new HashMap<>(), 200));
-        dishes.add(new Dish("Median fries", 2.50, new HashMap<>(), 250));
-        dishes.add(new Dish("Large fries", 3.25, new HashMap<>(), 350));
-        dishes.add(new Dish("Coke", 10.0, new HashMap<>(), 180));
-        dishes.add(new Dish("Coffee", 10.0, new HashMap<>(), 0));
-        dishes.add(new Dish("Tea", 10.0, new HashMap<>(), 0));
-        return dishes;
-    }
 }

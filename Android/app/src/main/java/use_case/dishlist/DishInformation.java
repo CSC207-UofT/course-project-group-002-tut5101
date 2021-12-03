@@ -1,6 +1,7 @@
-package use_case.placeorder;
+package use_case.dishlist;
 
 import entity.orderlist.Dish;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.Objects;
  * Provides information about dishes for presenters
  */
 public class DishInformation {
-    String[] dishNames;
+    private String[] dishNames;
     private static HashMap<String, Dish> menu;
     private PlaceOrderOutputBoundary placeOrderOutputBoundary;
 
@@ -20,6 +21,7 @@ public class DishInformation {
     public DishInformation() {
         menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
+
     }
 
     public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {

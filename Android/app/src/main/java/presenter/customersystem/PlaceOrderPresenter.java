@@ -3,7 +3,8 @@ package presenter.customersystem;
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import use_case.boundary.input.PlaceOrderInputBoundary;
-import use_case.placeorder.DishInformation;
+import use_case.dishlist.DishList;
+import use_case.dishlist.DishInformation;
 import use_case.placeorder.PlaceOrder;
 import use_case.placeorder.PlaceOrderOutputBoundary;
 
@@ -23,6 +24,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
     private final DishInformation dishInformation;
+    private DishList dishList;
 
     /**
      * The input use_case.boundary for the place order.
@@ -35,6 +37,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
      */
     public PlaceOrderPresenter() {
         this.dishesOrdered = new HashMap<>();
+        this.dishList = new DishList();
 
         this.placeOrderInputBoundary = new PlaceOrder();
 
@@ -248,6 +251,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
             String [] dishes = collectDishes();
 
             try {
+
                 placeOrderInputBoundary.placeOrder(orderType, dishes, location);
                 placeOrderViewInterface.orderSuccessfullyPlaced();
             }
@@ -296,6 +300,14 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
         dishInformation.addDish(d5);
         dishInformation.addDish(d6);
         dishInformation.addDish(d7);
+
+        dishList.addDish(d1);
+        dishList.addDish(d2);
+        dishList.addDish(d3);
+        dishList.addDish(d4);
+        dishList.addDish(d5);
+        dishList.addDish(d6);
+        dishList.addDish(d7);
     }
 
 }

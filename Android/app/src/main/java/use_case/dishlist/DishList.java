@@ -15,9 +15,7 @@ import java.util.*;
  */
 public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
-    private static HashMap<Integer, String> keySet = new HashMap<>();
     private static final long serialVersionUID = 1L;
-    String[] dishNames;
     private String filepath = FileLocation.MENU_FILE_LOCATION;
     private MenuOutputBoundary menuOutputBoundary;
 
@@ -27,7 +25,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public DishList() {
         menu = new HashMap<>();
-        dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public DishList(String filepath) {
@@ -35,16 +32,8 @@ public class DishList implements Serializable, Iterable<Dish> {
 //        readWriter = new SerReadWriter();
 //        menu = readWriter.readFromFileDish(filepath);
         menu = new HashMap<>();
-        dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    /**
-     * Set the menuOutputBoundary of this class
-     * @param menuOutputBoundary the menu output boundary
-     */
-    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
-        this.menuOutputBoundary = menuOutputBoundary;
-    }
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -60,34 +49,12 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     /**
      * Return list of dishes
-     *
      * @return the menu
      */
     public static HashMap<String, Dish> getAllDishes() {
         return menu;
     }
 
-
-    /**
-     * Override the toString method of Object and return a fine illustration of the DishList information
-     *
-     * @return a string representation of the list of Dishes
-     */
-
-    @Override
-    @NonNull
-    public String toString() {
-        int dishNumber = 1;
-        StringBuilder menuString = new StringBuilder();
-        keySet = new HashMap<>();
-        for (String dishName : menu.keySet()) {
-            menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
-            keySet.put(dishNumber, Objects.requireNonNull(menu.get(dishName)).getName());
-            dishNumber++;
-        }
-        return menuString.toString();
-
-    }
 
     /**
      * Get the dish's price for a dish named dishName
@@ -127,10 +94,18 @@ public class DishList implements Serializable, Iterable<Dish> {
         return new DishListIterator();
     }
 
+    /**
+     * Delete a dish from the menu by its name
+     * @param dishName the name of the dish to be deleted
+     */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
     }
 
+    /**
+     * Edit a dish information by its name
+     * @param dishName the name of the dish to be edited
+     */
     public void editDishByName(String dishName) {
         Dish dish = menu.get(dishName);
         assert dish != null;
@@ -153,11 +128,38 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
-        dishNames = menu.keySet().toArray(new String[0]);
     }
 
+    /**
+     * Override the toString method of Object and return a fine illustration of the DishList information
+     *
+     * @return a string representation of the list of Dishes
+     */
 
+    @Override
+    @NonNull
+    public String toString() {
+        int dishNumber = 1;
+        StringBuilder menuString = new StringBuilder();
+        for (String dishName : menu.keySet()) {
+            menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
+            dishNumber++;
+        }
+        return menuString.toString();
 
+    }
+
+    /**
+     * Set the menuOutputBoundary of this class
+     * @param menuOutputBoundary the menu output boundary
+     */
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
+    }
+
+    /**
+     * Update the dishes in the menu
+     */
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
