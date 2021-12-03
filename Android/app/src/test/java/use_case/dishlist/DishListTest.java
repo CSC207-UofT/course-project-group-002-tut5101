@@ -1,4 +1,4 @@
-package use_case;
+package use_case.dishlist;
 
 
 import entity.orderlist.Dish;
@@ -10,8 +10,8 @@ import use_case.dishlist.DishListIterator;
 import java.util.HashMap;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
+
 /**
  * Testing DishList.
  */
@@ -34,6 +34,9 @@ public class DishListTest {
         menu.addDish(new Dish("Coke", 10.0, new HashMap<>(), 180));
         menu.addDish(new Dish("Coffee", 10.0, new HashMap<>(), 0));
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
+
+        TestClass testPresenter = new TestClass();
+        menu.setMenuOutputBoundary(testPresenter);
     }
 
     /**
@@ -143,6 +146,61 @@ public class DishListTest {
         assertEquals(expected, menu.toString());
     }
 
+    /**
+     * Test the dishesString method
+     */
+    @Test
+    public void testDishesString() {
+        menu.dishesString();
+    }
+
+    /**
+     * Fake presenter class that implements the output boundary
+     */
+    private class TestClass implements MenuOutputBoundary {
+
+        /**
+         * Test if this method is called from DishInformation
+         * @param menuItems the menu items to be displayed
+         */
+        @Override
+        public void updateMenuItemsDisplay(String menuItems) {
+            assertTrue(true);
+        }
+    }
+
+    // Test the iterator of the dishList
+
+    /**
+     * Test the iterator next method
+     */
+    @Test
+    public void testIteratorNext(){
+        DishListIterator actual = menu.iterator();
+        assert(actual.hasNext());
+        try {
+            for (int i = 0; i <= 9; i ++) {
+                actual.next();
+                assert(true);
+            }
+            actual.next();
+            assert(false);
+        }
+        catch (Exception ignored) {
+            assertTrue(true);
+        }
+
+    }
+    /**
+     * Test the iterator replace method
+     */
+    @Test
+    public void testIteratorReplace() {
+        DishListIterator actual = menu.iterator();
+        Dish dish = new Dish("Tofu", 100.0, new HashMap<>(), 10.0);
+        actual.replace(dish);
+        assert(DishList.getAllDishes().containsValue(dish));
+    }
 
 
 

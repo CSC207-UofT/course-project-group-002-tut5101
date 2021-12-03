@@ -16,7 +16,6 @@ import java.util.*;
 public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
-    private String filepath = FileLocation.MENU_FILE_LOCATION;
     private MenuOutputBoundary menuOutputBoundary;
 
 
@@ -25,25 +24,6 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public DishList() {
         menu = new HashMap<>();
-    }
-
-    public DishList(String filepath) {
-        this.filepath = filepath;
-//        readWriter = new SerReadWriter();
-//        menu = readWriter.readFromFileDish(filepath);
-        menu = new HashMap<>();
-    }
-
-
-    /**
-     * This constructor constructs dishList from a list of dishes
-     * @param dishes The list of dishes to create the dishList
-     */
-    public DishList(List<Dish> dishes) {
-        menu = new HashMap<>();
-        for (Dish d : dishes) {
-            menu.put(d.getName(), d);
-        }
     }
 
 
