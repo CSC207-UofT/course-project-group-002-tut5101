@@ -1,6 +1,6 @@
 package controller;
 
-import use_case.boundary.input.DeleteReviewInputBoundary;
+import use_case.review.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
 import use_case.review.ReviewList;
 

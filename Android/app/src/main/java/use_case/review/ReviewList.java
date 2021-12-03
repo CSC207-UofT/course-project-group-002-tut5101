@@ -2,7 +2,6 @@ package use_case.review;
 
 import androidx.annotation.NonNull;
 import entity.review.Review;
-import use_case.boundary.output.ReviewOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -66,6 +65,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     @NonNull
     @Override
+    @NonNull
     public ReviewListIterator iterator(){return new ReviewListIterator();}
 
     /**
@@ -86,6 +86,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     @NonNull
     @Override
+    @NonNull
     public String toString() {
         StringBuilder reviewString = new StringBuilder();
         for (String review : reviews.keySet()) {

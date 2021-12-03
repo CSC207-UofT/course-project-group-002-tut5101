@@ -77,6 +77,7 @@
 		android:text="@string/fixed_user_id"
 		android:textSize="16sp"
 		android:textStyle="bold"
+		android:visibility="invisible"
 		app:layout_constraintBottom_toBottomOf="@+id/editTextNewUserId"
 		app:layout_constraintEnd_toEndOf="@+id/textView" />
 
@@ -90,6 +91,7 @@
 		android:inputType="none"
 		android:textColor="#A19E9E"
 		android:textSize="16sp"
+		android:visibility="invisible"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.80"
 		app:layout_constraintStart_toStartOf="parent"

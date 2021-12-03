@@ -1,7 +1,7 @@
 package presenter.menusystem;
 
 import entity.orderlist.Dish;
-import use_case.boundary.output.MenuOutputBoundary;
+import use_case.dishlist.MenuOutputBoundary;
 import use_case.dishlist.DishList;
 
 

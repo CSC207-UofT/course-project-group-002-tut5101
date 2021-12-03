@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.inventorysystem.InventoryManager;
-import use_case.boundary.output.InventoryOutputBoundary;
+import use_case.inventoryfactory.InventoryOutputBoundary;
 
 public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary {
     Button btn;

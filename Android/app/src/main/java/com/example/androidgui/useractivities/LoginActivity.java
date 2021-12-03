@@ -9,7 +9,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import com.example.androidgui.deliverystaffactivities.DeliverOrderActivity;
+import com.example.androidgui.inventoryactivities.InventoryStarterActivity;
 import com.example.androidgui.kitchenactivities.KitchenActivity;
+import com.example.androidgui.manageractivities.ManagerPickActionActivity;
+import com.example.androidgui.servingstaffactivities.ServingStaffPickActionActivity;
 import constant.mangersystem.UserType;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
@@ -156,22 +159,21 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @param id the user id
      * @return Activity.class of the login user to jump to
      */
-    //TODO fill in activity.class
     private GenericDeclaration factoryMethod(String id) {
         this.loginPresenter.getUserTypeById(id);
         switch (loginUserType) {
             case CUSTOMER:
                 return CustomerPickActionActivity.class;
             case MANAGER:
-//              return ManagerActivity.class;
+              return ManagerPickActionActivity.class;
             case DELIVERY_STAFF:
                 return DeliverOrderActivity.class;
             case KITCHEN:
                 return KitchenActivity.class;
             case INVENTORY_STAFF:
-//                return InventoryStarterActivity.class;
+                return InventoryStarterActivity.class;
             case SERVING_STAFF:
-//                return ServeDishActivity.class;
+                return ServingStaffPickActionActivity.class;
         }
         return LoginActivity.class;
     }
