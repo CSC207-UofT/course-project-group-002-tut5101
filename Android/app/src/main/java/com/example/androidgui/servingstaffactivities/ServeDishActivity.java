@@ -10,12 +10,20 @@ import com.example.androidgui.R;
 import presenter.staffsystem.StaffPresenter;
 import presenter.staffsystem.StaffViewInterface;
 
+/**
+ * Activity class for selecting dish.
+ */
 public class ServeDishActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
     private StaffPresenter presenter;
     private TextView dishContent;
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

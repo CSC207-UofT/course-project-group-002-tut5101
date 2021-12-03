@@ -48,6 +48,9 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     }
 
+    /**
+     * Collecting dish information.
+     */
     @SuppressWarnings("unchecked")
     private void collectDishInformation(){
         Intent intent = getIntent();

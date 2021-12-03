@@ -9,12 +9,20 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.inventorysystem.InventoryManager;
 
+/**
+ * Activity class for updating freshness.
+ */
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener{
     Button btn;
     EditText name;
     EditText fresh;
     final InventoryManager im = new InventoryManager();
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +32,11 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         fresh = findViewById(R.id.editTextTextPersonName9);
         btn.setOnClickListener(this);
     }
+
+    /**
+     *
+     * @param v view
+     */
     @Override
     public void onClick(View v) {
         String iname = name.getText().toString();

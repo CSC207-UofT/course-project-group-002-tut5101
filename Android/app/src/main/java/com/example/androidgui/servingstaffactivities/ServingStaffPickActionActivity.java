@@ -9,9 +9,17 @@ import android.os.Bundle;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 
+/**
+ * Activity class for the serving staff to pick action.
+ */
 public class ServingStaffPickActionActivity extends AppCompatActivity {
     private String id;
 
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +53,7 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // When selected Exit, return to login activity.
+    // When selected Exit, return to log in activity.
     public void selectExit(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, MainActivity.class);
         startActivity(intent);

@@ -23,7 +23,6 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      */
     private final EnrollStaffInputBoundary enrollUserInputBoundary;
     private EnrollStaffViewInterface enrollStaffViewInterface;
-    private UserList userList;
 
 
     /**
@@ -32,6 +31,7 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      * @return a UserList.
      */
     private UserList loadUserList() {
+        UserList userList = new UserList(20);
         //TODO hardcode since File I/O issue, need delete later
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));

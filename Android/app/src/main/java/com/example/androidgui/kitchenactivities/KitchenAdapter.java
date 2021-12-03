@@ -11,7 +11,9 @@ import com.example.androidgui.R;
 
 import java.util.ArrayList;
 
-
+/**
+ * Adapter for kitchen.
+ */
 public class KitchenAdapter extends ArrayAdapter {
 
     private final Context kContext;
