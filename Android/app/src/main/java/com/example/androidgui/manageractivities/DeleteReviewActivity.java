@@ -39,6 +39,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
         selectAction = findViewById(R.id.selectAction);
         this.deleteReviewPresenter = new DeleteReviewPresenter();
 
+
         setupMessage();
         setupOptions();
     }
