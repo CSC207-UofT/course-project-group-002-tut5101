@@ -1,7 +1,8 @@
 package presenter.reviewsystem;
 
 import constant.mangersystem.ManagerDecision;
-import controller.ReviewController;
+import use_case.review.DeleteReviewInputBoundary;
+import use_case.review.DeleteReviewUseCase;
 
 import java.util.Objects;
 
@@ -9,13 +10,13 @@ import java.util.Objects;
  * Presenter class for deleting reviews.
  */
 public class DeleteReviewPresenter {
-    private final ReviewController reviewController;
+    private final DeleteReviewInputBoundary deleteReviewInputBoundary;
 
     /**
      * Empty constructor.
      */
     public DeleteReviewPresenter(){
-        this.reviewController = new ReviewController();
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase();
     }
 
     /**
@@ -24,13 +25,13 @@ public class DeleteReviewPresenter {
      */
     public void decideReview(String action){
         if (Objects.equals(action, ManagerDecision.ONE.toString())){
-            reviewController.deleteBelowOne();
+            deleteReviewInputBoundary.delete(1);
         }
         else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
-            reviewController.deleteBelowTwo();
+            deleteReviewInputBoundary.delete(2);
         }
         else {
-            reviewController.deleteBelowThree();
+            deleteReviewInputBoundary.delete(3);
         }
     }
 }

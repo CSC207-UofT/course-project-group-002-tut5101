@@ -1,4 +1,4 @@
-package controller;
+package presenter.managersystem;
 
 
 import constant.mangersystem.UserType;
@@ -8,7 +8,6 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
-import presenter.managersystem.EnrollStaffViewInterface;
 import use_case.enrollstaff.EnrollStaffInputBoundary;
 import use_case.enrollstaff.EnrollStaffOutputBoundary;
 import use_case.enrollstaff.EnrollStaffUseCase;
@@ -17,14 +16,13 @@ import use_case.userlist.UserList;
 /**
  * Controller class for manager.
  */
-public class ManagerController implements EnrollStaffOutputBoundary {
+public class ManagerPresenter implements EnrollStaffOutputBoundary {
 
     /**
      * The input and output user_case.boundary for enrolling new staff use case.
      */
     private final EnrollStaffInputBoundary enrollUserInputBoundary;
     private EnrollStaffViewInterface enrollStaffViewInterface;
-    private UserList userList;
 
 
     /**
@@ -34,7 +32,6 @@ public class ManagerController implements EnrollStaffOutputBoundary {
      */
     private UserList loadUserList() {
         UserList userList = new UserList(20);
-        //TODO hardcode since File I/O issue, need delete later
         userList = new UserList(6);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
@@ -48,7 +45,7 @@ public class ManagerController implements EnrollStaffOutputBoundary {
     /**
      * Constructor of the ManagerController
      */
-    public ManagerController() {
+    public ManagerPresenter() {
         this.enrollUserInputBoundary = new EnrollStaffUseCase(loadUserList());
         this.enrollUserInputBoundary.setOutputBoundary(this);
     }
