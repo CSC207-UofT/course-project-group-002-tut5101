@@ -1,9 +1,7 @@
-package reviewsystem;
+package presenter.reviewsystem;
 
 import org.junit.Before;
 import org.junit.Test;
-import presenter.reviewsystem.DisplayReviewViewInterface;
-import presenter.reviewsystem.ReviewPresenter;
 
 /**
  * Test the ReviewPresenterTest class.

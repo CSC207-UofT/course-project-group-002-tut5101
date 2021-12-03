@@ -1,8 +1,7 @@
-package reviewsystem;
+package presenter.reviewsystem;
 
 import org.junit.Before;
 import org.junit.Test;
-import presenter.reviewsystem.DeleteReviewPresenter;
 
 /**
  * Test the DeleteReviewPresenterTest class.
