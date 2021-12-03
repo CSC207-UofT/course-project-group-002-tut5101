@@ -1,27 +1,31 @@
-package use_case.userlist;
+package use_case.login;
 
 import constant.uimessage.LoginResult;
 import entity.User;
-import use_case.boundary.input.LoginInputBoundary;
-import use_case.boundary.output.LoginOutputBoundary;
+import use_case.userlist.UserList;
 
 import java.util.Objects;
 
 /**
  * Use case class for user login.
  */
-public class LoginUseCase implements LoginInputBoundary {
-
-//    private final UserList users;
-    private final LoginOutputBoundary outputBoundary;
+public class LoginUseCase {
 
     /**
-     *
-     * @param loginOutputBoundary output boundary for login in.
+     * use case output boundary attribute
      */
-    public LoginUseCase(LoginOutputBoundary loginOutputBoundary){
+    private LoginOutputBoundary outputBoundary;
+
+    /**
+     * set output boundary for soft dependency
+     *
+     * @param loginOutputBoundary output boundary to presenter
+     */
+    public void setOutputBoundary(LoginOutputBoundary loginOutputBoundary) {
         this.outputBoundary = loginOutputBoundary;
     }
+
+
     /**
      * Run the login use case.
      *
