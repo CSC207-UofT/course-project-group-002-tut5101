@@ -1,5 +1,7 @@
 package use_case.enrollstaff;
 
+import constant.mangersystem.UserType;
+
 /**
  * Input Boundary of Enroll Staff Use Case
  */
@@ -13,7 +15,7 @@ public interface EnrollStaffInputBoundary {
      * @param password password of the new staff
      * @param userType user type of the new staff
      */
-    void enrollNewStaff(String id, String name, String password, String userType);
+    void enrollNewStaff(String id, String name, String password, UserType userType);
 
     /**
      * Request next available user id

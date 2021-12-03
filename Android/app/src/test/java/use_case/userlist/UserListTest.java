@@ -14,6 +14,7 @@ import org.junit.Test;
 //TODO: fix this test issue.
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Tests for UseCase.entity.UserList Class
@@ -55,7 +56,13 @@ public class UserListTest {
      */
     @Test
     public void testUserTypeById() {
-        assertEquals(UserList.getUserTypeById("3"), UserType.CUSTOMER);
+        assertEquals(UserType.MANAGER, UserList.getUserTypeById("000"));
+        assertEquals(UserType.CUSTOMER, UserList.getUserTypeById("3"));
+        assertEquals(UserType.DELIVERY_STAFF, UserList.getUserTypeById("5"));
+        assertEquals(UserType.SERVING_STAFF, UserList.getUserTypeById("6"));
+        assertEquals(UserType.INVENTORY_STAFF, UserList.getUserTypeById("9"));
+        assertEquals(UserType.KITCHEN, UserList.getUserTypeById("8"));
+        assertNull(UserList.getUserTypeById("1000"));
     }
 
     /**
@@ -83,9 +90,11 @@ public class UserListTest {
      */
     @Test
     public void testAddStaff() {
-        userList.addStaff("21", "May", "32345", "KITCHEN");
-        userList.addStaff("20", "April", "22345", "DELIVERY_STAFF");
-        assertEquals(userList.length(), 11);
+        userList.addStaff("21", "May", "32345", UserType.KITCHEN);
+        userList.addStaff("20", "April", "22345", UserType.SERVING_STAFF);
+        userList.addStaff("22", "Mary", "12345", UserType.DELIVERY_STAFF);
+        userList.addStaff("23", "Ron", "12345", UserType.INVENTORY_STAFF);
+        assertEquals(13, userList.length());
     }
 
 }

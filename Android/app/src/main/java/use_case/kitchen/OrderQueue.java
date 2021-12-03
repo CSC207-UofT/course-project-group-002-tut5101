@@ -88,10 +88,5 @@ public class OrderQueue {
             if (tempIngredients != null) {
                 int ingredients = tempIngredients;
                 if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
+                    return false; } } }
+        return true; } }

@@ -4,8 +4,6 @@ package use_case.dishlist;
 import entity.orderlist.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishlist.DishList;
-import use_case.dishlist.DishListIterator;
 
 import java.util.HashMap;
 
@@ -157,7 +155,7 @@ public class DishListTest {
     /**
      * Fake presenter class that implements the output boundary
      */
-    private class TestClass implements MenuOutputBoundary {
+    private static class TestClass implements MenuOutputBoundary {
 
         /**
          * Test if this method is called from DishInformation
