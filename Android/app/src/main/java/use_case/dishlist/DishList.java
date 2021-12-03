@@ -1,5 +1,6 @@
 package use_case.dishlist;
 
+import androidx.annotation.NonNull;
 import entity.orderlist.Dish;
 import use_case.boundary.output.ManageMenuOutputBoundary;
 import use_case.boundary.output.MenuOutputBoundary;
@@ -80,7 +81,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return a string representation of the list of Dishes
      */
-
+    @NonNull
     @Override
     public String toString() {
         int dishNumber = 1;
@@ -125,6 +126,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      *
      * @return an iterator for this dishList.
      */
+    @NonNull
     @Override
     public DishListIterator iterator() {
         return new DishListIterator();
