@@ -34,8 +34,15 @@ public class InventoryList implements Serializable {
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public void addInventory(Inventory item){
-        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
+    public String addInventory(Inventory item){
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item)))
+
+        {   int id = myDict.size();
+            item.setId(id);
+            myDict.put(item.getName(), item);
+            return "Successful";
+        }
+        else{return "Occupied name or item";}
     }
 
 
@@ -46,8 +53,8 @@ public class InventoryList implements Serializable {
      * @param inf an InventoryFactory instance
      * @param paras The given String parameters needed to create it.
      */
-    public void addFromFactory(InventoryFactory inf, String[] paras) {
-        addInventory(inf.getInventory(paras));
+    public String addFromFactory(InventoryFactory inf, String[] paras) {
+        return addInventory(inf.getInventory(paras));
     }
 
 
@@ -92,19 +99,6 @@ public class InventoryList implements Serializable {
 
 
     /**
-     * Get the inventory by its name
-     * @param name The name of this inventory
-     * @return the inventory required.
-     */
-    public static Inventory getItem(String name){
-        return myDict.get(name);
-    }
-
-
-
-
-
-    /**
      * Get the quantity of inventory by its name
      * @param name The name of this inventory
      * @return the quantity of inventory required.
@@ -114,7 +108,7 @@ public class InventoryList implements Serializable {
             //TODO: implement exceptions for cases of wrong key
             return 0;
         }
-        return getItem(name).getQuantity();
+        return Objects.requireNonNull(myDict.get(name)).getQuantity();
     }
 
     /**
@@ -126,7 +120,7 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        return this.boundary.getMessage(getItem(name).updateQuantity(usage));
+        return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
 
