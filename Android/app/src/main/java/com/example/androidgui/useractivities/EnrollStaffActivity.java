@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.uimessage.EnrollUserMessage;
 import constant.uimessage.LoginLogoutUIMessage;
-import controller.ManagerController;
+import presenter.managersystem.ManagerPresenter;
 import presenter.managersystem.EnrollStaffViewInterface;
 
 /**
@@ -26,7 +26,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private EditText editNumSalary;
     private NumberPicker numPickerUserType;
 
-    private ManagerController managerController;
+    private ManagerPresenter managerPresenter;
     private String newUserId;
 
     /**
@@ -39,8 +39,8 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_staff);
 
-        managerController = new ManagerController();
-        managerController.setViewInterface(this);
+        managerPresenter = new ManagerPresenter();
+        managerPresenter.setViewInterface(this);
 
         editTextUserId = findViewById(R.id.editTextNewUserId);
         editTextUserName = findViewById(R.id.editTextNewUserName);
@@ -58,8 +58,8 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
      * Get required information for new user, including user id and options of user type.
      */
     private void generateRequiredInfo() {
-        managerController.getNewUserId();
-        managerController.getStaffTypes();
+        managerPresenter.getNewUserId();
+        managerPresenter.getStaffTypes();
     }
 
     /**
@@ -114,7 +114,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
      * Enroll new staff information and pop-up succeed dialog.
      */
     private void enroll() {
-        managerController.enrollNewUser(editTextUserId.getText().toString(),
+        managerPresenter.enrollNewUser(editTextUserId.getText().toString(),
                 editTextUserName.getText().toString(),
                 editTextPassword.getText().toString(),
                 numPickerUserType.getDisplayedValues()[numPickerUserType.getValue()]);
