@@ -72,29 +72,6 @@ public class HasFreshnessTest {
     }
 
     /**
-     * Test the getFreshness method
-     */
-    @Test(timeout = 50)
-    public void testGetFreshness() {
-        String expected = "Fresh";
-        String actual = hasFreshness.getFreshness();
-
-        assertEquals(expected, actual);
-    }
-
-    /**
-     * Test the setFreshness method
-     */
-    @Test(timeout = 50)
-    public void testSetFreshness() {
-        hasFreshness.setFreshness("Not Fresh");
-        String expected = "Not Fresh";
-        String actual = hasFreshness.getFreshness();
-
-        assertEquals(expected, actual);
-    }
-
-    /**
      * Test the toString method
      */
     @Test(timeout = 50)
