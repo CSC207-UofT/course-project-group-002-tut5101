@@ -1,8 +1,8 @@
 package presenter.menusystem;
 
 import entity.orderlist.Dish;
+import use_case.boundary.output.MenuOutputBoundary;
 import use_case.dishlist.DishList;
-import use_case.dishlist.MenuOutputBoundary;
 
 
 import java.util.HashMap;
@@ -68,10 +68,6 @@ public class MenuPresenter implements MenuOutputBoundary {
      */
     public void editDishByName(String dishName) {
         this.dishList.editDishByName(dishName);
-    }
-
-    public String[] passDishesAsList(){
-        return this.dishList.passDishesAsList();
     }
 
 

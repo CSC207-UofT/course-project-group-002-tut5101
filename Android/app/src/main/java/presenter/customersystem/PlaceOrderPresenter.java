@@ -3,9 +3,9 @@ package presenter.customersystem;
 import constant.ordersystem.OrderType;
 import entity.orderlist.Dish;
 import use_case.boundary.input.PlaceOrderInputBoundary;
+import use_case.customer.PlaceOrder;
+import use_case.customer.PlaceOrderOutputBoundary;
 import use_case.placeorder.DishInformation;
-import use_case.placeorder.PlaceOrder;
-import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.HashMap;
  * 2021-11-03
  */
 
-public class PlaceOrderPresenter implements PlaceOrderOutputBoundary{
+public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
