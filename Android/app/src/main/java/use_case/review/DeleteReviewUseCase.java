@@ -1,7 +1,6 @@
 package use_case.review;
 
 import entity.review.Review;
-import use_case.boundary.input.DeleteReviewInputBoundary;
 
 import java.util.Iterator;
 

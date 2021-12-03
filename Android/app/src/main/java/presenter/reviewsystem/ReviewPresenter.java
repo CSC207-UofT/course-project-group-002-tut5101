@@ -2,7 +2,7 @@ package presenter.reviewsystem;
 
 
 import entity.review.Review;
-import use_case.boundary.output.ReviewOutputBoundary;
+import use_case.review.ReviewOutputBoundary;
 import use_case.review.ReviewList;
 
 /**
