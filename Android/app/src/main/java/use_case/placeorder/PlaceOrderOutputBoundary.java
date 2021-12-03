@@ -1,4 +1,4 @@
-package use_case.customer;
+package use_case.placeorder;
 
 public interface PlaceOrderOutputBoundary {
     void setDishNamePickerMaxValue(int size);

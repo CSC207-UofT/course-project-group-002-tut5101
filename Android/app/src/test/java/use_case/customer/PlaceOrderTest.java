@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 import use_case.dishlist.DishList;
 import constant.ordersystem.OrderType;
+import use_case.placeorder.PlaceOrder;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 
 /**
