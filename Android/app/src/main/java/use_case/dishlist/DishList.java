@@ -2,6 +2,7 @@ package use_case.dishlist;
 
 import androidx.annotation.NonNull;
 import entity.orderlist.Dish;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.io.Serializable;
 import java.util.*;
@@ -15,6 +16,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     String[] dishNames;
+    private PlaceOrderOutputBoundary placeOrderOutputBoundary;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
@@ -36,13 +38,6 @@ public class DishList implements Serializable, Iterable<Dish> {
         this.manageMenuOutputBoundary = manageMenuOutputBoundary;
     }
 
-    /**
-     *
-     * @param menuOutputBoundary output boundary for menu.
-     */
-    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
-        this.menuOutputBoundary = menuOutputBoundary;
-    }
 
     /**
      * This constructor constructs dishList from a list of dishes
@@ -57,32 +52,12 @@ public class DishList implements Serializable, Iterable<Dish> {
 
     /**
      * Return list of dishes
-     *
      * @return the menu
      */
     public static HashMap<String, Dish> getAllDishes() {
         return menu;
     }
 
-
-    /**
-     * Override the toString method of Object and return a fine illustration of the DishList information
-     *
-     * @return a string representation of the list of Dishes
-     */
-
-    @Override
-    @NonNull
-    public String toString() {
-        int dishNumber = 1;
-        StringBuilder menuString = new StringBuilder();
-        for (String dishName : menu.keySet()) {
-            menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
-            dishNumber++;
-        }
-        return menuString.toString();
-
-    }
 
     /**
      * Get the dish's price for a dish named dishName
@@ -123,14 +98,12 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     /**
-     * Delete the dish by its name.
-     *
-     * @param dishName name of the dish to be deleted.
+     * Delete a dish from the menu by its name
+     * @param dishName the name of the dish to be deleted
      */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
     }
-
 
     /**
      * Edit the dish by its name.
@@ -159,17 +132,40 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
-        dishNames = menu.keySet().toArray(new String[0]);
     }
 
+    /**
+     * Override the toString method of Object and return a fine illustration of the DishList information
+     *
+     * @return a string representation of the list of Dishes
+     */
 
+    @Override
+    @NonNull
+    public String toString() {
+        int dishNumber = 1;
+        StringBuilder menuString = new StringBuilder();
+        for (String dishName : menu.keySet()) {
+            menuString.append(dishNumber).append(". ").append(Objects.requireNonNull(menu.get(dishName)));
+            dishNumber++;
+        }
+        return menuString.toString();
+
+    }
 
     /**
-     * Dishes as string.
+     * Set the menuOutputBoundary of this class
+     * @param menuOutputBoundary the menu output boundary
+     */
+    public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
+        this.menuOutputBoundary = menuOutputBoundary;
+    }
+
+    /**
+     * Update the dishes in the menu
      */
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
-
 
 }

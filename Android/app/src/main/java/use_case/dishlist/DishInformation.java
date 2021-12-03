@@ -1,7 +1,9 @@
-package use_case.placeorder;
+package use_case.dishlist;
 
 import entity.orderlist.Dish;
-import use_case.customer.PlaceOrderOutputBoundary;
+import presenter.ordersystem.PlaceOrderMenuPresenter;
+import use_case.placeorder.PlaceOrderMenuOutputBoundary;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,9 +13,10 @@ import java.util.Objects;
  * Provides information about dishes for presenters
  */
 public class DishInformation {
-    String[] dishNames;
+    private String[] dishNames;
     private static HashMap<String, Dish> menu;
     private PlaceOrderOutputBoundary placeOrderOutputBoundary;
+    private PlaceOrderMenuOutputBoundary placeOrderMenuOutputBoundary;
 
     /**
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
@@ -21,10 +24,17 @@ public class DishInformation {
     public DishInformation() {
         menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
+
     }
 
-    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
-        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
+    // methods for place order menu output boundary
+
+    /**
+     * Set the output boundary for displaying menu for place order
+     * @param placeOrderMenuPresenter the output boundary
+     */
+    public void setPlaceOrderMenuOutputBoundary(PlaceOrderMenuOutputBoundary placeOrderMenuPresenter) {
+        this.placeOrderMenuOutputBoundary = placeOrderMenuPresenter;
     }
 
     /**
@@ -33,7 +43,7 @@ public class DishInformation {
      */
     public void numberOfDishesForPresenter(){
         int numberOfDishes = menu.size();
-        placeOrderOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
+        placeOrderMenuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
     }
 
 
@@ -48,8 +58,19 @@ public class DishInformation {
             nameAndPrice = name + "   $" + Objects.requireNonNull(menu.get(name)).getPrice();
             dishNamesAndPrice.add(nameAndPrice);
         }
-        placeOrderOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
+        placeOrderMenuOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
+
+    // methods for place order output boundary
+
+    /**
+     * Set the place order output boundary
+     * @param placeOrderOutputBoundary the output boundary
+     */
+    public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
+        this.placeOrderOutputBoundary = placeOrderOutputBoundary;
+    }
+
     /**
      *
      * updates the dishes ordered
@@ -75,5 +96,6 @@ public class DishInformation {
         menu.put(dish.getName(), dish);
         dishNames = menu.keySet().toArray(new String[0]);
     }
+
 
 }
