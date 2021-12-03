@@ -4,21 +4,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.inventorysystem.InventoryManager;
+import presenter.inventorysystem.AddInventoryPresenter;
+import presenter.inventorysystem.AddinventoryViewInterface;
 
 /**
  * Activity class for adding inventory.
  */
-public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener {
-    Button button;
-    EditText editTextName;
-    EditText editTextPrice;
-    EditText editTextAmount;
-    EditText editTextFate;
-    EditText editTextFreshness;
-    final InventoryManager im = new InventoryManager();
+public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
+    private Button button;
+    private EditText name;
+    private EditText price;
+    private EditText amount;
+    private EditText date;
+    private EditText freshness;
+    private AddInventoryPresenter aip = new AddInventoryPresenter();
 
     /**
      * Activity basic function.
@@ -28,13 +30,14 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_inventory2);
-        button = findViewById(R.id.button10);
-        editTextName = findViewById(R.id.editTextTextPersonName);
-        editTextPrice = findViewById(R.id.editTextTextPersonName2);
-        editTextAmount = findViewById(R.id.editTextTextPersonName3);
-        editTextFate = findViewById(R.id.editTextTextPersonName4);
-        editTextFreshness = findViewById(R.id.editTextTextPersonName5);
+        setContentView(R.layout.activity_add_inventory);
+        aip.setAddInventoryViewInterface(this);
+        button = findViewById(R.id.button);
+        name = findViewById(R.id.editTextTextPersonName);
+        price = findViewById(R.id.editTextNumberDecimal);
+        amount = findViewById(R.id.editTextNumberDecimal2);
+        date = findViewById(R.id.editTextDate);
+        freshness = findViewById(R.id.editTextTextPersonName10);
         button.setOnClickListener(this);
     }
 
@@ -45,20 +48,20 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
      */
     @Override
     public void onClick(View v) {
-        String name = editTextName.getText().toString();
-        String price = editTextPrice.getText().toString();
-        String amount = editTextAmount.getText().toString();
-        String date = editTextFate.getText().toString();
-        String freshness = editTextFreshness.getText().toString();
-        String para;
-        if (freshness.equals("N/A")) {
-            para = name + "," + price + "," + amount + "," + date;
-        } else {
-            para = name + "," + price + "," + amount + "," + freshness + "," + date;
-        }
-        String[] paras = para.split(",");
-        im.addNewInventory(paras);
-//        im.SavetoFile();
+        String iname = name.getText().toString();
+        String iprice = price.getText().toString();
+        String iamount = amount.getText().toString();
+        String idate = date.getText().toString();
+        String ifreshness = freshness.getText().toString();
+        this.aip.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+    }
+    @Override
+    public void updateInventoryList(String message){
+        Toast.makeText(AddInventoryActivity.this,message,Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
 }
