@@ -1,6 +1,7 @@
 package com.example.androidgui;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Looper;
 import android.os.StrictMode;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +12,7 @@ import android.util.Log;
 import com.google.android.gms.common.util.IOUtils;
 import gateway.FetchData;
 import gateway.PutData;
-import java.io.*;
-import java.net.*;
-import java.nio.charset.StandardCharsets;
+
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
@@ -22,11 +21,32 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import java.io.*;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+
 public class db extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Uri otherPath = Uri.parse("/Users/liuray/Downloads/uplifted-cinema-252918-e0674925237b.json");
+        System.setProperty("GOOGLE_APPLICATION_CREDENTIALS",otherPath.toString());
+
+
+
+
+        try {
+            uploadObject("uplifted-cinema-252918", "207project", "WQ11.txt", "asdfkl");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void readFile() {
         new Thread(new Runnable() {
 
             public void run() {
@@ -47,6 +67,8 @@ public class db extends AppCompatActivity {
                     }
                     System.out.println(urls);
                     in.close();
+
+
                 } catch (Exception e) {
                     Log.d("MyTag", e.toString());
                 }
@@ -62,27 +84,57 @@ public class db extends AppCompatActivity {
         }).start();
     }
 
+
+    public void writeFile(String FILE_URL, String FILE_NAME) {
+
+        try (BufferedInputStream in = new BufferedInputStream(new URL(FILE_URL).openStream());
+             FileOutputStream fileOutputStream = new FileOutputStream(FILE_NAME)) {
+            byte dataBuffer[] = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+                fileOutputStream.write(dataBuffer, 0, bytesRead);
+            }
+        } catch (IOException e) {
+            // handle exception
+        }
+    }
+
+
+    /**
+     *
+     * @param projectId The project id
+     * @param bucketName The unique bucket name
+     * @param objectName Object name
+     * @param filePath path to the file
+     * @throws IOException
+     */
     public static void uploadObject(
             String projectId, String bucketName, String objectName, String filePath) throws IOException {
-        // The ID of your GCP project
-        // String projectId = "your-project-id";
 
-        // The ID of your GCS bucket
-        // String bucketName = "your-unique-bucket-name";
+        new Thread(new Runnable() {
 
-        // The ID of your GCS object
-        // String objectName = "your-object-name";
+            @Override
+            public void run() {
+                System.out.println("did1");
+                Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+                System.out.println("did2");
+                BlobId blobId = BlobId.of(bucketName, objectName);
+                BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
+                System.out.println("did3");
+                storage.create(blobInfo, new byte[]{0, 1, 2, 3});
+                System.out.println("did4");
+                // storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));
 
-        // The path to your file to upload
-        // String filePath = "path/to/your/file"
+                System.out.println("File " + filePath + " uploaded to bucket " + bucketName + " as " + objectName);
 
-        Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
-        BlobId blobId = BlobId.of(bucketName, objectName);
-        BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
-        storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));
-
-        System.out.println(
-                "File " + filePath + " uploaded to bucket " + bucketName + " as " + objectName);
+                //since we are in background thread, to post results we have to go back to ui thread. do the following for that
+//                runOnUiThread(new Runnable() {
+//                    public void run() {
+//                        System.out.println(urls);
+//                    }
+//                });
+            }
+        }).start();
     }
 
 
@@ -140,5 +192,8 @@ public class db extends AppCompatActivity {
 
 //        https://github.com/VishnuSivadasVS/Advanced-HttpURLConnection
 //        https://stackoverflow.com/questions/6343166/how-can-i-fix-android-os-networkonmainthreadexception
+//        https://cloud.google.com/artifact-registry/docs/java/authentication#gcloud
+//        https://github.com/pliablematter/simple-cloud-storage
 
 }
+
