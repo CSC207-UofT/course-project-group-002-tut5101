@@ -1,12 +1,8 @@
 package use_case.deliver_order;
 
-import entity.User;
-import entity.delivery.ServingStaff;
-import use_case.user_list.UserList;
-
 public class ServingDishAdaptor implements DeliveryInputBoundary{
     private StaffDeliveryOutputBoundary outputBoundary;
-    private final ServeDish sd = new ServeDish();
+    private final ServeDishInterface sd = new ServeDish();
 
     public void delivered(String id) throws Exception{
         this.sd.delivered(id);
