@@ -1,9 +1,9 @@
-package presenter.ordersystem;
+package presenter.order_system;
 
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishlist.DishInformation;
+import use_case.dish_list.DishInformation;
 
 import java.util.HashMap;
 
