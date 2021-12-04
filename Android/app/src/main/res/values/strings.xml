@@ -95,5 +95,8 @@
     <string name="show_map">Show Map</string>
     <string name="MessageNewDishArrived">New dish arrived!</string>
     <string name="add_identity">Add your Identity</string>
+    <string name="Name">Name</string>
+    <string name="date_import_expiry">Date import/expiry</string>
+    <string name="usage_negative_when_adding">usage( negative when adding)</string>
 
 </resources>
