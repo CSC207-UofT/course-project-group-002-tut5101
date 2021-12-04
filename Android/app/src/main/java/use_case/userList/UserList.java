@@ -4,6 +4,7 @@ package use_case.userList;
   @author Chan Yu & Naihe Xiao
  */
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import constant.mangerSystem.UserType;
@@ -14,8 +15,8 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -30,8 +31,8 @@ public class UserList implements Serializable {
     private String filepath = FileLocation.USER_FILE_LOCATION;
 
     public UserList() {
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filepath);
     }
 
     public UserList(int i) {
@@ -40,8 +41,8 @@ public class UserList implements Serializable {
 
     public UserList(String filepath) {
         this.filepath = filepath;
-        readWriter = new SerReadWriter();
-        users = readWriter.readFromFile(filepath);
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filepath);
     }
 
 
@@ -120,11 +121,11 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void savetoFile() {
-        this.readWriter.saveToFile(this.filepath, users);
+    public void savetoFile(Context context) {
+        this.readWriter.saveToFile(context, this.filepath, users);
     }
 
-    public void addStaff(String id, String name, String password, String userType, int salary) {
+    public void addStaff(String id, String name, String password, String userType, int salary, Context context) {
         switch (UserType.valueOf(userType)){
             case KITCHEN:
                 users.put(id, new KitchenStaff(id, name, password, salary));
@@ -140,6 +141,6 @@ public class UserList implements Serializable {
                 break;
         }
         //Save the updated user list to file
-        savetoFile();
+        savetoFile(context);
     }
 }

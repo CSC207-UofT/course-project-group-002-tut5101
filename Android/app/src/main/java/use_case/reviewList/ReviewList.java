@@ -1,9 +1,10 @@
 package use_case.reviewList;
 
+import android.content.Context;
 import constant.fileSystem.FileLocation;
 import entity.review.Review;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -16,14 +17,14 @@ public class ReviewList implements Serializable {
     private String filepath = FileLocation.REVIEW_LIST_LOCATION;
 
     public ReviewList() {
-        rrw = new SerReadWriter();
-        reviews  = rrw.readFromFile(filepath);
+        rrw = new GCloudReadWriter();
+        reviews = (HashMap<Integer, ArrayList<Review>>) rrw.readFromFile(filepath);
     }
 
     public ReviewList(String filepath) {
         this.filepath = filepath;
-        rrw = new SerReadWriter();
-        reviews  = rrw.readFromFile(filepath);
+        rrw = new GCloudReadWriter();
+        reviews = (HashMap<Integer, ArrayList<Review>>) rrw.readFromFile(filepath);
     }
 
     public void addReview(String name, boolean ifAnonymous, int rate, String comment, boolean ifComplain, String complain){
@@ -75,8 +76,8 @@ public class ReviewList implements Serializable {
         return reviews.size();
     }
 
-    public void saveToFile() {
-        rrw.saveToFile(this.filepath, reviews);
+    public void saveToFile(Context context) {
+        rrw.saveToFile(context, this.filepath, reviews);
     }
 
     /**

@@ -1,9 +1,10 @@
 package use_case.kitchen;
 
+import android.content.Context;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import use_case.boundary.output.InventoryOutputBoundary;
 import use_case.inventoryFactory.InventoryFactory;
 
@@ -14,7 +15,6 @@ import java.util.Objects;
 
 
 public class InventoryList implements Serializable {
-
 
     /**
      * A hashmap that maps ingredient name to its corresponding inventory item instance.
@@ -32,8 +32,8 @@ public class InventoryList implements Serializable {
 
     public InventoryList(String filepath) {
         this.filepath = filepath;
-        irw = new SerReadWriter();
-        this.myDict = irw.readFromFile(filepath);
+        irw = new GCloudReadWriter();
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(filepath);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -157,11 +157,9 @@ public class InventoryList implements Serializable {
         return message;
     }
 
-    public void SavetoFile(){
-        this.irw.saveToFile(this.filepath, this.myDict);
+    public void SavetoFile(Context context){
+        this.irw.saveToFile(context, this.filepath, myDict);
     }
-
-
 
 
 }

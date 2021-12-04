@@ -1,10 +1,11 @@
 package use_case.dishList;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.fileSystem.FileLocation;
 import entity.orderList.Dish;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
 import use_case.boundary.output.MenuOutputBoundary;
 
 import java.io.Serializable;
@@ -29,15 +30,15 @@ public class DishList implements Serializable, Iterable<Dish> {
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishList() {
-        readWriter = new SerReadWriter();
-        menu = readWriter.readFromFile(filepath);
+        readWriter = new GCloudReadWriter();
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(filepath);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
     public DishList(String filepath) {
         this.filepath = filepath;
-        readWriter = new SerReadWriter();
-        menu = readWriter.readFromFile(filepath);
+        readWriter = new GCloudReadWriter();
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(filepath);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -217,8 +218,8 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
 
-    public void saveToFile(){
-        readWriter.saveToFile(this.filepath, menu);
+    public void saveToFile(Context context){
+        readWriter.saveToFile(context, this.filepath, menu);
     }
 
 
