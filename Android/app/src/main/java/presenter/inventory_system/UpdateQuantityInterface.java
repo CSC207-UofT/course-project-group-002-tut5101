@@ -1,5 +1,5 @@
 package presenter.inventory_system;
 
-public interface UpdateQuanInterface {
+public interface UpdateQuantityInterface {
     void popInfo(String message);
 }

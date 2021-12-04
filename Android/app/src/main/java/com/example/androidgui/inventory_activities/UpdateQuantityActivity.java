@@ -7,15 +7,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.inventory_system.UpdateQuanInterface;
-import presenter.inventory_system.UpdateQuanPresenter;
+import presenter.inventory_system.UpdateQuantityInterface;
+import presenter.inventory_system.UpdateQuantityPresenter;
 import use_case.inventory_factory.InventoryOutputBoundary;
 
-public class UpdateQuanActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary,
-        UpdateQuanInterface{
+public class UpdateQuantityActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary,
+        UpdateQuantityInterface {
     private EditText name;
     private EditText usage;
-    private final UpdateQuanPresenter uqp = new UpdateQuanPresenter();
+    private final UpdateQuantityPresenter uqp = new UpdateQuantityPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class UpdateQuanActivity extends AppCompatActivity implements View.OnClic
     public String getMessage(String message){
         return message;
     }
-    public void popInfo(String message){Toast.makeText(UpdateQuanActivity.this,message,Toast.LENGTH_SHORT).show();}
+    public void popInfo(String message){Toast.makeText(UpdateQuantityActivity.this,message,Toast.LENGTH_SHORT).show();}
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
