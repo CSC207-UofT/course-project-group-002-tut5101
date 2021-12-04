@@ -1,6 +1,7 @@
 package entity.customer;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import entity.User;
 
 /**
@@ -38,4 +39,5 @@ public class Customer extends User {
     public String toString() {
         return "(UseCase.Customer) " + super.toString();
     }
+
 }

@@ -1,17 +1,16 @@
 package entity.inventory;
 
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Entity class for dairy soy.
  */
 
 
-import java.io.Serializable;
-
-public class HasFreshness implements Inventory, Serializable {
-    public String name;
-    private boolean usedup;
-    private final double price;
-    private double quantity;
+public class HasFreshness extends Inventory implements Serializable {
     private String freshness;
     private final int ImportDate;
 
@@ -25,64 +24,13 @@ public class HasFreshness implements Inventory, Serializable {
      * @param ImportDate The ImportDate of the Material
      */
 
-    public HasFreshness(String name, double price, double quantity, String freshness,
+    public HasFreshness(String name, double price, int quantity, String freshness,
                         int ImportDate){
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
+        super(name, price, quantity);
         this.freshness = freshness;
         this.ImportDate = ImportDate;
-        this.usedup = quantity == 0;
+
     }
-
-    @Override
-    public String getName(){return this.name;}
-
-    @Override
-    public boolean getUsedup(){
-        return this.usedup;
-    }
-
-
-    /**
-     * Get the quantity of an Inventory
-     * @return The quantity of the Inventory as a double.
-     */
-    @Override
-    public double getQuantity(){
-        return this.quantity;
-    }
-
-    /**
-     * Check wether have enough Inventory for use and change the amount of it
-     * @param usage The required amount of usage of this inventory
-     * @return Wether the inventory is enough to use.
-     */
-    @Override
-    public String updateQuantity(double usage){
-        String message;
-        if(this.quantity >= usage){
-            this.quantity -= usage;
-            if(this.quantity == 0){
-                this.usedup = true;
-            }
-            message = "Successfully updated";
-        }
-        else{message = "Not enough";}
-        return message;
-    }
-
-
-    /**
-     * Get the freshness of a Material
-     * @return The freshness of the Material as a string.
-     */
-
-
-    public String getFreshness(){
-        return this.freshness;
-    }
-
 
 
     /**
@@ -94,14 +42,29 @@ public class HasFreshness implements Inventory, Serializable {
         this.freshness = NewFreshness;
     }
 
+    /**
+     *
+     * @return the string representation of the inventory item
+     */
+    @NonNull
     @Override
     public String toString(){
-        String s = this.name+ ","+ this.price +
-                ","+ this.quantity +","+this.freshness+","+ this.ImportDate;
-        return s;
+        return super.name+ ","+ this.price +
+                ","+ this.quantity +","+ this.freshness+","+ this.ImportDate;
 
     }
 
+    /**
+     * @param o object to compare to
+     * @return true if contents of inventory item (name, quantity, price, etc.) are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HasFreshness)) return false;
+        HasFreshness that = (HasFreshness) o;
+        return usedup == that.usedup && Double.compare(that.price, price) == 0 && quantity == that.quantity && ImportDate == that.ImportDate && Objects.equals(name, that.name) && Objects.equals(freshness, that.freshness);
+    }
 
 }
 

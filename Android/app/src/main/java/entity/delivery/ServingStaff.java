@@ -1,8 +1,8 @@
 package entity.delivery;
 
 
-import constant.orderSystem.ItemStatus;
-import entity.orderList.Dish;
+import constant.order_system.ItemStatus;
+import entity.order_list.Dish;
 
 /**
  * Class of a serving staff that checks the queue of dishes to be delivered and deliver the dishes
@@ -18,10 +18,9 @@ public class ServingStaff extends Staff {
      * Construct an instance of s serving staff
      * @param staffName The name of the staff
      * @param staffNumber The number of the staff
-     * @param staffSalary The salary of the staff
      */
-    public ServingStaff(String staffNumber, String staffName, String password, int staffSalary) {
-        super(staffNumber, staffName, password, staffSalary);
+    public ServingStaff(String staffNumber, String staffName, String password) {
+        super(staffNumber, staffName, password);
         this.currentDish = null;
     }
 
@@ -53,6 +52,10 @@ public class ServingStaff extends Staff {
         }
     }
 
+    /**
+     *
+     * @return a string representation of the dish.
+     */
     public String displayDish(){
         if (currentDish != null){
             return "Table: " + currentDish.getTableNum()

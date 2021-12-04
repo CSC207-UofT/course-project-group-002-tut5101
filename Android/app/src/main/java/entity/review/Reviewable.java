@@ -6,13 +6,11 @@ package entity.review;
 
 
 public interface Reviewable {
-    String addName();
+    String getName();
 
-    int addRate();
+    int getRate();
 
-    String reviewDate();
+    String getReviewDate();
 
-    String complainStuff();
-
-    String addComment();
+    String getComment();
 }

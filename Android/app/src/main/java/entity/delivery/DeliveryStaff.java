@@ -1,7 +1,7 @@
 package entity.delivery;
 
-import constant.orderSystem.ItemStatus;
-import entity.orderList.DeliveryOrder;
+import constant.order_system.ItemStatus;
+import entity.order_list.DeliveryOrder;
 
 /**
  * Class for delivery staff
@@ -17,12 +17,15 @@ public class DeliveryStaff extends Staff {
      * Construct an instance of s delivery staff
      * @param staffName The name of the staff
      * @param staffNumber The number of the staff
-     * @param staffSalary The salary of the staff
      */
-    public DeliveryStaff(String staffNumber, String staffName, String password, int staffSalary) {
-        super(staffNumber, staffName, password, staffSalary);
+    public DeliveryStaff(String staffNumber, String staffName, String password) {
+        super(staffNumber, staffName, password);
     }
 
+    /**
+     * Set the current order of the delivery staff
+     * @param order the current order of this delivery staff
+     */
     public void setCurrentOrder(DeliveryOrder order) {
         this.currentOrder = order;
     }
@@ -33,6 +36,10 @@ public class DeliveryStaff extends Staff {
      */
     public boolean hasCurrentOrder() {return currentOrder != null;}
 
+    /**
+     * Complete the current delivery order
+     * @throws Exception if there is no order to be delivered
+     */
     public void completeOrderDelivery() throws Exception{
         if (currentOrder != null) {
             this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETED);
@@ -42,9 +49,20 @@ public class DeliveryStaff extends Staff {
         }
     }
 
+    /**
+     * display the current order
+     * @return string representation of current order
+     */
     public String displayOrder(){
         if (currentOrder != null){
-            return "Address: " + currentOrder.getAddress() + "\n" + currentOrder.getOrderContent();
+            return currentOrder.getOrderContent();
+        }
+        return "";
+    }
+
+    public String getOrderDestination() {
+        if (currentOrder != null){
+            return currentOrder.getAddress();
         }
         return "";
     }

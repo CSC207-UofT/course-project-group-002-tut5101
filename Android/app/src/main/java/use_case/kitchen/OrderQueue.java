@@ -2,8 +2,8 @@ package use_case.kitchen;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import entity.orderList.Dish;
-import entity.orderList.Order;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 
 import java.util.*;
 
@@ -18,7 +18,10 @@ public class OrderQueue {
 
     private static Queue<Order> placedOrderQueue = new ArrayDeque<>();
 
-    public OrderQueue() {
+    /**
+     * reset the current class
+     */
+    public static void reset() {
         placedOrderQueue = new ArrayDeque<>();
     }
 
@@ -57,28 +60,33 @@ public class OrderQueue {
         if (dishes.isEmpty()) {
             return true;
         }
-        HashMap<String, Double> ingredientsRequired = new HashMap<String, Double>(); // A dictionary with key the ingredient, 
+        HashMap<String, Integer> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
                                                                         // value the ingredient needed
-        // Calculate the total amount of each ingredient needed in the list of dishes
+        // To Calculate the total amount of each ingredient needed in the list of dishes
         for (Dish dish: dishes) {
-            HashMap<String, Double> dishIngredients = dish.getIngredients();
+            HashMap<String, Integer> dishIngredients = dish.getIngredients();
             // Add the amount of an ingredient needed for a dish to the dictionary
             for (String ingredient: dishIngredients.keySet()) {
                 if (!ingredientsRequired.containsKey(ingredient)) {
                     ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
                 } else {
-                    double previousValue = ingredientsRequired.get(ingredient);
-                    ingredientsRequired.replace(ingredient, previousValue + dishIngredients.get(ingredient));
+                    Integer tempValue = ingredientsRequired.get(ingredient);
+                    Integer tempIngredients = dishIngredients.get(ingredient);
+                    if (tempValue != null && tempIngredients != null) {
+                        int previousValue = tempValue;
+                        int dishIngredientsTemp = tempIngredients;
+                        ingredientsRequired.replace(ingredient, previousValue + dishIngredientsTemp);
+                    }
+
                 }
             }
         }
         // For all the ingredients needed in the list of dishes, check if inventory is enough to do
         // If one ingredient has more needed than inventory has, we can't make the list of dishes, so return false
         for (String ingredientRequired: ingredientsRequired.keySet()) {
-            if (InventoryList.getTotalQuantity(ingredientRequired) < ingredientsRequired.get(ingredientRequired)) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
+            Integer tempIngredients = ingredientsRequired.get(ingredientRequired);
+            if (tempIngredients != null) {
+                int ingredients = tempIngredients;
+                if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
+                    return false; } } }
+        return true; } }

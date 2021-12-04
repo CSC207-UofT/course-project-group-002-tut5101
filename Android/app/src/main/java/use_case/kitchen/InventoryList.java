@@ -5,8 +5,8 @@ import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import use_case.boundary.output.InventoryOutputBoundary;
-import use_case.inventoryFactory.InventoryFactory;
+import use_case.inventory_factory.InventoryOutputBoundary;
+import use_case.inventory_factory.InventoryFactory;
 
 
 import java.io.Serializable;
@@ -44,8 +44,15 @@ public class InventoryList implements Serializable {
      * Add new Inventory item to myDict.
      * @param item The inventory to add
      */
-    public void addInventory(Inventory item){
-        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))){myDict.put(item.getName(), item);}
+    public String addInventory(Inventory item){
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item)))
+
+        {   int id = myDict.size();
+            item.setId(id);
+            myDict.put(item.getName(), item);
+            return "Successful";
+        }
+        else{return "Occupied name or item";}
     }
 
 
@@ -56,21 +63,15 @@ public class InventoryList implements Serializable {
      * @param inf an InventoryFactory instance
      * @param paras The given String parameters needed to create it.
      */
-    public void addFromFactory(InventoryFactory inf, String[] paras) {
-        addInventory(inf.getInventory(paras));
+    public String addFromFactory(InventoryFactory inf, String[] paras) {
+        return addInventory(inf.getInventory(paras));
     }
 
 
     /**
-     * Check if the inventoryList is empty
-     * @return true when the inventoryList is empty
-     */
-    public boolean checkEmpty(){return myDict.isEmpty();}
-
-    /**
      * Check if an ingredient is in the inventoryList, return true if present
      * @param name Name of the ingredient
-     * @return true only if the ingredient with name is foudn in the list
+     * @return true only if the ingredient with name is found in the list
      */
     public boolean checkExist(String name){return myDict.containsKey(name);}
 
@@ -96,17 +97,6 @@ public class InventoryList implements Serializable {
 
 
     /**
-     * @param name an inventory item
-     * @return The freshness of this given item.
-     *
-     * NOTE: This method should only be called after the isHasFreshness check.
-     */
-    public String getFreshness(String name) {
-        return ((HasFreshness) Objects.requireNonNull(myDict.get(name))).getFreshness();
-    }
-
-
-    /**
      * Set the freshness of the given inventory item
      *
      * @param name The name of an inventory item
@@ -119,29 +109,16 @@ public class InventoryList implements Serializable {
 
 
     /**
-     * Get the inventory by its name
-     * @param name The name of this inventory
-     * @return the inventory required.
-     */
-    public static Inventory getItem(String name){
-        return myDict.get(name);
-    }
-
-
-
-
-
-    /**
      * Get the quantity of inventory by its name
      * @param name The name of this inventory
      * @return the quantity of inventory required.
      */
-    public static double getTotalQuantity(String name){
+    public static int getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
             //TODO: implement exceptions for cases of wrong key
             return 0;
         }
-        return getItem(name).getQuantity();
+        return Objects.requireNonNull(myDict.get(name)).getQuantity();
     }
 
     /**
@@ -149,16 +126,11 @@ public class InventoryList implements Serializable {
      * @param name The name of the ingredient being changed
      * @param usage the quantity used for this ingredient.
      */
-    public String setQuantity(String name, double usage) {
+    public String setQuantity(String name, int usage) {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        String message = this.boundary.getMessage(getItem(name).updateQuantity(usage));
-        return message;
-    }
-
-    public void SavetoFile(Context context){
-        this.irw.saveToFile(context, this.filepath, myDict);
+        return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
 

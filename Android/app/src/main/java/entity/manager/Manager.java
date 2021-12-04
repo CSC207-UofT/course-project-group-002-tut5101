@@ -21,6 +21,13 @@ public class Manager extends User {
     }
 
     /**
+     * Constructor of UseCase.Manager with input info
+     */
+    public Manager(String id, String name, String password) {
+        super(id, name, password);
+    }
+
+    /**
      * Override the toString method of Object and return a fine illustration of a UseCase.Manager information
      *
      * @return a string representation of this UseCase.Manager

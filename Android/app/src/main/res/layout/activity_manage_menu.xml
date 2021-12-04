@@ -5,39 +5,33 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ManagerActivities.ManageMenuActivity">
+        tools:context=".manager_activities.ManageMenuActivity">
     <NumberPicker android:layout_width="160dp" android:layout_height="66dp"
                   app:layout_constraintTop_toTopOf="parent"
                   android:layout_marginTop="284dp" app:layout_constraintStart_toStartOf="parent"
-                  android:layout_marginLeft="124dp" android:layout_marginStart="124dp"
+                  android:layout_marginStart="124dp"
                   android:id="@+id/selectDish"/>
     <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content" android:id="@+id/askDishNumber"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="200dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="104dp" android:layout_marginStart="104dp"/>
+            android:layout_marginStart="104dp"/>
     <Button
             android:text="@string/next"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/confirm"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="155dp"
-            android:layout_marginStart="155dp" android:layout_marginTop="187dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="160dp" android:layout_marginTop="40dp"
             app:layout_constraintTop_toBottomOf="@+id/selectDish"
             android:onClick="next" tools:ignore="UsingOnClickInXml"/>
-<!--    <EditText-->
-<!--            android:layout_width="93dp"-->
-<!--            android:hint="@string/DishName"-->
-<!--            android:layout_height="43dp"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:text="@string/dishName"-->
-<!--            android:ems="10"-->
-<!--            android:id="@+id/editTextTextPersonName"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:layout_marginTop="156dp" app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:layout_marginLeft="144dp" android:layout_marginStart="144dp" android:layout_marginEnd="139dp"-->
-<!--            android:layout_marginRight="139dp" app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.2"-->
-<!--            android:autofillHints="dishName"/>-->
+    <Button
+            android:text="@string/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            app:layout_constraintTop_toBottomOf="@+id/selectDish" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="160dp"
+            android:onClick="selectExit" tools:ignore="UsingOnClickInXml"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

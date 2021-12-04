@@ -8,7 +8,7 @@ import entity.delivery.Staff;
 
 
 public class InventoryStaff extends Staff {
-    public InventoryStaff(String staffID, String staffName, String password, int staffSalary) {
-        super(staffID, staffName, password, staffSalary);
+    public InventoryStaff(String staffID, String staffName, String password) {
+        super(staffID, staffName, password);
     }
 }

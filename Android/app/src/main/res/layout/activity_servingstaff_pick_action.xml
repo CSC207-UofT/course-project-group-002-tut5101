@@ -12,16 +12,16 @@
     <Button
             android:text="@string/get_next_dish"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/getNextDishButton" android:onClick="selectGetNextDish"
+            android:layout_height="124dp" android:onClick="selectGetNextDish"
             tools:ignore="UsingOnClickInXml"/>
     <Button
             android:text="@string/view_current_dish"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/viewCurrentDishButton" android:onClick="seeCurrentDish"
+            android:layout_height="124dp" android:onClick="seeCurrentDish"
             tools:ignore="UsingOnClickInXml"/>
     <Button
             android:text="@string/logout_button"
             android:layout_width="match_parent"
-            android:layout_height="124dp" android:id="@+id/logoutButton" android:onClick="selectExit"
+            android:layout_height="124dp" android:onClick="selectExit"
             tools:ignore="UsingOnClickInXml"/>
 </LinearLayout>
