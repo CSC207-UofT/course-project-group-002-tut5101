@@ -3,8 +3,6 @@ package presenter.order_system;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import presenter.order_system.EditOrderPresenter;
-import presenter.order_system.EditOrderViewInterface;
 import use_case.dish_list.DishInformation;
 
 
@@ -17,6 +15,9 @@ public class EditOrderPresenterTest {
     private EditOrderPresenter editOrder;
     private final DishInformation dishInformation = new DishInformation();
 
+    private static HashMap<String, Integer> dishesOrdered;
+    private static HashMap<String, Double> dishPrices;
+
     /**
      * Setup before tests
      */
@@ -27,12 +28,12 @@ public class EditOrderPresenterTest {
         TestClass testActivity = new TestClass();
         editOrder.setEditOrderViewInterface(testActivity);
 
-        HashMap<String, Integer> dishesOrdered = new HashMap<>();
+        dishesOrdered = new HashMap<>();
         dishesOrdered.put("dish1", 3);
         dishesOrdered.put("dish2", 1);
         editOrder.setDishesOrdered(dishesOrdered);
 
-        HashMap<String, Double> dishPrices = new HashMap<>();
+        dishPrices = new HashMap<>();
         dishPrices.put("dish1", 10.0);
         dishPrices.put("dish2", 30.0);
         editOrder.setDishPrices(dishPrices);
