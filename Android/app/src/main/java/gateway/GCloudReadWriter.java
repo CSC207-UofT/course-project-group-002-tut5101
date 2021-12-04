@@ -2,23 +2,28 @@ package gateway;
 
 import android.content.Context;
 import android.util.Log;
+import com.example.androidgui.kitchen_activities.KitchenActivity;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 import com.google.common.collect.Lists;
+import entity.inventory.Inventory;
+import entity.order_list.Dish;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.concurrent.CountDownLatch;
 
 public class GCloudReadWriter implements ReadWriter {
 
     private Object currentDS;
 
     public Object readFromFile(String filename) {
-
+        final CountDownLatch latch = new CountDownLatch(1);
         new Thread(() -> {
             try {
                 URL url = new URL("https://storage.googleapis.com/207project/" + filename);
@@ -31,11 +36,17 @@ public class GCloudReadWriter implements ReadWriter {
 
                 this.currentDS = input.readObject();
                 input.close();
+                latch.countDown();
             } catch (IOException | ClassNotFoundException e) {
                 Log.d("MyTag", e.toString());
             }
         }).start();
 
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return currentDS;
     }
 
@@ -52,12 +63,12 @@ public class GCloudReadWriter implements ReadWriter {
                 ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(byteOut);
                 out.writeObject(map);
-                System.out.println("BYTE:" + byteOut);
                 storage.create(blobInfo, byteOut.toByteArray());
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }).start();
     }
 
