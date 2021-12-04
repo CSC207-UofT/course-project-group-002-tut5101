@@ -52,7 +52,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
 
     }
     @Override
-    public void Checkvalidity(String info){
+    public void CheckValidity(String info){
         boolean wrongName = info.equals("Invalid name");
         String fail = "Invalid name";
         if (wrongName) {

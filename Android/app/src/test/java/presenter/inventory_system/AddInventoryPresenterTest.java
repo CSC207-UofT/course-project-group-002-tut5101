@@ -20,7 +20,7 @@ public class AddInventoryPresenterTest {
     }
 
     /**
-     * Test the getUserTypeById method
+     * Test the presentLoginResult method
      */
     @Test
     public void presentLoginResult(){
