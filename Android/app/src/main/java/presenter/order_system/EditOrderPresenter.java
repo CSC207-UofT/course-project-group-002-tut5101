@@ -1,9 +1,8 @@
 package presenter.order_system;
 
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * This is the Edit Order Presenter corresponding to the Edit Order Activity, which takes the input from the activity,
@@ -17,10 +16,12 @@ public class EditOrderPresenter {
     private ArrayList<String> collectedDishes;
 
     /**
-     * Constructor of this class
+     * Constructor for this class
      */
-    public EditOrderPresenter(){
-
+    public EditOrderPresenter() {
+        this.collectedDishes = new ArrayList<>();
+        this.dishesOrdered = new HashMap<>();
+        this.dishPrices = new HashMap<>();
     }
 
     /**
@@ -63,6 +64,7 @@ public class EditOrderPresenter {
      * Set the number of options
      */
     private void setOrderedDishesPicker(){
+        collectDishes();
         if (collectedDishes.size() >= 1) {
             editOrderViewInterface.setOrderedDishesPickerMax(collectedDishes.size() - 1);
             editOrderViewInterface.setOrderedDishesPickerValues(collectedDishes.toArray(new String[0]));
@@ -89,7 +91,6 @@ public class EditOrderPresenter {
     }
 
     private String getTotalPriceString() {
-        DecimalFormat df = new DecimalFormat("0.00");
         double totalPrice = 0;
         for (String dishName : dishesOrdered.keySet()) {
             Integer tempQuantity = dishesOrdered.get(dishName);
@@ -103,7 +104,8 @@ public class EditOrderPresenter {
             }
         }
         totalPrice = totalPrice / 100;
-        return "\n\nTOTAL PRICE: " + df.format(totalPrice);
+        String s = String.format(Locale.CANADA, "%.2f", totalPrice);
+        return "\n\nTOTAL PRICE: " + s;
     }
 
     /**
@@ -111,6 +113,7 @@ public class EditOrderPresenter {
      * @param dishIndex the index corresponding to the dish to be removed
      */
     public void removeOrderedDish(int dishIndex) {
+        collectDishes();
         if (!collectedDishes.isEmpty()) {
             String dishName = collectedDishes.get(dishIndex).split(" x ")[0];
             dishesOrdered.remove(dishName);

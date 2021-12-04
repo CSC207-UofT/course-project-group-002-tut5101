@@ -1,6 +1,6 @@
 package controller;
 
-import use_case.dishlist.DishList;
+import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
 import use_case.kitchen.Kitchen;
 

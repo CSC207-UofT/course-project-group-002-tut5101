@@ -1,6 +1,6 @@
-package use_case.dishlist;
+package use_case.dish_list;
 
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 import use_case.placeorder.PlaceOrderOutputBoundary;
 

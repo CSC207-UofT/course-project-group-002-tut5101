@@ -11,7 +11,7 @@ import entity.manager.Manager;
 import use_case.enroll_staff.EnrollStaffInputBoundary;
 import use_case.enroll_staff.EnrollStaffOutputBoundary;
 import use_case.enroll_staff.EnrollStaffUseCase;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Controller class for manager.

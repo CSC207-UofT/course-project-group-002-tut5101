@@ -1,11 +1,8 @@
 package presenter.staff_system;
 
-import use_case.deliver_order.DeliveryInputBoundary;
+import use_case.deliver_order.*;
 import constant.manger_system.UserType;
-import use_case.deliver_order.DeliverOrder;
-import use_case.deliver_order.ServeDish;
-import use_case.deliver_order.StaffDeliveryOutputBoundary;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Controller class for staff.
@@ -13,7 +10,7 @@ import use_case.userlist.UserList;
 
 
 public class StaffPresenter implements StaffDeliveryOutputBoundary {
-    private final DeliveryInputBoundary servingStaff = new ServeDish();
+    private final DeliveryInputBoundary servingStaff = new ServingDishAdaptor();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
     private presenter.staff_system.StaffViewInterface staffView;
 

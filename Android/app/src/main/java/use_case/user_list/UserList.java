@@ -1,4 +1,4 @@
-package use_case.userlist;
+package use_case.user_list;
 
 import androidx.annotation.NonNull;
 import constant.manger_system.UserType;

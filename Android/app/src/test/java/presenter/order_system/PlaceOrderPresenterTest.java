@@ -1,10 +1,10 @@
 package presenter.order_system;
 
 import constant.order_system.OrderType;
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishlist.DishInformation;
+import use_case.dish_list.DishInformation;
 
 import java.util.HashMap;
 
@@ -174,7 +174,9 @@ public class PlaceOrderPresenterTest {
         }
     }
 
-
+    /**
+     * Generate dishes for the test
+     */
     private void generateDishList() {
         Dish d1 = new Dish("dish1", 10, new HashMap<>(), 20);
         Dish d2 = new Dish("dish2", 30, new HashMap<>(), 200);

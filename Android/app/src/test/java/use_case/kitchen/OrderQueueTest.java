@@ -2,10 +2,10 @@ package use_case.kitchen;
 
 import entity.inventory.HasExpiryDate;
 import entity.inventory.Inventory;
-import entity.orderlist.DeliveryOrder;
-import entity.orderlist.DineInOrder;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
+import entity.order_list.DeliveryOrder;
+import entity.order_list.DineInOrder;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.*;
