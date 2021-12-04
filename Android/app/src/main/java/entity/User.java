@@ -11,17 +11,13 @@ import java.io.Serializable;
  * @author Chan Yu & Naihe Xiao
  */
 public class User implements Serializable {
-    private String id;
-    private String name;
-    private String password;
+    private UserAttributes attributes;
 
     /**
      * Constructor of entities.User without parameter
      */
     public User() {
-        this.id = "defaultUserId"; //UUID.randomUUID().toString();
-        this.name = "Default entities.User";
-        this.password = "12345";
+        attributes = new UserAttributes("defaultUserId", "Default entities.User", "12345");
     }
 
     /**
@@ -32,9 +28,7 @@ public class User implements Serializable {
      * @param password password of entities.User
      */
     public User(String id, String name, String password) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
+        attributes = new UserAttributes(id, name, password);
     }
 
     /**
@@ -45,8 +39,8 @@ public class User implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return this.name + ": {" +
-                "id='" + id + '\'' +
+        return attributes.getName() + ": {" +
+                "id='" + attributes.getId() + '\'' +
                 '}';
     }
 
@@ -56,7 +50,7 @@ public class User implements Serializable {
      * @return the id of entities.User
      */
     public String getId() {
-        return id;
+        return attributes.getId();
     }
 
     /**
@@ -65,7 +59,7 @@ public class User implements Serializable {
      * @param id id of entities.User
      */
     public void setId(String id) {
-        this.id = id;
+        attributes = new UserAttributes(id, attributes.getName(), attributes.getPassword());
     }
 
     /**
@@ -74,7 +68,7 @@ public class User implements Serializable {
      * @return the name of entities.User
      */
     public String getName() {
-        return name;
+        return attributes.getName();
     }
 
     /**
@@ -83,7 +77,7 @@ public class User implements Serializable {
      * @param name name of entities.User
      */
     public void setName(String name) {
-        this.name = name;
+        attributes = new UserAttributes(attributes.getId(), name, attributes.getPassword());
     }
 
 
@@ -94,7 +88,7 @@ public class User implements Serializable {
      * @return whether the guess matches the real password.
      */
     public boolean passwordMatches(String password) {
-        return this.password.equals(password);
+        return attributes.getPassword().equals(password);
     }
 
 
@@ -104,7 +98,7 @@ public class User implements Serializable {
      * @param password password of entities.User
      */
     public void setPassword(String password) {
-        this.password = password;
+        attributes = new UserAttributes(attributes.getId(), attributes.getName(), password);
     }
 
     /**
@@ -112,5 +106,5 @@ public class User implements Serializable {
      *
      * @return the name of entities.User
      */
-    public String getPassword(){return this.password;}
+    public String getPassword(){return attributes.getPassword();}
 }
