@@ -18,7 +18,7 @@
 			android:name=".database.DBTest"
 			android:exported="true" />
 
-		<activity android:name=".inventory_activities.UpdateQuanActivity" />
+		<activity android:name=".inventory_activities.UpdateQuantityActivity" />
 		<activity android:name=".inventory_activities.UpdateFreshnessActivity" />
 		<activity android:name=".inventory_activities.AddInventoryActivity" />
 		<activity android:name=".inventory_activities.CheckInventoryActivity"/>

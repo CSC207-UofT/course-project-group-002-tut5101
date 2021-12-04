@@ -1,12 +1,10 @@
 package presenter.inventory_system;
 
-import use_case.inventory_factory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 
 public class CheckInventoryPresenter {
     private CheckInventoryInterface checkInventoryInterface;
     private final InventoryList inventories;
-    private final InventoryFactory infc = new InventoryFactory();
 
     public CheckInventoryPresenter(){
         this.inventories = new InventoryList();
@@ -28,6 +26,6 @@ public class CheckInventoryPresenter {
 
     public void checkValidity(String name){
         String info = this.getInfo(name);
-        this.checkInventoryInterface.Checkvalidity(info);
+        this.checkInventoryInterface.CheckValidity(info);
     }
 }

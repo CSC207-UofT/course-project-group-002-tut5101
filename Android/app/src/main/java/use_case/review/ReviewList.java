@@ -21,6 +21,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
         reviews = new HashMap<>();
     }
 
+
     /**
      *
      * @param reviews setting the reviews.

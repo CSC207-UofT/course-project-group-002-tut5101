@@ -13,8 +13,8 @@ public class InventoryFacade {
         return new CheckInventoryPresenter(this.inventories);
     }
 
-    public UpdateQuanPresenter createQuanPresenter(){
-        return new UpdateQuanPresenter(this.inventories);
+    public UpdateQuantityPresenter createQuanPresenter(){
+        return new UpdateQuantityPresenter(this.inventories);
     }
 
     public UpdateFreshnessPresenter updateFreshnessPresenter(){

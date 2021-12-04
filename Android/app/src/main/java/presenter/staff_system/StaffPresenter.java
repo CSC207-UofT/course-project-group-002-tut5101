@@ -12,7 +12,7 @@ import use_case.user_list.UserList;
 public class StaffPresenter implements StaffDeliveryOutputBoundary {
     private final DeliveryInputBoundary servingStaff = new ServingDishAdaptor();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
-    private presenter.staff_system.StaffViewInterface staffView;
+    private StaffViewInterface staffView;
 
     public StaffPresenter() {
         servingStaff.setOutputBoundary(this);

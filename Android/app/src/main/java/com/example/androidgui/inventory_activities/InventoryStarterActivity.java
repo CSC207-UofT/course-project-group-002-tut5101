@@ -45,7 +45,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
      * @param v view.
      */
     public void UpdateQuantity(View v) {
-        Intent intent = new Intent(InventoryStarterActivity.this, UpdateQuanActivity.class);
+        Intent intent = new Intent(InventoryStarterActivity.this, UpdateQuantityActivity.class);
         startActivity(intent);
     }
 

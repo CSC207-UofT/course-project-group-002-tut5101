@@ -4,22 +4,20 @@ import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
- * Test the DeleteReviewUseCase class
+ * Test the AffReviewUseCase class
  */
-public class DeleteReviewUseCaseTest {
-    private ReviewList reviewList;
-    private DeleteReviewUseCase deleteReviewUseCase;
+public class AddReviewUseCaseTest {
+    private AddReviewUseCase add;
 
     /**
      * Setup before tests
      */
     @Before
     public void setUp(){
-
-        reviewList = new ReviewList();
+        ReviewList reviewList = new ReviewList();
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",
@@ -32,16 +30,23 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        deleteReviewUseCase = new DeleteReviewUseCase();
+        add = new AddReviewUseCase();
     }
 
     /**
-     * Test deleteBelowThree method
+     * Test addToReviewList method
      */
     @Test
-    public void testDelete(){
-        assertEquals(4, reviewList.sizeofList());
-        deleteReviewUseCase.delete(3);
+    public void addToReviewList(){
+        add.addToReviewList("amy", true, 1,"dog", "oops");
+    }
+
+    /**
+     * Test length method
+     */
+    @Test
+    public void length(){
+        assertEquals(0, add.length());
     }
 
 }
