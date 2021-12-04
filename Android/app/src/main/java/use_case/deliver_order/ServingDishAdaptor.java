@@ -2,7 +2,7 @@ package use_case.deliver_order;
 
 import entity.User;
 import entity.delivery.ServingStaff;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 public class ServingDishAdaptor implements DeliveryInputBoundary{
     private StaffDeliveryOutputBoundary outputBoundary;
@@ -26,9 +26,7 @@ public class ServingDishAdaptor implements DeliveryInputBoundary{
      * corresponding to the given id.
      */
     public void getItemInfo(String id){
-        User user = UserList.getUserByUserId(id);
-        String dishInfo = ((ServingStaff) user).displayDish();
-
+        String dishInfo = this.sd.getItemInfo(id);
         if (dishInfo.equals("")){
             outputBoundary.setCurrentItemInfo("", "No current dish to be displayed");
         }
