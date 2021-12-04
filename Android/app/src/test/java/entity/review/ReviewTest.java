@@ -55,6 +55,13 @@ public class ReviewTest {
         assertEquals("good food", review1.getComment());
     }
 
+    /**
+     * Test getComment method for use_case.review
+     */
+    @Test(timeout = 50)
+    public void testReviewGetID() {
+        assertEquals("1", review1.getReviewID());
+    }
 
     /**
      * Test getReviewDate method for use_case.review

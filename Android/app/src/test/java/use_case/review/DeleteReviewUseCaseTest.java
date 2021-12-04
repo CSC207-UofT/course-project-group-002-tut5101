@@ -40,7 +40,7 @@ public class DeleteReviewUseCaseTest {
      */
     @Test
     public void testDelete(){
-        assertEquals(4, reviewList.sizeofList());
+        assertEquals(0, reviewList.sizeofList());
         deleteReviewUseCase.delete(3);
     }
 

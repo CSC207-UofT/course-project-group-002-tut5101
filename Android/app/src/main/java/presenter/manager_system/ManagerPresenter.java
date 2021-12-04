@@ -31,8 +31,7 @@ public class ManagerPresenter implements EnrollStaffOutputBoundary {
      * @return a UserList.
      */
     private UserList loadUserList() {
-        UserList userList = new UserList(20);
-        userList = new UserList(6);
+        UserList userList = new UserList(6);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
