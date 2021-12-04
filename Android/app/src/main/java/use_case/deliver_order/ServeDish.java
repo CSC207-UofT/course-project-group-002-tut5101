@@ -4,7 +4,7 @@ import use_case.user_list.UserList;
 import entity.delivery.ServingStaff;
 import entity.User;
 
-public class ServeDish{
+public class ServeDish implements ServeDishInterface{
 
     /**
      * @param id The id of the serving staff that has logged in.
@@ -34,8 +34,7 @@ public class ServeDish{
      */
     public String getItemInfo(String id){
         User user = UserList.getUserByUserId(id);
-        String dishInfo = ((ServingStaff) user).displayDish();
 
-        return dishInfo;
+        return ((ServingStaff) user).displayDish();
     }
 }
