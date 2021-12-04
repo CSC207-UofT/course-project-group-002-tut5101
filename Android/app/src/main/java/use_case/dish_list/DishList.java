@@ -2,11 +2,8 @@ package use_case.dish_list;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.fileSystem.FileLocation;
-import entity.orderList.Dish;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import use_case.boundary.output.MenuOutputBoundary;
 import entity.order_list.Dish;
 
 import java.io.Serializable;
@@ -23,6 +20,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
+    String filename;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
@@ -36,10 +34,10 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    public DishList(String filepath) {
-        this.filepath = filepath;
+    public DishList(String filename) {
+        this.filename = filename;
         readWriter = new GCloudReadWriter();
-        menu = (HashMap<String, Dish>) readWriter.readFromFile(filepath);
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(filename);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -168,14 +166,11 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void dishesString() {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
-    public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
-        String dishName = dishNames[dishNameIndex];
-        menuOutputBoundary.updateDishesOrdered(dishName, dishQuantity);
     }
 
 
     public void saveToFile(Context context){
-        readWriter.saveToFile(context, this.filepath, menu);
+        readWriter.saveToFile(context, this.filename, menu);
     }
 
 }

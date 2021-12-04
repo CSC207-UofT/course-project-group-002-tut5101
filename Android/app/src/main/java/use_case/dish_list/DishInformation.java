@@ -23,7 +23,6 @@ public class DishInformation {
     public DishInformation() {
         menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
-
     }
 
     // methods for place order menu output boundary

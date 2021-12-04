@@ -7,8 +7,6 @@ import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.inventory_factory.InventoryFactory;
-
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
@@ -23,17 +21,17 @@ public class InventoryList implements Serializable {
      */
     private static HashMap<String, Inventory> myDict;
     private ReadWriter irw;
-    private String filepath;
+    private String filename;
     private InventoryOutputBoundary boundary;
     public InventoryList(){
-        this.filepath = null;
+        this.filename = null;
         myDict = new HashMap<>();
     }
 
-    public InventoryList(String filepath) {
-        this.filepath = filepath;
+    public InventoryList(String filename) {
+        this.filename = filename;
         irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(filepath);
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(filename);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -131,6 +129,10 @@ public class InventoryList implements Serializable {
             return "wrong name";
         }
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
+    }
+
+    public void saveToFile(Context context) {
+        irw.saveToFile(context, filename, myDict);
     }
 
 

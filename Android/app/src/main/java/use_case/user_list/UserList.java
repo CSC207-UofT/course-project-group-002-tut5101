@@ -29,11 +29,11 @@ public class UserList implements Serializable {
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
-    private String filepath = FileLocation.USER_FILE_LOCATION;
+    private String filename;
 
     public UserList() {
         readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filepath);
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
     }
 
     /**
@@ -44,10 +44,12 @@ public class UserList implements Serializable {
         users = new HashMap<>(i);
     }
 
-    public UserList(String filepath) {
-        this.filepath = filepath;
+    public UserList(String filename) {
+        this.filename = filename;
         readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filepath);
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
+
+    }
     /**
      *
      * @return the length of the user list.
@@ -123,7 +125,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, this.filepath, users);
+        this.readWriter.saveToFile(context, this.filename, users);
     }
 
     /**
@@ -134,7 +136,7 @@ public class UserList implements Serializable {
      * @param password password of the new staff.
      * @param userType type of the new staff.
      */
-    public void addStaff(String id, String name, String password, UserType userType) {
+    public void addStaff(String id, String name, String password, UserType userType, Context context) {
         switch (userType){
             case KITCHEN:
                 users.put(id, new KitchenStaff(id, name, password));

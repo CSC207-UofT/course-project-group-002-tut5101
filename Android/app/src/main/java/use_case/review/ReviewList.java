@@ -1,7 +1,10 @@
 package use_case.review;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import entity.review.Review;
+import gateway.GCloudReadWriter;
+import gateway.ReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,12 +16,20 @@ import java.util.Objects;
 public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
+    private ReadWriter irw;
+    private String filename;
 
     /**
      * Empty constructor.
      */
     public ReviewList() {
         reviews = new HashMap<>();
+    }
+
+    public ReviewList(String filename) {
+        irw = new GCloudReadWriter();
+        this.filename = filename;
+        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
     }
 
 
@@ -105,4 +116,10 @@ public class ReviewList implements Serializable, Iterable<Review> {
     public void reviewAsString() {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
+
+
+    public void saveToFile(Context context) {
+        irw.saveToFile(context, filename, reviews);
+    }
+
 }
