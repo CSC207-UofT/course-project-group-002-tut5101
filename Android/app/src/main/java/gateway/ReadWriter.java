@@ -1,10 +1,12 @@
 package gateway;
-/**
- * Gateway interface for reading and writing.
- */
 
 
 import java.util.HashMap;
+
+
+/**
+ * Gateway interface for reading and writing.
+ */
 
 public interface ReadWriter {
     /**
