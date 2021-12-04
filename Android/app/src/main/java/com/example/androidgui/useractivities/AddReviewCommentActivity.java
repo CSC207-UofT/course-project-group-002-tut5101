@@ -6,19 +6,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import controller.ReviewController;
+import presenter.review_system.AddReviewPresenter;
 
 /**
  * Activity class for adding use_case.review.
  */
 public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{
     Button button;
-    EditText name;
-    EditText ifAnonymous;
-    EditText rate;
-    EditText comment;
-    EditText id;
-    final ReviewController rc = new ReviewController();
+    EditText editTextName;
+    EditText editTextIfAnonymous;
+    EditText editTextRate;
+    EditText editTextComment;
+    EditText editTextId;
+    final AddReviewPresenter rc = new AddReviewPresenter();
 
     /**
      *
@@ -29,11 +29,11 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_review_comment);
         button = findViewById(R.id.bt1);
-        name = findViewById(R.id.textInputEdit);
-        ifAnonymous = findViewById(R.id.textInputEdit1);
-        rate = findViewById(R.id.textInputEdit2);
-        comment = findViewById(R.id.textInputEdit3);
-        id = findViewById(R.id.textInputEdit4);
+        editTextName = findViewById(R.id.textInputEdit);
+        editTextIfAnonymous = findViewById(R.id.textInputEdit1);
+        editTextRate = findViewById(R.id.textInputEdit2);
+        editTextComment = findViewById(R.id.textInputEdit3);
+        editTextId = findViewById(R.id.textInputEdit4);
         button.setOnClickListener(this);
     }
 
@@ -43,12 +43,11 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
      */
     @Override
     public void onClick(View v) {
-        String iname = name.getText().toString();
-        boolean iifAnonymous = ifAnonymous.getText().toString().equals("Y");
-        int irate = Integer.parseInt(rate.getText().toString());
-        String icomment = comment.getText().toString();
-        String identity = id.getText().toString();
-        rc.addToReviewList(iname,iifAnonymous, irate, icomment, identity);
-//        rc.saveToFile();
+        String name = editTextName.getText().toString();
+        boolean iifAnonymous = editTextIfAnonymous.getText().toString().equals("Y");
+        int irate = Integer.parseInt(editTextRate.getText().toString());
+        String comment = editTextComment.getText().toString();
+        String identity = editTextId.getText().toString();
+        rc.addToReviewList(name,iifAnonymous, irate, comment, identity);
     }
 }

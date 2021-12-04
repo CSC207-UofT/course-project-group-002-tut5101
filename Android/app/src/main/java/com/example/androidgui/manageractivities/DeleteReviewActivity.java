@@ -9,10 +9,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import constant.mangersystem.ManagerDecision;
-import constant.mangersystem.ReviewMessage;
-import constant.uimessage.ManagerUIMessage;
-import presenter.reviewsystem.DeleteReviewPresenter;
+import constant.manger_system.ManagerDecision;
+import constant.manger_system.ReviewMessage;
+import constant.ui_message.ManagerUIMessage;
+import presenter.review_system.DeleteReviewPresenter;
 
 
 /**
@@ -38,6 +38,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
         askDeleteCriteria = findViewById(R.id.askDeleteCriteria);
         selectAction = findViewById(R.id.selectAction);
         this.deleteReviewPresenter = new DeleteReviewPresenter();
+
 
         setupMessage();
         setupOptions();
@@ -85,5 +86,3 @@ public class DeleteReviewActivity extends AppCompatActivity {
     }
 
 }
-
-

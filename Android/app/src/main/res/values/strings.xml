@@ -81,19 +81,19 @@
     <string name="return_to_starter">Return to Starter</string>
     <string name="submit">Submit</string>
     <string name="write_comment">Write comment</string>
-    <string name="if_complain_y_or_n">if Complain?(Y or N)</string>
-    <string name="write_complain">Write complain</string>
     <string name="enter_your_name">enter your name</string>
     <string name="if_anonymous_y_or_n">if Anonymous?(Y or N)</string>
     <string name="rate_integer_from_1_to_5">Rate(integer from 1 to 5)</string>
     <string name="search">Search</string>
     <string name="dish_name">Dish Name</string>
     <string name="cooked">Cooked</string>
+    <string name="add_review">addReview</string>
     <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
         address below
     </string>
     <string name="dine_in_or_delivery">Is this order Dine In or Delivery?</string>
     <string name="show_map">Show Map</string>
     <string name="MessageNewDishArrived">New dish arrived!</string>
+    <string name="add_identity">Add your Identity</string>
 
 </resources>

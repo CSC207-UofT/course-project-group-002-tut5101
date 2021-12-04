@@ -7,8 +7,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import constant.ordersystem.BuildOrderInfo;
-import constant.ordersystem.OrderType;
+import constant.order_system.BuildOrderInfo;
+import constant.order_system.OrderType;
 
 /**
  * If the order is dine in, records the table number

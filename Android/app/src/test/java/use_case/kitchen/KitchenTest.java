@@ -1,13 +1,13 @@
 package use_case.kitchen;
 
-import entity.orderlist.DeliveryOrder;
-import entity.orderlist.DineInOrder;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
+import entity.order_list.DeliveryOrder;
+import entity.order_list.DineInOrder;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.deliverorder.DeliveryBuffer;
-import use_case.deliverorder.ServingBuffer;
+import use_case.deliver_order.DeliveryBuffer;
+import use_case.deliver_order.ServingBuffer;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
 package use_case.login;
 
-import constant.uimessage.LoginResult;
+import constant.ui_message.LoginResult;
 
 /**
  * Login output boundary between login use case and presenter

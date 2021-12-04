@@ -2,11 +2,11 @@ package use_case.customer;
 
 
 
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishlist.DishList;
-import constant.ordersystem.OrderType;
+import use_case.dish_list.DishList;
+import constant.order_system.OrderType;
 import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;

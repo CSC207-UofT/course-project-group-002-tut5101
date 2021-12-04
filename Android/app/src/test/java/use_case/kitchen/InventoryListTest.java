@@ -4,8 +4,8 @@ import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.inventoryfactory.InventoryFactory;
-import use_case.inventoryfactory.InventoryOutputBoundary;
+import use_case.inventory_factory.InventoryFactory;
+import use_case.inventory_factory.InventoryOutputBoundary;
 
 import static org.junit.Assert.*;
 
@@ -82,15 +82,6 @@ public class InventoryListTest {
         assertTrue(inventoryList.isHasFreshness("Test2"));
     }
 
-    /**
-     * Test setFreshness method
-     */
-    @Test
-    public void testSetFreshness() {
-        inventoryList.addInventory(hasFreshness);
-        inventoryList.setFreshness("Test2", "Not fresh");
-        assertEquals("Not fresh", hasFreshness.getFreshness());
-    }
 
     /**
      * Test the getter and setter methods for quantity

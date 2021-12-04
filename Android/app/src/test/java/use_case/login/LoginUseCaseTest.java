@@ -1,6 +1,6 @@
 package use_case.login;
 
-import constant.uimessage.LoginResult;
+import constant.ui_message.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -8,10 +8,7 @@ import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.enrollstaff.EnrolStaffUseCaseTest;
-import use_case.userlist.UserList;
-
-import static org.junit.Assert.*;
+import use_case.user_list.UserList;
 
 /**
  * Test the LoginUseCase class

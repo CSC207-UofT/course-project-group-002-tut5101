@@ -1,11 +1,11 @@
 package use_case.kitchen;
 
-import constant.ordersystem.ItemStatus;
-import constant.ordersystem.OrderType;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
-import use_case.deliverorder.DeliveryBuffer;
-import use_case.deliverorder.ServingBuffer;
+import constant.order_system.ItemStatus;
+import constant.order_system.OrderType;
+import entity.order_list.Dish;
+import entity.order_list.Order;
+import use_case.deliver_order.DeliveryBuffer;
+import use_case.deliver_order.ServingBuffer;
 
 import java.util.HashMap;
 

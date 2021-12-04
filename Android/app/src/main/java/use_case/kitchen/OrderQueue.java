@@ -2,8 +2,8 @@ package use_case.kitchen;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 
 import java.util.*;
 

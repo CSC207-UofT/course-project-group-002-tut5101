@@ -9,12 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
-import constant.mangersystem.DishMessage;
-import constant.mangersystem.ManagerDecision;
-import constant.uimessage.ManagerUIMessage;
-import presenter.menusystem.MenuPresenter;
+import constant.manger_system.DishMessage;
+import constant.manger_system.ManagerDecision;
+import constant.ui_message.ManagerUIMessage;
+import presenter.menu_system.MenuPresenter;
 
 import java.util.Objects;
 
