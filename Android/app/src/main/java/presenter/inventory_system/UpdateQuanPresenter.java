@@ -1,6 +1,6 @@
 package presenter.inventory_system;
 
-import com.example.androidgui.inventoryactivities.UpdateQuanActivity;
+import com.example.androidgui.inventory_activities.UpdateQuanActivity;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
 
