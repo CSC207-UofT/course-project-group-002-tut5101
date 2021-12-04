@@ -4,8 +4,7 @@ import use_case.user_list.UserList;
 import entity.delivery.ServingStaff;
 import entity.User;
 
-public class ServeDish implements DeliveryInputBoundary {
-    private StaffDeliveryOutputBoundary outputBoundary;
+public class ServeDish{
 
     /**
      * @param id The id of the serving staff that has logged in.
@@ -30,22 +29,13 @@ public class ServeDish implements DeliveryInputBoundary {
     }
 
     /**
-     * Set the output adapter for serving staff
-     * @param boundary The output adapter
-     */
-    public void setOutputBoundary(StaffDeliveryOutputBoundary boundary) {outputBoundary = boundary;}
-
-    /**
      * @param id The id of the serving staff that has logged in.
      * corresponding to the given id.
      */
-    public void getItemInfo(String id){
+    public String getItemInfo(String id){
         User user = UserList.getUserByUserId(id);
         String dishInfo = ((ServingStaff) user).displayDish();
 
-        if (dishInfo.equals("")){
-            outputBoundary.setCurrentItemInfo("", "No current dish to be displayed");
-        }
-        outputBoundary.setCurrentItemInfo("", dishInfo);
+        return dishInfo;
     }
 }
