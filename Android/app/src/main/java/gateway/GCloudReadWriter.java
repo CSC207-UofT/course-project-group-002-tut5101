@@ -12,50 +12,34 @@ import com.google.common.collect.Lists;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
 
 public class GCloudReadWriter implements ReadWriter {
 
-    public HashMap readFromFile(String filename) {
+    private Object currentDS;
+
+    public Object readFromFile(String filename) {
+
         new Thread(() -> {
             try {
                 URL url = new URL("https://storage.googleapis.com/207project/" + filename);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setConnectTimeout(60000);
 
-//                StringBuilder urls = new StringBuilder();
-//                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//                String str;
-//                while ((str = in.readLine()) != null) {
-//                    urls.append(str);
-//                }
-//                System.out.println("READING:" + urls);
-//                in.close();
                 InputStream file = conn.getInputStream();
                 InputStream buffer = new BufferedInputStream(file);
                 ObjectInput input = new ObjectInputStream(buffer);
 
-                // serialize the Map
-                HashMap result = (HashMap) input.readObject();
-                System.out.println("READ RESULT:" + result);
+                this.currentDS = input.readObject();
                 input.close();
-
             } catch (IOException | ClassNotFoundException e) {
                 Log.d("MyTag", e.toString());
             }
-
-            //since we are in background thread, to post results we have to go back to ui thread. do the following for that
-//                runOnUiThread(new Runnable() {
-//                    public void run() {
-//                        System.out.println(urls);
-//                    }
-//                });
-
         }).start();
+
+        return currentDS;
     }
 
-    public void saveToFile(Context context, String filename, HashMap map) {
+    public void saveToFile(Context context, String filename, Object map) {
         new Thread(() -> {
             GoogleCredentials credentials;
             try {
@@ -71,17 +55,10 @@ public class GCloudReadWriter implements ReadWriter {
                 System.out.println("BYTE:" + byteOut);
                 storage.create(blobInfo, byteOut.toByteArray());
 
-//                    String test = "Testing string";
-//                    storage.create(blobInfo, test.getBytes());
-//                    System.out.println("WRITING:" + test.getBytes());
-                // storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));
-                // storage.create(blobInfo, Files.readAllBytes(getAssets().open("inventory.ser")));
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }).start();
     }
-
 
 }
