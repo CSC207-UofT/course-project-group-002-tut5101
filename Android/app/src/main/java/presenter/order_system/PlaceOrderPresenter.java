@@ -1,11 +1,11 @@
 package presenter.order_system;
 
 import constant.order_system.OrderType;
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import use_case.placeorder.PlaceOrder;
 import use_case.placeorder.PlaceOrderOutputBoundary;
-import use_case.dishlist.DishList;
-import use_case.dishlist.DishInformation;
+import use_case.dish_list.DishList;
+import use_case.dish_list.DishInformation;
 import use_case.placeorder.PlaceOrderInputBoundary;
 
 import java.util.ArrayList;

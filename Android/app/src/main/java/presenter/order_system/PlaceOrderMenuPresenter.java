@@ -1,7 +1,7 @@
 package presenter.order_system;
 
-import entity.orderlist.Dish;
-import use_case.dishlist.DishInformation;
+import entity.order_list.Dish;
+import use_case.dish_list.DishInformation;
 import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 
 import java.util.HashMap;

@@ -9,7 +9,7 @@ import entity.kitchen.KitchenStaff;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 public class EnrolStaffUseCaseTest {
     private final UserList userList = new UserList(20);

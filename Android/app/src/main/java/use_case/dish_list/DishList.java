@@ -1,7 +1,7 @@
-package use_case.dishlist;
+package use_case.dish_list;
 
 import androidx.annotation.NonNull;
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 
 import java.io.Serializable;
 import java.util.HashMap;
