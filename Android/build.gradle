@@ -1,8 +1,6 @@
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext {
-        GOOGLE_APPLICATION_CREDENTIALS = '/Users/liuray/Downloads/uplifted-cinema-252918-e0674925237b.json'
-    }
     repositories {
         google()
         mavenCentral()
