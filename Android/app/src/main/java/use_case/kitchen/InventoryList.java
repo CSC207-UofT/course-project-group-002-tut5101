@@ -10,7 +10,10 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
-
+/**
+ * Public class storing information for all inventories using a Hashmap.
+ *
+ */
 public class InventoryList implements Serializable {
 
 
