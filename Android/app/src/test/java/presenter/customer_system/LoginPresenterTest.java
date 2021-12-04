@@ -7,6 +7,9 @@ import org.junit.Test;
 import presenter.login_system.LoginPresenter;
 import presenter.login_system.LoginViewInterface;
 
+/**
+ * Testing the login presenter.
+ */
 public class LoginPresenterTest {
 
     private LoginPresenter login;
