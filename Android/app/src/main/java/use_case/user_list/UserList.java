@@ -30,6 +30,7 @@ public class UserList implements Serializable {
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
     private String filename;
+    Context context;
 
     public UserList() {
         readWriter = new GCloudReadWriter();
@@ -44,11 +45,11 @@ public class UserList implements Serializable {
         users = new HashMap<>(i);
     }
 
-    public UserList(String filename) {
+    public UserList(String filename, Context context) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
         users = (HashMap<String, User>) readWriter.readFromFile(filename);
-
+        this.context = context;
     }
     /**
      *
@@ -136,7 +137,7 @@ public class UserList implements Serializable {
      * @param password password of the new staff.
      * @param userType type of the new staff.
      */
-    public void addStaff(String id, String name, String password, UserType userType, Context context) {
+    public void addStaff(String id, String name, String password, UserType userType) {
         switch (userType){
             case KITCHEN:
                 users.put(id, new KitchenStaff(id, name, password));

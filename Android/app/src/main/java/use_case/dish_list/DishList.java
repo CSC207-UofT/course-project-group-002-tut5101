@@ -20,6 +20,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
+    Context context;
     String filename;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
@@ -34,10 +35,11 @@ public class DishList implements Serializable, Iterable<Dish> {
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
-    public DishList(String filename) {
+    public DishList(String filename, Context context) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
         menu = (HashMap<String, Dish>) readWriter.readFromFile(filename);
+        this.context = context;
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -168,8 +170,7 @@ public class DishList implements Serializable, Iterable<Dish> {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
 
-
-    public void saveToFile(Context context){
+    public void saveToFile(){
         readWriter.saveToFile(context, this.filename, menu);
     }
 

@@ -18,6 +18,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
     private ReviewOutputBoundary reviewOutputBoundary;
     private ReadWriter irw;
     private String filename;
+    Context context;
 
     /**
      * Empty constructor.
@@ -26,10 +27,11 @@ public class ReviewList implements Serializable, Iterable<Review> {
         reviews = new HashMap<>();
     }
 
-    public ReviewList(String filename) {
+    public ReviewList(String filename, Context context) {
         irw = new GCloudReadWriter();
         this.filename = filename;
         reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        this.context = context;
     }
 
 
@@ -118,7 +120,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
     }
 
 
-    public void saveToFile(Context context) {
+    public void saveToFile() {
         irw.saveToFile(context, filename, reviews);
     }
 
