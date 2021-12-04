@@ -1,9 +1,11 @@
 package presenter.ordersystem;
 
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dishlist.DishInformation;
+import presenter.order_system.EditOrderPresenter;
+import presenter.order_system.EditOrderViewInterface;
+import use_case.dish_list.DishInformation;
 
 
 import java.util.HashMap;
@@ -15,9 +17,6 @@ public class EditOrderPresenterTest {
     private EditOrderPresenter editOrder;
     private final DishInformation dishInformation = new DishInformation();
 
-    private static HashMap<String, Integer> dishesOrdered;
-    private static HashMap<String, Double> dishPrices;
-
     /**
      * Setup before tests
      */
@@ -28,12 +27,12 @@ public class EditOrderPresenterTest {
         TestClass testActivity = new TestClass();
         editOrder.setEditOrderViewInterface(testActivity);
 
-        dishesOrdered = new HashMap<>();
+        HashMap<String, Integer> dishesOrdered = new HashMap<>();
         dishesOrdered.put("dish1", 3);
         dishesOrdered.put("dish2", 1);
         editOrder.setDishesOrdered(dishesOrdered);
 
-        dishPrices = new HashMap<>();
+        HashMap<String, Double> dishPrices = new HashMap<>();
         dishPrices.put("dish1", 10.0);
         dishPrices.put("dish2", 30.0);
         editOrder.setDishPrices(dishPrices);
