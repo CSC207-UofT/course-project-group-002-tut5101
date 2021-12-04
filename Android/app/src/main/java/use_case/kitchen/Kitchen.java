@@ -2,8 +2,8 @@ package use_case.kitchen;
 
 import constant.order_system.ItemStatus;
 import constant.order_system.OrderType;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 import use_case.deliver_order.DeliveryBuffer;
 import use_case.deliver_order.ServingBuffer;
 

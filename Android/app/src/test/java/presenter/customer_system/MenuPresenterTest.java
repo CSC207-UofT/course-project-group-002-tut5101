@@ -1,4 +1,4 @@
-package presenter.customersystem;
+package presenter.customer_system;
 
 import org.junit.Before;
 import org.junit.Test;

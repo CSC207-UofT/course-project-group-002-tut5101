@@ -8,7 +8,7 @@ import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Test the LoginUseCase class

@@ -2,10 +2,10 @@ package use_case.placeorder;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import use_case.dishlist.DishList;
+import use_case.dish_list.DishList;
 import use_case.kitchen.OrderQueue;
-import entity.orderlist.Dish;
-import entity.orderlist.Order;
+import entity.order_list.Dish;
+import entity.order_list.Order;
 import constant.order_system.OrderType;
 
 import java.util.*;

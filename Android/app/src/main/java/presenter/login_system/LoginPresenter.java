@@ -9,7 +9,7 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import use_case.login.LoginOutputBoundary;
 import use_case.login.LoginUseCase;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Controls the process for logging in.

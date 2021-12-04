@@ -1,4 +1,4 @@
-package entity.orderlist;
+package entity.order_list;
 
 import constant.order_system.OrderType;
 

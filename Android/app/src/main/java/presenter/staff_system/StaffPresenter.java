@@ -5,7 +5,7 @@ import constant.manger_system.UserType;
 import use_case.deliver_order.DeliverOrder;
 import use_case.deliver_order.ServeDish;
 import use_case.deliver_order.StaffDeliveryOutputBoundary;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Controller class for staff.

@@ -1,8 +1,8 @@
 package presenter.menu_system;
 
-import entity.orderlist.Dish;
-import use_case.dishlist.MenuOutputBoundary;
-import use_case.dishlist.DishList;
+import entity.order_list.Dish;
+import use_case.dish_list.MenuOutputBoundary;
+import use_case.dish_list.DishList;
 
 
 import java.util.HashMap;

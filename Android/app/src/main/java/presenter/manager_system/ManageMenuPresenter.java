@@ -1,7 +1,7 @@
 package presenter.manager_system;
 
-import use_case.dishlist.ManageMenuOutputBoundary;
-import use_case.dishlist.DishList;
+import use_case.dish_list.ManageMenuOutputBoundary;
+import use_case.dish_list.DishList;
 
 /**
  * Presenter class for managing menu.

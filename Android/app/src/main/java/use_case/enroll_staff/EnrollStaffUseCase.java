@@ -1,7 +1,7 @@
 package use_case.enroll_staff;
 
 import constant.manger_system.UserType;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 /**
  * Class for enrolling new staffs.

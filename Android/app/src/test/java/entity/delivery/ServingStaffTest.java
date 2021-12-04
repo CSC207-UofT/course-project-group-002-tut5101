@@ -1,6 +1,6 @@
 package entity.delivery;
 
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

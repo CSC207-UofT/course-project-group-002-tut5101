@@ -1,10 +1,10 @@
 package use_case.deliver_order;
 
 import entity.delivery.ServingStaff;
-import entity.orderlist.Dish;
+import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.userlist.UserList;
+import use_case.user_list.UserList;
 
 import java.util.HashMap;
 
