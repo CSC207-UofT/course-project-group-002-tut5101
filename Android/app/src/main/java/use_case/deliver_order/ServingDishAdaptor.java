@@ -4,9 +4,18 @@ public class ServingDishAdaptor implements DeliveryInputBoundary{
     private StaffDeliveryOutputBoundary outputBoundary;
     private final ServeDishInterface sd = new ServeDish();
 
+    /**
+     * @param id The id of the serving staff that has logged in.
+     * @throws Exception if the given id does not correspond to a serving staff.
+     */
     public void delivered(String id) throws Exception{
         this.sd.delivered(id);
     }
+
+    /**
+     * @param id The id of the serving staff that has logged in.
+     * @throws Exception if the given id does not correspond to a serving staff.
+     */
 
     public void getToBeDeliver(String id) throws Exception{
         this.sd.getToBeDeliver(id);

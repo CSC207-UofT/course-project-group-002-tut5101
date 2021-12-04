@@ -11,7 +11,7 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     private final DishList dishList;
 
     /**
-     * Constructor.
+     * Constructor for this classs.
      */
     public ManageMenuPresenter(){
         this.dishList = new DishList();
