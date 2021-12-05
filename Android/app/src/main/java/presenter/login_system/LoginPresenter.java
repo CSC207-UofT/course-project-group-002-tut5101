@@ -1,14 +1,8 @@
 package presenter.login_system;
 
 import constant.ui_message.LoginResult;
-import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
-import entity.manager.Manager;
 import use_case.login.LoginOutputBoundary;
-import use_case.login.LoginUseCase;
+import use_case.login.UserLogin;
 import use_case.user_list.UserList;
 
 /**
@@ -19,7 +13,7 @@ public class LoginPresenter implements LoginOutputBoundary {
     /**
      * The input use_case.boundary for the login use case.
      */
-    private final LoginUseCase loginUseCase;
+    private final UserLogin userLogin;
     private final UserList userList;
     private LoginViewInterface loginViewInterface;
 
@@ -29,8 +23,8 @@ public class LoginPresenter implements LoginOutputBoundary {
      */
     public LoginPresenter() {
         this.userList = new UserList();
-        this.loginUseCase = new LoginUseCase();
-        this.loginUseCase.setOutputBoundary(this);
+        this.userLogin = new UserLogin();
+        this.userLogin.setOutputBoundary(this);
     }
 
     /**
@@ -50,7 +44,7 @@ public class LoginPresenter implements LoginOutputBoundary {
      * @param password the password attempt
      */
     public void runLogin(String id, String password) {
-        loginUseCase.logIn(id, password);
+        userLogin.logIn(id, password);
     }
 
 

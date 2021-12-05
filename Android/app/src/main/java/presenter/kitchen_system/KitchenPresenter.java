@@ -2,7 +2,7 @@ package presenter.kitchen_system;
 
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
-import use_case.kitchen.CookUseCase;
+import use_case.kitchen.CookDish;
 import use_case.kitchen.KitchenOutputBoundary;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class KitchenPresenter implements KitchenOutputBoundary {
     private final KitchenView kv;
-    private final CookUseCase kitchen;
+    private final CookDish kitchen;
     private HashMap<String, Integer> dishes;
     private InventoryList inventory;
 
@@ -22,7 +22,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * @param kv view interface
      */
     public KitchenPresenter(KitchenView kv) {
-        this.kitchen = new CookUseCase(this);
+        this.kitchen = new CookDish(this);
         this.kv = kv;
     }
 
