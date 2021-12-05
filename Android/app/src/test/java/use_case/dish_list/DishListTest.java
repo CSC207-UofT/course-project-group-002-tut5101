@@ -126,7 +126,7 @@ public class DishListTest {
      */
     @Test
     public void testToString() {
-        menu = new DishList();
+        menu.reset();
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
 
         String expected = "1. " + "Milk Tea" +

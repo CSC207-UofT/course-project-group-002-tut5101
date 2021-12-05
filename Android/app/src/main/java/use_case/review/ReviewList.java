@@ -32,6 +32,13 @@ public class ReviewList implements Serializable, Iterable<Review> {
         }
     }
 
+    /**
+     * Resets the reviewList for tests
+     */
+    public void reset() {
+        reviews = new HashMap<>();
+    }
+
 
     /**
      *
