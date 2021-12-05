@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class DishInformationTest {
 
-    private DishInformation menu = new DishInformation();
+    private final DishInformation menu = new DishInformation(0);
 
     /**
      *
@@ -75,7 +75,7 @@ public class DishInformationTest {
     /**
      * Fake presenter class that implements output boundary
      */
-    private class TestClass implements PlaceOrderOutputBoundary {
+    private static class TestClass implements PlaceOrderOutputBoundary {
 
         /**
          * Test if this method is called from DishInformation
@@ -98,7 +98,7 @@ public class DishInformationTest {
             assertEquals(10.0, price, 0.1);
         }
     }
-    private class TestClass2 implements PlaceOrderMenuOutputBoundary {
+    private static class TestClass2 implements PlaceOrderMenuOutputBoundary {
         /**
          * Test if this method is called from DishInformation
          * @param size the size of the number picker
