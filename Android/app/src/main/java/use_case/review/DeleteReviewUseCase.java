@@ -1,7 +1,7 @@
 package use_case.review;
 
 import android.content.Context;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.review.Review;
 
 import java.util.Iterator;
@@ -18,7 +18,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
      * Constructor
      */
     public DeleteReviewUseCase() {
-        this.reviewList = new ReviewList(FileLocation.REVIEW_FILE);
+        this.reviewList = new ReviewList(FileName.REVIEW_FILE);
     }
 
     /**
@@ -26,7 +26,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
      * @param context context.
      */
     public void setContext(Context context){
-        this.reviewList.setContext(context);
+        ReviewList.setContext(context);
     }
 
     /**

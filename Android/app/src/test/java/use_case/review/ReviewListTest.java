@@ -2,7 +2,7 @@ package use_case.review;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.androidgui.manager_activities.SeeReviewActivity;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Rule;
@@ -28,8 +28,8 @@ public class ReviewListTest {
      */
     @Before
     public void setUp() {
-        reviewList = new ReviewList(FileLocation.REVIEW_FILE);
-        reviewList.setContext(new SeeReviewActivity());
+        reviewList = new ReviewList(FileName.REVIEW_FILE);
+        ReviewList.setContext(new SeeReviewActivity());
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 5, "Nice staff",
                 "2");

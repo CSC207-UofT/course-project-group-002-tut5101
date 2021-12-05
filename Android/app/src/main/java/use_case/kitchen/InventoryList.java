@@ -2,7 +2,7 @@ package use_case.kitchen;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import gateway.GCloudReadWriter;
@@ -35,7 +35,7 @@ public class InventoryList implements Serializable {
     public InventoryList(String filename) {
         this.filename = filename;
         irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileLocation.INVENTORY_FILE);
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {

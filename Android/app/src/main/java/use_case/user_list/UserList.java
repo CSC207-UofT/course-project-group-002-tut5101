@@ -3,7 +3,7 @@ package use_case.user_list;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -41,7 +41,7 @@ public class UserList implements Serializable {
     public UserList(String filename) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(FileLocation.USER_FILE);
+        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
     }
     /**
      *

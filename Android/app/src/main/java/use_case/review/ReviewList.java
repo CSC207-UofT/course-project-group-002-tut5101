@@ -3,7 +3,7 @@ package use_case.review;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
@@ -130,7 +130,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Generating data.
      */
     public void generateData() {
-        reviews = (HashMap<String, Review>) irw.readFromFile(FileLocation.REVIEW_FILE);
+        reviews = (HashMap<String, Review>) irw.readFromFile(FileName.REVIEW_FILE);
     }
 
     /**

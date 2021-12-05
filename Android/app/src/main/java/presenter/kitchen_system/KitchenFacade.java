@@ -1,8 +1,5 @@
 package presenter.kitchen_system;
 
-import constant.file_system.FileLocation;
-import use_case.kitchen.InventoryList;
-
 /**
  *
  */

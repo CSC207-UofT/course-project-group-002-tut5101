@@ -2,7 +2,7 @@ package presenter.review_system;
 
 
 import android.content.Context;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.review.Review;
 import use_case.review.ReviewOutputBoundary;
 import use_case.review.ReviewList;
@@ -18,7 +18,7 @@ public class ReviewPresenter implements ReviewOutputBoundary {
      * Constructor for this class.
      */
     public ReviewPresenter(){
-        this.reviewList = new ReviewList(FileLocation.REVIEW_FILE);
+        this.reviewList = new ReviewList(FileName.REVIEW_FILE);
         reviewList.setReviewOutputBoundary(this);
         generateReviewList();
     }
@@ -28,7 +28,7 @@ public class ReviewPresenter implements ReviewOutputBoundary {
      * @param c context
      */
     public void setContext(Context c){
-        this.reviewList.setContext(c);
+        ReviewList.setContext(c);
     }
 
 

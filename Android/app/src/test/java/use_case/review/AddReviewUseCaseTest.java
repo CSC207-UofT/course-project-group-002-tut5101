@@ -1,8 +1,7 @@
 package use_case.review;
 
-import com.example.androidgui.MainActivity;
 import com.example.androidgui.user_activities.AddReviewCommentActivity;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +19,8 @@ public class AddReviewUseCaseTest {
      */
     @Before
     public void setUp(){
-        ReviewList reviewList = new ReviewList(FileLocation.REVIEW_FILE);
-        reviewList.setContext(new AddReviewCommentActivity());
+        ReviewList reviewList = new ReviewList(FileName.REVIEW_FILE);
+        ReviewList.setContext(new AddReviewCommentActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",

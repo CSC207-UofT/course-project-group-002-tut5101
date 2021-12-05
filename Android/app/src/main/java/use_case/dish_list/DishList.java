@@ -3,7 +3,7 @@ package use_case.dish_list;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileLocation;
+import constant.file_system.FileName;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
 import entity.order_list.Dish;
@@ -33,7 +33,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     public DishList(String filename) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
-        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileLocation.MENU_FILE);
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
