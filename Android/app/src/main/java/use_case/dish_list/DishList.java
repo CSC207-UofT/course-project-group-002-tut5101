@@ -25,17 +25,23 @@ public class DishList implements Serializable, Iterable<Dish> {
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private static String filename;
-    String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
 
+    /**
+     * Constructor of this class
+     */
     public DishList() {
         if (menu == null) {
             menu = new HashMap<>();
         }
-
-        dishNames = menu.keySet().toArray(new String[0]);
+    }
+    /**
+     * Reset the dishList for testing
+     */
+    public void reset() {
+        menu = new HashMap<>();
     }
 
     /**

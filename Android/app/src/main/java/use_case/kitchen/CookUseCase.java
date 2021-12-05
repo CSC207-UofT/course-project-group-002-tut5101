@@ -20,7 +20,7 @@ public class CookUseCase {
      * The current order that the Kitchen is working on.
      */
     private Order currentOrder;
-    private KitchenOutputBoundary kob;
+    private final KitchenOutputBoundary kob;
 
     public CookUseCase(KitchenOutputBoundary kob) {
         this.kob = kob;

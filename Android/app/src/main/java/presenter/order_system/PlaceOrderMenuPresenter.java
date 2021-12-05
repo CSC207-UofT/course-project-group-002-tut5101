@@ -15,7 +15,7 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
     /**
      * Constructor for this class
      */
-    public PlaceOrderMenuPresenter( ) {
+    public PlaceOrderMenuPresenter() {
 
     }
 

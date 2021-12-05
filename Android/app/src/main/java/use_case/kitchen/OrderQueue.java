@@ -77,7 +77,6 @@ public class OrderQueue {
                         int dishIngredientsTemp = tempIngredients;
                         ingredientsRequired.replace(ingredient, previousValue + dishIngredientsTemp);
                     }
-
                 }
             }
         }
