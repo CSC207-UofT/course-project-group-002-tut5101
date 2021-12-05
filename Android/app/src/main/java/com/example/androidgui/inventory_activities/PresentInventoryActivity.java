@@ -27,7 +27,7 @@ public class PresentInventoryActivity extends AppCompatActivity{
         TextView mTextView4 = findViewById(R.id.textView9);
         TextView mTextView5 = findViewById(R.id.textView10);
         Intent intent = getIntent();
-        String showData = intent.getStringExtra("showdata");
+        String showData = intent.getStringExtra("showData");
         String[] presenting = showData.split(",");
         mTextView1.setText(presenting[0]);
         mTextView2.setText(presenting[1]);

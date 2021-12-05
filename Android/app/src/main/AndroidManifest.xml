@@ -20,6 +20,9 @@
 		<activity android:name=".inventory_activities.AddInventoryActivity" />
 		<activity android:name=".inventory_activities.CheckInventoryActivity"/>
 		<activity android:name=".inventory_activities.InventoryStarterActivity"/>
+		<activity
+				android:name=".inventory_activities.PresentInventoryActivity"
+				android:exported="true"/>
 		<activity android:name=".user_activities.EnrollStaffActivity"/>
 		<activity
 			android:name=".manager_activities.SelectEditOrDeleteActivity"
