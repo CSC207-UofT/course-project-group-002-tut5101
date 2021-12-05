@@ -36,6 +36,7 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
     public static final KitchenFacade kf = new KitchenFacade();
     private KitchenPresenter kp;
     private KitchenAdapter adapter;
+    private ArrayList<String[]> dishesToDisplay;
 
     /**
      * Activity basic function.
@@ -46,34 +47,42 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen);
-//        ListView list = findViewById(R.id.dishToCook);
-//
-//
-//        // Initialization below, to be deleted when everything works
-//        PlaceOrder po = new PlaceOrder();
-//        new DishList("menu.ser", this);
-//        new InventoryList("inventory.ser", this);
-//        try {
-//            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        kp = new KitchenPresenter(this);
-//        kp.checkOrderAvailable();
-//
-//        ArrayList<String[]> displayDishes = kp.exportDishes();
-//        adapter = new KitchenAdapter(this, R.layout.cook_dish_layout, displayDishes, kp);
-//        list.setAdapter(adapter);
+        ListView list = findViewById(R.id.dishToCook);
 
 
+        //----------Initialization below, to be deleted when everything works---------------
+        PlaceOrder po = new PlaceOrder();
+        new DishList("menu.ser", this);
+        new InventoryList("inventory.ser", this);
+        try {
+            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //----------------------------------------------------------------------------------
+
+        kp = new KitchenPresenter(this);
+        kp.checkOrderAvailable();
+
+        dishesToDisplay = kp.exportDishes();
+        adapter = new KitchenAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
+        list.setAdapter(adapter);
     }
+
 
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         kp.checkOrderAvailable();
-        System.out.println("Notication: New order has arrived!");
-        // TODO: add Toast that display notification.
+    }
+
+    @Override
+    public void renewDishes(ArrayList<String[]> displayDishes) {
+       this.dishesToDisplay.clear();
+       this.dishesToDisplay.addAll(displayDishes);
+    }
+
+    @Override
+    public void updateListDisplay() {
+        this.adapter.notifyDataSetChanged();
     }
 }

@@ -46,10 +46,10 @@ public class KitchenAdapter extends ArrayAdapter {
 
         bt.setOnClickListener(view -> {
             kp.completeDish(dishName);
-            int a = Integer.parseInt(quantity);
-            qt.setText(String.valueOf(a - 1));
+            qt.setText(String.valueOf(Integer.parseInt(quantity) - 1));
         });
 
         return convertView;
     }
+
 }

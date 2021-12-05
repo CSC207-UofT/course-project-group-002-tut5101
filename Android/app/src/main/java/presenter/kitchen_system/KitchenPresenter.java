@@ -1,6 +1,5 @@
 package presenter.kitchen_system;
 
-import android.content.Context;
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
 import use_case.kitchen.Kitchen;
@@ -16,16 +15,9 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     private InventoryList inventory;
 
 
-    // TODO: to be deleted when the menu is initialized automatically
-    private DishList dl;
-
     public KitchenPresenter(KitchenView kv) {
         this.kitchen = new Kitchen(this);
         this.kv = kv;
-
-        // TODO: to be deleted
-        this.dl = new DishList("menu.ser", (Context) kv);
-        this.inventory = new InventoryList("inventory.ser", (Context) kv);
     }
 
     /**
@@ -87,7 +79,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * @param dishName One of the dish choices provided to Kitchen in showDishToCook.
      * @return whether all dish in dishes is cooked.
      */
-    public boolean completeDish(String dishName) {
+    public void completeDish(String dishName) {
         this.kitchen.cookedDish(dishName);
         updateInventory(dishName);
         Integer name = dishes.get(dishName);
@@ -98,7 +90,12 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 dishes.remove(dishName);
             }
         }
-        return 0 == dishes.size();
+        if (0 == dishes.size()) {
+            checkOrderAvailable();
+            kv.renewDishes(exportDishes());
+        }
+        kv.updateListDisplay();
+
     }
 
 
