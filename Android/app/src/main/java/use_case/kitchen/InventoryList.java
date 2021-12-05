@@ -119,7 +119,7 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        ((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);
+        if(myDict.get(name) instanceof HasFreshness){((HasFreshness) myDict.get(name)).setFreshness(newFreshness);}
     }
 
 
