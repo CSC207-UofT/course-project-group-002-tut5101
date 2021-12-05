@@ -36,7 +36,6 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review3);
         reviewList.addReview(review4);
         deleteReviewUseCase = new DeleteReviewUseCase();
-        deleteReviewUseCase.setContext(new DeleteReviewActivity());
     }
 
     /**

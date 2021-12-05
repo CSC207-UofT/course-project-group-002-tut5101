@@ -19,7 +19,6 @@ public class AddReviewPresenterTest {
     @Before
     public void setUp() {
         add = new AddReviewPresenter();
-        add.setContext(new AddReviewCommentActivity());
     }
 
     /**

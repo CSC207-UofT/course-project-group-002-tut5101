@@ -34,7 +34,6 @@ public class AddReviewUseCaseTest {
         reviewList.addReview(review3);
         reviewList.addReview(review4);
         add = new AddReviewUseCase();
-        add.setContext(new AddReviewCommentActivity());
     }
 
     /**
