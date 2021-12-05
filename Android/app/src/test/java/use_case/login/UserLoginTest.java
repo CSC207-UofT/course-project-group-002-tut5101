@@ -13,8 +13,8 @@ import use_case.user_list.UserList;
 /**
  * Test the LoginUseCase class
  */
-public class LoginUseCaseTest {
-    private LoginUseCase loginUseCase;
+public class UserLoginTest {
+    private UserLogin userLogin;
     private final UserList userList = new UserList();
 
     /**
@@ -22,9 +22,9 @@ public class LoginUseCaseTest {
      */
     @Before
     public void setUp() {
-        loginUseCase = new LoginUseCase();
+        userLogin = new UserLogin();
         TestClass testPresenter = new TestClass();
-        loginUseCase.setOutputBoundary(testPresenter);
+        userLogin.setOutputBoundary(testPresenter);
 
 
         userList.addUser(new Customer("0", "James", "12345"));
@@ -41,9 +41,9 @@ public class LoginUseCaseTest {
      */
     @Test
     public void testLogIn() {
-        loginUseCase.logIn("100", "5555");
-        loginUseCase.logIn("3", "12345");
-        loginUseCase.logIn("7", "1111");
+        userLogin.logIn("100", "5555");
+        userLogin.logIn("3", "12345");
+        userLogin.logIn("7", "1111");
     }
 
 

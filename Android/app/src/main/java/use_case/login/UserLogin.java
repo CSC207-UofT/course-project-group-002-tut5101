@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Use case class for user login.
  */
-public class LoginUseCase {
+public class UserLogin {
 
     /**
      * use case output boundary attribute
