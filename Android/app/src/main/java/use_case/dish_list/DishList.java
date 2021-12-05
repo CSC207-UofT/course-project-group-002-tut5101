@@ -21,23 +21,27 @@ import java.util.Set;
 public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter;
+    private static ReadWriter readWriter;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    private final String filename;
-    String[] dishNames;
+    private static String filename;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
+
     /**
-     * Constructor
-     * @param filename filename
+     * Constructor of this class
      */
-    public DishList(String filename) {
-        this.filename = filename;
-        readWriter = new GCloudReadWriter();
-        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
-        dishNames = menu.keySet().toArray(new String[0]);
+    public DishList() {
+        if (menu == null) {
+            menu = new HashMap<>();
+        }
+    }
+    /**
+     * Reset the dishList for testing
+     */
+    public void reset() {
+        menu = new HashMap<>();
     }
 
     /**
@@ -183,5 +187,15 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public static void setContext(Context context) {
         DishList.context = context;
+    }
+
+    /**
+     * Setting data for menu
+     * @param filename the name of the data file
+     */
+    public static void setData(String filename) {
+        DishList.filename = filename;
+        readWriter = new GCloudReadWriter();
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
     }
 }

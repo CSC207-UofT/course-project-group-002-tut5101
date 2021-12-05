@@ -14,7 +14,7 @@ public class AddInventoryPresenter {
      * Constructor for this class
      */
 
-    public AddInventoryPresenter(){this.inventories = new InventoryList(FileName.INVENTORY_FILE);}
+    public AddInventoryPresenter(){this.inventories = new InventoryList();}
 
     public AddInventoryPresenter(InventoryList inventories){
         this.inventories = inventories;

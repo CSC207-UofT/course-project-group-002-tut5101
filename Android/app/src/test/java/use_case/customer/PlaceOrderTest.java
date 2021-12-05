@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class PlaceOrderTest {
     private PlaceOrder placeOrder;
-    private final DishList menu = new DishList(FileName.MENU_FILE);
+    private final DishList menu = new DishList();
 
     /**
      * Setup before tests

@@ -15,7 +15,7 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
     /**
      * Constructor for this class
      */
-    public PlaceOrderMenuPresenter( ) {
+    public PlaceOrderMenuPresenter() {
 
     }
 
@@ -32,7 +32,7 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        new DishList(FileName.MENU_FILE);
+        new DishList();
         this.dishInformation = new DishInformation();
         dishInformation.setPlaceOrderMenuOutputBoundary(this);
     }

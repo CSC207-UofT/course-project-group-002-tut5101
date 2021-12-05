@@ -25,7 +25,7 @@ public class DeliverOrderTest {
     @Before
     public void setUp() throws Exception {
         TestClass testPresenter = new TestClass();
-        UserList userList = new UserList(FileName.USER_FILE);
+        UserList userList = new UserList();
         deliver = new DeliverOrder();
         Order order1 = new DeliveryOrder("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);

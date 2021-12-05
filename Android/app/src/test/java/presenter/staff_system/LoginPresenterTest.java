@@ -63,7 +63,7 @@ public class LoginPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList(FileName.USER_FILE);
+        userList = new UserList();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));

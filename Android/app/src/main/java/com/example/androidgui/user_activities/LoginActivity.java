@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import com.example.androidgui.delivery_staff_activities.DeliverOrderActivity;
 import com.example.androidgui.inventory_activities.InventoryStarterActivity;
-import com.example.androidgui.kitchen_activities.KitchenActivity;
+import com.example.androidgui.kitchen_activities.CurrentOrderDishesActivity;
 import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import com.example.androidgui.serving_staff_activities.ServingStaffPickActionActivity;
 import constant.manger_system.UserType;
@@ -169,7 +169,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
             case DELIVERY_STAFF:
                 return DeliverOrderActivity.class;
             case KITCHEN:
-                return KitchenActivity.class;
+                return CurrentOrderDishesActivity.class;
             case INVENTORY_STAFF:
                 return InventoryStarterActivity.class;
             case SERVING_STAFF:

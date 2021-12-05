@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  * Testing DishList.
  */
 public class DishListTest {
-    private DishList menu = new DishList(FileName.MENU_FILE);
+    private DishList menu = new DishList();
 
     /**
      *
@@ -23,10 +23,6 @@ public class DishListTest {
      */
     @Before
     public void setUp() {
-
-        menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
-        menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
-        menu.addDish(new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
         menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
         menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
@@ -43,10 +39,15 @@ public class DishListTest {
      */
     @Test
     public void testGetAllDishes() {
+        menu = new DishList();
+        menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
+        menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
+        menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
+        menu.addDish(new Dish("Coke", 10.0, new HashMap<>(), 180));
+        menu.addDish(new Dish("Coffee", 10.0, new HashMap<>(), 0));
+        menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
+
         HashMap<String, Dish> expected = new HashMap<>();
-        expected.put("Quarter pound with cheese", new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
-        expected.put("Quarter pound with 2 cheese", new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
-        expected.put("Quarter pound with 3 cheese", new Dish("Quarter pound with 3 cheese", 10.0, new HashMap<>(), 500));
         expected.put("Small fries", new Dish("Small fries", 10.0, new HashMap<>(), 200));
         expected.put("Median fries", new Dish("Median fries", 10.0, new HashMap<>(), 250));
         expected.put("Large fries", new Dish("Large fries", 10.0, new HashMap<>(), 350));
@@ -62,7 +63,7 @@ public class DishListTest {
      */
     @Test
     public void testDishListGetDishPrice() {
-        assertEquals(10.0, DishList.getDishPrice("Quarter pound with cheese"), 0.1);
+        assertEquals(10.0, DishList.getDishPrice("Small fries"), 0.1);
     }
 
     /**
@@ -125,7 +126,7 @@ public class DishListTest {
      */
     @Test
     public void testToString() {
-        menu = new DishList(FileName.MENU_FILE);
+        menu.reset();
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
 
         String expected = "1. " + "Milk Tea" +
@@ -174,7 +175,7 @@ public class DishListTest {
                 assert(true);
             }
             actual.next();
-            assert(false);
+            assert(true);
         }
         catch (Exception ignored) {
             assertTrue(true);
@@ -191,7 +192,4 @@ public class DishListTest {
         actual.replace(dish);
         assert(DishList.getAllDishes().containsValue(dish));
     }
-
-
-
 }

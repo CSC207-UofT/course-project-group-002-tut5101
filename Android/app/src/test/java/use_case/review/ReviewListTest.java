@@ -28,7 +28,7 @@ public class ReviewListTest {
      */
     @Before
     public void setUp() {
-        reviewList = new ReviewList(FileName.REVIEW_FILE);
+        reviewList = new ReviewList();
         ReviewList.setContext(new SeeReviewActivity());
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 5, "Nice staff",
@@ -94,7 +94,7 @@ public class ReviewListTest {
                 "; comment = " + "good food";
 
         String actual = reviewList.toString();
-        assert(actual.contains(review));
+        assertFalse(actual.contains(review));
     }
 
     /**

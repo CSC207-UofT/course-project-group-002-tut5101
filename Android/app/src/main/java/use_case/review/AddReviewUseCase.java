@@ -13,7 +13,7 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
      * Constructor
      */
     public AddReviewUseCase() {
-        this.reviewList = new ReviewList(FileName.REVIEW_FILE);
+        this.reviewList = new ReviewList();
     }
 
     /**

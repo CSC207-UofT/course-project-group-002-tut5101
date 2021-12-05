@@ -3,6 +3,7 @@ package presenter.review_system;
 import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.review.ReviewList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class AddReviewPresenterTest {
 
     private AddReviewPresenter add;
+    private ReviewList reviewList;
 
     /**
      * Setup before tests
@@ -19,6 +21,7 @@ public class AddReviewPresenterTest {
     @Before
     public void setUp() {
         add = new AddReviewPresenter();
+        reviewList = new ReviewList();
     }
 
     /**
@@ -26,6 +29,7 @@ public class AddReviewPresenterTest {
      */
     @Test
     public void addToReviewList(){
+        reviewList.reset();
         add.addToReviewList("1", true, 10, "good", "nice");
     }
 
@@ -34,7 +38,8 @@ public class AddReviewPresenterTest {
      */
     @Test
     public void length(){
-        assertEquals(add.length(),0);
+        reviewList.reset();
+        assertEquals(0, add.length());
     }
 
 }

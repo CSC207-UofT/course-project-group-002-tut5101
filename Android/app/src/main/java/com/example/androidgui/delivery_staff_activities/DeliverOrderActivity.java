@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.staff_system.GeoDestination;
-import presenter.staff_system.StaffPresenter;
+import presenter.staff_system.CurrentItemPresenter;
+import presenter.staff_system.GetNextItemPresenter;
 import presenter.staff_system.StaffViewInterface;
 
 import java.util.Objects;
@@ -21,7 +22,8 @@ import java.util.Objects;
 public class DeliverOrderActivity extends AppCompatActivity implements StaffViewInterface, GeoDestination {
     private String id;
     private String mode;
-    private StaffPresenter presenter;
+    private CurrentItemPresenter getCurrentOrderPresenter;
+    private GetNextItemPresenter getNextOrderPresenter;
     private TextView currentOrder;
     private String destination;
 
@@ -35,8 +37,9 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_order);
         // Setup view bonded attributes
-        presenter = new StaffPresenter();
-        presenter.setStaffView(this);
+        getCurrentOrderPresenter = new CurrentItemPresenter();
+        getNextOrderPresenter = new GetNextItemPresenter();
+        getCurrentOrderPresenter.setStaffView(this);
         currentOrder = findViewById(R.id.CurrentOrder);
         // Get id for method calls
         Bundle b = getIntent().getExtras();
@@ -59,7 +62,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
     private void getNextOrder() {
         Toast toast;
         try {
-            presenter.getNext(this.id);
+            getNextOrderPresenter.getNext(this.id);
         } catch (Exception e) {
             if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
                 toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
@@ -74,7 +77,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      */
     private void getCurrentOrder() {
         try {
-            presenter.displayCurrent(this.id);
+            getCurrentOrderPresenter.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -100,7 +103,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      */
     public void selectFinishOrder(View v) {
         try {
-            presenter.completeCurrent(this.id);
+            getCurrentOrderPresenter.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }

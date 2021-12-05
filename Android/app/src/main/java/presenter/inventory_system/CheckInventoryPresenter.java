@@ -15,7 +15,7 @@ public class CheckInventoryPresenter {
      * Constructor for this class
      */
     public CheckInventoryPresenter(){
-        this.inventories = new InventoryList(FileName.INVENTORY_FILE);
+        this.inventories = new InventoryList();
     }
 
     public CheckInventoryPresenter(InventoryList inventories){

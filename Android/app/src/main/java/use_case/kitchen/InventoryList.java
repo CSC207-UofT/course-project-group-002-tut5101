@@ -25,18 +25,27 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private final ReadWriter irw;
+    private static ReadWriter irw;
 
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private InventoryOutputBoundary boundary;
-    private final String filename;
+    private static String filename;
 
-    public InventoryList(String filename) {
-        this.filename = filename;
-        irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+    /**
+     * Null constructor
+     */
+    public InventoryList() {
+        if (myDict == null) {
+            myDict = new HashMap<>();
+        }
     }
+
+    /**
+     * Constructor with filename
+     * @param filename filename
+     */
+    public InventoryList(String filename) {InventoryList.filename = filename;}
 
     public void setBoundary(InventoryOutputBoundary boundary) {
         this.boundary = boundary;
@@ -135,6 +144,9 @@ public class InventoryList implements Serializable {
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
+    /**
+     * Save data to file
+     */
     public void saveToFile() {
         irw.saveToFile(context, filename, myDict);
     }
@@ -151,5 +163,16 @@ public class InventoryList implements Serializable {
      */
     public static void setContext(Context context) {
         InventoryList.context = context;
+    }
+
+    /**
+     * Set the data
+     * @param filename name of file
+     */
+    @SuppressWarnings("unchecked")
+    public static void setData(String filename) {
+        InventoryList.filename = filename;
+        irw = new GCloudReadWriter();
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 }

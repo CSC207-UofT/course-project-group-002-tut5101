@@ -16,8 +16,16 @@ import java.util.concurrent.CountDownLatch;
 
 public class GCloudReadWriter implements ReadWriter {
 
+    /**
+     * A private attribute that saves the data structure that has just been read.
+     */
     private Object currentDS;
 
+    /**
+     * Read the given file from Google cloud storage.
+     * @param filename the name of the file
+     * @return The obtained HashMap from the data file.
+     */
     public Object readFromFile(String filename) {
         final CountDownLatch latch = new CountDownLatch(1);
         new Thread(() -> {
@@ -46,6 +54,11 @@ public class GCloudReadWriter implements ReadWriter {
         return currentDS;
     }
 
+    /**
+     * @param context an activity instance
+     * @param filename the name of the file
+     * @param map the HashMap to be saved
+     */
     public void saveToFile(Context context, String filename, Object map) {
         new Thread(() -> {
             GoogleCredentials credentials;

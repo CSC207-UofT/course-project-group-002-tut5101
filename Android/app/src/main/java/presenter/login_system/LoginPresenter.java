@@ -29,7 +29,7 @@ public class LoginPresenter implements LoginOutputBoundary {
      * A new LoginPresenter
      */
     public LoginPresenter() {
-        this.userList = new UserList(FileName.USER_FILE);
+        this.userList = new UserList();
         this.loginUseCase = new LoginUseCase();
         this.loginUseCase.setOutputBoundary(this);
 

@@ -37,7 +37,7 @@ public class ServingDishAdapterTest {
         ServingBuffer.addDish(dish1);
         ServingBuffer.addDish(dish2);
 
-        UserList userList = new UserList(FileName.USER_FILE);
+        UserList userList = new UserList();
         userList.addUser(new ServingStaff("1", "a", "abc"));
 
     }

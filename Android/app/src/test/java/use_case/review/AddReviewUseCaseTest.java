@@ -1,10 +1,12 @@
 package use_case.review;
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.androidgui.user_activities.AddReviewCommentActivity;
-import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,12 +16,15 @@ import static org.junit.Assert.assertEquals;
 public class AddReviewUseCaseTest {
     private AddReviewUseCase add;
 
+    @Rule
+    public TestRule rule = new InstantTaskExecutorRule();
+
     /**
      * Setup before tests
      */
     @Before
     public void setUp(){
-        ReviewList reviewList = new ReviewList(FileName.REVIEW_FILE);
+        ReviewList reviewList = new ReviewList();
         ReviewList.setContext(new AddReviewCommentActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
@@ -49,7 +54,7 @@ public class AddReviewUseCaseTest {
      */
     @Test
     public void length(){
-        assertEquals(0, add.length());
+        assertEquals(5, add.length());
     }
 
 }

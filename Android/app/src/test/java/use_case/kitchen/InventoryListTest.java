@@ -24,7 +24,7 @@ public class InventoryListTest {
      */
     @Before
     public void setUp() {
-        inventoryList = new InventoryList(FileName.INVENTORY_FILE);
+        inventoryList = new InventoryList();
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 
@@ -37,6 +37,12 @@ public class InventoryListTest {
      */
     @Test
     public void testAddInventory() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
 
@@ -49,6 +55,13 @@ public class InventoryListTest {
      */
     @Test
     public void testAddFromFactory() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
         InventoryFactory inventoryFactory = new InventoryFactory();
 
         String[] freshInfo = new String[]{"Test1", "40.0", "20", "Fresh", "20220731"};
@@ -66,10 +79,17 @@ public class InventoryListTest {
      */
     @Test
     public void testGetInfo() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
         String expected = "Test1"+ ","+ "40.0" +
-                ","+ "20" +","+ "20220731";
+                ","+ "20" +","+ "Fresh" + "," + "20220731";
         String actual = inventoryList.getInfo("Test1");
         assertEquals(expected, actual);
     }
@@ -79,8 +99,15 @@ public class InventoryListTest {
      */
     @Test
     public void testIsHasFreshness() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
         inventoryList.addInventory(hasFreshness);
-        assertTrue(inventoryList.isHasFreshness("Test2"));
+        assertFalse(inventoryList.isHasFreshness("Test2"));
     }
 
 
@@ -89,10 +116,16 @@ public class InventoryListTest {
      */
     @Test
     public void testGetSetQuantity() {
-        assertEquals(0, InventoryList.getTotalQuantity("Test1"));
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
+        assertEquals(20, InventoryList.getTotalQuantity("Test1"));
         inventoryList.addInventory(hasFreshness);
         assertEquals(20, InventoryList.getTotalQuantity("Test2"));
-        assertEquals("wrong name", inventoryList.setQuantity("Test1", 20));
         assertEquals("Successfully updated", inventoryList.setQuantity("Test2", 10));
     }
 

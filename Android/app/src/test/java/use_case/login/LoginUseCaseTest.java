@@ -1,6 +1,5 @@
 package use_case.login;
 
-import constant.file_system.FileName;
 import constant.ui_message.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -16,7 +15,7 @@ import use_case.user_list.UserList;
  */
 public class LoginUseCaseTest {
     private LoginUseCase loginUseCase;
-    private final UserList userList = new UserList(FileName.USER_FILE);
+    private final UserList userList = new UserList();
 
     /**
      * Setup before tests

@@ -28,20 +28,28 @@ public class UserList implements Serializable {
     /**
      * Private instances used in the class.
      */
-    private static HashMap<String, User> users;
+    public static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter;
-    private String filename;
+    private static ReadWriter readWriter;
+    private static String filename;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
+
 
     /**
      * Constructor
      */
-    public UserList(String filename) {
-        this.filename = filename;
-        readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+    public UserList() {
+        if (users == null) {
+            users = new HashMap<>();
+        }
+    }
+
+    /**
+     * Resets the user list for testing
+     */
+    public void reset() {
+        users = new HashMap<>();
     }
     /**
      *
@@ -117,8 +125,8 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, filename, users);
+    public void savetoFile() {
+        readWriter.saveToFile(context, filename, users);
     }
 
     /**
@@ -145,7 +153,7 @@ public class UserList implements Serializable {
                 break;
         }
         //Save the updated user list to file
-        savetoFile(context);
+        savetoFile();
     }
 
     /**
@@ -160,5 +168,13 @@ public class UserList implements Serializable {
      */
     public static void setContext(Context context) {
         UserList.context = context;
+    }
+
+
+    @SuppressWarnings("unchecked")
+    public static void setData(String filename) {
+        UserList.filename = filename;
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
     }
 }
