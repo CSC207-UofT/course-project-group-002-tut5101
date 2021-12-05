@@ -16,7 +16,7 @@ public abstract class Inventory implements Serializable {
     protected double price;
     protected int quantity;
 
-    private static final long serialVersionUID = 8909592165346578070L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Construct an instance of Material

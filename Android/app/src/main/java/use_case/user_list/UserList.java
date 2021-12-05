@@ -152,7 +152,7 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
-        //Save the updated user list to file
+
         savetoFile();
     }
 
