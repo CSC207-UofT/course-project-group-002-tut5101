@@ -1,6 +1,5 @@
 package presenter.staff_system;
 
-import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import constant.ui_message.LoginResult;
 import entity.customer.Customer;
@@ -22,7 +21,6 @@ import static org.junit.Assert.assertEquals;
 public class LoginPresenterTest {
 
     private LoginPresenter login;
-    private UserList userList;
 
     /**
      * Setup before tests
@@ -63,7 +61,7 @@ public class LoginPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));

@@ -14,13 +14,12 @@ import presenter.inventory_system.AddinventoryViewInterface;
  * Activity class for adding inventory.
  */
 public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
-    private Button button;
     private EditText name;
     private EditText price;
     private EditText amount;
     private EditText date;
     private EditText freshness;
-    private AddInventoryPresenter aip = new AddInventoryPresenter();
+    private final AddInventoryPresenter ADD_INVENTORY_PRESENTER = new AddInventoryPresenter();
 
     /**
      * Activity basic function.
@@ -31,8 +30,8 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
-        aip.setAddInventoryViewInterface(this);
-        button = findViewById(R.id.button);
+        ADD_INVENTORY_PRESENTER.setAddInventoryViewInterface(this);
+        Button button = findViewById(R.id.button);
         name = findViewById(R.id.editTextTextPersonName);
         price = findViewById(R.id.editTextNumberDecimal);
         amount = findViewById(R.id.editTextNumberDecimal2);
@@ -53,7 +52,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         String iamount = amount.getText().toString();
         String idate = date.getText().toString();
         String ifreshness = freshness.getText().toString();
-        this.aip.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+        this.ADD_INVENTORY_PRESENTER.addNewInventory(iname, iprice, iamount, idate, ifreshness);
         finish();
     }
     @Override

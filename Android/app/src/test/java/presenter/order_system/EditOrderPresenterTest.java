@@ -15,9 +15,6 @@ public class EditOrderPresenterTest {
     private EditOrderPresenter editOrder;
     private final DishInformation dishInformation = new DishInformation();
 
-    private static HashMap<String, Integer> dishesOrdered;
-    private static HashMap<String, Double> dishPrices;
-
     /**
      * Setup before tests
      */
@@ -28,12 +25,12 @@ public class EditOrderPresenterTest {
         TestClass testActivity = new TestClass();
         editOrder.setEditOrderViewInterface(testActivity);
 
-        dishesOrdered = new HashMap<>();
+        HashMap<String, Integer> dishesOrdered = new HashMap<>();
         dishesOrdered.put("dish1", 3);
         dishesOrdered.put("dish2", 1);
         editOrder.setDishesOrdered(dishesOrdered);
 
-        dishPrices = new HashMap<>();
+        HashMap<String, Double> dishPrices = new HashMap<>();
         dishPrices.put("dish1", 10.0);
         dishPrices.put("dish2", 30.0);
         editOrder.setDishPrices(dishPrices);

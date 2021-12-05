@@ -20,7 +20,6 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
 
     /**
      * Activity basic function.
-     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
@@ -29,21 +28,8 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
         setContentView(R.layout.activity_kitchen);
         ListView list = findViewById(R.id.dishToCook);
 
-
-//        //----------Initialization below, to be deleted when everything works---------------
-//        PlaceOrder po = new PlaceOrder();
-//        new DishList("menu.ser");
-//        new InventoryList("inventory.ser");
-//        try {
-//            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        //----------------------------------------------------------------------------------
-
         kp = new KitchenPresenter(this);
         kp.checkOrderAvailable();
-
         dishesToDisplay = kp.exportDishes();
         adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);

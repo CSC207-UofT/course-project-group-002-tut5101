@@ -13,7 +13,7 @@ public class DishListIteratorTest {
     private Dish testDish;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         DishList dishList = new DishList();
         testDish = new Dish("1", 2.0, new HashMap<>(), 1);
         dishList.addDish(testDish);

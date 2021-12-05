@@ -14,7 +14,6 @@ public class LoginPresenter implements LoginOutputBoundary {
      * The input use_case.boundary for the login use case.
      */
     private final UserLogin userLogin;
-    private final UserList userList;
     private LoginViewInterface loginViewInterface;
 
 
@@ -22,7 +21,7 @@ public class LoginPresenter implements LoginOutputBoundary {
      * A new LoginPresenter
      */
     public LoginPresenter() {
-        this.userList = new UserList();
+        UserList userList = new UserList();
         this.userLogin = new UserLogin();
         this.userLogin.setOutputBoundary(this);
     }
