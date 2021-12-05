@@ -24,22 +24,12 @@ public class ReviewList implements Serializable, Iterable<Review> {
     private static String filename;
 
     /**
-     * Constructor.
-     *
-     */
-    @SuppressWarnings("unchecked")
-    public ReviewList(String filename) {
-        this.filename = filename;
-        irw = new GCloudReadWriter();
-        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
-    }
-
-    /**
      * Null constructor for testing
      */
     public ReviewList() {
-        irw = new GCloudReadWriter();
-        reviews = new HashMap<>();
+        if (reviews == null) {
+            reviews = new HashMap<>();
+        }
     }
 
 

@@ -84,10 +84,9 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        new DishList(FileName.MENU_FILE);
+        new DishList();
         this.dishInformation = new DishInformation();
         dishInformation.setPlaceOrderOutputBoundary(this);
-
     }
 
     // Updates information in the activity

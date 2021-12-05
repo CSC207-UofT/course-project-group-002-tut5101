@@ -35,7 +35,11 @@ public class InventoryList implements Serializable {
     /**
      * Null constructor
      */
-    public InventoryList() {}
+    public InventoryList() {
+        if (myDict == null) {
+            myDict = new HashMap<>();
+        }
+    }
 
     /**
      * Constructor with filename

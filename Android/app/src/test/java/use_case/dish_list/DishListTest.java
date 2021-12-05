@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  * Testing DishList.
  */
 public class DishListTest {
-    private DishList menu = new DishList(FileName.MENU_FILE);
+    private DishList menu = new DishList();
 
     /**
      *
