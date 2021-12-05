@@ -30,18 +30,16 @@ public class UserList implements Serializable {
      */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    ReadWriter readWriter;
-    private String filename;
+    private static ReadWriter readWriter;
+    private static String filename;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     /**
      * Constructor
      */
-    public UserList(String filename) {
-        this.filename = filename;
-        readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+    public UserList() {
+
     }
     /**
      *
@@ -160,5 +158,12 @@ public class UserList implements Serializable {
      */
     public static void setContext(Context context) {
         UserList.context = context;
+    }
+
+
+    public static void setData(String filename) {
+        UserList.filename = filename;
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
     }
 }

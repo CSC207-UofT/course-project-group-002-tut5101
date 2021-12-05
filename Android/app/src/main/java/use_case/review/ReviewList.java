@@ -18,19 +18,17 @@ import java.util.Objects;
 public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
-    private final ReadWriter irw;
+    private static ReadWriter irw;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    private String filename;
+    private static String filename;
 
     /**
      * Constructor.
      *
      */
-    public ReviewList(String filename) {
-        this.filename = filename;
-        irw = new GCloudReadWriter();
-        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+    public ReviewList() {
+
     }
 
 
@@ -139,5 +137,16 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public static void setContext(Context context) {
         ReviewList.context = context;
+    }
+
+
+    /**
+     * Reading data
+     * @param filename the name of the data file
+     */
+    public static void setData(String filename) {
+        ReviewList.filename = filename;
+        ReviewList.irw = new GCloudReadWriter();
+        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
     }
 }

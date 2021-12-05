@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private void setInformation(){
         MainActivityPresenter presenter = new MainActivityPresenter();
         presenter.setContext(this);
+        presenter.setData();
     }
+
 
 
 }

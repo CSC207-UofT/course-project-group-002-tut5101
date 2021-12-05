@@ -20,7 +20,6 @@ import java.util.ArrayList;
  */
 public class KitchenActivity extends AppCompatActivity implements KitchenView, PropertyChangeListener {
 
-    // TODO: improve the design here, try to make it not public.
     public static final KitchenFacade kf = new KitchenFacade();
     private KitchenPresenter kp;
     private KitchenAdapter adapter;
@@ -38,16 +37,16 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
         ListView list = findViewById(R.id.dishToCook);
 
 
-        //----------Initialization below, to be deleted when everything works---------------
-        PlaceOrder po = new PlaceOrder();
-        new DishList("menu.ser");
-        new InventoryList("inventory.ser");
-        try {
-            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //----------------------------------------------------------------------------------
+//        //----------Initialization below, to be deleted when everything works---------------
+//        PlaceOrder po = new PlaceOrder();
+//        new DishList("menu.ser");
+//        new InventoryList("inventory.ser");
+//        try {
+//            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        //----------------------------------------------------------------------------------
 
         kp = new KitchenPresenter(this);
         kp.checkOrderAvailable();
