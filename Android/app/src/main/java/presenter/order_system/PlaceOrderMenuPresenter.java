@@ -1,12 +1,10 @@
 package presenter.order_system;
 
 import android.content.Context;
-import entity.order_list.Dish;
+import constant.file_system.FileLocation;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.DishList;
-import use_case.placeorder.PlaceOrderMenuOutputBoundary;
-
-import java.util.HashMap;
+import use_case.dish_list.PlaceOrderMenuOutputBoundary;
 
 /**
  * Presenter class for the PlaceOrder activity that displays information on menu
@@ -35,7 +33,7 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        new DishList("menu.ser", (Context) placeOrderMenuViewInterface);
+        new DishList(FileLocation.MENU_FILE, (Context) placeOrderMenuViewInterface);
         this.dishInformation = new DishInformation();
         dishInformation.setPlaceOrderMenuOutputBoundary(this);
 

@@ -1,6 +1,7 @@
 package presenter.menu_system;
 
 import android.content.Context;
+import constant.file_system.FileLocation;
 import entity.order_list.Dish;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.MenuOutputBoundary;
@@ -39,7 +40,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        dishList = new DishList("menu.ser", (Context) displayMenuViewInterface);
+        dishList = new DishList(FileLocation.MENU_FILE, (Context) displayMenuViewInterface);
         dishList.setMenuOutputBoundary(this);
     }
 
