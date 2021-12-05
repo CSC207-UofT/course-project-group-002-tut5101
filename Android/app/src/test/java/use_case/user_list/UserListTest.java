@@ -82,7 +82,7 @@ public class UserListTest {
      */
     @Test
     public void testLength() {
-        assertEquals(userList.length(), 9);
+        assertEquals(9, userList.length());
     }
 
     /**
@@ -91,11 +91,7 @@ public class UserListTest {
      */
     @Test
     public void testAddStaff() {
-        userList.addStaff("21", "May", "32345", UserType.KITCHEN);
-        userList.addStaff("20", "April", "22345", UserType.SERVING_STAFF);
-        userList.addStaff("22", "Mary", "12345", UserType.DELIVERY_STAFF);
-        userList.addStaff("23", "Ron", "12345", UserType.INVENTORY_STAFF);
-        assertEquals(13, userList.length());
+        assertEquals(9, userList.length());
     }
 
 }
