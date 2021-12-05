@@ -23,12 +23,11 @@ public class ReviewList implements Serializable, Iterable<Review> {
     /**
      * Constructor.
      *
-     * @param context context
      */
-    public ReviewList(Context context) {
+    public ReviewList() {
         irw = new GCloudReadWriter();
-        this.context = context;
     }
+
 
     /**
      *
@@ -115,12 +114,25 @@ public class ReviewList implements Serializable, Iterable<Review> {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
 
-
+    /**
+     * Saving to file.
+     */
     public void saveToFile() {
         irw.saveToFile(context, "review.ser", reviews);
     }
 
+    /**
+     * Generating data.
+     */
     public void generateData() {
         reviews = (HashMap<String, Review>) irw.readFromFile("review.ser");
+    }
+
+    /**
+     * Setting context.
+     * @param context context
+     */
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

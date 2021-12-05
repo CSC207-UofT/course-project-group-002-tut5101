@@ -20,7 +20,8 @@ public class DeleteReviewUseCaseTest {
     @Before
     public void setUp(){
 
-        reviewList = new ReviewList(new DeleteReviewActivity());
+        reviewList = new ReviewList();
+        reviewList.setContext(new DeleteReviewActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",
@@ -33,7 +34,8 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        deleteReviewUseCase = new DeleteReviewUseCase(new DeleteReviewActivity());
+        deleteReviewUseCase = new DeleteReviewUseCase();
+        deleteReviewUseCase.setContext(new DeleteReviewActivity());
     }
 
     /**

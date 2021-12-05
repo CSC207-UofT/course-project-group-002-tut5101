@@ -19,10 +19,14 @@ public class MainActivityPresenter {
      * Constructor
      */
     public MainActivityPresenter(Context context){
-        reviewList = new ReviewList(context);
+        reviewList = new ReviewList();
         dishList = new DishList("dish.ser", context);
         inventoryList = new InventoryList("inventory.ser", context);
         userList = new UserList("user.ser", context);
+    }
+
+    public void setContext(Context context){
+        reviewList.setContext(context);
     }
 
     /**

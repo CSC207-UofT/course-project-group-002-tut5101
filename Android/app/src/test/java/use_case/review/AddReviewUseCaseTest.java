@@ -19,7 +19,8 @@ public class AddReviewUseCaseTest {
      */
     @Before
     public void setUp(){
-        ReviewList reviewList = new ReviewList(new AddReviewCommentActivity());
+        ReviewList reviewList = new ReviewList();
+        reviewList.setContext(new AddReviewCommentActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",
@@ -32,7 +33,8 @@ public class AddReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        add = new AddReviewUseCase(new AddReviewCommentActivity());
+        add = new AddReviewUseCase();
+        add.setContext(new AddReviewCommentActivity());
     }
 
     /**

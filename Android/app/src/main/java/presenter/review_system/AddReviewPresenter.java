@@ -15,8 +15,12 @@ public class AddReviewPresenter {
     /**
      * Reading from file constructor.
      */
-    public AddReviewPresenter(Context context) {
-        this.addReviewInputBoundary = new AddReviewUseCase(context);
+    public AddReviewPresenter() {
+        this.addReviewInputBoundary = new AddReviewUseCase();
+    }
+
+    public void setContext(Context context){
+        this.addReviewInputBoundary.setContext(context);
     }
 
 

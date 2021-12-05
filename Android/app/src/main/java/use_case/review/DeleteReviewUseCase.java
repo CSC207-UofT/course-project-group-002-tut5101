@@ -16,8 +16,16 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     /**
      * Constructor
      */
-    public DeleteReviewUseCase(Context context) {
-        this.reviewList = new ReviewList(context);
+    public DeleteReviewUseCase() {
+        this.reviewList = new ReviewList();
+    }
+
+    /**
+     * Setting context
+     * @param context context.
+     */
+    public void setContext(Context context){
+        this.reviewList.setContext(context);
     }
 
     /**

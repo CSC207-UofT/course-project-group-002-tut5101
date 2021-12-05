@@ -16,8 +16,8 @@ public class DeleteReviewPresenter {
     /**
      * Empty constructor.
      */
-    public DeleteReviewPresenter(Context context){
-        this.deleteReviewInputBoundary = new DeleteReviewUseCase(context);
+    public DeleteReviewPresenter(){
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase();
     }
 
     /**
@@ -34,5 +34,13 @@ public class DeleteReviewPresenter {
         else {
             deleteReviewInputBoundary.delete(3);
         }
+    }
+
+    /**
+     * setting context
+     * @param context context.
+     */
+    public void setContext(Context context) {
+        this.deleteReviewInputBoundary.setContext(context);
     }
 }

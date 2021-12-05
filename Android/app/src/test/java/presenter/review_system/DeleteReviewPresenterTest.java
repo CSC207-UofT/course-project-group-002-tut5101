@@ -16,7 +16,7 @@ public class DeleteReviewPresenterTest {
      */
     @Before
     public void setUp() {
-        reviewPresenter = new DeleteReviewPresenter(new DeleteReviewActivity());
+        reviewPresenter = new DeleteReviewPresenter();
     }
 
     /**

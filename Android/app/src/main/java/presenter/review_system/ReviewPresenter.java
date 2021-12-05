@@ -16,11 +16,20 @@ public class ReviewPresenter implements ReviewOutputBoundary {
     /**
      * Constructor for this class.
      */
-    public ReviewPresenter(Context context){
-        this.reviewList = new ReviewList(context);
+    public ReviewPresenter(){
+        this.reviewList = new ReviewList();
         reviewList.setReviewOutputBoundary(this);
         generateReviewList();
     }
+
+    /**
+     * Setting context
+     * @param c context
+     */
+    public void setContext(Context c){
+        this.reviewList.setContext(c);
+    }
+
 
 
     //TODO: Delete later.

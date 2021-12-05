@@ -18,7 +18,8 @@ public class AddReviewPresenterTest {
      */
     @Before
     public void setUp() {
-        add = new AddReviewPresenter(new AddReviewCommentActivity());
+        add = new AddReviewPresenter();
+        add.setContext(new AddReviewCommentActivity());
     }
 
     /**

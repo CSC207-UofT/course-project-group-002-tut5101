@@ -27,7 +27,8 @@ public class ReviewListTest {
      */
     @Before
     public void setUp() {
-        reviewList = new ReviewList(new SeeReviewActivity());
+        reviewList = new ReviewList();
+        reviewList.setContext(new SeeReviewActivity());
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 5, "Nice staff",
                 "2");
