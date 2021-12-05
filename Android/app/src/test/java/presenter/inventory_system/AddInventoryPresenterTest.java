@@ -2,6 +2,9 @@ package presenter.inventory_system;
 
 import org.junit.Before;
 import org.junit.Test;
+import use_case.kitchen.InventoryList;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Testing the AddInventoryPresenter.
@@ -24,7 +27,10 @@ public class AddInventoryPresenterTest {
      */
     @Test
     public void presentLoginResult(){
+
         add.addNewInventory("name", "2","3","4","5");
+        InventoryList inventoryList = new InventoryList();
+        assertTrue(inventoryList.checkExist("name"));
     }
 
     /**

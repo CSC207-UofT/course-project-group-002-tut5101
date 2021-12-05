@@ -119,7 +119,8 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        if(myDict.get(name) instanceof HasFreshness){((HasFreshness) myDict.get(name)).setFreshness(newFreshness);}
+        if(myDict.get(name) instanceof HasFreshness)
+        {((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);}
     }
 
 
@@ -144,7 +145,12 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
+        return Objects.requireNonNull(myDict.get(name)).updateQuantity(usage);
+    }
+
+    public String passNewQuanInfo(String name, int usage){
+        String info = this.setQuantity(name, usage);
+        return boundary.getMessage(info);
     }
 
     /**
