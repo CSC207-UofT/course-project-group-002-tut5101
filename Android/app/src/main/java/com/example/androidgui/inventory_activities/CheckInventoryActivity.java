@@ -56,7 +56,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         if (wrongName) {
             Toast.makeText(CheckInventoryActivity.this,fail,Toast.LENGTH_SHORT).show();
         }else {
-            Intent intent = new Intent(CheckInventoryActivity.this, PresentInventoryActivity.class);
+            Intent intent = new Intent(this, PresentInventoryActivity.class);
             intent.putExtra("showData",info);
             startActivity(intent);
         }
