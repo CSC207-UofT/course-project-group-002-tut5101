@@ -31,6 +31,7 @@ public class UserListTest {
      */
     @Before
     public void setUp() {
+        userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("2", "James", "12345"));
         userList.addUser(new Customer("3", "Steve", "12345"));
