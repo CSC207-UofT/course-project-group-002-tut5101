@@ -5,33 +5,23 @@ import constant.manger_system.UserType;
 import use_case.user_list.UserList;
 
 /**
- * Controller class for staff.
+ * Presenter to show current Staff's item
  */
 
 
-public class StaffPresenter implements StaffDeliveryOutputBoundary {
+public class CurrentItemPresenter implements StaffDeliveryOutputBoundary {
     private final DeliveryInputBoundary servingStaff = new ServingDishAdaptor();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
     private StaffViewInterface staffView;
     /**
      * Constructor for this class.
      */
-    public StaffPresenter() {
+    public CurrentItemPresenter() {
         servingStaff.setOutputBoundary(this);
         deliveryStaff.setOutputBoundary(this);
     }
 
-    /**
-     * Get the next item to be delivered by the staff with the id
-     * @param id The id of the staff to get the next item of their responsibility
-     *           (either dish for serving staff or order for delivery staff)
-     * @throws Exception Throws Exception from getToBeDeliver and "id not staff" exception.
-     */
-    public void getNext(String id) throws Exception {
-        DeliveryInputBoundary staff;
-        staff = selectStaffTypeById(id);
-        staff.getToBeDeliver(id);
-    }
+
 
     /**
      * Display the current item to be delivered,

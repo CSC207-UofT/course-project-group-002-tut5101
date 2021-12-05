@@ -1,16 +1,14 @@
 Information needed for the login process:
 
-id      Password     UserType 
+id      Password     UserType         Name
 
-- 100     999        Manager
-- 2       12345        Customer
-- 3       12345        Customer
-- 4       12345        Customer
-- 5       12345        DeliveryStaff
-- 6       12345        ServingStaff
-- 7       12345        ServingStaff
-- 8       12345        Kitchen
-- 9       12345        InventoryStaff
+- 000     999        Manager          Boss
+- 2       12345      DeliveryStaff    Amy
+- 3       12345      ServingStaff     Eve
+- 4       12345      KitchenStaff     Bob
+- 5       12345      InventoryStaff   Frank
+
+
 
 
 ### Purpose and Audience
@@ -58,7 +56,6 @@ from this app.
 - Chilli sauce
 - Sugar
 - Yogurt
-
 
 
 
