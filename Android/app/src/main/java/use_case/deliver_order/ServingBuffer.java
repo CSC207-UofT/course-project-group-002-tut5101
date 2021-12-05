@@ -3,6 +3,7 @@ package use_case.deliver_order;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import entity.order_list.Dish;
+import org.checkerframework.checker.units.qual.A;
 // import use_case.boundary.ServeBufferInterface;
 
 public class ServingBuffer {
@@ -10,7 +11,14 @@ public class ServingBuffer {
      * The buffer queue where each element is a "tuple" of table number and a dish; the serving
      * staff calls method to access the next dish to be served.
      */
-    private static final Queue<Dish> servingBuffer = new ArrayDeque<>();
+    private static Queue<Dish> servingBuffer = new ArrayDeque<>();
+
+    /**
+     * Reset the Serving buffer for tests
+     */
+    public static void reset() {
+        servingBuffer = new ArrayDeque<>();
+    }
 
     /**
      * The getter method for UseCase.com.example.androidgui.ServingStaff to call to get the next dish to serve.

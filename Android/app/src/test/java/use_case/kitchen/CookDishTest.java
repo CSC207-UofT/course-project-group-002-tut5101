@@ -82,7 +82,10 @@ public class CookDishTest {
      */
     @Test
     public void testCookedDish() {
+        OrderQueue.reset();
         addOrders();
+        ServingBuffer.reset();
+        DeliveryBuffer.reset();
         kitchen.getNextToCook();
         kitchen.cookedDish("Small fries");
         Dish actualFries = null;
@@ -92,6 +95,7 @@ public class CookDishTest {
         catch (Exception e) {
             assert false;
         }
+
         kitchen.getNextToCook();
 
         kitchen.cookedDish("Coke");
