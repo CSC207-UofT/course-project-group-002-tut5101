@@ -25,17 +25,14 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private final ReadWriter irw;
+    private static ReadWriter irw;
 
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private InventoryOutputBoundary boundary;
-    private final String filename;
+    private static String filename;
 
-    public InventoryList(String filename) {
-        this.filename = filename;
-        irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+    public InventoryList() {
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -151,5 +148,11 @@ public class InventoryList implements Serializable {
      */
     public static void setContext(Context context) {
         InventoryList.context = context;
+    }
+
+    public static void setData(String filename) {
+        InventoryList.filename = filename;
+        irw = new GCloudReadWriter();
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 }

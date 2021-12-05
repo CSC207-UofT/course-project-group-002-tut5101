@@ -12,7 +12,7 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     private final DishList dishList;
 
     /**
-     * Constructor for this classs.
+     * Constructor for this class.
      */
     public ManageMenuPresenter(){
         this.dishList = new DishList(FileName.MENU_FILE);
@@ -37,7 +37,6 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     }
 
     /**
-     *
      * getting the dish list.
      */
     public void getDishList(){
