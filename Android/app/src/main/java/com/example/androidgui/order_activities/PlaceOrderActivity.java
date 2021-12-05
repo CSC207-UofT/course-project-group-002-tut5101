@@ -182,9 +182,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
-
         placeOrderPresenter.runPlaceOrderInformation(orderType, location);
-
     }
 
     /**
@@ -192,7 +190,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     public void orderSuccessfullyPlaced(){
         Intent intent = new Intent(PlaceOrderActivity.this, OrderSuccessfullyPlacedActivity.class);
-        observable.firePropertyChange(null);
+        observable.firePropertyChange("OrderStatus", 0, 1);
         startActivity(intent);
     }
 

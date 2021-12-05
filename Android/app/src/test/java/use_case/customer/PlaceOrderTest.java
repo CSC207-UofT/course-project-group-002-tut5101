@@ -2,7 +2,6 @@ package use_case.customer;
 
 
 
-import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,8 +10,6 @@ import constant.order_system.OrderType;
 import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Test PlaceOrder class

@@ -1,7 +1,5 @@
 package use_case.review;
 
-import constant.file_system.FileName;
-
 /**
  * Use Case class for adding reviews.
  */
@@ -14,9 +12,7 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
     public AddReviewUseCase() {
         this.reviewList = new ReviewList();
     }
-    public AddReviewUseCase(ReviewList reviewlist) {
-        this.reviewList = reviewlist;
-    }
+
 
     /**
      * adding the review to reviewList.

@@ -3,6 +3,7 @@ package use_case.kitchen;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Test;
+import presenter.inventory_system.UpdateFreshnessInterface;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.inventory_factory.InventoryOutputBoundary;
 
@@ -166,5 +167,18 @@ public class InventoryListTest {
             assert(true);
             return message;
         }
+    }
+
+    private static class TestClass1 implements UpdateFreshnessInterface {
+
+        /**
+         * Check if the InventoryList calls on this method
+         * @param message the message to display
+         */
+        @Override
+        public void popInfo(String message) {
+            assert(true);
+        }
+
     }
 }

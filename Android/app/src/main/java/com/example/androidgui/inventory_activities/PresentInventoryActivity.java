@@ -21,11 +21,11 @@ public class PresentInventoryActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_present_inventory);
-        TextView mTextView1 = findViewById(R.id.textView6);
-        TextView mTextView2 = findViewById(R.id.textView7);
-        TextView mTextView3 = findViewById(R.id.textView8);
-        TextView mTextView4 = findViewById(R.id.textView9);
-        TextView mTextView5 = findViewById(R.id.textView10);
+        TextView mTextView1 = findViewById(R.id.textView8);
+        TextView mTextView2 = findViewById(R.id.textView9);
+        TextView mTextView3 = findViewById(R.id.textView10);
+        TextView mTextView4 = findViewById(R.id.textView11);
+        TextView mTextView5 = findViewById(R.id.textView12);
         Intent intent = getIntent();
         String showData = intent.getStringExtra("showData");
         String[] presenting = showData.split(",");

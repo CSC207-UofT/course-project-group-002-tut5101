@@ -1,6 +1,5 @@
 package presenter.menu_system;
 
-import constant.file_system.FileName;
 import use_case.dish_list.MenuOutputBoundary;
 import use_case.dish_list.DishList;
 

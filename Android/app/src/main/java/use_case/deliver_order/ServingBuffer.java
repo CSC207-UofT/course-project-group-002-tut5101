@@ -3,7 +3,6 @@ package use_case.deliver_order;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import entity.order_list.Dish;
-import org.checkerframework.checker.units.qual.A;
 // import use_case.boundary.ServeBufferInterface;
 
 public class ServingBuffer {

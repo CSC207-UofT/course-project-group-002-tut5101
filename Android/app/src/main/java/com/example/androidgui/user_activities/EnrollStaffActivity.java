@@ -8,6 +8,7 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import presenter.manager_system.EnrollStaffPresenter;
@@ -123,7 +124,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
                 .setTitle(EnrollUserMessage.SUCCEED)
                 .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE + this.newUserId)
                 .setPositiveButton(LoginLogoutUIMessage.OK, (dialog, which) -> {
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ManagerPickActionActivity.class);
                     startActivity(intent);
                 })
                 .create();

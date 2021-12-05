@@ -1,7 +1,6 @@
 package presenter.manager_system;
 
 
-import constant.file_system.FileName;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -20,7 +19,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class EnrollStaffPresenterTest {
     private EnrollStaffPresenter enrollStaffPresenter;
-    private UserList userList;
 
     /**
      * Setup before tests
@@ -37,7 +35,7 @@ public class EnrollStaffPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
@@ -46,15 +44,6 @@ public class EnrollStaffPresenterTest {
         userList.addUser(new KitchenStaff("4", "Bob", "12345"));
         userList.addUser(new InventoryStaff("5", "Frank", "12345"));
     }
-//
-//    /**
-//     * Test enrollNewUser method
-//     */
-//    @Test
-//    public void testEnrollNewUser() {
-//        enrollStaffPresenter.enrollNewUser("6", "James", "12345", "KITCHEN");
-//        assertEquals(7, userList.length());
-//    }
 
     /**
      * Test getNewUserId method

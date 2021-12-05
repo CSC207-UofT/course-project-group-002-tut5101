@@ -3,7 +3,6 @@ package use_case.review;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileName;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
@@ -67,7 +66,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public void addReview(Review r) {
            reviews.put(r.getReviewID(), r);
-
     }
 
     /**
@@ -145,6 +143,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Reading data
      * @param filename the name of the data file
      */
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         ReviewList.filename = filename;
         ReviewList.irw = new GCloudReadWriter();
