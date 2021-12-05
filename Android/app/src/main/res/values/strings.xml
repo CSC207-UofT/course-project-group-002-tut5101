@@ -67,7 +67,7 @@
     <string name="price">Price</string>
     <string name="quantity_in_kg">Quantity in kg</string>
     <string name="date_import_or_expiry_eg_20201212">Date(Import or Expiry eg 20201212)</string>
-    <string name="freshness_n_a_when_do_not_have_in_a_b_c_d">Freshness(N/A when do not have in a,b,c,d)</string>
+    <string name="freshness_notes">Freshness(enter N/A when do not have in a,b,c,d)</string>
     <string name="add">Add</string>
     <string name="freshness">Freshness</string>
     <string name="update">Update</string>
