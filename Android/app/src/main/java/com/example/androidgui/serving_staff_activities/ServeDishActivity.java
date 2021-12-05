@@ -7,7 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.staff_system.StaffPresenter;
+import presenter.staff_system.CurrentItemPresenter;
+import presenter.staff_system.GetNextItemPresenter;
 import presenter.staff_system.StaffViewInterface;
 
 /**
@@ -16,7 +17,8 @@ import presenter.staff_system.StaffViewInterface;
 public class ServeDishActivity extends AppCompatActivity implements StaffViewInterface {
     private String id;
     private String mode;
-    private StaffPresenter presenter;
+    private CurrentItemPresenter currentDishPresenter;
+    private GetNextItemPresenter getNextDishPresenter;
     private TextView dishContent;
 
     /**
@@ -29,8 +31,9 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serve_dish);
         // Setup view bonded attributes
-        presenter = new StaffPresenter();
-        presenter.setStaffView(this);
+        currentDishPresenter = new CurrentItemPresenter();
+        getNextDishPresenter = new GetNextItemPresenter();
+        currentDishPresenter.setStaffView(this);
         dishContent = findViewById(R.id.CurrentDish);
         // Get staff id for method calls
         Bundle b = getIntent().getExtras();
@@ -51,7 +54,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
      */
     public void selectCompleteDish(View v) {
         try {
-            presenter.completeCurrent(this.id);
+            currentDishPresenter.completeCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -107,7 +110,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
      */
     private void getCurrentDish() {
         try {
-            presenter.displayCurrent(this.id);
+            currentDishPresenter.displayCurrent(this.id);
         } catch (Exception e) {
             exceptionHandler(e);
         }
@@ -119,7 +122,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
     private void getNextDish() {
         Toast toast;
         try {
-            presenter.getNext(this.id);
+            getNextDishPresenter.getNext(this.id);
             toast = Toast.makeText(getApplicationContext(), R.string.MessageNewDishArrived, Toast.LENGTH_SHORT);
             toast.show();
         } catch (Exception e) {
