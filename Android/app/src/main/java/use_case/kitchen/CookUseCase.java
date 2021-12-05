@@ -15,14 +15,14 @@ import java.util.HashMap;
  * Author: ௵۞ၡ֍Ѭ֍Ӂ
  */
 
-public class Kitchen {
+public class CookUseCase {
     /**
      * The current order that the Kitchen is working on.
      */
     private Order currentOrder;
     private KitchenOutputBoundary kob;
 
-    public Kitchen(KitchenOutputBoundary kob) {
+    public CookUseCase(KitchenOutputBoundary kob) {
         this.kob = kob;
     }
 
@@ -34,13 +34,6 @@ public class Kitchen {
     public boolean getNextToCook(){
         currentOrder = OrderQueue.getNextOrder();
         return !(currentOrder == null);
-    }
-
-    /**
-     * reset the current class
-     */
-    public void reset() {
-        currentOrder = null;
     }
 
 
@@ -64,7 +57,7 @@ public class Kitchen {
     /**
      * @return whether the Kitchen completed its current order.
      */
-    public boolean orderCompleted() {
+    private boolean orderCompleted() {
         return currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED;
     }
 
@@ -72,7 +65,7 @@ public class Kitchen {
     /**
      * @return whether the kitchen is occupied (has an order to work on)
      */
-    public boolean occupied() {
+    private boolean occupied() {
         return !(currentOrder == null);
     }
 

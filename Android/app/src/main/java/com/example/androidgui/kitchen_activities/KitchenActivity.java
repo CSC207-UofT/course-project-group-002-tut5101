@@ -40,8 +40,8 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
 
         //----------Initialization below, to be deleted when everything works---------------
         PlaceOrder po = new PlaceOrder();
-        new DishList("menu.ser", this);
-        new InventoryList("inventory.ser", this);
+        new DishList("menu.ser");
+        new InventoryList("inventory.ser");
         try {
             po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
         } catch (Exception e) {

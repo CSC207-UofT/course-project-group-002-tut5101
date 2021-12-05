@@ -21,7 +21,7 @@ public class KitchenTest {
     private DineInOrder dineInOrder;
     private DeliveryOrder deliveryOrder;
     private Order sameDishOrder;
-    private Kitchen kitchen;
+    private CookUseCase kitchen;
 
 
     /**
@@ -29,8 +29,7 @@ public class KitchenTest {
      */
     @Before
     public void setUp() {
-        kitchen = new Kitchen(new TestClass());
-        kitchen.reset();
+        kitchen = new CookUseCase(new TestClass());
         OrderQueue.reset();
 
 
@@ -64,18 +63,6 @@ public class KitchenTest {
         catch (Exception ignored){
 
         }
-    }
-
-    /**
-     * Test the getNextToCook method
-     */
-    @Test
-    public void testGetNextToCook(){
-        assertFalse(kitchen.getNextToCook());
-        addOrders();
-        assertTrue(kitchen.getNextToCook());
-        assertFalse(kitchen.orderCompleted());
-        assertTrue(kitchen.occupied());
     }
 
     /**
