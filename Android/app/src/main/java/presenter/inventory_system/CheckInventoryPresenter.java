@@ -1,9 +1,6 @@
 package presenter.inventory_system;
 
-import constant.file_system.FileName;
 import use_case.kitchen.InventoryList;
-
-import java.io.File;
 
 /**
  * Controls the process for check one existing inventory.
@@ -18,9 +15,6 @@ public class CheckInventoryPresenter {
         this.inventories = new InventoryList();
     }
 
-    public CheckInventoryPresenter(InventoryList inventories){
-        this.inventories = inventories;
-    }
     /**
      * Set the view interface
      * @param checkInventoryInterface the view interface
