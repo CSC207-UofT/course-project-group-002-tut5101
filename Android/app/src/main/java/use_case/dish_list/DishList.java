@@ -2,6 +2,9 @@ package use_case.dish_list;
 
 import androidx.annotation.NonNull;
 import entity.order_list.Dish;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
+import presenter.main_information.DataGeneratingInterface;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,12 +16,13 @@ import java.util.Set;
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class DishList implements Serializable, Iterable<Dish> {
+public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInterface{
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
+    private final ReadWriter readWriter;
 
 
     /**
@@ -27,6 +31,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     public DishList() {
         menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
+        readWriter = new SerReadWriter();
     }
 
 
@@ -92,6 +97,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
+        readWriter.saveToFile(menu);
     }
 
     /**
@@ -104,6 +110,8 @@ public class DishList implements Serializable, Iterable<Dish> {
         assert dish != null;
         dish.increasePrice();
         dish.decreaseCalories();
+        menu.put(dishName, dish);
+        readWriter.saveToFile(menu);
     }
 
     /**
@@ -121,6 +129,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
+        readWriter.saveToFile(menu);
     }
 
     /**
@@ -158,8 +167,10 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     /**
-     * Generate data for reviewList.
+     * Generate data for dishList.
      */
+    @Override
     public void generateData() {
+        readWriter.readFromFile();
     }
 }

@@ -9,6 +9,9 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
+import presenter.main_information.DataGeneratingInterface;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -18,13 +21,14 @@ import java.util.HashMap;
  *
  */
 
-public class UserList implements Serializable {
+public class UserList implements Serializable, DataGeneratingInterface {
 
     /**
      * Private instances used in the class.
      */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
+    private final ReadWriter readWriter = new SerReadWriter();
 
     /**
      *  Second constructor: construct with size of the UserList.
@@ -49,6 +53,7 @@ public class UserList implements Serializable {
      */
     public void addUser(User user) {
         users.put(user.getId(), user);
+        readWriter.saveToFile(users);
     }
 
 
@@ -131,11 +136,14 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
+        readWriter.saveToFile(users);
     }
 
     /**
-     * Generate data for reviewList.
+     * Generate data for userList.
      */
+    @Override
     public void generateData() {
+        readWriter.readFromFile();
     }
 }

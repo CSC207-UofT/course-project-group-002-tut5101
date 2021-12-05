@@ -1,6 +1,8 @@
 package use_case.review;
 
 import entity.review.Review;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
 
 import java.util.Iterator;
 
@@ -11,16 +13,13 @@ import java.util.Iterator;
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     private final ReviewList reviewList;
+    private ReadWriter readWriter = new SerReadWriter();
 
     /**
      * Constructor
      */
     public DeleteReviewUseCase() {
         this.reviewList = new ReviewList();
-    }
-
-    public DeleteReviewUseCase(ReviewList rl) {
-        this.reviewList = rl;
     }
 
     /**
@@ -34,6 +33,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
             Review review = reviewIterator.next();
             if (review != null && review.getRate() < i + 1) {
                 reviewIterator.remove();
+                readWriter.saveToFile(reviewList);
             }
         }
     }

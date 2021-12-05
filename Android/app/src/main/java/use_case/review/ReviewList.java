@@ -2,6 +2,9 @@ package use_case.review;
 
 import androidx.annotation.NonNull;
 import entity.review.Review;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
+import presenter.main_information.DataGeneratingInterface;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -10,15 +13,17 @@ import java.util.Objects;
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review> {
+public class ReviewList implements Serializable, Iterable<Review>, DataGeneratingInterface {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
+    private final ReadWriter readWriter;
 
     /**
      * Empty constructor.
      */
     public ReviewList() {
         reviews = new HashMap<>();
+        readWriter = new SerReadWriter();
     }
 
 
@@ -49,6 +54,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public void addReview(Review r) {
         reviews.put(r.getReviewID(), r);
+        readWriter.saveToFile(reviews);
     }
 
     /**
@@ -109,6 +115,11 @@ public class ReviewList implements Serializable, Iterable<Review> {
     /**
      * Generate data for reviewList.
      */
+    @Override
     public void generateData() {
+        readWriter.readFromFile();
     }
+
+
+
 }

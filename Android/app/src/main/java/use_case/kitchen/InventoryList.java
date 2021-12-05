@@ -2,6 +2,9 @@ package use_case.kitchen;
 
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.ReadWriter;
+import gateway.SerReadWriter;
+import presenter.main_information.DataGeneratingInterface;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.inventory_factory.InventoryFactory;
 
@@ -14,7 +17,7 @@ import java.util.Objects;
  * Public class storing information for all inventories using a Hashmap.
  *
  */
-public class InventoryList implements Serializable {
+public class InventoryList implements Serializable, DataGeneratingInterface {
 
 
     /**
@@ -27,6 +30,7 @@ public class InventoryList implements Serializable {
     public InventoryList(){
         myDict = new HashMap<>();
     }
+    private final ReadWriter readWriter = new SerReadWriter();
 
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -43,6 +47,7 @@ public class InventoryList implements Serializable {
         {   int id = myDict.size();
             item.setId(id);
             myDict.put(item.getName(), item);
+            readWriter.saveToFile(myDict);
             return "Successful";
         }
         else{return "Occupied name or item";}
@@ -127,8 +132,10 @@ public class InventoryList implements Serializable {
     }
 
     /**
-     * Generate data for reviewList.
+     * Generate data for inventoryList.
      */
+    @Override
     public void generateData() {
+        readWriter.readFromFile();
     }
 }
