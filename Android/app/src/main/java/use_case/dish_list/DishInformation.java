@@ -73,8 +73,6 @@ public class DishInformation {
         placeOrderMenuOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
 
-    // methods for place order output boundary
-
     /**
      * Set the place order output boundary
      * @param placeOrderOutputBoundary the output boundary
