@@ -1,31 +1,19 @@
 package com.example.androidgui.kitchen_activities;
-
-import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.order_system.OrderType;
-import entity.inventory.HasExpiryDate;
-import entity.inventory.HasFreshness;
-import entity.inventory.Inventory;
-import entity.order_list.Dish;
-import entity.order_list.Order;
 import presenter.kitchen_system.KitchenFacade;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
-import use_case.kitchen.Kitchen;
-import use_case.kitchen.OrderQueue;
 import use_case.placeorder.PlaceOrder;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Kitchen activity class.

@@ -11,6 +11,7 @@ import com.example.androidgui.R;
 import presenter.kitchen_system.KitchenPresenter;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Adapter for kitchen.
@@ -30,8 +31,8 @@ public class KitchenAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        String dishName = ((String[]) getItem(position))[0];
-        String quantity = ((String[]) getItem(position))[1];
+        String dishName = ((String[]) Objects.requireNonNull(getItem(position)))[0];
+        String quantity = ((String[]) Objects.requireNonNull(getItem(position)))[1];
 
         LayoutInflater inflater = LayoutInflater.from(kContext);
         convertView = inflater.inflate(kResource, parent, false);
@@ -42,7 +43,7 @@ public class KitchenAdapter extends ArrayAdapter {
 
         dn.setText(dishName);
         qt.setText(quantity);
-        bt.setText("Cooked");
+        bt.setText(R.string.Cooked);
 
         bt.setOnClickListener(view -> {
             kp.completeDish(dishName);
