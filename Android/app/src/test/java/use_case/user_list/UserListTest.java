@@ -93,11 +93,6 @@ public class UserListTest {
     }
 
     @Test
-    public void testGenerateData() {
-        userList.generateData();
-    }
-
-    @Test
     public void testSetContext() {
         UserList.setContext(null);
     }
