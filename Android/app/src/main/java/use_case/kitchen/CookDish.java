@@ -15,14 +15,14 @@ import java.util.HashMap;
  * Author: ௵۞ၡ֍Ѭ֍Ӂ
  */
 
-public class CookUseCase {
+public class CookDish {
     /**
      * The current order that the Kitchen is working on.
      */
     private Order currentOrder;
     private final KitchenOutputBoundary kob;
 
-    public CookUseCase(KitchenOutputBoundary kob) {
+    public CookDish(KitchenOutputBoundary kob) {
         this.kob = kob;
     }
 

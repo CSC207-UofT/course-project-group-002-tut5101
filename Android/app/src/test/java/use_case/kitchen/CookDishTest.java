@@ -16,19 +16,19 @@ import static org.junit.Assert.*;
 /**
  * Test Kitchen class
  */
-public class CookUseCaseTest {
+public class CookDishTest {
 
     private DineInOrder dineInOrder;
     private DeliveryOrder deliveryOrder;
     private Order sameDishOrder;
-    private CookUseCase kitchen;
+    private CookDish kitchen;
 
     /**
      * Setup before tests
      */
     @Before
     public void setUp() {
-        kitchen = new CookUseCase(new TestClass());
+        kitchen = new CookDish(new TestClass());
         OrderQueue.reset();
         String location = "1";
 
