@@ -29,7 +29,7 @@ public class KitchenTest {
      */
     @Before
     public void setUp() {
-        kitchen = new Kitchen();
+        kitchen = new Kitchen(new TestClass());
         kitchen.reset();
         OrderQueue.reset();
 
@@ -126,6 +126,17 @@ public class KitchenTest {
         }
         assertEquals("Small fries", actualFries.getName());
         assertEquals("Small fries", actualOrder.getDishes().get(0).getName());
+    }
+
+    /**
+     * Empty fake presenter class implementing the output boundary
+     */
+    private static class TestClass implements KitchenOutputBoundary {
+
+        @Override
+        public void getNextOrder(HashMap<String, Integer> dishes) {
+            assert true;
+        }
     }
 
 

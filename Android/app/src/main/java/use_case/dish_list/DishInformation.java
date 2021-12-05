@@ -21,7 +21,7 @@ public class DishInformation {
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishInformation() {
-        menu = new HashMap<>();
+        menu = DishList.getAllDishes();
         dishNames = menu.keySet().toArray(new String[0]);
     }
 

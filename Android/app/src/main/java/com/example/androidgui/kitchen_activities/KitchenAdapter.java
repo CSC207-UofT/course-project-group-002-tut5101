@@ -43,7 +43,7 @@ public class KitchenAdapter extends ArrayAdapter {
 
         dn.setText(dishName);
         qt.setText(quantity);
-        bt.setText(R.string.Cooked);
+        bt.setText(R.string.cooked);
 
         bt.setOnClickListener(view -> {
             kp.completeDish(dishName);
