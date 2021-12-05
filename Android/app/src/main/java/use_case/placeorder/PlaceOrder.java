@@ -77,7 +77,6 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
         System.out.println(DishList.getDishIngredients(dishName));
         System.out.println(DishList.getDishCalories(dishName));
 
-
         double price = DishList.getDishPrice(dishName);
         HashMap<String, Integer> ingredients = DishList.getDishIngredients(dishName);
         double calories = DishList.getDishCalories(dishName);
@@ -96,8 +95,6 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
 
             }
         }
-
-
         return dishCopy;
     }
 

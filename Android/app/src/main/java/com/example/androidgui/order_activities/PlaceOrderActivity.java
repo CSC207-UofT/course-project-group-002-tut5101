@@ -16,6 +16,8 @@ import presenter.order_system.PlaceOrderMenuViewInterface;
 import presenter.order_system.PlaceOrderPresenter;
 import presenter.order_system.PlaceOrderViewInterface;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
@@ -39,6 +41,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     private PlaceOrderPresenter placeOrderPresenter;
     private PlaceOrderMenuPresenter placeOrderMenuPresenter;
 
+    private static PropertyChangeSupport observable;
+
     /**
      * Method that runs on creation of this class
      * @param savedInstanceState The saved state of this class
@@ -61,6 +65,8 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         collectDishInformation();
 
         placeOrderPresenter.displayDishesOrdered();
+
+        observable = new PropertyChangeSupport(this);
     }
 
     /**
@@ -186,8 +192,14 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      */
     public void orderSuccessfullyPlaced(){
         Intent intent = new Intent(PlaceOrderActivity.this, OrderSuccessfullyPlacedActivity.class);
+        observable.firePropertyChange(null);
         startActivity(intent);
     }
+
+    public static void addObserver(PropertyChangeListener pcl) {
+        observable.addPropertyChangeListener(pcl);
+    }
+
 
     /**
      * set the error message

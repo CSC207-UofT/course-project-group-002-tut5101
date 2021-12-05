@@ -1,10 +1,10 @@
 package use_case.dish_list;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import entity.order_list.Dish;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
-import presenter.main_information.DataGeneratingInterface;
+import entity.order_list.Dish;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -16,13 +16,15 @@ import java.util.Set;
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInterface{
+public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
+    ReadWriter readWriter;
+    Context context;
+    String filename;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
-    private final ReadWriter readWriter;
 
 
     /**
@@ -31,9 +33,15 @@ public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInt
     public DishList() {
         menu = new HashMap<>();
         dishNames = menu.keySet().toArray(new String[0]);
-        readWriter = new SerReadWriter();
     }
 
+    public DishList(String filename, Context context) {
+        this.filename = filename;
+        readWriter = new GCloudReadWriter();
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(filename);
+        this.context = context;
+        dishNames = menu.keySet().toArray(new String[0]);
+    }
 
     /**
      *
@@ -97,7 +105,6 @@ public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInt
      */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
-        readWriter.saveToFile(menu);
     }
 
     /**
@@ -110,8 +117,6 @@ public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInt
         assert dish != null;
         dish.increasePrice();
         dish.decreaseCalories();
-        menu.put(dishName, dish);
-        readWriter.saveToFile(menu);
     }
 
     /**
@@ -129,7 +134,6 @@ public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInt
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
-        readWriter.saveToFile(menu);
     }
 
     /**
@@ -166,11 +170,8 @@ public class DishList implements Serializable, Iterable<Dish>, DataGeneratingInt
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
 
-    /**
-     * Generate data for dishList.
-     */
-    @Override
-    public void generateData() {
-        readWriter.readFromFile();
+    public void saveToFile(){
+        readWriter.saveToFile(context, this.filename, menu);
     }
+
 }

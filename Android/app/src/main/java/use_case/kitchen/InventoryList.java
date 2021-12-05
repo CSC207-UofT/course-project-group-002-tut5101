@@ -1,14 +1,12 @@
 package use_case.kitchen;
 
+import android.content.Context;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
-import presenter.main_information.DataGeneratingInterface;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.inventory_factory.InventoryFactory;
-
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
@@ -17,8 +15,7 @@ import java.util.Objects;
  * Public class storing information for all inventories using a Hashmap.
  *
  */
-public class InventoryList implements Serializable, DataGeneratingInterface {
-
+public class InventoryList implements Serializable {
 
     /**
      * A hashmap that maps ingredient name to its corresponding inventory item instance.
@@ -26,12 +23,21 @@ public class InventoryList implements Serializable, DataGeneratingInterface {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
+    private ReadWriter irw;
+    private String filename;
+    private Context context;
     private InventoryOutputBoundary boundary;
     public InventoryList(){
+        this.filename = null;
         myDict = new HashMap<>();
     }
-    private final ReadWriter readWriter = new SerReadWriter();
 
+    public InventoryList(String filename, Context context) {
+        this.filename = filename;
+        irw = new GCloudReadWriter();
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(filename);
+        this.context = context;
+    }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
         this.boundary = boundary;
@@ -47,7 +53,6 @@ public class InventoryList implements Serializable, DataGeneratingInterface {
         {   int id = myDict.size();
             item.setId(id);
             myDict.put(item.getName(), item);
-            readWriter.saveToFile(myDict);
             return "Successful";
         }
         else{return "Occupied name or item";}
@@ -131,11 +136,7 @@ public class InventoryList implements Serializable, DataGeneratingInterface {
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
-    /**
-     * Generate data for inventoryList.
-     */
-    @Override
-    public void generateData() {
-        readWriter.readFromFile();
+    public void saveToFile() {
+        irw.saveToFile(context, filename, myDict);
     }
 }

@@ -2,9 +2,9 @@ package use_case.deliver_order;
 
 import use_case.user_list.UserList;
 import entity.delivery.ServingStaff;
-import entity.User;
+import entity.user.User;
 
-public class ServeDish implements ServeDishInterface{
+public class ServeDish{
 
     /**
      * @param id The id of the serving staff that has logged in.
@@ -34,7 +34,6 @@ public class ServeDish implements ServeDishInterface{
      */
     public String getItemInfo(String id){
         User user = UserList.getUserByUserId(id);
-
         return ((ServingStaff) user).displayDish();
     }
 }

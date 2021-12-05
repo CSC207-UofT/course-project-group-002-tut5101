@@ -1,10 +1,10 @@
 package use_case.review;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import entity.review.Review;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
-import presenter.main_information.DataGeneratingInterface;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,17 +13,25 @@ import java.util.Objects;
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review>, DataGeneratingInterface {
+public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
-    private final ReadWriter readWriter;
+    private ReadWriter irw;
+    private String filename;
+    Context context;
 
     /**
      * Empty constructor.
      */
     public ReviewList() {
         reviews = new HashMap<>();
-        readWriter = new SerReadWriter();
+    }
+
+    public ReviewList(String filename, Context context) {
+        irw = new GCloudReadWriter();
+        this.filename = filename;
+        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        this.context = context;
     }
 
 
@@ -54,7 +62,6 @@ public class ReviewList implements Serializable, Iterable<Review>, DataGeneratin
      */
     public void addReview(Review r) {
         reviews.put(r.getReviewID(), r);
-        readWriter.saveToFile(reviews);
     }
 
     /**
@@ -112,14 +119,9 @@ public class ReviewList implements Serializable, Iterable<Review>, DataGeneratin
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
 
-    /**
-     * Generate data for reviewList.
-     */
-    @Override
-    public void generateData() {
-        readWriter.readFromFile();
+
+    public void saveToFile() {
+        irw.saveToFile(context, filename, reviews);
     }
-
-
 
 }

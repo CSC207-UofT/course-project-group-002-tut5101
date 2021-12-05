@@ -2,21 +2,22 @@ package use_case.deliver_order;
 
 public class ServingDishAdaptor implements DeliveryInputBoundary{
     private StaffDeliveryOutputBoundary outputBoundary;
-    private final ServeDishInterface sd = new ServeDish();
+    private final ServeDish sd = new ServeDish();
 
     /**
-     * @param id The id of the serving staff that has logged in.
-     * @throws Exception if the given id does not correspond to a serving staff.
+     * Mark current item as delivered
+     * @param id ID of the staff that is delivering the item
+     * @throws Exception Throws exception as it is handled in presneter
      */
     public void delivered(String id) throws Exception{
         this.sd.delivered(id);
     }
 
     /**
-     * @param id The id of the serving staff that has logged in.
-     * @throws Exception if the given id does not correspond to a serving staff.
+     * Wrapper for get to be delivered item
+     * @param id ID of the staff
+     * @throws Exception When there is no staff with the id, passes the exception to presenter
      */
-
     public void getToBeDeliver(String id) throws Exception{
         this.sd.getToBeDeliver(id);
     }

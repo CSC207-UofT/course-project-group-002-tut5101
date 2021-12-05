@@ -16,8 +16,6 @@ public abstract class Inventory implements Serializable {
     protected double price;
     protected int quantity;
 
-
-
     /**
      * Construct an instance of Material
      * @param name The name of the Inventory
@@ -79,12 +77,6 @@ public abstract class Inventory implements Serializable {
         else{message = "Not enough";}
         return message;
     }
-
-
-
-
-
-
 
     /**
      *

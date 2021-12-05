@@ -27,4 +27,4 @@ public class InventoryFactory {
             }
         return null;
     }
-    }
+}

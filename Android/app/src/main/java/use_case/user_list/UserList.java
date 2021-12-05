@@ -1,17 +1,17 @@
 package use_case.user_list;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.manger_system.UserType;
-import entity.User;
+import entity.user.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import gateway.SerReadWriter;
-import presenter.main_information.DataGeneratingInterface;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -21,22 +21,36 @@ import java.util.HashMap;
  *
  */
 
-public class UserList implements Serializable, DataGeneratingInterface {
+public class UserList implements Serializable {
 
     /**
      * Private instances used in the class.
      */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    private final ReadWriter readWriter = new SerReadWriter();
+    ReadWriter readWriter;
+    private String filename;
+    Context context;
+
+    public UserList() {
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
+    }
 
     /**
      *  Second constructor: construct with size of the UserList.
+     * @param i: number of users in the list.
      */
-    public UserList() {
-        users = new HashMap<>();
+    public UserList(int i) {
+        users = new HashMap<>(i);
     }
 
+    public UserList(String filename, Context context) {
+        this.filename = filename;
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
+        this.context = context;
+    }
     /**
      *
      * @return the length of the user list.
@@ -53,7 +67,6 @@ public class UserList implements Serializable, DataGeneratingInterface {
      */
     public void addUser(User user) {
         users.put(user.getId(), user);
-        readWriter.saveToFile(users);
     }
 
 
@@ -112,6 +125,9 @@ public class UserList implements Serializable, DataGeneratingInterface {
         return builder.toString();
     }
 
+    public void savetoFile(Context context) {
+        this.readWriter.saveToFile(context, this.filename, users);
+    }
 
     /**
      *  method to add staffs.
@@ -136,14 +152,7 @@ public class UserList implements Serializable, DataGeneratingInterface {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
-        readWriter.saveToFile(users);
-    }
-
-    /**
-     * Generate data for userList.
-     */
-    @Override
-    public void generateData() {
-        readWriter.readFromFile();
+        //Save the updated user list to file
+        savetoFile(context);
     }
 }
