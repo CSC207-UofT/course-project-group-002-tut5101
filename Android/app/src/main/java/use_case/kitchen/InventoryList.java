@@ -32,7 +32,7 @@ public class InventoryList implements Serializable {
     private InventoryOutputBoundary boundary;
     private static String filename;
 
-    private static final long serialVersionUID = 8909592165346578070L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Null constructor
