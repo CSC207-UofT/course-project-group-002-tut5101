@@ -2,7 +2,7 @@ package presenter.inventory_system;
 
 import use_case.kitchen.InventoryList;
 
-public class InventoryFacade {
+public class cInventoryFacade {
     InventoryList inventories;
 
     public AddInventoryPresenter createAddPresenter(){

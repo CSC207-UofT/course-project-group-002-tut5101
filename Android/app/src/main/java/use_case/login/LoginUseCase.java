@@ -44,7 +44,5 @@ public class LoginUseCase {
                 outputBoundary.presentLoginResult(LoginResult.FAILURE);
             }
         }
-
     }
-
 }

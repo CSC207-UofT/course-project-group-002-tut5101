@@ -46,20 +46,27 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
         }
         // Get next order to be delivered
         if (mode.equals("GET_NEXT")) {
-            Toast toast;
-            try {
-                presenter.getNext(this.id);
-            } catch (Exception e) {
-                if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
-                    toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                goBackPickAction();
-            }
+            getNextOrder();
         }
         // Display current order to be delivered
         currentOrder = findViewById(R.id.CurrentOrder);
         getCurrentOrder();
+    }
+
+    /**
+     * Private procedure, get The next order
+     */
+    private void getNextOrder() {
+        Toast toast;
+        try {
+            presenter.getNext(this.id);
+        } catch (Exception e) {
+            if (e.getMessage() != null && !e.getMessage().equals("Already has one order in hands")) {
+                toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            goBackPickAction();
+        }
     }
 
     /**

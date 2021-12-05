@@ -38,20 +38,15 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_staff);
-
         managerPresenter = new ManagerPresenter();
         managerPresenter.setViewInterface(this);
-
         editTextUserId = findViewById(R.id.editTextNewUserId);
         editTextUserName = findViewById(R.id.editTextNewUserName);
         editTextPassword = findViewById(R.id.editTextNewUserPassword);
         editTextConfirmPassword = findViewById(R.id.editTextNewUserConfirmPassword);
         numPickerUserType = findViewById(R.id.numPickerUserType);
         editNumSalary = findViewById(R.id.editNumSalary);
-
-
         generateRequiredInfo();
-
     }
 
     /**

@@ -35,21 +35,11 @@ public class KitchenActivity extends AppCompatActivity{
         KitchenAdapter adapter = new KitchenAdapter(this, R.layout.cook_dish_layout,
                 displayDishes);
         list.setAdapter(adapter);
+    }
 
-//        Button button = (Button) findViewById(R.id.button);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // kc.add("Pressed button");
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
-
-
-        }
     public String getMessage(String message){
         return message;
     }
+
     public KitchenController getKitchen() {return kc;}
 }

@@ -13,7 +13,7 @@ import presenter.inventory_system.AddinventoryViewInterface;
 /**
  * Activity class for adding inventory.
  */
-public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
+public class 2AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
     private Button button;
     private EditText name;
     private EditText price;

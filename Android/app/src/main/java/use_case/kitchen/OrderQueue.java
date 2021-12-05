@@ -77,7 +77,6 @@ public class OrderQueue {
                         int dishIngredientsTemp = tempIngredients;
                         ingredientsRequired.replace(ingredient, previousValue + dishIngredientsTemp);
                     }
-
                 }
             }
         }
@@ -88,5 +87,10 @@ public class OrderQueue {
             if (tempIngredients != null) {
                 int ingredients = tempIngredients;
                 if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
-                    return false; } } }
-        return true; } }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}

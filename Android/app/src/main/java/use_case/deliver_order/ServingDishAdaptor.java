@@ -1,17 +1,23 @@
 package use_case.deliver_order;
 
-import entity.User;
-import entity.delivery.ServingStaff;
-import use_case.user_list.UserList;
-
 public class ServingDishAdaptor implements DeliveryInputBoundary{
     private StaffDeliveryOutputBoundary outputBoundary;
     private final ServeDish sd = new ServeDish();
 
+    /**
+     * Mark current item as delivered
+     * @param id ID of the staff that is delivering the item
+     * @throws Exception Throws exception as it is handled in presneter
+     */
     public void delivered(String id) throws Exception{
         this.sd.delivered(id);
     }
 
+    /**
+     * Wrapper for get to be delivered item
+     * @param id ID of the staff
+     * @throws Exception When there is no staff with the id, passes the exception to presenter
+     */
     public void getToBeDeliver(String id) throws Exception{
         this.sd.getToBeDeliver(id);
     }

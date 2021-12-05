@@ -46,8 +46,6 @@ public class KitchenAdapter extends ArrayAdapter {
             int a = Integer.parseInt(quantity);
             qt.setText(String.valueOf(a - 1));
         });
-
-
         return convertView;
     }
 }

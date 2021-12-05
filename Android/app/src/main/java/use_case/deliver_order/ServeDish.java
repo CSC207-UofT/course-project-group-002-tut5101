@@ -34,8 +34,6 @@ public class ServeDish{
      */
     public String getItemInfo(String id){
         User user = UserList.getUserByUserId(id);
-        String dishInfo = ((ServingStaff) user).displayDish();
-
-        return dishInfo;
+        return ((ServingStaff) user).displayDish();
     }
 }

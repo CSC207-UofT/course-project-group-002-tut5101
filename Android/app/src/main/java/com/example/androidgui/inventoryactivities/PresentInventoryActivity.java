@@ -27,8 +27,8 @@ public class PresentInventoryActivity extends AppCompatActivity{
         TextView mTextView4 = findViewById(R.id.textView9);
         TextView mTextView5 = findViewById(R.id.textView10);
         Intent intent = getIntent();
-        String showdata = intent.getStringExtra("showdata");
-        String[] presenting = showdata.split(",");
+        String showData = intent.getStringExtra("showdata");
+        String[] presenting = showData.split(",");
         mTextView1.setText(presenting[0]);
         mTextView2.setText(presenting[1]);
         mTextView3.setText(presenting[2]);
@@ -44,12 +44,10 @@ public class PresentInventoryActivity extends AppCompatActivity{
         }
         mTextView4.setText(num4);
         mTextView5.setText(num5);
-
         Button btn = findViewById(R.id.button6);
         btn.setOnClickListener(v -> {
             Intent intent1 = new Intent(PresentInventoryActivity.this, InventoryStarterActivity.class);
             startActivity(intent1);
         });
     }
-
 }

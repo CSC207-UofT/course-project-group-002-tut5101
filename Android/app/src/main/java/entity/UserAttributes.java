@@ -4,9 +4,9 @@ package entity;
  * Implement private class design pattern to reduce exposure of central user data
  */
 public class UserAttributes {
-    private String id;
-    private String name;
-    private String password;
+    private final String id;
+    private final String name;
+    private final String password;
 
     /**
      * Constructor for user attributes
