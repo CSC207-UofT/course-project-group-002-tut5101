@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNull;
  */
 public class UserListTest {
 
-    final UserList userList = new UserList(FileName.USER_FILE);
+    final UserList userList = new UserList();
 
     /**
      * Setting up the test.

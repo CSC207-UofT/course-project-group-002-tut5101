@@ -18,7 +18,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
      * Constructor
      */
     public DeleteReviewUseCase() {
-        this.reviewList = new ReviewList(FileName.REVIEW_FILE);
+        this.reviewList = new ReviewList();
     }
 
 

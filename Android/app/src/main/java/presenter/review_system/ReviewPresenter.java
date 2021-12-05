@@ -18,7 +18,7 @@ public class ReviewPresenter implements ReviewOutputBoundary {
      * Constructor for this class.
      */
     public ReviewPresenter(){
-        this.reviewList = new ReviewList(FileName.REVIEW_FILE);
+        this.reviewList = new ReviewList();
         reviewList.setReviewOutputBoundary(this);
         generateReviewList();
     }

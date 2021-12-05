@@ -24,7 +24,7 @@ public class InventoryListTest {
      */
     @Before
     public void setUp() {
-        inventoryList = new InventoryList(FileName.INVENTORY_FILE);
+        inventoryList = new InventoryList();
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 

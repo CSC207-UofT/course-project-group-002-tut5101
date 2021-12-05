@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 import use_case.user_list.UserList;
 
 public class EnrolStaffUseCaseTest {
-    private final UserList userList = new UserList(FileName.USER_FILE);
+    private final UserList userList = new UserList();
     private EnrollStaffUseCase useCase = new EnrollStaffUseCase(userList);
 
     /**

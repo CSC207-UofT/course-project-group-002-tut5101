@@ -29,7 +29,7 @@ public class OrderQueueTest {
         OrderQueue.reset();
 
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
-        InventoryList inventoryList = new InventoryList(FileName.INVENTORY_FILE);
+        InventoryList inventoryList = new InventoryList();
         inventoryList.addInventory(hasExpiryDate);
 
         String location = "1";

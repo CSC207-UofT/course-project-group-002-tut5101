@@ -16,7 +16,7 @@ import use_case.user_list.UserList;
  */
 public class LoginUseCaseTest {
     private LoginUseCase loginUseCase;
-    private final UserList userList = new UserList(FileName.USER_FILE);
+    private final UserList userList = new UserList();
 
     /**
      * Setup before tests

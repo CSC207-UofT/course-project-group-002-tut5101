@@ -21,7 +21,7 @@ public class DeleteReviewUseCaseTest {
     @Before
     public void setUp(){
 
-        reviewList = new ReviewList(FileName.REVIEW_FILE);
+        reviewList = new ReviewList();
         ReviewList.setContext(new DeleteReviewActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");

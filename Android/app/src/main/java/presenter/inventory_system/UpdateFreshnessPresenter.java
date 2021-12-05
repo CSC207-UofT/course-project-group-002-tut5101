@@ -14,7 +14,7 @@ public class UpdateFreshnessPresenter {
      * Constructor for this class
      */
     public UpdateFreshnessPresenter(){
-        this.inventories = new InventoryList(FileName.INVENTORY_FILE);
+        this.inventories = new InventoryList();
     }
     public UpdateFreshnessPresenter(InventoryList inventories){
         this.inventories = inventories;

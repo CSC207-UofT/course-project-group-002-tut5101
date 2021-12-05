@@ -9,7 +9,7 @@ public class UpdateQuantityPresenter {
     private UpdateQuantityInterface updateQuantityInterface;
     private final InventoryList inventories;
     public UpdateQuantityPresenter(){
-        this.inventories = new InventoryList(FileName.INVENTORY_FILE);
+        this.inventories = new InventoryList();
     }
     public UpdateQuantityPresenter(InventoryList inventories){
         this.inventories = inventories;
