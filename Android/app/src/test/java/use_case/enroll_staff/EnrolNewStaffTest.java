@@ -1,12 +1,6 @@
 package use_case.enroll_staff;
 
-import constant.file_system.FileName;
-import constant.manger_system.UserType;
 import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,9 +8,9 @@ import use_case.user_list.UserList;
 
 import java.util.HashMap;
 
-public class EnrolStaffUseCaseTest {
+public class EnrolNewStaffTest {
     private final UserList userList = new UserList();
-    private EnrollStaffUseCase useCase = new EnrollStaffUseCase();
+    private EnrollNewStaff useCase = new EnrollNewStaff();
 
     /**
      * Setting up the test.
@@ -29,7 +23,7 @@ public class EnrolStaffUseCaseTest {
 
         userList.addUser(new Customer("0", "James", "12345"));
         userList.addUser(new Customer("1", "Steve", "12345"));
-        useCase = new EnrollStaffUseCase(userList);
+        useCase = new EnrollNewStaff(userList);
     }
 
     /**

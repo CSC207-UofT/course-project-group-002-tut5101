@@ -7,7 +7,7 @@ import use_case.user_list.UserList;
  * Class for enrolling new staffs.
  */
 
-public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
+public class EnrollNewStaff implements EnrollStaffInputBoundary {
 
     private EnrollStaffOutputBoundary enrollStaffOutputBoundary;
     private final UserList userList;
@@ -15,7 +15,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
     /**
      * Empty constructor for testing
      */
-    public EnrollStaffUseCase() {
+    public EnrollNewStaff() {
         userList = null;
     }
 
@@ -23,7 +23,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
      * Constructor for this class.
      * @param userList a list of users.
      */
-    public EnrollStaffUseCase(UserList userList) {
+    public EnrollNewStaff(UserList userList) {
         this.userList = userList;
     }
 

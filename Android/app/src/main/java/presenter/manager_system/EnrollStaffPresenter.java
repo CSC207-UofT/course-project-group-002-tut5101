@@ -1,7 +1,6 @@
 package presenter.manager_system;
 
 
-import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -11,7 +10,7 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import use_case.enroll_staff.EnrollStaffInputBoundary;
 import use_case.enroll_staff.EnrollStaffOutputBoundary;
-import use_case.enroll_staff.EnrollStaffUseCase;
+import use_case.enroll_staff.EnrollNewStaff;
 import use_case.user_list.UserList;
 
 /**
@@ -46,7 +45,7 @@ public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
      * Constructor of the ManagerController
      */
     public EnrollStaffPresenter() {
-        this.enrollUserInputBoundary = new EnrollStaffUseCase(loadUserList());
+        this.enrollUserInputBoundary = new EnrollNewStaff(loadUserList());
         this.enrollUserInputBoundary.setOutputBoundary(this);
     }
 
