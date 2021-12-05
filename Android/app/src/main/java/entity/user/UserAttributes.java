@@ -1,9 +1,11 @@
 package entity.user;
 
+import java.io.Serializable;
+
 /**
  * Implement private class design pattern to reduce exposure of central user data
  */
-public class UserAttributes {
+public class UserAttributes implements Serializable {
     private final String id;
     private final String name;
     private final String password;

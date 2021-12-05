@@ -43,38 +43,38 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen);
-//        ListView list = findViewById(R.id.dishToCook);
-//
-//
-////        //----------Initialization below, to be deleted when everything works---------------
-////        PlaceOrder po = new PlaceOrder();
-////        new DishList("menu.ser");
-////        new InventoryList("inventory.ser");
-////        try {
-////            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
-////        } catch (Exception e) {
-////            e.printStackTrace();
-////        }
-////        //----------------------------------------------------------------------------------
-//
-//        kp = new KitchenPresenter(this);
-//        kp.checkOrderAvailable();
-//
-//        dishesToDisplay = kp.exportDishes();
-//        adapter = new KitchenAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
-//        list.setAdapter(adapter);
+        ListView list = findViewById(R.id.dishToCook);
 
-        UserList userList = new UserList();
-        userList.addUser(new Manager());
-        userList.addUser(new Customer("1", "James", "12345"));
-        userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
-        userList.addUser(new ServingStaff("3", "Eve", "12345"));
-        userList.addUser(new KitchenStaff("4", "Bob", "12345"));
-        userList.addUser(new InventoryStaff("5", "Frank", "12345"));
-        UserList.setContext(this);
-        UserList.setData(FileName.USER_FILE);
 
-        userList.savetoFile();
+//        //----------Initialization below, to be deleted when everything works---------------
+//        PlaceOrder po = new PlaceOrder();
+//        new DishList("menu.ser");
+//        new InventoryList("inventory.ser");
+//        try {
+//            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        //----------------------------------------------------------------------------------
+
+        kp = new KitchenPresenter(this);
+        kp.checkOrderAvailable();
+
+        dishesToDisplay = kp.exportDishes();
+        adapter = new KitchenAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
+        list.setAdapter(adapter);
+
+//        UserList userList = new UserList();
+//        userList.addUser(new Manager());
+//        userList.addUser(new Customer("1", "James", "12345"));
+//        userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
+//        userList.addUser(new ServingStaff("3", "Eve", "12345"));
+//        userList.addUser(new KitchenStaff("4", "Bob", "12345"));
+//        userList.addUser(new InventoryStaff("5", "Frank", "12345"));
+//        UserList.setContext(this);
+//        UserList.setData(FileName.USER_FILE);
+//
+//        userList.savetoFile();
 
     }
 
