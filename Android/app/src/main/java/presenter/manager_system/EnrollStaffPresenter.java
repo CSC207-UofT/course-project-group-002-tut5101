@@ -1,6 +1,7 @@
 package presenter.manager_system;
 
 
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -31,7 +32,7 @@ public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
      * @return a UserList.
      */
     private UserList loadUserList() {
-        UserList userList = new UserList();
+        UserList userList = new UserList(FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));

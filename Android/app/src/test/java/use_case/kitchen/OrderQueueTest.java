@@ -1,5 +1,6 @@
 package use_case.kitchen;
 
+import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.Inventory;
 import entity.order_list.DeliveryOrder;
@@ -28,7 +29,7 @@ public class OrderQueueTest {
         OrderQueue.reset();
 
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
-        InventoryList inventoryList = new InventoryList();
+        InventoryList inventoryList = new InventoryList(FileName.INVENTORY_FILE);
         inventoryList.addInventory(hasExpiryDate);
 
         String location = "1";

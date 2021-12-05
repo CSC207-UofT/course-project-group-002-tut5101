@@ -1,6 +1,7 @@
 package presenter.manager_system;
 
 
+import constant.file_system.FileName;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -36,7 +37,7 @@ public class EnrollStaffPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList(6);
+        userList = new UserList(FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));

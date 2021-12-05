@@ -1,5 +1,6 @@
 package presenter.staff_system;
 
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import constant.ui_message.LoginResult;
 import entity.customer.Customer;
@@ -62,7 +63,7 @@ public class LoginPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList(6);
+        userList = new UserList(FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));

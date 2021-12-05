@@ -1,7 +1,8 @@
 package com.example.androidgui.kitchen_activities;
+
+import android.os.Bundle;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.androidgui.R;
 import constant.order_system.OrderType;
 import presenter.kitchen_system.KitchenFacade;
@@ -39,14 +40,14 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
 
 
         //----------Initialization below, to be deleted when everything works---------------
-        PlaceOrder po = new PlaceOrder();
-        new DishList("menu.ser", this);
-        new InventoryList("inventory.ser", this);
-        try {
-            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        PlaceOrder po = new PlaceOrder();
+//        new DishList("menu.ser", this);
+//        new InventoryList("inventory.ser", this);
+//        try {
+//            po.placeOrder(OrderType.DINE_IN, new String[]{"Donut sandwich", "Cheetos sandwich"}, "3");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         //----------------------------------------------------------------------------------
 
         kp = new KitchenPresenter(this);
@@ -65,8 +66,8 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
 
     @Override
     public void renewDishes(ArrayList<String[]> displayDishes) {
-       this.dishesToDisplay.clear();
-       this.dishesToDisplay.addAll(displayDishes);
+        this.dishesToDisplay.clear();
+        this.dishesToDisplay.addAll(displayDishes);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package presenter.login_system;
 
+import constant.file_system.FileName;
 import constant.ui_message.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -28,7 +29,7 @@ public class LoginPresenter implements LoginOutputBoundary {
      * A new LoginPresenter
      */
     public LoginPresenter() {
-        this.userList = new UserList();
+        this.userList = new UserList(FileName.USER_FILE);
         this.loginUseCase = new LoginUseCase();
         this.loginUseCase.setOutputBoundary(this);
 

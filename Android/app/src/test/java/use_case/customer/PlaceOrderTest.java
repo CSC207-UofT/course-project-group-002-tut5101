@@ -2,6 +2,7 @@ package use_case.customer;
 
 
 
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class PlaceOrderTest {
     private PlaceOrder placeOrder;
-    private final DishList menu = new DishList();
+    private final DishList menu = new DishList(FileName.MENU_FILE);
 
     /**
      * Setup before tests

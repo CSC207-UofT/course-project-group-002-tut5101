@@ -1,5 +1,6 @@
 package use_case.kitchen;
 
+import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Before;
@@ -23,7 +24,7 @@ public class InventoryListTest {
      */
     @Before
     public void setUp() {
-        inventoryList = new InventoryList();
+        inventoryList = new InventoryList(FileName.INVENTORY_FILE);
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 

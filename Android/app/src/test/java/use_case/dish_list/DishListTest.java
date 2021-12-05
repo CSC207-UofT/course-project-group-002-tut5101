@@ -1,6 +1,7 @@
 package use_case.dish_list;
 
 
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +15,7 @@ import static org.junit.Assert.*;
  * Testing DishList.
  */
 public class DishListTest {
-    private DishList menu = new DishList();
+    private DishList menu = new DishList(FileName.MENU_FILE);
 
     /**
      *
@@ -124,7 +125,7 @@ public class DishListTest {
      */
     @Test
     public void testToString() {
-        menu = new DishList();
+        menu = new DishList(FileName.MENU_FILE);
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
 
         String expected = "1. " + "Milk Tea" +

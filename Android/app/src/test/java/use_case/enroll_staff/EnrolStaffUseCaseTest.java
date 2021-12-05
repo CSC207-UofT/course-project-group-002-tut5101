@@ -1,5 +1,6 @@
 package use_case.enroll_staff;
 
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -12,7 +13,7 @@ import static org.junit.Assert.*;
 import use_case.user_list.UserList;
 
 public class EnrolStaffUseCaseTest {
-    private final UserList userList = new UserList(20);
+    private final UserList userList = new UserList(FileName.USER_FILE);
     private EnrollStaffUseCase useCase = new EnrollStaffUseCase(userList);
 
     /**

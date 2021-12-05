@@ -1,5 +1,6 @@
 package use_case.user_list;
 
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -23,7 +24,7 @@ import static org.junit.Assert.assertNull;
  */
 public class UserListTest {
 
-    final UserList userList = new UserList(20);
+    final UserList userList = new UserList(FileName.USER_FILE);
 
     /**
      * Setting up the test.

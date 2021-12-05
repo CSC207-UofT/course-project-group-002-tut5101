@@ -1,5 +1,6 @@
 package presenter.inventory_system;
 
+import constant.file_system.FileName;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 /**
@@ -13,7 +14,7 @@ public class AddInventoryPresenter {
      * Constructor for this class
      */
 
-    public AddInventoryPresenter(){this.inventories = new InventoryList();}
+    public AddInventoryPresenter(){this.inventories = new InventoryList(FileName.INVENTORY_FILE);}
 
     public AddInventoryPresenter(InventoryList inventories){
         this.inventories = inventories;

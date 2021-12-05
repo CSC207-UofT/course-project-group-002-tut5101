@@ -1,6 +1,10 @@
 package presenter.inventory_system;
 
+import constant.file_system.FileName;
 import use_case.kitchen.InventoryList;
+
+import java.io.File;
+
 /**
  * Controls the process for check one existing inventory.
  */
@@ -11,7 +15,7 @@ public class CheckInventoryPresenter {
      * Constructor for this class
      */
     public CheckInventoryPresenter(){
-        this.inventories = new InventoryList();
+        this.inventories = new InventoryList(FileName.INVENTORY_FILE);
     }
 
     public CheckInventoryPresenter(InventoryList inventories){

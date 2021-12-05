@@ -1,5 +1,6 @@
 package presenter.manager_system;
 
+import constant.file_system.FileName;
 import use_case.dish_list.ManageMenuOutputBoundary;
 import use_case.dish_list.DishList;
 
@@ -14,7 +15,7 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
      * Constructor for this classs.
      */
     public ManageMenuPresenter(){
-        this.dishList = new DishList();
+        this.dishList = new DishList(FileName.MENU_FILE);
         dishList.setManageMenuOutputBoundary(this);
     }
 

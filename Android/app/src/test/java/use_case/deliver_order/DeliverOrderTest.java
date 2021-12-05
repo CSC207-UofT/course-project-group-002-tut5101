@@ -1,5 +1,6 @@
 package use_case.deliver_order;
 
+import constant.file_system.FileName;
 import entity.delivery.DeliveryStaff;
 import entity.order_list.Order;
 import entity.order_list.DeliveryOrder;
@@ -24,7 +25,7 @@ public class DeliverOrderTest {
     @Before
     public void setUp() throws Exception {
         TestClass testPresenter = new TestClass();
-        UserList userList = new UserList(1);
+        UserList userList = new UserList(FileName.USER_FILE);
         deliver = new DeliverOrder();
         Order order1 = new DeliveryOrder("1", new HashMap<>());
         DeliveryBuffer.addDeliveryOrder(order1);

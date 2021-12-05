@@ -1,6 +1,7 @@
 package presenter.inventory_system;
 
 import com.example.androidgui.inventory_activities.UpdateQuantityActivity;
+import constant.file_system.FileName;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
 //TODO: issues here with showInfo message, not MVP!
@@ -8,7 +9,7 @@ public class UpdateQuantityPresenter {
     private UpdateQuantityInterface updateQuantityInterface;
     private final InventoryList inventories;
     public UpdateQuantityPresenter(){
-        this.inventories = new InventoryList();
+        this.inventories = new InventoryList(FileName.INVENTORY_FILE);
     }
     public UpdateQuantityPresenter(InventoryList inventories){
         this.inventories = inventories;

@@ -1,5 +1,6 @@
 package use_case.deliver_order;
 
+import constant.file_system.FileName;
 import entity.delivery.ServingStaff;
 import entity.order_list.Dish;
 import org.junit.Before;
@@ -36,7 +37,7 @@ public class ServingDishAdapterTest {
         ServingBuffer.addDish(dish1);
         ServingBuffer.addDish(dish2);
 
-        UserList userList = new UserList(1);
+        UserList userList = new UserList(FileName.USER_FILE);
         userList.addUser(new ServingStaff("1", "a", "abc"));
 
     }
