@@ -19,7 +19,7 @@ public class AddReviewUseCaseTest {
      */
     @Before
     public void setUp(){
-        ReviewList reviewList = new ReviewList(FileName.REVIEW_FILE);
+        ReviewList reviewList = new ReviewList();
         ReviewList.setContext(new AddReviewCommentActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
