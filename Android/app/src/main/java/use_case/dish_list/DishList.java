@@ -24,7 +24,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     ReadWriter readWriter;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    private String filename;
+    private final String filename;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;

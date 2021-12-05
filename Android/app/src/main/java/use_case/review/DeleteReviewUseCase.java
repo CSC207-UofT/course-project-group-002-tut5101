@@ -1,6 +1,5 @@
 package use_case.review;
 
-import android.content.Context;
 import constant.file_system.FileName;
 import entity.review.Review;
 

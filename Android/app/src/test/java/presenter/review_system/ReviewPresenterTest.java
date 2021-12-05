@@ -17,7 +17,6 @@ public class ReviewPresenterTest {
     @Before
     public void setUp() {
         reviewPresenter = new ReviewPresenter();
-        reviewPresenter.setContext(new SeeReviewActivity());
         TestClass testPresenter = new TestClass();
         reviewPresenter.setDisplayReviewViewInterface(testPresenter);
     }
