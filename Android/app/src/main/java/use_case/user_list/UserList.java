@@ -1,5 +1,6 @@
 package use_case.user_list;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.manger_system.UserType;
 import entity.user.User;
@@ -9,6 +10,8 @@ import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import gateway.GCloudReadWriter;
+import gateway.ReadWriter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -25,6 +28,14 @@ public class UserList implements Serializable {
      */
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
+    ReadWriter readWriter;
+    private String filename;
+    Context context;
+
+    public UserList() {
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
+    }
 
     /**
      *  Second constructor: construct with size of the UserList.
@@ -34,6 +45,12 @@ public class UserList implements Serializable {
         users = new HashMap<>(i);
     }
 
+    public UserList(String filename, Context context) {
+        this.filename = filename;
+        readWriter = new GCloudReadWriter();
+        users = (HashMap<String, User>) readWriter.readFromFile(filename);
+        this.context = context;
+    }
     /**
      *
      * @return the length of the user list.
@@ -108,6 +125,9 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
+    public void savetoFile(Context context) {
+        this.readWriter.saveToFile(context, this.filename, users);
+    }
 
     /**
      *  method to add staffs.
@@ -132,5 +152,7 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
+        //Save the updated user list to file
+        savetoFile(context);
     }
 }

@@ -1,11 +1,12 @@
 package use_case.kitchen;
 
+import android.content.Context;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
+import gateway.GCloudReadWriter;
+import gateway.ReadWriter;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.inventory_factory.InventoryFactory;
-
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
@@ -16,18 +17,27 @@ import java.util.Objects;
  */
 public class InventoryList implements Serializable {
 
-
     /**
      * A hashmap that maps ingredient name to its corresponding inventory item instance.
      * The information of this ingredient (e.g. name, price, quantity, etc.) are stored as
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
+    private ReadWriter irw;
+    private String filename;
+    private Context context;
     private InventoryOutputBoundary boundary;
     public InventoryList(){
+        this.filename = null;
         myDict = new HashMap<>();
     }
 
+    public InventoryList(String filename, Context context) {
+        this.filename = filename;
+        irw = new GCloudReadWriter();
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(filename);
+        this.context = context;
+    }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
         this.boundary = boundary;
@@ -126,7 +136,7 @@ public class InventoryList implements Serializable {
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
-
-
-
+    public void saveToFile() {
+        irw.saveToFile(context, filename, myDict);
+    }
 }

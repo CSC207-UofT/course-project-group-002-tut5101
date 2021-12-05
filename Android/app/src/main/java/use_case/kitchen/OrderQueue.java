@@ -77,6 +77,7 @@ public class OrderQueue {
                         int dishIngredientsTemp = tempIngredients;
                         ingredientsRequired.replace(ingredient, previousValue + dishIngredientsTemp);
                     }
+
                 }
             }
         }
@@ -87,6 +88,7 @@ public class OrderQueue {
             if (tempIngredients != null) {
                 int ingredients = tempIngredients;
                 if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
+                    System.out.println("NOT ENOUGH:" + ingredientRequired);
                     return false;
                 }
             }

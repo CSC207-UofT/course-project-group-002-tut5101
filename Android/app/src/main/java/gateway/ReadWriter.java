@@ -1,8 +1,7 @@
 package gateway;
 
-
+import android.content.Context;
 import java.util.HashMap;
-
 
 /**
  * Gateway interface for reading and writing.
@@ -10,14 +9,14 @@ import java.util.HashMap;
 
 public interface ReadWriter {
     /**
-     * @param filepath location of ser file
-     * @param o object to be serialized
+     * @param context an activity instance
+     * @param filename the name of the file
+     * @param map the HashMap to be saved
      */
-    void saveToFile(String filepath, Object o);
+    void saveToFile(Context context, String filename, Object map);
 
     /**
-     * @param filepath location of ser file
+     * @param filename the name of the file
      */
-    HashMap readFromFile(String filepath);
+    Object readFromFile(String filename);
 }
-

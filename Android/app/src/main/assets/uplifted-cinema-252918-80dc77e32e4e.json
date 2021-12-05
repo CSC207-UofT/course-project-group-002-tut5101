@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "uplifted-cinema-252918",
+  "private_key_id": "80dc77e32e4ecf3d5e26e14d83ae421d46394cbe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCgtOKjL2Oy/BWd\nKGi4WR/qwVQ9hT1MSG2Pl0+rMQpnTwILJpYoUnribWmG8pN11PDaw1XKgZDwCcwN\nEFwRJUFVUO/Ni31oDgwKtyH4RV0+nqLB+6n7u/kAPRTHuM4iVFmQNxEaRMupi6SF\nMpvwmd0XEmKgj2CrQMKHOU1AYa8V6Pd3loLn9x+r8EKU5pSh6HChHvJSeOpp9+0U\nR9IKg/Dfp1K70aZXDG5ggiTvDnDwG+qBH7khyY8sWt8QSQUjANqkzNrFXMfZBOGQ\neLmQTjun329jDRHNyyE0TcVau+NqiyoKq73j1f8GNMelipkNJPt1D3QKXpPe/wYl\ndvs7qQtrAgMBAAECggEAKdKZTq2VDS30dAdhpWQwXbg9c5s6tiD9Pkq7BYrIMdWK\naxt6JXk9mLKvrVpwzNADdHM0XvS0Ivvxug6hXybqZ0ked0gPdWZ+dMVvFjz7BMJl\nCgW0GZq0NP8war+qCZ4ZBuKF1WfE9tUsFivzED0CoC/9MdrOZhL+7REZDSG+3nzu\nTjBkKsRscvRW9Z8Nb3MqiUAtvpcEtXx5iTOJ/Zz4cqSmzcJWoP1cCjvRjhKQf25a\nXqc45ZTihFrUJPncgqSMgEjE6+/Ef0XR7ERuP3c8aiIaBKG5gYf/UbEOjRqocG6h\nHBTZeq+ljkjWoEcH0R8UZSEYPioTPEDBWDnYfzzCpQKBgQDTC/iQy38PGDlnaky6\nA8ZK4iRMaH01zbKSyH6+XYyCYpH4lJRP6JJ9KDRh/mAvlvXEFB0QXGu+25m911jZ\nFZoYphgL+cZVkZBefvO3cLkLqs8INo2xyro7dQ7/C42wjIJ1SnCsHBu1lBlE2IzF\naU+xcUeVGSEAYtUX6d7j2kPrrwKBgQDC7/K3Q0h1NlGfqRqEbmh70jIpeJZsGRE7\nFJnJGNmmtMiKSoaKzas2KJz022FE0rVTAyy9ETMIxXNZUSn3tJ4PL3oEzCmn/by0\nz0aif1K5y7Bj82GtEYzpLIiYyDdt2Njap7C3LEEKm6+uhcpCUfLZyH/mlBW2Jxxc\nOZwl7HjfBQKBgA/8RCOThlg6WX6/ynf8eTSK1H0FHRbKMdB0Z0U8CLyHgs71UhaL\nYy0fsngJsHdqU8s6SslGdtLKB2cdvJkUzcs4KXIexSsOD4VY0FUAsMN1eKECoNDq\nrhh60Vv4IA9TVT5VGRuwNVkXkqJoVKFPTL3/+pAMizdgRQu+pydTDPn5AoGAQ6wG\nx2X9Hmun9FRBF144uVtj/I+XMJmXKLpjFLOiw0OZJqDuifsSB7AbpMkPwFOhjNra\nShxRaicZfxU1C3/RKxZhNo8lmuL0ApS+QaUPs94pMtmHvAwOrde+58MBswmHZoi2\nSTB8t9EKMPzTFSjbtIztEb+wtdZn+wAo2+V2pH0CgYEAw/WFjLLEBpUaaR4hC33S\njeIplx51ebV1F0RU/kLZBApj/PKkGJg/PpssTlZ/K+zWyZ50UDueOeUhcUXSdBGO\nYsqTxDaYf0nQrp0ZWcN688dvy3ZHwYHaHxY7t427mQTkEIoUMELQLLidxd45e8RB\nnjfwOaIo6/+K3GKyDHLzqe4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-07project-files@uplifted-cinema-252918.iam.gserviceaccount.com",
+  "client_id": "105562931981940453236",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-07project-files%40uplifted-cinema-252918.iam.gserviceaccount.com"
+}
