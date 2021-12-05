@@ -139,4 +139,10 @@ public class InventoryList implements Serializable {
     public void saveToFile() {
         irw.saveToFile(context, filename, myDict);
     }
+
+    /**
+     * Generate data for inventoryList.
+     */
+    public void generateData() {
+    }
 }

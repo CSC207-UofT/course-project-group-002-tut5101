@@ -174,4 +174,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         readWriter.saveToFile(context, this.filename, menu);
     }
 
+    /**
+     * Generate data for dishList.
+     */
+    public void generateData() {
+    }
 }

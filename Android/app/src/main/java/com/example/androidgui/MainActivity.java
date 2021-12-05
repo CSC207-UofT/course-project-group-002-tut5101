@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
      * generate information.
      */
     private void generateInformation(){
-        MainActivityPresenter presenter = new MainActivityPresenter();
+        MainActivityPresenter presenter = new MainActivityPresenter(this);
         presenter.useCaseDataGenerate();
     }
 

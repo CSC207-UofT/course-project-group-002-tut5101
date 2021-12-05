@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import android.content.Context;
 import use_case.review.AddReviewInputBoundary;
 import use_case.review.AddReviewUseCase;
 
@@ -14,9 +15,8 @@ public class AddReviewPresenter {
     /**
      * Reading from file constructor.
      */
-    public AddReviewPresenter() {
-        this.addReviewInputBoundary = new AddReviewUseCase();
-
+    public AddReviewPresenter(Context context) {
+        this.addReviewInputBoundary = new AddReviewUseCase(context);
     }
 
 

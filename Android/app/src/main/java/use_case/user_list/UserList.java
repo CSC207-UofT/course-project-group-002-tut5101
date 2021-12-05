@@ -155,4 +155,10 @@ public class UserList implements Serializable {
         //Save the updated user list to file
         savetoFile(context);
     }
+
+    /**
+     * Generate data for userList.
+     */
+    public void generateData() {
+    }
 }

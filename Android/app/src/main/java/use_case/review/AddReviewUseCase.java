@@ -1,5 +1,7 @@
 package use_case.review;
 
+import android.content.Context;
+
 /**
  * Use Case class for adding reviews.
  */
@@ -9,7 +11,7 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
     /**
      * Constructor
      */
-    public AddReviewUseCase() {
+    public AddReviewUseCase(Context context) {
         this.reviewList = new ReviewList();
     }
 

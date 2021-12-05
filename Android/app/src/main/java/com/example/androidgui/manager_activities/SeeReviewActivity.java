@@ -23,7 +23,7 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_review);
 
-        ReviewPresenter reviewPresenter = new ReviewPresenter();
+        ReviewPresenter reviewPresenter = new ReviewPresenter(this);
         reviewPresenter.setDisplayReviewViewInterface(this);
 
         reviewPresenter.reviewsInListAsString();

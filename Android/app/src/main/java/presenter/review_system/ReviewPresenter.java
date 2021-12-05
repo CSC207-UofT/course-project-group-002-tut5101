@@ -1,6 +1,7 @@
 package presenter.review_system;
 
 
+import android.content.Context;
 import entity.review.Review;
 import use_case.review.ReviewOutputBoundary;
 import use_case.review.ReviewList;
@@ -15,8 +16,8 @@ public class ReviewPresenter implements ReviewOutputBoundary {
     /**
      * Constructor for this class.
      */
-    public ReviewPresenter(){
-        this.reviewList = new ReviewList();
+    public ReviewPresenter(Context context){
+        this.reviewList = new ReviewList(context);
         reviewList.setReviewOutputBoundary(this);
         generateReviewList();
     }

@@ -1,5 +1,7 @@
 package gateway;
 
+import android.content.Context;
+
 import java.io.*;
 import java.util.HashMap;
 
@@ -14,7 +16,7 @@ public class SerReadWriter implements ReadWriter {
      * save the data to file.
      */
     @Override
-    public void saveToFile(Object o) {
+    public void saveToFile(Context context, String s, Object o) {
 
         try {
             OutputStream file = new FileOutputStream("change");
@@ -34,7 +36,7 @@ public class SerReadWriter implements ReadWriter {
      * @return a hashmap read from url.
      */
     @Override
-    public HashMap<String, Object> readFromFile() {
+    public HashMap<String, Object> readFromFile(String s) {
         HashMap<String, Object> users = new HashMap<>();
         try {
             File f = new File("change");

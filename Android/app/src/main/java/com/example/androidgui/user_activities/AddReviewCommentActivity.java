@@ -18,7 +18,7 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     EditText editTextRate;
     EditText editTextComment;
     EditText editTextId;
-    final AddReviewPresenter rc = new AddReviewPresenter();
+    final AddReviewPresenter rc = new AddReviewPresenter(this);
 
     /**
      *

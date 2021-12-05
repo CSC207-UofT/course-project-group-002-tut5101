@@ -33,7 +33,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
             Review review = reviewIterator.next();
             if (review != null && review.getRate() < i + 1) {
                 reviewIterator.remove();
-                readWriter.saveToFile(reviewList);
+//                readWriter.saveToFile(reviewList);
             }
         }
     }

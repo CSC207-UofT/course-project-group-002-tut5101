@@ -1,5 +1,6 @@
 package presenter.main_information;
 
+import android.content.Context;
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
 import use_case.review.ReviewList;
@@ -17,11 +18,11 @@ public class MainActivityPresenter {
     /**
      * Constructor
      */
-    public MainActivityPresenter(){
-        reviewList = new ReviewList();
-        dishList = new DishList();
-        inventoryList = new InventoryList();
-        userList = new UserList();
+    public MainActivityPresenter(Context context){
+        reviewList = new ReviewList(context);
+        dishList = new DishList("dish.ser", context);
+        inventoryList = new InventoryList("inventory.ser", context);
+        userList = new UserList("user.ser", context);
     }
 
     /**
