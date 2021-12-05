@@ -1,4 +1,4 @@
-package entity;
+package entity.user;
 
 /**
  * Implement private class design pattern to reduce exposure of central user data

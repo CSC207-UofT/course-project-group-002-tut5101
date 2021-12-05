@@ -1,4 +1,4 @@
-package entity;
+package entity.user;
 
 
 import androidx.annotation.NonNull;

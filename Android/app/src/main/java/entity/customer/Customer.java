@@ -1,7 +1,7 @@
 package entity.customer;
 
 import androidx.annotation.NonNull;
-import entity.User;
+import entity.user.User;
 
 /**
  * Public class storing information of a customer.

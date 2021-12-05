@@ -12,7 +12,7 @@ import entity.orderList.Order;
 import entity.orderList.Dish;
 import use_case.serveDish.ServingBuffer;
 import use_case.userList.UserList;
-import entity.User;
+import entity.user.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package entity.delivery;
 
-import entity.User;
+import entity.user.User;
 
 /**
  * Class for entities.Staff that hold the name, salary, and staff number of a staff
