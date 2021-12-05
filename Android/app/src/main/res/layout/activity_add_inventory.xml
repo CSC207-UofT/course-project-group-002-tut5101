@@ -54,14 +54,14 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" android:text="@string/quantity_in_kg"
             android:autofillHints="Quantity" tools:ignore="LabelFor"/>
     <EditText
-            android:layout_width="370dp"
-            android:layout_height="37dp"
+            android:layout_width="357dp"
+            android:layout_height="64dp"
             android:inputType="textPersonName"
             android:text="@string/freshness_n_a_when_do_not_have_in_a_b_c_d"
             android:ems="10"
             android:id="@+id/editTextTextPersonName10"
             app:layout_constraintStart_toStartOf="@+id/editTextDate"
-            android:layout_marginTop="28dp" android:layout_marginStart="1dp"
+            android:layout_marginTop="56dp" android:layout_marginStart="4dp"
             app:layout_constraintTop_toBottomOf="@+id/editTextDate" android:autofillHints="Freshness"
             tools:ignore="LabelFor"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

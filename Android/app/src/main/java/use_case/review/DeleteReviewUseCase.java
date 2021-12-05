@@ -1,7 +1,5 @@
 package use_case.review;
 
-import android.content.Context;
-import constant.file_system.FileName;
 import entity.review.Review;
 
 import java.util.Iterator;
@@ -20,9 +18,6 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     public DeleteReviewUseCase() {
         this.reviewList = new ReviewList();
     }
-    public DeleteReviewUseCase(ReviewList reviewList) {
-        this.reviewList = reviewList;
-    }
 
     /**
      *
@@ -35,7 +30,6 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
             Review review = reviewIterator.next();
             if (review != null && review.getRate() < i + 1) {
                 reviewIterator.remove();
-//                readWriter.saveToFile(reviewList);
             }
         }
     }

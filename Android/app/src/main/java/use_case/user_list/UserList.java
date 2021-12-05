@@ -127,7 +127,9 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile() {
-        readWriter.saveToFile(context, filename, users);
+        if (filename != null) {
+            readWriter.saveToFile(context, filename, users);
+        }
     }
 
     /**
@@ -153,15 +155,10 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
-        //Save the updated user list to file
+
         savetoFile();
     }
 
-    /**
-     * Generate data for userList.
-     */
-    public void generateData() {
-    }
 
     /**
      * Setting context
@@ -183,5 +180,6 @@ public class UserList implements Serializable {
         UserList.filename = filename;
         readWriter = new GCloudReadWriter();
         users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+        System.out.println(users);
     }
 }

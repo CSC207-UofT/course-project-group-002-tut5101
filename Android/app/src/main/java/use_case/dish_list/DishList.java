@@ -176,12 +176,6 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     /**
-     * Generate data for dishList.
-     */
-    public void generateData() {
-    }
-
-    /**
      * Setting context.
      * @param context context.
      */
