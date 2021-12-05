@@ -36,8 +36,7 @@ public class UserLogin {
         User user = UserList.getUserByUserId(id);
         if (user == null) {
             outputBoundary.presentLoginResult(LoginResult.NO_SUCH_USER);
-        }
-        else {
+        } else {
             if (Objects.requireNonNull(user).passwordMatches(password)) {
                 outputBoundary.presentLoginResult(LoginResult.SUCCESS);
             } else {
