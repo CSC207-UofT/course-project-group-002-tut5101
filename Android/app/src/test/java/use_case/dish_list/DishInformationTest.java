@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class DishInformationTest {
 
-    private DishInformation menu = new DishInformation();
+    private DishInformation menu = new DishInformation(0);
 
     /**
      *
