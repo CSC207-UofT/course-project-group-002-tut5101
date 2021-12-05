@@ -29,7 +29,10 @@ public class DishList implements Serializable, Iterable<Dish> {
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
-
+    /**
+     * Constructor
+     * @param filename filename
+     */
     public DishList(String filename) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();

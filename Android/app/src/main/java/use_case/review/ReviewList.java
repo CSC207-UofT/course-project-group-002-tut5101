@@ -21,7 +21,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
     private final ReadWriter irw;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    private String filename;
+    private final String filename;
 
     /**
      * Constructor.
