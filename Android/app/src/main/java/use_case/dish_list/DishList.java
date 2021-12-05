@@ -157,4 +157,9 @@ public class DishList implements Serializable, Iterable<Dish> {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
 
+    /**
+     * Generate data for reviewList.
+     */
+    public void generateData() {
+    }
 }

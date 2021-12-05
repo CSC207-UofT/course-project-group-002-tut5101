@@ -105,4 +105,10 @@ public class ReviewList implements Serializable, Iterable<Review> {
     public void reviewAsString() {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
+
+    /**
+     * Generate data for reviewList.
+     */
+    public void generateData() {
+    }
 }

@@ -49,5 +49,6 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
         String comment = editTextComment.getText().toString();
         String identity = editTextId.getText().toString();
         rc.addToReviewList(name,iifAnonymous, irate, comment, identity);
+        finish();
     }
 }

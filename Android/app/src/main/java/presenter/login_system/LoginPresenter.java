@@ -28,7 +28,7 @@ public class LoginPresenter implements LoginOutputBoundary {
      * A new LoginPresenter
      */
     public LoginPresenter() {
-        this.userList = new UserList(6);
+        this.userList = new UserList();
         this.loginUseCase = new LoginUseCase();
         this.loginUseCase.setOutputBoundary(this);
 

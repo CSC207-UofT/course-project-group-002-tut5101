@@ -28,10 +28,9 @@ public class UserList implements Serializable {
 
     /**
      *  Second constructor: construct with size of the UserList.
-     * @param i: number of users in the list.
      */
-    public UserList(int i) {
-        users = new HashMap<>(i);
+    public UserList() {
+        users = new HashMap<>();
     }
 
     /**
@@ -132,5 +131,11 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
+    }
+
+    /**
+     * Generate data for reviewList.
+     */
+    public void generateData() {
     }
 }

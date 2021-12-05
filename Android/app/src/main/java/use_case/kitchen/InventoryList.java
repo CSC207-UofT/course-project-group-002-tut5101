@@ -126,7 +126,9 @@ public class InventoryList implements Serializable {
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
-
-
-
+    /**
+     * Generate data for reviewList.
+     */
+    public void generateData() {
+    }
 }
