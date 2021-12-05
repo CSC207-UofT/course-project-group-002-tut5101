@@ -30,7 +30,7 @@ public class InventoryList implements Serializable {
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private InventoryOutputBoundary boundary;
-    private String filename;
+    private final String filename;
 
     public InventoryList(String filename) {
         this.filename = filename;

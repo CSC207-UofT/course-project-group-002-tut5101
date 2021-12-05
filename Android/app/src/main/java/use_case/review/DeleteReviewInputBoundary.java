@@ -15,5 +15,4 @@ public interface DeleteReviewInputBoundary {
      */
     void delete(int i);
 
-    void setContext(Context context);
 }

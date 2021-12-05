@@ -24,5 +24,4 @@ public interface AddReviewInputBoundary {
      */
     int length();
 
-    void setContext(Context context);
 }
