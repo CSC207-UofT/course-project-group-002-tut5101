@@ -28,7 +28,7 @@ public class UserList implements Serializable {
     /**
      * Private instances used in the class.
      */
-    private static HashMap<String, User> users;
+    public static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     private static ReadWriter readWriter;
     private static String filename;
