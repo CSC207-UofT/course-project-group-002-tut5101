@@ -126,7 +126,9 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile() {
-        readWriter.saveToFile(context, filename, users);
+        if (filename != null) {
+            readWriter.saveToFile(context, filename, users);
+        }
     }
 
     /**

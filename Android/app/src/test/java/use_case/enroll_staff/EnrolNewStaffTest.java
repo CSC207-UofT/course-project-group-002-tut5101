@@ -1,6 +1,8 @@
 package use_case.enroll_staff;
 
+import constant.manger_system.UserType;
 import entity.customer.Customer;
+import entity.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,7 +33,8 @@ public class EnrolNewStaffTest {
      */
     @Test
     public void testGetStaffTypes() {
-        assert true;
+        useCase = new EnrollNewStaff();
+        useCase.getStaffTypes();
     }
 
     /**
@@ -39,7 +42,7 @@ public class EnrolNewStaffTest {
      */
     @Test
     public void testEnrollNewStaff() {
-        assert true;
+        useCase.enrollNewStaff("1", "12345", "12345", UserType.DELIVERY_STAFF);
     }
 
     /**
@@ -47,7 +50,8 @@ public class EnrolNewStaffTest {
      */
     @Test
     public void testGetNewUserID() {
-        assert true;
+        useCase = new EnrollNewStaff();
+        useCase.getNewUserId();
     }
 
     /**
