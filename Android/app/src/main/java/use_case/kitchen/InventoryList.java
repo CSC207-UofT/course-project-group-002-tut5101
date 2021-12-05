@@ -146,6 +146,9 @@ public class InventoryList implements Serializable {
         return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
     }
 
+    /**
+     * Save data to file
+     */
     public void saveToFile() {
         irw.saveToFile(context, filename, myDict);
     }
@@ -164,6 +167,10 @@ public class InventoryList implements Serializable {
         InventoryList.context = context;
     }
 
+    /**
+     * Set the data
+     * @param filename name of file
+     */
     @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         InventoryList.filename = filename;

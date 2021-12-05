@@ -16,7 +16,8 @@ import static org.junit.Assert.*;
 /**
  * Test Kitchen class
  */
-public class KitchenTest {
+public class CookUseCaseTest {
+
     private DineInOrder dineInOrder;
     private DeliveryOrder deliveryOrder;
     private Order sameDishOrder;

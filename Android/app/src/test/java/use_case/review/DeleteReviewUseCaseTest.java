@@ -1,10 +1,13 @@
 package use_case.review;
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.androidgui.manager_activities.DeleteReviewActivity;
 import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +18,8 @@ public class DeleteReviewUseCaseTest {
     private ReviewList reviewList;
     private DeleteReviewUseCase deleteReviewUseCase;
 
+    @Rule
+    public TestRule rule = new InstantTaskExecutorRule();
     /**
      * Setup before tests
      */
@@ -43,7 +48,7 @@ public class DeleteReviewUseCaseTest {
      */
     @Test
     public void testDelete(){
-        assertEquals(0, reviewList.sizeofList());
+        assertEquals(4, reviewList.sizeofList());
         deleteReviewUseCase.delete(3);
     }
 

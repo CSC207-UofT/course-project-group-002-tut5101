@@ -21,6 +21,13 @@ public class HasExpiryDateTest {
     }
 
     /**
+     * Test the setID method
+     */
+    @Test
+    public void testSetID() {
+        hasExpiryDate.setId(2);
+    }
+    /**
      * Test the getName method
      */
     @Test(timeout = 50)
