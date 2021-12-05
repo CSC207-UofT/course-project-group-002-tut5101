@@ -1,5 +1,6 @@
 package use_case.review;
 
+import com.example.androidgui.manager_activities.DeleteReviewActivity;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,7 @@ public class DeleteReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        deleteReviewUseCase = new DeleteReviewUseCase();
+        deleteReviewUseCase = new DeleteReviewUseCase(new DeleteReviewActivity());
     }
 
     /**

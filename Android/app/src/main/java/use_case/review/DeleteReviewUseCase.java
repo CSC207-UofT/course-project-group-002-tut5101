@@ -1,5 +1,6 @@
 package use_case.review;
 
+import android.content.Context;
 import entity.review.Review;
 import gateway.ReadWriter;
 import gateway.SerReadWriter;
@@ -18,8 +19,8 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     /**
      * Constructor
      */
-    public DeleteReviewUseCase() {
-        this.reviewList = new ReviewList();
+    public DeleteReviewUseCase(Context context) {
+        this.reviewList = new ReviewList(context);
     }
 
     /**

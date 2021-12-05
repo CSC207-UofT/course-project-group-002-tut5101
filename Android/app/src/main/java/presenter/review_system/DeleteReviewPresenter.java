@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import android.content.Context;
 import constant.manger_system.ManagerDecision;
 import use_case.review.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
@@ -15,8 +16,8 @@ public class DeleteReviewPresenter {
     /**
      * Empty constructor.
      */
-    public DeleteReviewPresenter(){
-        this.deleteReviewInputBoundary = new DeleteReviewUseCase();
+    public DeleteReviewPresenter(Context context){
+        this.deleteReviewInputBoundary = new DeleteReviewUseCase(context);
     }
 
     /**

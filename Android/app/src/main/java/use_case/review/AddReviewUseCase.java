@@ -12,7 +12,7 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
      * Constructor
      */
     public AddReviewUseCase(Context context) {
-        this.reviewList = new ReviewList();
+        this.reviewList = new ReviewList(context);
     }
 
 

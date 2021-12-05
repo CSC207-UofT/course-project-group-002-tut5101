@@ -1,5 +1,6 @@
 package use_case.review;
 
+import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class AddReviewUseCaseTest {
         reviewList.addReview(review2);
         reviewList.addReview(review3);
         reviewList.addReview(review4);
-        add = new AddReviewUseCase();
+        add = new AddReviewUseCase(new AddReviewCommentActivity());
     }
 
     /**
