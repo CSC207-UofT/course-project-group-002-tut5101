@@ -2,12 +2,6 @@ package presenter.manager_system;
 
 
 import constant.manger_system.UserType;
-import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
-import entity.manager.Manager;
 import use_case.enroll_staff.EnrollStaffInputBoundary;
 import use_case.enroll_staff.EnrollStaffOutputBoundary;
 import use_case.enroll_staff.EnrollNewStaff;

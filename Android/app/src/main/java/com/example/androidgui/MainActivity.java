@@ -14,7 +14,7 @@ import presenter.main_information.MainActivityPresenter;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     *Method that runs on creation of class
+     * Method that runs on creation of class
      * @param savedInstanceState fixed parameter.
      */
     @Override

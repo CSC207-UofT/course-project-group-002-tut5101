@@ -1,9 +1,7 @@
 package presenter.inventory_system;
 
-import constant.file_system.FileName;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.kitchen.InventoryList;
-import use_case.review.ReviewList;
 
 /**
  * Controls the process for adding new inventory.

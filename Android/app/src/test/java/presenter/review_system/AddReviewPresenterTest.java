@@ -1,6 +1,5 @@
 package presenter.review_system;
 
-import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.review.ReviewList;

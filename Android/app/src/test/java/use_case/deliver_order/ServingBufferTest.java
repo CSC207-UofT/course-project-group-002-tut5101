@@ -12,7 +12,7 @@ public class ServingBufferTest {
     private Dish testDish;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         testDish = new Dish("1", 10, new HashMap<>(), 10);
     }
 

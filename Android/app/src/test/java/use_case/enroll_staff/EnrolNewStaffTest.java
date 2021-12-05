@@ -2,7 +2,6 @@ package use_case.enroll_staff;
 
 import constant.manger_system.UserType;
 import entity.customer.Customer;
-import entity.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
