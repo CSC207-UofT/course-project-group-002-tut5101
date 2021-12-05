@@ -88,8 +88,8 @@ public class ReviewListTest {
      */
     @Test
     public void testToString(){
+        reviewList.reset();
         reviewList.addReview(review1);
-
         String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
                 "; comment = " + "good food";
 
