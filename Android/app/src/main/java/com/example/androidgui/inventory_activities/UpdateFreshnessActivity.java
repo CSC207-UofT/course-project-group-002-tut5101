@@ -44,6 +44,7 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         String iname = name.getText().toString();
         String ifreshness = fresh.getText().toString();
         ufp.popInfo(iname, ifreshness);
+        finish();
     }
     /**
      * Show the message on the screen

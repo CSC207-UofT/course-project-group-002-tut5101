@@ -48,7 +48,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
             mode = b.getString("action");
         }
         // Get next order to be delivered
-        if (mode.equals("GET_NEXT")) {
+        if (mode != null && mode.equals("GET_NEXT")) {
             getNextOrder();
         }
         // Display current order to be delivered

@@ -2,6 +2,7 @@ package presenter.review_system;
 
 
 import constant.file_system.FileName;
+import entity.review.Review;
 import use_case.review.ReviewList;
 import use_case.review.ReviewOutputBoundary;
 
@@ -9,19 +10,17 @@ import use_case.review.ReviewOutputBoundary;
  * Presenter class for reviewList.
  */
 public class ReviewPresenter implements ReviewOutputBoundary {
-    private ReviewList reviewList;
+    private final ReviewList reviewList;
     private DisplayReviewViewInterface displayReviewViewInterface;
 
     /**
      * Constructor for this class.
      */
     public ReviewPresenter(){
-    }
-
-    private void generateReviewList() {
-        reviewList = new ReviewList(FileName.REVIEW_FILE);
+        this.reviewList = new ReviewList();
         reviewList.setReviewOutputBoundary(this);
     }
+
 
     /**
      * Setting view interface.
@@ -29,7 +28,6 @@ public class ReviewPresenter implements ReviewOutputBoundary {
      */
     public void setDisplayReviewViewInterface(DisplayReviewViewInterface displayReviewViewInterface) {
         this.displayReviewViewInterface = displayReviewViewInterface;
-        generateReviewList();
     }
 
     /**

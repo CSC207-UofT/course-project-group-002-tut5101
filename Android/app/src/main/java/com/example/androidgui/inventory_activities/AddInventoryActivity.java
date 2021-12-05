@@ -54,6 +54,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         String idate = date.getText().toString();
         String ifreshness = freshness.getText().toString();
         this.aip.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+        finish();
     }
     @Override
     public void updateInventoryList(String message){

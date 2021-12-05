@@ -32,6 +32,8 @@ public class InventoryList implements Serializable {
     private InventoryOutputBoundary boundary;
     private static String filename;
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Null constructor
      */
@@ -173,6 +175,6 @@ public class InventoryList implements Serializable {
     public static void setData(String filename) {
         InventoryList.filename = filename;
         irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+        // myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 }

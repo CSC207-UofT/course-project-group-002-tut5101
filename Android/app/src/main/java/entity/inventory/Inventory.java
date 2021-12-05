@@ -16,14 +16,17 @@ public abstract class Inventory implements Serializable {
     protected double price;
     protected int quantity;
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Construct an instance of Material
-     * @param name The name of the Inventory
-     * @param price The buy in price of the Inventory
+     *
+     * @param name     The name of the Inventory
+     * @param price    The buy in price of the Inventory
      * @param quantity The quantity of the Inventory
      */
 
-    public Inventory(String name, double price, int quantity){
+    public Inventory(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -33,53 +36,59 @@ public abstract class Inventory implements Serializable {
     /**
      * set the id of the item
      */
-    public void setId(int id){this.id = id;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * @return the name of the item
      */
 
-    public String getName(){return this.name;}
+    public String getName() {
+        return this.name;
+    }
 
     /**
      * @return if the item is used up
      */
 
-    public boolean getUsedUp(){
+    public boolean getUsedUp() {
         return this.usedup;
     }
 
 
     /**
      * Get the quantity of an Inventory
+     *
      * @return The quantity of the Inventory as a double.
      */
 
-    public int getQuantity(){
+    public int getQuantity() {
         return this.quantity;
     }
 
     /**
      * Check whether have enough Inventory for use and change the amount of it
+     *
      * @param usage The required amount of usage of this inventory
      * @return Whether the inventory is enough to use.
      */
 
-    public String updateQuantity(int usage){
+    public String updateQuantity(int usage) {
         String message;
-        if(this.quantity >= usage){
+        if (this.quantity >= usage) {
             this.quantity -= usage;
-            if(this.quantity == 0){
+            if (this.quantity == 0) {
                 this.usedup = true;
             }
             message = "Successfully updated";
+        } else {
+            message = "Not enough";
         }
-        else{message = "Not enough";}
         return message;
     }
 
     /**
-     *
      * @return the string representation of the inventory item
      */
     @NonNull

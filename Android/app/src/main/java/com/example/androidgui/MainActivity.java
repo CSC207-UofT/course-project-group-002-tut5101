@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.user_activities.CustomerPickActionActivity;
 import com.example.androidgui.user_activities.LoginActivity;
+import constant.file_system.FileName;
+import entity.inventory.HasExpiryDate;
+import entity.inventory.HasFreshness;
 import presenter.main_information.MainActivityPresenter;
+import use_case.kitchen.InventoryList;
 
 /**
  * Main activity for this project.

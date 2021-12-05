@@ -2,7 +2,6 @@ package use_case.review;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.androidgui.manager_activities.SeeReviewActivity;
-import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Rule;
@@ -88,8 +87,8 @@ public class ReviewListTest {
      */
     @Test
     public void testToString(){
+        reviewList.reset();
         reviewList.addReview(review1);
-
         String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
                 "; comment = " + "good food";
 
