@@ -1,5 +1,6 @@
 package presenter.order_system;
 
+import android.content.Context;
 import constant.order_system.OrderType;
 import entity.order_list.Dish;
 import use_case.placeorder.PlaceOrder;
@@ -23,8 +24,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
     private HashMap<String, Integer> dishesOrdered;
     private HashMap<String, Double> dishPrices;
-    private final DishInformation dishInformation;
-    private final DishList dishList;
+    private DishInformation dishInformation;
 
     /**
      * The input use_case.boundary for the place order.
@@ -37,15 +37,8 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      */
     public PlaceOrderPresenter() {
         this.dishesOrdered = new HashMap<>();
-        this.dishList = new DishList();
 
         this.placeOrderInputBoundary = new PlaceOrder();
-
-        this.dishInformation = new DishInformation();
-        dishInformation.setPlaceOrderOutputBoundary(this);
-
-        //TODO: Delete later
-        generateDishList();
 
     }
 
@@ -85,6 +78,17 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      */
     public void setPlaceOrderViewInterface(PlaceOrderViewInterface placeOrderViewInterface) {
         this.placeOrderViewInterface = placeOrderViewInterface;
+        initializeDishList();
+    }
+
+    /**
+     * Initialize the dishList
+     */
+    private void initializeDishList() {
+        new DishList("menu.ser", (Context) placeOrderViewInterface);
+        this.dishInformation = new DishInformation();
+        dishInformation.setPlaceOrderOutputBoundary(this);
+
     }
 
     // Updates information in the activity
@@ -243,35 +247,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
         return collectDishes.toArray(new String[0]);
     }
 
-
-
-    // TODO: Delete hardcoded dishes later
-    //Hardcoded dishList for testing
-
-    private void generateDishList() {
-        Dish d1 = new Dish("dish1", 10, new HashMap<>(), 20);
-        Dish d2 = new Dish("dish2", 30, new HashMap<>(), 200);
-        Dish d3 = new Dish("dish3", 100, new HashMap<>(), 10);
-        Dish d4 = new Dish("dish4", 10, new HashMap<>(), 20);
-        Dish d5 = new Dish("dish5", 10, new HashMap<>(), 20);
-        Dish d6 = new Dish("dish6", 10, new HashMap<>(), 20);
-        Dish d7 = new Dish("dish7", 10, new HashMap<>(), 20);
-        dishInformation.addDish(d1);
-        dishInformation.addDish(d2);
-        dishInformation.addDish(d3);
-        dishInformation.addDish(d4);
-        dishInformation.addDish(d5);
-        dishInformation.addDish(d6);
-        dishInformation.addDish(d7);
-
-        dishList.addDish(d1);
-        dishList.addDish(d2);
-        dishList.addDish(d3);
-        dishList.addDish(d4);
-        dishList.addDish(d5);
-        dishList.addDish(d6);
-        dishList.addDish(d7);
-    }
 
 }
 
