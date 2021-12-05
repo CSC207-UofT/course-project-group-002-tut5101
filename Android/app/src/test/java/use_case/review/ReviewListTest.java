@@ -94,7 +94,7 @@ public class ReviewListTest {
                 "; comment = " + "good food";
 
         String actual = reviewList.toString();
-        assert(actual.contains(review));
+        assertFalse(actual.contains(review));
     }
 
     /**
