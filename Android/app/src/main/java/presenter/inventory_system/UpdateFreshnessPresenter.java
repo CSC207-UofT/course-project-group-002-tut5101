@@ -1,6 +1,5 @@
 package presenter.inventory_system;
 
-import constant.file_system.FileName;
 import use_case.kitchen.InventoryList;
 /**
  * Presenter class for the UpdateFreshness activity that change the freshness of an inventory item

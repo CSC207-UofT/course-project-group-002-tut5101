@@ -35,6 +35,7 @@ public class UserList implements Serializable {
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
+
     /**
      * Constructor
      */
@@ -161,6 +162,7 @@ public class UserList implements Serializable {
     }
 
 
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         UserList.filename = filename;
         readWriter = new GCloudReadWriter();

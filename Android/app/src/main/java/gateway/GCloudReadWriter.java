@@ -12,6 +12,7 @@ import com.google.common.collect.Lists;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 
 public class GCloudReadWriter implements ReadWriter {
