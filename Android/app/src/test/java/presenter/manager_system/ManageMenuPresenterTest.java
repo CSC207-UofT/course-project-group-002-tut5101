@@ -47,7 +47,7 @@ public class ManageMenuPresenterTest {
     }
 
     /**
-     * Empty fake presenter class implementing the output boundary
+     * Empty fake presenter class implementing the view interface
      */
     private static class TestClass implements ManageMenuViewInterface {
 

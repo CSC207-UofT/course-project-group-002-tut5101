@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.androidgui.useractivities.CustomerPickActionActivity;
-import com.example.androidgui.useractivities.LoginActivity;
+import com.example.androidgui.user_activities.CustomerPickActionActivity;
+import com.example.androidgui.user_activities.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

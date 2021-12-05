@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".inventoryactivities.UpdateQuanActivity">
+        tools:context=".inventory_activities.UpdateQuantityActivity">
 
     <Button
             android:text="@string/update"
@@ -29,7 +29,7 @@
             android:layout_width="332dp"
             android:layout_height="38dp"
             android:inputType="number|textPersonName|numberDecimal"
-            android:text="usage( negative when adding)"
+            android:text="@string/usage_negative_when_adding"
             android:ems="10"
             android:id="@+id/editTextTextPersonName7"
             android:layout_marginTop="56dp"
