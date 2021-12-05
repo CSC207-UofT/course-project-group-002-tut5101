@@ -38,28 +38,29 @@ public class KitchenActivity extends AppCompatActivity {
         System.out.println(arw.load(this));
 
         // *******Initialization code below, to be deleted later********
+
 //        InventoryList il = new InventoryList("inventory.ser", this);
-//        il.addInventory(new HasFreshness("Bread", 10.0, 40.0, "a", 20211123));
-//        il.addInventory(new HasFreshness("Lettuce", 2.0, 100.0, "a", 20211123));
-//        il.addInventory(new HasFreshness("Beef", 10.0, 20.0, "b", 20211123));
-//        il.addInventory(new HasFreshness("Cheese", 10.0, 16.0, "c", 20211123));
-//        il.addInventory(new HasFreshness("Egg", 14.0, 120.0, "b", 20211123));
-//        il.addInventory(new HasFreshness("Carrot", 7.0, 12.0, "a", 20211123));
-//        il.addInventory(new HasFreshness("Tomato", 9.0, 18.0, "a", 20211123));
-//        il.addInventory(new HasExpiryDate("Ketchup", 12.0, 1000.0,20211205));
-//        il.addInventory(new HasExpiryDate("Donut", 7.0, 40.0,20211205));
-//        il.addInventory(new HasExpiryDate("Cheetos", 7.5, 13.0,20211205));
-//        il.addInventory(new HasExpiryDate("Waffle", 9.0, 30.0,20211205));
-//        il.addInventory(new HasExpiryDate("Maple syrup", 4.0, 1000.0,20211205));
-//        il.addInventory(new HasExpiryDate("Noodle", 6.0, 100.0,20211205));
-//        il.addInventory(new HasExpiryDate("Salt", 20.0, 2000.0,20231205));
-//        il.addInventory(new HasExpiryDate("Oatmeal", 5.0, 400.00,20211205));
-//        il.addInventory(new HasExpiryDate("Beer", 3.0, 400.00,20211205));
-//        il.addInventory(new HasExpiryDate("Milk", 7.0, 450.00,20211205));
-//        il.addInventory(new HasExpiryDate("Chilli sauce", 3.0, 600.00,20231205));
-//        il.addInventory(new HasExpiryDate("Sugar", 2.0, 700.00,20231205));
-//        il.addInventory(new HasExpiryDate("Yogurt", 5.0, 400.00,20211205));
-//        il.savetoFile();
+//        il.addInventory(new HasFreshness("Bread", 10.0, 400, "a", 20211123));
+//        il.addInventory(new HasFreshness("Lettuce", 2.0, 1000, "a", 20211123));
+//        il.addInventory(new HasFreshness("Beef", 10.0, 60, "b", 20211123));
+//        il.addInventory(new HasFreshness("Cheese", 10.0, 60, "c", 20211123));
+//        il.addInventory(new HasFreshness("Egg", 14.0, 400, "b", 20211123));
+//        il.addInventory(new HasFreshness("Carrot", 7.0, 500, "a", 20211123));
+//        il.addInventory(new HasFreshness("Tomato", 9.0, 400, "a", 20211123));
+//        il.addInventory(new HasExpiryDate("Ketchup", 12.0, 1000,20211205));
+//        il.addInventory(new HasExpiryDate("Donut", 7.0, 70,20211205));
+//        il.addInventory(new HasExpiryDate("Cheetos", 7.5, 400,20211205));
+//        il.addInventory(new HasExpiryDate("Waffle", 9.0, 500,20211205));
+//        il.addInventory(new HasExpiryDate("Maple syrup", 4.0, 1000,20211205));
+//        il.addInventory(new HasExpiryDate("Noodle", 6.0, 300,20211205));
+//        il.addInventory(new HasExpiryDate("Salt", 20.0, 2000,20231205));
+//        il.addInventory(new HasExpiryDate("Oatmeal", 5.0, 400,20211205));
+//        il.addInventory(new HasExpiryDate("Beer", 3.0, 400,20211205));
+//        il.addInventory(new HasExpiryDate("Milk", 7.0, 450,20211205));
+//        il.addInventory(new HasExpiryDate("Chilli sauce", 3.0, 600,20231205));
+//        il.addInventory(new HasExpiryDate("Sugar", 2.0, 700,20231205));
+//        il.addInventory(new HasExpiryDate("Yogurt", 5.0, 400,20211205));
+//        il.saveToFile();
 //        System.out.println("Did");
 
 
