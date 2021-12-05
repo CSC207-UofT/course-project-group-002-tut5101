@@ -40,6 +40,9 @@ public class UserList implements Serializable {
      * Constructor
      */
     public UserList() {
+        if (users == null) {
+            users = new HashMap<>();
+        }
     }
     /**
      *

@@ -34,7 +34,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        dishList = new DishList(FileName.MENU_FILE);
+        dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
     }
 

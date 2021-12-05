@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class CurrentOrderDishesActivity extends AppCompatActivity implements KitchenView, PropertyChangeListener {
 
-    public static final KitchenFacade kf = new KitchenFacade();
     private KitchenPresenter kp;
     private CurrentOrderDishesAdapter adapter;
     private ArrayList<String[]> dishesToDisplay;
@@ -51,32 +50,30 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
         adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);
 
-//        UserList userList = new UserList();
-//        userList.addUser(new Manager());
-//        userList.addUser(new Customer("1", "James", "12345"));
-//        userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
-//        userList.addUser(new ServingStaff("3", "Eve", "12345"));
-//        userList.addUser(new KitchenStaff("4", "Bob", "12345"));
-//        userList.addUser(new InventoryStaff("5", "Frank", "12345"));
-//        UserList.setContext(this);
-//        UserList.setData(FileName.USER_FILE);
-//
-//        userList.savetoFile();
-
     }
 
-
+    /**
+     * Listen to the change in Order and update the display if needed.
+     * @param propertyChangeEvent
+     */
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         kp.checkOrderAvailable();
     }
 
+    /**
+     * Update the current dishes to display by mutating the arraylist that holds all display info.
+     * @param displayDishes the updated array list of dish infos.
+     */
     @Override
     public void renewDishes(ArrayList<String[]> displayDishes) {
        this.dishesToDisplay.clear();
        this.dishesToDisplay.addAll(displayDishes);
     }
 
+    /**
+     * Update the display by notifying the adapter changes have been made.
+     */
     @Override
     public void updateListDisplay() {
         this.adapter.notifyDataSetChanged();

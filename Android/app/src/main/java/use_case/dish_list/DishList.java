@@ -29,11 +29,12 @@ public class DishList implements Serializable, Iterable<Dish> {
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
-    public DishList() {
-        menu = new HashMap<String, Dish>();
-    }
 
-    public DishList(String filename) {
+    public DishList() {
+        if (menu == null) {
+            menu = new HashMap<>();
+        }
+
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
