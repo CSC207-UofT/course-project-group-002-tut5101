@@ -23,7 +23,6 @@ public class CookUseCaseTest {
     private Order sameDishOrder;
     private CookUseCase kitchen;
 
-
     /**
      * Setup before tests
      */
@@ -31,8 +30,6 @@ public class CookUseCaseTest {
     public void setUp() {
         kitchen = new CookUseCase(new TestClass());
         OrderQueue.reset();
-
-
         String location = "1";
 
         Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
@@ -50,8 +47,6 @@ public class CookUseCaseTest {
         HashMap<String, List<Dish>> dishes2 = new HashMap<>();
         dishes2.put("Small fries", Arrays.asList(smallFries, smallFries));
         sameDishOrder = new DineInOrder(Integer.parseInt(location), dishes2);
-
-
     }
 
     private void addOrders(){
@@ -61,7 +56,6 @@ public class CookUseCaseTest {
             OrderQueue.addOrder(sameDishOrder);
         }
         catch (Exception ignored){
-
         }
     }
 
@@ -119,13 +113,9 @@ public class CookUseCaseTest {
      * Empty fake presenter class implementing the output boundary
      */
     private static class TestClass implements KitchenOutputBoundary {
-
         @Override
         public void getNextOrder(HashMap<String, Integer> dishes) {
             assert true;
         }
     }
-
-
-
 }

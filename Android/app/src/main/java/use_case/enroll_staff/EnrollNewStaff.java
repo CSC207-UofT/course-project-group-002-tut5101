@@ -7,18 +7,24 @@ import use_case.user_list.UserList;
  * Class for enrolling new staffs.
  */
 
-public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
+public class EnrollNewStaff implements EnrollStaffInputBoundary {
 
     private EnrollStaffOutputBoundary enrollStaffOutputBoundary;
     private final UserList userList;
 
     /**
+     * Empty constructor for testing
+     */
+    public EnrollNewStaff() {
+        userList = null;
+    }
+
+    /**
      * Constructor for this class.
      * @param userList a list of users.
      */
-    public EnrollStaffUseCase(UserList userList) {
+    public EnrollNewStaff(UserList userList) {
         this.userList = userList;
-
     }
 
     /**
@@ -50,6 +56,7 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
      */
     @Override
     public void enrollNewStaff(String id, String name, String password, UserType userType) {
+        assert userList != null;
         userList.addStaff(id, name, password, userType);
     }
 
@@ -58,9 +65,8 @@ public class EnrollStaffUseCase implements EnrollStaffInputBoundary {
      */
     @Override
     public void getNewUserId() {
+        assert this.userList != null;
         int userListSize = this.userList.getUsers().size();
         this.enrollStaffOutputBoundary.setNewUserId(String.valueOf(userListSize));
     }
-
-
 }
