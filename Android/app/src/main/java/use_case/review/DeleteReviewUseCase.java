@@ -2,8 +2,6 @@ package use_case.review;
 
 import android.content.Context;
 import entity.review.Review;
-import gateway.ReadWriter;
-import gateway.SerReadWriter;
 
 import java.util.Iterator;
 
@@ -14,7 +12,6 @@ import java.util.Iterator;
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     private final ReviewList reviewList;
-    private ReadWriter readWriter = new SerReadWriter();
 
     /**
      * Constructor

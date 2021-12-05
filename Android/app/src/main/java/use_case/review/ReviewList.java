@@ -16,15 +16,9 @@ import java.util.Objects;
 public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
-    private ReadWriter irw;
+    private final ReadWriter irw;
     Context context;
 
-    /**
-     * Empty constructor.
-     */
-    public ReviewList() {
-        reviews = new HashMap<>();
-    }
 
     /**
      * Constructor.
@@ -62,7 +56,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
-        reviews.put(r.getReviewID(), r);
+           reviews.put(r.getReviewID(), r);
+
     }
 
     /**

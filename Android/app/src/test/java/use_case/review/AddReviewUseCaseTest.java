@@ -1,5 +1,6 @@
 package use_case.review;
 
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import entity.review.Review;
 import org.junit.Before;
@@ -18,7 +19,7 @@ public class AddReviewUseCaseTest {
      */
     @Before
     public void setUp(){
-        ReviewList reviewList = new ReviewList();
+        ReviewList reviewList = new ReviewList(new AddReviewCommentActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",

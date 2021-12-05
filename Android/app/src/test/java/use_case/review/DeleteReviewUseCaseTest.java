@@ -20,7 +20,7 @@ public class DeleteReviewUseCaseTest {
     @Before
     public void setUp(){
 
-        reviewList = new ReviewList();
+        reviewList = new ReviewList(new DeleteReviewActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",

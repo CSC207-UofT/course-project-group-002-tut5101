@@ -1,11 +1,13 @@
 package use_case.kitchen;
 
+import com.example.androidgui.kitchen_activities.KitchenActivity;
 import entity.order_list.DeliveryOrder;
 import entity.order_list.DineInOrder;
 import entity.order_list.Dish;
 import entity.order_list.Order;
 import org.junit.Before;
 import org.junit.Test;
+import presenter.kitchen_system.KitchenPresenter;
 import use_case.deliver_order.DeliveryBuffer;
 import use_case.deliver_order.ServingBuffer;
 
@@ -29,7 +31,7 @@ public class KitchenTest {
      */
     @Before
     public void setUp() {
-        kitchen = new Kitchen();
+        kitchen = new Kitchen(new KitchenPresenter(new KitchenActivity()));
         kitchen.reset();
         OrderQueue.reset();
 

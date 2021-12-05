@@ -1,8 +1,12 @@
 package use_case.review;
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
+import com.example.androidgui.manager_activities.SeeReviewActivity;
 import entity.review.Review;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,7 +27,7 @@ public class ReviewListTest {
      */
     @Before
     public void setUp() {
-        reviewList = new ReviewList();
+        reviewList = new ReviewList(new SeeReviewActivity());
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 5, "Nice staff",
                 "2");
@@ -31,6 +35,12 @@ public class ReviewListTest {
         TestClass testPresenter = new TestClass();
         reviewList.setReviewOutputBoundary(testPresenter);
     }
+
+    /**
+     * For testing
+     */
+    @Rule
+    public TestRule rule = new InstantTaskExecutorRule();
 
     /**
      * Test the setReviews method
