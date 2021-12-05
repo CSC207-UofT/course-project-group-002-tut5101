@@ -97,7 +97,6 @@ public class ServingDishAdapterTest {
         catch (Exception ignored) {
             assertFalse(false);
         }
-        serveDish.getItemInfo("1");
     }
 
 
