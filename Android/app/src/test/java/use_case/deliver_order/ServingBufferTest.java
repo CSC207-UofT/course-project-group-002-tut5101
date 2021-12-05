@@ -26,4 +26,7 @@ public class ServingBufferTest {
     public void addDish() {
         ServingBuffer.addDish(testDish);
     }
+
+    @Test
+    public void testReset() {ServingBuffer.reset();}
 }
