@@ -32,8 +32,16 @@ public class InventoryList implements Serializable {
     private InventoryOutputBoundary boundary;
     private static String filename;
 
-    public InventoryList() {
-    }
+    /**
+     * Null constructor
+     */
+    public InventoryList() {}
+
+    /**
+     * Constructor with filename
+     * @param filename filename
+     */
+    public InventoryList(String filename) {InventoryList.filename = filename;}
 
     public void setBoundary(InventoryOutputBoundary boundary) {
         this.boundary = boundary;
@@ -150,6 +158,7 @@ public class InventoryList implements Serializable {
         InventoryList.context = context;
     }
 
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         InventoryList.filename = filename;
         irw = new GCloudReadWriter();
