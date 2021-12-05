@@ -26,26 +26,10 @@ public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
 
 
     /**
-     * Method to generate a userList.
-     *
-     * @return a UserList.
-     */
-    private UserList loadUserList() {
-        UserList userList = new UserList();
-        userList.addUser(new Manager());
-        userList.addUser(new Customer("1", "James", "12345"));
-        userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
-        userList.addUser(new ServingStaff("3", "Eve", "12345"));
-        userList.addUser(new KitchenStaff("4", "Bob", "12345"));
-        userList.addUser(new InventoryStaff("5", "Frank", "12345"));
-        return userList;
-    }
-
-    /**
      * Constructor of the ManagerController
      */
     public EnrollStaffPresenter() {
-        this.enrollUserInputBoundary = new EnrollNewStaff(loadUserList());
+        this.enrollUserInputBoundary = new EnrollNewStaff(new UserList());
         this.enrollUserInputBoundary.setOutputBoundary(this);
     }
 

@@ -5,13 +5,13 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.file_system.FileName;
 import constant.manger_system.UserType;
-import entity.user.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import entity.user.User;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
 
@@ -20,7 +20,6 @@ import java.util.HashMap;
 
 /**
  * Public class storing information for all users using a Hashmap.
- *
  */
 
 public class UserList implements Serializable {
@@ -51,11 +50,13 @@ public class UserList implements Serializable {
     public void reset() {
         users = new HashMap<>();
     }
+
     /**
+     * Return number of items in the user list
      *
      * @return the length of the user list.
      */
-    public int length(){
+    public int length() {
         return users.size();
     }
 
@@ -132,15 +133,15 @@ public class UserList implements Serializable {
     }
 
     /**
-     *  method to add staffs.
+     * method to add staffs.
      *
-     * @param id id of the new staff.
-     * @param name name  of the new staff.
+     * @param id       id of the new staff.
+     * @param name     name  of the new staff.
      * @param password password of the new staff.
      * @param userType type of the new staff.
      */
     public void addStaff(String id, String name, String password, UserType userType) {
-        switch (userType){
+        switch (userType) {
             case KITCHEN:
                 users.put(id, new KitchenStaff(id, name, password));
                 break;
@@ -161,6 +162,7 @@ public class UserList implements Serializable {
 
     /**
      * Setting context
+     *
      * @param context context
      */
     public static void setContext(Context context) {
@@ -168,6 +170,11 @@ public class UserList implements Serializable {
     }
 
 
+    /**
+     * Set initial data for user list
+     *
+     * @param filename file name of the user list
+     */
     @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         UserList.filename = filename;
