@@ -29,4 +29,9 @@ public class DeliveryBufferTest {
     public void addDeliveryOrder() {
         DeliveryBuffer.addDeliveryOrder(testOrder);
     }
+
+    @Test
+    public void testReset() {
+        DeliveryBuffer.reset();
+    }
 }
