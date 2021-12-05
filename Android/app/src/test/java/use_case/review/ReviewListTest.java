@@ -60,7 +60,7 @@ public class ReviewListTest {
     public void testAddReview() {
         reviewList.addReview(review1);
         reviewList.addReview(review2);
-        reviewList.addReview("Amy", true, 5, "good food", "1");
+        reviewList.addReview("Amy", true, 5, "good food");
     }
 
     /**

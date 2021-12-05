@@ -1,6 +1,5 @@
 package presenter.review_system;
 
-import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.review.ReviewList;
@@ -30,7 +29,9 @@ public class AddReviewPresenterTest {
     @Test
     public void addToReviewList(){
         reviewList.reset();
-        add.addToReviewList("1", true, 10, "good", "nice");
+        add.addToReviewList("1", true, 3, "good");
+        add.addToReviewList("2", true, 4, "good");
+        assertEquals(reviewList.sizeofList(), 2);
     }
 
     /**

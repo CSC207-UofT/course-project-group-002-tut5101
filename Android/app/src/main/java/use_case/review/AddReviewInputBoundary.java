@@ -13,10 +13,9 @@ public interface AddReviewInputBoundary {
      * @param ifAnonymous if anonymous of review
      * @param rate rate of review
      * @param comment comment of review
-     * @param ID id of review
      */
     void addToReviewList(String name, boolean ifAnonymous, int rate,
-                    String comment, String ID);
+                    String comment);
 
     /**
      *

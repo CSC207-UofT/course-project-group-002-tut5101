@@ -56,8 +56,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param rate rate of the use_case.review.
      * @param comment comment left.
      */
-    public void addReview(String name, boolean ifAnonymous, int rate, String comment, String ID){
-        addReview(new Review(name, ifAnonymous, rate, comment, ID));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment){
+        addReview(new Review(name, ifAnonymous, rate, comment, String.valueOf(this.sizeofList()+1)));
     }
 
     /**
@@ -67,7 +67,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public void addReview(Review r) {
            reviews.put(r.getReviewID(), r);
-
     }
 
     /**
