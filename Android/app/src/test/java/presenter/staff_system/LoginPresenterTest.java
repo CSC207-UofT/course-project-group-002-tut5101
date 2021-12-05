@@ -1,4 +1,4 @@
-package presenter.customer_system;
+package presenter.staff_system;
 
 import constant.manger_system.UserType;
 import constant.ui_message.LoginResult;
