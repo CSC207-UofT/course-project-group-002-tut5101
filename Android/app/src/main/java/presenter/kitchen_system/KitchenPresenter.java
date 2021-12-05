@@ -41,39 +41,29 @@ public class KitchenPresenter implements KitchenOutputBoundary {
         return displayDishes;
     }
 
+    /**
+     * Set the inventoryList for Kitchen
+     * @param inventory an InventoryList attribute
+     */
     public void setInventory(InventoryList inventory){
         this.inventory = inventory;
     }
 
-
+    /**
+     * Update the current dishes to be the potentially new orders.
+     * @param dishes the new dishes (order) to be cooked
+     */
     @Override
     public void getNextOrder(HashMap<String, Integer> dishes){
         this.dishes = dishes;
     }
 
+    /**
+     * Check if a new order is available and should be used to replace the current one
+     */
     public void checkOrderAvailable() {
         this.kitchen.getAvailableOrder();
     }
-
-    /**
-     * Display the ingredients for a given dish.
-     * @param dishName The name of the dish whose ingredients will be displayed.
-     * @return A string representation of the ingredients.
-     */
-    public String displayIngredient(String dishName) {
-        HashMap<String, Integer> in = DishList.getDishIngredients(dishName);
-        StringBuilder sb = new StringBuilder();
-        sb.append(dishName).append("\n").append("# Ingredient ---- Quantity #\n");
-        for (String ingreName: in.keySet()) {
-            StringBuilder space = new StringBuilder();
-            for (int i = 0; i < 16 - ingreName.length(); i++){
-                space.append(" ");
-            }
-            sb.append("# ").append(ingreName).append(space).append(in.get(ingreName)).append("\n");
-        }
-        return sb.toString();
-    }
-
 
     /**
      * Mark the given dish as cooked.
@@ -83,7 +73,6 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * decreases the quantity of this dish by 1.
      *
      * @param dishName One of the dish choices provided to Kitchen in showDishToCook.
-     * @return whether all dish in dishes is cooked.
      */
     public void completeDish(String dishName) {
         this.kitchen.cookedDish(dishName);
@@ -104,7 +93,6 @@ public class KitchenPresenter implements KitchenOutputBoundary {
 
     }
 
-
     /**
      * Update the inventory according to the ingredients used in the given dish name.
      * @param dishName The name of the cooked dish
@@ -114,12 +102,17 @@ public class KitchenPresenter implements KitchenOutputBoundary {
 
         for (String dish: ingredientInfo.keySet()) {
             int oriQuantity = InventoryList.getTotalQuantity(dish);
-            int temp = ingredientInfo.get(dish);
-            if (temp != 0){
+            Integer tempint = ingredientInfo.get(dish);
+            if (tempint != null) {
+                int temp = tempint;
+                if (temp != 0) {
+                    this.inventory.setQuantity(dish, oriQuantity - temp);
+                }
+                oriQuantity = InventoryList.getTotalQuantity(dish);
                 this.inventory.setQuantity(dish, oriQuantity - temp);
             }
-            oriQuantity = InventoryList.getTotalQuantity(dish);
-            this.inventory.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
+
+
         }
     }
 
