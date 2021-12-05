@@ -20,7 +20,9 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     public DeleteReviewUseCase() {
         this.reviewList = new ReviewList();
     }
-
+    public DeleteReviewUseCase(ReviewList reviewList) {
+        this.reviewList = reviewList;
+    }
 
     /**
      *

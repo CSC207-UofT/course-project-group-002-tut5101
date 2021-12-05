@@ -81,7 +81,7 @@ public class ServingDishAdapterTest {
         } catch (Exception e) {
             assert true;
         }
-        serveDish.setOutputBoundary(testPresenter);
+
     }
 
     /**
@@ -89,6 +89,8 @@ public class ServingDishAdapterTest {
      */
     @Test
     public void testGetItemInfo() {
+        serveDish.setOutputBoundary(testPresenter);
+        serveDish.getItemInfo("1");
         try {
             serveDish.getToBeDeliver("1");
         }

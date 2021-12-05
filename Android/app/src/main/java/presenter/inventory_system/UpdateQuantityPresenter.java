@@ -1,30 +1,48 @@
 package presenter.inventory_system;
 
-import com.example.androidgui.inventory_activities.UpdateQuantityActivity;
-import constant.file_system.FileName;
 import use_case.inventory_factory.InventoryOutputBoundary;
 import use_case.kitchen.InventoryList;
-//TODO: issues here with showInfo message, not MVP!
+
+/**
+ * Presenter class for the UpdateFreshness activity that change the freshness of an inventory item
+ */
+
 public class UpdateQuantityPresenter {
     private UpdateQuantityInterface updateQuantityInterface;
     private final InventoryList inventories;
+    /**
+     * Constructor for this class
+     */
     public UpdateQuantityPresenter(){
         this.inventories = new InventoryList();
     }
-    public UpdateQuantityPresenter(InventoryList inventories){
-        this.inventories = inventories;
-    }
+    /**
+     * Set the view interface
+     * @param updateQuantityInterface the view interface
+     */
+
     public void setUpdateQuanInterface(UpdateQuantityInterface updateQuantityInterface) {
         this.updateQuantityInterface = updateQuantityInterface;
     }
+    /**
+     * Change the quantity of an item and return the information of this action
+     * @param name the name of the item
+     * @param usage the new usage of the item
+     * @param boundary the output boundary
+     */
 
     private String newQuantity(String name, String usage, InventoryOutputBoundary boundary){
         this.inventories.setBoundary(boundary);
         int u = Integer.parseInt(usage);
         return inventories.setQuantity(name, u);
     }
-
-    public void showInfo(String name, String usage, UpdateQuantityActivity boundary){
+    /**
+     * Show the information of this action
+     * @param name the name of the item
+     * @param usage the new usage of the item
+     * @param boundary the output boundary
+     */
+    public void showInfo(String name, String usage, InventoryOutputBoundary boundary){
         String message = this.newQuantity(name, usage, boundary);
         this.updateQuantityInterface.popInfo(message);
     }

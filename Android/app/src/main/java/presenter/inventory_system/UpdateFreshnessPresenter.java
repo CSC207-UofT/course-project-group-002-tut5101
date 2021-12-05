@@ -15,9 +15,7 @@ public class UpdateFreshnessPresenter {
     public UpdateFreshnessPresenter(){
         this.inventories = new InventoryList();
     }
-    public UpdateFreshnessPresenter(InventoryList inventories){
-        this.inventories = inventories;
-    }
+
     /**
      * Set the view interface
      * @param updateFreshnessInterface the view interface
