@@ -17,14 +17,6 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
     }
 
     /**
-     * Setting context
-     * @param context context.
-     */
-    public void setContext(Context context){
-        ReviewList.setContext(context);
-    }
-
-    /**
      * adding the review to reviewList.
      *
      * @param name name of review

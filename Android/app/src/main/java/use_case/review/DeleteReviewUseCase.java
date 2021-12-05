@@ -21,13 +21,6 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
         this.reviewList = new ReviewList(FileName.REVIEW_FILE);
     }
 
-    /**
-     * Setting context
-     * @param context context.
-     */
-    public void setContext(Context context){
-        ReviewList.setContext(context);
-    }
 
     /**
      *

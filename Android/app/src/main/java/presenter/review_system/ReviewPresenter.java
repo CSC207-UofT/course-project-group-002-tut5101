@@ -23,15 +23,6 @@ public class ReviewPresenter implements ReviewOutputBoundary {
         generateReviewList();
     }
 
-    /**
-     * Setting context
-     * @param c context
-     */
-    public void setContext(Context c){
-        ReviewList.setContext(c);
-    }
-
-
 
     //TODO: Delete later.
     private void generateReviewList() {
