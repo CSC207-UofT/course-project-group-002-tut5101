@@ -36,11 +36,15 @@ public class UserList implements Serializable {
     private static Context context;
 
     /**
+     * Null Constructor
+     */
+    public UserList() {}
+
+    /**
      * Constructor
      */
-    public UserList() {
+    public UserList(String filename) { UserList.filename = filename;}
 
-    }
     /**
      *
      * @return the length of the user list.
@@ -116,7 +120,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, filename, users);
+        readWriter.saveToFile(context, filename, users);
     }
 
     /**
@@ -161,6 +165,7 @@ public class UserList implements Serializable {
     }
 
 
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         UserList.filename = filename;
         readWriter = new GCloudReadWriter();
