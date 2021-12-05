@@ -1,6 +1,8 @@
 package use_case.kitchen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import constant.file_system.FileLocation;
 import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import gateway.GCloudReadWriter;
@@ -23,20 +25,17 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private ReadWriter irw;
-    private String filename;
-    private Context context;
-    private InventoryOutputBoundary boundary;
-    public InventoryList(){
-        this.filename = null;
-        myDict = new HashMap<>();
-    }
+    private final ReadWriter irw;
 
-    public InventoryList(String filename, Context context) {
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+    private InventoryOutputBoundary boundary;
+    private String filename;
+
+    public InventoryList(String filename) {
         this.filename = filename;
         irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(filename);
-        this.context = context;
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileLocation.INVENTORY_FILE);
     }
 
     public void setBoundary(InventoryOutputBoundary boundary) {
@@ -138,5 +137,19 @@ public class InventoryList implements Serializable {
 
     public void saveToFile() {
         irw.saveToFile(context, filename, myDict);
+    }
+
+    /**
+     * Generate data for inventoryList.
+     */
+    public void generateData() {
+    }
+
+    /**
+     * Setting context
+     * @param context context
+     */
+    public static void setContext(Context context) {
+        InventoryList.context = context;
     }
 }

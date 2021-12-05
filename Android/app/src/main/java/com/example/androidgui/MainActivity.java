@@ -6,27 +6,49 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.user_activities.CustomerPickActionActivity;
 import com.example.androidgui.user_activities.LoginActivity;
+import presenter.main_information.MainActivityPresenter;
 
+/**
+ * Main activity for this project.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        setInformation();
     }
 
+    /**
+     * Selected customer action.
+     * @param v view.
+     */
     public void selectCustomerPickAction(View v) {
         Intent intent = new Intent(MainActivity.this, CustomerPickActionActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Select staff login.
+     * @param v view.
+     */
     public void selectLogin(View v) {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
-    public static void main(String[] args) {
-        System.out.println("good");
+    /**
+     * generate information.
+     */
+    private void setInformation(){
+        MainActivityPresenter presenter = new MainActivityPresenter();
+        presenter.setContext(this);
     }
+
 
 }

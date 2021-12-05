@@ -8,13 +8,19 @@ import use_case.kitchen.KitchenOutputBoundary;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Presenter class for kitchen
+ */
 public class KitchenPresenter implements KitchenOutputBoundary {
-    private KitchenView kv;
-    private Kitchen kitchen;
+    private final KitchenView kv;
+    private final Kitchen kitchen;
     private HashMap<String, Integer> dishes;
     private InventoryList inventory;
 
-
+    /**
+     * Constructor
+     * @param kv view interface
+     */
     public KitchenPresenter(KitchenView kv) {
         this.kitchen = new Kitchen(this);
         this.kv = kv;

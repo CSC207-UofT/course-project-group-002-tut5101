@@ -18,6 +18,7 @@ public class HasFreshnessTest {
     @Before
     public void setUp() {
         hasFreshness = new HasFreshness("Test", 40.0, 20, "Fresh", 20220731);
+        hasFreshness.setFreshness("Fresh");
     }
 
     /**
@@ -80,6 +81,15 @@ public class HasFreshnessTest {
                 ","+ 20 +","+ "Fresh" + ","+ 20220731;
         String actual = hasFreshness.toString();
         assertEquals(expected, actual);
+    }
+
+    /**
+     * Test the equals method
+     */
+    @Test(timeout = 50)
+    public void equals() {
+        HasFreshness test = new HasFreshness("Test", 40.0, 20, "Fresh", 20220731);
+        assert(hasFreshness.equals(test));
     }
 
 }

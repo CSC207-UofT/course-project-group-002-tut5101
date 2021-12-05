@@ -1,5 +1,7 @@
 package use_case.review;
 
+import android.content.Context;
+
 /**
  * The input use_case.boundary for adding review use case.
  */
@@ -21,4 +23,6 @@ public interface AddReviewInputBoundary {
      * @return the length of the reviewList.
      */
     int length();
+
+    void setContext(Context context);
 }

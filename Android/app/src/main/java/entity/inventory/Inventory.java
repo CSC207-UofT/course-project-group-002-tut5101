@@ -30,10 +30,10 @@ public abstract class Inventory implements Serializable {
         this.usedup = quantity == 0;
     }
 
-
+    /**
+     * set the id of the item
+     */
     public void setId(int id){this.id = id;}
-
-    public int getId(){return this.id;}
 
     /**
      * @return the name of the item

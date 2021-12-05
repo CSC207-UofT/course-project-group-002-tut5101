@@ -24,6 +24,7 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
         setContentView(R.layout.activity_see_review);
 
         ReviewPresenter reviewPresenter = new ReviewPresenter();
+        reviewPresenter.setContext(this);
         reviewPresenter.setDisplayReviewViewInterface(this);
 
         reviewPresenter.reviewsInListAsString();

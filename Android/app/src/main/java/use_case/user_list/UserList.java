@@ -1,7 +1,9 @@
 package use_case.user_list;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import constant.file_system.FileLocation;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -30,26 +32,16 @@ public class UserList implements Serializable {
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
     private String filename;
-    Context context;
-
-    public UserList() {
-        readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filename);
-    }
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
 
     /**
-     *  Second constructor: construct with size of the UserList.
-     * @param i: number of users in the list.
+     * Constructor
      */
-    public UserList(int i) {
-        users = new HashMap<>(i);
-    }
-
-    public UserList(String filename, Context context) {
+    public UserList(String filename) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filename);
-        this.context = context;
+        users = (HashMap<String, User>) readWriter.readFromFile(FileLocation.USER_FILE);
     }
     /**
      *
@@ -126,7 +118,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, this.filename, users);
+        this.readWriter.saveToFile(context, filename, users);
     }
 
     /**
@@ -154,5 +146,19 @@ public class UserList implements Serializable {
         }
         //Save the updated user list to file
         savetoFile(context);
+    }
+
+    /**
+     * Generate data for userList.
+     */
+    public void generateData() {
+    }
+
+    /**
+     * Setting context
+     * @param context context
+     */
+    public static void setContext(Context context) {
+        UserList.context = context;
     }
 }

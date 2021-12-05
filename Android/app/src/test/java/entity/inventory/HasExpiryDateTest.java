@@ -83,4 +83,13 @@ public class HasExpiryDateTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test the equals method
+     */
+    @Test(timeout = 50)
+    public void equals() {
+        HasExpiryDate test = new HasExpiryDate("Test", 40.0, 20, 20220731);
+        assert(hasExpiryDate.equals(test));
+    }
+
 }

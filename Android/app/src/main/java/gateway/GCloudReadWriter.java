@@ -2,20 +2,16 @@ package gateway;
 
 import android.content.Context;
 import android.util.Log;
-import com.example.androidgui.kitchen_activities.KitchenActivity;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 import com.google.common.collect.Lists;
-import entity.inventory.Inventory;
-import entity.order_list.Dish;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 
 public class GCloudReadWriter implements ReadWriter {

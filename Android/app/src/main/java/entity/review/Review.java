@@ -102,8 +102,8 @@ public class Review implements Reviewable, Serializable {
     @Override
     @NonNull
     public String toString() {
-        return this.reviewID + ". " + getName() + ": rate = " + this.rate +
-                "; comment = " + this.newComment + " ;";
+        return getName() + " leaves rate = " + this.rate +
+                " and comment = " + this.newComment;
     }
 
 }

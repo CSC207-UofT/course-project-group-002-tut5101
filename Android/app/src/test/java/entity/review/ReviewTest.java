@@ -55,6 +55,13 @@ public class ReviewTest {
         assertEquals("good food", review1.getComment());
     }
 
+    /**
+     * Test getComment method for use_case.review
+     */
+    @Test(timeout = 50)
+    public void testReviewGetID() {
+        assertEquals("1", review1.getReviewID());
+    }
 
     /**
      * Test getReviewDate method for use_case.review
@@ -72,10 +79,7 @@ public class ReviewTest {
      */
     @Test(timeout = 50)
     public void testToString() {
-        Date date = new Date();
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String expected = "1" + ". " + "Anonymous" + ": rate = " + "5" +
-                "; comment = " + "good food" + " ;";
+        String expected = "Anonymous leaves rate = 5 and comment = good food";
         String actual = review1.toString();
         assertEquals(expected, actual);
     }

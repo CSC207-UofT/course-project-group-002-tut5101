@@ -1,5 +1,6 @@
 package com.example.androidgui.kitchen_activities;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ public class KitchenAdapter extends ArrayAdapter {
 
     private final Context kContext;
     final int kResource;
-    private KitchenPresenter kp;
+    private final KitchenPresenter kp;
 
     public KitchenAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
         super(context, resource, displayDishes);
@@ -29,6 +30,7 @@ public class KitchenAdapter extends ArrayAdapter {
         this.kp = kp;
     }
 
+    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         String dishName = ((String[]) Objects.requireNonNull(getItem(position)))[0];

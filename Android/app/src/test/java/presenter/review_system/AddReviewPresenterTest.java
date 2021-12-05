@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import com.example.androidgui.user_activities.AddReviewCommentActivity;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +19,7 @@ public class AddReviewPresenterTest {
     @Before
     public void setUp() {
         add = new AddReviewPresenter();
+        add.setContext(new AddReviewCommentActivity());
     }
 
     /**

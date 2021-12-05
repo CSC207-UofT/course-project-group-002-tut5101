@@ -1,7 +1,9 @@
 package use_case.review;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import constant.file_system.FileLocation;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
@@ -16,22 +18,19 @@ import java.util.Objects;
 public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
-    private ReadWriter irw;
+    private final ReadWriter irw;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
     private String filename;
-    Context context;
 
     /**
-     * Empty constructor.
+     * Constructor.
+     *
      */
-    public ReviewList() {
-        reviews = new HashMap<>();
-    }
-
-    public ReviewList(String filename, Context context) {
-        irw = new GCloudReadWriter();
+    public ReviewList(String filename) {
         this.filename = filename;
+        irw = new GCloudReadWriter();
         reviews = (HashMap<String, Review>) irw.readFromFile(filename);
-        this.context = context;
     }
 
 
@@ -61,7 +60,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
-        reviews.put(r.getReviewID(), r);
+           reviews.put(r.getReviewID(), r);
+
     }
 
     /**
@@ -119,9 +119,25 @@ public class ReviewList implements Serializable, Iterable<Review> {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
     }
 
-
+    /**
+     * Saving to file.
+     */
     public void saveToFile() {
         irw.saveToFile(context, filename, reviews);
     }
 
+    /**
+     * Generating data.
+     */
+    public void generateData() {
+        reviews = (HashMap<String, Review>) irw.readFromFile(FileLocation.REVIEW_FILE);
+    }
+
+    /**
+     * Setting context.
+     * @param context context
+     */
+    public static void setContext(Context context) {
+        ReviewList.context = context;
+    }
 }

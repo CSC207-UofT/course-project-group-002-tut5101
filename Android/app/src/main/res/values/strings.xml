@@ -98,5 +98,6 @@
     <string name="Name">Name</string>
     <string name="date_import_expiry">Date import/expiry</string>
     <string name="usage_negative_when_adding">usage( negative when adding)</string>
+    <string name="Cooked">cooked</string>
 
 </resources>

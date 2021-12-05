@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import com.example.androidgui.manager_activities.SeeReviewActivity;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ public class ReviewPresenterTest {
     @Before
     public void setUp() {
         reviewPresenter = new ReviewPresenter();
+        reviewPresenter.setContext(new SeeReviewActivity());
         TestClass testPresenter = new TestClass();
         reviewPresenter.setDisplayReviewViewInterface(testPresenter);
     }

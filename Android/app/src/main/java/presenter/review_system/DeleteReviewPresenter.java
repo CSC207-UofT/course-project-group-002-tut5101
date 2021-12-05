@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import android.content.Context;
 import constant.manger_system.ManagerDecision;
 import use_case.review.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
@@ -33,5 +34,13 @@ public class DeleteReviewPresenter {
         else {
             deleteReviewInputBoundary.delete(3);
         }
+    }
+
+    /**
+     * setting context
+     * @param context context.
+     */
+    public void setContext(Context context) {
+        this.deleteReviewInputBoundary.setContext(context);
     }
 }

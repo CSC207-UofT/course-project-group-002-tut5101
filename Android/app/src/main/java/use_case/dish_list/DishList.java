@@ -1,7 +1,9 @@
 package use_case.dish_list;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import constant.file_system.FileLocation;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
 import entity.order_list.Dish;
@@ -20,26 +22,18 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
-    Context context;
-    String filename;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+    private String filename;
     String[] dishNames;
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
 
-    /**
-     * This constructor is using the generateDishList method below which hardcoded the dishes in program.
-     */
-    public DishList() {
-        menu = new HashMap<>();
-        dishNames = menu.keySet().toArray(new String[0]);
-    }
-
-    public DishList(String filename, Context context) {
+    public DishList(String filename) {
         this.filename = filename;
         readWriter = new GCloudReadWriter();
-        menu = (HashMap<String, Dish>) readWriter.readFromFile(filename);
-        this.context = context;
+        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileLocation.MENU_FILE);
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -171,7 +165,20 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile(){
-        readWriter.saveToFile(context, this.filename, menu);
+        readWriter.saveToFile(context, filename, menu);
     }
 
+    /**
+     * Generate data for dishList.
+     */
+    public void generateData() {
+    }
+
+    /**
+     * Setting context.
+     * @param context context.
+     */
+    public static void setContext(Context context) {
+        DishList.context = context;
+    }
 }

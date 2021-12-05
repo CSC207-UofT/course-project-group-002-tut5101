@@ -1,5 +1,6 @@
 package presenter.review_system;
 
+import android.content.Context;
 import use_case.review.AddReviewInputBoundary;
 import use_case.review.AddReviewUseCase;
 
@@ -16,7 +17,10 @@ public class AddReviewPresenter {
      */
     public AddReviewPresenter() {
         this.addReviewInputBoundary = new AddReviewUseCase();
+    }
 
+    public void setContext(Context context){
+        this.addReviewInputBoundary.setContext(context);
     }
 
 
