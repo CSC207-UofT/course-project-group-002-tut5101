@@ -87,7 +87,7 @@ public class PlaceOrderTest {
     /**
      * Test placing a delivery order with table number
      */
-    @Test(timeout = 50)
+    @Test
     public void testPlaceOrderDineInFalse(){
         String[] dishNames = new String[]{"Quarter pound with cheese", "Small fries", "Coke"};
         String location = "Toronto, ON";
