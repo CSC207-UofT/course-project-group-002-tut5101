@@ -1,7 +1,6 @@
 package use_case.dish_list;
 
 import entity.order_list.Dish;
-import use_case.placeorder.PlaceOrderMenuOutputBoundary;
 import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;

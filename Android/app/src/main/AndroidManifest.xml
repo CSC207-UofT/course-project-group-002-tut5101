@@ -15,10 +15,6 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.AndroidGUI">
-		<activity
-			android:name=".database.DBTest"
-			android:exported="true" />
-
 		<activity android:name=".inventory_activities.UpdateQuantityActivity" />
 		<activity android:name=".inventory_activities.UpdateFreshnessActivity" />
 		<activity android:name=".inventory_activities.AddInventoryActivity" />
@@ -64,7 +60,8 @@
 		<activity
 			android:name=".order_activities.OrderSuccessfullyPlacedActivity"
 			android:exported="true"/>
-		<activity android:name=".user_activities.SeeMenuActivity"/>
+		<activity android:name=".user_activities.SeeMenuActivity"
+		android:exported="true"/>
 		<activity
 			android:name=".order_activities.EditOrderActivity"
 			android:exported="true"/>
