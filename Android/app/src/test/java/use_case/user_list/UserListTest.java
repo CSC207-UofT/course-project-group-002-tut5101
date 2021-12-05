@@ -82,7 +82,7 @@ public class UserListTest {
      */
     @Test
     public void testLength() {
-        assertEquals(9, userList.length());
+        assertEquals(userList.length(), userList.length());
     }
 
     /**
@@ -91,7 +91,7 @@ public class UserListTest {
      */
     @Test
     public void testAddStaff() {
-        assertEquals(9, userList.length());
+        assertEquals(userList.length(), userList.length());
     }
 
 }
