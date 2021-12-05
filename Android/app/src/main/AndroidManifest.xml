@@ -37,7 +37,7 @@
 			android:name=".manager_activities.ManageMenuActivity"
 			android:exported="true"/>
 		<activity
-			android:name=".kitchen_activities.KitchenActivity"
+			android:name=".kitchen_activities.CurrentOrderDishesActivity"
 			android:exported="true"/>
 		<activity android:name=".serving_staff_activities.ServeDishActivity"/>
 		<activity

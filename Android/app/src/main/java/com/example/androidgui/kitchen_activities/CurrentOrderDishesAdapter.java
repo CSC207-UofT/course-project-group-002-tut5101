@@ -17,13 +17,13 @@ import java.util.Objects;
 /**
  * Adapter for kitchen.
  */
-public class KitchenAdapter extends ArrayAdapter {
+public class CurrentOrderDishesAdapter extends ArrayAdapter {
 
     private final Context kContext;
     final int kResource;
     private final KitchenPresenter kp;
 
-    public KitchenAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
+    public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
         super(context, resource, displayDishes);
         kContext = context;
         kResource = resource;

@@ -3,22 +3,9 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import constant.file_system.FileName;
-import constant.order_system.OrderType;
-import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
-import entity.manager.Manager;
-import entity.user.User;
 import presenter.kitchen_system.KitchenFacade;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
-import use_case.dish_list.DishList;
-import use_case.kitchen.InventoryList;
-import use_case.placeorder.PlaceOrder;
-import use_case.user_list.UserList;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -27,11 +14,11 @@ import java.util.ArrayList;
 /**
  * Kitchen activity class.
  */
-public class KitchenActivity extends AppCompatActivity implements KitchenView, PropertyChangeListener {
+public class CurrentOrderDishesActivity extends AppCompatActivity implements KitchenView, PropertyChangeListener {
 
     public static final KitchenFacade kf = new KitchenFacade();
     private KitchenPresenter kp;
-    private KitchenAdapter adapter;
+    private CurrentOrderDishesAdapter adapter;
     private ArrayList<String[]> dishesToDisplay;
 
     /**
@@ -61,7 +48,7 @@ public class KitchenActivity extends AppCompatActivity implements KitchenView, P
         kp.checkOrderAvailable();
 
         dishesToDisplay = kp.exportDishes();
-        adapter = new KitchenAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
+        adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);
 
 //        UserList userList = new UserList();
