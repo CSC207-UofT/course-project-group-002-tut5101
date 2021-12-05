@@ -42,6 +42,7 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
         String iname = name.getText().toString();
         String iusage = usage.getText().toString();
         uqp.showInfo(iname, iusage, this);
+        finish();
     }
     /**
      * Pass the message through interface

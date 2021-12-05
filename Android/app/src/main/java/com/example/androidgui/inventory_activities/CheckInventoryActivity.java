@@ -9,19 +9,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.CheckInventoryPresenter;
-import presenter.inventory_system.InventoryFacade;
-
-//import com.example.androidgui.inventory.PresentInventoryActivity;
 
 
-public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener, presenter.inventory_system.CheckInventoryInterface {
+
+public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener,
+        presenter.inventory_system.CheckInventoryInterface {
     /**
      * Activity class for checking inventory.
      */
     private EditText name;
-    private Button button;
-    InventoryFacade ifa = new InventoryFacade();
-    final CheckInventoryPresenter cip = ifa.createCheckPresenter();
+    final CheckInventoryPresenter cip = new CheckInventoryPresenter();
 
 
 
@@ -36,7 +33,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         cip.setCheckInventoryInterface(this);
         setContentView(R.layout.activity_check_inventory2);
-        button = findViewById(R.id.button7);
+        Button button = findViewById(R.id.button7);
         name = findViewById(R.id.editTextTextName);
         button.setOnClickListener(this);
     }
@@ -49,6 +46,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         String iName = name.getText().toString();
         this.cip.checkValidity(iName);
+        finish();
 
     }
     @Override

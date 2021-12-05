@@ -1,6 +1,5 @@
 package use_case.review;
 
-import android.content.Context;
 import constant.file_system.FileName;
 
 /**
@@ -14,6 +13,9 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
      */
     public AddReviewUseCase() {
         this.reviewList = new ReviewList();
+    }
+    public AddReviewUseCase(ReviewList reviewlist) {
+        this.reviewList = reviewlist;
     }
 
     /**

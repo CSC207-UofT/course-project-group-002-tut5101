@@ -1,11 +1,10 @@
 package presenter.review_system;
 
 
-import android.content.Context;
 import constant.file_system.FileName;
 import entity.review.Review;
-import use_case.review.ReviewOutputBoundary;
 import use_case.review.ReviewList;
+import use_case.review.ReviewOutputBoundary;
 
 /**
  * Presenter class for reviewList.
