@@ -1,9 +1,12 @@
 package use_case.inventory_factory;
 import entity.inventory.*;
-
+/**
+ * Use Case class for creating inventory of different type.
+ */
 public class InventoryFactory {
     /**
      * Use getInventory method to get the inventory by a string array.
+     *  @param paras the array of parameters for creating an inventory item
      */
     public Inventory getInventory(String[] paras){
         if(paras.length == 5){
@@ -24,4 +27,4 @@ public class InventoryFactory {
             }
         return null;
     }
-    }
+}

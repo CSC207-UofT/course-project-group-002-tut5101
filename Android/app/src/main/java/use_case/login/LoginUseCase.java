@@ -1,7 +1,7 @@
 package use_case.login;
 
 import constant.ui_message.LoginResult;
-import entity.User;
+import entity.user.User;
 import use_case.user_list.UserList;
 
 import java.util.Objects;
@@ -44,7 +44,5 @@ public class LoginUseCase {
                 outputBoundary.presentLoginResult(LoginResult.FAILURE);
             }
         }
-
     }
-
 }

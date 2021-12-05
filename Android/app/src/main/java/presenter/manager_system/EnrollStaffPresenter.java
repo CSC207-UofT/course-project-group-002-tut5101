@@ -16,7 +16,7 @@ import use_case.user_list.UserList;
 /**
  * Controller class for manager.
  */
-public class ManagerPresenter implements EnrollStaffOutputBoundary {
+public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
 
     /**
      * The input and output user_case.boundary for enrolling new staff use case.
@@ -45,7 +45,7 @@ public class ManagerPresenter implements EnrollStaffOutputBoundary {
     /**
      * Constructor of the ManagerController
      */
-    public ManagerPresenter() {
+    public EnrollStaffPresenter() {
         this.enrollUserInputBoundary = new EnrollStaffUseCase(loadUserList());
         this.enrollUserInputBoundary.setOutputBoundary(this);
     }

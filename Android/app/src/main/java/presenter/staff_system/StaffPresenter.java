@@ -13,7 +13,9 @@ public class StaffPresenter implements StaffDeliveryOutputBoundary {
     private final DeliveryInputBoundary servingStaff = new ServingDishAdaptor();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();
     private StaffViewInterface staffView;
-
+    /**
+     * Constructor for this class.
+     */
     public StaffPresenter() {
         servingStaff.setOutputBoundary(this);
         deliveryStaff.setOutputBoundary(this);

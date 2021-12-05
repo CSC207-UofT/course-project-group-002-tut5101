@@ -3,7 +3,7 @@ package use_case.user_list;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.manger_system.UserType;
-import entity.User;
+import entity.user.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;

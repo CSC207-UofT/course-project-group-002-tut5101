@@ -1,5 +1,6 @@
 package entity;
 
+import entity.user.UserAttributes;
 import org.junit.Before;
 import org.junit.Test;
 

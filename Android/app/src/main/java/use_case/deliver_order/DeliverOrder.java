@@ -3,7 +3,7 @@ package use_case.deliver_order;
 import entity.order_list.DeliveryOrder;
 import use_case.user_list.UserList;
 import entity.delivery.DeliveryStaff;
-import entity.User;
+import entity.user.User;
 
 public class DeliverOrder implements DeliveryInputBoundary {
     private StaffDeliveryOutputBoundary outputBoundary;
