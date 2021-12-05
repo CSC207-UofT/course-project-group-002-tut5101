@@ -29,6 +29,9 @@ public class DishList implements Serializable, Iterable<Dish> {
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
+    public DishList() {
+        menu = new HashMap<String, Dish>();
+    }
 
     public DishList(String filename) {
         this.filename = filename;
