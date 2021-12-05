@@ -117,7 +117,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile() {
-        this.readWriter.saveToFile(context, filename, users);
+        readWriter.saveToFile(context, filename, users);
     }
 
     /**
