@@ -156,11 +156,6 @@ public class UserList implements Serializable {
         savetoFile();
     }
 
-    /**
-     * Generate data for userList.
-     */
-    public void generateData() {
-    }
 
     /**
      * Setting context
@@ -176,5 +171,6 @@ public class UserList implements Serializable {
         UserList.filename = filename;
         readWriter = new GCloudReadWriter();
         users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+        System.out.println(users);
     }
 }

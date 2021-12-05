@@ -133,14 +133,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
     }
 
     /**
-     * Generating data.
-     */
-    @SuppressWarnings("unchecked")
-    public void generateData() {
-        reviews = (HashMap<String, Review>) irw.readFromFile(FileName.REVIEW_FILE);
-    }
-
-    /**
      * Setting context.
      * @param context context
      */
