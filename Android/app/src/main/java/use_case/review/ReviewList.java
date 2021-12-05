@@ -1,5 +1,6 @@
 package use_case.review;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.file_system.FileLocation;
@@ -18,8 +19,9 @@ public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
     private final ReadWriter irw;
-    Context context;
-
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+    private String filename;
 
     /**
      * Constructor.
@@ -133,7 +135,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Setting context.
      * @param context context
      */
-    public void setContext(Context context) {
-        this.context = context;
+    public static void setContext(Context context) {
+        ReviewList.context = context;
     }
 }

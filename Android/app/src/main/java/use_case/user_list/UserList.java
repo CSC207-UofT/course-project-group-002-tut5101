@@ -1,5 +1,6 @@
 package use_case.user_list;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.file_system.FileLocation;
@@ -30,7 +31,9 @@ public class UserList implements Serializable {
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
-    Context context;
+    private String filename;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
 
     /**
      * Constructor
@@ -154,7 +157,7 @@ public class UserList implements Serializable {
      * Setting context
      * @param context context
      */
-    public void setContext(Context context) {
-        this.context = context;
+    public static void setContext(Context context) {
+        UserList.context = context;
     }
 }

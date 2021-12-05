@@ -1,5 +1,6 @@
 package use_case.kitchen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import constant.file_system.FileLocation;
 import entity.inventory.HasFreshness;
@@ -145,7 +146,7 @@ public class InventoryList implements Serializable {
      * Setting context
      * @param context context
      */
-    public void setContext(Context context) {
-        this.context = context;
+    public static void setContext(Context context) {
+        InventoryList.context = context;
     }
 }

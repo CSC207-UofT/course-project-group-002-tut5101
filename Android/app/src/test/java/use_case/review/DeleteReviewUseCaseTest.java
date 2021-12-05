@@ -1,6 +1,7 @@
 package use_case.review;
 
 import com.example.androidgui.manager_activities.DeleteReviewActivity;
+import constant.file_system.FileLocation;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class DeleteReviewUseCaseTest {
     @Before
     public void setUp(){
 
-        reviewList = new ReviewList();
+        reviewList = new ReviewList(FileLocation.REVIEW_FILE);
         reviewList.setContext(new DeleteReviewActivity());
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");

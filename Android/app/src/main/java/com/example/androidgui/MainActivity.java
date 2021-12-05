@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        generateInformation();
+        setInformation();
     }
 
     /**
@@ -45,10 +45,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * generate information.
      */
-    private void generateInformation(){
+    private void setInformation(){
         MainActivityPresenter presenter = new MainActivityPresenter();
         presenter.setContext(this);
-        presenter.useCaseDataGenerate();
     }
 
 
