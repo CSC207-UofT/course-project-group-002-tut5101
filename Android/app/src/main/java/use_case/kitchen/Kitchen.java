@@ -19,14 +19,19 @@ public class Kitchen {
     /**
      * The current order that the Kitchen is working on.
      */
-    private static Order currentOrder;
+    private Order currentOrder;
+    private KitchenOutputBoundary kob;
+
+    public Kitchen(KitchenOutputBoundary kob) {
+        this.kob = kob;
+    }
 
     /**
      * Get the next order to cook from the OrderQueue.
      *
      * @return if the Kitchen actually gets a new order.
      */
-    public static boolean getNextToCook(){
+    public boolean getNextToCook(){
         currentOrder = OrderQueue.getNextOrder();
         return !(currentOrder == null);
     }
@@ -34,7 +39,7 @@ public class Kitchen {
     /**
      * reset the current class
      */
-    public static void reset() {
+    public void reset() {
         currentOrder = null;
     }
 
@@ -45,7 +50,7 @@ public class Kitchen {
      *
      * @param dishName the name of the dish that is completed by the kitchen.
      */
-    public static void cookedDish(String dishName) {
+    public void cookedDish(String dishName) {
         Dish dishCooked = currentOrder.setDishStatus(dishName);
 
         if (currentOrder.getOrderType().equals(OrderType.DINE_IN)) {
@@ -59,7 +64,7 @@ public class Kitchen {
     /**
      * @return whether the Kitchen completed its current order.
      */
-    public static boolean orderCompleted() {
+    public boolean orderCompleted() {
         return currentOrder.getOrderStatus() == ItemStatus.ORDER_COOKED;
     }
 
@@ -67,15 +72,39 @@ public class Kitchen {
     /**
      * @return whether the kitchen is occupied (has an order to work on)
      */
-    public static boolean occupied() {
+    public boolean occupied() {
         return !(currentOrder == null);
     }
 
     /**
      * @return A hashmap of dishes with its corresponding quantity.
      */
-    public static HashMap<String, Integer> dishAndQuantity() {
+    public HashMap<String, Integer> dishAndQuantity() {
         return currentOrder.getDishAndQuantity();
+    }
+
+
+    /**
+     *
+     * 1. If there is an incomplete one, return true.
+     * 2. If the current one is complete, and a new one was able to obtain, return true. Otherwise,
+     * return false.
+     * 3. If there is no order, and a new one was able to obtain, return true. Otherwise,
+     * return false.
+     *
+     * dishes is updated whenever a new order is obtained for Kitchen.
+     *
+     */
+    public void getAvailableOrder() {
+        if (occupied()) {
+            if (orderCompleted()) {
+                if (getNextToCook()) {
+                    kob.getNextOrder(dishAndQuantity());
+                }
+            }
+        } else if (getNextToCook()) {
+            kob.getNextOrder(dishAndQuantity());
+        }
     }
 
 }

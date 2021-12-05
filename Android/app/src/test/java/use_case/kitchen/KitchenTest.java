@@ -21,6 +21,7 @@ public class KitchenTest {
     private DineInOrder dineInOrder;
     private DeliveryOrder deliveryOrder;
     private Order sameDishOrder;
+    private Kitchen kitchen;
 
 
     /**
@@ -28,7 +29,8 @@ public class KitchenTest {
      */
     @Before
     public void setUp() {
-        Kitchen.reset();
+        kitchen = new Kitchen();
+        kitchen.reset();
         OrderQueue.reset();
 
 
@@ -69,11 +71,11 @@ public class KitchenTest {
      */
     @Test
     public void testGetNextToCook(){
-        assertFalse(Kitchen.getNextToCook());
+        assertFalse(kitchen.getNextToCook());
         addOrders();
-        assertTrue(Kitchen.getNextToCook());
-        assertFalse(Kitchen.orderCompleted());
-        assertTrue(Kitchen.occupied());
+        assertTrue(kitchen.getNextToCook());
+        assertFalse(kitchen.orderCompleted());
+        assertTrue(kitchen.occupied());
     }
 
     /**
@@ -82,14 +84,14 @@ public class KitchenTest {
     @Test
     public void testDishAndQuantity() {
         addOrders();
-        Kitchen.getNextToCook();
+        kitchen.getNextToCook();
 
         HashMap<String, Integer> expected = new HashMap<>();
         expected.put("Quarter pound with cheese", 1);
         expected.put("Small fries", 1);
         expected.put("Coke", 1);
 
-        HashMap<String, Integer> dishAndQuantity = Kitchen.dishAndQuantity();
+        HashMap<String, Integer> dishAndQuantity = kitchen.dishAndQuantity();
 
         assertEquals(expected, dishAndQuantity);
     }
@@ -100,8 +102,8 @@ public class KitchenTest {
     @Test
     public void testCookedDish() {
         addOrders();
-        Kitchen.getNextToCook();
-        Kitchen.cookedDish("Small fries");
+        kitchen.getNextToCook();
+        kitchen.cookedDish("Small fries");
         Dish actualFries = null;
         try{
             actualFries = ServingBuffer.getNextToServe();
@@ -109,11 +111,11 @@ public class KitchenTest {
         catch (Exception e) {
             assert false;
         }
-        Kitchen.getNextToCook();
+        kitchen.getNextToCook();
 
-        Kitchen.cookedDish("Coke");
-        Kitchen.cookedDish("Small fries");
-        Kitchen.cookedDish("Quarter pound with cheese");
+        kitchen.cookedDish("Coke");
+        kitchen.cookedDish("Small fries");
+        kitchen.cookedDish("Quarter pound with cheese");
 
         Order actualOrder = null;
         try{

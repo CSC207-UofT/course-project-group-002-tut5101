@@ -65,6 +65,7 @@ public class GCloudReadWriter implements ReadWriter {
                 out.writeObject(map);
                 storage.create(blobInfo, byteOut.toByteArray());
 
+                out.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
