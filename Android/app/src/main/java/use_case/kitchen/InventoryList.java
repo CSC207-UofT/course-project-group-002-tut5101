@@ -27,10 +27,13 @@ public class InventoryList implements Serializable {
     private static HashMap<String, Inventory> myDict;
     private final ReadWriter irw;
 
-    private Context context;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
     private InventoryOutputBoundary boundary;
+    private String filename;
 
-    public InventoryList() {
+    public InventoryList(String filename) {
+        this.filename = filename;
         irw = new GCloudReadWriter();
         myDict = (HashMap<String, Inventory>) irw.readFromFile(FileLocation.INVENTORY_FILE);
     }
@@ -133,7 +136,7 @@ public class InventoryList implements Serializable {
     }
 
     public void saveToFile() {
-        irw.saveToFile(context, FileLocation.INVENTORY_FILE, myDict);
+        irw.saveToFile(context, filename, myDict);
     }
 
     /**

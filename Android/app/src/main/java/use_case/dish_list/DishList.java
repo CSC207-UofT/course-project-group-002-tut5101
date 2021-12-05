@@ -30,7 +30,8 @@ public class DishList implements Serializable, Iterable<Dish> {
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
 
-    public DishList() {
+    public DishList(String filename) {
+        this.filename = filename;
         readWriter = new GCloudReadWriter();
         menu = (HashMap<String, Dish>) readWriter.readFromFile(FileLocation.MENU_FILE);
         dishNames = menu.keySet().toArray(new String[0]);
@@ -164,7 +165,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile(){
-        readWriter.saveToFile(context, FileLocation.MENU_FILE, menu);
+        readWriter.saveToFile(context, filename, menu);
     }
 
     /**

@@ -38,7 +38,8 @@ public class UserList implements Serializable {
     /**
      * Constructor
      */
-    public UserList() {
+    public UserList(String filename) {
+        this.filename = filename;
         readWriter = new GCloudReadWriter();
         users = (HashMap<String, User>) readWriter.readFromFile(FileLocation.USER_FILE);
     }
@@ -117,7 +118,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, FileLocation.USER_FILE, users);
+        this.readWriter.saveToFile(context, filename, users);
     }
 
     /**

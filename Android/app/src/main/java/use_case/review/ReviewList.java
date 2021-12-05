@@ -27,8 +27,10 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Constructor.
      *
      */
-    public ReviewList() {
+    public ReviewList(String filename) {
+        this.filename = filename;
         irw = new GCloudReadWriter();
+        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
     }
 
 
@@ -121,7 +123,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Saving to file.
      */
     public void saveToFile() {
-        irw.saveToFile(context, "review.ser", reviews);
+        irw.saveToFile(context, filename, reviews);
     }
 
     /**
