@@ -1,6 +1,5 @@
 package use_case.deliver_order;
 
-import constant.file_system.FileName;
 import entity.delivery.ServingStaff;
 import entity.order_list.Dish;
 import org.junit.Before;
@@ -82,7 +81,7 @@ public class ServingDishAdapterTest {
         } catch (Exception e) {
             assert true;
         }
-        serveDish.setOutputBoundary(testPresenter);
+
     }
 
     /**
@@ -90,6 +89,7 @@ public class ServingDishAdapterTest {
      */
     @Test
     public void testGetItemInfo() {
+        serveDish.setOutputBoundary(testPresenter);
         serveDish.getItemInfo("1");
         try {
             serveDish.getToBeDeliver("1");
