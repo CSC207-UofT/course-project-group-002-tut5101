@@ -3,16 +3,10 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import constant.file_system.FileName;
-import entity.review.Review;
-import presenter.kitchen_system.KitchenFacade;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
-import use_case.review.ReviewList;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -58,7 +52,7 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
 
     /**
      * Listen to the change in Order and update the display if needed.
-     * @param propertyChangeEvent
+     * @param propertyChangeEvent A propertyChange Event
      */
     @Override
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {

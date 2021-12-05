@@ -21,7 +21,12 @@ public class DishInformation {
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishInformation() {
-        menu = DishList.getAllDishes();
+        if (DishList.getAllDishes() != null) {
+            menu = DishList.getAllDishes();
+        }
+        else {
+            menu = new HashMap<>();
+        }
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -29,8 +34,8 @@ public class DishInformation {
      * Constructor for constructing a null object for test
      */
     public DishInformation(int k) {
-        menu = new HashMap<String, Dish>();
-        ArrayList<String> dishes = new ArrayList<String>();
+        menu = new HashMap<>();
+        ArrayList<String> dishes = new ArrayList<>();
         for (int i = 0; i < k; i++) {dishes.add("1");}
     }
 

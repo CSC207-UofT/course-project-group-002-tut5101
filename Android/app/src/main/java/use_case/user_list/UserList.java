@@ -44,6 +44,13 @@ public class UserList implements Serializable {
             users = new HashMap<>();
         }
     }
+
+    /**
+     * Resets the user list for testing
+     */
+    public void reset() {
+        users = new HashMap<>();
+    }
     /**
      *
      * @return the length of the user list.
