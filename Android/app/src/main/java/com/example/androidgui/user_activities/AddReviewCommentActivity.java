@@ -18,7 +18,7 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     EditText editTextRate;
     EditText editTextComment;
     EditText editTextId;
-    final AddReviewPresenter rc = new AddReviewPresenter();
+    private AddReviewPresenter rc;
 
     /**
      *
@@ -27,6 +27,7 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        rc = new AddReviewPresenter();
         rc.setContext(this);
         setContentView(R.layout.activity_add_review_comment);
         button = findViewById(R.id.bt1);

@@ -2,6 +2,7 @@ package use_case.user_list;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import constant.file_system.FileLocation;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -29,27 +30,14 @@ public class UserList implements Serializable {
     private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     ReadWriter readWriter;
-    private String filename;
     Context context;
 
+    /**
+     * Constructor
+     */
     public UserList() {
         readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filename);
-    }
-
-    /**
-     *  Second constructor: construct with size of the UserList.
-     * @param i: number of users in the list.
-     */
-    public UserList(int i) {
-        users = new HashMap<>(i);
-    }
-
-    public UserList(String filename, Context context) {
-        this.filename = filename;
-        readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(filename);
-        this.context = context;
+        users = (HashMap<String, User>) readWriter.readFromFile(FileLocation.USER_FILE);
     }
     /**
      *
@@ -126,7 +114,7 @@ public class UserList implements Serializable {
     }
 
     public void savetoFile(Context context) {
-        this.readWriter.saveToFile(context, this.filename, users);
+        this.readWriter.saveToFile(context, FileLocation.USER_FILE, users);
     }
 
     /**
@@ -160,5 +148,13 @@ public class UserList implements Serializable {
      * Generate data for userList.
      */
     public void generateData() {
+    }
+
+    /**
+     * Setting context
+     * @param context context
+     */
+    public void setContext(Context context) {
+        this.context = context;
     }
 }

@@ -1,14 +1,11 @@
 package presenter.order_system;
 
-import android.content.Context;
-import constant.file_system.FileLocation;
 import constant.order_system.OrderType;
-import entity.order_list.Dish;
-import use_case.placeorder.PlaceOrder;
-import use_case.placeorder.PlaceOrderOutputBoundary;
-import use_case.dish_list.DishList;
 import use_case.dish_list.DishInformation;
+import use_case.dish_list.DishList;
+import use_case.placeorder.PlaceOrder;
 import use_case.placeorder.PlaceOrderInputBoundary;
+import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,7 +83,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
      * Initialize the dishList
      */
     private void initializeDishList() {
-        new DishList(FileLocation.MENU_FILE, (Context) placeOrderViewInterface);
+        new DishList();
         this.dishInformation = new DishInformation();
         dishInformation.setPlaceOrderOutputBoundary(this);
 
