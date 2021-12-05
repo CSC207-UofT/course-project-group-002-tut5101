@@ -86,7 +86,9 @@ public class InventoryList implements Serializable {
      * @param name Name of the ingredient
      * @return true only if the ingredient with name is found in the list
      */
-    public boolean checkExist(String name){return myDict.containsKey(name);}
+    public boolean checkExist(String name){
+        return myDict.containsKey(name);
+    }
 
 
     /**
@@ -154,12 +156,6 @@ public class InventoryList implements Serializable {
     }
 
     /**
-     * Generate data for inventoryList.
-     */
-    public void generateData() {
-    }
-
-    /**
      * Setting context
      * @param context context
      */
@@ -175,6 +171,6 @@ public class InventoryList implements Serializable {
     public static void setData(String filename) {
         InventoryList.filename = filename;
         irw = new GCloudReadWriter();
-        // myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 }
