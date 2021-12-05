@@ -11,7 +11,7 @@ public class ReviewListIteratorTest {
 
     @Before
     public void setUp() {
-        HashMap<String, Review> reviews = new HashMap<String, Review>();
+        HashMap<String, Review> reviews = new HashMap<>();
         Review testReview = new Review("1", true, 5, "", "1");
         reviews.put("1", testReview);
         ReviewList.setReviews(reviews);
