@@ -130,7 +130,6 @@ public class InventoryList implements Serializable {
      */
     public static int getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
-            //TODO: implement exceptions for cases of wrong key
             return 0;
         }
         return Objects.requireNonNull(myDict.get(name)).getQuantity();
