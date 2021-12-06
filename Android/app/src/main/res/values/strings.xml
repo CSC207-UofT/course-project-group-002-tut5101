@@ -88,7 +88,7 @@
     <string name="dish_name">Dish Name</string>
     <string name="cooked">Cooked</string>
     <string name="add_review">addReview</string>
-    <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
+    <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table# for Dine-In, or delivery
         address below
     </string>
     <string name="dine_in_or_delivery">Is this order Dine In or Delivery?</string>
@@ -97,8 +97,10 @@
     <string name="add_identity">Add your Identity</string>
     <string name="Name">Name</string>
     <string name="date_import_expiry">Date import/expiry</string>
-    <string name="usage_negative_when_adding">usage( negative when adding)</string>
+    <string name="enter_usage">Enter number of usage</string>
     <string name="Cooked">cooked</string>
     <string name="upload">Upload</string>
+    <string name="inventory_item_name">Inventory Item Name</string>
+    <string name="number_of_usage_note">Enter a positive number to deduct the inventory amount, a negative number to increase inventory.</string>
 
 </resources>
