@@ -3,7 +3,6 @@ package use_case.review;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileName;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
@@ -11,11 +10,12 @@ import gateway.ReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review> {
+public class ReviewList implements Serializable, Iterable<Review>{
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
     private static ReadWriter irw;
@@ -67,6 +67,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public void addReview(Review r) {
            reviews.put(r.getReviewID(), r);
+           saveToFile();
     }
 
     /**
@@ -131,13 +132,6 @@ public class ReviewList implements Serializable, Iterable<Review> {
         irw.saveToFile(context, filename, reviews);
     }
 
-    /**
-     * Generating data.
-     */
-    @SuppressWarnings("unchecked")
-    public void generateData() {
-        reviews = (HashMap<String, Review>) irw.readFromFile(FileName.REVIEW_FILE);
-    }
 
     /**
      * Setting context.
@@ -156,5 +150,13 @@ public class ReviewList implements Serializable, Iterable<Review> {
         ReviewList.filename = filename;
         ReviewList.irw = new GCloudReadWriter();
         reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+    }
+
+    /**
+     * Delete the given review
+     * @param review review to be deleted.
+     */
+    public static void delete(Review review) {
+        reviews.remove(review.getReviewID());
     }
 }

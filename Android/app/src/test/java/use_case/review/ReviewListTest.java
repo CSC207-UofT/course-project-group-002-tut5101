@@ -2,6 +2,7 @@ package use_case.review;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import com.example.androidgui.manager_activities.SeeReviewActivity;
+import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;
 import org.junit.Rule;
@@ -21,6 +22,8 @@ public class ReviewListTest {
     private ReviewList reviewList;
     private Review review1;
     private Review review2;
+    private Review review3;
+    private Review review4;
 
     /**
      * Setup before tests
@@ -28,10 +31,16 @@ public class ReviewListTest {
     @Before
     public void setUp() {
         reviewList = new ReviewList();
+        ReviewList.setData(FileName.REVIEW_FILE);
         ReviewList.setContext(new SeeReviewActivity());
+        reviewList.reset();
         review1 = new Review("Amy", true, 5, "good food", "1");
-        review2 = new Review("Bob", false, 5, "Nice staff",
+        review2 = new Review("Bob", false, 4, "Nice staff",
                 "2");
+        review3 = new Review("Cathy", false, 3, "Nice staff",
+                "3");
+        review4 = new Review("David", false, 2, "Nice staff",
+                "4");
 
         TestClass testPresenter = new TestClass();
         reviewList.setReviewOutputBoundary(testPresenter);
@@ -60,7 +69,6 @@ public class ReviewListTest {
     public void testAddReview() {
         reviewList.addReview(review1);
         reviewList.addReview(review2);
-        reviewList.addReview("Amy", true, 5, "good food");
     }
 
     /**
@@ -68,9 +76,12 @@ public class ReviewListTest {
      */
     @Test
     public void testSizeOfList(){
+        reviewList.reset();
         reviewList.addReview(review1);
         reviewList.addReview(review2);
-        assertEquals(2, reviewList.sizeofList());
+        reviewList.addReview(review3);
+        reviewList.addReview(review4);
+        assertEquals(4, reviewList.sizeofList());
     }
 
     /**
@@ -89,11 +100,12 @@ public class ReviewListTest {
     public void testToString(){
         reviewList.reset();
         reviewList.addReview(review1);
-        String review = "1" + ". " + "Anonymous" + ": rate = " + "5" +
-                "; comment = " + "good food";
+        reviewList.addReview(review2);
+        String review = "Anonymous leaves rate = 5 and comment = good food\n" +
+                "Bob leaves rate = 4 and comment = Nice staff\n";
 
         String actual = reviewList.toString();
-        assertFalse(actual.contains(review));
+        assertEquals(actual, review);
     }
 
     /**
@@ -107,6 +119,20 @@ public class ReviewListTest {
         reviewList.addReview(review1);
         reviewList.addReview(review2);
         assertEquals(expected, ReviewList.getAllReviews());
+    }
+
+    /**
+     * Test delete method.
+     */
+    @Test
+    public void delete(){
+        reviewList.reset();
+        reviewList.addReview(review1);
+        reviewList.addReview(review2);
+        reviewList.addReview(review3);
+        reviewList.addReview(review4);
+        reviewList.delete(review3);
+        assertEquals(3, reviewList.sizeofList());
     }
 
     /**

@@ -17,6 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class ReviewTest {
     private Review review1;
     private Review review2;
+    private Review review3;
 
     /**
      * setup before tests
@@ -27,6 +28,8 @@ public class ReviewTest {
                 "1");
         review2 = new Review("Bob", false, -1, "Nice staff",
                 "2");
+        review3 = new Review("Amy", true, 3, "good food",
+                "1");
     }
 
     /**
@@ -45,6 +48,7 @@ public class ReviewTest {
     public void testReviewGetRate() {
         assertEquals(5, review1.getRate());
         assertEquals(0, review2.getRate());
+        assertEquals(3, review3.getRate());
     }
 
     /**
@@ -79,7 +83,7 @@ public class ReviewTest {
      */
     @Test(timeout = 50)
     public void testToString() {
-        String expected = "Anonymous leaves rate = 5 and comment = good food";
+        String expected = "Anonymous leaves rate = 5 and comment = good food" + "\n";
         String actual = review1.toString();
         assertEquals(expected, actual);
     }

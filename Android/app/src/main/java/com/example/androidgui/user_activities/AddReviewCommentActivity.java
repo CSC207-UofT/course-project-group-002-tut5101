@@ -11,7 +11,7 @@ import presenter.review_system.AddReviewPresenter;
 /**
  * Activity class for adding use_case.review.
  */
-public class AddReviewCommentActivity extends AppCompatActivity implements View.OnClickListener{
+public class AddReviewCommentActivity extends AppCompatActivity{
     Button button;
     EditText editTextName;
     EditText editTextIfAnonymous;
@@ -33,15 +33,13 @@ public class AddReviewCommentActivity extends AppCompatActivity implements View.
         editTextIfAnonymous = findViewById(R.id.textInputEdit1);
         editTextRate = findViewById(R.id.textInputEdit2);
         editTextComment = findViewById(R.id.textInputEdit3);
-        button.setOnClickListener(this);
     }
 
     /**
      * Clicking response.
      * @param v view.
      */
-    @Override
-    public void onClick(View v) {
+    public void addReview(View v) {
         String name = editTextName.getText().toString();
         boolean iifAnonymous = editTextIfAnonymous.getText().toString().equals("Y");
         int irate = Integer.parseInt(editTextRate.getText().toString());
