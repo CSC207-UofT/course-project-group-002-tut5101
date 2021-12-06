@@ -7,7 +7,7 @@ import use_case.user_list.UserList;
  */
 public class UserPresenter implements UserOutputBoundary{
 
-    private UserList userList;
+    private final UserList userList;
     private DisplayUsersViewInterface displayUsersViewInterface;
 
     public UserPresenter(){

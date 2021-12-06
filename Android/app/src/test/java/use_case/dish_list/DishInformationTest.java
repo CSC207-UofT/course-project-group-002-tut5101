@@ -1,7 +1,6 @@
 package use_case.dish_list;
 
 import android.app.Activity;
-import com.example.androidgui.inventory_activities.CheckInventoryActivity;
 import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;

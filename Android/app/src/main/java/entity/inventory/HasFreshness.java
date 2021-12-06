@@ -63,7 +63,7 @@ public class HasFreshness extends Inventory implements Serializable {
         if (this == o) return true;
         if (!(o instanceof HasFreshness)) return false;
         HasFreshness that = (HasFreshness) o;
-        return usedup == that.usedup && Double.compare(that.price, price) == 0 && quantity == that.quantity && ImportDate == that.ImportDate && Objects.equals(name, that.name) && Objects.equals(freshness, that.freshness);
+        return usedUp == that.usedUp && Double.compare(that.price, price) == 0 && quantity == that.quantity && ImportDate == that.ImportDate && Objects.equals(name, that.name) && Objects.equals(freshness, that.freshness);
     }
 
 }

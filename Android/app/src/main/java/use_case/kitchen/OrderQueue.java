@@ -1,7 +1,6 @@
 package use_case.kitchen;
 
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.RequiresApi;
 import entity.order_list.Dish;
 import entity.order_list.Order;
