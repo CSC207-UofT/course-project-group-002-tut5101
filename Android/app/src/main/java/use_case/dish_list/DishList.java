@@ -109,16 +109,37 @@ public class DishList implements Serializable, Iterable<Dish> {
         saveToFile();
     }
 
+
     /**
      * Edit the dish by its name.
      *
      * @param dishName name of the dish to be edited.
      */
-    public void editDishByName(String dishName) {
+    public void editCalories(String dishName, int i){
         Dish dish = menu.get(dishName);
         assert dish != null;
-        dish.increasePrice();
-        dish.decreaseCalories();
+        if (i == 0){
+            dish.decreaseCalories();
+        } else{
+            dish.increaseCalories();
+        }
+        menu.put(dishName, dish);
+        saveToFile();
+    }
+
+    /**
+     * Edit the dish by its name.
+     *
+     * @param dishName name of the dish to be edited.
+     */
+    public void editPrice(String dishName, int i){
+        Dish dish = menu.get(dishName);
+        assert dish != null;
+        if (i == 0){
+            dish.decreasePrice();
+        } else{
+            dish.increasePrice();
+        }
         menu.put(dishName, dish);
         saveToFile();
     }

@@ -98,15 +98,15 @@ public class DishListTest {
         assertFalse(DishList.getAllDishes().containsKey("Milk Tea"));
     }
 
-    /**
-     * Test the editDishByName method
-     */
-    @Test
-    public void testEditDish() {
-        menu.editDishByName("Coffee");
-        assertEquals(11.0, DishList.getDishPrice("Coffee"), 0.1);
-        assertEquals(-100, DishList.getDishCalories("Coffee"), 0.1);
-    }
+//    /**
+//     * Test the editDishByName method
+//     */
+//    @Test
+//    public void testEditDish() {
+//        menu.editDishByName("Coffee");
+//        assertEquals(11.0, DishList.getDishPrice("Coffee"), 0.1);
+//        assertEquals(-100, DishList.getDishCalories("Coffee"), 0.1);
+//    }
 
     /**
      *
