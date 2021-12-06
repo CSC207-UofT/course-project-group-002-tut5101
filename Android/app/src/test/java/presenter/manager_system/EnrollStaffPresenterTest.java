@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class EnrollStaffPresenterTest {
     private EnrollStaffPresenter enrollStaffPresenter;
+    private UserList userList;
 
     /**
      * Setup before tests
@@ -35,7 +36,7 @@ public class EnrollStaffPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        UserList userList = new UserList();
+        userList = new UserList();
         userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
@@ -51,6 +52,15 @@ public class EnrollStaffPresenterTest {
     @Test
     public void testGetNewUserId() {
         enrollStaffPresenter.getNewUserId();
+    }
+
+    /**
+     * Test enrollNewUser method
+     */
+    @Test
+    public void testEnrollNewUser(){
+        enrollStaffPresenter.enrollNewUser("6", "Test", "12345", "KITCHEN");
+        assertEquals(7, userList.length());
     }
 
     /**
