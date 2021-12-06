@@ -2,7 +2,7 @@ package presenter.kitchen_system;
 
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
-import use_case.kitchen.CookUseCase;
+import use_case.kitchen.CookDish;
 import use_case.kitchen.KitchenOutputBoundary;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class KitchenPresenter implements KitchenOutputBoundary {
     private final KitchenView kv;
-    private final CookUseCase kitchen;
+    private final CookDish kitchen;
     private HashMap<String, Integer> dishes;
     private InventoryList inventory;
 
@@ -22,8 +22,9 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * @param kv view interface
      */
     public KitchenPresenter(KitchenView kv) {
-        this.kitchen = new CookUseCase(this);
+        this.kitchen = new CookDish(this);
         this.kv = kv;
+        this.inventory = new InventoryList();
     }
 
     /**
@@ -41,39 +42,29 @@ public class KitchenPresenter implements KitchenOutputBoundary {
         return displayDishes;
     }
 
+    /**
+     * Set the inventoryList for Kitchen
+     * @param inventory an InventoryList attribute
+     */
     public void setInventory(InventoryList inventory){
         this.inventory = inventory;
     }
 
-
+    /**
+     * Update the current dishes to be the potentially new orders.
+     * @param dishes the new dishes (order) to be cooked
+     */
     @Override
     public void getNextOrder(HashMap<String, Integer> dishes){
         this.dishes = dishes;
     }
 
-    public void checkOrderAvailable() {
-        this.kitchen.getAvailableOrder();
-    }
-
     /**
-     * Display the ingredients for a given dish.
-     * @param dishName The name of the dish whose ingredients will be displayed.
-     * @return A string representation of the ingredients.
+     * Check if a new order is available and should be used to replace the current one
      */
-    public String displayIngredient(String dishName) {
-        HashMap<String, Integer> in = DishList.getDishIngredients(dishName);
-        StringBuilder sb = new StringBuilder();
-        sb.append(dishName).append("\n").append("# Ingredient ---- Quantity #\n");
-        for (String ingreName: in.keySet()) {
-            StringBuilder space = new StringBuilder();
-            for (int i = 0; i < 16 - ingreName.length(); i++){
-                space.append(" ");
-            }
-            sb.append("# ").append(ingreName).append(space).append(in.get(ingreName)).append("\n");
-        }
-        return sb.toString();
+    public boolean checkOrderAvailable() {
+        return this.kitchen.getAvailableOrder();
     }
-
 
     /**
      * Mark the given dish as cooked.
@@ -83,7 +74,6 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * decreases the quantity of this dish by 1.
      *
      * @param dishName One of the dish choices provided to Kitchen in showDishToCook.
-     * @return whether all dish in dishes is cooked.
      */
     public void completeDish(String dishName) {
         this.kitchen.cookedDish(dishName);
@@ -96,14 +86,13 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 dishes.remove(dishName);
             }
         }
-        if (0 == dishes.size()) {
-            checkOrderAvailable();
-            kv.renewDishes(exportDishes());
+        kv.createToast("One " + dishName + " cooked", true);
+        if (0 == dishes.size() && checkOrderAvailable()) {
+            kv.createToast("NEW ORDER!", false);
         }
+        kv.renewDishes(exportDishes());
         kv.updateListDisplay();
-
     }
-
 
     /**
      * Update the inventory according to the ingredients used in the given dish name.
@@ -114,12 +103,15 @@ public class KitchenPresenter implements KitchenOutputBoundary {
 
         for (String dish: ingredientInfo.keySet()) {
             int oriQuantity = InventoryList.getTotalQuantity(dish);
-            int temp = ingredientInfo.get(dish);
-            if (temp != 0){
+            Integer tempint = ingredientInfo.get(dish);
+            if (tempint != null) {
+                int temp = tempint;
+                if (temp != 0) {
+                    this.inventory.setQuantity(dish, oriQuantity - temp);
+                }
+                oriQuantity = InventoryList.getTotalQuantity(dish);
                 this.inventory.setQuantity(dish, oriQuantity - temp);
             }
-            oriQuantity = InventoryList.getTotalQuantity(dish);
-            this.inventory.setQuantity(dish, oriQuantity - ingredientInfo.get(dish));
         }
     }
 

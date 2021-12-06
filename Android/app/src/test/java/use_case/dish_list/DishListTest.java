@@ -1,7 +1,5 @@
 package use_case.dish_list;
 
-
-import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -126,7 +124,7 @@ public class DishListTest {
      */
     @Test
     public void testToString() {
-        menu = new DishList();
+        menu.reset();
         menu.addDish(new Dish("Milk Tea", 10.0, new HashMap<>(), 300));
 
         String expected = "1. " + "Milk Tea" +
@@ -191,5 +189,20 @@ public class DishListTest {
         Dish dish = new Dish("Tofu", 100.0, new HashMap<>(), 10.0);
         actual.replace(dish);
         assert(DishList.getAllDishes().containsValue(dish));
+    }
+
+    @Test
+    public void testSaveToFile() {
+        menu.saveToFile();
+    }
+
+    @Test
+    public void testSetContext() {
+        DishList.setContext(null);
+    }
+
+    @Test
+    public void testSetData() {
+        DishList.setData("");
     }
 }

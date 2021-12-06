@@ -48,7 +48,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
             mode = b.getString("action");
         }
         // Get next order to be delivered
-        if (mode.equals("GET_NEXT")) {
+        if (mode != null && mode.equals("GET_NEXT")) {
             getNextOrder();
         }
         // Display current order to be delivered
@@ -87,6 +87,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      * Launch Google Maps to show directions
      */
     public void selectShowMap(View v) {
+        getCurrentOrder();
         Uri gmmIntentUri;
         if (Objects.equals(destination, "")) {
             gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University of Toronto, Toronto, ON, Canada");

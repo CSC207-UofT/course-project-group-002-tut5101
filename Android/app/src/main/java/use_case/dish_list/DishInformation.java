@@ -5,7 +5,6 @@ import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -21,7 +20,12 @@ public class DishInformation {
      * This constructor is using the generateDishList method below which hardcoded the dishes in program.
      */
     public DishInformation() {
-        menu = DishList.getAllDishes();
+        if (DishList.getAllDishes() != null) {
+            menu = DishList.getAllDishes();
+        }
+        else {
+            menu = new HashMap<>();
+        }
         dishNames = menu.keySet().toArray(new String[0]);
     }
 
@@ -29,9 +33,10 @@ public class DishInformation {
      * Constructor for constructing a null object for test
      */
     public DishInformation(int k) {
-        menu = new HashMap<String, Dish>();
-        ArrayList<String> dishes = new ArrayList<String>();
+        menu = new HashMap<>();
+        ArrayList<String> dishes = new ArrayList<>();
         for (int i = 0; i < k; i++) {dishes.add("1");}
+        assert dishes.size() == k;
     }
 
     // methods for place order menu output boundary
@@ -67,8 +72,6 @@ public class DishInformation {
         }
         placeOrderMenuOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
-
-    // methods for place order output boundary
 
     /**
      * Set the place order output boundary

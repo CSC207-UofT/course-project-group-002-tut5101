@@ -9,7 +9,14 @@ public class DeliveryBuffer {
     /**
      * The buffer queue of completed orders for delivery staff to access.
      */
-    public static final Queue<Order> deliveryBuffer = new ArrayDeque<>();
+    public static Queue<Order> deliveryBuffer = new ArrayDeque<>();
+
+    /**
+     * Reset the delivery buffer
+     */
+    public static void reset() {
+        deliveryBuffer = new ArrayDeque<>();
+    }
 
     /**
      * The getter method for UseCase.com.example.androidgui.DeliveryStaff to call to get the next order to delivery.
@@ -31,6 +38,4 @@ public class DeliveryBuffer {
     public static void addDeliveryOrder(Order order) {
         deliveryBuffer.add(order);
     }
-
-
 }

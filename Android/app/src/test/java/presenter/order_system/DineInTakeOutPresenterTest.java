@@ -30,7 +30,7 @@ public class DineInTakeOutPresenterTest {
     }
 
     /**
-     * Empty fake presenter class implementing the output boundary
+     * Empty fake activity class implementing the output boundary
      */
     private static class TestClass implements SelectDineInTakeOutViewInterface{
 
@@ -43,4 +43,5 @@ public class DineInTakeOutPresenterTest {
             assert true;
         }
     }
+
 }

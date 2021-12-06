@@ -1,9 +1,10 @@
 package use_case.review;
 
-import constant.file_system.FileName;
 import entity.review.Review;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -11,30 +12,41 @@ import java.util.Iterator;
  */
 @SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
-    private final ReviewList reviewList;
+    private static HashMap<String, Review> reviewList;
 
     /**
      * Constructor
      */
     public DeleteReviewUseCase() {
-        this.reviewList = new ReviewList();
+        reviewList = ReviewList.getAllReviews();
     }
-
 
     /**
      *
      * Delete all reviews with rate below or equal to 3.
      */
     @Override
-    public void delete(int i) {
-        Iterator<Review> reviewIterator = reviewList.iterator();
-        while (reviewIterator.hasNext()){
-            Review review = reviewIterator.next();
-            if (review != null && review.getRate() < i + 1) {
-                reviewIterator.remove();
-//                readWriter.saveToFile(reviewList);
+    public void delete(int standard) {
+//        Iterator<Review> reviewIterator = reviewList.iterator();
+        int i = 0;
+        int length = reviewList.size();
+        List<String> lstReviews = new ArrayList<>(ReviewList.getAllReviews().keySet());
+        while (i < length){
+            String reviewName = lstReviews.get(i);
+            Review review = reviewList.get(reviewName);
+            if (review != null && review.getRate() <= standard){
+                ReviewList.delete(review);
+            } else {
+                i ++;
             }
         }
+        ReviewList.saveToFile();
+//        while (reviewIterator.hasNext()){
+//            Review review = reviewIterator.next();
+//            if (review != null && review.getRate() <= standard) {
+//                reviewList.delete(review);
+//            }
+//        }
     }
 
 }

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.example.androidgui">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -18,61 +18,63 @@
 		<activity android:name=".inventory_activities.UpdateQuantityActivity" />
 		<activity android:name=".inventory_activities.UpdateFreshnessActivity" />
 		<activity android:name=".inventory_activities.AddInventoryActivity" />
-		<activity android:name=".inventory_activities.CheckInventoryActivity"/>
-		<activity android:name=".inventory_activities.InventoryStarterActivity"/>
-		<activity android:name=".user_activities.EnrollStaffActivity"/>
+		<activity android:name=".inventory_activities.CheckInventoryActivity" />
+		<activity android:name=".inventory_activities.InventoryStarterActivity" />
+		<activity
+			android:name=".inventory_activities.PresentInventoryActivity"
+			android:exported="true" />
+		<activity android:name=".user_activities.EnrollStaffActivity" />
 		<activity
 			android:name=".manager_activities.SelectEditOrDeleteActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".manager_activities.SeeReviewActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".manager_activities.DeleteReviewActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".manager_activities.ManagerPickActionActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".manager_activities.ManageMenuActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".kitchen_activities.CurrentOrderDishesActivity"
-			android:exported="true"/>
-		<activity android:name=".serving_staff_activities.ServeDishActivity"/>
+			android:exported="true" />
+		<activity android:name=".serving_staff_activities.ServeDishActivity" />
 		<activity
 			android:name=".delivery_staff_activities.DeliverOrderActivity"
 			android:exported="true"
 			android:label="@string/title_activity_deliver_order"
-			android:theme="@style/Theme.AndroidGUI.NoActionBar"/>
+			android:theme="@style/Theme.AndroidGUI.NoActionBar" />
 		<activity
 			android:name=".user_activities.LoginActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".order_activities.SelectDineInTakeOutActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".order_activities.EnterLocationActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
 			android:name=".order_activities.PlaceOrderActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
-			android:name=".order_activities.OrderSuccessfullyPlacedActivity"
-			android:exported="true"/>
-		<activity android:name=".user_activities.SeeMenuActivity"
-		android:exported="true"/>
+			android:name=".user_activities.SeeMenuActivity"
+			android:exported="true" />
 		<activity
 			android:name=".order_activities.EditOrderActivity"
-			android:exported="true"/>
+			android:exported="true" />
 		<activity
-				android:name=".user_activities.AddReviewCommentActivity"
-				android:exported="true"/>
-		<activity android:name=".user_activities.CustomerPickActionActivity"/>
+			android:name=".user_activities.AddReviewCommentActivity"
+			android:exported="true" />
+		<activity android:name=".user_activities.CustomerPickActionActivity" />
 		<activity android:name=".serving_staff_activities.ServingStaffPickActionActivity" />
 		<activity android:name=".delivery_staff_activities.DeliveryStaffPickActionActivity" />
-		<activity android:name=".MainActivity"
-				  android:exported="true">
+		<activity
+			android:name=".MainActivity"
+			android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 

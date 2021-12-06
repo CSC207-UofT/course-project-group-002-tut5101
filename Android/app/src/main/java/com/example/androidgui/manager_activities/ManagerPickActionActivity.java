@@ -11,7 +11,6 @@ import com.example.androidgui.user_activities.SeeMenuActivity;
 
 /**
  * Activity class for the manager the pick the activities he or she wants to do.
- *
  */
 public class ManagerPickActionActivity extends AppCompatActivity {
 
@@ -32,7 +31,7 @@ public class ManagerPickActionActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void ManageMenu(View v){
+    public void ManageMenu(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, ManageMenuActivity.class);
         startActivity(intent);
     }
@@ -43,7 +42,7 @@ public class ManagerPickActionActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void SeeMenu(View v){
+    public void SeeMenu(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, SeeMenuActivity.class);
         startActivity(intent);
     }
@@ -54,7 +53,7 @@ public class ManagerPickActionActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void SeeReview(View v){
+    public void SeeReview(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, SeeReviewActivity.class);
         startActivity(intent);
     }
@@ -65,7 +64,7 @@ public class ManagerPickActionActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void DeleteReview(View v){
+    public void DeleteReview(View v) {
         Intent intent = new Intent(ManagerPickActionActivity.this, DeleteReviewActivity.class);
         startActivity(intent);
     }
@@ -83,6 +82,7 @@ public class ManagerPickActionActivity extends AppCompatActivity {
 
     /**
      * Manager enroll new staff
+     *
      * @param view view
      */
     public void enrollStaff(View view) {
@@ -90,4 +90,13 @@ public class ManagerPickActionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Back to main activity
+     *
+     * @param view view
+     */
+    public void backToMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

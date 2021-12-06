@@ -3,7 +3,6 @@ package use_case.review;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import constant.file_system.FileName;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
@@ -15,7 +14,7 @@ import java.util.Objects;
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review> {
+public class ReviewList implements Serializable, Iterable<Review>{
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
     private static ReadWriter irw;
@@ -24,21 +23,18 @@ public class ReviewList implements Serializable, Iterable<Review> {
     private static String filename;
 
     /**
-     * Constructor.
-     *
-     */
-    @SuppressWarnings("unchecked")
-    public ReviewList(String filename) {
-        this.filename = filename;
-        irw = new GCloudReadWriter();
-        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
-    }
-
-    /**
      * Null constructor for testing
      */
     public ReviewList() {
-        irw = new GCloudReadWriter();
+        if (reviews == null) {
+            reviews = new HashMap<>();
+        }
+    }
+
+    /**
+     * Resets the reviewList for tests
+     */
+    public void reset() {
         reviews = new HashMap<>();
     }
 
@@ -59,8 +55,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param rate rate of the use_case.review.
      * @param comment comment left.
      */
-    public void addReview(String name, boolean ifAnonymous, int rate, String comment, String ID){
-        addReview(new Review(name, ifAnonymous, rate, comment, ID));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment){
+        addReview(new Review(name, ifAnonymous, rate, comment, String.valueOf(this.sizeofList()+1)));
     }
 
     /**
@@ -69,8 +65,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
-           reviews.put(r.getReviewID(), r);
-
+       reviews.put(r.getReviewID(), r);
+       saveToFile();
     }
 
     /**
@@ -131,17 +127,10 @@ public class ReviewList implements Serializable, Iterable<Review> {
     /**
      * Saving to file.
      */
-    public void saveToFile() {
+    public static void saveToFile() {
         irw.saveToFile(context, filename, reviews);
     }
 
-    /**
-     * Generating data.
-     */
-    @SuppressWarnings("unchecked")
-    public void generateData() {
-        reviews = (HashMap<String, Review>) irw.readFromFile(FileName.REVIEW_FILE);
-    }
 
     /**
      * Setting context.
@@ -156,9 +145,20 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Reading data
      * @param filename the name of the data file
      */
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         ReviewList.filename = filename;
-        ReviewList.irw = new GCloudReadWriter();
-        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        if (reviews == null || reviews.isEmpty()) {
+            ReviewList.irw = new GCloudReadWriter();
+            reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        }
+    }
+
+    /**
+     * Delete the given review
+     * @param review review to be deleted.
+     */
+    public static void delete(Review review) {
+        reviews.remove(review.getReviewID());
     }
 }

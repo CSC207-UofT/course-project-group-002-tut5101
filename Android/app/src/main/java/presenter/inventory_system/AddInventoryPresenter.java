@@ -1,24 +1,18 @@
 package presenter.inventory_system;
 
-import constant.file_system.FileName;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.kitchen.InventoryList;
+
 /**
  * Controls the process for adding new inventory.
  */
 public class AddInventoryPresenter {
     private AddinventoryViewInterface addinventoryViewInterface;
-    private final InventoryList inventories;
     private final InventoryFactory infc = new InventoryFactory();
-    /**
-     * Constructor for this class
-     */
+    private final InventoryList inventoryList = new InventoryList();
 
-    public AddInventoryPresenter(){this.inventories = new InventoryList();}
 
-    public AddInventoryPresenter(InventoryList inventories){
-        this.inventories = inventories;
-    }
+
     /**
      * Set the view interface
      * @param addinventoryViewInterface the view interface
@@ -42,7 +36,7 @@ public class AddInventoryPresenter {
         }
         else{para = name+","+price+","+amount+","+freshness+","+date;}
         String[] paras = para.split(",");
-        String message = this.inventories.addFromFactory(this.infc, paras);
+        String message = this.inventoryList.addFromFactory(this.infc, paras);
         this.addinventoryViewInterface.updateInventoryList(message);
     }
 }

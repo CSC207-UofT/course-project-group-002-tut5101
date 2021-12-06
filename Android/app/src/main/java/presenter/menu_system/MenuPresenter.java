@@ -1,15 +1,14 @@
 package presenter.menu_system;
 
-import constant.file_system.FileName;
-import use_case.dish_list.MenuOutputBoundary;
 import use_case.dish_list.DishList;
+import use_case.dish_list.MenuOutputBoundary;
 
 /**
  * Controller class for menu.
  */
 
 
-public class MenuPresenter implements MenuOutputBoundary {
+public class MenuPresenter implements MenuOutputBoundary{
 
     public DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
@@ -18,6 +17,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * Presenter class for menu.
      */
     public MenuPresenter(){
+        initializeDishList();
     }
 
 
@@ -27,14 +27,14 @@ public class MenuPresenter implements MenuOutputBoundary {
      */
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;
-        initializeDishList();
     }
+
 
     /**
      * Initialize the dishList
      */
     private void initializeDishList() {
-        dishList = new DishList(FileName.MENU_FILE);
+        dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
     }
 

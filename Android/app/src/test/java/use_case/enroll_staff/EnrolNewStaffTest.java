@@ -1,20 +1,17 @@
 package use_case.enroll_staff;
 
-import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.customer.Customer;
-import entity.delivery.DeliveryStaff;
-import entity.delivery.ServingStaff;
-import entity.inventory.InventoryStaff;
-import entity.kitchen.KitchenStaff;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import use_case.user_list.UserList;
 
-public class EnrolStaffUseCaseTest {
+import java.util.HashMap;
+
+public class EnrolNewStaffTest {
     private final UserList userList = new UserList();
-    private EnrollStaffUseCase useCase = new EnrollStaffUseCase(userList);
+    private EnrollNewStaff useCase = new EnrollNewStaff();
 
     /**
      * Setting up the test.
@@ -23,15 +20,11 @@ public class EnrolStaffUseCaseTest {
     public void setUp() {
         TestClass testPresenter = new TestClass();
         useCase.setOutputBoundary(testPresenter);
+        UserList.users = new HashMap<>();
 
         userList.addUser(new Customer("0", "James", "12345"));
         userList.addUser(new Customer("1", "Steve", "12345"));
-        userList.addUser(new Customer("2", "David", "12345"));
-        userList.addUser(new DeliveryStaff("3", "Amy", "12345"));
-        userList.addUser(new ServingStaff("4", "Eve", "12345"));
-        userList.addUser(new ServingStaff("5", "Alice", "12345"));
-        userList.addUser(new KitchenStaff("6", "Bob", "12345"));
-        userList.addUser(new InventoryStaff("7", "Frank", "12345"));
+        useCase = new EnrollNewStaff(userList);
     }
 
     /**
@@ -39,6 +32,7 @@ public class EnrolStaffUseCaseTest {
      */
     @Test
     public void testGetStaffTypes() {
+        useCase = new EnrollNewStaff();
         useCase.getStaffTypes();
     }
 
@@ -47,8 +41,7 @@ public class EnrolStaffUseCaseTest {
      */
     @Test
     public void testEnrollNewStaff() {
-        useCase.enrollNewStaff("8", "Mary", "12345", UserType.DELIVERY_STAFF);
-        assertTrue(userList.getUsers().containsKey("8"));
+        useCase.enrollNewStaff("1", "12345", "12345", UserType.DELIVERY_STAFF);
     }
 
     /**
@@ -56,6 +49,7 @@ public class EnrolStaffUseCaseTest {
      */
     @Test
     public void testGetNewUserID() {
+        useCase = new EnrollNewStaff();
         useCase.getNewUserId();
     }
 

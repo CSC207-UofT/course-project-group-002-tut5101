@@ -17,11 +17,12 @@ import java.util.Objects;
 /**
  * Adapter for kitchen.
  */
-public class CurrentOrderDishesAdapter extends ArrayAdapter {
+public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
 
     private final Context kContext;
     final int kResource;
     private final KitchenPresenter kp;
+
 
     public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
         super(context, resource, displayDishes);
@@ -47,12 +48,8 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter {
         qt.setText(quantity);
         bt.setText(R.string.cooked);
 
-        bt.setOnClickListener(view -> {
-            kp.completeDish(dishName);
-            qt.setText(String.valueOf(Integer.parseInt(quantity) - 1));
-        });
+        bt.setOnClickListener(view -> kp.completeDish(dishName));
 
         return convertView;
     }
-
 }

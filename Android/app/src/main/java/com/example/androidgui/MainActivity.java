@@ -8,13 +8,14 @@ import com.example.androidgui.user_activities.CustomerPickActionActivity;
 import com.example.androidgui.user_activities.LoginActivity;
 import presenter.main_information.MainActivityPresenter;
 
+
 /**
  * Main activity for this project.
  */
 public class MainActivity extends AppCompatActivity {
 
     /**
-     *
+     * Method that runs on creation of class
      * @param savedInstanceState fixed parameter.
      */
     @Override
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         presenter.setContext(this);
         presenter.setData();
     }
-
 
 
 }

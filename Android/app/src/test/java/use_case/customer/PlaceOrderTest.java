@@ -2,7 +2,6 @@ package use_case.customer;
 
 
 
-import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,14 +11,12 @@ import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * Test PlaceOrder class
  */
 public class PlaceOrderTest {
     private PlaceOrder placeOrder;
-    private final DishList menu = new DishList(FileName.MENU_FILE);
+    private final DishList menu = new DishList();
 
     /**
      * Setup before tests

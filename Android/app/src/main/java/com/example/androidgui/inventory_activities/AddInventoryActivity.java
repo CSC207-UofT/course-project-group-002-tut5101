@@ -14,13 +14,12 @@ import presenter.inventory_system.AddinventoryViewInterface;
  * Activity class for adding inventory.
  */
 public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
-    private Button button;
     private EditText name;
     private EditText price;
     private EditText amount;
     private EditText date;
     private EditText freshness;
-    private AddInventoryPresenter aip = new AddInventoryPresenter();
+    private final AddInventoryPresenter ADD_INVENTORY_PRESENTER = new AddInventoryPresenter();
 
     /**
      * Activity basic function.
@@ -31,8 +30,8 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
-        aip.setAddInventoryViewInterface(this);
-        button = findViewById(R.id.button);
+        ADD_INVENTORY_PRESENTER.setAddInventoryViewInterface(this);
+        Button button = findViewById(R.id.button);
         name = findViewById(R.id.editTextTextPersonName);
         price = findViewById(R.id.editTextNumberDecimal);
         amount = findViewById(R.id.editTextNumberDecimal2);
@@ -42,7 +41,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
     }
 
     /**
-     * when clicked.
+     * when clicked， create a new inventory item and add it in the inventory list.
      *
      * @param v view
      */
@@ -53,13 +52,21 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         String iamount = amount.getText().toString();
         String idate = date.getText().toString();
         String ifreshness = freshness.getText().toString();
-        this.aip.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+        this.ADD_INVENTORY_PRESENTER.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+        finish();
     }
+    /**
+     * show the toast information on the screen.
+     *
+     */
     @Override
     public void updateInventoryList(String message){
         Toast.makeText(AddInventoryActivity.this,message,Toast.LENGTH_SHORT).show();
     }
-
+    /**
+     * Call when  the pointer is enable or disable for the current window.
+     *
+     */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);

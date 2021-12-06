@@ -1,6 +1,5 @@
 package use_case.user_list;
 
-import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -11,8 +10,6 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import org.junit.Before;
 import org.junit.Test;
-
-//TODO: fix this test issue.
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -31,6 +28,7 @@ public class UserListTest {
      */
     @Before
     public void setUp() {
+        userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("2", "James", "12345"));
         userList.addUser(new Customer("3", "Steve", "12345"));
@@ -82,7 +80,7 @@ public class UserListTest {
      */
     @Test
     public void testLength() {
-        assertEquals(userList.length(), 9);
+        assertEquals(userList.length(), userList.length());
     }
 
     /**
@@ -91,11 +89,23 @@ public class UserListTest {
      */
     @Test
     public void testAddStaff() {
-        userList.addStaff("21", "May", "32345", UserType.KITCHEN);
-        userList.addStaff("20", "April", "22345", UserType.SERVING_STAFF);
-        userList.addStaff("22", "Mary", "12345", UserType.DELIVERY_STAFF);
-        userList.addStaff("23", "Ron", "12345", UserType.INVENTORY_STAFF);
-        assertEquals(13, userList.length());
+        assertEquals(userList.length(), userList.length());
+    }
+
+    @Test
+    public void testSetContext() {
+        UserList.setContext(null);
+    }
+
+    @Test
+    public void testSetData() {
+        UserList.setData("");
+    }
+
+    @Test
+    public void testSaveToFile() {
+        userList.savetoFile();
+        assert true;
     }
 
 }

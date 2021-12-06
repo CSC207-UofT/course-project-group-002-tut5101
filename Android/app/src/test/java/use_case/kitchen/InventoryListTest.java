@@ -1,9 +1,7 @@
 package use_case.kitchen;
 
-import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
-import org.junit.Before;
 import org.junit.Test;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.inventory_factory.InventoryOutputBoundary;
@@ -19,24 +17,19 @@ public class InventoryListTest {
     private HasExpiryDate hasExpiryDate;
     private HasFreshness hasFreshness;
 
-    /**
-     * Setup before tests
-     */
-    @Before
-    public void setUp() {
-        inventoryList = new InventoryList();
-        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
-        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 
-        TestClass testPresenter = new TestClass();
-        inventoryList.setBoundary(testPresenter);
-    }
 
     /**
      * Test the addInventory method
      */
     @Test
     public void testAddInventory() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
 
@@ -49,16 +42,20 @@ public class InventoryListTest {
      */
     @Test
     public void testAddFromFactory() {
+        inventoryList = new InventoryList();
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
         InventoryFactory inventoryFactory = new InventoryFactory();
 
-        String[] freshInfo = new String[]{"Test1", "40.0", "20", "Fresh", "20220731"};
-        String[] expiryInfo = new String[]{"Test2", "40.0", "20", "20220731"};
+        String[] freshInfo = new String[]{"Test3", "40.0", "20", "Fresh", "20220731"};
+        String[] expiryInfo = new String[]{"Test4", "40.0", "20", "20220731"};
 
         inventoryList.addFromFactory(inventoryFactory, freshInfo);
         inventoryList.addFromFactory(inventoryFactory, expiryInfo);
 
-        assert(inventoryList.checkExist("Test1"));
-        assert(inventoryList.checkExist("Test2"));
+        assert(inventoryList.checkExist("Test3"));
+        assert(inventoryList.checkExist("Test4"));
     }
 
     /**
@@ -66,12 +63,38 @@ public class InventoryListTest {
      */
     @Test
     public void testGetInfo() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
-        String expected = "Test1"+ ","+ "40.0" +
-                ","+ "20" +","+ "20220731";
-        String actual = inventoryList.getInfo("Test1");
+        String expected = "Test3"+ ","+ "40.0" +
+                ","+ "20" +","+ "Fresh" + "," + "20220731";
+        String actual = inventoryList.getInfo("Test3");
         assertEquals(expected, actual);
+    }
+
+    /**
+     * Test checkExist method
+     */
+    @Test
+    public void testcheckExist() {
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
+
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+
+        inventoryList.addInventory(hasExpiryDate);
+        inventoryList.addInventory(hasFreshness);
+        assertTrue( inventoryList.checkExist("Test1"));
+        assertTrue( inventoryList.checkExist("Test2"));
+        assertFalse( inventoryList.checkExist("Test6"));
     }
 
     /**
@@ -79,9 +102,32 @@ public class InventoryListTest {
      */
     @Test
     public void testIsHasFreshness() {
+        inventoryList = new InventoryList();
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "a", 20220731);
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
         inventoryList.addInventory(hasFreshness);
         assertTrue(inventoryList.isHasFreshness("Test2"));
     }
+
+    /**
+     * Test the getter and setter methods for quantity
+     */
+    @Test
+    public void testGetSetFreshness() {
+        inventoryList = new InventoryList();
+        hasFreshness = new HasFreshness("Test2", 40.0, 20, "a", 20220731);
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+        inventoryList.addInventory(hasFreshness);
+        assertTrue(inventoryList.isHasFreshness("Test2"));
+        inventoryList.setFreshness("Test2","b");
+        String expected = "Test2"+ ","+ "40.0" +
+                ","+ "20" +","+ "b" + "," + "20220731";
+        String actual = inventoryList.getInfo("Test2");
+        assertEquals(expected, actual);
+    }
+
 
 
     /**
@@ -89,12 +135,27 @@ public class InventoryListTest {
      */
     @Test
     public void testGetSetQuantity() {
-        assertEquals(0, InventoryList.getTotalQuantity("Test1"));
-        inventoryList.addInventory(hasFreshness);
-        assertEquals(20, InventoryList.getTotalQuantity("Test2"));
-        assertEquals("wrong name", inventoryList.setQuantity("Test1", 20));
-        assertEquals("Successfully updated", inventoryList.setQuantity("Test2", 10));
+        inventoryList = new InventoryList();
+        hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
+        inventoryList.addInventory(hasExpiryDate);
+        TestClass testPresenter = new TestClass();
+        inventoryList.setBoundary(testPresenter);
+        assertEquals("Successfully updated",inventoryList.setQuantity("Test1",-1));
+        assertEquals(21, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Successfully updated",inventoryList.setQuantity("Test1",1));
+        assertEquals(20, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Not enough", inventoryList.setQuantity("Test1",21));
+        assertEquals(20, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("wrong name", inventoryList.setQuantity("Test5",19));
+        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",-1));
+        assertEquals(21, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",1));
+        assertEquals(20, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Not enough", inventoryList.passNewQuanInfo("Test1",21));
+        assertEquals("wrong name", inventoryList.passNewQuanInfo("Test5",19));
     }
+
+
 
     /**
      * Fake presenter class that implements output boundary
@@ -112,4 +173,5 @@ public class InventoryListTest {
             return message;
         }
     }
+
 }

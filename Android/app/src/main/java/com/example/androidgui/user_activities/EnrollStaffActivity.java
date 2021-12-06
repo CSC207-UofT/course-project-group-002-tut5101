@@ -8,6 +8,7 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import presenter.manager_system.EnrollStaffPresenter;
@@ -23,7 +24,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private EditText editTextUserName;
     private EditText editTextPassword;
     private EditText editTextConfirmPassword;
-    private EditText editNumSalary;
     private NumberPicker numPickerUserType;
 
     private EnrollStaffPresenter enrollStaffPresenter;
@@ -47,7 +47,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
         editTextPassword = findViewById(R.id.editTextNewUserPassword);
         editTextConfirmPassword = findViewById(R.id.editTextNewUserConfirmPassword);
         numPickerUserType = findViewById(R.id.numPickerUserType);
-        editNumSalary = findViewById(R.id.editNumSalary);
 
 
         generateRequiredInfo();
@@ -97,7 +96,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
             setEmptyErrorMessage(editTextUserName);
             setEmptyErrorMessage(editTextPassword);
             setEmptyErrorMessage(editTextConfirmPassword);
-            setEmptyErrorMessage(editNumSalary);
         }
         //Password does not match
         else if (!isConfirmPasswordMatch()) {
@@ -123,7 +121,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
                 .setTitle(EnrollUserMessage.SUCCEED)
                 .setMessage(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE + this.newUserId)
                 .setPositiveButton(LoginLogoutUIMessage.OK, (dialog, which) -> {
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ManagerPickActionActivity.class);
                     startActivity(intent);
                 })
                 .create();
@@ -172,8 +170,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private boolean isAllInfoFilled() {
         return editTextUserName.getText().toString().trim().length() > 0 &&
                 editTextPassword.getText().toString().trim().length() > 0 &&
-                editTextConfirmPassword.getText().toString().trim().length() > 0 &&
-                editNumSalary.getText().toString().trim().length() > 0;
+                editTextConfirmPassword.getText().toString().trim().length() > 0;
     }
 
     /**

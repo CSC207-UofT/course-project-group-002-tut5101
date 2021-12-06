@@ -14,18 +14,19 @@ import constant.manger_system.DishMessage;
 import constant.manger_system.ManagerDecision;
 import constant.ui_message.ManagerUIMessage;
 import presenter.menu_system.MenuPresenter;
+import presenter.menu_system.SelectEditViewInterface;
 
 import java.util.Objects;
 
 /**
  * Activity class for the manager to pick whether to edit or to delete the dish.
  */
-public class SelectEditOrDeleteActivity extends AppCompatActivity {
+public class SelectEditOrDeleteActivity extends AppCompatActivity implements SelectEditViewInterface {
 
-    NumberPicker selectEditOrDelete;
-    TextView askSelection;
-    String[] selectOption;
-    final MenuPresenter menuPresenter = new MenuPresenter();
+    private NumberPicker selectEditOrDelete;
+    private TextView askSelection;
+    private String[] selectOption;
+    private MenuPresenter menuPresenter;
 
 
     /**
@@ -40,6 +41,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity {
 
         selectEditOrDelete = findViewById(R.id.selectEditOrDelete);
         askSelection = findViewById(R.id.askSelection);
+        this.menuPresenter = new MenuPresenter();
 
         setupMessage();
         setupOptions();

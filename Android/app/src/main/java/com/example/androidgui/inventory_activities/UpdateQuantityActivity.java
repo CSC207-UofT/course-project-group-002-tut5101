@@ -42,6 +42,7 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
         String iname = name.getText().toString();
         String iusage = usage.getText().toString();
         uqp.showInfo(iname, iusage, this);
+        finish();
     }
     /**
      * Pass the message through interface
@@ -55,7 +56,10 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
      * @param message the message to send
      */
     public void popInfo(String message){Toast.makeText(UpdateQuantityActivity.this,message,Toast.LENGTH_SHORT).show();}
-
+    /**
+     * Call when  the pointer is enable or disable for the current window.
+     *
+     */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);

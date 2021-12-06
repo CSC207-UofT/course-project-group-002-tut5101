@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import com.example.androidgui.delivery_staff_activities.DeliverOrderActivity;
+import com.example.androidgui.delivery_staff_activities.DeliveryStaffPickActionActivity;
 import com.example.androidgui.inventory_activities.InventoryStarterActivity;
 import com.example.androidgui.kitchen_activities.CurrentOrderDishesActivity;
 import com.example.androidgui.manager_activities.ManagerPickActionActivity;
@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
             case MANAGER:
               return ManagerPickActionActivity.class;
             case DELIVERY_STAFF:
-                return DeliverOrderActivity.class;
+                return DeliveryStaffPickActionActivity.class;
             case KITCHEN:
                 return CurrentOrderDishesActivity.class;
             case INVENTORY_STAFF:

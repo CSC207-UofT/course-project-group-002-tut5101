@@ -1,5 +1,7 @@
 package use_case.kitchen;
 
+import android.app.Activity;
+import com.example.androidgui.MainActivity;
 import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.Inventory;
@@ -30,12 +32,13 @@ public class OrderQueueTest {
 
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
         InventoryList inventoryList = new InventoryList();
-        inventoryList.addInventory(hasExpiryDate);
+        InventoryList.setContext(new Activity());
+        InventoryList.setData(FileName.INVENTORY_FILE);
 
+        inventoryList.addInventory(hasExpiryDate);
         String location = "1";
         HashMap<String, Integer> friesIngredients = new HashMap<>();
         friesIngredients.put("Potato", 3);
-
         // New order with insufficient inventory
         Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, friesIngredients, 200);
         Dish smallFries = new Dish("Small fries", 1.99, friesIngredients, 200);
@@ -46,8 +49,6 @@ public class OrderQueueTest {
         dishes.put("Small fries", Collections.singletonList(smallFries));
         dishes.put("Coke", Collections.singletonList(coke));
         dineInOrder = new DineInOrder(Integer.parseInt(location), dishes);
-
-        DeliveryOrder deliveryOrder = new DeliveryOrder("testing123", dishes);
 
         // New order with no ingredients
         HashMap<String, List<Dish>> dishes2 = new HashMap<>();
@@ -116,7 +117,4 @@ public class OrderQueueTest {
             assert false;
         }
     }
-
-
-
 }

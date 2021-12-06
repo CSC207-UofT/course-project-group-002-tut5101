@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Use case class for user login.
  */
-public class LoginUseCase {
+public class UserLogin {
 
     /**
      * use case output boundary attribute
@@ -36,8 +36,7 @@ public class LoginUseCase {
         User user = UserList.getUserByUserId(id);
         if (user == null) {
             outputBoundary.presentLoginResult(LoginResult.NO_SUCH_USER);
-        }
-        else {
+        } else {
             if (Objects.requireNonNull(user).passwordMatches(password)) {
                 outputBoundary.presentLoginResult(LoginResult.SUCCESS);
             } else {

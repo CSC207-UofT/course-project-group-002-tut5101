@@ -28,8 +28,8 @@ public class AddReviewPresenter {
 
      */
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
-                                String comment, String ID) {
-        this.addReviewInputBoundary.addToReviewList(name, ifAnonymous, rate, comment, ID);
+                                String comment) {
+        this.addReviewInputBoundary.addToReviewList(name, ifAnonymous, rate, comment);
     }
 
 

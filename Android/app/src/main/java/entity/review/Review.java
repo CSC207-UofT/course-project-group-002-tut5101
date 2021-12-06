@@ -81,8 +81,6 @@ public class Review implements Reviewable, Serializable {
         return newComment;
     }
 
-
-
     /**
      * Get the date when the user comment
      *
@@ -103,7 +101,7 @@ public class Review implements Reviewable, Serializable {
     @NonNull
     public String toString() {
         return getName() + " leaves rate = " + this.rate +
-                " and comment = " + this.newComment;
+                " and comment = " + this.newComment + "\n";
     }
 
 }

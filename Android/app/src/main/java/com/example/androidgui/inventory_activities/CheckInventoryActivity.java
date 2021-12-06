@@ -9,19 +9,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.CheckInventoryPresenter;
-import presenter.inventory_system.InventoryFacade;
-
-//import com.example.androidgui.inventory.PresentInventoryActivity;
 
 
-public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener, presenter.inventory_system.CheckInventoryInterface {
+
+public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener,
+        presenter.inventory_system.CheckInventoryInterface {
     /**
      * Activity class for checking inventory.
      */
     private EditText name;
-    private Button button;
-    InventoryFacade ifa = new InventoryFacade();
-    final CheckInventoryPresenter cip = ifa.createCheckPresenter();
+    final CheckInventoryPresenter cip = new CheckInventoryPresenter();
 
 
 
@@ -36,21 +33,26 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         cip.setCheckInventoryInterface(this);
         setContentView(R.layout.activity_check_inventory2);
-        button = findViewById(R.id.button7);
+        Button button = findViewById(R.id.button7);
         name = findViewById(R.id.editTextTextName);
         button.setOnClickListener(this);
     }
 
     /**
-     *
+     * Check weyher the name is valid and pass the information of item to another page
      * @param v view
      */
     @Override
     public void onClick(View v) {
         String iName = name.getText().toString();
         this.cip.checkValidity(iName);
+        finish();
 
     }
+    /**
+     * Check wether the name is valid and pass the information of item to another page
+     * @param info the action response infomation success or wrong name
+     */
     @Override
     public void CheckValidity(String info){
         boolean wrongName = info.equals("Invalid name");
@@ -58,12 +60,15 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         if (wrongName) {
             Toast.makeText(CheckInventoryActivity.this,fail,Toast.LENGTH_SHORT).show();
         }else {
-            Intent intent = new Intent(CheckInventoryActivity.this, PresentInventoryActivity.class);
+            Intent intent = new Intent(this, PresentInventoryActivity.class);
             intent.putExtra("showData",info);
             startActivity(intent);
         }
     }
-
+    /**
+     * Call when  the pointer is enable or disable for the current window.
+     *
+     */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);

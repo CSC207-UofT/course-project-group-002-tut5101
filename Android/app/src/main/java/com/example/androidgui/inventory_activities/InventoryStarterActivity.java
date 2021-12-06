@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 
 /**
@@ -23,7 +24,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     * Adding inventory.
+     * Moving to the Adding inventory page.
      * @param v view
      */
     public void AddInventory(View v) {
@@ -32,7 +33,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     * getting inventory.
+     * Moving to the getting inventory page.
      * @param v view.
      */
     public void GetInventoryInfo(View v) {
@@ -41,7 +42,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     *  updating quantity.
+     * Moving to the updating quantity page.
      * @param v view.
      */
     public void UpdateQuantity(View v) {
@@ -50,11 +51,20 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     *  updating freshness.
+     * Moving to the  updating freshness page.
      * @param v view.
      */
     public void UpdateFreshness(View v) {
         Intent intent = new Intent(InventoryStarterActivity.this, UpdateFreshnessActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * back to main activity
+     * @param view view
+     */
+    public void backToMainActivity(View view) {
+        Intent intent = new Intent(InventoryStarterActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

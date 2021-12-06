@@ -12,13 +12,20 @@ import com.google.common.collect.Lists;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 
 public class GCloudReadWriter implements ReadWriter {
 
+    /**
+     * A private attribute that saves the data structure that has just been read.
+     */
     private Object currentDS;
 
+    /**
+     * Read the given file from Google cloud storage.
+     * @param filename the name of the file
+     * @return The obtained HashMap from the data file.
+     */
     public Object readFromFile(String filename) {
         final CountDownLatch latch = new CountDownLatch(1);
         new Thread(() -> {
@@ -47,11 +54,16 @@ public class GCloudReadWriter implements ReadWriter {
         return currentDS;
     }
 
+    /**
+     * @param context an activity instance
+     * @param filename the name of the file
+     * @param map the HashMap to be saved
+     */
     public void saveToFile(Context context, String filename, Object map) {
         new Thread(() -> {
             GoogleCredentials credentials;
             try {
-                credentials = GoogleCredentials.fromStream(context.getAssets().open("uplifted-cinema-252918-80dc77e32e4e.json"))
+                credentials = GoogleCredentials.fromStream(context.getAssets().open("key.json"))
                         .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
                 Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
                 BlobId blobId = BlobId.of("207project", filename);

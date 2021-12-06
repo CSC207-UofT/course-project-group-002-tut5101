@@ -24,17 +24,24 @@ public class DishList implements Serializable, Iterable<Dish> {
     private static ReadWriter readWriter;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    private static String filename;
-    String[] dishNames;
+    private static String filename = "";
     private MenuOutputBoundary menuOutputBoundary;
     private ManageMenuOutputBoundary manageMenuOutputBoundary;
 
-    public DishList() {
-        menu = new HashMap<String, Dish>();
-    }
 
-    public DishList(String filename) {
-        dishNames = menu.keySet().toArray(new String[0]);
+    /**
+     * Constructor of this class
+     */
+    public DishList() {
+        if (menu == null) {
+            menu = new HashMap<>();
+        }
+    }
+    /**
+     * Reset the dishList for testing
+     */
+    public void reset() {
+        menu = new HashMap<>();
     }
 
     /**
@@ -99,6 +106,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
+        saveToFile();
     }
 
     /**
@@ -111,6 +119,8 @@ public class DishList implements Serializable, Iterable<Dish> {
         assert dish != null;
         dish.increasePrice();
         dish.decreaseCalories();
+        menu.put(dishName, dish);
+        saveToFile();
     }
 
     /**
@@ -128,6 +138,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
+        saveToFile();
     }
 
     /**
@@ -164,14 +175,8 @@ public class DishList implements Serializable, Iterable<Dish> {
         menuOutputBoundary.updateMenuItemsDisplay(this.toString());
     }
 
-    public void saveToFile(){
+    public void saveToFile() {
         readWriter.saveToFile(context, filename, menu);
-    }
-
-    /**
-     * Generate data for dishList.
-     */
-    public void generateData() {
     }
 
     /**
@@ -186,9 +191,13 @@ public class DishList implements Serializable, Iterable<Dish> {
      * Setting data for menu
      * @param filename the name of the data file
      */
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         DishList.filename = filename;
-        readWriter = new GCloudReadWriter();
-        menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
+        if (menu == null || menu.isEmpty()) {
+            readWriter = new GCloudReadWriter();
+            menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
+        }
     }
+
 }

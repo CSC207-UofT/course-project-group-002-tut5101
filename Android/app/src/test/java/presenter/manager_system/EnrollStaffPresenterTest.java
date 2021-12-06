@@ -1,7 +1,6 @@
 package presenter.manager_system;
 
 
-import constant.file_system.FileName;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -38,6 +37,7 @@ public class EnrollStaffPresenterTest {
      */
     private void generateUserList() {
         userList = new UserList();
+        userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
@@ -47,20 +47,20 @@ public class EnrollStaffPresenterTest {
     }
 
     /**
-     * Test enrollNewUser method
-     */
-    @Test
-    public void testEnrollNewUser() {
-        enrollStaffPresenter.enrollNewUser("6", "James", "12345", "KITCHEN");
-        assertEquals(7, userList.length());
-    }
-
-    /**
      * Test getNewUserId method
      */
     @Test
     public void testGetNewUserId() {
         enrollStaffPresenter.getNewUserId();
+    }
+
+    /**
+     * Test enrollNewUser method
+     */
+    @Test
+    public void testEnrollNewUser(){
+        enrollStaffPresenter.enrollNewUser("6", "Test", "12345", "KITCHEN");
+        assertEquals(7, userList.length());
     }
 
     /**
