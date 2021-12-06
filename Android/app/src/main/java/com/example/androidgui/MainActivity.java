@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Review r10 = new Review("name10", false, 2, "this place is trash", "10");
         ReviewList reviewList = new ReviewList();
         ReviewList.setContext(this);
-        ReviewList.setData(FileName.REVIEW_FILE);
+        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
         reviewList.addReview(r1);
         reviewList.addReview(r2);
         reviewList.addReview(r3);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 //      --------------------USERS-----------------------
         UserList userList = new UserList();
         UserList.setContext(this);
-        UserList.setData(FileName.USER_FILE);
+        UserList.setData("TEST"+FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));
         userList.addUser(new DeliveryStaff("2", "Amy", "12345"));
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 //      --------------------INVENTORY-----------------------
         InventoryList il = new InventoryList();
         InventoryList.setContext(this);
-        InventoryList.setData(FileName.INVENTORY_FILE);
+        InventoryList.setData("TEST"+FileName.INVENTORY_FILE);
         il.addInventory(new HasFreshness("Bread", 10.0, 400, "a", 20211123));
         il.addInventory(new HasFreshness("Lettuce", 2.0, 1000, "a", 20211123));
         il.addInventory(new HasFreshness("Beef", 10.0, 60, "b", 20211123));
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 //      --------------------DISHLIST-----------------------
         DishList dl = new DishList();
         DishList.setContext(this);
-        DishList.setData(FileName.MENU_FILE);
+        DishList.setData("TEST"+FileName.MENU_FILE);
         dl.addDishByPara("Donut sandwich", 5.99, new String[][]{
                 new String[]{"Bread", "2"},
                 new String[]{"Donut", "1"},
