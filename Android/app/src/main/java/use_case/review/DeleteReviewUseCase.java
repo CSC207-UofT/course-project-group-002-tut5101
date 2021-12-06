@@ -4,7 +4,6 @@ import entity.review.Review;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -41,6 +40,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
                 i ++;
             }
         }
+        ReviewList.saveToFile();
 //        while (reviewIterator.hasNext()){
 //            Review review = reviewIterator.next();
 //            if (review != null && review.getRate() <= standard) {

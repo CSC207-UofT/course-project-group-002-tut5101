@@ -128,7 +128,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
     /**
      * Saving to file.
      */
-    public void saveToFile() {
+    public static void saveToFile() {
         irw.saveToFile(context, filename, reviews);
     }
 

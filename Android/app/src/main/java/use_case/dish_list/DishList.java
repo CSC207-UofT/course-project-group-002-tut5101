@@ -106,6 +106,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void deleteDishByName(String dishName) {
         menu.remove(dishName);
+        saveToFile();
     }
 
     /**
@@ -118,6 +119,8 @@ public class DishList implements Serializable, Iterable<Dish> {
         assert dish != null;
         dish.increasePrice();
         dish.decreaseCalories();
+        menu.put(dishName, dish);
+        saveToFile();
     }
 
     /**
