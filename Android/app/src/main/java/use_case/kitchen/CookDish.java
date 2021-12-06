@@ -7,7 +7,6 @@ import entity.order_list.Order;
 import use_case.deliver_order.DeliveryBuffer;
 import use_case.deliver_order.ServingBuffer;
 
-import java.util.HashMap;
 
 /**
  * The kitchen use case in the restaurant.
