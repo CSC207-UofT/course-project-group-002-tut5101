@@ -23,7 +23,7 @@
 		android:id="@+id/button9"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
+		android:layout_marginTop="10dp"
 		android:onClick="ManageMenu"
 		android:text="@string/manage_menu"
 		android:textStyle="bold"
@@ -64,7 +64,7 @@
 		android:id="@+id/button12"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
+		android:layout_marginTop="10dp"
 		android:onClick="DeleteReview"
 		android:text="@string/delete_review"
 		android:textStyle="bold"
@@ -77,13 +77,13 @@
 		android:id="@+id/button14"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="32dp"
+		android:layout_marginTop="10dp"
 		android:onClick="enrollStaff"
 		android:text="@string/enroll_new_staff"
 		android:textStyle="bold"
 		app:layout_constraintEnd_toEndOf="@+id/button12"
 		app:layout_constraintStart_toStartOf="@+id/button12"
-		app:layout_constraintTop_toBottomOf="@+id/button12"
+		app:layout_constraintTop_toBottomOf="@+id/button22"
 		tools:ignore="MissingConstraints,OnClick,UsingOnClickInXml" />
 
 	<Button
@@ -97,5 +97,17 @@
 		app:layout_constraintEnd_toEndOf="@+id/button14"
 		app:layout_constraintStart_toStartOf="@+id/button14"
 		app:layout_constraintTop_toBottomOf="@+id/button14" />
+
+	<Button
+		android:id="@+id/button22"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:onClick="displayUserList"
+		android:text="@string/see_users"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="@+id/button12"
+		app:layout_constraintStart_toStartOf="@+id/button12"
+		app:layout_constraintTop_toBottomOf="@+id/button12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
