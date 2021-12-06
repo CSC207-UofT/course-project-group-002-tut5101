@@ -6,6 +6,8 @@ import entity.order_list.DeliveryOrder;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
+import use_case.deliver_order.DeliveryBuffer;
+import use_case.deliver_order.DeliveryInputBoundary;
 import use_case.deliver_order.ServingBuffer;
 import use_case.dish_list.DishList;
 import use_case.user_list.UserList;
@@ -15,10 +17,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Testing staff presenter.
+ * Test the GetNextItemPresenter class
  */
-public class CurrentItemPresenterTest {
-    private CurrentItemPresenter staff;
+public class GetNextItemPresenterTest {
+    private GetNextItemPresenter staff;
     private UserList userList;
     private DeliveryOrder order;
     private final DishList menu = new DishList();
@@ -34,9 +36,7 @@ public class CurrentItemPresenterTest {
      */
     @Before
     public void setUp() {
-        staff = new CurrentItemPresenter();
-        TestClass testPresenter = new TestClass();
-        staff.setStaffView(testPresenter);
+        staff = new GetNextItemPresenter();
         servingStaff = new ServingStaff("6", "Eve", "12345");
         deliveryStaff = new DeliveryStaff("7", "Bob", "12345");
 
@@ -54,66 +54,31 @@ public class CurrentItemPresenterTest {
     }
 
     /**
-     * Test the completeCurrent method
-     */
-    @Test
-    public void completeCurrent() {
-        servingStaff.setCurrentDish(dish1);
-        deliveryStaff.setCurrentOrder(order);
-        try{
-            staff.completeCurrent("6");
-            staff.completeCurrent("7");
-            assert true;
-        }
-        catch (Exception ignored) {
-            assert false;
-        }
-    }
-
-    /**
-     * Test the displayCurrent method
-     */
-    @Test
-    public void displayCurrent() {
-        servingStaff.setCurrentDish(dish1);
-        deliveryStaff.setCurrentOrder(order);
-        try {
-            staff.displayCurrent("6");
-            staff.displayCurrent("7");
-            assert true;
-        }
-        catch (Exception ignored) {
-            assert false;
-        }
-        try{
-            staff.displayCurrent("1");
-            assert false;
-        }
-        catch (Exception ignored) {
-            assert true;
-        }
-    }
-
-    /**
      * Test the getNext method
      */
     @Test
-    public void setCurrentItemInfo(){
-        staff.setCurrentItemInfo("Toronto","school");
-    }
+    public void testGetNext() {
+        ServingBuffer.addDish(dish1);
+        DeliveryBuffer.addDeliveryOrder(order);
+        try{
+            staff.getNext("6");
+            staff.getNext("7");
+            assert true;
+        }
+        catch (Exception ignored){
+            assert false;
+        }
 
-    /**
-     * Empty fake presenter class implementing the view interface
-     */
-    private static class TestClass implements StaffViewInterface {
-
-        /**
-         *
-         * @param info information.
-         */
-        @Override
-        public void displayCurrentItem(String info) {
+        try{
+            staff.getNext("6");
+            staff.getNext("7");
+            assert false;
+        }
+        catch (Exception ignored){
             assert true;
         }
     }
+
+
+
 }
