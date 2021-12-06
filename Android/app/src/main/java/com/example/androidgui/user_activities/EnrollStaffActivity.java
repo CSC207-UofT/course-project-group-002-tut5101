@@ -24,7 +24,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private EditText editTextUserName;
     private EditText editTextPassword;
     private EditText editTextConfirmPassword;
-    private EditText editNumSalary;
     private NumberPicker numPickerUserType;
 
     private EnrollStaffPresenter enrollStaffPresenter;
@@ -48,7 +47,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
         editTextPassword = findViewById(R.id.editTextNewUserPassword);
         editTextConfirmPassword = findViewById(R.id.editTextNewUserConfirmPassword);
         numPickerUserType = findViewById(R.id.numPickerUserType);
-        editNumSalary = findViewById(R.id.editNumSalary);
 
 
         generateRequiredInfo();
@@ -98,7 +96,6 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
             setEmptyErrorMessage(editTextUserName);
             setEmptyErrorMessage(editTextPassword);
             setEmptyErrorMessage(editTextConfirmPassword);
-            setEmptyErrorMessage(editNumSalary);
         }
         //Password does not match
         else if (!isConfirmPasswordMatch()) {
@@ -173,8 +170,7 @@ public class EnrollStaffActivity extends AppCompatActivity implements EnrollStaf
     private boolean isAllInfoFilled() {
         return editTextUserName.getText().toString().trim().length() > 0 &&
                 editTextPassword.getText().toString().trim().length() > 0 &&
-                editTextConfirmPassword.getText().toString().trim().length() > 0 &&
-                editNumSalary.getText().toString().trim().length() > 0;
+                editTextConfirmPassword.getText().toString().trim().length() > 0;
     }
 
     /**
