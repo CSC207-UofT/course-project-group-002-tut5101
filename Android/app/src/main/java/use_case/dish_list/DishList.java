@@ -196,8 +196,8 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     @SuppressWarnings("unchecked")
     public static void setData(String filename) {
-        if (!Objects.equals(filename, "")) {
-            DishList.filename = filename;
+        DishList.filename = filename;
+        if (menu == null || menu.isEmpty()) {
             readWriter = new GCloudReadWriter();
             menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
         }

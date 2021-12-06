@@ -155,7 +155,6 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
-
         savetoFile();
     }
 
@@ -178,7 +177,10 @@ public class UserList implements Serializable {
     @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         UserList.filename = filename;
-        readWriter = new GCloudReadWriter();
-        users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+
+        if (users == null || users.isEmpty()) {
+            readWriter = new GCloudReadWriter();
+            users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
+        }
     }
 }

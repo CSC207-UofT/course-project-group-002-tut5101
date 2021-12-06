@@ -176,7 +176,9 @@ public class InventoryList implements Serializable {
     @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         InventoryList.filename = filename;
-        irw = new GCloudReadWriter();
-        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+        if (myDict == null || myDict.isEmpty()) {
+            irw = new GCloudReadWriter();
+            myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+        }
     }
 }

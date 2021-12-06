@@ -146,10 +146,13 @@ public class ReviewList implements Serializable, Iterable<Review>{
      * Reading data
      * @param filename the name of the data file
      */
+    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         ReviewList.filename = filename;
-        ReviewList.irw = new GCloudReadWriter();
-        reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        if (reviews == null || reviews.isEmpty()) {
+            ReviewList.irw = new GCloudReadWriter();
+            reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+        }
     }
 
     /**
