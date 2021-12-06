@@ -19,9 +19,7 @@ import java.util.List;
  */
 public class CurrentItemPresenterTest {
     private CurrentItemPresenter staff;
-    private UserList userList;
     private DeliveryOrder order;
-    private final DishList menu = new DishList();
     private ServingStaff servingStaff;
     private DeliveryStaff deliveryStaff;
 
@@ -40,7 +38,7 @@ public class CurrentItemPresenterTest {
         servingStaff = new ServingStaff("6", "Eve", "12345");
         deliveryStaff = new DeliveryStaff("7", "Bob", "12345");
 
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.addUser(servingStaff);
         userList.addUser(deliveryStaff);
 

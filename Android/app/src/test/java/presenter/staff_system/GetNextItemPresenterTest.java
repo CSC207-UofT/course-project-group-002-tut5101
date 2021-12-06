@@ -7,9 +7,7 @@ import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliver_order.DeliveryBuffer;
-import use_case.deliver_order.DeliveryInputBoundary;
 import use_case.deliver_order.ServingBuffer;
-import use_case.dish_list.DishList;
 import use_case.user_list.UserList;
 
 import java.util.Collections;
@@ -21,11 +19,7 @@ import java.util.List;
  */
 public class GetNextItemPresenterTest {
     private GetNextItemPresenter staff;
-    private UserList userList;
     private DeliveryOrder order;
-    private final DishList menu = new DishList();
-    private ServingStaff servingStaff;
-    private DeliveryStaff deliveryStaff;
 
     Dish dish1;
     Dish dish2;
@@ -37,10 +31,10 @@ public class GetNextItemPresenterTest {
     @Before
     public void setUp() {
         staff = new GetNextItemPresenter();
-        servingStaff = new ServingStaff("6", "Eve", "12345");
-        deliveryStaff = new DeliveryStaff("7", "Bob", "12345");
+        ServingStaff servingStaff = new ServingStaff("6", "Eve", "12345");
+        DeliveryStaff deliveryStaff = new DeliveryStaff("7", "Bob", "12345");
 
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.addUser(servingStaff);
         userList.addUser(deliveryStaff);
 
