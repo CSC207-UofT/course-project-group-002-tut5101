@@ -14,9 +14,11 @@ import entity.manager.Manager;
 import entity.user.User;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
+import presenter.manager_system.UserOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Public class storing information for all users using a Hashmap.
@@ -33,6 +35,7 @@ public class UserList implements Serializable {
     private static String filename;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
+    private UserOutputBoundary userOutputBoundary;
 
 
     /**
@@ -68,7 +71,7 @@ public class UserList implements Serializable {
      */
     public void addUser(User user) {
         users.put(user.getId(), user);
-        savetoFile();
+        saveToFile();
     }
 
 
@@ -127,7 +130,10 @@ public class UserList implements Serializable {
         return builder.toString();
     }
 
-    public void savetoFile() {
+    /**
+     * Save the user list to server
+     */
+    public void saveToFile() {
         if (filename != null) {
             readWriter.saveToFile(context, filename, users);
         }
@@ -156,7 +162,7 @@ public class UserList implements Serializable {
                 users.put(id, new InventoryStaff(id, name, password));
                 break;
         }
-        savetoFile();
+        saveToFile();
     }
 
 
@@ -183,5 +189,43 @@ public class UserList implements Serializable {
             readWriter = new GCloudReadWriter();
             users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
         }
+    }
+
+    /**
+     * Update users in the users view
+     */
+    public void usersString() {
+        userOutputBoundary.updateUserItemsDisplay(this.nonCustomerUsersToString());
+    }
+
+    /**
+     * String representation for user with id, password, name, and type.
+     *
+     * @return string representation
+     */
+    private String nonCustomerUsersToString() {
+        StringBuilder builder = new StringBuilder();
+        if (users != null) {
+            for (String userId : users.keySet()) {
+                if (UserList.getUserTypeById(userId) != UserType.CUSTOMER) {
+                    User user = UserList.getUserByUserId(userId);
+                    builder.append("ID: ").append(user.getId())
+                            .append("\nPassword: ").append(user.getPassword())
+                            .append("\nName: ").append(user.getName())
+                            .append("\nType: ").append(Objects.requireNonNull(UserList.getUserTypeById(userId)))
+                            .append(("\n\n"));
+                }
+            }
+        }
+        return builder.toString();
+    }
+
+    /**
+     * Set the userOutputBoundary of this class
+     *
+     * @param outputBoundary the user output boundary
+     */
+    public void setUserOutputBoundary(UserOutputBoundary outputBoundary) {
+        this.userOutputBoundary = outputBoundary;
     }
 }
