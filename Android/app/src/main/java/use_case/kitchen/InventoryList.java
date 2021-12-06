@@ -182,8 +182,8 @@ public class InventoryList implements Serializable {
         InventoryList.filename = filename;
         if (myDict == null || myDict.isEmpty()) {
             irw = new GCloudReadWriter();
-//            myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
-//            System.out.println(myDict);
+            myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+            System.out.println(myDict);
         }
     }
 }
