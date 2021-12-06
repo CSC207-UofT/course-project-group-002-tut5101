@@ -1,6 +1,6 @@
 package use_case.dish_list;
 /**
- * The output presenter.boundary for PlaceOrderMenu presenter.
+ * The output use_case.boundary for PlaceOrderMenu presenter.
  */
 public interface PlaceOrderMenuOutputBoundary {
     /**
