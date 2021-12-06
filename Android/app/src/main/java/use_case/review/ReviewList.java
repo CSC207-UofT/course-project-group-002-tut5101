@@ -150,8 +150,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
         ReviewList.filename = filename;
         if (reviews == null || reviews.isEmpty()) {
             ReviewList.irw = new GCloudReadWriter();
-             reviews = (HashMap<String, Review>) irw.readFromFile(filename);
-             System.out.println(reviews);
+            reviews = (HashMap<String, Review>) irw.readFromFile(filename);
         }
     }
 

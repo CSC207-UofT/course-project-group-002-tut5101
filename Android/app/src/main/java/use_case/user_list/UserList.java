@@ -182,7 +182,6 @@ public class UserList implements Serializable {
         if (users == null || users.isEmpty()) {
             readWriter = new GCloudReadWriter();
             users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
-            System.out.println(users);
         }
     }
 }
