@@ -1,6 +1,6 @@
 package use_case.dish_list;
 /**
- * The output presenter.boundary for ManageMenu presenter.
+ * The output use_case.boundary for ManageMenu presenter.
  */
 
 public interface ManageMenuOutputBoundary {

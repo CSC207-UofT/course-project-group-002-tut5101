@@ -1,6 +1,6 @@
 package use_case.deliver_order;
 /**
- * The output presenter.boundary for CurrentItem presenter.
+ * The output use_case.boundary for CurrentItem presenter.
  */
 public interface StaffDeliveryOutputBoundary {
     /**

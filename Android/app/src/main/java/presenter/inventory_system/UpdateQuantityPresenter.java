@@ -28,6 +28,7 @@ public class UpdateQuantityPresenter implements InventoryOutputBoundary{
      * Pass the message through interface
      * @param message the message to send
      */
+    @Override
     public String getMessage(String message){
         return message;
     }

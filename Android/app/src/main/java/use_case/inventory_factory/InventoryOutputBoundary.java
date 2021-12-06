@@ -1,6 +1,6 @@
 package use_case.inventory_factory;
 /**
- * The output presenter.boundary for Update Quantity presenter.
+ * The output use_case.boundary for Update Quantity presenter.
  */
 public interface InventoryOutputBoundary {
     /**
