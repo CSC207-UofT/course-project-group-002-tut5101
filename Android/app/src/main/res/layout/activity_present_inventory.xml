@@ -15,7 +15,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="104dp" android:layout_marginBottom="88dp"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="184dp"
             android:layout_height="0dp" android:id="@+id/textView8"
             android:layout_marginTop="66dp" android:layout_marginBottom="23dp"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="85dp"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="0dp"
             android:layout_height="0dp" android:id="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/textView8"
@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView10" app:layout_constraintStart_toStartOf="@+id/textView10"
             android:layout_marginEnd="1dp"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="0dp"
             android:layout_height="0dp" android:id="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/textView9"
@@ -39,7 +39,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView11"
             app:layout_constraintStart_toStartOf="@+id/textView11"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="190dp"
             android:layout_height="0dp" android:id="@+id/textView11"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10" android:layout_marginBottom="37dp"
             app:layout_constraintBottom_toTopOf="@+id/textView12"/>
     <TextView
-            android:text="TextView"
+            android:text="@string/textview"
             android:layout_width="0dp"
             android:layout_height="0dp" android:id="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
