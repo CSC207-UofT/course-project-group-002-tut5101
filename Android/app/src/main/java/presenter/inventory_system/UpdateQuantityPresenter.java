@@ -7,7 +7,7 @@ import use_case.kitchen.InventoryList;
  * Presenter class for the UpdateFreshness activity that change the freshness of an inventory item
  */
 
-public class UpdateQuantityPresenter {
+public class UpdateQuantityPresenter implements InventoryOutputBoundary{
     private UpdateQuantityInterface updateQuantityInterface;
     private final InventoryList inventories;
     /**
@@ -25,6 +25,13 @@ public class UpdateQuantityPresenter {
         this.updateQuantityInterface = updateQuantityInterface;
     }
     /**
+     * Pass the message through interface
+     * @param message the message to send
+     */
+    public String getMessage(String message){
+        return message;
+    }
+    /**
      * Change the quantity of an item and return the information of this action
      * @param name the name of the item
      * @param usage the new usage of the item
@@ -40,10 +47,9 @@ public class UpdateQuantityPresenter {
      * Show the information of this action
      * @param name the name of the item
      * @param usage the new usage of the item
-     * @param boundary the output boundary
      */
-    public void showInfo(String name, String usage, InventoryOutputBoundary boundary){
-        String message = this.newQuantity(name, usage, boundary);
+    public void showInfo(String name, String usage){
+        String message = this.newQuantity(name, usage, this);
         this.updateQuantityInterface.popInfo(message);
     }
 }

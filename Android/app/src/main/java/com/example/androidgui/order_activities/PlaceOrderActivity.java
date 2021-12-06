@@ -1,6 +1,7 @@
 package com.example.androidgui.order_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -8,15 +9,11 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.androidgui.R;
-import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import com.example.androidgui.user_activities.CustomerPickActionActivity;
 import constant.customer_system.CustomerUIMessage;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
-import constant.ui_message.EnrollUserMessage;
-import constant.ui_message.LoginLogoutUIMessage;
 import presenter.order_system.PlaceOrderMenuPresenter;
 import presenter.order_system.PlaceOrderMenuViewInterface;
 import presenter.order_system.PlaceOrderPresenter;
@@ -25,6 +22,7 @@ import presenter.order_system.PlaceOrderViewInterface;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
+
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
  */

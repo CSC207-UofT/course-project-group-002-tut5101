@@ -1,7 +1,9 @@
 package presenter.order_system;
 
 import java.util.HashMap;
-
+/**
+ * ViewInterface of place order
+ */
 public interface PlaceOrderViewInterface {
     /**
      * Display the dishes ordered
@@ -35,7 +37,7 @@ public interface PlaceOrderViewInterface {
 
 
     /**
-     *
+     * pass information to the next activity and run the edit order activity
      */
     void runEditOrder();
 }

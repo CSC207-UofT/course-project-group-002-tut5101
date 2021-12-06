@@ -12,7 +12,11 @@ import presenter.menu_system.MenuPresenter;
  * Activity class for seeing menu
  */
 public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuViewInterface {
-
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

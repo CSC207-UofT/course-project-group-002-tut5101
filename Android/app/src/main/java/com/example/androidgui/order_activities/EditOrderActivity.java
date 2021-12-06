@@ -29,7 +29,11 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
     private EditOrderPresenter editOrderPresenter;
 
     private NumberPicker orderedDishesPicker;
-
+    /**
+     * Activity basic function.
+     *
+     * @param savedInstanceState onCreate fixed parameter.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
