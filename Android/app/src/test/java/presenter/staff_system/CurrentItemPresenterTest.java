@@ -3,9 +3,7 @@ package presenter.staff_system;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.order_list.DeliveryOrder;
-import entity.order_list.DineInOrder;
 import entity.order_list.Dish;
-import entity.order_list.Order;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliver_order.ServingBuffer;
@@ -21,9 +19,7 @@ import java.util.List;
  */
 public class CurrentItemPresenterTest {
     private CurrentItemPresenter staff;
-    private UserList userList;
     private DeliveryOrder order;
-    private final DishList menu = new DishList();
     private ServingStaff servingStaff;
     private DeliveryStaff deliveryStaff;
 
@@ -42,14 +38,12 @@ public class CurrentItemPresenterTest {
         servingStaff = new ServingStaff("6", "Eve", "12345");
         deliveryStaff = new DeliveryStaff("7", "Bob", "12345");
 
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.addUser(servingStaff);
         userList.addUser(deliveryStaff);
 
         dish1 = new Dish("Small fries", 10.0, new HashMap<>(), 200);
         dish2 = new Dish("Median fries", 10.0, new HashMap<>(), 250);
-        menu.addDish(dish1);
-        menu.addDish(dish2);
         HashMap<String, List<Dish>> orderedDishes = new HashMap<>();
         orderedDishes.put("Small fries", Collections.singletonList(dish1));
         order = new DeliveryOrder("Testing123", orderedDishes);
