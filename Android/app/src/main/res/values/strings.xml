@@ -106,6 +106,5 @@
 	<string name="user_list">User List</string>
 	<string name="see_users">See Users</string>
     <string name="freshness_a_b_c_d">freshness a,b,c,d</string>
-    <string name="textview">TextView</string>
 
 </resources>
