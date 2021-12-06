@@ -33,24 +33,25 @@
 		android:textStyle="bold"
 		app:layout_constraintEnd_toEndOf="@+id/button17"
 		app:layout_constraintStart_toStartOf="@+id/button17"
-		app:layout_constraintTop_toBottomOf="@+id/button17"
+		app:layout_constraintTop_toBottomOf="@+id/header"
 		tools:ignore="UsingOnClickInXml" />
 
 	<Button
 		android:id="@+id/button17"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="50dp"
+		android:layout_marginTop="30dp"
 		android:ems="15"
 		android:onClick="seeCurrentOrder"
 		android:text="@string/view_current_order"
 		android:textStyle="bold"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/header"
+		app:layout_constraintTop_toBottomOf="@+id/button18"
 		tools:ignore="UsingOnClickInXml" />
 
 	<Button
+		android:id="@+id/button19"
 		android:layout_width="0dp"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="80dp"
@@ -58,7 +59,8 @@
 		android:text="@string/exit"
 		android:textStyle="bold"
 		app:layout_constraintEnd_toEndOf="@+id/button18"
+		app:layout_constraintHorizontal_bias="0.0"
 		app:layout_constraintStart_toStartOf="@+id/button18"
-		app:layout_constraintTop_toBottomOf="@+id/button18"
+		app:layout_constraintTop_toBottomOf="@+id/button17"
 		tools:ignore="UsingOnClickInXml" />
 </androidx.constraintlayout.widget.ConstraintLayout>
