@@ -10,11 +10,12 @@ import gateway.ReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review> {
+public class ReviewList implements Serializable, Iterable<Review>{
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
     private static ReadWriter irw;
@@ -55,8 +56,8 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * @param rate rate of the use_case.review.
      * @param comment comment left.
      */
-    public void addReview(String name, boolean ifAnonymous, int rate, String comment, String ID){
-        addReview(new Review(name, ifAnonymous, rate, comment, ID));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment){
+        addReview(new Review(name, ifAnonymous, rate, comment, String.valueOf(this.sizeofList()+1)));
     }
 
     /**
@@ -66,6 +67,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      */
     public void addReview(Review r) {
            reviews.put(r.getReviewID(), r);
+           saveToFile();
     }
 
     /**
@@ -130,6 +132,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
         irw.saveToFile(context, filename, reviews);
     }
 
+
     /**
      * Setting context.
      * @param context context
@@ -143,10 +146,17 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Reading data
      * @param filename the name of the data file
      */
-    @SuppressWarnings("unchecked")
     public static void setData(String filename) {
         ReviewList.filename = filename;
         ReviewList.irw = new GCloudReadWriter();
         reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+    }
+
+    /**
+     * Delete the given review
+     * @param review review to be deleted.
+     */
+    public static void delete(Review review) {
+        reviews.remove(review.getReviewID());
     }
 }

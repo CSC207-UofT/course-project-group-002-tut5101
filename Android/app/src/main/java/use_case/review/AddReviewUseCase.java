@@ -13,7 +13,6 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
         this.reviewList = new ReviewList();
     }
 
-
     /**
      * adding the review to reviewList.
      *
@@ -21,12 +20,11 @@ public class AddReviewUseCase implements AddReviewInputBoundary{
      * @param ifAnonymous if anonymous of review
      * @param rate rate of review
      * @param comment comment of review
-     * @param ID id of review
      */
     @Override
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
-                                String comment, String ID) {
-        reviewList.addReview(name, ifAnonymous, rate, comment, ID);
+                                String comment) {
+        reviewList.addReview(name, ifAnonymous, rate, comment);
     }
 
     /**

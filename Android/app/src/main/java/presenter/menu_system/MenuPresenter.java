@@ -1,7 +1,7 @@
 package presenter.menu_system;
 
-import use_case.dish_list.MenuOutputBoundary;
 import use_case.dish_list.DishList;
+import use_case.dish_list.MenuOutputBoundary;
 
 /**
  * Controller class for menu.

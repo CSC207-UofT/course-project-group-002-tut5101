@@ -46,7 +46,7 @@ public class AddReviewUseCaseTest {
      */
     @Test
     public void addToReviewList(){
-        add.addToReviewList("amy", true, 1,"dog", "oops");
+        add.addToReviewList("amy", true, 1,"dog");
     }
 
     /**
