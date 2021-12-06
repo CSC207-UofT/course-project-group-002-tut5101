@@ -164,12 +164,35 @@ public class DishTest {
     }
 
     /**
+     * Test Dish class decrease price method
+     */
+    @Test
+    public void testDecreasePrice() {
+        setUp();
+        double expected = dish1.getPrice() - 1;
+        dish1.decreasePrice();
+        double actual = dish1.getPrice();
+        assert(expected == actual);
+    }
+
+    /**
      * test Dish class decrease calorie method
      */
     @Test(timeout = 50)
     public void testDecreaseCalories() {
         double expected = dish1.getCalories() - 100;
         dish1.decreaseCalories();
+        double actual = dish1.getCalories();
+        assert(expected == actual);
+    }
+
+    /**
+     * test Dish class increase calorie method
+     */
+    @Test
+    public void testIncreaseCalories() {
+        double expected = dish1.getCalories() + 100;
+        dish1.increaseCalories();
         double actual = dish1.getCalories();
         assert(expected == actual);
     }

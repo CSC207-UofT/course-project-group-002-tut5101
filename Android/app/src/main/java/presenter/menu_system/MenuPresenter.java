@@ -4,13 +4,13 @@ import use_case.dish_list.DishList;
 import use_case.dish_list.MenuOutputBoundary;
 
 /**
- * Controller class for menu.
+ * Presenter class for menu.
  */
 
 
 public class MenuPresenter implements MenuOutputBoundary{
 
-    public DishList dishList;
+    private DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
 
     /**
