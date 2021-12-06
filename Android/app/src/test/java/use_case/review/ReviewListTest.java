@@ -125,6 +125,7 @@ public class ReviewListTest {
      * Test delete method.
      */
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void delete(){
         reviewList.reset();
         reviewList.addReview(review1);
