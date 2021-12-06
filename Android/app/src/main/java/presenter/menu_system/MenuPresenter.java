@@ -8,7 +8,7 @@ import use_case.dish_list.MenuOutputBoundary;
  */
 
 
-public class MenuPresenter implements MenuOutputBoundary {
+public class MenuPresenter implements MenuOutputBoundary{
 
     public DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
@@ -17,6 +17,7 @@ public class MenuPresenter implements MenuOutputBoundary {
      * Presenter class for menu.
      */
     public MenuPresenter(){
+        initializeDishList();
     }
 
 
@@ -26,8 +27,8 @@ public class MenuPresenter implements MenuOutputBoundary {
      */
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;
-        initializeDishList();
     }
+
 
     /**
      * Initialize the dishList

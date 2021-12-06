@@ -18,9 +18,9 @@ import presenter.manager_system.ManageMenuViewInterface;
  */
 public class ManageMenuActivity extends AppCompatActivity implements ManageMenuViewInterface {
 
-    NumberPicker selectDish;
-    TextView askDishNumber;
-    String[] managerDecision;
+    private NumberPicker selectDish;
+    private TextView askDishNumber;
+    private String[] managerDecision;
     private ManageMenuPresenter manageMenuPresenter;
 
     /**
@@ -34,8 +34,8 @@ public class ManageMenuActivity extends AppCompatActivity implements ManageMenuV
         setContentView(R.layout.activity_manage_menu);
         selectDish = findViewById(R.id.selectDish);
         askDishNumber = findViewById(R.id.askDishNumber);
-        manageMenuPresenter = new ManageMenuPresenter();
-        manageMenuPresenter.setManageMenuViewInterface(this);
+        this.manageMenuPresenter = new ManageMenuPresenter();
+        this.manageMenuPresenter.setManageMenuViewInterface(this);
         setupMessage();
         setupOptions();
     }

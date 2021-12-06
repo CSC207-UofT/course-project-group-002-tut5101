@@ -8,7 +8,9 @@ import com.example.androidgui.R;
 import presenter.menu_system.DisplayMenuViewInterface;
 import presenter.menu_system.MenuPresenter;
 
-
+/**
+ * Activity class for seeing menu
+ */
 public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuViewInterface {
 
     @Override
@@ -23,6 +25,10 @@ public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuVie
 
     }
 
+    /**
+     * Setting the next item
+     * @param menuItems menu items.
+     */
     public void setMenuItemsText(String menuItems) {
         TextView menuItemsText = new TextView(this);
         menuItemsText.setText(menuItems);

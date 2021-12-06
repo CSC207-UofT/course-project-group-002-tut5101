@@ -3,7 +3,6 @@ package presenter.manager_system;
 
 import org.junit.Before;
 import org.junit.Test;
-
 /**
  * Test the ManagerMenuPresenter class.
  */
@@ -19,6 +18,7 @@ public class ManageMenuPresenterTest {
         manager = new ManageMenuPresenter();
         TestClass testPresenter = new TestClass();
         manager.setManageMenuViewInterface(testPresenter);
+
     }
 
     /**

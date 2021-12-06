@@ -63,6 +63,7 @@ public class InventoryList implements Serializable {
         {   int id = myDict.size();
             item.setId(id);
             myDict.put(item.getName(), item);
+            saveToFile();
             return "Successful";
         }
         else{return "Occupied name or item";}

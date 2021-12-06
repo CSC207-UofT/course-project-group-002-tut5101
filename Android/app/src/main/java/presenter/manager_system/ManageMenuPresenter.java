@@ -8,14 +8,12 @@ import use_case.dish_list.DishList;
  */
 public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     ManageMenuViewInterface manageMenuViewInterface;
-    private final DishList dishList;
+    public DishList dishList;
 
     /**
      * Constructor for this class.
      */
     public ManageMenuPresenter(){
-        this.dishList = new DishList();
-        dishList.setManageMenuOutputBoundary(this);
     }
 
     /**
@@ -24,6 +22,15 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
      */
     public void setManageMenuViewInterface(ManageMenuViewInterface manageMenuViewInterface) {
         this.manageMenuViewInterface = manageMenuViewInterface;
+        initializeDishList();
+    }
+
+    /**
+     * Initialize the dishList
+     */
+    private void initializeDishList() {
+        dishList = new DishList();
+        dishList.setManageMenuOutputBoundary(this);
     }
 
     /**
