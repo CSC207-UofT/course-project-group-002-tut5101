@@ -33,7 +33,7 @@ public class OrderQueueTest {
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
         InventoryList inventoryList = new InventoryList();
         InventoryList.setContext(new Activity());
-        InventoryList.setData(FileName.INVENTORY_FILE);
+        InventoryList.setData("TEST"+FileName.INVENTORY_FILE);
 
         inventoryList.addInventory(hasExpiryDate);
         String location = "1";

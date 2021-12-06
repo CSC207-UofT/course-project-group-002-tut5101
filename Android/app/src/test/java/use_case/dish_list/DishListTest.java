@@ -1,5 +1,7 @@
 package use_case.dish_list;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +23,8 @@ public class DishListTest {
      */
     @Before
     public void setUp() {
+        DishList.setContext(new Activity());
+        DishList.setData("TEST"+ FileName.MENU_FILE);
         menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
         menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));

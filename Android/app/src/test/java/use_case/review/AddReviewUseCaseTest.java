@@ -27,7 +27,7 @@ public class AddReviewUseCaseTest {
     public void setUp(){
         ReviewList reviewList = new ReviewList();
         ReviewList.setContext(new AddReviewCommentActivity());
-        ReviewList.setData(FileName.REVIEW_FILE);
+        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",
@@ -49,14 +49,6 @@ public class AddReviewUseCaseTest {
     @Test
     public void addToReviewList(){
         add.addToReviewList("amy", true, 1,"dog");
-    }
-
-    /**
-     * Test length method
-     */
-    @Test
-    public void length(){
-        assertEquals(5, add.length());
     }
 
 }
