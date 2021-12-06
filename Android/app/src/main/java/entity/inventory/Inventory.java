@@ -11,9 +11,9 @@ import java.io.Serializable;
 
 public abstract class Inventory implements Serializable {
     protected int id;
-    protected String name;
-    protected boolean usedup;
-    protected double price;
+    protected final String name;
+    protected boolean usedUp;
+    protected final double price;
     protected int quantity;
 
     private static final long serialVersionUID = 1L;
@@ -30,7 +30,7 @@ public abstract class Inventory implements Serializable {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.usedup = quantity == 0;
+        this.usedUp = quantity == 0;
     }
 
     /**
@@ -53,7 +53,7 @@ public abstract class Inventory implements Serializable {
      */
 
     public boolean getUsedUp() {
-        return this.usedup;
+        return this.usedUp;
     }
 
 
@@ -79,7 +79,7 @@ public abstract class Inventory implements Serializable {
         if (this.quantity >= usage) {
             this.quantity -= usage;
             if (this.quantity == 0) {
-                this.usedup = true;
+                this.usedUp = true;
             }
             message = "Successfully updated";
         } else {
