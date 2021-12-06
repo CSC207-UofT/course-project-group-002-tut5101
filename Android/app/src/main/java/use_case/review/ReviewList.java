@@ -10,7 +10,6 @@ import gateway.ReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * A list of reviews.
@@ -151,7 +150,8 @@ public class ReviewList implements Serializable, Iterable<Review>{
         ReviewList.filename = filename;
         if (reviews == null || reviews.isEmpty()) {
             ReviewList.irw = new GCloudReadWriter();
-            reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+            // reviews = (HashMap<String, Review>) irw.readFromFile(filename);
+            // System.out.println(reviews);
         }
     }
 
