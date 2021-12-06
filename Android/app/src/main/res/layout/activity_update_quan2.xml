@@ -7,15 +7,15 @@
     tools:context=".inventory_activities.UpdateQuantityActivity">
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="291dp"
-        android:text="@string/update"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7" />
-
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="188dp"
+            android:text="@string/update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
+            app:layout_constraintHorizontal_bias="0.504"/>
     <EditText
         android:id="@+id/editTextTextPersonName6"
         android:layout_width="wrap_content"
@@ -32,17 +32,17 @@
         tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:autofillHints="Usage"
-        android:ems="10"
-        android:hint="@string/enter_usage"
-        android:inputType="number|numberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
-        tools:ignore="LabelFor" />
+            android:id="@+id/editTextTextPersonName7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="Usage"
+            android:ems="10"
+            android:hint="@string/enter_usage"
+            android:inputType="numberSigned|number|numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
+            tools:ignore="LabelFor"/>
 
     <TextView
         android:id="@+id/editTextTextPersonName3"
