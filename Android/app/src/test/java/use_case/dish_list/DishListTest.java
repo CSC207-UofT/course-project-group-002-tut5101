@@ -1,5 +1,7 @@
 package use_case.dish_list;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +23,8 @@ public class DishListTest {
      */
     @Before
     public void setUp() {
+        DishList.setContext(new Activity());
+        DishList.setData("TEST"+ FileName.MENU_FILE);
         menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
         menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
@@ -98,15 +102,31 @@ public class DishListTest {
         assertFalse(DishList.getAllDishes().containsKey("Milk Tea"));
     }
 
-//    /**
-//     * Test the editDishByName method
-//     */
-//    @Test
-//    public void testEditDish() {
-//        menu.editDishByName("Coffee");
-//        assertEquals(11.0, DishList.getDishPrice("Coffee"), 0.1);
-//        assertEquals(-100, DishList.getDishCalories("Coffee"), 0.1);
-//    }
+
+    /**
+     *
+     * Testing DishList addDishes method
+     */
+    @Test
+    public void editCalories() {
+        menu.editCalories("Coffee", 1);
+        assertEquals(100, DishList.getDishCalories("Coffee"), 0.1);
+        menu.editCalories("Coffee", 0);
+        assertEquals(0, DishList.getDishCalories("Coffee"), 0.1);
+    }
+
+    /**
+     *
+     * Testing DishList addDishes method
+     */
+    @Test
+    public void editPrice() {
+        menu.editPrice("Coffee", 1);
+        assertEquals(11, DishList.getDishPrice("Coffee"), 0.1);
+        menu.editPrice("Coffee", 0);
+        assertEquals(10, DishList.getDishPrice("Coffee"), 0.1);
+    }
+
 
     /**
      *

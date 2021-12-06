@@ -19,7 +19,7 @@ import java.util.Set;
  * @author Chan Yu & Naihe Xiao
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    private static HashMap<String, Dish> menu;
+    public static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     private static ReadWriter readWriter;
     @SuppressLint("StaticFieldLeak")
@@ -158,8 +158,10 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param dish new dish to be added
      */
     public void addDish(Dish dish) {
-        menu.put(dish.getName(), dish);
-        saveToFile();
+        if (menu != null){
+            menu.put(dish.getName(), dish);
+            saveToFile();
+        }
     }
 
     /**
@@ -197,7 +199,9 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile() {
-        readWriter.saveToFile(context, filename, menu);
+        if (filename != null) {
+            readWriter.saveToFile(context, filename, menu);
+        }
     }
 
     /**
