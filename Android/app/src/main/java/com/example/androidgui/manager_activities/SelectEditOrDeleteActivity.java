@@ -96,7 +96,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
                             menuPresenter.increaseCalories(dishName);
                         } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
                             menuPresenter.decreaseCalories(dishName);
-                        } else if (Objects.equals(action, ManagerDecision.DECREASE_PRICE.toString())){
+                        } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
                             menuPresenter.increasePrice(dishName);
                         } else{
                             menuPresenter.decreasePrice(dishName);

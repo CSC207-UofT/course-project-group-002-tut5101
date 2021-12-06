@@ -53,12 +53,37 @@ public class MenuPresenterTest {
     }
 
     /**
-     * Test the dishesInMenuAsString method
+     * Test the increasePrice method
      */
     @Test
-    public void editDishByName(){
-        menuPresenter.editDishByName("dish2");
+    public void increasePrice(){
+        menuPresenter.increasePrice("dish2");
     }
+
+    /**
+     * Test the decreasePrice method
+     */
+    @Test
+    public void decreasePrice(){
+        menuPresenter.decreasePrice("dish2");
+    }
+
+    /**
+     * Test the decreaseCalories
+     */
+    @Test
+    public void decreaseCalories(){
+        menuPresenter.decreaseCalories("dish2");
+    }
+
+    /**
+     * Test the increaseCalories
+     */
+    @Test
+    public void increaseCalories(){
+        menuPresenter.increaseCalories("dish2");
+    }
+
 
     /**
      * Empty fake presenter class implementing the output boundary
