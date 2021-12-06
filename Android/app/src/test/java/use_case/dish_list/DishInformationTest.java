@@ -1,5 +1,8 @@
 package use_case.dish_list;
 
+import android.app.Activity;
+import com.example.androidgui.inventory_activities.CheckInventoryActivity;
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -24,6 +27,8 @@ public class DishInformationTest {
     public void setUp() {
         TestClass testPresenter = new TestClass();
         TestClass2 testPresenter2 = new TestClass2();
+        DishList.setContext(new Activity());
+        DishList.setData("TEST"+FileName.MENU_FILE);
         menu.setPlaceOrderOutputBoundary(testPresenter);
         menu.setPlaceOrderMenuOutputBoundary(testPresenter2);
 

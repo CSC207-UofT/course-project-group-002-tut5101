@@ -1,10 +1,14 @@
 package use_case.enroll_staff;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import use_case.kitchen.InventoryList;
 import use_case.user_list.UserList;
 
 import java.util.HashMap;
@@ -21,6 +25,8 @@ public class EnrolNewStaffTest {
         TestClass testPresenter = new TestClass();
         useCase.setOutputBoundary(testPresenter);
         UserList.users = new HashMap<>();
+        UserList.setContext(new Activity());
+        UserList.setData("TEST"+ FileName.USER_FILE);
 
         userList.addUser(new Customer("0", "James", "12345"));
         userList.addUser(new Customer("1", "Steve", "12345"));

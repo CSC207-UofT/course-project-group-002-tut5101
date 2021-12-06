@@ -217,7 +217,6 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
             try {
                 placeOrderInputBoundary.placeOrder(orderType, dishes, location);
-                System.out.println("place order done");
                 placeOrderViewInterface.orderSuccessfullyPlaced();
             }
             catch (Exception e) {

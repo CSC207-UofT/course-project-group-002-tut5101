@@ -2,6 +2,8 @@ package use_case.customer;
 
 
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,8 @@ public class PlaceOrderTest {
      */
     @Before
     public void setUp() {
+        DishList.setContext(new Activity());
+        DishList.setData("TEST"+ FileName.MENU_FILE);
 
         menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));

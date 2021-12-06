@@ -1,5 +1,7 @@
 package use_case.dish_list;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import entity.order_list.Dish;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +17,8 @@ public class DishListIteratorTest {
     @Before
     public void setUp() {
         DishList dishList = new DishList();
+        DishList.setContext(new Activity());
+        DishList.setData("TEST"+ FileName.MENU_FILE);
         testDish = new Dish("1", 2.0, new HashMap<>(), 1);
         dishList.addDish(testDish);
         dishListIterator = new DishListIterator();

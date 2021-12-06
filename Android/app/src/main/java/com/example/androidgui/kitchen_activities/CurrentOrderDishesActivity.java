@@ -5,6 +5,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.order_activities.PlaceOrderActivity;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
 
@@ -30,19 +31,17 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen);
+        PlaceOrderActivity.addObserver(this);
+
         ListView list = findViewById(R.id.dishToCook);
 
         kp = new KitchenPresenter(this);
         kp.checkOrderAvailable();
         dishesToDisplay = kp.exportDishes();
+
         adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);
 
-        list.setOnItemClickListener((adapterView, view, i, l) -> {
-            System.out.println("did");
-            Toast.makeText(CurrentOrderDishesActivity.this,
-                    "One " + Arrays.toString(dishesToDisplay.get(i)) + "has been cooked", Toast.LENGTH_SHORT).show();
-        });
     }
 
     /**

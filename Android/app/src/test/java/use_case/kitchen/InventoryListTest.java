@@ -1,5 +1,7 @@
 package use_case.kitchen;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Test;
@@ -25,6 +27,8 @@ public class InventoryListTest {
     @Test
     public void testAddInventory() {
         inventoryList = new InventoryList();
+        InventoryList.setContext(new Activity());
+        InventoryList.setData("TEST"+ FileName.INVENTORY_FILE);
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 
