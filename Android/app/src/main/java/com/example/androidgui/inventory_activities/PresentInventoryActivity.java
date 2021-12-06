@@ -13,7 +13,7 @@ import com.example.androidgui.R;
 public class PresentInventoryActivity extends AppCompatActivity{
 
     /**
-     * Activity basic function.
+     * Activity basic function. Take the passing in information and present them
      *
      * @param savedInstanceState onCreate fixed parameter.
      */
