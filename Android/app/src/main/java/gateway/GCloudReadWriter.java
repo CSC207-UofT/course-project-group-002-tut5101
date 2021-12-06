@@ -63,7 +63,7 @@ public class GCloudReadWriter implements ReadWriter {
         new Thread(() -> {
             GoogleCredentials credentials;
             try {
-                credentials = GoogleCredentials.fromStream(context.getAssets().open("uplifted-cinema-252918-80dc77e32e4e.json"))
+                credentials = GoogleCredentials.fromStream(context.getAssets().open("uplifted-cinema-252918-961ea621737d.json"))
                         .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
                 Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
                 BlobId blobId = BlobId.of("207project", filename);
