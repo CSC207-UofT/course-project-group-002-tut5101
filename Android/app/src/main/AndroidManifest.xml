@@ -61,9 +61,6 @@
 			android:name=".order_activities.PlaceOrderActivity"
 			android:exported="true" />
 		<activity
-			android:name=".order_activities.OrderSuccessfullyPlacedActivity"
-			android:exported="true" />
-		<activity
 			android:name=".user_activities.SeeMenuActivity"
 			android:exported="true" />
 		<activity
