@@ -39,7 +39,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
     }
 
     /**
-     *
+     * Check weyher the name is valid and pass the information of item to another page
      * @param v view
      */
     @Override
@@ -49,6 +49,10 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         finish();
 
     }
+    /**
+     * Check wether the name is valid and pass the information of item to another page
+     * @param info the action response infomation success or wrong name
+     */
     @Override
     public void CheckValidity(String info){
         boolean wrongName = info.equals("Invalid name");
@@ -61,7 +65,10 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
             startActivity(intent);
         }
     }
-
+    /**
+     * Call when  the pointer is enable or disable for the current window.
+     *
+     */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);

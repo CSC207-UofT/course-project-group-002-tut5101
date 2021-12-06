@@ -24,7 +24,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     * Adding inventory.
+     * Moving to the Adding inventory page.
      * @param v view
      */
     public void AddInventory(View v) {
@@ -33,7 +33,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     * getting inventory.
+     * Moving to the getting inventory page.
      * @param v view.
      */
     public void GetInventoryInfo(View v) {
@@ -42,7 +42,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     *  updating quantity.
+     * Moving to the updating quantity page.
      * @param v view.
      */
     public void UpdateQuantity(View v) {
@@ -51,7 +51,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
     }
 
     /**
-     *  updating freshness.
+     * Moving to the  updating freshness page.
      * @param v view.
      */
     public void UpdateFreshness(View v) {

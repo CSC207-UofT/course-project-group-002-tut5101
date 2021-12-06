@@ -3,7 +3,6 @@ package use_case.kitchen;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Test;
-import presenter.inventory_system.UpdateFreshnessInterface;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.inventory_factory.InventoryOutputBoundary;
 
@@ -148,6 +147,12 @@ public class InventoryListTest {
         assertEquals("Not enough", inventoryList.setQuantity("Test1",21));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
         assertEquals("wrong name", inventoryList.setQuantity("Test5",19));
+        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",-1));
+        assertEquals(21, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",1));
+        assertEquals(20, InventoryList.getTotalQuantity("Test1"));
+        assertEquals("Not enough", inventoryList.passNewQuanInfo("Test1",21));
+        assertEquals("wrong name", inventoryList.passNewQuanInfo("Test5",19));
     }
 
 
@@ -169,16 +174,4 @@ public class InventoryListTest {
         }
     }
 
-    private static class TestClass1 implements UpdateFreshnessInterface {
-
-        /**
-         * Check if the InventoryList calls on this method
-         * @param message the message to display
-         */
-        @Override
-        public void popInfo(String message) {
-            assert(true);
-        }
-
-    }
 }
