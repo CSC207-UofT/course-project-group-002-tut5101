@@ -29,16 +29,10 @@ public class MenuPresenter implements MenuOutputBoundary{
         this.displayMenuViewInterface = displayMenuViewInterface;
     }
 
-
-    /**
-     * Initialize the dishList
-     */
-    private void initializeDishList() {
+    private void initializeDishList(){
         dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
     }
-
-
 
     /**
      * get string representation of dishes in menu from dishList use case
@@ -55,48 +49,5 @@ public class MenuPresenter implements MenuOutputBoundary{
         displayMenuViewInterface.setMenuItemsText(menuItems);
     }
 
-    /**
-     * delete a dish by the dish name
-     * @param dishName name of dish
-     */
-    public void deleteDishByName(String dishName) {
-        dishList.deleteDishByName(dishName);
-    }
-
-    /**
-     * Edit the dish by passing in the dish name.
-     *
-     * @param dishName the name of the dish
-     */
-    public void increasePrice(String dishName){
-        dishList.editPrice(dishName, 1);
-    }
-
-    /**
-     * Edit the dish by passing in the dish name.
-     *
-     * @param dishName the name of the dish
-     */
-    public void decreasePrice(String dishName){
-        dishList.editPrice(dishName, 0);
-    }
-
-    /**
-     * Edit the dish by passing in the dish name.
-     *
-     * @param dishName the name of the dish
-     */
-    public void increaseCalories(String dishName){
-        dishList.editCalories(dishName, 1);
-    }
-
-    /**
-     * Edit the dish by passing in the dish name.
-     *
-     * @param dishName the name of the dish
-     */
-    public void decreaseCalories(String dishName){
-        dishList.editCalories(dishName, 0);
-    }
 
 }
