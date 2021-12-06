@@ -1,6 +1,7 @@
 package use_case.kitchen;
 
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.RequiresApi;
 import entity.order_list.Dish;
 import entity.order_list.Order;
@@ -87,7 +88,6 @@ public class OrderQueue {
             if (tempIngredients != null) {
                 int ingredients = tempIngredients;
                 if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
-                    System.out.println("NOT ENOUGH:" + ingredientRequired);
                     return false;
                 }
             }
