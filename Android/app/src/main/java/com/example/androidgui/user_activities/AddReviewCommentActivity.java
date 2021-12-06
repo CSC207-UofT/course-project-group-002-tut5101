@@ -20,7 +20,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
     private AddReviewPresenter rc;
 
     /**
-     *
+     * Activity basic function
      * @param savedInstanceState fixed parameter.
      */
     @Override
@@ -36,7 +36,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
     }
 
     /**
-     * Clicking response.
+     * Clicking response. Add a review in the review list
      * @param v view.
      */
     public void addReview(View v) {

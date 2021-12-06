@@ -19,7 +19,7 @@ public class CookDish {
     /**
      * The current order that the Kitchen is working on.
      */
-    private Order currentOrder;
+    private static Order currentOrder;
     private final KitchenOutputBoundary kob;
 
     public CookDish(KitchenOutputBoundary kob) {
@@ -69,13 +69,6 @@ public class CookDish {
         return !(currentOrder == null);
     }
 
-    /**
-     * @return A hashmap of dishes with its corresponding quantity.
-     */
-    public HashMap<String, Integer> dishAndQuantity() {
-        return currentOrder.getDishAndQuantity();
-    }
-
 
     /**
      *
@@ -93,12 +86,12 @@ public class CookDish {
         if (occupied()) {
             if (orderCompleted()) {
                 if (getNextToCook()) {
-                    kob.getNextOrder(dishAndQuantity());
+                    kob.getNextOrder(currentOrder.getDishAndQuantity());
                     return true;
                 }
             }
         } else if (getNextToCook()) {
-            kob.getNextOrder(dishAndQuantity());
+            kob.getNextOrder(currentOrder.getDishAndQuantity());
             return true;
         }
         return false;

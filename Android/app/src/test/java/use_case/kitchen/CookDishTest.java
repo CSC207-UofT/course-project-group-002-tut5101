@@ -58,24 +58,6 @@ public class CookDishTest {
     }
 
     /**
-     * Test the dishAndQuantity method
-     */
-    @Test
-    public void testDishAndQuantity() {
-        addOrders();
-        kitchen.getNextToCook();
-
-        HashMap<String, Integer> expected = new HashMap<>();
-        expected.put("Quarter pound with cheese", 1);
-        expected.put("Small fries", 1);
-        expected.put("Coke", 1);
-
-        HashMap<String, Integer> dishAndQuantity = kitchen.dishAndQuantity();
-
-        assertEquals(expected, dishAndQuantity);
-    }
-
-    /**
      * Test the cookedDish method
      */
     @Test

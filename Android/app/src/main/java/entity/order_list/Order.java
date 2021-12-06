@@ -120,7 +120,15 @@ public abstract class Order {
     public HashMap<String, Integer> getDishAndQuantity() {
         HashMap<String, Integer> dishAndQuantity = new HashMap<>();
         for (String dishName : dishes.keySet()) {
-            dishAndQuantity.put(dishName, Objects.requireNonNull(dishes.get(dishName)).size());
+            for (Dish dish : Objects.requireNonNull(dishes.get(dishName))) {
+                if (dish.getStatus() == ItemStatus.DISH_PLACED) {
+                    if (dishAndQuantity.containsKey(dishName)) {
+                        dishAndQuantity.put(dishName, Objects.requireNonNull(dishAndQuantity.get(dishName)) + 1);
+                    } else {
+                        dishAndQuantity.put(dishName, 1);
+                    }
+                }
+            }
         }
         return dishAndQuantity;
     }

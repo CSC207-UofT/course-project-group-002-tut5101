@@ -14,8 +14,8 @@ import java.util.HashMap;
 public class KitchenPresenter implements KitchenOutputBoundary {
     private final KitchenView kv;
     private final CookDish kitchen;
-    private HashMap<String, Integer> dishes;
-    private InventoryList inventory;
+    private static HashMap<String, Integer> dishes;
+    private final InventoryList inventory;
 
     /**
      * Constructor
@@ -43,20 +43,12 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     }
 
     /**
-     * Set the inventoryList for Kitchen
-     * @param inventory an InventoryList attribute
-     */
-    public void setInventory(InventoryList inventory){
-        this.inventory = inventory;
-    }
-
-    /**
      * Update the current dishes to be the potentially new orders.
      * @param dishes the new dishes (order) to be cooked
      */
     @Override
     public void getNextOrder(HashMap<String, Integer> dishes){
-        this.dishes = dishes;
+        KitchenPresenter.dishes = dishes;
     }
 
     /**

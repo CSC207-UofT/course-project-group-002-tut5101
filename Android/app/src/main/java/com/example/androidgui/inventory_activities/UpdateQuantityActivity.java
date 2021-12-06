@@ -1,19 +1,19 @@
 package com.example.androidgui.inventory_activities;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.inventory_system.UpdateQuantityInterface;
 import presenter.inventory_system.UpdateQuantityPresenter;
-import use_case.inventory_factory.InventoryOutputBoundary;
+
 /**
  * Activity class for updating quantity of inventory.
  */
-public class UpdateQuantityActivity extends AppCompatActivity implements View.OnClickListener, InventoryOutputBoundary,
+public class UpdateQuantityActivity extends AppCompatActivity implements View.OnClickListener,
         UpdateQuantityInterface {
     private EditText name;
     private EditText usage;
@@ -41,16 +41,10 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         String iname = name.getText().toString();
         String iusage = usage.getText().toString();
-        uqp.showInfo(iname, iusage, this);
+        uqp.showInfo(iname, iusage);
         finish();
     }
-    /**
-     * Pass the message through interface
-     * @param message the message to send
-     */
-    public String getMessage(String message){
-        return message;
-    }
+
     /**
      * Show the message on the screen
      * @param message the message to send

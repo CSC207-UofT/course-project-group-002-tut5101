@@ -1,5 +1,7 @@
 package use_case.login;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import constant.ui_message.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
@@ -23,6 +25,8 @@ public class UserLoginTest {
     @Before
     public void setUp() {
         userLogin = new UserLogin();
+        UserList.setContext(new Activity());
+        UserList.setData("TEST"+ FileName.USER_FILE);
         TestClass testPresenter = new TestClass();
         userLogin.setOutputBoundary(testPresenter);
 

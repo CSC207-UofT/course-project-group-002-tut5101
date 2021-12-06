@@ -31,8 +31,8 @@ public class ReviewListTest {
     @Before
     public void setUp() {
         reviewList = new ReviewList();
-        ReviewList.setData(FileName.REVIEW_FILE);
         ReviewList.setContext(new SeeReviewActivity());
+        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
         reviewList.reset();
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 4, "Nice staff",

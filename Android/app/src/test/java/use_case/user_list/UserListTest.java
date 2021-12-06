@@ -1,5 +1,7 @@
 package use_case.user_list;
 
+import android.app.Activity;
+import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -29,6 +31,8 @@ public class UserListTest {
     @Before
     public void setUp() {
         userList.reset();
+        UserList.setContext(new Activity());
+        UserList.setData("TEST"+ FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("2", "James", "12345"));
         userList.addUser(new Customer("3", "Steve", "12345"));

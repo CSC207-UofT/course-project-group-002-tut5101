@@ -31,8 +31,9 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
             id = b.getString("id");
         }
     }
-
-    // When the user selects to get the next dish, try to get a dish to be delivered.
+    /**
+     * When the user selects to get the next dish, try to get a dish to be delivered.
+    */
     public void selectGetNextDish(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, ServeDishActivity.class);
         Bundle b = new Bundle();
@@ -41,8 +42,9 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
-
-    // When the user selects to check the current dish, show the current dish to be served.
+    /**
+     * When the user selects to check the current dish, show the current dish to be served.
+     */
     public void seeCurrentDish(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, ServeDishActivity.class);
         Bundle b = new Bundle();
@@ -51,8 +53,9 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
-
-    // When selected Exit, return to log in activity.
+    /**
+     * When selected Exit, return to log in activity.
+     */
     public void selectExit(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, MainActivity.class);
         startActivity(intent);
