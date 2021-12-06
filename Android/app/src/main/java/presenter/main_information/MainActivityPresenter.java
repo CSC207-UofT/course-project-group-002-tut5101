@@ -14,7 +14,7 @@ public class MainActivityPresenter {
 
 
     /**
-     * Constructor
+     * Constructor for the presenter
      */
     public MainActivityPresenter(){
     }
@@ -29,7 +29,9 @@ public class MainActivityPresenter {
         InventoryList.setContext(context);
         UserList.setContext(context);
     }
-
+    /**
+     * Setting Data for data structure
+     */
     public void setData() {
         ReviewList.setData(FileName.REVIEW_FILE);
         DishList.setData(FileName.MENU_FILE);

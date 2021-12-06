@@ -30,7 +30,7 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
     }
 
     /**
-     *
+     * Set the text to present
      * @param reviewsText texts of use_case.review.
      */
     public void setReviewsText(String reviewsText){
