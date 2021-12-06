@@ -5,5 +5,5 @@ package constant.manger_system;
  */
 
 public enum ManagerDecision {
-    EDIT, DELETE, THREE, TWO, ONE
+    INCREASE_PRICE, DECREASE_PRICE, INCREASE_CALORIES, DECREASE_CALORIES, DELETE, THREE, TWO, ONE
 }
