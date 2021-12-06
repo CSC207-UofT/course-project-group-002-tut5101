@@ -1,27 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".delivery_staff_activities.DeliveryStaffPickActionActivity">
 
-    <TextView
-            android:text="@string/header"
-            android:layout_width="match_parent"
-            android:layout_height="48dp" android:id="@+id/header" android:visibility="visible" android:textSize="34sp"
-            android:textStyle="bold" android:lineSpacingExtra="8sp"/>
-    <Button
-            android:text="@string/get_next_order"
-            android:layout_width="match_parent"
-            android:layout_height="124dp" android:onClick="selectGetNextOrder"
-            tools:ignore="UsingOnClickInXml"/>
-    <Button
-            android:text="@string/view_current_order"
-            android:layout_width="match_parent"
-            android:layout_height="124dp" android:onClick="seeCurrentOrder"
-            tools:ignore="UsingOnClickInXml"/>
-    <Button
-            android:text="@string/logout_button_text"
-            android:layout_width="match_parent"
-            android:layout_height="124dp" android:onClick="selectExit"
-            tools:ignore="UsingOnClickInXml"/>
-</LinearLayout>
+
+	<TextView
+		android:id="@+id/header"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:layout_marginTop="30dp"
+		android:lineSpacingExtra="8sp"
+		android:text="@string/header"
+		android:textSize="34sp"
+		android:textStyle="bold"
+		android:visibility="visible"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<Button
+		android:id="@+id/button18"
+		android:layout_width="wrap_content"
+		android:layout_height="48dp"
+		android:layout_marginTop="50dp"
+		android:ems="15"
+		android:onClick="selectGetNextOrder"
+		android:text="@string/get_next_order"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="@+id/button17"
+		app:layout_constraintStart_toStartOf="@+id/button17"
+		app:layout_constraintTop_toBottomOf="@+id/header"
+		tools:ignore="UsingOnClickInXml" />
+
+	<Button
+		android:id="@+id/button17"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:ems="15"
+		android:onClick="seeCurrentOrder"
+		android:text="@string/view_current_order"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/button18"
+		tools:ignore="UsingOnClickInXml" />
+
+	<Button
+		android:id="@+id/button19"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="80dp"
+		android:onClick="selectExit"
+		android:text="@string/exit"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="@+id/button18"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="@+id/button18"
+		app:layout_constraintTop_toBottomOf="@+id/button17"
+		tools:ignore="UsingOnClickInXml" />
+</androidx.constraintlayout.widget.ConstraintLayout>

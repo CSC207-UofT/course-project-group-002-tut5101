@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 
 /**
@@ -55,6 +56,15 @@ public class InventoryStarterActivity extends AppCompatActivity {
      */
     public void UpdateFreshness(View v) {
         Intent intent = new Intent(InventoryStarterActivity.this, UpdateFreshnessActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * back to main activity
+     * @param view view
+     */
+    public void backToMainActivity(View view) {
+        Intent intent = new Intent(InventoryStarterActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }
