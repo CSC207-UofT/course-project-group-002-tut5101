@@ -18,7 +18,7 @@ import java.util.Set;
  *
  * @author Chan Yu & Naihe Xiao
  */
-public class DishList implements Serializable, Iterable<Dish> {
+public class DishList implements Serializable, Iterable<Dish>{
     public static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     private static ReadWriter readWriter;
