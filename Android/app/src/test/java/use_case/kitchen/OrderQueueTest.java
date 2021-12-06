@@ -1,7 +1,6 @@
 package use_case.kitchen;
 
 import android.app.Activity;
-import com.example.androidgui.MainActivity;
 import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.Inventory;

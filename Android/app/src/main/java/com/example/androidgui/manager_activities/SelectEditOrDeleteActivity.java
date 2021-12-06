@@ -13,7 +13,7 @@ import com.example.androidgui.R;
 import constant.manger_system.DishMessage;
 import constant.manger_system.ManagerDecision;
 import constant.ui_message.ManagerUIMessage;
-import presenter.menu_system.MenuPresenter;
+import presenter.manager_system.EditDeletePresenter;
 import presenter.menu_system.SelectEditViewInterface;
 
 import java.util.Objects;
@@ -26,7 +26,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
     private NumberPicker selectEditOrDelete;
     private TextView askSelection;
     private String[] selectOption;
-    private MenuPresenter menuPresenter;
+    private EditDeletePresenter editDeletePresenter;
 
 
     /**
@@ -41,7 +41,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
 
         selectEditOrDelete = findViewById(R.id.selectEditOrDelete);
         askSelection = findViewById(R.id.askSelection);
-        this.menuPresenter = new MenuPresenter();
+        this.editDeletePresenter = new EditDeletePresenter();
 
         setupMessage();
         setupOptions();
@@ -81,7 +81,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
                     .setTitle(DishMessage.CONFIRM)
                     .setMessage(DishMessage.DELETE_MENU)
                     .setPositiveButton(DishMessage.YES, (dialog, which) -> {
-                        menuPresenter.deleteDishByName(dishName);
+                        editDeletePresenter.deleteDishByName(dishName);
                         finish();
                     })
                     .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
@@ -93,13 +93,13 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
                     .setMessage(DishMessage.EDIT_MENU)
                     .setPositiveButton(DishMessage.YES, (dialog, which) -> {
                         if (Objects.equals(action, ManagerDecision.INCREASE_CALORIES.toString())){
-                            menuPresenter.increaseCalories(dishName);
+                            editDeletePresenter.increaseCalories(dishName);
                         } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
-                            menuPresenter.decreaseCalories(dishName);
+                            editDeletePresenter.decreaseCalories(dishName);
                         } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
-                            menuPresenter.increasePrice(dishName);
+                            editDeletePresenter.increasePrice(dishName);
                         } else{
-                            menuPresenter.decreasePrice(dishName);
+                            editDeletePresenter.decreasePrice(dishName);
                         }
                         finish();
                     })
