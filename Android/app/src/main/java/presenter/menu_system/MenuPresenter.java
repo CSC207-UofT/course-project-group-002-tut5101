@@ -68,9 +68,35 @@ public class MenuPresenter implements MenuOutputBoundary{
      *
      * @param dishName the name of the dish
      */
-    public void editDishByName(String dishName) {
-        dishList.editDishByName(dishName);
+    public void increasePrice(String dishName){
+        dishList.editPrice(dishName, 1);
     }
 
+    /**
+     * Edit the dish by passing in the dish name.
+     *
+     * @param dishName the name of the dish
+     */
+    public void decreasePrice(String dishName){
+        dishList.editPrice(dishName, 0);
+    }
+
+    /**
+     * Edit the dish by passing in the dish name.
+     *
+     * @param dishName the name of the dish
+     */
+    public void increaseCalories(String dishName){
+        dishList.editCalories(dishName, 1);
+    }
+
+    /**
+     * Edit the dish by passing in the dish name.
+     *
+     * @param dishName the name of the dish
+     */
+    public void decreaseCalories(String dishName){
+        dishList.editCalories(dishName, 0);
+    }
 
 }

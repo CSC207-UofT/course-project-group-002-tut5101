@@ -58,7 +58,9 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
      * Setting up options.
      */
     private void setupOptions() {
-        selectOption = new String[]{ManagerDecision.EDIT.toString(), ManagerDecision.DELETE.toString()};
+        selectOption = new String[]{ManagerDecision.INCREASE_CALORIES.toString(),
+                ManagerDecision.DELETE.toString(),ManagerDecision.INCREASE_PRICE.toString(),
+        ManagerDecision.DECREASE_CALORIES.toString(), ManagerDecision.DECREASE_PRICE.toString()};
         selectEditOrDelete.setMaxValue(selectOption.length - 1);
         selectEditOrDelete.setMinValue(0);
         selectEditOrDelete.setDisplayedValues(selectOption);
@@ -74,12 +76,12 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
         String action = selectOption[selectEditOrDelete.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        if (Objects.equals(action, ManagerDecision.EDIT.toString())) {
+        if (Objects.equals(action, ManagerDecision.DELETE.toString())) {
             AlertDialog alertDlg = new AlertDialog.Builder(this)
-                    .setTitle(DishMessage.CONFIRMING)
-                    .setMessage(DishMessage.EDIT_MENU)
+                    .setTitle(DishMessage.CONFIRM)
+                    .setMessage(DishMessage.DELETE_MENU)
                     .setPositiveButton(DishMessage.YES, (dialog, which) -> {
-                        menuPresenter.editDishByName(dishName);
+                        menuPresenter.deleteDishByName(dishName);
                         finish();
                     })
                     .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
@@ -87,10 +89,18 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
             alertDlg.show();
         } else {
             AlertDialog alertDlg = new AlertDialog.Builder(this)
-                    .setTitle(DishMessage.CONFIRM)
-                    .setMessage(DishMessage.DELETE_MENU)
+                    .setTitle(DishMessage.CONFIRMING)
+                    .setMessage(DishMessage.EDIT_MENU)
                     .setPositiveButton(DishMessage.YES, (dialog, which) -> {
-                        menuPresenter.deleteDishByName(dishName);
+                        if (Objects.equals(action, ManagerDecision.INCREASE_CALORIES.toString())){
+                            menuPresenter.increaseCalories(dishName);
+                        } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
+                            menuPresenter.decreaseCalories(dishName);
+                        } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
+                            menuPresenter.increasePrice(dishName);
+                        } else{
+                            menuPresenter.decreasePrice(dishName);
+                        }
                         finish();
                     })
                     .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
