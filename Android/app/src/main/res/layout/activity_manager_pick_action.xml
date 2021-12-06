@@ -8,81 +8,51 @@
 
 
 	<TextView
-		android:id="@+id/welcome_manager"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="52dp"
-		android:text="@string/welcome_manager"
-		android:textSize="16sp"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
-
-	<Button
-		android:id="@+id/button5"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="72dp"
-		android:onClick="ManageMenu"
-		android:ems="15"
-		android:text="@string/manage_menu"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/welcome_manager"
-		tools:ignore="UsingOnClickInXml" />
-
-	<Button
-		android:id="@+id/button9"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
-		android:onClick="SeeMenu"
-		android:text="@string/see_menu"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="@+id/button5"
-		app:layout_constraintStart_toStartOf="@+id/button5"
-		app:layout_constraintTop_toBottomOf="@+id/button5"
-		tools:ignore="UsingOnClickInXml" />
-
-	<Button
-		android:id="@+id/button10"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
-		android:onClick="SeeReview"
-		android:text="@string/see_review"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="@+id/button9"
-		app:layout_constraintStart_toStartOf="@+id/button9"
-		app:layout_constraintTop_toBottomOf="@+id/button9"
-		tools:ignore="UsingOnClickInXml" />
-
-	<Button
-		android:id="@+id/button12"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
-		android:onClick="DeleteReview"
-		android:text="@string/delete_review"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="@+id/button10"
-		app:layout_constraintStart_toStartOf="@+id/button10"
-		app:layout_constraintTop_toBottomOf="@+id/button10"
-		tools:ignore="UsingOnClickInXml" />
+			android:text="@string/welcome_manager"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/welcome_manager" tools:ignore="MissingConstraints"/>
 
 
 	<Button
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
-		android:onClick="enrollStaff"
-		android:text="@string/enroll_new_staff"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="@+id/button12"
-		app:layout_constraintStart_toStartOf="@+id/button12"
-		app:layout_constraintTop_toBottomOf="@+id/button12"
-		tools:ignore="OnClick,UsingOnClickInXml" />
+			android:text="@string/manage_menu"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="ManageMenu"
+			tools:ignore="MissingConstraints,UsingOnClickInXml"
+			tools:layout_editor_absoluteX="138dp" android:layout_marginTop="50dp"
+			app:layout_constraintTop_toBottomOf="@+id/button5" android:id="@+id/button9"/>
+	<Button
+			android:text="@string/see_menu"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="SeeMenu"
+			tools:ignore="MissingConstraints,UsingOnClickInXml"
+			tools:layout_editor_absoluteX="155dp" app:layout_constraintTop_toTopOf="parent"
+			android:layout_marginTop="131dp" android:id="@+id/button5"/>
+	<Button
+			android:text="@string/see_review"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="SeeReview"
+			tools:ignore="MissingConstraints,UsingOnClickInXml"
+			tools:layout_editor_absoluteX="150dp" android:layout_marginTop="50dp"
+			app:layout_constraintTop_toBottomOf="@+id/button9" android:id="@+id/button10"/>
+	<Button
+			android:text="@string/delete_review"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="DeleteReview"
+			tools:ignore="MissingConstraints,UsingOnClickInXml"
+			tools:layout_editor_absoluteX="138dp" android:layout_marginTop="50dp"
+			app:layout_constraintTop_toBottomOf="@+id/button10" android:id="@+id/button12"/>
+	<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="enrollStaff"
+			android:text="@string/enroll_new_staff"
+			tools:ignore="MissingConstraints,OnClick,UsingOnClickInXml"
+			tools:layout_editor_absoluteX="123dp" android:layout_marginTop="50dp"
+			app:layout_constraintTop_toBottomOf="@+id/button12"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
