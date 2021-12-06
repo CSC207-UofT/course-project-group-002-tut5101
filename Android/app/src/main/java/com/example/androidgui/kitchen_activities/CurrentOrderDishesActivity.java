@@ -1,17 +1,17 @@
 package com.example.androidgui.kitchen_activities;
-import android.view.View;
-import android.widget.AdapterView;
+
+import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Kitchen activity class.
@@ -38,13 +38,10 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
         adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.println("did");
-                Toast.makeText(CurrentOrderDishesActivity.this,
-                        "One " + dishesToDisplay.get(i) + "has been cooked", Toast.LENGTH_SHORT).show();
-            }
+        list.setOnItemClickListener((adapterView, view, i, l) -> {
+            System.out.println("did");
+            Toast.makeText(CurrentOrderDishesActivity.this,
+                    "One " + Arrays.toString(dishesToDisplay.get(i)) + "has been cooked", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -75,7 +72,9 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
         this.adapter.notifyDataSetChanged();
     }
 
-
+    /**
+     * Showing toast information on the screen.
+     */
     @Override
     public void createToast(String message, boolean shortDisplay) {
         if (shortDisplay) {

@@ -8,7 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.UpdateFreshnessPresenter;
-
+/**
+ * Activity class for update the freshness of  inventory.
+ */
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener,
         presenter.inventory_system.UpdateFreshnessInterface {
 /**
@@ -54,8 +56,10 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
     public void popInfo(String message){
         Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
     }
-
-
+    /**
+     * Call when  the pointer is enable or disable for the current window.
+     *
+     */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);

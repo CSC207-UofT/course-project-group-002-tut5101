@@ -58,15 +58,15 @@ public class InventoryList implements Serializable {
      * @param item The inventory to add
      */
     public String addInventory(Inventory item){
-        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item)))
-
-        {   int id = myDict.size();
+        if(!(myDict.containsKey(item.getName()) || myDict.containsValue(item))) {
+            int id = myDict.size();
             item.setId(id);
             myDict.put(item.getName(), item);
             saveToFile();
             return "Successful";
+        } else {
+            return "Occupied name or item";
         }
-        else{return "Occupied name or item";}
     }
 
 
@@ -120,8 +120,10 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        if(myDict.get(name) instanceof HasFreshness)
-        {((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);}
+        if(myDict.get(name) instanceof HasFreshness) {
+            ((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);
+            saveToFile();
+        }
     }
 
 
@@ -146,7 +148,9 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        return Objects.requireNonNull(myDict.get(name)).updateQuantity(usage);
+        String result = Objects.requireNonNull(myDict.get(name)).updateQuantity(usage);
+        saveToFile();
+        return result;
     }
 
     public String passNewQuanInfo(String name, int usage){

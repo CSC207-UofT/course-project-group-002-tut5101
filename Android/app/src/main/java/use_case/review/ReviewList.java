@@ -10,7 +10,6 @@ import gateway.ReadWriter;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * A list of reviews.
@@ -66,8 +65,8 @@ public class ReviewList implements Serializable, Iterable<Review>{
      * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
-           reviews.put(r.getReviewID(), r);
-           saveToFile();
+       reviews.put(r.getReviewID(), r);
+       saveToFile();
     }
 
     /**

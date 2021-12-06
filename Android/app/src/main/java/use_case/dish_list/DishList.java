@@ -159,6 +159,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      */
     public void addDish(Dish dish) {
         menu.put(dish.getName(), dish);
+        saveToFile();
     }
 
     /**
@@ -196,9 +197,7 @@ public class DishList implements Serializable, Iterable<Dish> {
     }
 
     public void saveToFile() {
-        if (readWriter != null) {
-            readWriter.saveToFile(context, filename, menu);
-        }
+        readWriter.saveToFile(context, filename, menu);
     }
 
     /**
@@ -206,9 +205,7 @@ public class DishList implements Serializable, Iterable<Dish> {
      * @param context context.
      */
     public static void setContext(Context context) {
-        if (context != null) {
-            DishList.context = context;
-        }
+        DishList.context = context;
     }
 
     /**
@@ -223,4 +220,5 @@ public class DishList implements Serializable, Iterable<Dish> {
             menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
         }
     }
+
 }

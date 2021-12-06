@@ -8,6 +8,7 @@ import com.example.androidgui.user_activities.CustomerPickActionActivity;
 import com.example.androidgui.user_activities.LoginActivity;
 import presenter.main_information.MainActivityPresenter;
 
+
 /**
  * Main activity for this project.
  */

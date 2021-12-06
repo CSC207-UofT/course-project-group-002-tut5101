@@ -68,6 +68,7 @@ public class UserList implements Serializable {
      */
     public void addUser(User user) {
         users.put(user.getId(), user);
+        savetoFile();
     }
 
 
