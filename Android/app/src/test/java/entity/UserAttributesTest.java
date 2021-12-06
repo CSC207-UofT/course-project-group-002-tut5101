@@ -10,7 +10,7 @@ public class UserAttributesTest {
     private UserAttributes testAttributes;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         testAttributes = new UserAttributes("1", "2", "3");
     }
 

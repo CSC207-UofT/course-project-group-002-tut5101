@@ -10,7 +10,6 @@ import java.util.List;
  *
  * Use case class for deleting use_case.review functionality.
  */
-@SuppressWarnings("FieldMayBeFinal")
 public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
     private static HashMap<String, Review> reviewList;
 
@@ -41,12 +40,6 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
             }
         }
         ReviewList.saveToFile();
-//        while (reviewIterator.hasNext()){
-//            Review review = reviewIterator.next();
-//            if (review != null && review.getRate() <= standard) {
-//                reviewList.delete(review);
-//            }
-//        }
     }
 
 }

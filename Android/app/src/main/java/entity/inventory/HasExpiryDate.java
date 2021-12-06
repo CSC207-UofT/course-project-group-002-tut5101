@@ -26,7 +26,7 @@ public class HasExpiryDate extends Inventory implements Serializable {
     public HasExpiryDate(String name, double price, int quantity, int ExpiryDate){
         super(name, price, quantity);
         this.ExpiryDate = ExpiryDate;
-        this.usedup = quantity == 0;
+        this.usedUp = quantity == 0;
     }
 
 
@@ -53,7 +53,7 @@ public class HasExpiryDate extends Inventory implements Serializable {
         if (this == o) return true;
         if (!(o instanceof HasExpiryDate)) return false;
         HasExpiryDate that = (HasExpiryDate) o;
-        return usedup == that.usedup && Double.compare(that.price, price) == 0 && quantity == that.quantity && ExpiryDate == that.ExpiryDate && Objects.equals(name, that.name);
+        return usedUp == that.usedUp && Double.compare(that.price, price) == 0 && quantity == that.quantity && ExpiryDate == that.ExpiryDate && Objects.equals(name, that.name);
     }
 
 }

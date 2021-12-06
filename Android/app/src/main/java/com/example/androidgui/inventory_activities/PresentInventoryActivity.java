@@ -30,8 +30,10 @@ public class PresentInventoryActivity extends AppCompatActivity{
         String showData = intent.getStringExtra("showData");
         String[] presenting = showData.split(",");
         mTextView1.setText(presenting[0]);
-        mTextView2.setText(presenting[1]);
-        mTextView3.setText(presenting[2]);
+        String price = presenting[1]+"$";
+        mTextView2.setText(price);
+        String amount = presenting[2]+"kg";
+        mTextView3.setText(amount);
         String num4;
         String num5;
         if(presenting.length == 5){
