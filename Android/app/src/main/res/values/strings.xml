@@ -69,7 +69,7 @@
     <string name="date_import_or_expiry_eg_20201212">Date(Import or Expiry eg 20201212)</string>
     <string name="freshness_notes">Freshness(enter N/A when do not have in a,b,c,d)</string>
     <string name="add">Add</string>
-    <string name="freshness">Freshness</string>
+    <string name="freshness">Freshness Level</string>
     <string name="update">Update</string>
     <string name="name">Name</string>
     <string name="usage">Usage</string>
