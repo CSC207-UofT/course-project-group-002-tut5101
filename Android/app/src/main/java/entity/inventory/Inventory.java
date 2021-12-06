@@ -8,12 +8,12 @@ import java.io.Serializable;
  * Entity class for dairy soy.
  */
 
-
+@SuppressWarnings("CanBeFinal")
 public abstract class Inventory implements Serializable {
     protected int id;
-    protected final String name;
+    protected String name;
     protected boolean usedUp;
-    protected final double price;
+    protected double price;
     protected int quantity;
 
     private static final long serialVersionUID = 1L;
