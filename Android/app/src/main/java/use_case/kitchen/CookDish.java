@@ -87,17 +87,21 @@ public class CookDish {
      *
      * dishes is updated whenever a new order is obtained for Kitchen.
      *
+     * @return whether a new order is obtained.
      */
-    public void getAvailableOrder() {
+    public boolean getAvailableOrder() {
         if (occupied()) {
             if (orderCompleted()) {
                 if (getNextToCook()) {
                     kob.getNextOrder(dishAndQuantity());
+                    return true;
                 }
             }
         } else if (getNextToCook()) {
             kob.getNextOrder(dishAndQuantity());
+            return true;
         }
+        return false;
     }
 
 }

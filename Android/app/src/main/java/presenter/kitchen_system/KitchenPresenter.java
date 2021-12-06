@@ -24,6 +24,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     public KitchenPresenter(KitchenView kv) {
         this.kitchen = new CookDish(this);
         this.kv = kv;
+        this.inventory = new InventoryList();
     }
 
     /**
@@ -61,8 +62,8 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     /**
      * Check if a new order is available and should be used to replace the current one
      */
-    public void checkOrderAvailable() {
-        this.kitchen.getAvailableOrder();
+    public boolean checkOrderAvailable() {
+        return this.kitchen.getAvailableOrder();
     }
 
     /**
@@ -85,12 +86,12 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 dishes.remove(dishName);
             }
         }
-        if (0 == dishes.size()) {
-            checkOrderAvailable();
-            kv.renewDishes(exportDishes());
+        kv.createToast("One " + dishName + " cooked", true);
+        if (0 == dishes.size() && checkOrderAvailable()) {
+            kv.createToast("NEW ORDER!", false);
         }
+        kv.renewDishes(exportDishes());
         kv.updateListDisplay();
-
     }
 
     /**
@@ -111,8 +112,6 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 oriQuantity = InventoryList.getTotalQuantity(dish);
                 this.inventory.setQuantity(dish, oriQuantity - temp);
             }
-
-
         }
     }
 

@@ -14,4 +14,6 @@ public interface KitchenView {
      * Update the display by notifying the listener.
      */
     void updateListDisplay();
+
+    void createToast(String message, boolean shortDisplay);
 }
