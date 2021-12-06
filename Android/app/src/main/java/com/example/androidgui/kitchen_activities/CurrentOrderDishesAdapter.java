@@ -58,7 +58,10 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
         qt.setText(quantity);
         bt.setText(R.string.cooked);
 
-        bt.setOnClickListener(view -> kp.completeDish(dishName));
+        bt.setOnClickListener(view -> {
+            kp.completeDish(dishName);
+            kp.updateView(dishName);
+        });
 
         return convertView;
     }
