@@ -1,12 +1,8 @@
 package presenter.order_system;
 
-import android.content.Context;
-import androidx.appcompat.app.AppCompatActivity;
-import constant.file_system.FileName;
 import constant.order_system.OrderType;
 import org.junit.Before;
 import org.junit.Test;
-import use_case.dish_list.DishList;
 
 /**
  * Test the DineInTakeOutPresenter class
@@ -34,7 +30,7 @@ public class DineInTakeOutPresenterTest {
     }
 
     /**
-     * Empty fake presenter class implementing the output boundary
+     * Empty fake activity class implementing the output boundary
      */
     private static class TestClass implements SelectDineInTakeOutViewInterface{
 

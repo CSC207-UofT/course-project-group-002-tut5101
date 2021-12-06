@@ -6,11 +6,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
+import com.example.androidgui.manager_activities.ManagerPickActionActivity;
+import com.example.androidgui.user_activities.CustomerPickActionActivity;
+import constant.customer_system.CustomerUIMessage;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
+import constant.ui_message.EnrollUserMessage;
+import constant.ui_message.LoginLogoutUIMessage;
 import presenter.order_system.PlaceOrderMenuPresenter;
 import presenter.order_system.PlaceOrderMenuViewInterface;
 import presenter.order_system.PlaceOrderPresenter;
@@ -182,18 +188,27 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
-
         placeOrderPresenter.runPlaceOrderInformation(orderType, location);
-
     }
 
     /**
      * show the order successfully placed view
      */
     public void orderSuccessfullyPlaced(){
-        Intent intent = new Intent(PlaceOrderActivity.this, OrderSuccessfullyPlacedActivity.class);
-        observable.firePropertyChange(null);
-        startActivity(intent);
+
+        observable.firePropertyChange("OrderStatus", 0, 1);
+
+        AlertDialog alertDlg = new AlertDialog.Builder(this)
+                .setTitle(CustomerUIMessage.SUCCEED)
+                .setMessage(CustomerUIMessage.ORDER_PLACED_MESSAGE)
+                .setPositiveButton(CustomerUIMessage.RETURN_TO_MAIN_MENU, (dialog, which) -> {
+                    Intent intent = new Intent(PlaceOrderActivity.this, CustomerPickActionActivity.class);
+                    startActivity(intent);
+                })
+                .create();
+        alertDlg.show();
+
+
     }
 
     public static void addObserver(PropertyChangeListener pcl) {

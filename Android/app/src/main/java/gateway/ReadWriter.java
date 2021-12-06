@@ -1,7 +1,6 @@
 package gateway;
 
 import android.content.Context;
-import java.util.HashMap;
 
 /**
  * Gateway interface for reading and writing.

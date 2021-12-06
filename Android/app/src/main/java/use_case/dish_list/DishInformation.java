@@ -5,7 +5,6 @@ import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -37,6 +36,7 @@ public class DishInformation {
         menu = new HashMap<>();
         ArrayList<String> dishes = new ArrayList<>();
         for (int i = 0; i < k; i++) {dishes.add("1");}
+        assert dishes.size() == k;
     }
 
     // methods for place order menu output boundary
@@ -72,8 +72,6 @@ public class DishInformation {
         }
         placeOrderMenuOutputBoundary.setDisplayedDishNames(dishNamesAndPrice.toArray(new String[0]));
     }
-
-    // methods for place order output boundary
 
     /**
      * Set the place order output boundary

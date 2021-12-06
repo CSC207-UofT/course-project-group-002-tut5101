@@ -1,7 +1,5 @@
 package use_case.review;
 
-import android.content.Context;
-
 /**
  * The input use_case.boundary for adding review use case.
  */

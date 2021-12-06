@@ -1,6 +1,5 @@
 package presenter.order_system;
 
-import constant.file_system.FileName;
 import constant.order_system.OrderType;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.DishList;
@@ -218,6 +217,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
 
             try {
                 placeOrderInputBoundary.placeOrder(orderType, dishes, location);
+                System.out.println("place order done");
                 placeOrderViewInterface.orderSuccessfullyPlaced();
             }
             catch (Exception e) {

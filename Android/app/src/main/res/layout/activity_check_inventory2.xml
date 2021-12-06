@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/name_of_inventory"
+            android:hint="@string/name_of_inventory"
             android:ems="10"
             android:id="@+id/editTextTextName"
             app:layout_constraintTop_toTopOf="parent"

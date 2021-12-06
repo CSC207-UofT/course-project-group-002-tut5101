@@ -1,6 +1,5 @@
 package presenter.order_system;
 
-import constant.file_system.FileName;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.DishList;
 import use_case.dish_list.PlaceOrderMenuOutputBoundary;

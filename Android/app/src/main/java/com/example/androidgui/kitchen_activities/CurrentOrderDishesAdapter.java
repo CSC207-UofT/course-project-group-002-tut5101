@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.androidgui.R;
 import presenter.kitchen_system.KitchenPresenter;
 
@@ -17,11 +18,12 @@ import java.util.Objects;
 /**
  * Adapter for kitchen.
  */
-public class CurrentOrderDishesAdapter extends ArrayAdapter {
+public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
 
     private final Context kContext;
     final int kResource;
     private final KitchenPresenter kp;
+
 
     public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
         super(context, resource, displayDishes);
@@ -49,10 +51,8 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter {
 
         bt.setOnClickListener(view -> {
             kp.completeDish(dishName);
-            qt.setText(String.valueOf(Integer.parseInt(quantity) - 1));
         });
 
         return convertView;
     }
-
 }

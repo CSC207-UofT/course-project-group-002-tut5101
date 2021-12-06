@@ -86,7 +86,9 @@ public class InventoryList implements Serializable {
      * @param name Name of the ingredient
      * @return true only if the ingredient with name is found in the list
      */
-    public boolean checkExist(String name){return myDict.containsKey(name);}
+    public boolean checkExist(String name){
+        return myDict.containsKey(name);
+    }
 
 
     /**
@@ -117,7 +119,8 @@ public class InventoryList implements Serializable {
      * NOTE: This method should only be called after the isHasFreshness check.
      */
     public void setFreshness(String name, String newFreshness) {
-        ((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);
+        if(myDict.get(name) instanceof HasFreshness)
+        {((HasFreshness) Objects.requireNonNull(myDict.get(name))).setFreshness(newFreshness);}
     }
 
 
@@ -128,7 +131,6 @@ public class InventoryList implements Serializable {
      */
     public static int getTotalQuantity(String name){
         if (!myDict.containsKey(name)){
-            //TODO: implement exceptions for cases of wrong key
             return 0;
         }
         return Objects.requireNonNull(myDict.get(name)).getQuantity();
@@ -143,7 +145,12 @@ public class InventoryList implements Serializable {
         if (!myDict.containsKey(name)){
             return "wrong name";
         }
-        return this.boundary.getMessage(Objects.requireNonNull(myDict.get(name)).updateQuantity(usage));
+        return Objects.requireNonNull(myDict.get(name)).updateQuantity(usage);
+    }
+
+    public String passNewQuanInfo(String name, int usage){
+        String info = this.setQuantity(name, usage);
+        return boundary.getMessage(info);
     }
 
     /**
@@ -151,12 +158,6 @@ public class InventoryList implements Serializable {
      */
     public void saveToFile() {
         irw.saveToFile(context, filename, myDict);
-    }
-
-    /**
-     * Generate data for inventoryList.
-     */
-    public void generateData() {
     }
 
     /**
@@ -175,6 +176,6 @@ public class InventoryList implements Serializable {
     public static void setData(String filename) {
         InventoryList.filename = filename;
         irw = new GCloudReadWriter();
-        // myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
+        myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
     }
 }

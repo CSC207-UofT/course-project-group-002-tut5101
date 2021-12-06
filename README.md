@@ -7,8 +7,7 @@ id      Password     UserType         Name
 - 3       12345      ServingStaff     Eve
 - 4       12345      KitchenStaff     Bob
 - 5       12345      InventoryStaff   Frank
-
-
+ 
 
 
 ### Purpose and Audience

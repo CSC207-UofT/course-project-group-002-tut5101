@@ -2,7 +2,7 @@ package presenter.kitchen_system;
 
 import use_case.dish_list.DishList;
 import use_case.kitchen.InventoryList;
-import use_case.kitchen.CookUseCase;
+import use_case.kitchen.CookDish;
 import use_case.kitchen.KitchenOutputBoundary;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class KitchenPresenter implements KitchenOutputBoundary {
     private final KitchenView kv;
-    private final CookUseCase kitchen;
+    private final CookDish kitchen;
     private HashMap<String, Integer> dishes;
     private InventoryList inventory;
 
@@ -22,8 +22,9 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * @param kv view interface
      */
     public KitchenPresenter(KitchenView kv) {
-        this.kitchen = new CookUseCase(this);
+        this.kitchen = new CookDish(this);
         this.kv = kv;
+        this.inventory = new InventoryList();
     }
 
     /**
@@ -61,8 +62,8 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     /**
      * Check if a new order is available and should be used to replace the current one
      */
-    public void checkOrderAvailable() {
-        this.kitchen.getAvailableOrder();
+    public boolean checkOrderAvailable() {
+        return this.kitchen.getAvailableOrder();
     }
 
     /**
@@ -85,12 +86,12 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 dishes.remove(dishName);
             }
         }
-        if (0 == dishes.size()) {
-            checkOrderAvailable();
-            kv.renewDishes(exportDishes());
+        kv.createToast("One " + dishName + " cooked", true);
+        if (0 == dishes.size() && checkOrderAvailable()) {
+            kv.createToast("NEW ORDER!", false);
         }
+        kv.renewDishes(exportDishes());
         kv.updateListDisplay();
-
     }
 
     /**
@@ -111,8 +112,6 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 oriQuantity = InventoryList.getTotalQuantity(dish);
                 this.inventory.setQuantity(dish, oriQuantity - temp);
             }
-
-
         }
     }
 

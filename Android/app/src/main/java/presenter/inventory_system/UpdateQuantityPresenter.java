@@ -34,7 +34,7 @@ public class UpdateQuantityPresenter {
     private String newQuantity(String name, String usage, InventoryOutputBoundary boundary){
         this.inventories.setBoundary(boundary);
         int u = Integer.parseInt(usage);
-        return inventories.setQuantity(name, u);
+        return inventories.passNewQuanInfo(name, u);
     }
     /**
      * Show the information of this action

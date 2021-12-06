@@ -40,11 +40,13 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
      */
     @Override
     public void getStaffTypes() {
-        String[] staffTypes = {UserType.SERVING_STAFF.toString(),
-                UserType.DELIVERY_STAFF.toString(),
-                UserType.KITCHEN.toString(),
-                UserType.INVENTORY_STAFF.toString()};
-        this.enrollStaffOutputBoundary.setAvailStaffTypeOptions(staffTypes);
+        if (userList != null) {
+            String[] staffTypes = {UserType.SERVING_STAFF.toString(),
+                    UserType.DELIVERY_STAFF.toString(),
+                    UserType.KITCHEN.toString(),
+                    UserType.INVENTORY_STAFF.toString()};
+            this.enrollStaffOutputBoundary.setAvailStaffTypeOptions(staffTypes);
+        }
     }
 
     /**
@@ -56,8 +58,9 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
      */
     @Override
     public void enrollNewStaff(String id, String name, String password, UserType userType) {
-        assert userList != null;
-        userList.addStaff(id, name, password, userType);
+        if (userList != null) {
+            userList.addStaff(id, name, password, userType);
+        }
     }
 
     /**
@@ -65,8 +68,9 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
      */
     @Override
     public void getNewUserId() {
-        assert this.userList != null;
-        int userListSize = this.userList.getUsers().size();
-        this.enrollStaffOutputBoundary.setNewUserId(String.valueOf(userListSize));
+        if (userList != null) {
+            int userListSize = this.userList.getUsers().size();
+            this.enrollStaffOutputBoundary.setNewUserId(String.valueOf(userListSize));
+        }
     }
 }

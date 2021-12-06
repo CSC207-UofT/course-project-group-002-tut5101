@@ -1,6 +1,5 @@
 package use_case.deliver_order;
 
-import constant.file_system.FileName;
 import entity.delivery.DeliveryStaff;
 import entity.order_list.Order;
 import entity.order_list.DeliveryOrder;
@@ -20,10 +19,10 @@ public class DeliverOrderTest {
 
     /**
      * Setup before tests
-     * @throws Exception if order could not be added to DeliveryBuffer
+     * if order could not be added to DeliveryBuffer
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         TestClass testPresenter = new TestClass();
         UserList userList = new UserList();
         deliver = new DeliverOrder();

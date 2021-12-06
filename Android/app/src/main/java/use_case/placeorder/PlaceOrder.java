@@ -35,6 +35,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
 
     @TargetApi(Build.VERSION_CODES.N)
     public void placeOrder(OrderType orderType, String[] dishNames, String location) throws Exception{
+
         HashMap<String, List<Dish>> dishes = new HashMap<>();
 
         for (String dishName: dishNames) {
@@ -55,6 +56,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary{
         }
         Order order = orderFactory.OrderType(orderType, location, dishes);
         OrderQueue.addOrder(order);
+
     }
 
 

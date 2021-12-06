@@ -1,6 +1,5 @@
 package use_case.user_list;
 
-import constant.file_system.FileName;
 import constant.manger_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
@@ -11,8 +10,6 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import org.junit.Before;
 import org.junit.Test;
-
-//TODO: fix this test issue.
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -93,6 +90,22 @@ public class UserListTest {
     @Test
     public void testAddStaff() {
         assertEquals(userList.length(), userList.length());
+    }
+
+    @Test
+    public void testSetContext() {
+        UserList.setContext(null);
+    }
+
+    @Test
+    public void testSetData() {
+        UserList.setData("");
+    }
+
+    @Test
+    public void testSaveToFile() {
+        userList.savetoFile();
+        assert true;
     }
 
 }

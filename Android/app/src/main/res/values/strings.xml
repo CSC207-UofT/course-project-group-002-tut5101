@@ -42,7 +42,7 @@
     <string name="quantity">Quantity</string>
     <string name="edit_order">Edit Order</string>
     <string name="location">Location</string>
-    <string name="enter_table_number_or_address">Enter Table Number or Address</string>
+    <string name="enter_table_number_or_address">Enter Table# or Address</string>
     <string name="select_dish_to_remove">Select the dish you would like to remove from your order</string>
     <string name="remove_dish">Remove dish</string>
     <string name="done">Done</string>
@@ -67,9 +67,9 @@
     <string name="price">Price</string>
     <string name="quantity_in_kg">Quantity in kg</string>
     <string name="date_import_or_expiry_eg_20201212">Date(Import or Expiry eg 20201212)</string>
-    <string name="freshness_n_a_when_do_not_have_in_a_b_c_d">Freshness(N/A when do not have in a,b,c,d)</string>
+    <string name="freshness_notes">Freshness(enter N/A when do not have in a,b,c,d)</string>
     <string name="add">Add</string>
-    <string name="freshness">Freshness</string>
+    <string name="freshness">Freshness Level</string>
     <string name="update">Update</string>
     <string name="name">Name</string>
     <string name="usage">Usage</string>
@@ -87,8 +87,8 @@
     <string name="search">Search</string>
     <string name="dish_name">Dish Name</string>
     <string name="cooked">Cooked</string>
-    <string name="add_review">addReview</string>
-    <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table number or delivery
+    <string name="add_review">Add Review</string>
+    <string name="please_enter_the_table_number_or_delivery_address_below">Please enter the table# for Dine-In, or delivery
         address below
     </string>
     <string name="dine_in_or_delivery">Is this order Dine In or Delivery?</string>
@@ -97,7 +97,10 @@
     <string name="add_identity">Add your Identity</string>
     <string name="Name">Name</string>
     <string name="date_import_expiry">Date import/expiry</string>
-    <string name="usage_negative_when_adding">usage( negative when adding)</string>
+    <string name="enter_usage">Enter number of usage</string>
     <string name="Cooked">cooked</string>
+    <string name="upload">Upload</string>
+    <string name="inventory_item_name">Inventory Item Name</string>
+    <string name="number_of_usage_note">Enter a positive number to deduct the inventory amount, a negative number to increase inventory.</string>
 
 </resources>
