@@ -108,7 +108,7 @@ public class UserListTest {
 
     @Test
     public void testSaveToFile() {
-        userList.savetoFile();
+        userList.saveToFile();
         assert true;
     }
 

@@ -99,4 +99,14 @@ public class ManagerPickActionActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Display user list
+     *
+     * @param view view
+     */
+    public void displayUserList(View view) {
+        Intent intent = new Intent(this, SeeUserActivity.class);
+        startActivity(intent);
+    }
 }
