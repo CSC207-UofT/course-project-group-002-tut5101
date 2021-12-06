@@ -1,7 +1,11 @@
 package com.example.androidgui.kitchen_activities;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
 import presenter.kitchen_system.KitchenPresenter;
 import presenter.kitchen_system.KitchenView;
@@ -34,6 +38,14 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
         adapter = new CurrentOrderDishesAdapter(this, R.layout.cook_dish_layout, dishesToDisplay, kp);
         list.setAdapter(adapter);
 
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                System.out.println("did");
+                Toast.makeText(CurrentOrderDishesActivity.this,
+                        "One " + dishesToDisplay.get(i) + "has been cooked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -51,8 +63,8 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
      */
     @Override
     public void renewDishes(ArrayList<String[]> displayDishes) {
-       this.dishesToDisplay.clear();
-       this.dishesToDisplay.addAll(displayDishes);
+       dishesToDisplay.clear();
+       dishesToDisplay.addAll(displayDishes);
     }
 
     /**
@@ -61,5 +73,15 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
     @Override
     public void updateListDisplay() {
         this.adapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void createToast(String message, boolean shortDisplay) {
+        if (shortDisplay) {
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        }
     }
 }
