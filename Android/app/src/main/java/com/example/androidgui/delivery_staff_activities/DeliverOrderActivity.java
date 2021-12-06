@@ -87,6 +87,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
      * Launch Google Maps to show directions
      */
     public void selectShowMap(View v) {
+        getCurrentOrder();
         Uri gmmIntentUri;
         if (Objects.equals(destination, "")) {
             gmmIntentUri = Uri.parse("geo:43.749371,-79.475563?q=University of Toronto, Toronto, ON, Canada");
