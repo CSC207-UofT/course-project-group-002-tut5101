@@ -88,24 +88,28 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
                     .create();
             alertDlg.show();
         } else {
-            AlertDialog alertDlg = new AlertDialog.Builder(this)
-                    .setTitle(DishMessage.CONFIRMING)
-                    .setMessage(DishMessage.EDIT_MENU)
-                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
-                        if (Objects.equals(action, ManagerDecision.INCREASE_CALORIES.toString())){
-                            editDeletePresenter.increaseCalories(dishName);
-                        } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
-                            editDeletePresenter.decreaseCalories(dishName);
-                        } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
-                            editDeletePresenter.increasePrice(dishName);
-                        } else{
-                            editDeletePresenter.decreasePrice(dishName);
-                        }
-                        finish();
-                    })
-                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
-                    .create();
-            alertDlg.show();
+            Intent intent = new Intent(SelectEditOrDeleteActivity.this, SelectPriceOrCaloriesActivity.class);
+            intent.putExtra("dishSelected", dishName);
+            startActivity(intent);
+
+//            AlertDialog alertDlg = new AlertDialog.Builder(this)
+//                    .setTitle(DishMessage.CONFIRMING)
+//                    .setMessage(DishMessage.EDIT_MENU)
+//                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
+//                        if (Objects.equals(action, ManagerDecision.INCREASE_CALORIES.toString())){
+//                            editDeletePresenter.increaseCalories(dishName);
+//                        } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
+//                            editDeletePresenter.decreaseCalories(dishName);
+//                        } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
+//                            editDeletePresenter.increasePrice(dishName);
+//                        } else{
+//                            editDeletePresenter.decreasePrice(dishName);
+//                        }
+//                        finish();
+//                    })
+//                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
+//                    .create();
+//            alertDlg.show();
         }
     }
 
