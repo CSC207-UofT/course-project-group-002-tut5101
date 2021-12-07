@@ -1,9 +1,11 @@
 package use_case.review;
 
+import use_case.review.boundaries.AddReviewInputBoundary;
+
 /**
  * Use Case class for adding reviews.
  */
-public class AddReviewUseCase implements AddReviewInputBoundary{
+public class AddReviewUseCase implements AddReviewInputBoundary {
     private final ReviewList reviewList;
 
     /**

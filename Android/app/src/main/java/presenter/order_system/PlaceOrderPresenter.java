@@ -5,8 +5,8 @@ import presenter.order_system.view_interfaces.PlaceOrderViewInterface;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.DishList;
 import use_case.placeorder.PlaceOrder;
-import use_case.placeorder.PlaceOrderInputBoundary;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.placeorder.boundaries.PlaceOrderInputBoundary;
+import use_case.placeorder.boundaries.PlaceOrderOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;

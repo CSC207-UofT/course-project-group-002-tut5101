@@ -1,4 +1,4 @@
-package use_case.inventory_factory;
+package use_case.inventory;
 
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;

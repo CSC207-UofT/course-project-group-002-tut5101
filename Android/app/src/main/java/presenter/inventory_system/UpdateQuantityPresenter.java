@@ -1,8 +1,8 @@
 package presenter.inventory_system;
 
 import presenter.inventory_system.view_interfaces.UpdateQuantityInterface;
-import use_case.inventory_factory.InventoryOutputBoundary;
-import use_case.kitchen.InventoryList;
+import use_case.inventory.boundary.InventoryOutputBoundary;
+import use_case.inventory.InventoryList;
 
 /**
  * Presenter class for the UpdateFreshness activity that change the freshness of an inventory item

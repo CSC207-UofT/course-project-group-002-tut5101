@@ -1,4 +1,4 @@
-package use_case.review;
+package use_case.review.boundaries;
 
 /**
  * The input use_case.boundary for adding review use case.

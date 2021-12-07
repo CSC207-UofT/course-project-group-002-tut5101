@@ -1,9 +1,9 @@
 package presenter.kitchen_system;
 
 import use_case.dish_list.DishList;
-import use_case.kitchen.InventoryList;
+import use_case.inventory.InventoryList;
 import use_case.kitchen.CookDish;
-import use_case.kitchen.KitchenOutputBoundary;
+import use_case.kitchen.boundary.KitchenOutputBoundary;
 
 import java.util.ArrayList;
 import java.util.HashMap;

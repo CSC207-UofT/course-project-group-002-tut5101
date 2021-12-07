@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import use_case.dish_list.boundaries.PlaceOrderMenuOutputBoundary;
-import use_case.placeorder.PlaceOrderOutputBoundary;
+import use_case.placeorder.boundaries.PlaceOrderOutputBoundary;
 
 import java.util.HashMap;
 

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
+import use_case.review.boundaries.ReviewOutputBoundary;
 
 import java.util.HashMap;
 import java.util.Iterator;

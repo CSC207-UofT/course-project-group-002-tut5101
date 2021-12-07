@@ -7,7 +7,7 @@ import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;
-import use_case.kitchen.InventoryList;
+import use_case.inventory.InventoryList;
 import use_case.kitchen.OrderQueue;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
 package presenter.inventory_system;
 
 import presenter.inventory_system.view_interfaces.CheckInventoryInterface;
-import use_case.kitchen.InventoryList;
+import use_case.inventory.InventoryList;
 
 /**
  * Controls the process for check one existing inventory.

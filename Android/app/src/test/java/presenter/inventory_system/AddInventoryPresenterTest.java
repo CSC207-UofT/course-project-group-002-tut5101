@@ -3,7 +3,7 @@ package presenter.inventory_system;
 import org.junit.Before;
 import org.junit.Test;
 import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
-import use_case.kitchen.InventoryList;
+import use_case.inventory.InventoryList;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,4 +1,4 @@
-package use_case.inventory_factory;
+package use_case.inventory.boundary;
 /**
  * The output use_case.boundary for Update Quantity presenter.
  */
