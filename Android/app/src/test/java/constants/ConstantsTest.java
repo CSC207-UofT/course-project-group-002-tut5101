@@ -3,6 +3,8 @@ package constants;
 import constant.customer_system.CustomerUIMessage;
 import constant.file_system.FileName;
 import constant.manger_system.DishMessage;
+import constant.manger_system.ManagerDecision;
+import constant.manger_system.ReviewMessage;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import constant.ui_message.ManagerUIMessage;
@@ -37,6 +39,17 @@ public class ConstantsTest {
     }
 
     /**
+     * Tests for review message constants
+     */
+    @Test
+    public void ReviewMessage() {
+        assertEquals(ReviewMessage.CONFIRM, "Are you sure you want to delete reviews?");
+        assertEquals(ReviewMessage.DELETE_REVIEW, "Review under this score will be deleted.");
+        assertEquals(ReviewMessage.YES, "Yes");
+        assertEquals(ReviewMessage.NO, "No");
+    }
+
+    /**
      * Test for dish message
      */
     @Test
@@ -47,6 +60,15 @@ public class ConstantsTest {
         assertEquals(DishMessage.YES, "Yes");
         assertEquals(DishMessage.EDIT_MENU, "This dish will be edited as you specified");
         assertEquals(DishMessage.CONFIRMING, "Are you sure you want to edit this dish in this way?");
+    }
+
+    @Test
+    public void ManagerDecision() {
+        assertEquals(ManagerDecision.DELETE, ManagerDecision.DELETE);
+        assertEquals(ManagerDecision.DECREASE_CALORIES, ManagerDecision.DECREASE_CALORIES);
+        assertEquals(ManagerDecision.DECREASE_PRICE, ManagerDecision.DECREASE_PRICE);
+        assertEquals(ManagerDecision.INCREASE_CALORIES, ManagerDecision.INCREASE_CALORIES);
+        assertEquals(ManagerDecision.INCREASE_PRICE, ManagerDecision.INCREASE_PRICE);
     }
 
 
