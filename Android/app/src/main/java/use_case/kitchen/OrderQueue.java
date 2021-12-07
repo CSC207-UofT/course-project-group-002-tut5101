@@ -6,7 +6,10 @@ import entity.order.Dish;
 import entity.order.Order;
 import use_case.inventory.InventoryList;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * This is the class of UseCase.PlacedOrderQueue,
@@ -29,6 +32,7 @@ public class OrderQueue {
     /**
      * Try adding order to the placedOrderList, if order location too far or not possible to do the
      * order, reject the order.
+     *
      * @param newOrder The order to be added to the orderList
      * @throws Exception throws exception on order too far or not enough ingredients
      */
@@ -36,7 +40,7 @@ public class OrderQueue {
     public static void addOrder(Order newOrder) throws Exception {
         // Check if the inventory is sufficient for cooking the order
         // If not enough, reject the order.
-        if(!inventoryAvailable(newOrder.getDishes())) {
+        if (!inventoryAvailable(newOrder.getDishes())) {
             throw new Exception("Inventory not available for the order");
         }
         placedOrderQueue.add(newOrder);
@@ -44,6 +48,7 @@ public class OrderQueue {
 
     /**
      * Get the next order in the placedOrderQueue
+     *
      * @return The next order in placedOrderQueue, if placedOrderQueue empty, return null
      */
     public static Order getNextOrder() {
@@ -53,6 +58,7 @@ public class OrderQueue {
 
     /**
      * Check if a list of dishes can be processed given the availability of inventory provided by InventoryList
+     *
      * @param dishes The list of dishes to check the ingredients availability
      * @return True when the list of dishes can be made, false otherwise.
      */
@@ -62,12 +68,34 @@ public class OrderQueue {
             return true;
         }
         HashMap<String, Integer> ingredientsRequired = new HashMap<>(); // A dictionary with key the ingredient,
-                                                                        // value the ingredient needed
+        // value the ingredient needed
         // To Calculate the total amount of each ingredient needed in the list of dishes
-        for (Dish dish: dishes) {
+        calculateIngredientValue(dishes, ingredientsRequired);
+        // For all the ingredients needed in the list of dishes, check if inventory is enough to do
+        // If one ingredient has more needed than inventory has, we can't make the list of dishes, so return false
+        for (String ingredientRequired : ingredientsRequired.keySet()) {
+            Integer tempIngredients = ingredientsRequired.get(ingredientRequired);
+            if (tempIngredients != null) {
+                int ingredients = tempIngredients;
+                if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Calculate the total amount of each ingredient needed in the list of dishes
+     *
+     * @param dishes              list of dish
+     * @param ingredientsRequired the required ingredients
+     */
+    private static void calculateIngredientValue(List<Dish> dishes, HashMap<String, Integer> ingredientsRequired) {
+        for (Dish dish : dishes) {
             HashMap<String, Integer> dishIngredients = dish.getIngredients();
             // Add the amount of an ingredient needed for a dish to the dictionary
-            for (String ingredient: dishIngredients.keySet()) {
+            for (String ingredient : dishIngredients.keySet()) {
                 if (!ingredientsRequired.containsKey(ingredient)) {
                     ingredientsRequired.put(ingredient, dishIngredients.get(ingredient));
                 } else {
@@ -81,17 +109,5 @@ public class OrderQueue {
                 }
             }
         }
-        // For all the ingredients needed in the list of dishes, check if inventory is enough to do
-        // If one ingredient has more needed than inventory has, we can't make the list of dishes, so return false
-        for (String ingredientRequired: ingredientsRequired.keySet()) {
-            Integer tempIngredients = ingredientsRequired.get(ingredientRequired);
-            if (tempIngredients != null) {
-                int ingredients = tempIngredients;
-                if (InventoryList.getTotalQuantity(ingredientRequired) < ingredients) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
