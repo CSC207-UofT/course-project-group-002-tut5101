@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.review_system.DisplayReviewViewInterface;
+import presenter.review_system.view_interface.DisplayReviewViewInterface;
 import presenter.review_system.ReviewPresenter;
 
 /**

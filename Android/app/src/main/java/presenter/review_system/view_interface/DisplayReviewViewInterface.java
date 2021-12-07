@@ -1,4 +1,4 @@
-package presenter.review_system;
+package presenter.review_system.view_interface;
 /**
  * ViewInterface of seeing certain review
  */
