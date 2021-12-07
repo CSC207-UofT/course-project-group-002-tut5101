@@ -11,8 +11,8 @@ import java.util.HashMap;
 /**
  * Presenter class for kitchen
  */
-public class KitchenPresenter implements KitchenOutputBoundary {
-    private KitchenView kv;
+public class CookDishPresenter implements KitchenOutputBoundary {
+    private CookDishView kv;
     private final CookDish kitchen;
     private static HashMap<String, Integer> dishes;
     private final InventoryList inventory;
@@ -21,7 +21,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
     /**
      * Empty constructor
      */
-    public KitchenPresenter() {
+    public CookDishPresenter() {
         this.kitchen = new CookDish(this);
         this.inventory = new InventoryList();
     }
@@ -31,7 +31,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      * Set the view that the KitchenPresenter is interacting with
      * @param kv the activity implementing KitchenView
      */
-    public void setView(KitchenView kv) {
+    public void setView(CookDishView kv) {
         this.kv = kv;
     }
 
@@ -56,7 +56,7 @@ public class KitchenPresenter implements KitchenOutputBoundary {
      */
     @Override
     public void getNextOrder(HashMap<String, Integer> dishes){
-        KitchenPresenter.dishes = dishes;
+        CookDishPresenter.dishes = dishes;
     }
 
     /**

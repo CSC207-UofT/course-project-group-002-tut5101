@@ -2,7 +2,7 @@ package presenter.kitchen_system;
 
 import java.util.ArrayList;
 
-public interface KitchenView {
+public interface CookDishView {
 
     /**
      * Update the current dishes to display by mutating the arraylist that holds all display info.

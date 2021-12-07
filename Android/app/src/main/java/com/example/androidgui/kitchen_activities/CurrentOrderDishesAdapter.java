@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.androidgui.R;
-import presenter.kitchen_system.KitchenPresenter;
+import presenter.kitchen_system.CookDishPresenter;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -21,7 +21,7 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
 
     private final Context kContext;
     final int kResource;
-    private final KitchenPresenter kp;
+    private final CookDishPresenter kp;
     /**
      * Create an adapter.
      * @param context the activity it in
@@ -29,7 +29,7 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
      * @param displayDishes the arraylist where its content would be displayed
      * @param kp the kitchen presenter
      */
-    public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, KitchenPresenter kp) {
+    public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, CookDishPresenter kp) {
         super(context, resource, displayDishes);
         kContext = context;
         kResource = resource;
