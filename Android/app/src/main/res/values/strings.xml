@@ -90,7 +90,7 @@
     <string name="number_of_usage_note">Enter a positive number to deduct the inventory amount, a negative number to
         increase inventory.
     </string>
-    <string name="welcom_inventory_staff">Welcome, Inventory Staff</string>
+    <string name="welcome_inventory_staff">Welcome, Inventory Staff</string>
     <string name="user_list">User List</string>
     <string name="see_users">See Users</string>
     <string name="freshness_a_b_c_d">freshness a,b,c,d</string>
