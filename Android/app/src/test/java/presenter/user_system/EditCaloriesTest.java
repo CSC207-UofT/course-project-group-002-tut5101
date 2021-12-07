@@ -3,17 +3,16 @@ package presenter.user_system;
 import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import presenter.menu_system.EditDeletePresenter;
+import presenter.menu_system.EditCaloriesPresenter;
 import use_case.dish_list.DishList;
 
 import java.util.HashMap;
 
 /**
- * Testing edit delete presenter.
+ * Testing edit calories presenter.
  */
-public class EditDeletePresenterTest {
-
-    private EditDeletePresenter deleteDishByName;
+public class EditCaloriesTest {
+    private EditCaloriesPresenter edit;
     private DishList dishList;
 
     /**
@@ -21,33 +20,9 @@ public class EditDeletePresenterTest {
      */
     @Before
     public void setUp() {
-        deleteDishByName = new EditDeletePresenter();
+        edit = new EditCaloriesPresenter();
         dishList = new DishList();
         generateDishList();
-    }
-
-    /**
-     * Test the dishesInMenuAsString method
-     */
-    @Test
-    public void deleteDishByName(){
-        deleteDishByName.deleteDishByName("dish2");
-    }
-
-    /**
-     * Test the increasePrice method
-     */
-    @Test
-    public void increasePrice(){
-        deleteDishByName.increasePrice("dish2");
-    }
-
-    /**
-     * Test the decreasePrice method
-     */
-    @Test
-    public void decreasePrice(){
-        deleteDishByName.decreasePrice("dish2");
     }
 
     /**
@@ -55,7 +30,7 @@ public class EditDeletePresenterTest {
      */
     @Test
     public void decreaseCalories(){
-        deleteDishByName.decreaseCalories("dish2");
+        edit.decreaseCalories("dish2", 2);
     }
 
     /**
@@ -63,7 +38,7 @@ public class EditDeletePresenterTest {
      */
     @Test
     public void increaseCalories(){
-        deleteDishByName.increaseCalories("dish2");
+        edit.increaseCalories("dish2", 2);
     }
 
     /**
