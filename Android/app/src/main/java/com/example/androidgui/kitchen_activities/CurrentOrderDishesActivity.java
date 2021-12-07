@@ -6,8 +6,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import com.example.androidgui.order_activities.PlaceOrderActivity;
-import presenter.kitchen_system.KitchenPresenter;
-import presenter.kitchen_system.KitchenView;
+import presenter.kitchen_system.CookDishPresenter;
+import presenter.kitchen_system.CookDishView;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -16,9 +16,9 @@ import java.util.ArrayList;
 /**
  * Kitchen activity class.
  */
-public class CurrentOrderDishesActivity extends AppCompatActivity implements KitchenView, PropertyChangeListener {
+public class CurrentOrderDishesActivity extends AppCompatActivity implements CookDishView, PropertyChangeListener {
 
-    private KitchenPresenter kp;
+    private CookDishPresenter kp;
     private CurrentOrderDishesAdapter adapter;
     private ArrayList<String[]> dishesToDisplay;
 
@@ -34,7 +34,7 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
 
         ListView list = findViewById(R.id.dishToCook);
 
-        kp = new KitchenPresenter();
+        kp = new CookDishPresenter();
         kp.setView(this);
         kp.checkOrderAvailable();
         dishesToDisplay = kp.exportDishes();
