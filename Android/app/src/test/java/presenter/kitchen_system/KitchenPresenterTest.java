@@ -2,6 +2,7 @@ package presenter.kitchen_system;
 
 import android.app.Activity;
 import constant.file_system.FileName;
+import entity.order.DeliveryOrder;
 import entity.order.DineInOrder;
 import entity.order.Dish;
 import org.junit.Before;
@@ -30,9 +31,9 @@ public class KitchenPresenterTest {
         List<Dish> dishes1 = new ArrayList<>();
         dishes1.add(new Dish("Donut sandwich", 10.99, new HashMap<>(), 800.00));
         List<Dish> dishes2 = new ArrayList<>();
-        dishes1.add(new Dish("Cheese donut", 10.99, new HashMap<>(), 800.00));
+        dishes2.add(new Dish("Cheese donut", 10.99, new HashMap<>(), 800.00));
         List<Dish> dishes3 = new ArrayList<>();
-        dishes1.add(new Dish("Beer milk", 10.99, new HashMap<>(), 800.00));
+        dishes3.add(new Dish("Beer milk", 10.99, new HashMap<>(), 800.00));
 
         HashMap<String, List<Dish>> dishes = new HashMap<>();
         dishes.put("Donut sandwich", dishes1);
@@ -40,6 +41,7 @@ public class KitchenPresenterTest {
         dishes.put("Beer milk", dishes3);
 
         OrderQueue.addOrder(new DineInOrder(3, dishes));
+        OrderQueue.addOrder(new DeliveryOrder("120 College Street", dishes));
 
         temp = new HashMap<>();
         temp.put("Dish1", 2);
@@ -77,7 +79,8 @@ public class KitchenPresenterTest {
      */
     @Test
     public void testCheckOrderAvailable() {
-        assert kp.checkOrderAvailable();
+        boolean result = kp.checkOrderAvailable();
+        assertFalse(result);
     }
 
     /**
