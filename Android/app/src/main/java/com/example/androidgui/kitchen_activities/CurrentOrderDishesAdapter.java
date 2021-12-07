@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.example.androidgui.R;
 import presenter.kitchen_system.CookDishPresenter;
 
@@ -43,7 +44,7 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
      */
     @SuppressLint("ViewHolder")
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         String dishName = ((String[]) Objects.requireNonNull(getItem(position)))[0];
         String quantity = ((String[]) Objects.requireNonNull(getItem(position)))[1];
 
