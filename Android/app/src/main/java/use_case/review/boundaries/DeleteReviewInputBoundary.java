@@ -1,13 +1,13 @@
 package use_case.review.boundaries;
 
 /**
- * The input use_case.boundary for deleting review use case.
+ * The input boundary for deleting review use case.
  */
 
 public interface DeleteReviewInputBoundary {
 
     /**
-     * delete reviews.
+     * Delete reviews.
      *
      * @param i rate to delete.
      */
