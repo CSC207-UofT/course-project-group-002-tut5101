@@ -12,7 +12,7 @@ import use_case.kitchen.boundary.KitchenOutputBoundary;
 /**
  * The kitchen use case in the restaurant.
  *
- * Author: ௵۞ၡ֍Ѭ֍Ӂ
+ * Author: Raymond
  */
 
 public class CookDish {

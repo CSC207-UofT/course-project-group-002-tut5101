@@ -15,6 +15,7 @@ import presenter.order_system.EditOrderPresenter;
 import presenter.order_system.view_interfaces.EditOrderViewInterface;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Edits the existing dishes in the order
@@ -72,7 +73,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
             orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
-            location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
+            location = Objects.requireNonNull(intent.getExtras()).getString(BuildOrderInfo.LOCATION.name());
         }
         if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
             System.out.println("Has prices");

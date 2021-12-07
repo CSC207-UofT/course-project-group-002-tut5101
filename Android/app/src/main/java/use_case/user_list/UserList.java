@@ -202,7 +202,7 @@ public class UserList implements Serializable {
      *
      * @return string representation
      */
-    private String nonCustomerUsersToString() {
+    public String nonCustomerUsersToString() {
         StringBuilder builder = new StringBuilder();
         if (users != null) {
             for (String userId : users.keySet()) {
