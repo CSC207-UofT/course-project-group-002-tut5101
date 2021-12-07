@@ -1,4 +1,4 @@
-package com.example.androidgui;
+package com.example.android;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

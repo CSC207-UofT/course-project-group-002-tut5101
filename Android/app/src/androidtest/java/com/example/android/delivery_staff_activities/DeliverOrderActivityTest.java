@@ -1,4 +1,4 @@
-package com.example.androidgui.delivery_staff_activities;
+package com.example.android.delivery_staff_activities;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.junit.Test;
