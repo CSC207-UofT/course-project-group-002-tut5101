@@ -28,4 +28,12 @@ public class MainActivityPresenterTest {
         assert true;
     }
 
+    /**
+     * Test setContext method
+     */
+    @Test
+    public void testSetContext(){
+        presenter.setContext(null);
+    }
+
 }
