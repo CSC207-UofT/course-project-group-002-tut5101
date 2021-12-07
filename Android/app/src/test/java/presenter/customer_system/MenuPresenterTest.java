@@ -1,6 +1,6 @@
 package presenter.customer_system;
 
-import entity.order_list.Dish;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import presenter.menu_system.DisplayMenuViewInterface;

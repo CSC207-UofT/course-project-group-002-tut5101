@@ -1,6 +1,6 @@
 package presenter.manager_system;
 
-import entity.order_list.Dish;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;

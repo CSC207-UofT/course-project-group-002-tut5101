@@ -1,4 +1,4 @@
-package entity.order_list;
+package entity.order;
 
 import constant.order_system.ItemStatus;
 import org.junit.Before;

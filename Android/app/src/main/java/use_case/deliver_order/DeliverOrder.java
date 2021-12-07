@@ -1,6 +1,6 @@
 package use_case.deliver_order;
 
-import entity.order_list.DeliveryOrder;
+import entity.order.DeliveryOrder;
 import use_case.user_list.UserList;
 import entity.delivery.DeliveryStaff;
 import entity.user.User;

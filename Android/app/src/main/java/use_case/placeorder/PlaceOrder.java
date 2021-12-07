@@ -4,8 +4,8 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import use_case.dish_list.DishList;
 import use_case.kitchen.OrderQueue;
-import entity.order_list.Dish;
-import entity.order_list.Order;
+import entity.order.Dish;
+import entity.order.Order;
 import constant.order_system.OrderType;
 
 import java.util.*;

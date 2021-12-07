@@ -1,8 +1,8 @@
 package use_case.deliver_order;
 
 import entity.delivery.DeliveryStaff;
-import entity.order_list.Order;
-import entity.order_list.DeliveryOrder;
+import entity.order.Order;
+import entity.order.DeliveryOrder;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.user_list.UserList;

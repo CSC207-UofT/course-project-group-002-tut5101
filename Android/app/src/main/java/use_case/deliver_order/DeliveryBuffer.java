@@ -1,6 +1,6 @@
 package use_case.deliver_order;
 
-import entity.order_list.Order;
+import entity.order.Order;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

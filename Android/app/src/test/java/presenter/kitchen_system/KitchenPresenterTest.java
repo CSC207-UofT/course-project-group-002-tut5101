@@ -2,9 +2,8 @@ package presenter.kitchen_system;
 
 import android.app.Activity;
 import constant.file_system.FileName;
-import entity.order_list.DineInOrder;
-import entity.order_list.Dish;
-import entity.order_list.Order;
+import entity.order.DineInOrder;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;

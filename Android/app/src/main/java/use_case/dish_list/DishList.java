@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import constant.file_system.FileName;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import entity.order_list.Dish;
+import entity.order.Dish;
 
 import java.io.Serializable;
 import java.util.HashMap;

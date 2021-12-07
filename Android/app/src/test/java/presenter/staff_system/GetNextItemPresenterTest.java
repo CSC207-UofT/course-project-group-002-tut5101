@@ -2,8 +2,8 @@ package presenter.staff_system;
 
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
-import entity.order_list.DeliveryOrder;
-import entity.order_list.Dish;
+import entity.order.DeliveryOrder;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliver_order.DeliveryBuffer;

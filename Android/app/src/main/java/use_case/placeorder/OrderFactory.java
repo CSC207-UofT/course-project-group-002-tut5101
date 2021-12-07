@@ -1,10 +1,10 @@
 package use_case.placeorder;
 
 import constant.order_system.OrderType;
-import entity.order_list.DeliveryOrder;
-import entity.order_list.DineInOrder;
-import entity.order_list.Dish;
-import entity.order_list.Order;
+import entity.order.DeliveryOrder;
+import entity.order.DineInOrder;
+import entity.order.Dish;
+import entity.order.Order;
 
 import java.util.HashMap;
 import java.util.List;

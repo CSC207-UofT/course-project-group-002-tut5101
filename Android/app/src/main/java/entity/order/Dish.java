@@ -1,4 +1,4 @@
-package entity.order_list;
+package entity.order;
 
 
 import androidx.annotation.NonNull;
