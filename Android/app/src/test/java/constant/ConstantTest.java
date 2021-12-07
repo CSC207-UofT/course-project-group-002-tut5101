@@ -1,18 +1,18 @@
-package constants;
+package constant;
 
-import constant.customer_system.CustomerUIMessage;
+import constant.order_system.CustomerUIMessage;
 import constant.file_system.FileName;
-import constant.manger_system.DishMessage;
-import constant.manger_system.ManagerDecision;
-import constant.manger_system.ReviewMessage;
-import constant.manger_system.UserType;
+import constant.manager_system.DishMessage;
+import constant.manager_system.ManagerDecision;
+import constant.manager_system.ReviewMessage;
+import constant.manager_system.UserType;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.ItemStatus;
 import constant.order_system.OrderType;
-import constant.ui_message.EnrollUserMessage;
-import constant.ui_message.LoginLogoutUIMessage;
-import constant.ui_message.LoginResult;
-import constant.ui_message.ManagerUIMessage;
+import constant.manager_system.EnrollUserMessage;
+import constant.login_system.LoginLogoutUIMessage;
+import constant.login_system.LoginResult;
+import constant.manager_system.ManagerUIMessage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Testing constants
  */
-public class ConstantsTest {
+public class ConstantTest {
 
     /**
      * Test Customer UI message
