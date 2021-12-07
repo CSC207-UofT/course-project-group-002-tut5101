@@ -15,7 +15,7 @@ import java.util.Objects;
 /**
  * A list of reviews.
  */
-public class ReviewList implements Serializable, Iterable<Review>{
+public class ReviewList implements Serializable, Iterable<Review> {
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
     private static final ReadWriter irw = new GCloudReadWriter();
@@ -41,6 +41,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
 
     /**
+     * Set review list to the given list.
      *
      * @param reviews setting the reviews.
      */
@@ -50,14 +51,15 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
 
     /**
+     * Add review to the review list.
      *
-     * @param name name.
+     * @param name        name.
      * @param ifAnonymous whether use_case.review is anonymous.
-     * @param rate rate of the use_case.review.
-     * @param comment comment left.
+     * @param rate        rate of the use_case.review.
+     * @param comment     comment left.
      */
-    public void addReview(String name, boolean ifAnonymous, int rate, String comment){
-        addReview(new Review(name, ifAnonymous, rate, comment, String.valueOf(this.sizeofList()+1)));
+    public void addReview(String name, boolean ifAnonymous, int rate, String comment) {
+        addReview(new Review(name, ifAnonymous, rate, comment, String.valueOf(this.sizeofList() + 1)));
     }
 
     /**
@@ -66,15 +68,16 @@ public class ReviewList implements Serializable, Iterable<Review>{
      * @param r is the use_case.review to add in the list
      */
     public void addReview(Review r) {
-       reviews.put(r.getReviewID(), r);
-       saveToFile();
+        reviews.put(r.getReviewID(), r);
+        saveToFile();
     }
 
     /**
+     * Set output boundary.
      *
      * @param reviewOutputBoundary setting the output boundary for use_case.review.
      */
-    public void setReviewOutputBoundary(ReviewOutputBoundary reviewOutputBoundary){
+    public void setReviewOutputBoundary(ReviewOutputBoundary reviewOutputBoundary) {
         this.reviewOutputBoundary = reviewOutputBoundary;
     }
 
@@ -85,25 +88,30 @@ public class ReviewList implements Serializable, Iterable<Review>{
      */
     @NonNull
     @Override
-    public ReviewListIterator iterator(){return new ReviewListIterator();}
+    public ReviewListIterator iterator() {
+        return new ReviewListIterator();
+    }
 
     /**
+     * Return number of reviews in the list.
      *
      * @return the size of the use_case.review list.
      */
-    public int sizeofList(){
+    public int sizeofList() {
         return reviews.size();
     }
 
     /**
+     * Return all reviews
      *
      * @return the review List.
      */
-    public static HashMap<String, Review> getAllReviews(){
+    public static HashMap<String, Review> getAllReviews() {
         return reviews;
     }
 
     /**
+     * Return string presentation of review list.
      *
      * @return a string representation of this use_case.review list.
      */
@@ -119,7 +127,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
 
     /**
-     * pass use_case.review as string.
+     * Pass review as string.
      */
     public void reviewAsString() {
         reviewOutputBoundary.updateReviewDisplay(this.toString());
@@ -135,6 +143,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
     /**
      * Setting context.
+     *
      * @param context context
      */
     public static void setContext(Context context) {
@@ -144,6 +153,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
     /**
      * Reading data
+     *
      * @param filename the name of the data file
      */
     @SuppressWarnings("unchecked")
@@ -156,6 +166,7 @@ public class ReviewList implements Serializable, Iterable<Review>{
 
     /**
      * Delete the given review
+     *
      * @param review review to be deleted.
      */
     public static void delete(Review review) {

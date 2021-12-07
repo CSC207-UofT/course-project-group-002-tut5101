@@ -18,10 +18,10 @@ public class AddReviewUseCase implements AddReviewInputBoundary {
     /**
      * adding the review to reviewList.
      *
-     * @param name name of review
+     * @param name        name of review
      * @param ifAnonymous if anonymous of review
-     * @param rate rate of review
-     * @param comment comment of review
+     * @param rate        rate of review
+     * @param comment     comment of review
      */
     @Override
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
@@ -30,7 +30,6 @@ public class AddReviewUseCase implements AddReviewInputBoundary {
     }
 
     /**
-     *
      * @return length of the reviewList.
      */
     @Override
