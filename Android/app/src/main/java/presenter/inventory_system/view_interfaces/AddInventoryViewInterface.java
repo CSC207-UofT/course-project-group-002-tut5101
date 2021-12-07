@@ -2,7 +2,7 @@ package presenter.inventory_system.view_interfaces;
 /**
  * Add Inventory interface between view and presenter
  */
-public interface AddinventoryViewInterface {
+public interface AddInventoryViewInterface {
     /**
      * Show the information
      *

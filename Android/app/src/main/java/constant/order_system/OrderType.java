@@ -32,9 +32,10 @@ public enum OrderType implements Parcelable {
     /**
      * New creator.
      */
-    public static final Creator<OrderType> CREATOR = new Creator<OrderType>() {
+    public static final Creator<OrderType> CREATOR = new Creator<>() {
         /**
          * overriding method
+         *
          * @param in in.
          * @return order type
          */
@@ -45,8 +46,9 @@ public enum OrderType implements Parcelable {
 
         /**
          * overriding method
+         *
          * @param size size.
-         * @returnan array of order type.
+         * @return an array of order type.
          */
         @Override
         public OrderType[] newArray(int size) {

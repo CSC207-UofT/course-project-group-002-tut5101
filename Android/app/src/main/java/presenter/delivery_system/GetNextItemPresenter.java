@@ -6,6 +6,9 @@ import use_case.deliver_order.boundaries.DeliveryInputBoundary;
 import use_case.deliver_order.ServingDishAdaptor;
 import use_case.user_list.UserList;
 
+/**
+ * Presenter class for getting items.
+ */
 public class GetNextItemPresenter {
     private final DeliveryInputBoundary servingStaff = new ServingDishAdaptor();
     private final DeliveryInputBoundary deliveryStaff = new DeliverOrder();

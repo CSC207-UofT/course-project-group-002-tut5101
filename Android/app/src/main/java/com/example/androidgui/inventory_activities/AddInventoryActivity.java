@@ -8,12 +8,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.AddInventoryPresenter;
-import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
+import presenter.inventory_system.view_interfaces.AddInventoryViewInterface;
 
 /**
  * Activity class for adding inventory.
  */
-public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddinventoryViewInterface {
+public class AddInventoryActivity extends AppCompatActivity implements View.OnClickListener, AddInventoryViewInterface {
     private EditText name;
     private EditText price;
     private EditText amount;
