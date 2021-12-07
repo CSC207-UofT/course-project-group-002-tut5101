@@ -1,4 +1,4 @@
-package presenter.delivery_system;
+package presenter.delivery_system.view_interfaces;
 /**
  * ViewInterface of delivery order
  */

@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.example.androidgui.R;
 import presenter.delivery_system.CurrentItemPresenter;
 import presenter.delivery_system.GetNextItemPresenter;
-import presenter.delivery_system.StaffViewInterface;
+import presenter.delivery_system.view_interfaces.StaffViewInterface;
 
 /**
  * Activity class for selecting dish.

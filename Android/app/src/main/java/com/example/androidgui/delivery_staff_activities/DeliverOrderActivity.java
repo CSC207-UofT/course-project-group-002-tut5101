@@ -9,10 +9,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.delivery_system.GeoDestination;
+import presenter.delivery_system.view_interfaces.GeoDestination;
 import presenter.delivery_system.CurrentItemPresenter;
 import presenter.delivery_system.GetNextItemPresenter;
-import presenter.delivery_system.StaffViewInterface;
+import presenter.delivery_system.view_interfaces.StaffViewInterface;
 
 import java.util.Objects;
 
