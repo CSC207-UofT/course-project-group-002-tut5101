@@ -22,7 +22,7 @@ public class UpdateQuantityPresenter implements InventoryOutputBoundary{
      * @param updateQuantityInterface the view interface
      */
 
-    public void setUpdateQuanInterface(UpdateQuantityInterface updateQuantityInterface) {
+    public void setUpdateQuantityInterface(UpdateQuantityInterface updateQuantityInterface) {
         this.updateQuantityInterface = updateQuantityInterface;
     }
     /**
@@ -43,7 +43,7 @@ public class UpdateQuantityPresenter implements InventoryOutputBoundary{
     private String newQuantity(String name, String usage, InventoryOutputBoundary boundary){
         this.inventories.setBoundary(boundary);
         int u = Integer.parseInt(usage);
-        return inventories.passNewQuanInfo(name, u);
+        return inventories.passNewQuantityInfo(name, u);
     }
     /**
      * Show the information of this action

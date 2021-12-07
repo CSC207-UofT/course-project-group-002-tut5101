@@ -9,7 +9,7 @@ import entity.order.Dish;
  * By Dedong Xie (1006702944)
  * 2021-10-10
  */
-
+@SuppressWarnings("SpellCheckingInspection")
 public class ServingStaff extends Staff {
 
     private Dish currentDish;

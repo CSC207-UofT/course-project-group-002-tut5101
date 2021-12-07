@@ -28,7 +28,7 @@ public class UpdateQuantityPresenterTest {
     @Test
     public void TestshowInfo1(){
         TestClass testView = new TestClass("wrong name");
-        update.setUpdateQuanInterface(testView);
+        update.setUpdateQuantityInterface(testView);
         update.showInfo("Air","1");
 
     }
@@ -36,7 +36,7 @@ public class UpdateQuantityPresenterTest {
     @Test
     public void TestshowInfo2(){
         TestClass testView = new TestClass("Not enough");
-        update.setUpdateQuanInterface(testView);
+        update.setUpdateQuantityInterface(testView);
         update.showInfo("Carrot","10000000");
 
     }
@@ -44,7 +44,7 @@ public class UpdateQuantityPresenterTest {
     @Test
     public void TestshowInfo3(){
         TestClass testView = new TestClass("Successfully updated");
-        update.setUpdateQuanInterface(testView);
+        update.setUpdateQuantityInterface(testView);
         update.showInfo("Carrot","-1");
 
     }
