@@ -87,6 +87,4 @@ public class ServingStaffTest {
         assertEquals(expectedNone, actualNone);
         assertEquals(expected, actual);
     }
-
-
 }

@@ -96,5 +96,4 @@ public class LoginPresenterTest {
             assertEquals(userType, UserType.DELIVERY_STAFF);
         }
     }
-
 }
