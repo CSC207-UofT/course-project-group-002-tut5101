@@ -25,7 +25,7 @@ public class InventoryList implements Serializable {
      * attribute in the inventory item instance.
      */
     private static HashMap<String, Inventory> myDict;
-    private static ReadWriter irw = new GCloudReadWriter();
+    private static final ReadWriter irw = new GCloudReadWriter();
 
     @SuppressLint("StaticFieldLeak")
     private static Context context;
@@ -176,7 +176,6 @@ public class InventoryList implements Serializable {
     public static void setData(String filename) {
         InventoryList.filename = filename;
         if (myDict == null || myDict.isEmpty()) {
-            irw = new GCloudReadWriter();
             myDict = (HashMap<String, Inventory>) irw.readFromFile(FileName.INVENTORY_FILE);
         }
     }
