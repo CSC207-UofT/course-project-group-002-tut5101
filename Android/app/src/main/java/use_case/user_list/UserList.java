@@ -29,7 +29,7 @@ public class UserList implements Serializable {
     /**
      * Private instances used in the class.
      */
-    public static HashMap<String, User> users;
+    private static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
     private static final ReadWriter readWriter = new GCloudReadWriter();
     private static String filename;
