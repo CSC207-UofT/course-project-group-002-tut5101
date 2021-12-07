@@ -47,12 +47,12 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
      */
     @Override
     public void onClick(View v) {
-        String iname = name.getText().toString();
-        String iprice = price.getText().toString();
-        String iamount = amount.getText().toString();
-        String idate = date.getText().toString();
-        String ifreshness = freshness.getText().toString();
-        this.ADD_INVENTORY_PRESENTER.addNewInventory(iname, iprice, iamount, idate, ifreshness);
+        String inventoryItemName = name.getText().toString();
+        String inventoryItemPrice = price.getText().toString();
+        String inventoryItemAmount = amount.getText().toString();
+        String inventoryItemImportDate = date.getText().toString();
+        String inventoryItemFreshness = freshness.getText().toString();
+        this.ADD_INVENTORY_PRESENTER.addNewInventory(inventoryItemName, inventoryItemPrice, inventoryItemAmount, inventoryItemImportDate, inventoryItemFreshness);
         finish();
     }
     /**
