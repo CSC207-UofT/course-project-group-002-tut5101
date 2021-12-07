@@ -31,7 +31,7 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
         name = findViewById(R.id.editTextTextPersonName6);
         usage = findViewById(R.id.editTextTextPersonName7);
         btn.setOnClickListener(this);
-        uqp.setUpdateQuanInterface(this);
+        uqp.setUpdateQuantityInterface(this);
     }
     /**
      * change the quantity of the item based on the input
@@ -39,9 +39,9 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
      */
     @Override
     public void onClick(View v) {
-        String iname = name.getText().toString();
-        String iusage = usage.getText().toString();
-        uqp.showInfo(iname, iusage);
+        String inventoryItemName = name.getText().toString();
+        String inventoryItemUsage = usage.getText().toString();
+        uqp.showInfo(inventoryItemName, inventoryItemUsage);
         finish();
     }
 

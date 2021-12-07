@@ -9,6 +9,7 @@ import entity.order.DeliveryOrder;
  * 2021-10-10
  */
 
+@SuppressWarnings("SpellCheckingInspection")
 public class DeliveryStaff extends Staff {
 
     private DeliveryOrder currentOrder;

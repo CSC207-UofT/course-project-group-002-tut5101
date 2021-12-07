@@ -87,7 +87,7 @@ public class InventoryListTest {
      * Test checkExist method
      */
     @Test
-    public void testcheckExist() {
+    public void testCheckExist() {
         inventoryList = new InventoryList();
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
@@ -152,12 +152,12 @@ public class InventoryListTest {
         assertEquals("Not enough", inventoryList.setQuantity("Test1",21));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
         assertEquals("wrong name", inventoryList.setQuantity("Test5",19));
-        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",-1));
+        assertEquals("Successfully updated",inventoryList.passNewQuantityInfo("Test1",-1));
         assertEquals(21, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Successfully updated",inventoryList.passNewQuanInfo("Test1",1));
+        assertEquals("Successfully updated",inventoryList.passNewQuantityInfo("Test1",1));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Not enough", inventoryList.passNewQuanInfo("Test1",21));
-        assertEquals("wrong name", inventoryList.passNewQuanInfo("Test5",19));
+        assertEquals("Not enough", inventoryList.passNewQuantityInfo("Test1",21));
+        assertEquals("wrong name", inventoryList.passNewQuantityInfo("Test5",19));
     }
 
 

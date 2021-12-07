@@ -18,6 +18,7 @@ import java.util.Queue;
  * 2021-10-10
  */
 
+@SuppressWarnings("SpellCheckingInspection")
 public class OrderQueue {
 
     private static Queue<Order> placedOrderQueue = new ArrayDeque<>();

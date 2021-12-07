@@ -153,7 +153,7 @@ public class InventoryList implements Serializable {
         return result;
     }
 
-    public String passNewQuanInfo(String name, int usage) {
+    public String passNewQuantityInfo(String name, int usage) {
         String info = this.setQuantity(name, usage);
         return boundary.getMessage(info);
     }

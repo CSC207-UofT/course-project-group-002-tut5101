@@ -19,7 +19,7 @@ public class DeliveryBuffer {
     }
 
     /**
-     * The getter method for UseCase.com.example.androidgui.DeliveryStaff to call to get the next order to delivery.
+     * The getter method for UseCase.com.example.android.DeliveryStaff to call to get the next order to delivery.
      *
      * @return an entities.Order instance to be delivered.
      */

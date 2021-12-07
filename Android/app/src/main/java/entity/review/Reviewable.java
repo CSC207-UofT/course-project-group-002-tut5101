@@ -5,6 +5,7 @@ package entity.review;
  */
 
 
+@SuppressWarnings("unused")
 public interface Reviewable {
     String getName();
 

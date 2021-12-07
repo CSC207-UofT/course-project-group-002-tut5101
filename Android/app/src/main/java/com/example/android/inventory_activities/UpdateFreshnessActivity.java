@@ -45,9 +45,9 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
      */
     @Override
     public void onClick(View v) {
-        String iname = name.getText().toString();
-        String ifreshness = fresh.getText().toString();
-        ufp.popInfo(iname, ifreshness);
+        String inventoryItemName = name.getText().toString();
+        String inventoryItemFreshness = fresh.getText().toString();
+        ufp.popInfo(inventoryItemName, inventoryItemFreshness);
         finish();
     }
     /**

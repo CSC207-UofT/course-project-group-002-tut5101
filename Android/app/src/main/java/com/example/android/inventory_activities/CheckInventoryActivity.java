@@ -39,7 +39,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
     }
 
     /**
-     * Check weyher the name is valid and pass the information of item to another page
+     * Check whether the name is valid and pass the information of item to another page
      * @param v view
      */
     @Override
@@ -50,8 +50,8 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
 
     }
     /**
-     * Check wether the name is valid and pass the information of item to another page
-     * @param info the action response infomation success or wrong name
+     * Check whether the name is valid and pass the information of item to another page
+     * @param info the action response information success or wrong name
      */
     @Override
     public void CheckValidity(String info){

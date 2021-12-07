@@ -69,9 +69,9 @@ public class DishTest {
      */
     @Test(timeout = 50)
     public void testGetSetName() {
-        dish1.setName("BLAAAAH");
+        dish1.setName("BLAH");
         String name = dish1.getName();
-        assertEquals("BLAAAAH", name);
+        assertEquals("BLAH", name);
     }
 
     /**
