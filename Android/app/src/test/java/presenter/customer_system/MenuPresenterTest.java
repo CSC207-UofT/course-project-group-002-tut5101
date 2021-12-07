@@ -8,30 +8,32 @@ import presenter.menu_system.MenuPresenter;
 import use_case.dish_list.DishList;
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Testing menu presenter.
  */
 public class MenuPresenterTest {
     private MenuPresenter menuPresenter;
     private DishList dishList;
-
+    TestClass testPresenter;
     /**
      * Setup before tests
      */
     @Before
     public void setUp() {
         menuPresenter = new MenuPresenter();
-        TestClass testPresenter = new TestClass();
-        menuPresenter.setDisplayDishesViewInterface(testPresenter);
         dishList = new DishList();
-        generateDishList();
+
     }
 
     /**
      * Test the dishesInMenuAsString method
      */
     @Test
-    public void dishesInMenuAsString(){
+    public void testdishesInMenuAsString(){
+        testPresenter = new TestClass("");
+        menuPresenter.setDisplayDishesViewInterface(testPresenter);
         menuPresenter.dishesInMenuAsString();
     }
 
@@ -40,6 +42,8 @@ public class MenuPresenterTest {
      */
     @Test
     public void updateMenuItemsDisplay(){
+        testPresenter = new TestClass("dish1");
+        menuPresenter.setDisplayDishesViewInterface(testPresenter);
         menuPresenter.updateMenuItemsDisplay("dish1");
     }
 
@@ -48,14 +52,20 @@ public class MenuPresenterTest {
      * Empty fake presenter class implementing the output boundary
      */
     private static class TestClass implements DisplayMenuViewInterface {
-
+        String checkmessage;
+        /**
+         * The constructor for this test class
+         *
+         * @param info the message to compare
+         */
+        private TestClass(String info){checkmessage = info;}
         /**
          *
          * @param menuItems menu items.
          */
         @Override
         public void setMenuItemsText(String menuItems) {
-            assert true;
+            assertEquals(checkmessage, menuItems);
         }
     }
 

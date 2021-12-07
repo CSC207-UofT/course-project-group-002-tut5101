@@ -25,7 +25,7 @@ public class AddInventoryPresenterTest {
     }
 
     /**
-     * Test the addNewInventory method
+     * Test the addNewInventory method for HasFreshness
      */
     @Test
     public void testAddNewInventory(){
@@ -35,7 +35,9 @@ public class AddInventoryPresenterTest {
         InventoryList inventoryList = new InventoryList();
         assertTrue(inventoryList.checkExist("name"));
     }
-
+    /**
+     * Test the addNewInventory method for Has ExpiryDate
+     */
     @Test
     public void testAddNewInventory1(){
         testPresenter = new TestClass("Occupied name or item");
@@ -44,7 +46,9 @@ public class AddInventoryPresenterTest {
         InventoryList inventoryList = new InventoryList();
         assertTrue(inventoryList.checkExist("name"));
     }
-
+    /**
+     * Test the addNewInventory method for Existing item
+     */
     @Test
     public void testAddNewInventory2(){
         testPresenter = new TestClass("Occupied name or item");

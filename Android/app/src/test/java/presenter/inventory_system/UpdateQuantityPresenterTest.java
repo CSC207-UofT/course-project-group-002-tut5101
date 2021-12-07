@@ -24,7 +24,7 @@ public class UpdateQuantityPresenterTest {
     }
 
     /**
-     * Test the showInfo method
+     * Test the showInfo method for non-existing item
      */
     @Test
     public void TestShowInfo1(){
@@ -33,7 +33,9 @@ public class UpdateQuantityPresenterTest {
         update.showInfo("Air","1");
 
     }
-
+    /**
+     * Test the showInfo method for not enough usage
+     */
     @Test
     public void TestShowInfo2(){
         TestClass testView = new TestClass("Not enough");
@@ -41,7 +43,9 @@ public class UpdateQuantityPresenterTest {
         update.showInfo("Carrot","10000000");
 
     }
-
+    /**
+     * Test the showInfo method for enough usage
+     */
     @Test
     public void TestShowInfo3(){
         TestClass testView = new TestClass("Successfully updated");

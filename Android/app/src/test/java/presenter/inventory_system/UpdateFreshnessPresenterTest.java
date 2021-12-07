@@ -25,7 +25,7 @@ public class UpdateFreshnessPresenterTest {
     }
 
     /**
-     * Test the popInfo method
+     * Test the popInfo method for non-existing item
      */
     @Test
     public void TestShowInfo1(){
@@ -34,7 +34,9 @@ public class UpdateFreshnessPresenterTest {
         update.popInfo("Air","a");
 
     }
-
+    /**
+     * Test the popInfo method for has freshness item
+     */
     @Test
     public void TestShowInfo2(){
         testPresenter = new TestClass("updated");
@@ -42,7 +44,9 @@ public class UpdateFreshnessPresenterTest {
         update.popInfo("Bread","b");
 
     }
-
+    /**
+     * Test the popInfo method for has expiry date item
+     */
     @Test
     public void TestShowInfo3(){
         testPresenter = new TestClass("item does not have freshness");

@@ -25,7 +25,7 @@ public class CheckInventoryPresenterTest {
     }
 
     /**
-     * Test the checkValidity method
+     * Test the checkValidity method for HasFreshness
      */
     @Test
     public void checkValidity(){
@@ -34,14 +34,18 @@ public class CheckInventoryPresenterTest {
         check.checkValidity("Carrot");
 
     }
-
+    /**
+     * Test the checkValidity method for non-existing item
+     */
     @Test
     public void checkValidity1(){
         testPresenter = new TestClass("Invalid name");
         check.setCheckInventoryInterface(testPresenter);
         check.checkValidity("Nothing");
     }
-
+    /**
+     * Test the checkValidity method for HasExpriyDate
+     */
     @Test
     public void checkValidity2(){
         testPresenter = new TestClass("Waffle,9.0,500,20211205");
