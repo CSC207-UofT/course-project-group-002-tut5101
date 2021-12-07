@@ -122,9 +122,9 @@ public class DishListTest {
      */
     @Test
     public void editPrice() {
-        menu.editPrice("Coffee", 1);
+        menu.editPrice("Coffee", 1, 1);
         assertEquals(11, DishList.getDishPrice("Coffee"), 0.1);
-        menu.editPrice("Coffee", 0);
+        menu.editPrice("Coffee", 0, 1);
         assertEquals(10, DishList.getDishPrice("Coffee"), 0.1);
     }
 

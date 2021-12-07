@@ -29,7 +29,7 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void increasePrice(String dishName){
-        dishList.editPrice(dishName, 1);
+        dishList.editPrice(dishName, 1, 1);
     }
 
     /**
@@ -38,7 +38,7 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void decreasePrice(String dishName){
-        dishList.editPrice(dishName, 0);
+        dishList.editPrice(dishName, 0, 1);
     }
 
     /**

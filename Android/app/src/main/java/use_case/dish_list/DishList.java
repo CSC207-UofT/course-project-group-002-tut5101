@@ -134,13 +134,13 @@ public class DishList implements Serializable, Iterable<Dish>{
      *
      * @param dishName name of the dish to be edited.
      */
-    public void editPrice(String dishName, int i){
+    public void editPrice(String dishName, int i, double j){
         Dish dish = menu.get(dishName);
         assert dish != null;
         if (i == 0){
-            dish.decreasePrice();
+            dish.decreasePrice(j);
         } else{
-            dish.increasePrice();
+            dish.increasePrice(j);
         }
         menu.put(dishName, dish);
         saveToFile();
