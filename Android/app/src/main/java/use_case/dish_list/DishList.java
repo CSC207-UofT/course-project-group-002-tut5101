@@ -19,7 +19,7 @@ import java.util.Set;
  * Public class storing all dishes information using an ArrayList.
  */
 public class DishList implements Serializable, Iterable<Dish> {
-    public static HashMap<String, Dish> menu;
+    private static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     private static final ReadWriter readWriter = new GCloudReadWriter();
     @SuppressLint("StaticFieldLeak")

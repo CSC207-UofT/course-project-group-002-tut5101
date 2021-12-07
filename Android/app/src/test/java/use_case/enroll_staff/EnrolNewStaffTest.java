@@ -24,7 +24,6 @@ public class EnrolNewStaffTest {
     public void setUp() {
         TestClass testPresenter = new TestClass();
         useCase.setOutputBoundary(testPresenter);
-        UserList.users = new HashMap<>();
         UserList.setContext(new Activity());
         UserList.setData("TEST"+ FileName.USER_FILE);
 

@@ -25,9 +25,10 @@ public class CookDishPresenterTest {
     @Before
     public void setUp() throws Exception {
         kp = new CookDishPresenter();
+        DishList dl = new DishList();
+        dl.reset();
         DishList.setContext(new Activity());
-        ReadWriter rw = new GCloudReadWriter();
-        DishList.menu = (HashMap<String, Dish>) rw.readFromFile("TEST"+FileName.MENU_FILE);
+        DishList.setData("TEST"+FileName.MENU_FILE);
 
         List<Dish> dishes1 = new ArrayList<>();
         dishes1.add(new Dish("Donut sandwich", 10.99, new HashMap<>(), 800.00));
