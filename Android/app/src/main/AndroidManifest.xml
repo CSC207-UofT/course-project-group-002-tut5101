@@ -24,7 +24,7 @@
 		<activity
 			android:name=".inventory_activities.PresentInventoryActivity"
 			android:exported="true" />
-		<activity android:name=".user_activities.EnrollStaffActivity" />
+		<activity android:name=".manager_activities.EnrollStaffActivity" />
 		<activity
 			android:name=".manager_activities.SelectEditOrDeleteActivity"
 			android:exported="true" />
@@ -50,7 +50,7 @@
 			android:label="@string/title_activity_deliver_order"
 			android:theme="@style/Theme.AndroidGUI.NoActionBar" />
 		<activity
-			android:name=".user_activities.LoginActivity"
+			android:name=".general_activity.LoginActivity"
 			android:exported="true" />
 		<activity
 			android:name=".order_activities.SelectDineInTakeOutActivity"
@@ -62,15 +62,15 @@
 			android:name=".order_activities.PlaceOrderActivity"
 			android:exported="true" />
 		<activity
-			android:name=".user_activities.SeeMenuActivity"
+			android:name=".customer_activities.SeeMenuActivity"
 			android:exported="true" />
 		<activity
 			android:name=".order_activities.EditOrderActivity"
 			android:exported="true" />
 		<activity
-			android:name=".user_activities.AddReviewCommentActivity"
+			android:name=".customer_activities.AddReviewCommentActivity"
 			android:exported="true" />
-		<activity android:name=".user_activities.CustomerPickActionActivity" />
+		<activity android:name=".customer_activities.CustomerPickActionActivity" />
 		<activity android:name=".serving_staff_activities.ServingStaffPickActionActivity" />
 		<activity android:name=".delivery_staff_activities.DeliveryStaffPickActionActivity" />
 		<activity

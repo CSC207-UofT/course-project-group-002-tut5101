@@ -10,11 +10,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import constant.manger_system.DishMessage;
-import constant.manger_system.ManagerDecision;
-import constant.ui_message.ManagerUIMessage;
+import constant.manager_system.DishMessage;
+import constant.manager_system.ManagerDecision;
+import constant.manager_system.ManagerUIMessage;
 import presenter.manager_system.EditDeletePresenter;
-import presenter.menu_system.SelectEditViewInterface;
+import presenter.manager_system.view_interfaces.SelectEditViewInterface;
 
 import java.util.Objects;
 

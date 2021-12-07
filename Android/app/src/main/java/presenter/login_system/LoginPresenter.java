@@ -1,6 +1,6 @@
 package presenter.login_system;
 
-import constant.ui_message.LoginResult;
+import constant.login_system.LoginResult;
 import use_case.login.LoginOutputBoundary;
 import use_case.login.UserLogin;
 import use_case.user_list.UserList;

@@ -2,6 +2,7 @@ package presenter.review_system;
 
 import org.junit.Before;
 import org.junit.Test;
+import presenter.review_system.view_interface.DisplayReviewViewInterface;
 
 /**
  * Test the ReviewPresenterTest class.

@@ -1,6 +1,6 @@
 package use_case.deliver_order;
 
-import entity.order_list.Dish;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

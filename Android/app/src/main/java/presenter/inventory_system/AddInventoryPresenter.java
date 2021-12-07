@@ -1,5 +1,6 @@
 package presenter.inventory_system;
 
+import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
 import use_case.inventory_factory.InventoryFactory;
 import use_case.kitchen.InventoryList;
 

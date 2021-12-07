@@ -1,7 +1,7 @@
 package use_case.deliver_order;
 
-import entity.order_list.DeliveryOrder;
-import entity.order_list.Order;
+import entity.order.DeliveryOrder;
+import entity.order.Order;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

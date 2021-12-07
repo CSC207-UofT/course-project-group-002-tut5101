@@ -2,11 +2,12 @@ package use_case.dish_list;
 
 import android.app.Activity;
 import constant.file_system.FileName;
-import entity.order_list.Dish;
+import entity.order.Dish;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import use_case.dish_list.boundaries.PlaceOrderMenuOutputBoundary;
 import use_case.placeorder.PlaceOrderOutputBoundary;
 
 import java.util.HashMap;

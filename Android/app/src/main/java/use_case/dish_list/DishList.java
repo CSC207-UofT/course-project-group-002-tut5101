@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import constant.file_system.FileName;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import entity.order_list.Dish;
+import entity.order.Dish;
+import use_case.dish_list.boundaries.ManageMenuOutputBoundary;
+import use_case.dish_list.boundaries.MenuOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -21,7 +23,7 @@ import java.util.Set;
 public class DishList implements Serializable, Iterable<Dish>{
     public static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
-    private static ReadWriter readWriter;
+    private static ReadWriter readWriter = new GCloudReadWriter();
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private static String filename = "";

@@ -1,7 +1,7 @@
 package entity.delivery;
 
-import entity.order_list.DeliveryOrder;
-import entity.order_list.Dish;
+import entity.order.DeliveryOrder;
+import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 

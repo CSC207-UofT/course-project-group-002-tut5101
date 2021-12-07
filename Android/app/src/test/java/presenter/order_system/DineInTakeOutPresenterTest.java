@@ -3,6 +3,7 @@ package presenter.order_system;
 import constant.order_system.OrderType;
 import org.junit.Before;
 import org.junit.Test;
+import presenter.order_system.view_interfaces.SelectDineInTakeOutViewInterface;
 
 /**
  * Test the DineInTakeOutPresenter class
@@ -32,7 +33,7 @@ public class DineInTakeOutPresenterTest {
     /**
      * Empty fake activity class implementing the output boundary
      */
-    private static class TestClass implements SelectDineInTakeOutViewInterface{
+    private static class TestClass implements SelectDineInTakeOutViewInterface {
 
         /**
          * Test if this method is run

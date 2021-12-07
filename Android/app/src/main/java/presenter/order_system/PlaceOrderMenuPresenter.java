@@ -1,8 +1,9 @@
 package presenter.order_system;
 
+import presenter.order_system.view_interfaces.PlaceOrderMenuViewInterface;
 import use_case.dish_list.DishInformation;
 import use_case.dish_list.DishList;
-import use_case.dish_list.PlaceOrderMenuOutputBoundary;
+import use_case.dish_list.boundaries.PlaceOrderMenuOutputBoundary;
 
 /**
  * Presenter class for the PlaceOrder activity that displays information on menu

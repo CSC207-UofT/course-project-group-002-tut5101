@@ -1,7 +1,7 @@
 package entity.delivery;
 
 import constant.order_system.ItemStatus;
-import entity.order_list.DeliveryOrder;
+import entity.order.DeliveryOrder;
 
 /**
  * Class for delivery staff

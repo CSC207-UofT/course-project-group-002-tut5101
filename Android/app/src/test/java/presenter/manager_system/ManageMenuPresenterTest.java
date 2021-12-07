@@ -3,6 +3,8 @@ package presenter.manager_system;
 
 import org.junit.Before;
 import org.junit.Test;
+import presenter.manager_system.view_interfaces.ManageMenuViewInterface;
+
 /**
  * Test the ManagerMenuPresenter class.
  */

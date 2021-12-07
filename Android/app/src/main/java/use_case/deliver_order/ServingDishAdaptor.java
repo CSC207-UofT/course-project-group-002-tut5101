@@ -1,6 +1,9 @@
 package use_case.deliver_order;
 
-public class ServingDishAdaptor implements DeliveryInputBoundary{
+import use_case.deliver_order.boundaries.DeliveryInputBoundary;
+import use_case.deliver_order.boundaries.StaffDeliveryOutputBoundary;
+
+public class ServingDishAdaptor implements DeliveryInputBoundary {
     private StaffDeliveryOutputBoundary outputBoundary;
     private final ServeDish sd = new ServeDish();
 

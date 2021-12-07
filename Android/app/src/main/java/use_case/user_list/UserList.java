@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.file_system.FileName;
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -14,7 +14,7 @@ import entity.manager.Manager;
 import entity.user.User;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import presenter.manager_system.UserOutputBoundary;
+import presenter.manager_system.view_interfaces.UserOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;

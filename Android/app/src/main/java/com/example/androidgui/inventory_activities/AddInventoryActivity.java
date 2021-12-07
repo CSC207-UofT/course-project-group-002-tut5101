@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.AddInventoryPresenter;
-import presenter.inventory_system.AddinventoryViewInterface;
+import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
 
 /**
  * Activity class for adding inventory.

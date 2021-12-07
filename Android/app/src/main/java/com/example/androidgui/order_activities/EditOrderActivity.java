@@ -12,7 +12,7 @@ import com.example.androidgui.R;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
 import presenter.order_system.EditOrderPresenter;
-import presenter.order_system.EditOrderViewInterface;
+import presenter.order_system.view_interfaces.EditOrderViewInterface;
 
 import java.util.HashMap;
 

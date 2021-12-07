@@ -2,6 +2,7 @@ package presenter.inventory_system;
 
 import org.junit.Before;
 import org.junit.Test;
+import presenter.inventory_system.view_interfaces.CheckInventoryInterface;
 
 /**
  * Testing the CheckInventoryPresenter.
@@ -30,7 +31,7 @@ public class CheckInventoryPresenterTest {
     /**
      * Empty fake presenter class implementing the view interface
      */
-    private static class TestClass implements CheckInventoryInterface  {
+    private static class TestClass implements CheckInventoryInterface {
 
         /**
          * test use

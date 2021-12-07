@@ -1,7 +1,7 @@
 package presenter.login_system;
 
-import constant.manger_system.UserType;
-import constant.ui_message.LoginResult;
+import constant.manager_system.UserType;
+import constant.login_system.LoginResult;
 
 /**
  * Login view interface between view and presenter

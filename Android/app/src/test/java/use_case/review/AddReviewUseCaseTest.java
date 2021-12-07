@@ -1,7 +1,7 @@
 package use_case.review;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
-import com.example.androidgui.user_activities.AddReviewCommentActivity;
+import com.example.androidgui.customer_activities.AddReviewCommentActivity;
 import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;

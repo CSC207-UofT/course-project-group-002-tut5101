@@ -2,7 +2,7 @@ package use_case.user_list;
 
 import android.app.Activity;
 import constant.file_system.FileName;
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import entity.user.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
