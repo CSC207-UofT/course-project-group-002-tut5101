@@ -47,7 +47,7 @@ public enum BuildOrderInfo implements Parcelable {
         }
         /**
          * Create the new array of build order info.
-        
+
          * overriding method
          * @param size size
          * @return a builder order info.
