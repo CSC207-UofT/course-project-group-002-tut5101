@@ -2,6 +2,7 @@ package constants;
 
 import constant.customer_system.CustomerUIMessage;
 import constant.file_system.FileName;
+import constant.manger_system.DishMessage;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import constant.ui_message.ManagerUIMessage;
@@ -33,6 +34,19 @@ public class ConstantsTest {
         assertEquals(FileName.USER_FILE, "users.ser");
         assertEquals(FileName.INVENTORY_FILE, "inventory.ser");
         assertEquals(FileName.REVIEW_FILE, "review.ser");
+    }
+
+    /**
+     * Test for dish message
+     */
+    @Test
+    public void DishMessage() {
+        assertEquals(DishMessage.CONFIRM, "Are you sure you want to delete this dish?");
+        assertEquals(DishMessage.NO, "No");
+        assertEquals(DishMessage.DELETE_MENU, "This dish will be deleted.");
+        assertEquals(DishMessage.YES, "Yes");
+        assertEquals(DishMessage.EDIT_MENU, "This dish will be edited as you specified");
+        assertEquals(DishMessage.CONFIRMING, "Are you sure you want to edit this dish in this way?");
     }
 
 
