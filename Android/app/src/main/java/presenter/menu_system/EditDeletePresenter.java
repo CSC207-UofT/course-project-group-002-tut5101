@@ -6,17 +6,13 @@ import use_case.dish_list.DishList;
  * Presenter class for editing or deleting dish.
  */
 public class EditDeletePresenter {
-    public DishList dishList;
+    private final DishList dishList;
 
     /**
      * Constructor
      */
     public EditDeletePresenter(){
-        initializeDishList();
-    }
-
-    private void initializeDishList() {
-        dishList = new DishList();
+        this.dishList = new DishList();
     }
 
     /**
@@ -33,7 +29,7 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void increasePrice(String dishName){
-        dishList.editPrice(dishName, 1);
+        dishList.editPrice(dishName, 1, 1);
     }
 
     /**
@@ -42,7 +38,7 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void decreasePrice(String dishName){
-        dishList.editPrice(dishName, 0);
+        dishList.editPrice(dishName, 0, 1);
     }
 
     /**
@@ -51,7 +47,7 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void increaseCalories(String dishName){
-        dishList.editCalories(dishName, 1);
+        dishList.editCalories(dishName, 1, 100);
     }
 
     /**
@@ -60,6 +56,6 @@ public class EditDeletePresenter {
      * @param dishName the name of the dish
      */
     public void decreaseCalories(String dishName){
-        dishList.editCalories(dishName, 0);
+        dishList.editCalories(dishName, 0, 100);
     }
 }

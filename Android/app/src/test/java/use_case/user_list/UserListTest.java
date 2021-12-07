@@ -3,13 +3,13 @@ package use_case.user_list;
 import android.app.Activity;
 import constant.file_system.FileName;
 import constant.manager_system.UserType;
-import entity.user.User;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
 import entity.inventory.InventoryStaff;
 import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
+import entity.user.User;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +32,7 @@ public class UserListTest {
     public void setUp() {
         userList.reset();
         UserList.setContext(new Activity());
-        UserList.setData("TEST"+ FileName.USER_FILE);
+        UserList.setData("TEST" + FileName.USER_FILE);
         userList.addUser(new Manager());
         userList.addUser(new Customer("2", "James", "12345"));
         userList.addUser(new Customer("3", "Steve", "12345"));
@@ -46,16 +46,14 @@ public class UserListTest {
 
     /**
      * Testing addUser.
-     *
      */
     @Test
     public void testAddUser() {
-        assert(!userList.toString().equals(" "));
+        assert (!userList.toString().equals(" "));
     }
 
     /**
      * Testing get the user type by id.
-     *
      */
     @Test
     public void testUserTypeById() {
@@ -70,7 +68,6 @@ public class UserListTest {
 
     /**
      * Testing get the user by id.
-     *
      */
     @Test
     public void testUserById() {
@@ -80,7 +77,6 @@ public class UserListTest {
 
     /**
      * Testing length.
-     *
      */
     @Test
     public void testLength() {
@@ -89,27 +85,44 @@ public class UserListTest {
 
     /**
      * Testing get the user by id.
-     *
      */
     @Test
     public void testAddStaff() {
         assertEquals(userList.length(), userList.length());
     }
 
+    /**
+     * Testing setContext method
+     */
     @Test
     public void testSetContext() {
         UserList.setContext(null);
     }
 
+    /**
+     * Testing setData method
+     */
     @Test
     public void testSetData() {
         UserList.setData("");
     }
 
+    /**
+     * Testing saveToFile method
+     */
     @Test
     public void testSaveToFile() {
         userList.saveToFile();
         assert true;
     }
+
+    /**
+     * Testing nonCustomerUsersToString method
+     */
+    @Test
+    public void testNonCustomerUsersToString() {
+        assert (!userList.nonCustomerUsersToString().equals(" "));
+    }
+
 
 }

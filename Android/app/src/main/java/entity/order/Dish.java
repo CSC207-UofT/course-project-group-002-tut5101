@@ -206,33 +206,33 @@ public class Dish implements Serializable {
     /**
      * increases the price of the dish by $1
      */
-    public void increasePrice() {
+    public void increasePrice(double j) {
         double price = this.price;
-        this.setPrice(price + 1);
+        this.setPrice(price + j);
     }
 
     /**
      * decreases the price of the dish by $1
      */
-    public void decreasePrice() {
+    public void decreasePrice(double j) {
         double price = this.price;
-        this.setPrice(price - 1);
+        this.setPrice(price - j);
     }
 
     /**
      * decreases the number of calories of the dish by 100
      */
-    public void decreaseCalories() {
+    public void decreaseCalories(double j) {
         double calories = this.calories;
-        this.setCalories(calories - 100);
+        this.setCalories(calories - j);
     }
 
     /**
      * increases the number of calories of the dish by 100
      */
-    public void increaseCalories() {
+    public void increaseCalories(double j) {
         double calories = this.calories;
-        this.setCalories(calories + 100);
+        this.setCalories(calories + j);
     }
 
     /**
