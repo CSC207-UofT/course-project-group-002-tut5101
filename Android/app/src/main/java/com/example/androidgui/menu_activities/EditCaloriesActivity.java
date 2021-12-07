@@ -10,8 +10,6 @@ import com.example.androidgui.R;
 import constant.manager_system.ManagerDecision;
 import constant.manager_system.ManagerUIMessage;
 
-import java.util.Objects;
-
 /**
  * Activity class for editing calories
  */
@@ -19,7 +17,6 @@ public class EditCaloriesActivity extends AppCompatActivity {
 
     private NumberPicker select;
     private TextView askSelection;
-    private String[] selectOption;
 
     /**
      * Activity basic function.
@@ -48,7 +45,7 @@ public class EditCaloriesActivity extends AppCompatActivity {
      * Setting up options.
      */
     private void setupOptions() {
-        selectOption = new String[]{ManagerDecision.ONE.toString(),
+        String[] selectOption = new String[]{ManagerDecision.ONE.toString(),
                 ManagerDecision.TWO.toString(),
                 ManagerDecision.THREE.toString(),
                 ManagerDecision.FOUR.toString(),
@@ -57,17 +54,6 @@ public class EditCaloriesActivity extends AppCompatActivity {
         select.setMaxValue(selectOption.length - 1);
         select.setMinValue(0);
         select.setDisplayedValues(selectOption);
-    }
-
-    /**
-     * Next activity
-     * @param v v
-     */
-    public void confirm(View v){
-        String action = selectOption[select.getValue()];
-        Intent extras = getIntent();
-        String dishName = extras.getStringExtra("dishSelected");
-
     }
 
     /**

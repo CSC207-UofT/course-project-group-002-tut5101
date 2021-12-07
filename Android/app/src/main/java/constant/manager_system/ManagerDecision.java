@@ -1,8 +1,5 @@
 package constant.manager_system;
 
-
-import entity.customer.Customer;
-
 /**
  * This class holds all the Manager decision messages in the program
  */

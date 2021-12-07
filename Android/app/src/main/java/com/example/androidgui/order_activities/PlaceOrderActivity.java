@@ -22,6 +22,7 @@ import presenter.order_system.view_interfaces.PlaceOrderViewInterface;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Class that corresponds to the activity_place_order xml and deals with selecting dishes for an order
@@ -106,7 +107,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
             orderType = intent.getParcelableExtra(BuildOrderInfo.ORDER_TYPE.name());
         }
         if (intent.hasExtra(BuildOrderInfo.LOCATION.name())) {
-            location = intent.getExtras().getString(BuildOrderInfo.LOCATION.name());
+            location = Objects.requireNonNull(intent.getExtras()).getString(BuildOrderInfo.LOCATION.name());
         }
         if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
             dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
