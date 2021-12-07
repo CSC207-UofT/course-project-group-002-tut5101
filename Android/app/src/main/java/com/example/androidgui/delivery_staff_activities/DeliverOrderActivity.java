@@ -86,6 +86,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
     /**
      * Launch Google Maps to show directions
      */
+    @SuppressWarnings("unused")
     public void selectShowMap(View v) {
         getCurrentOrder();
         Uri gmmIntentUri;
@@ -102,6 +103,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
     /**
      * When select to finish the order in hand, try to call completeCurrent
      */
+    @SuppressWarnings("unused")
     public void selectFinishOrder(View v) {
         try {
             getCurrentOrderPresenter.completeCurrent(this.id);
@@ -117,6 +119,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
     /**
      * When select to return to previous screen, send user back to pick action screen
      */
+    @SuppressWarnings("unused")
     public void selectReturn(View v) {
         goBackPickAction();
     }

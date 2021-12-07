@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Test the GetNextItemPresenter class
  */
+@SuppressWarnings("unused")
 public class GetNextItemPresenterTest {
     private GetNextItemPresenter staff;
     private DeliveryOrder order;

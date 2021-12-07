@@ -30,7 +30,7 @@ public class CustomerPickActionActivity extends AppCompatActivity {
      * Moving to the menu page.
      * @param v view
      */
-    public void selectSeeMenu(View v) {
+    public void selectSeeMenu(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, SeeMenuActivity.class);
         startActivity(intent);
     }
@@ -38,7 +38,7 @@ public class CustomerPickActionActivity extends AppCompatActivity {
      * Moving to the placing order page.
      * @param v view
      */
-    public void selectPlaceOrder(View v) {
+    public void selectPlaceOrder(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, SelectDineInTakeOutActivity.class);
         startActivity(intent);
     }
@@ -46,7 +46,7 @@ public class CustomerPickActionActivity extends AppCompatActivity {
      * Moving to the add review page.
      * @param v view
      */
-    public void selectAddReview(View v) {
+    public void selectAddReview(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, AddReviewCommentActivity.class);
         startActivity(intent);
     }
@@ -54,7 +54,7 @@ public class CustomerPickActionActivity extends AppCompatActivity {
      * Moving to the main page, exit current.
      * @param v view
      */
-    public void selectExit(View v) {
+    public void selectExit(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, MainActivity.class);
         startActivity(intent);
     }

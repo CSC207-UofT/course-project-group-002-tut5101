@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+@SuppressWarnings("ALL")
 public class BuildOrderInfoTest {
     Object o;
     /**
