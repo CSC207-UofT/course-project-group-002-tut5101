@@ -32,7 +32,10 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         }
     }
 
-    // When the user selects to get the next order, try to get an order to be delivered.
+    /**
+     * When the user selects to get the next order, try to get an order to be delivered.
+     * @param v view
+     */
     public void selectGetNextOrder(View v) {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, DeliverOrderActivity.class);
         Bundle b = new Bundle();

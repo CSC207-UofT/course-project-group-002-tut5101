@@ -1,5 +1,8 @@
 package constant.manager_system;
 
+/**
+ * Constant class for enrolling user
+ */
 public class EnrollUserMessage {
 
     public static final String INFO_REQUIRED = "Info required!";

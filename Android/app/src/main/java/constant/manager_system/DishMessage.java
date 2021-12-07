@@ -1,5 +1,8 @@
 package constant.manager_system;
 
+/**
+ * Constant class for dish message
+ */
 public class DishMessage {
     public static final String CONFIRM = "Are you sure you want to delete this dish?";
     public static final String NO = "No";
