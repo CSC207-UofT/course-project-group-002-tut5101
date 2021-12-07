@@ -6,8 +6,12 @@ import constant.manger_system.DishMessage;
 import constant.manger_system.ManagerDecision;
 import constant.manger_system.ReviewMessage;
 import constant.manger_system.UserType;
+import constant.order_system.BuildOrderInfo;
+import constant.order_system.ItemStatus;
+import constant.order_system.OrderType;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
+import constant.ui_message.LoginResult;
 import constant.ui_message.ManagerUIMessage;
 import org.junit.Test;
 
@@ -59,6 +63,50 @@ public class ConstantsTest {
     }
 
     /**
+     * Test build order info
+     */
+    @Test
+    public void BuildOrderInfo() {
+        assertEquals(BuildOrderInfo.ORDER_TYPE, BuildOrderInfo.ORDER_TYPE);
+        assertEquals(BuildOrderInfo.LOCATION, BuildOrderInfo.LOCATION);
+        assertEquals(BuildOrderInfo.DISHES, BuildOrderInfo.DISHES);
+        assertEquals(BuildOrderInfo.PRICES, BuildOrderInfo.PRICES);
+    }
+
+    /**
+     * Test item status
+     */
+    @Test
+    public void ItemStatus() {
+        assertEquals(ItemStatus.DISH_COMPLETED, ItemStatus.DISH_COMPLETED);
+    }
+
+    /**
+     * Test order type
+     */
+    @Test
+    public void OrderType() {
+        assertEquals(OrderType.DINE_IN, OrderType.DINE_IN);
+        assertEquals(OrderType.DELIVERY, OrderType.DELIVERY);
+    }
+
+    /**
+     * Test enroll user message
+     */
+    @Test
+    public void EnrollUserMessage() {
+        assertEquals(EnrollUserMessage.INFO_REQUIRED, "Info required!");
+        assertEquals(EnrollUserMessage.PASSWORD_NOT_MATCH, "Password not match");
+        assertEquals(EnrollUserMessage.PASSWORD_NOT_MATCH_MESSAGE, "The password is not matching, please re-enter.");
+        assertEquals(EnrollUserMessage.SUCCEED, "Succeed");
+        assertEquals(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE, "Succeed! Please remember the new staff's user id: ");
+        assertEquals(EnrollUserMessage.ARE_YOU_SURE, "Are you sure?");
+        assertEquals(EnrollUserMessage.CANCEL_ENROLLMENT, "The enrollment will be canceled, and the information that you have entered will be lost.");
+        assertEquals(EnrollUserMessage.YES, "Yes");
+        assertEquals(EnrollUserMessage.NO, "No");
+    }
+
+    /**
      * Test for dish message
      */
     @Test
@@ -105,20 +153,13 @@ public class ConstantsTest {
     }
 
     /**
-     * Test EnrollUser.
+     * Test login result
      */
     @Test
-    public void EnrollUser(){
-        assertEquals(EnrollUserMessage.ENROLL_SUCCEED_MESSAGE, "Succeed! Please remember the new staff's user id: ");
-        assertEquals(EnrollUserMessage.PASSWORD_NOT_MATCH_MESSAGE, "The password is not matching, please re-enter.");
-        assertEquals(EnrollUserMessage.CANCEL_ENROLLMENT, "The enrollment will be canceled, and the information that you have entered will be lost.");
-        assertEquals(EnrollUserMessage.PASSWORD_NOT_MATCH, "Password not match");
-        assertEquals(EnrollUserMessage.NO, "No");
-        assertEquals(EnrollUserMessage.ARE_YOU_SURE, "Are you sure?");
-        assertEquals(EnrollUserMessage.INFO_REQUIRED, "Info required!");
-        assertEquals(EnrollUserMessage.SUCCEED, "Succeed");
-        assertEquals(EnrollUserMessage.YES, "Yes");
+    public void LoginResult() {
+        assertEquals(LoginResult.FAILURE, LoginResult.FAILURE);
+        assertEquals(LoginResult.SUCCESS, LoginResult.SUCCESS);
+        assertEquals(LoginResult.NO_SUCH_USER, LoginResult.NO_SUCH_USER);
     }
-
 
 }
