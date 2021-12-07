@@ -1,4 +1,4 @@
-package presenter.menu_system.view_interfaces;
+package presenter.manager_system.view_interfaces;
 
 import android.view.View;
 

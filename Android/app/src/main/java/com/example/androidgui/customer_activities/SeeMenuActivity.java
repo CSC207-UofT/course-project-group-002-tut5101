@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.menu_system.view_interfaces.DisplayMenuViewInterface;
-import presenter.menu_system.MenuPresenter;
+import presenter.manager_system.view_interfaces.DisplayMenuViewInterface;
+import presenter.manager_system.MenuPresenter;
 
 /**
  * Activity class for seeing menu

@@ -1,4 +1,4 @@
-package presenter.staff_system;
+package presenter.delivery_system;
 
 import use_case.deliver_order.*;
 import constant.manager_system.UserType;
@@ -70,7 +70,7 @@ public class CurrentItemPresenter implements StaffDeliveryOutputBoundary {
      * Set the view targeted by the presenter
      * @param view The view to be updated by the presenter
      */
-    public void setStaffView(presenter.staff_system.StaffViewInterface view) {staffView = view;}
+    public void setStaffView(presenter.delivery_system.StaffViewInterface view) {staffView = view;}
 
     /**
      * Set the current item's info to view to present to user
