@@ -2,7 +2,7 @@ package presenter.manager_system;
 
 import presenter.manager_system.view_interfaces.DisplayMenuViewInterface;
 import use_case.dish_list.DishList;
-import use_case.dish_list.MenuOutputBoundary;
+import use_case.dish_list.boundaries.MenuOutputBoundary;
 
 /**
  * Presenter class for menu.

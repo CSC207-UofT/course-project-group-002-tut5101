@@ -1,4 +1,4 @@
-package use_case.dish_list;
+package use_case.dish_list.boundaries;
 /**
  * The output use_case.boundary for PlaceOrderMenu presenter.
  */
