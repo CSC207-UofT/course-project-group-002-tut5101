@@ -62,7 +62,7 @@ public class UpdateQuantityPresenterTest {
      * Empty fake presenter class implementing the view interface
      */
     private static class TestClass implements UpdateQuantityInterface {
-        String checkMessage;
+        final String checkMessage;
 
         private TestClass(String info){
             checkMessage = info;}
