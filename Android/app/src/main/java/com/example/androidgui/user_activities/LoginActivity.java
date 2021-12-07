@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
 
 
     /**
-     * Helper method that returns proper Activity.class based on user type.
+     * Helper method that returns proper Activity. class based on user type.
      *
      * @param id the user id
      * @return Activity.class of the login user to jump to

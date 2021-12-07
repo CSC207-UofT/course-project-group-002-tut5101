@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class UserAttributesTest {
     private UserAttributes testAttributes;
     /**
-     * Setup a new user for testing
+     * Set up a new user for testing
      */
     @Before
     public void setUp() {

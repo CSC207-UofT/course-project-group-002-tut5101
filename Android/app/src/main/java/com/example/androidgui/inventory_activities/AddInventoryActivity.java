@@ -64,7 +64,7 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         Toast.makeText(AddInventoryActivity.this,message,Toast.LENGTH_SHORT).show();
     }
     /**
-     * Call when  the pointer is enable or disable for the current window.
+     * Call when  the pointer is enabled or disable for the current window.
      *
      */
     @Override

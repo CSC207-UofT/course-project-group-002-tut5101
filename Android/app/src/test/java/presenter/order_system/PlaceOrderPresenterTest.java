@@ -121,7 +121,7 @@ public class PlaceOrderPresenterTest {
         /**
          * Test if this method is called
          *
-         * @param displayedText dishes ordered to display
+         * @param displayedText dishes ordered displaying
          */
         @Override
         public void displayDishesOrdered(String[] displayedText) {

@@ -66,7 +66,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
         }
     }
     /**
-     * Call when  the pointer is enable or disable for the current window.
+     * Call when  the pointer is enabled or disable for the current window.
      *
      */
     @Override

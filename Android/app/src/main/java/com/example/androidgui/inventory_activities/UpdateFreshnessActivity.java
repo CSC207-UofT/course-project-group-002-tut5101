@@ -59,7 +59,7 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
     }
     /**
-     * Call when  the pointer is enable or disable for the current window.
+     * Call when  the pointer is enabled or disable for the current window.
      *
      */
     @Override
