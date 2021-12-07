@@ -21,7 +21,7 @@ import java.util.Objects;
 public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
 
     private final Context kContext;
-    final int kResource;
+    private final int kResource;
     private final CookDishPresenter kp;
     /**
      * Create an adapter.

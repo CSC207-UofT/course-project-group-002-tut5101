@@ -18,7 +18,7 @@ public class CheckInventoryActivity extends AppCompatActivity implements View.On
      * Activity class for checking inventory.
      */
     private EditText name;
-    final CheckInventoryPresenter cip = new CheckInventoryPresenter();
+    private final CheckInventoryPresenter cip = new CheckInventoryPresenter();
 
 
 

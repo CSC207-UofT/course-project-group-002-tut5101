@@ -13,12 +13,10 @@ import presenter.review_system.AddReviewPresenter;
  */
 @SuppressWarnings("unused")
 public class AddReviewCommentActivity extends AppCompatActivity{
-    @SuppressWarnings("unused")
-    Button button;
-    EditText editTextName;
-    EditText editTextIfAnonymous;
-    EditText editTextRate;
-    EditText editTextComment;
+    private EditText editTextName;
+    private EditText editTextIfAnonymous;
+    private EditText editTextRate;
+    private EditText editTextComment;
     private AddReviewPresenter rc;
 
     /**
@@ -30,7 +28,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         rc = new AddReviewPresenter();
         setContentView(R.layout.activity_add_review_comment);
-        button = findViewById(R.id.bt1);
+        Button button = findViewById(R.id.bt1);
         editTextName = findViewById(R.id.textInputEdit);
         editTextIfAnonymous = findViewById(R.id.textInputEdit1);
         editTextRate = findViewById(R.id.textInputEdit2);

@@ -8,7 +8,7 @@ import use_case.dish_list.DishList;
  * Presenter class for managing menu.
  */
 public class ManageMenuPresenter implements ManageMenuOutputBoundary {
-    ManageMenuViewInterface manageMenuViewInterface;
+    private ManageMenuViewInterface manageMenuViewInterface;
     public DishList dishList;
 
     /**
