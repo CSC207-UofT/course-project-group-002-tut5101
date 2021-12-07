@@ -1,4 +1,4 @@
-package constant.ui_message;
+package constant.manager_system;
 
 public class EnrollUserMessage {
 

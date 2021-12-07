@@ -1,4 +1,4 @@
-package constant.manger_system;
+package constant.manager_system;
 
 /**
  * Class for use_case.review messages.

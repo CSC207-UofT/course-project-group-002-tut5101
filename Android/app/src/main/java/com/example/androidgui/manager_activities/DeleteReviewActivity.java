@@ -9,9 +9,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import constant.manger_system.ManagerDecision;
-import constant.manger_system.ReviewMessage;
-import constant.ui_message.ManagerUIMessage;
+import constant.manager_system.ManagerDecision;
+import constant.manager_system.ReviewMessage;
+import constant.manager_system.ManagerUIMessage;
 import presenter.review_system.DeleteReviewPresenter;
 
 

@@ -1,4 +1,4 @@
-package constant.manger_system;
+package constant.manager_system;
 
 public class DishMessage {
     public static final String CONFIRM = "Are you sure you want to delete this dish?";

@@ -1,4 +1,4 @@
-package com.example.androidgui.user_activities;
+package com.example.androidgui.customer_activities;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;

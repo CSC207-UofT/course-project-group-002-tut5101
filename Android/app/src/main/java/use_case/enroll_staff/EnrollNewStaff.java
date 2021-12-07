@@ -1,6 +1,6 @@
 package use_case.enroll_staff;
 
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import use_case.user_list.UserList;
 
 /**

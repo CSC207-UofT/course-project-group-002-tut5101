@@ -2,7 +2,7 @@ package use_case.login;
 
 import android.app.Activity;
 import constant.file_system.FileName;
-import constant.ui_message.LoginResult;
+import constant.login_system.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;

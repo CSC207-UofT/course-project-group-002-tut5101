@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import com.example.androidgui.user_activities.CustomerPickActionActivity;
+import com.example.androidgui.customer_activities.CustomerPickActionActivity;
 import constant.customer_system.CustomerUIMessage;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;

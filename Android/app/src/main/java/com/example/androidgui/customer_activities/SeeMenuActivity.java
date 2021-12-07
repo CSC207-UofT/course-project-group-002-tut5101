@@ -1,4 +1,4 @@
-package com.example.androidgui.user_activities;
+package com.example.androidgui.customer_activities;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;

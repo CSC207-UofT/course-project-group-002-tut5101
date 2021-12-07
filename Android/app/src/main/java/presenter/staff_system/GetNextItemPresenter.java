@@ -1,6 +1,6 @@
 package presenter.staff_system;
 
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import use_case.deliver_order.DeliverOrder;
 import use_case.deliver_order.DeliveryInputBoundary;
 import use_case.deliver_order.ServingDishAdaptor;

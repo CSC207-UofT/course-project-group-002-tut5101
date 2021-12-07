@@ -1,4 +1,4 @@
-package constant.manger_system;
+package constant.manager_system;
 
 /**
  * This class holds all the Manager decision messages in the program

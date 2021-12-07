@@ -1,6 +1,6 @@
 package use_case.enroll_staff;
 
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 
 /**
  * Input Boundary of Enroll Staff Use Case

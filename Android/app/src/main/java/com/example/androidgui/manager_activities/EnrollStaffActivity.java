@@ -1,4 +1,4 @@
-package com.example.androidgui.user_activities;
+package com.example.androidgui.manager_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,8 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import com.example.androidgui.manager_activities.ManagerPickActionActivity;
-import constant.ui_message.EnrollUserMessage;
-import constant.ui_message.LoginLogoutUIMessage;
+import constant.manager_system.EnrollUserMessage;
+import constant.login_system.LoginLogoutUIMessage;
 import presenter.manager_system.EnrollStaffPresenter;
 import presenter.manager_system.EnrollStaffViewInterface;
 

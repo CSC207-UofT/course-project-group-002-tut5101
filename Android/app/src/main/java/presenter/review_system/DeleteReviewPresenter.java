@@ -1,6 +1,6 @@
 package presenter.review_system;
 
-import constant.manger_system.ManagerDecision;
+import constant.manager_system.ManagerDecision;
 import use_case.review.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
 

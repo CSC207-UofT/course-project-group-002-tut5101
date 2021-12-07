@@ -1,4 +1,4 @@
-package com.example.androidgui.user_activities;
+package com.example.androidgui.general_activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,15 +8,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.customer_activities.CustomerPickActionActivity;
 import com.example.androidgui.delivery_staff_activities.DeliveryStaffPickActionActivity;
 import com.example.androidgui.inventory_activities.InventoryStarterActivity;
 import com.example.androidgui.kitchen_activities.CurrentOrderDishesActivity;
 import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import com.example.androidgui.serving_staff_activities.ServingStaffPickActionActivity;
-import constant.manger_system.UserType;
-import constant.ui_message.EnrollUserMessage;
-import constant.ui_message.LoginLogoutUIMessage;
-import constant.ui_message.LoginResult;
+import constant.manager_system.UserType;
+import constant.manager_system.EnrollUserMessage;
+import constant.login_system.LoginLogoutUIMessage;
+import constant.login_system.LoginResult;
 import presenter.login_system.LoginPresenter;
 import presenter.login_system.LoginViewInterface;
 

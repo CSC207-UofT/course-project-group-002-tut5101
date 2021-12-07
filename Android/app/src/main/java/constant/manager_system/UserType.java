@@ -1,4 +1,4 @@
-package constant.manger_system;
+package constant.manager_system;
 
 /**
  * Constant class for user types.

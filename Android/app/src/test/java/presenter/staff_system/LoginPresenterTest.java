@@ -1,7 +1,7 @@
 package presenter.staff_system;
 
-import constant.manger_system.UserType;
-import constant.ui_message.LoginResult;
+import constant.manager_system.UserType;
+import constant.login_system.LoginResult;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;

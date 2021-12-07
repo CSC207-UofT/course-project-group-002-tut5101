@@ -2,7 +2,7 @@ package use_case.enroll_staff;
 
 import android.app.Activity;
 import constant.file_system.FileName;
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;

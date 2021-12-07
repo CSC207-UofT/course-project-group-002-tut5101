@@ -1,4 +1,4 @@
-package constant.ui_message;
+package constant.login_system;
 
 /**
  * This class holds all the UI messages for login and logout of the system

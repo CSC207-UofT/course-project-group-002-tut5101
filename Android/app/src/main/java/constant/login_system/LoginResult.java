@@ -1,4 +1,4 @@
-package constant.ui_message;
+package constant.login_system;
 
 /**
  *  The possible outputs of user login use case.

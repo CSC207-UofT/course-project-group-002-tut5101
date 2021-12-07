@@ -1,8 +1,8 @@
 package constants;
 
-import constant.ui_message.EnrollUserMessage;
-import constant.ui_message.LoginLogoutUIMessage;
-import constant.ui_message.ManagerUIMessage;
+import constant.manager_system.EnrollUserMessage;
+import constant.login_system.LoginLogoutUIMessage;
+import constant.manager_system.ManagerUIMessage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

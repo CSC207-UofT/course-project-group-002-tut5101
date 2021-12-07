@@ -1,7 +1,7 @@
 package presenter.staff_system;
 
 import use_case.deliver_order.*;
-import constant.manger_system.UserType;
+import constant.manager_system.UserType;
 import use_case.user_list.UserList;
 
 /**
