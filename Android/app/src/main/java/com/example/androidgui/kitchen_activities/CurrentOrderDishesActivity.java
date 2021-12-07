@@ -34,7 +34,8 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Kit
 
         ListView list = findViewById(R.id.dishToCook);
 
-        kp = new KitchenPresenter(this);
+        kp = new KitchenPresenter();
+        kp.setView(this);
         kp.checkOrderAvailable();
         dishesToDisplay = kp.exportDishes();
 

@@ -12,19 +12,27 @@ import java.util.HashMap;
  * Presenter class for kitchen
  */
 public class KitchenPresenter implements KitchenOutputBoundary {
-    private final KitchenView kv;
+    private KitchenView kv;
     private final CookDish kitchen;
     private static HashMap<String, Integer> dishes;
     private final InventoryList inventory;
 
+
     /**
-     * Constructor
-     * @param kv view interface
+     * Empty constructor
      */
-    public KitchenPresenter(KitchenView kv) {
+    public KitchenPresenter() {
         this.kitchen = new CookDish(this);
-        this.kv = kv;
         this.inventory = new InventoryList();
+    }
+
+
+    /**
+     * Set the view that the KitchenPresenter is interacting with
+     * @param kv the activity implementing KitchenView
+     */
+    public void setView(KitchenView kv) {
+        this.kv = kv;
     }
 
     /**
@@ -78,6 +86,14 @@ public class KitchenPresenter implements KitchenOutputBoundary {
                 dishes.remove(dishName);
             }
         }
+    }
+
+
+    /**
+     * Update the view in activity and prompt messages
+     * @param dishName The name of the dish that is completed.
+     */
+    public void updateView(String dishName) {
         kv.createToast("One " + dishName + " cooked", true);
         if (0 == dishes.size() && checkOrderAvailable()) {
             kv.createToast("NEW ORDER!", false);
