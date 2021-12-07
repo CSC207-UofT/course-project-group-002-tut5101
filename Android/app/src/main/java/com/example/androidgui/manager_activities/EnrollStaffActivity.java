@@ -11,7 +11,7 @@ import com.example.androidgui.R;
 import constant.manager_system.EnrollUserMessage;
 import constant.login_system.LoginLogoutUIMessage;
 import presenter.manager_system.EnrollStaffPresenter;
-import presenter.manager_system.EnrollStaffViewInterface;
+import presenter.manager_system.view_interfaces.EnrollStaffViewInterface;
 
 /**
  * Activity class for enrolling new staff.

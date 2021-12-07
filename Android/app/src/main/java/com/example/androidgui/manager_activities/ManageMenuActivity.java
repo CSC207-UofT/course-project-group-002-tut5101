@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.manager_system.ManagerUIMessage;
 import presenter.manager_system.ManageMenuPresenter;
-import presenter.manager_system.ManageMenuViewInterface;
+import presenter.manager_system.view_interfaces.ManageMenuViewInterface;
 
 /**
  * Activity class for the manager to manage menu.

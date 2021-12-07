@@ -1,11 +1,13 @@
 package presenter.manager_system;
 
+import presenter.manager_system.view_interfaces.DisplayUsersViewInterface;
+import presenter.manager_system.view_interfaces.UserOutputBoundary;
 import use_case.user_list.UserList;
 
 /**
  * Presenter class for users
  */
-public class UserPresenter implements UserOutputBoundary{
+public class UserPresenter implements UserOutputBoundary {
 
     private final UserList userList;
     private DisplayUsersViewInterface displayUsersViewInterface;

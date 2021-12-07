@@ -1,4 +1,4 @@
-package presenter.manager_system;
+package presenter.manager_system.view_interfaces;
 
 /**
  * ViewInterface of enroll staff presenter
