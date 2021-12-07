@@ -9,4 +9,5 @@ public class ManagerUIMessage {
     public static final String EDIT_DELETE = "Ao you want to edit or delete this dish?";
     public static final String DELETE_REVIEW = "What is the criteria for deletion?";
     public static final String PRICE_CALORIES = "Do you want to edit price or calories of this dish?";
+    public static final String IncreaseDecrease = "How much do you want to change this feature of the dish?";
 }

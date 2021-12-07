@@ -15,6 +15,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AndroidGUI">
+        <activity android:name=".menu_activities.EditCaloriesActivity">
+        </activity>
+        <activity android:name=".menu_activities.EditPriceActivity">
+        </activity>
         <activity android:name=".menu_activities.SelectPriceOrCaloriesActivity">
         </activity>
         <activity android:name=".user_activities.SeeUserActivity"/>

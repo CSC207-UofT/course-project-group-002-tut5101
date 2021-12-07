@@ -58,9 +58,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
      * Setting up options.
      */
     private void setupOptions() {
-        selectOption = new String[]{ManagerDecision.INCREASE_CALORIES.toString(),
-                ManagerDecision.DELETE.toString(),ManagerDecision.INCREASE_PRICE.toString(),
-        ManagerDecision.DECREASE_CALORIES.toString(), ManagerDecision.DECREASE_PRICE.toString()};
+        selectOption = new String[]{ManagerDecision.DELETE.toString(),ManagerDecision.EDIT.toString()};
         selectEditOrDelete.setMaxValue(selectOption.length - 1);
         selectEditOrDelete.setMinValue(0);
         selectEditOrDelete.setDisplayedValues(selectOption);
@@ -88,24 +86,9 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
                     .create();
             alertDlg.show();
         } else {
-            AlertDialog alertDlg = new AlertDialog.Builder(this)
-                    .setTitle(DishMessage.CONFIRMING)
-                    .setMessage(DishMessage.EDIT_MENU)
-                    .setPositiveButton(DishMessage.YES, (dialog, which) -> {
-                        if (Objects.equals(action, ManagerDecision.INCREASE_CALORIES.toString())){
-                            editDeletePresenter.increaseCalories(dishName);
-                        } else if (Objects.equals(action, ManagerDecision.DECREASE_CALORIES.toString())){
-                            editDeletePresenter.decreaseCalories(dishName);
-                        } else if (Objects.equals(action, ManagerDecision.INCREASE_PRICE.toString())){
-                            editDeletePresenter.increasePrice(dishName);
-                        } else{
-                            editDeletePresenter.decreasePrice(dishName);
-                        }
-                        finish();
-                    })
-                    .setNegativeButton(DishMessage.NO, (dialog, which) -> dialog.dismiss())
-                    .create();
-            alertDlg.show();
+            Intent intent = new Intent(SelectEditOrDeleteActivity.this, SelectPriceOrCaloriesActivity.class);
+            intent.putExtra("dishSelected", dishName);
+            startActivity(intent);
         }
     }
 

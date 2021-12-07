@@ -5,33 +5,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".menu_activities.SelectPriceOrCaloriesActivity">
+        tools:context=".menu_activities.EditCaloriesActivity">
     <NumberPicker android:layout_width="160dp" android:layout_height="66dp"
                   app:layout_constraintTop_toTopOf="parent"
                   android:layout_marginTop="284dp" app:layout_constraintStart_toStartOf="parent"
                   android:layout_marginStart="124dp"
-                  android:id="@+id/selectPriceOrCalories"/>
+                  android:id="@+id/selectIncreaseOrDecrease"/>
     <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content" android:id="@+id/askSelection"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="200dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="104dp"/>
-    <Button
-            android:text="@string/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="160dp" android:layout_marginTop="40dp"
-            app:layout_constraintTop_toBottomOf="@+id/selectPriceOrCalories"
-            android:onClick="next" tools:ignore="UsingOnClickInXml"/>
-    <Button
-            android:text="@string/exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
-            app:layout_constraintTop_toBottomOf="@+id/selectPriceOrCalories" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="160dp"
-            android:onClick="selectExit" tools:ignore="UsingOnClickInXml"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
