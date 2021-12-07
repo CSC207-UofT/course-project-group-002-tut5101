@@ -1,6 +1,7 @@
 //file:noinspection GrUnresolvedAccess
 //file:noinspection GradlePackageUpdate
 //file:noinspection GradlePackageUpdate
+//file:noinspection GroovyAssignabilityCheck
 plugins {
     id 'com.android.application'
 }
@@ -12,6 +13,7 @@ android {
     defaultConfig {
         applicationId "com.example.androidgui"
         minSdkVersion 26
+        //noinspection OldTargetApi // This is restricted by out target device: it runs on API30
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -39,7 +41,9 @@ android {
 }
 
 dependencies {
-
+    // This is also needed for our project to build, higher version needs API31,
+    // incompatible with target device.
+    //noinspection GradleDependency
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
@@ -54,5 +58,4 @@ dependencies {
     implementation platform('com.google.cloud:libraries-bom:23.0.0')
     implementation 'com.google.cloud:google-cloud-storage'
     implementation 'com.android.support:multidex:1.0.3'
-
 }
