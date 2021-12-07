@@ -9,11 +9,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.CheckInventoryPresenter;
-
+import presenter.inventory_system.view_interfaces.CheckInventoryInterface;
 
 
 public class CheckInventoryActivity extends AppCompatActivity implements View.OnClickListener,
-        presenter.inventory_system.CheckInventoryInterface {
+        CheckInventoryInterface {
     /**
      * Activity class for checking inventory.
      */

@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import presenter.inventory_system.UpdateQuantityInterface;
+import presenter.inventory_system.view_interfaces.UpdateQuantityInterface;
 import presenter.inventory_system.UpdateQuantityPresenter;
 
 /**

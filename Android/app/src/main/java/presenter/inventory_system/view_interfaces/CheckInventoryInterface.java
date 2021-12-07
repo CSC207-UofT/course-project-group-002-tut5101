@@ -1,4 +1,4 @@
-package presenter.inventory_system;
+package presenter.inventory_system.view_interfaces;
 /**
  * Check Inventory interface between view and presenter
  */

@@ -1,5 +1,6 @@
 package presenter.inventory_system;
 
+import presenter.inventory_system.view_interfaces.CheckInventoryInterface;
 import use_case.kitchen.InventoryList;
 
 /**

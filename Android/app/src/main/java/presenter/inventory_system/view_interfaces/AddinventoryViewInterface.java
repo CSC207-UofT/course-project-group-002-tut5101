@@ -1,4 +1,4 @@
-package presenter.inventory_system;
+package presenter.inventory_system.view_interfaces;
 /**
  * Add Inventory interface between view and presenter
  */

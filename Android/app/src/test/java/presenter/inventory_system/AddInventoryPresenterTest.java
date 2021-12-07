@@ -2,6 +2,7 @@ package presenter.inventory_system;
 
 import org.junit.Before;
 import org.junit.Test;
+import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
 import use_case.kitchen.InventoryList;
 
 import static org.junit.Assert.assertTrue;
@@ -36,7 +37,7 @@ public class AddInventoryPresenterTest {
     /**
      * Empty fake presenter class implementing the view interface
      */
-    private static class TestClass implements AddinventoryViewInterface  {
+    private static class TestClass implements AddinventoryViewInterface {
 
         /**
          * test use

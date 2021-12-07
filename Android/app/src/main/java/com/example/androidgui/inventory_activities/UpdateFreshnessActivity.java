@@ -8,11 +8,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import presenter.inventory_system.UpdateFreshnessPresenter;
+import presenter.inventory_system.view_interfaces.UpdateFreshnessInterface;
+
 /**
  * Activity class for update the freshness of  inventory.
  */
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener,
-        presenter.inventory_system.UpdateFreshnessInterface {
+        UpdateFreshnessInterface {
 /**
  * Activity class for updating freshness.
  */
