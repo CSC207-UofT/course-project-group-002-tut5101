@@ -1,4 +1,4 @@
-package constant.customer_system;
+package constant.order_system;
 
 /**
  * Constant class for customer UI.
