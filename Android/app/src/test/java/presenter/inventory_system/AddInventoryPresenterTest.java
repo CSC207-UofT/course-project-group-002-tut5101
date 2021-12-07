@@ -17,6 +17,7 @@ public class AddInventoryPresenterTest {
     /**
      * Setup before tests
      */
+    @SuppressWarnings("SpellCheckingInspection")
     @Before
     public void setUp() {
         add = new AddInventoryPresenter();
@@ -58,13 +59,14 @@ public class AddInventoryPresenterTest {
      */
     private static class TestClass implements AddInventoryViewInterface {
 
-        String checkmessage;
+        String checkMessage;
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){checkmessage = info;}
+        private TestClass(String info){
+            checkMessage = info;}
         /**
          * test use
          *
@@ -72,7 +74,7 @@ public class AddInventoryPresenterTest {
          */
         @Override
         public void updateInventoryList(String message) {
-            assertEquals(checkmessage, message);
+            assertEquals(checkMessage, message);
         }
     }
 

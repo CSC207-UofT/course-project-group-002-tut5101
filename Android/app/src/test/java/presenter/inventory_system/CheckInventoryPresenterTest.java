@@ -17,6 +17,7 @@ public class CheckInventoryPresenterTest {
      * Setup before tests
      */
     @Before
+    @SuppressWarnings("SpellCheckingInspection")
     public void setUp() {
         check = new CheckInventoryPresenter();
         InventoryList.setData("TESTinventory.ser");
@@ -53,13 +54,14 @@ public class CheckInventoryPresenterTest {
      */
     private static class TestClass implements CheckInventoryInterface {
 
-        String checkmessage;
+        String checkMessage;
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){checkmessage = info;}
+        private TestClass(String info){
+            checkMessage = info;}
         /**
          * test use
          *
@@ -67,7 +69,7 @@ public class CheckInventoryPresenterTest {
          */
         @Override
         public void CheckValidity(String message) {
-            assertEquals(checkmessage, message);
+            assertEquals(checkMessage, message);
         }
     }
 }

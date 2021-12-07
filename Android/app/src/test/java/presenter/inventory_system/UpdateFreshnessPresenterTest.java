@@ -17,6 +17,7 @@ public class UpdateFreshnessPresenterTest {
      * Setup before tests
      */
     @Before
+    @SuppressWarnings("SpellCheckingInspection")
     public void setUp() {
         update = new UpdateFreshnessPresenter();
         InventoryList.setData("TESTinventory.ser");
@@ -27,7 +28,7 @@ public class UpdateFreshnessPresenterTest {
      * Test the popInfo method
      */
     @Test
-    public void TestshowInfo1(){
+    public void TestShowInfo1(){
         testPresenter = new TestClass("item does not have freshness");
         update.setUpdateFreshnessInterface(testPresenter);
         update.popInfo("Air","a");
@@ -35,7 +36,7 @@ public class UpdateFreshnessPresenterTest {
     }
 
     @Test
-    public void TestshowInfo2(){
+    public void TestShowInfo2(){
         testPresenter = new TestClass("updated");
         update.setUpdateFreshnessInterface(testPresenter);
         update.popInfo("Bread","b");
@@ -43,7 +44,7 @@ public class UpdateFreshnessPresenterTest {
     }
 
     @Test
-    public void TestshowInfo3(){
+    public void TestShowInfo3(){
         testPresenter = new TestClass("item does not have freshness");
         update.setUpdateFreshnessInterface(testPresenter);
         update.popInfo("Waffle","a");
@@ -55,13 +56,14 @@ public class UpdateFreshnessPresenterTest {
      */
     private static class TestClass implements UpdateFreshnessInterface {
 
-        String checkmessage;
+        String checkMessage;
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){checkmessage = info;}
+        private TestClass(String info){
+            checkMessage = info;}
         /**
          * test use
          *
@@ -69,7 +71,7 @@ public class UpdateFreshnessPresenterTest {
          */
         @Override
         public void popInfo(String message) {
-            assertEquals(checkmessage, message);
+            assertEquals(checkMessage, message);
         }
     }
 }
