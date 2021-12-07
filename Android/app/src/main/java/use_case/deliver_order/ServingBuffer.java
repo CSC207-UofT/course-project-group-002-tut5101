@@ -1,9 +1,9 @@
 package use_case.deliver_order;
 
+import entity.order.Dish;
+
 import java.util.ArrayDeque;
 import java.util.Queue;
-import entity.order.Dish;
-// import use_case.boundary.ServeBufferInterface;
 
 public class ServingBuffer {
     /**
@@ -20,12 +20,13 @@ public class ServingBuffer {
     }
 
     /**
-     * The getter method for UseCase.com.example.androidgui.ServingStaff to call to get the next dish to serve.
+     * The getter method for ServingStaff to call to get the next dish to serve.
+     *
      * @return a UseCase.DishInfo instance, which contains the table number of the dish and the dish itself.
      */
-    public static Dish getNextToServe() throws Exception{
+    public static Dish getNextToServe() throws Exception {
         Dish dish = servingBuffer.poll();
-        if (dish == null){
+        if (dish == null) {
             throw new Exception("No dish to serve");
         }
 
@@ -34,6 +35,7 @@ public class ServingBuffer {
 
     /**
      * Add dish to serving buffer
+     *
      * @param dish the dish to be added
      */
     public static void addDish(Dish dish) {

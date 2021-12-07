@@ -16,7 +16,7 @@ public class DishListIterator implements Iterator<Dish> {
     private static HashMap<String, Dish> menu;
 
     public DishListIterator() {
-        menu =DishList.getAllDishes();
+        menu = DishList.getAllDishes();
     }
 
     /**
@@ -51,6 +51,7 @@ public class DishListIterator implements Iterator<Dish> {
 
     /**
      * Replace a dish in the dishList using the new dish
+     *
      * @param dish The new dish that will replace the dish with the same name in the list
      */
     public void replace(Dish dish) {

@@ -23,6 +23,7 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
 
     /**
      * Constructor for this class.
+     *
      * @param userList a list of users.
      */
     public EnrollNewStaff(UserList userList) {
@@ -31,6 +32,7 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
 
     /**
      * Set the output boundary for enrolling user.
+     *
      * @param enrollUserOutputBoundary the output boundary for enrolling user.
      */
     public void setOutputBoundary(EnrollStaffOutputBoundary enrollUserOutputBoundary) {
@@ -53,10 +55,11 @@ public class EnrollNewStaff implements EnrollStaffInputBoundary {
 
     /**
      * Add new staff user to user list
-     * @param id        id of the new staff
-     * @param name      name of the new staff
-     * @param password  password of the new staff
-     * @param userType  user type of the new staff
+     *
+     * @param id       id of the new staff
+     * @param name     name of the new staff
+     * @param password password of the new staff
+     * @param userType user type of the new staff
      */
     @Override
     public void enrollNewStaff(String id, String name, String password, UserType userType) {

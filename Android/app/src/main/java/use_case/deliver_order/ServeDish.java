@@ -1,16 +1,16 @@
 package use_case.deliver_order;
 
-import use_case.user_list.UserList;
 import entity.delivery.ServingStaff;
 import entity.user.User;
+import use_case.user_list.UserList;
 
-public class ServeDish{
+public class ServeDish {
 
     /**
      * @param id The id of the serving staff that has logged in.
      * @throws Exception if the given id does not correspond to a serving staff.
      */
-    public void delivered(String id) throws Exception{
+    public void delivered(String id) throws Exception {
         User user = UserList.getUserByUserId(id);
         ((ServingStaff) user).completeServingDish();
     }
@@ -19,7 +19,7 @@ public class ServeDish{
      * @param id The id of the serving staff that has logged in.
      * @throws Exception if the given id does not correspond to a serving staff.
      */
-    public void getToBeDeliver(String id) throws Exception{
+    public void getToBeDeliver(String id) throws Exception {
         ServingStaff staff = (ServingStaff) UserList.getUserByUserId(id);
         if (!staff.hasCurrentDish()) {
             staff.setCurrentDish(ServingBuffer.getNextToServe());
@@ -30,9 +30,9 @@ public class ServeDish{
 
     /**
      * @param id The id of the serving staff that has logged in.
-     * corresponding to the given id.
+     *           corresponding to the given id.
      */
-    public String getItemInfo(String id){
+    public String getItemInfo(String id) {
         User user = UserList.getUserByUserId(id);
         return ((ServingStaff) user).displayDish();
     }

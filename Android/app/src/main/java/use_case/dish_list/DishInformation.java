@@ -23,8 +23,7 @@ public class DishInformation {
     public DishInformation() {
         if (DishList.getAllDishes() != null) {
             menu = DishList.getAllDishes();
-        }
-        else {
+        } else {
             menu = new HashMap<>();
         }
         dishNames = menu.keySet().toArray(new String[0]);
@@ -36,14 +35,16 @@ public class DishInformation {
     public DishInformation(int k) {
         menu = new HashMap<>();
         ArrayList<String> dishes = new ArrayList<>();
-        for (int i = 0; i < k; i++) {dishes.add("1");}
+        for (int i = 0; i < k; i++) {
+            dishes.add("1");
+        }
         assert dishes.size() == k;
     }
 
-    // methods for place order menu output boundary
 
     /**
      * Set the output boundary for displaying menu for place order
+     *
      * @param placeOrderMenuPresenter the output boundary
      */
     public void setPlaceOrderMenuOutputBoundary(PlaceOrderMenuOutputBoundary placeOrderMenuPresenter) {
@@ -51,17 +52,15 @@ public class DishInformation {
     }
 
     /**
-     *
      * updates the number of dishes available to be picked
      */
-    public void numberOfDishesForPresenter(){
+    public void numberOfDishesForPresenter() {
         int numberOfDishes = menu.size();
         placeOrderMenuOutputBoundary.setDishNamePickerMaxValue(numberOfDishes);
     }
 
 
     /**
-     *
      * updates the array of dish names to be displayed
      */
     public void getAllDishNamesAsListForPresenter() {
@@ -76,6 +75,7 @@ public class DishInformation {
 
     /**
      * Set the place order output boundary
+     *
      * @param placeOrderOutputBoundary the output boundary
      */
     public void setPlaceOrderOutputBoundary(PlaceOrderOutputBoundary placeOrderOutputBoundary) {
@@ -83,10 +83,10 @@ public class DishInformation {
     }
 
     /**
-     *
      * updates the dishes ordered
+     *
      * @param dishNameIndex the index of the dish ordered
-     * @param dishQuantity the quantity of the dish ordered
+     * @param dishQuantity  the quantity of the dish ordered
      */
     public void passDishesOrdered(int dishNameIndex, int dishQuantity) {
         String dishName = dishNames[dishNameIndex];
@@ -101,6 +101,7 @@ public class DishInformation {
 
     /**
      * Add Dish to DishList
+     *
      * @param dish new dish to be added
      */
     public void addDish(Dish dish) {

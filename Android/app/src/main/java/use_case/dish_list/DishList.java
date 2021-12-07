@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import constant.file_system.FileName;
+import entity.order.Dish;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import entity.order.Dish;
 import use_case.dish_list.boundaries.ManageMenuOutputBoundary;
 import use_case.dish_list.boundaries.MenuOutputBoundary;
 
@@ -17,10 +17,8 @@ import java.util.Set;
 
 /**
  * Public class storing all dishes information using an ArrayList.
- *
- * @author Chan Yu & Naihe Xiao
  */
-public class DishList implements Serializable, Iterable<Dish>{
+public class DishList implements Serializable, Iterable<Dish> {
     public static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
     private static final ReadWriter readWriter = new GCloudReadWriter();
@@ -39,6 +37,7 @@ public class DishList implements Serializable, Iterable<Dish>{
             menu = new HashMap<>();
         }
     }
+
     /**
      * Reset the dishList for testing
      */
@@ -47,6 +46,7 @@ public class DishList implements Serializable, Iterable<Dish>{
     }
 
     /**
+     * Set output boundary for manage menu.
      *
      * @param manageMenuOutputBoundary output boundary for managing menu.
      */
@@ -57,6 +57,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Return list of dishes
+     *
      * @return the menu
      */
     public static HashMap<String, Dish> getAllDishes() {
@@ -66,6 +67,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Get the dish's price for a dish named dishName
+     *
      * @param dishName The name of the dish to be checked
      * @return The price of the dish as a double
      */
@@ -75,6 +77,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Get the dish's ingredients of a dish named dishName
+     *
      * @param dishName The name of the dish to be look up
      * @return The hashMap representing the ingredients and their amount needed for the dish named dishName
      */
@@ -84,6 +87,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Get the calories of a dish
+     *
      * @param dishName Name of the dish
      * @return Calories of the dish as double
      */
@@ -104,6 +108,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Delete a dish from the menu by its name
+     *
      * @param dishName the name of the dish to be deleted
      */
     public void deleteDishByName(String dishName) {
@@ -117,12 +122,12 @@ public class DishList implements Serializable, Iterable<Dish>{
      *
      * @param dishName name of the dish to be edited.
      */
-    public void editCalories(String dishName, int i, double j){
+    public void editCalories(String dishName, int i, double j) {
         Dish dish = menu.get(dishName);
         assert dish != null;
-        if (i == 0){
+        if (i == 0) {
             dish.decreaseCalories(j);
-        } else{
+        } else {
             dish.increaseCalories(j);
         }
         menu.put(dishName, dish);
@@ -134,12 +139,12 @@ public class DishList implements Serializable, Iterable<Dish>{
      *
      * @param dishName name of the dish to be edited.
      */
-    public void editPrice(String dishName, int i, double j){
+    public void editPrice(String dishName, int i, double j) {
         Dish dish = menu.get(dishName);
         assert dish != null;
-        if (i == 0){
+        if (i == 0) {
             dish.decreasePrice(j);
-        } else{
+        } else {
             dish.increasePrice(j);
         }
         menu.put(dishName, dish);
@@ -147,7 +152,6 @@ public class DishList implements Serializable, Iterable<Dish>{
     }
 
     /**
-     *
      * a list of dish names.
      */
     public void passDishesAsList() {
@@ -157,10 +161,11 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Add Dish to DishList
+     *
      * @param dish new dish to be added
      */
     public void addDish(Dish dish) {
-        if (menu != null){
+        if (menu != null) {
             menu.put(dish.getName(), dish);
             saveToFile();
         }
@@ -187,6 +192,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Set the menuOutputBoundary of this class
+     *
      * @param menuOutputBoundary the menu output boundary
      */
     public void setMenuOutputBoundary(MenuOutputBoundary menuOutputBoundary) {
@@ -208,6 +214,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Setting context.
+     *
      * @param context context.
      */
     public static void setContext(Context context) {
@@ -216,6 +223,7 @@ public class DishList implements Serializable, Iterable<Dish>{
 
     /**
      * Setting data for menu
+     *
      * @param filename the name of the data file
      */
     @SuppressWarnings("unchecked")

@@ -20,6 +20,7 @@ public class DeliveryBuffer {
 
     /**
      * The getter method for UseCase.com.example.androidgui.DeliveryStaff to call to get the next order to delivery.
+     *
      * @return an entities.Order instance to be delivered.
      */
     public static Order getDeliveryOrder() throws Exception {
@@ -33,6 +34,7 @@ public class DeliveryBuffer {
 
     /**
      * Add an order to the delivery queue.
+     *
      * @param order the order to be added to the queue.
      */
     public static void addDeliveryOrder(Order order) {
