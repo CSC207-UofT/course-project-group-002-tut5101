@@ -1,5 +1,4 @@
 package constant.customer_system;
-
 import org.junit.Test;
 
 import static constant.order_system.CustomerUIMessage.*;
