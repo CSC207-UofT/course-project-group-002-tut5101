@@ -1,5 +1,7 @@
 package constants;
 
+import constant.customer_system.CustomerUIMessage;
+import constant.file_system.FileName;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import constant.ui_message.ManagerUIMessage;
@@ -11,6 +13,27 @@ import static org.junit.Assert.assertEquals;
  * Testing constants
  */
 public class ConstantsTest {
+
+    /**
+     * Test Customer UI message
+     */
+    @Test
+    public void CustomerUI() {
+        assertEquals(CustomerUIMessage.RETURN_TO_MAIN_MENU, "Return to main menu");
+        assertEquals(CustomerUIMessage.ORDER_PLACED_MESSAGE,"Your order was successfully placed!");
+        assertEquals(CustomerUIMessage.SUCCEED, "Succeed");
+    }
+
+    /**
+     * Test FileName
+     */
+    @Test
+    public void FileName() {
+        assertEquals(FileName.MENU_FILE, "menu.ser");
+        assertEquals(FileName.USER_FILE, "users.ser");
+        assertEquals(FileName.INVENTORY_FILE, "inventory.ser");
+        assertEquals(FileName.REVIEW_FILE, "review.ser");
+    }
 
 
     /**
