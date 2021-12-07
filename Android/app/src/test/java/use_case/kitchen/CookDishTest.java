@@ -9,6 +9,7 @@ import org.junit.Test;
 import use_case.kitchen.boundary.KitchenOutputBoundary;
 
 import java.util.*;
+import static org.junit.Assert.*;
 
 
 /**
@@ -64,12 +65,18 @@ public class CookDishTest {
     public void testCookedDish() {
         addOrders();
         kitchen.getNextToCook();
-        kitchen.cookedDish("Small fries");
-        kitchen.getNextToCook();
         kitchen.cookedDish("Coke");
         kitchen.cookedDish("Small fries");
         kitchen.cookedDish("Quarter pound with cheese");
         assert true;
+    }
+
+    /**
+     * Test the getAvailableOrder method
+     */
+    @Test
+    public void testGetAvailableOrder() {
+        assertFalse(kitchen.getAvailableOrder());
     }
 
     /**
