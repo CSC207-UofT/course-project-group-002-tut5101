@@ -2,7 +2,7 @@ package presenter.delivery_system;
 
 import constant.manager_system.UserType;
 import use_case.deliver_order.DeliverOrder;
-import use_case.deliver_order.DeliveryInputBoundary;
+import use_case.deliver_order.boundaries.DeliveryInputBoundary;
 import use_case.deliver_order.ServingDishAdaptor;
 import use_case.user_list.UserList;
 

@@ -1,4 +1,4 @@
-package use_case.deliver_order;
+package use_case.deliver_order.boundaries;
 /**
  * The output use_case.boundary for CurrentItem presenter.
  */
