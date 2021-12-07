@@ -14,7 +14,7 @@ import entity.manager.Manager;
 import entity.user.User;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import presenter.manager_system.view_interfaces.UserOutputBoundary;
+import presenter.user_system.view_interfaces.UserOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;

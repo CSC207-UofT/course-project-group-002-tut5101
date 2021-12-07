@@ -15,7 +15,7 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.AndroidGUI">
-		<activity android:name=".manager_activities.SeeUserActivity"/>
+		<activity android:name=".user_activities.SeeUserActivity"/>
 		<activity android:name=".inventory_activities.UpdateQuantityActivity" />
 		<activity android:name=".inventory_activities.UpdateFreshnessActivity" />
 		<activity android:name=".inventory_activities.AddInventoryActivity" />
@@ -24,21 +24,21 @@
 		<activity
 			android:name=".inventory_activities.PresentInventoryActivity"
 			android:exported="true" />
-		<activity android:name=".manager_activities.EnrollStaffActivity" />
+		<activity android:name=".user_activities.EnrollStaffActivity" />
 		<activity
-			android:name=".manager_activities.SelectEditOrDeleteActivity"
+			android:name=".menu_activities.SelectEditOrDeleteActivity"
 			android:exported="true" />
 		<activity
-			android:name=".manager_activities.SeeReviewActivity"
+			android:name=".review_activities.SeeReviewActivity"
 			android:exported="true" />
 		<activity
-			android:name=".manager_activities.DeleteReviewActivity"
+			android:name=".review_activities.DeleteReviewActivity"
 			android:exported="true" />
 		<activity
 			android:name=".manager_activities.ManagerPickActionActivity"
 			android:exported="true" />
 		<activity
-			android:name=".manager_activities.ManageMenuActivity"
+			android:name=".menu_activities.ManageMenuActivity"
 			android:exported="true" />
 		<activity
 			android:name=".kitchen_activities.CurrentOrderDishesActivity"
@@ -50,7 +50,7 @@
 			android:label="@string/title_activity_deliver_order"
 			android:theme="@style/Theme.AndroidGUI.NoActionBar" />
 		<activity
-			android:name=".general_activity.LoginActivity"
+			android:name=".user_activities.LoginActivity"
 			android:exported="true" />
 		<activity
 			android:name=".order_activities.SelectDineInTakeOutActivity"
@@ -62,13 +62,13 @@
 			android:name=".order_activities.PlaceOrderActivity"
 			android:exported="true" />
 		<activity
-			android:name=".customer_activities.SeeMenuActivity"
+			android:name=".menu_activities.SeeMenuActivity"
 			android:exported="true" />
 		<activity
 			android:name=".order_activities.EditOrderActivity"
 			android:exported="true" />
 		<activity
-			android:name=".customer_activities.AddReviewCommentActivity"
+			android:name=".review_activities.AddReviewCommentActivity"
 			android:exported="true" />
 		<activity android:name=".customer_activities.CustomerPickActionActivity" />
 		<activity android:name=".serving_staff_activities.ServingStaffPickActionActivity" />

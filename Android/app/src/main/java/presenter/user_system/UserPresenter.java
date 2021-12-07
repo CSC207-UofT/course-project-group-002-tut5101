@@ -1,7 +1,7 @@
-package presenter.manager_system;
+package presenter.user_system;
 
-import presenter.manager_system.view_interfaces.DisplayUsersViewInterface;
-import presenter.manager_system.view_interfaces.UserOutputBoundary;
+import presenter.user_system.view_interfaces.DisplayUsersViewInterface;
+import presenter.user_system.view_interfaces.UserOutputBoundary;
 import use_case.user_list.UserList;
 
 /**

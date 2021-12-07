@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.customer_activities.CustomerPickActionActivity;
-import com.example.androidgui.general_activity.LoginActivity;
+import com.example.androidgui.user_activities.LoginActivity;
 import presenter.main_information.MainActivityPresenter;
 
 

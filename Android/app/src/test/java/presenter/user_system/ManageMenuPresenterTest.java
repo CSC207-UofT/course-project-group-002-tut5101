@@ -1,9 +1,10 @@
-package presenter.manager_system;
+package presenter.user_system;
 
 
 import org.junit.Before;
 import org.junit.Test;
-import presenter.manager_system.view_interfaces.ManageMenuViewInterface;
+import presenter.menu_system.view_interface.ManageMenuViewInterface;
+import presenter.menu_system.ManageMenuPresenter;
 
 /**
  * Test the ManagerMenuPresenter class.

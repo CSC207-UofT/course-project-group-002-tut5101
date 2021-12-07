@@ -1,4 +1,4 @@
-package presenter.manager_system.view_interfaces;
+package presenter.menu_system.view_interface;
 
 /**
  * Interface for displaying menu.

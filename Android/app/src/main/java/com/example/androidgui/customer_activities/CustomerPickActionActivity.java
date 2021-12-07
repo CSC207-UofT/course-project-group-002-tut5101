@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.menu_activities.SeeMenuActivity;
 import com.example.androidgui.order_activities.SelectDineInTakeOutActivity;
+import com.example.androidgui.review_activities.AddReviewCommentActivity;
 
 /**
  * Activity class for the customer to pick action.

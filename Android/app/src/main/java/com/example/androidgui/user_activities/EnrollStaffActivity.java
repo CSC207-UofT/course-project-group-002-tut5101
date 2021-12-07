@@ -1,4 +1,4 @@
-package com.example.androidgui.manager_activities;
+package com.example.androidgui.user_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,11 @@ import android.widget.NumberPicker;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import constant.manager_system.EnrollUserMessage;
 import constant.login_system.LoginLogoutUIMessage;
-import presenter.manager_system.EnrollStaffPresenter;
-import presenter.manager_system.view_interfaces.EnrollStaffViewInterface;
+import presenter.user_system.EnrollStaffPresenter;
+import presenter.user_system.view_interfaces.EnrollStaffViewInterface;
 
 /**
  * Activity class for enrolling new staff.

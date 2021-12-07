@@ -1,8 +1,8 @@
-package presenter.manager_system;
+package presenter.user_system;
 
 
 import constant.manager_system.UserType;
-import presenter.manager_system.view_interfaces.EnrollStaffViewInterface;
+import presenter.user_system.view_interfaces.EnrollStaffViewInterface;
 import use_case.enroll_staff.boundaries.EnrollStaffInputBoundary;
 import use_case.enroll_staff.boundaries.EnrollStaffOutputBoundary;
 import use_case.enroll_staff.EnrollNewStaff;

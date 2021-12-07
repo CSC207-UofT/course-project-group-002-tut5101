@@ -1,4 +1,4 @@
-package com.example.androidgui.customer_activities;
+package com.example.androidgui.review_activities;
 
 import android.os.Bundle;
 import android.view.View;

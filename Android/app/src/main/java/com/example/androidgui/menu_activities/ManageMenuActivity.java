@@ -1,4 +1,4 @@
-package com.example.androidgui.manager_activities;
+package com.example.androidgui.menu_activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -9,9 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
+import com.example.androidgui.manager_activities.ManagerPickActionActivity;
 import constant.manager_system.ManagerUIMessage;
-import presenter.manager_system.ManageMenuPresenter;
-import presenter.manager_system.view_interfaces.ManageMenuViewInterface;
+import presenter.menu_system.ManageMenuPresenter;
+import presenter.menu_system.view_interface.ManageMenuViewInterface;
 
 /**
  * Activity class for the manager to manage menu.

@@ -1,12 +1,12 @@
-package com.example.androidgui.manager_activities;
+package com.example.androidgui.user_activities;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.androidgui.R;
-import presenter.manager_system.view_interfaces.DisplayUsersViewInterface;
-import presenter.manager_system.UserPresenter;
+import presenter.user_system.view_interfaces.DisplayUsersViewInterface;
+import presenter.user_system.UserPresenter;
 
 public class SeeUserActivity extends AppCompatActivity implements DisplayUsersViewInterface {
 

@@ -1,4 +1,4 @@
-package presenter.manager_system;
+package presenter.menu_system;
 
 import use_case.dish_list.DishList;
 

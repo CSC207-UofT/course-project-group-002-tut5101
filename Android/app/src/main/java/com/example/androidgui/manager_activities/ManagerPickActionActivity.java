@@ -6,7 +6,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.MainActivity;
 import com.example.androidgui.R;
-import com.example.androidgui.customer_activities.SeeMenuActivity;
+import com.example.androidgui.menu_activities.ManageMenuActivity;
+import com.example.androidgui.menu_activities.SeeMenuActivity;
+import com.example.androidgui.review_activities.DeleteReviewActivity;
+import com.example.androidgui.review_activities.SeeReviewActivity;
+import com.example.androidgui.user_activities.EnrollStaffActivity;
+import com.example.androidgui.user_activities.SeeUserActivity;
 
 /**
  * Activity class for the manager the pick the activities he or she wants to do.

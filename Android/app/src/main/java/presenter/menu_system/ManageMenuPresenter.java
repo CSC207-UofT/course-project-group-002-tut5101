@@ -1,6 +1,6 @@
-package presenter.manager_system;
+package presenter.menu_system;
 
-import presenter.manager_system.view_interfaces.ManageMenuViewInterface;
+import presenter.menu_system.view_interface.ManageMenuViewInterface;
 import use_case.dish_list.boundaries.ManageMenuOutputBoundary;
 import use_case.dish_list.DishList;
 

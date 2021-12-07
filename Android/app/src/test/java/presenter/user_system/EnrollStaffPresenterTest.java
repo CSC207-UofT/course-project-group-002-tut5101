@@ -1,4 +1,4 @@
-package presenter.manager_system;
+package presenter.user_system;
 
 
 import entity.customer.Customer;
@@ -9,7 +9,7 @@ import entity.kitchen.KitchenStaff;
 import entity.manager.Manager;
 import org.junit.Before;
 import org.junit.Test;
-import presenter.manager_system.view_interfaces.EnrollStaffViewInterface;
+import presenter.user_system.view_interfaces.EnrollStaffViewInterface;
 import use_case.user_list.UserList;
 
 import static org.junit.Assert.assertEquals;

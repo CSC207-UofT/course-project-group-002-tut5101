@@ -1,4 +1,4 @@
-package com.example.androidgui.manager_activities;
+package com.example.androidgui.review_activities;
 
 import android.os.Build;
 import android.os.Bundle;
