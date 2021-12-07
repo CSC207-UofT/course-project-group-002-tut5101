@@ -110,9 +110,9 @@ public class DishListTest {
      */
     @Test
     public void editCalories() {
-        menu.editCalories("Coffee", 1);
+        menu.editCalories("Coffee", 1, 100);
         assertEquals(100, DishList.getDishCalories("Coffee"), 0.1);
-        menu.editCalories("Coffee", 0);
+        menu.editCalories("Coffee", 0, 100);
         assertEquals(0, DishList.getDishCalories("Coffee"), 0.1);
     }
 

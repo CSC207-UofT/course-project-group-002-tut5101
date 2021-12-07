@@ -222,17 +222,17 @@ public class Dish implements Serializable {
     /**
      * decreases the number of calories of the dish by 100
      */
-    public void decreaseCalories() {
+    public void decreaseCalories(double j) {
         double calories = this.calories;
-        this.setCalories(calories - 100);
+        this.setCalories(calories - j);
     }
 
     /**
      * increases the number of calories of the dish by 100
      */
-    public void increaseCalories() {
+    public void increaseCalories(double j) {
         double calories = this.calories;
-        this.setCalories(calories + 100);
+        this.setCalories(calories + j);
     }
 
     /**

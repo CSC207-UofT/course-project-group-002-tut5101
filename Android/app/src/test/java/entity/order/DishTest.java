@@ -181,7 +181,7 @@ public class DishTest {
     @Test(timeout = 50)
     public void testDecreaseCalories() {
         double expected = dish1.getCalories() - 100;
-        dish1.decreaseCalories();
+        dish1.decreaseCalories(100);
         double actual = dish1.getCalories();
         assert(expected == actual);
     }
@@ -192,7 +192,7 @@ public class DishTest {
     @Test
     public void testIncreaseCalories() {
         double expected = dish1.getCalories() + 100;
-        dish1.increaseCalories();
+        dish1.increaseCalories(100);
         double actual = dish1.getCalories();
         assert(expected == actual);
     }

@@ -1,25 +1,25 @@
 package com.example.androidgui.menu_activities;
 
 import android.content.Intent;
-import android.view.View;
-import android.widget.NumberPicker;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
-import constant.manager_system.ManagerDecision;
+import constant.manager_system.DishMessage;
 import constant.manager_system.ManagerUIMessage;
+import presenter.menu_system.EditCaloriesPresenter;
 
-import java.util.Objects;
 
 /**
  * Activity class for editing calories
  */
 public class EditCaloriesActivity extends AppCompatActivity {
-
-    private NumberPicker select;
+    private EditText editTextNumber;
     private TextView askSelection;
-    private String[] selectOption;
+    private EditCaloriesPresenter edit;
 
     /**
      * Activity basic function.
@@ -30,11 +30,10 @@ public class EditCaloriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_calories);
-        select = findViewById(R.id.selectIncreaseOrDecrease);
+        editTextNumber = findViewById(R.id.textNumber);
         askSelection = findViewById(R.id.askSelection);
-
+        this.edit = new EditCaloriesPresenter();
         setupMessage();
-        setupOptions();
     }
 
     /**
@@ -44,29 +43,28 @@ public class EditCaloriesActivity extends AppCompatActivity {
         askSelection.setText(ManagerUIMessage.IncreaseDecrease);
     }
 
-    /**
-     * Setting up options.
-     */
-    private void setupOptions() {
-        selectOption = new String[]{ManagerDecision.ONE.toString(),
-                ManagerDecision.TWO.toString(),
-                ManagerDecision.THREE.toString(),
-                ManagerDecision.FOUR.toString(),
-                ManagerDecision.FIVE.toString(),
-                ManagerDecision.SIX.toString(),};
-        select.setMaxValue(selectOption.length - 1);
-        select.setMinValue(0);
-        select.setDisplayedValues(selectOption);
-    }
 
     /**
      * Next activity
      * @param v v
      */
     public void confirm(View v){
-        String action = selectOption[select.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
+        double number = Double.parseDouble( editTextNumber.getText().toString());
+        AlertDialog alertDlg = new AlertDialog.Builder(this)
+                .setTitle(DishMessage.CONFIRMING)
+                .setMessage(DishMessage.EDIT_MENU)
+                .setPositiveButton(DishMessage.INCREASE, (dialog, which) -> {
+                    edit.increaseCalories(dishName, number);
+                    finish();
+                })
+                .setNegativeButton(DishMessage.DECREASE, (dialog, which) -> {
+                    edit.decreaseCalories(dishName, number);
+                    finish();
+                })
+                .create();
+        alertDlg.show();
 
     }
 
