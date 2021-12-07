@@ -5,6 +5,7 @@ import constant.file_system.FileName;
 import constant.manger_system.DishMessage;
 import constant.manger_system.ManagerDecision;
 import constant.manger_system.ReviewMessage;
+import constant.manger_system.UserType;
 import constant.ui_message.EnrollUserMessage;
 import constant.ui_message.LoginLogoutUIMessage;
 import constant.ui_message.ManagerUIMessage;
@@ -47,6 +48,14 @@ public class ConstantsTest {
         assertEquals(ReviewMessage.DELETE_REVIEW, "Review under this score will be deleted.");
         assertEquals(ReviewMessage.YES, "Yes");
         assertEquals(ReviewMessage.NO, "No");
+    }
+
+    /**
+     * Test user types
+     */
+    @Test
+    public void UserType() {
+        assertEquals(UserType.CUSTOMER, UserType.CUSTOMER);
     }
 
     /**
