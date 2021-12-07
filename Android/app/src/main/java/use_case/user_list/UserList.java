@@ -31,7 +31,7 @@ public class UserList implements Serializable {
      */
     public static HashMap<String, User> users;
     private static final long serialVersionUID = 1L;
-    private static ReadWriter readWriter;
+    private static final ReadWriter readWriter = new GCloudReadWriter();
     private static String filename;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
@@ -186,7 +186,6 @@ public class UserList implements Serializable {
         UserList.filename = filename;
 
         if (users == null || users.isEmpty()) {
-            readWriter = new GCloudReadWriter();
             users = (HashMap<String, User>) readWriter.readFromFile(FileName.USER_FILE);
         }
     }

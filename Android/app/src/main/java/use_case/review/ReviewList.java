@@ -18,7 +18,7 @@ import java.util.Objects;
 public class ReviewList implements Serializable, Iterable<Review>{
     private static HashMap<String, Review> reviews;
     private ReviewOutputBoundary reviewOutputBoundary;
-    private static ReadWriter irw;
+    private static final ReadWriter irw = new GCloudReadWriter();
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private static String filename;
@@ -150,7 +150,6 @@ public class ReviewList implements Serializable, Iterable<Review>{
     public static void setData(String filename) {
         ReviewList.filename = filename;
         if (reviews == null || reviews.isEmpty()) {
-            ReviewList.irw = new GCloudReadWriter();
             reviews = (HashMap<String, Review>) irw.readFromFile(filename);
         }
     }

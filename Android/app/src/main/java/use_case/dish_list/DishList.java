@@ -23,7 +23,7 @@ import java.util.Set;
 public class DishList implements Serializable, Iterable<Dish>{
     public static HashMap<String, Dish> menu;
     private static final long serialVersionUID = 1L;
-    private static ReadWriter readWriter = new GCloudReadWriter();
+    private static final ReadWriter readWriter = new GCloudReadWriter();
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private static String filename = "";
@@ -222,7 +222,6 @@ public class DishList implements Serializable, Iterable<Dish>{
     public static void setData(String filename) {
         DishList.filename = filename;
         if (menu == null || menu.isEmpty()) {
-            readWriter = new GCloudReadWriter();
             menu = (HashMap<String, Dish>) readWriter.readFromFile(FileName.MENU_FILE);
         }
     }

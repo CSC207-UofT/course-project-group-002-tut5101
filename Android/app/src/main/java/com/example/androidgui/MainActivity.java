@@ -1,9 +1,9 @@
 package com.example.androidgui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.androidgui.customer_activities.CustomerPickActionActivity;
 import com.example.androidgui.user_activities.LoginActivity;
 import presenter.main_information.MainActivityPresenter;
