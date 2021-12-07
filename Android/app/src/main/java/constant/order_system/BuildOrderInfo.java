@@ -5,7 +5,9 @@ import android.os.Parcelable;
 
 public enum BuildOrderInfo implements Parcelable {
     ORDER_TYPE, LOCATION, DISHES, PRICES;
-
+    /**
+     * Test order types
+     */
     @Override
     public int describeContents(){
         return 0;
