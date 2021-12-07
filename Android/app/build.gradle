@@ -1,4 +1,6 @@
 //file:noinspection GrUnresolvedAccess
+//file:noinspection GradlePackageUpdate
+//file:noinspection GradlePackageUpdate
 plugins {
     id 'com.android.application'
 }

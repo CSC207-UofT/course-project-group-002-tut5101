@@ -24,7 +24,6 @@ public class CurrentItemPresenterTest {
     private DeliveryStaff deliveryStaff;
 
     Dish dish1;
-    Dish dish2;
 
 
     /**
@@ -43,7 +42,6 @@ public class CurrentItemPresenterTest {
         userList.addUser(deliveryStaff);
 
         dish1 = new Dish("Small fries", 10.0, new HashMap<>(), 200);
-        dish2 = new Dish("Median fries", 10.0, new HashMap<>(), 250);
         HashMap<String, List<Dish>> orderedDishes = new HashMap<>();
         orderedDishes.put("Small fries", Collections.singletonList(dish1));
         order = new DeliveryOrder("Testing123", orderedDishes);
