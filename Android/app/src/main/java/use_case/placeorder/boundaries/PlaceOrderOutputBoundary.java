@@ -1,4 +1,4 @@
-package use_case.placeorder;
+package use_case.placeorder.boundaries;
 /**
  * The output use_case.boundary for Place order presenter.
  */

@@ -7,6 +7,7 @@ import use_case.kitchen.OrderQueue;
 import entity.order.Dish;
 import entity.order.Order;
 import constant.order_system.OrderType;
+import use_case.placeorder.boundaries.PlaceOrderInputBoundary;
 
 import java.util.*;
 
@@ -16,7 +17,7 @@ import java.util.*;
  * by Evelyn Chou
  * 2021-11-03
  */
-public class PlaceOrder implements PlaceOrderInputBoundary{
+public class PlaceOrder implements PlaceOrderInputBoundary {
 
     private final OrderFactory orderFactory;
 

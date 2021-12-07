@@ -1,4 +1,4 @@
-package use_case.placeorder;
+package use_case.placeorder.boundaries;
 
 import constant.order_system.OrderType;
 
