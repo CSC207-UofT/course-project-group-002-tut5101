@@ -14,7 +14,7 @@ import constant.manager_system.DishMessage;
 import constant.manager_system.ManagerDecision;
 import constant.manager_system.ManagerUIMessage;
 import presenter.manager_system.EditDeletePresenter;
-import presenter.menu_system.SelectEditViewInterface;
+import presenter.menu_system.view_interfaces.SelectEditViewInterface;
 
 import java.util.Objects;
 

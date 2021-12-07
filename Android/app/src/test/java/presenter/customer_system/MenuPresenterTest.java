@@ -3,7 +3,7 @@ package presenter.customer_system;
 import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
-import presenter.menu_system.DisplayMenuViewInterface;
+import presenter.menu_system.view_interfaces.DisplayMenuViewInterface;
 import presenter.menu_system.MenuPresenter;
 import use_case.dish_list.DishList;
 import java.util.HashMap;
