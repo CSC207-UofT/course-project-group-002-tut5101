@@ -12,12 +12,12 @@ import java.util.Objects;
 public class UserLogin {
 
     /**
-     * use case output boundary attribute
+     * Use case output boundary attribute
      */
     private LoginOutputBoundary outputBoundary;
 
     /**
-     * set output boundary for soft dependency
+     * Set output boundary for soft dependency
      *
      * @param loginOutputBoundary output boundary to presenter
      */

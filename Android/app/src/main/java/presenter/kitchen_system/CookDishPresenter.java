@@ -111,9 +111,9 @@ public class CookDishPresenter implements KitchenOutputBoundary {
 
         for (String dish: ingredientInfo.keySet()) {
             int oriQuantity = InventoryList.getTotalQuantity(dish);
-            Integer tempint = ingredientInfo.get(dish);
-            if (tempint != null) {
-                int temp = tempint;
+            Integer dishIngredientInfo = ingredientInfo.get(dish);
+            if (dishIngredientInfo != null) {
+                int temp = dishIngredientInfo;
                 if (temp != 0) {
                     this.inventory.setQuantity(dish, oriQuantity - temp);
                 }

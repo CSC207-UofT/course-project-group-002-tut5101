@@ -11,7 +11,6 @@ import use_case.kitchen.boundary.KitchenOutputBoundary;
 
 /**
  * The kitchen use case in the restaurant.
- *
  * Author: Raymond
  */
 
@@ -31,7 +30,7 @@ public class CookDish {
      *
      * @return if the Kitchen actually gets a new order.
      */
-    public boolean getNextToCook(){
+    public boolean getNextToCook() {
         currentOrder = OrderQueue.getNextOrder();
         return !(currentOrder == null);
     }
@@ -55,6 +54,8 @@ public class CookDish {
 
 
     /**
+     * Return true if the order status is completed.
+     *
      * @return whether the Kitchen completed its current order.
      */
     private boolean orderCompleted() {
@@ -63,6 +64,8 @@ public class CookDish {
 
 
     /**
+     * Return true if the kitchen is occupied.
+     *
      * @return whether the kitchen is occupied (has an order to work on)
      */
     private boolean occupied() {
@@ -71,13 +74,12 @@ public class CookDish {
 
 
     /**
-     *
      * 1. If there is an incomplete one, return true.
      * 2. If the current one is complete, and a new one was able to obtain, return true. Otherwise,
      * return false.
      * 3. If there is no order, and a new one was able to obtain, return true. Otherwise,
      * return false.
-     *
+     * <p>
      * dishes is updated whenever a new order is obtained for Kitchen.
      *
      * @return whether a new order is obtained.

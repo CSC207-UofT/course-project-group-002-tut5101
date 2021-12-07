@@ -1,7 +1,7 @@
 package use_case.review;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
-import com.example.androidgui.review_activities.DeleteReviewActivity;
+import com.example.android.review_activities.DeleteReviewActivity;
 import constant.file_system.FileName;
 import entity.review.Review;
 import org.junit.Before;

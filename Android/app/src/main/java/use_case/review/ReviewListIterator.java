@@ -20,7 +20,7 @@ public class ReviewListIterator implements Iterator<Review> {
     /**
      * Constructor for this iterator.
      */
-    public ReviewListIterator(){
+    public ReviewListIterator() {
         reviewList = ReviewList.getAllReviews();
         lstReviews = new ArrayList<>(reviewList.keySet());
     }

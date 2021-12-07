@@ -140,7 +140,7 @@ public class UserList implements Serializable {
     }
 
     /**
-     * method to add staffs.
+     * Add new staff to user list.
      *
      * @param id       id of the new staff.
      * @param name     name  of the new staff.

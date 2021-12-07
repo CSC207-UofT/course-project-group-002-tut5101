@@ -7,7 +7,7 @@ import entity.user.User;
  * By Dedong xie (1006702944)
  * 2021-10-10
  */
-
+@SuppressWarnings("SpellCheckingInspection")
 public class Staff extends User {
 
     /**

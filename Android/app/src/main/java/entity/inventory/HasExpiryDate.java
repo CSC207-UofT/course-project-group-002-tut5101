@@ -20,7 +20,7 @@ public class HasExpiryDate extends Inventory implements Serializable {
      * @param name The name of the Inventory
      * @param price The buy in price of the Inventory
      * @param quantity The quantity of the Inventory
-     * @param ExpiryDate The ExiryDate of the Product
+     * @param ExpiryDate The ExpiryDate of the Product
      */
 
     public HasExpiryDate(String name, double price, int quantity, int ExpiryDate){
