@@ -15,6 +15,7 @@ public class UpdateQuantityPresenterTest {
     /**
      * Setup before tests
      */
+    @SuppressWarnings("SpellCheckingInspection")
     @Before
     public void setUp() {
         update = new UpdateQuantityPresenter();
@@ -26,7 +27,7 @@ public class UpdateQuantityPresenterTest {
      * Test the showInfo method
      */
     @Test
-    public void TestshowInfo1(){
+    public void TestShowInfo1(){
         TestClass testView = new TestClass("wrong name");
         update.setUpdateQuantityInterface(testView);
         update.showInfo("Air","1");
@@ -34,7 +35,7 @@ public class UpdateQuantityPresenterTest {
     }
 
     @Test
-    public void TestshowInfo2(){
+    public void TestShowInfo2(){
         TestClass testView = new TestClass("Not enough");
         update.setUpdateQuantityInterface(testView);
         update.showInfo("Carrot","10000000");
@@ -42,7 +43,7 @@ public class UpdateQuantityPresenterTest {
     }
 
     @Test
-    public void TestshowInfo3(){
+    public void TestShowInfo3(){
         TestClass testView = new TestClass("Successfully updated");
         update.setUpdateQuantityInterface(testView);
         update.showInfo("Carrot","-1");
@@ -52,7 +53,7 @@ public class UpdateQuantityPresenterTest {
      * Test the getMessage method
      */
     @Test
-    public void TestgetMessage(){
+    public void TestGetMessage(){
         String message = "11";
         assertEquals(message,update.getMessage(message));
     }
@@ -61,9 +62,10 @@ public class UpdateQuantityPresenterTest {
      * Empty fake presenter class implementing the view interface
      */
     private static class TestClass implements UpdateQuantityInterface {
-        String checkmessage;
+        String checkMessage;
 
-        private TestClass(String info){checkmessage = info;}
+        private TestClass(String info){
+            checkMessage = info;}
         /**
          * test use
          *
@@ -71,7 +73,7 @@ public class UpdateQuantityPresenterTest {
          */
         @Override
         public void popInfo(String message) {
-            assertEquals(checkmessage, message);
+            assertEquals(checkMessage, message);
         }
     }
 }
