@@ -5,5 +5,8 @@ package constant.login_system;
  */
 
 public enum LoginResult {
+    /**
+     * The messages defined in LoginLogoutMessage.
+     */
     SUCCESS, FAILURE, NO_SUCH_USER
 }

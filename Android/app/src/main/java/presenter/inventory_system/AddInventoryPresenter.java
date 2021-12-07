@@ -1,6 +1,6 @@
 package presenter.inventory_system;
 
-import presenter.inventory_system.view_interfaces.AddinventoryViewInterface;
+import presenter.inventory_system.view_interfaces.AddInventoryViewInterface;
 import use_case.inventory.InventoryFactory;
 import use_case.inventory.InventoryList;
 
@@ -8,18 +8,18 @@ import use_case.inventory.InventoryList;
  * Controls the process for adding new inventory.
  */
 public class AddInventoryPresenter {
-    private AddinventoryViewInterface addinventoryViewInterface;
-    private final InventoryFactory infc = new InventoryFactory();
+    private AddInventoryViewInterface addInventoryViewInterface;
+    private final InventoryFactory inventory = new InventoryFactory();
     private final InventoryList inventoryList = new InventoryList();
 
 
 
     /**
      * Set the view interface
-     * @param addinventoryViewInterface the view interface
+     * @param addInventoryViewInterface the view interface
      */
-    public void setAddInventoryViewInterface(AddinventoryViewInterface addinventoryViewInterface) {
-        this.addinventoryViewInterface = addinventoryViewInterface;
+    public void setAddInventoryViewInterface(AddInventoryViewInterface addInventoryViewInterface) {
+        this.addInventoryViewInterface = addInventoryViewInterface;
     }
     /**
      * Add a new Inventory item
@@ -37,7 +37,7 @@ public class AddInventoryPresenter {
         }
         else{para = name+","+price+","+amount+","+freshness+","+date;}
         String[] paras = para.split(",");
-        String message = this.inventoryList.addFromFactory(this.infc, paras);
-        this.addinventoryViewInterface.updateInventoryList(message);
+        String message = this.inventoryList.addFromFactory(this.inventory, paras);
+        this.addInventoryViewInterface.updateInventoryList(message);
     }
 }

@@ -2,6 +2,9 @@ package presenter.kitchen_system;
 
 import java.util.ArrayList;
 
+/**
+ * Interface for cooking dish
+ */
 public interface CookDishView {
 
     /**

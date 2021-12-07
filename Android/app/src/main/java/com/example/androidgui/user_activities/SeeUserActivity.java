@@ -8,6 +8,9 @@ import com.example.androidgui.R;
 import presenter.user_system.view_interfaces.DisplayUsersViewInterface;
 import presenter.user_system.UserPresenter;
 
+/**
+ * Activity class for seeing user.
+ */
 public class SeeUserActivity extends AppCompatActivity implements DisplayUsersViewInterface {
 
     @Override

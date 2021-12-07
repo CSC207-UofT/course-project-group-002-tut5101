@@ -13,6 +13,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * GCloud read writer class
+ */
 public class GCloudReadWriter implements ReadWriter {
 
     /**
