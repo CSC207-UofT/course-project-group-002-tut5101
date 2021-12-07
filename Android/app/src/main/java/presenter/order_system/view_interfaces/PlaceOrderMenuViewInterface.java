@@ -1,4 +1,4 @@
-package presenter.order_system;
+package presenter.order_system.view_interfaces;
 /**
  * ViewInterface of place order with menu
  */

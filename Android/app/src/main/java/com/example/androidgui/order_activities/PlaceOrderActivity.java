@@ -15,9 +15,9 @@ import constant.customer_system.CustomerUIMessage;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
 import presenter.order_system.PlaceOrderMenuPresenter;
-import presenter.order_system.PlaceOrderMenuViewInterface;
+import presenter.order_system.view_interfaces.PlaceOrderMenuViewInterface;
 import presenter.order_system.PlaceOrderPresenter;
-import presenter.order_system.PlaceOrderViewInterface;
+import presenter.order_system.view_interfaces.PlaceOrderViewInterface;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
