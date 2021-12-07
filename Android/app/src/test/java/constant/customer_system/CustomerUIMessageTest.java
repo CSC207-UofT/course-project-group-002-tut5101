@@ -2,7 +2,7 @@ package constant.customer_system;
 
 import org.junit.Test;
 
-import static constant.customer_system.CustomerUIMessage.*;
+import static constant.order_system.CustomerUIMessage.*;
 import static org.junit.Assert.*;
 
 public class CustomerUIMessageTest {
