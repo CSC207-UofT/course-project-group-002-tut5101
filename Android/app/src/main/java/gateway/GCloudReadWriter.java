@@ -1,7 +1,6 @@
 package gateway;
 
 import android.content.Context;
-import android.util.Log;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
@@ -42,7 +41,7 @@ public class GCloudReadWriter implements ReadWriter {
                 input.close();
                 latch.countDown();
             } catch (IOException | ClassNotFoundException e) {
-                Log.d("MyTag", e.toString());
+                e.printStackTrace();
             }
         }).start();
 
