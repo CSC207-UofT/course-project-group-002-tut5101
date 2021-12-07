@@ -9,14 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidgui.R;
 import constant.manager_system.ManagerDecision;
 import constant.manager_system.ManagerUIMessage;
-import presenter.menu_system.view_interface.SelectPriceOrCaloriesViewInterface;
 
 import java.util.Objects;
 
 /**
  * Activity class for editing price or calories
  */
-public class SelectPriceOrCaloriesActivity extends AppCompatActivity implements SelectPriceOrCaloriesViewInterface {
+public class SelectPriceOrCaloriesActivity extends AppCompatActivity {
 
     private NumberPicker select;
     private TextView askSelection;
