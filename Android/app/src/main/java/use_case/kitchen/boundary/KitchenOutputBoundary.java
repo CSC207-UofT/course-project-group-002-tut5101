@@ -1,4 +1,4 @@
-package use_case.kitchen;
+package use_case.kitchen.boundary;
 
 import java.util.HashMap;
 /**

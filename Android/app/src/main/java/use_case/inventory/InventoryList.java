@@ -1,4 +1,4 @@
-package use_case.kitchen;
+package use_case.inventory;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -7,8 +7,8 @@ import entity.inventory.HasFreshness;
 import entity.inventory.Inventory;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
-import use_case.inventory_factory.InventoryOutputBoundary;
-import use_case.inventory_factory.InventoryFactory;
+import use_case.inventory.boundary.InventoryOutputBoundary;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;

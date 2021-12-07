@@ -5,8 +5,9 @@ import constant.file_system.FileName;
 import entity.inventory.HasExpiryDate;
 import entity.inventory.HasFreshness;
 import org.junit.Test;
-import use_case.inventory_factory.InventoryFactory;
-import use_case.inventory_factory.InventoryOutputBoundary;
+import use_case.inventory.InventoryFactory;
+import use_case.inventory.InventoryList;
+import use_case.inventory.boundary.InventoryOutputBoundary;
 
 import static org.junit.Assert.*;
 
