@@ -32,7 +32,7 @@ public enum OrderType implements Parcelable {
     /**
      * New creator.
      */
-    public static final Creator<OrderType> CREATOR = new Creator<>() {
+    public static final Creator<OrderType> CREATOR = new Creator<OrderType>() {
         /**
          * overriding method
          *

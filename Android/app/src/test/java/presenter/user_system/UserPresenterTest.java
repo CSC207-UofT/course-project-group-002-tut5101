@@ -16,7 +16,6 @@ import use_case.user_list.UserList;
  */
 public class UserPresenterTest {
     private UserPresenter userPresenter;
-    private UserList userList;
 
     /**
      * Setup before tests
@@ -34,7 +33,7 @@ public class UserPresenterTest {
      * Generate list of users for testing
      */
     private void generateUserList() {
-        userList = new UserList();
+        UserList userList = new UserList();
         userList.reset();
         userList.addUser(new Manager());
         userList.addUser(new Customer("1", "James", "12345"));

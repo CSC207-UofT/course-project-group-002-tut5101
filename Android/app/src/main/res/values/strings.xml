@@ -16,7 +16,6 @@
 
     <string name="serve_dish_header">Dish Serve System</string>
     <string name="delete_review">Delete Review</string>
-    <string name="add_staff">Add Staff</string>
     <string name="review_title">Reviews</string>
     <string name="see_review">See Review</string>
     <string name="confirm">Confirm</string>
@@ -27,27 +26,21 @@
     <string name="no_current_order">No current order</string>
 
     <string name="title_activity_deliver_order">DeliverOrderActivity</string>
-    <string name="title_activity_maps">Map</string>
     <string name="header">Header</string>
-    <string name="logout_button_text">Logout</string>
     <string name="view_current_order">View Current Order</string>
     <string name="get_next_order">Get Next Order</string>
     <string name="return_button">Return</string>
     <string name="completed_order">Completed Order</string>
     <string name="get_next_dish">Get Next Dish</string>
     <string name="view_current_dish">View Current Dish</string>
-    <string name="logout_button">Logout</string>
     <string name="complete_serve">Complete Serve</string>
     <string name="dish_names">Dish Names</string>
     <string name="quantity">Quantity</string>
     <string name="edit_order">Edit Order</string>
-    <string name="location">Location</string>
     <string name="enter_table_number_or_address">Enter Table# or Address</string>
     <string name="select_dish_to_remove">Select the dish you would like to remove from your order</string>
     <string name="remove_dish">Remove dish</string>
     <string name="done">Done</string>
-    <string name="order_placed_message">Your order was successfully placed</string>
-    <string name="return_main_menu">Return to Main Menu</string>
     <string name="userId">User ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -60,19 +53,14 @@
     <string name="enter_name">Enter Name</string>
     <string name="re_enter_password">Re-enter Password</string>
     <string name="pick_user_type">Pick User Type</string>
-    <string name="enter_salary">Enter Salary</string>
     <string name="name_of_inventory">Name of Inventory Item</string>
     <string name="welcome_manager">Welcome, Manager</string>
     <string name="manage_menu">Manage Menu</string>
     <string name="price">Price</string>
     <string name="quantity_in_kg">Quantity in kg</string>
-    <string name="date_import_or_expiry_eg_20201212">Date(Import or Expiry eg 20201212)</string>
     <string name="freshness_notes">Freshness(enter N/A when do not have in a,b,c,d)</string>
-    <string name="add">Add</string>
     <string name="freshness">Freshness Level</string>
     <string name="update">Update</string>
-    <string name="name">Name</string>
-    <string name="usage">Usage</string>
     <string name="add_inventory">Add Inventory</string>
     <string name="check_info">Check info</string>
     <string name="update_amount">Update amount</string>
@@ -95,12 +83,9 @@
     <string name="dine_in_or_delivery">Is this order Dine In or Delivery?</string>
     <string name="show_map">Show Map</string>
     <string name="MessageNewDishArrived">New dish arrived!</string>
-    <string name="add_identity">Add your Identity</string>
     <string name="Name">Name</string>
     <string name="date_import_expiry">Date import/expiry</string>
     <string name="enter_usage">Enter number of usage</string>
-    <string name="Cooked">cooked</string>
-    <string name="upload">Upload</string>
     <string name="inventory_item_name">Inventory Item Name</string>
     <string name="number_of_usage_note">Enter a positive number to deduct the inventory amount, a negative number to
         increase inventory.
