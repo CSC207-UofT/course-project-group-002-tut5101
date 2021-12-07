@@ -1,7 +1,7 @@
 package presenter.review_system;
 
 import constant.manager_system.ManagerDecision;
-import use_case.review.DeleteReviewInputBoundary;
+import use_case.review.boundaries.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
 
 import java.util.Objects;

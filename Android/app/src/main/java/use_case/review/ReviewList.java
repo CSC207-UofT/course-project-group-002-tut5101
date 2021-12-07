@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import entity.review.Review;
 import gateway.GCloudReadWriter;
 import gateway.ReadWriter;
+import use_case.review.boundaries.ReviewOutputBoundary;
 
 import java.io.Serializable;
 import java.util.HashMap;

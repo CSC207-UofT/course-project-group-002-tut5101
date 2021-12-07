@@ -1,4 +1,4 @@
-package use_case.review;
+package use_case.review.boundaries;
 /**
  * The output use_case.boundary for review presenter.
  */

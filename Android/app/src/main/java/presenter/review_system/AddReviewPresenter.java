@@ -1,6 +1,6 @@
 package presenter.review_system;
 
-import use_case.review.AddReviewInputBoundary;
+import use_case.review.boundaries.AddReviewInputBoundary;
 import use_case.review.AddReviewUseCase;
 
 /**
