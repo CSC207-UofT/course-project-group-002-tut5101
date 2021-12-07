@@ -15,7 +15,7 @@ public class DeliveryBufferTest {
 
     @Before
     public void setUp() {
-        DeliveryBuffer.deliveryBuffer = new ArrayDeque<>();
+        DeliveryBuffer.setDeliveryBuffer(new ArrayDeque<>());
         testOrder = new DeliveryOrder("1", new HashMap<>());
     }
 
