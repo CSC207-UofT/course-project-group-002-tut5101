@@ -11,6 +11,7 @@ import com.example.androidgui.R;
 /**
  * Activity class for delivery staff.
  */
+@SuppressWarnings("ALL")
 public class DeliveryStaffPickActionActivity extends AppCompatActivity {
     private String id;
 

@@ -19,6 +19,7 @@ import presenter.review_system.DeleteReviewPresenter;
  *
  * Activity class for deleting reviews.
  */
+@SuppressWarnings("unused")
 public class DeleteReviewActivity extends AppCompatActivity {
     private NumberPicker selectAction;
     private String[] managerDecision;

@@ -11,7 +11,9 @@ import presenter.review_system.AddReviewPresenter;
 /**
  * Activity class for adding use_case.review.
  */
+@SuppressWarnings("unused")
 public class AddReviewCommentActivity extends AppCompatActivity{
+    @SuppressWarnings("unused")
     Button button;
     EditText editTextName;
     EditText editTextIfAnonymous;

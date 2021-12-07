@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("CanBeFinal")
 public abstract class Inventory implements Serializable {
+    @SuppressWarnings("unused")
     protected int id;
     protected String name;
     protected boolean usedUp;
