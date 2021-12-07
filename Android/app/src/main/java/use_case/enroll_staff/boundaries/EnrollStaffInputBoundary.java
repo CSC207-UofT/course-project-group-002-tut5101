@@ -1,4 +1,4 @@
-package use_case.enroll_staff;
+package use_case.enroll_staff.boundaries;
 
 import constant.manager_system.UserType;
 

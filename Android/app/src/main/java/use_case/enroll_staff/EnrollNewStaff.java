@@ -1,6 +1,8 @@
 package use_case.enroll_staff;
 
 import constant.manager_system.UserType;
+import use_case.enroll_staff.boundaries.EnrollStaffInputBoundary;
+import use_case.enroll_staff.boundaries.EnrollStaffOutputBoundary;
 import use_case.user_list.UserList;
 
 /**

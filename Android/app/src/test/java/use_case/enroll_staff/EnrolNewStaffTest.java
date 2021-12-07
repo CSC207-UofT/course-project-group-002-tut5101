@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import use_case.enroll_staff.boundaries.EnrollStaffOutputBoundary;
 import use_case.user_list.UserList;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package use_case.enroll_staff;
+package use_case.enroll_staff.boundaries;
 
 /**
  * Output Boundary for enroll staff use case to presenter
