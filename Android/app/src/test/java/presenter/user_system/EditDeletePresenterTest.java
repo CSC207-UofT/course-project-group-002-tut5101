@@ -30,7 +30,7 @@ public class EditDeletePresenterTest {
      * Test the dishesInMenuAsString method
      */
     @Test
-    public void deleteDishByName(){
+    public void deleteDishByName() {
         deleteDishByName.deleteDishByName("dish2");
     }
 
@@ -38,7 +38,7 @@ public class EditDeletePresenterTest {
      * Test the increasePrice method
      */
     @Test
-    public void increasePrice(){
+    public void increasePrice() {
         deleteDishByName.increasePrice("dish2");
     }
 
@@ -46,7 +46,7 @@ public class EditDeletePresenterTest {
      * Test the decreasePrice method
      */
     @Test
-    public void decreasePrice(){
+    public void decreasePrice() {
         deleteDishByName.decreasePrice("dish2");
     }
 
@@ -54,7 +54,7 @@ public class EditDeletePresenterTest {
      * Test the decreaseCalories
      */
     @Test
-    public void decreaseCalories(){
+    public void decreaseCalories() {
         deleteDishByName.decreaseCalories("dish2");
     }
 
@@ -62,7 +62,7 @@ public class EditDeletePresenterTest {
      * Test the increaseCalories
      */
     @Test
-    public void increaseCalories(){
+    public void increaseCalories() {
         deleteDishByName.increaseCalories("dish2");
     }
 

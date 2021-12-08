@@ -5,7 +5,8 @@ import org.junit.Test;
 import presenter.inventory_system.view_interfaces.UpdateQuantityInterface;
 import use_case.inventory.InventoryList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 /**
  * Testing the CheckInventoryPresenter.
  */
@@ -27,39 +28,42 @@ public class UpdateQuantityPresenterTest {
      * Test the showInfo method for non-existing item
      */
     @Test
-    public void TestShowInfo1(){
+    public void TestShowInfo1() {
         TestClass testView = new TestClass("wrong name");
         update.setUpdateQuantityInterface(testView);
-        update.showInfo("Air","1");
+        update.showInfo("Air", "1");
 
     }
+
     /**
      * Test the showInfo method for not enough usage
      */
     @Test
-    public void TestShowInfo2(){
+    public void TestShowInfo2() {
         TestClass testView = new TestClass("Not enough");
         update.setUpdateQuantityInterface(testView);
-        update.showInfo("Carrot","10000000");
+        update.showInfo("Carrot", "10000000");
 
     }
+
     /**
      * Test the showInfo method for enough usage
      */
     @Test
-    public void TestShowInfo3(){
+    public void TestShowInfo3() {
         TestClass testView = new TestClass("Successfully updated");
         update.setUpdateQuantityInterface(testView);
-        update.showInfo("Carrot","-1");
+        update.showInfo("Carrot", "-1");
 
     }
+
     /**
      * Test the getMessage method
      */
     @Test
-    public void TestGetMessage(){
+    public void TestGetMessage() {
         String message = "11";
-        assertEquals(message,update.getMessage(message));
+        assertEquals(message, update.getMessage(message));
     }
 
     /**
@@ -68,8 +72,10 @@ public class UpdateQuantityPresenterTest {
     private static class TestClass implements UpdateQuantityInterface {
         final String checkMessage;
 
-        private TestClass(String info){
-            checkMessage = info;}
+        private TestClass(String info) {
+            checkMessage = info;
+        }
+
         /**
          * test use
          *

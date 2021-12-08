@@ -12,7 +12,10 @@ import org.junit.Before;
 import org.junit.Test;
 import use_case.inventory.InventoryList;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Test the OrderQueue class
@@ -34,7 +37,7 @@ public class OrderQueueTest {
         Inventory hasExpiryDate = new HasExpiryDate("Potato", 40.0, 0, 20220731);
         InventoryList inventoryList = new InventoryList();
         InventoryList.setContext(new Activity());
-        InventoryList.setData("TEST"+FileName.INVENTORY_FILE);
+        InventoryList.setData("TEST" + FileName.INVENTORY_FILE);
 
         inventoryList.addInventory(hasExpiryDate);
         String location = "1";
@@ -83,38 +86,33 @@ public class OrderQueueTest {
         try {
             OrderQueue.addOrder(dineInOrder);
             assert false;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert true;
         }
         try {
             OrderQueue.addOrder(sameDishOrder);
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
 
         try {
             OrderQueue.addOrder(ingredientOrder);
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
 
         try {
             OrderQueue.addOrder(emptyOrder);
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
         try {
             OrderQueue.addOrder(sufficientIngredients);
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
     }

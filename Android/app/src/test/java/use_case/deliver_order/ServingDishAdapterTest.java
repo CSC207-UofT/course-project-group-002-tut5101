@@ -57,10 +57,9 @@ public class ServingDishAdapterTest {
         } catch (Exception e) {
             assert true;
         }
-        try{
+        try {
             serveDish.delivered("1");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assert false;
         }
         try {
@@ -69,10 +68,9 @@ public class ServingDishAdapterTest {
             assert true;
         }
         // empty out the serving buffer
-        try{
+        try {
             serveDish.delivered("1");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assert false;
         }
         try {
@@ -94,12 +92,10 @@ public class ServingDishAdapterTest {
         serveDish.getItemInfo("1");
         try {
             serveDish.getToBeDeliver("1");
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assertFalse(false);
         }
     }
-
 
 
     /**

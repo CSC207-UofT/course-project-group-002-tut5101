@@ -10,8 +10,6 @@ import static org.junit.Assert.assertNotNull;
 public class OrderTypeTest {
 
 
-
-
     @Test
     public void values() {
         OrderType[] values = OrderType.values();

@@ -81,11 +81,11 @@ public class DishTest {
     public void testGetSetPrice() {
         dish1.setPrice(2000);
         double price = dish1.getPrice();
-        assert(2000 == price);
+        assert (2000 == price);
 
         dish2.setPrice(5.50);
         double price2 = dish2.getPrice();
-        assert(5.50 == price2);
+        assert (5.50 == price2);
     }
 
     /**
@@ -123,7 +123,7 @@ public class DishTest {
     public void testGetSetCalories() {
         dish1.setCalories(20.0);
         double actual = dish1.getCalories();
-        assert(20.0 == actual);
+        assert (20.0 == actual);
     }
 
     /**
@@ -160,7 +160,7 @@ public class DishTest {
         double expected = dish1.getPrice() + 1;
         dish1.increasePrice(1);
         double actual = dish1.getPrice();
-        assert(expected == actual);
+        assert (expected == actual);
     }
 
     /**
@@ -172,7 +172,7 @@ public class DishTest {
         double expected = dish1.getPrice() - 1;
         dish1.decreasePrice(1);
         double actual = dish1.getPrice();
-        assert(expected == actual);
+        assert (expected == actual);
     }
 
     /**
@@ -183,7 +183,7 @@ public class DishTest {
         double expected = dish1.getCalories() - 100;
         dish1.decreaseCalories(100);
         double actual = dish1.getCalories();
-        assert(expected == actual);
+        assert (expected == actual);
     }
 
     /**
@@ -194,7 +194,7 @@ public class DishTest {
         double expected = dish1.getCalories() + 100;
         dish1.increaseCalories(100);
         double actual = dish1.getCalories();
-        assert(expected == actual);
+        assert (expected == actual);
     }
 
     /**
@@ -210,9 +210,8 @@ public class DishTest {
         ingredient1.put("Garlic", 15);
 
         Dish newDish = new Dish("MaPoTouFu", 12.5, ingredient1, 200);
-        assert(newDish.equals(dish1));
+        assert (newDish.equals(dish1));
     }
-
 
 
 }

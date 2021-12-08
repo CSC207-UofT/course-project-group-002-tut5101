@@ -1,15 +1,17 @@
 package use_case.deliver_order;
 
 import entity.delivery.DeliveryStaff;
-import entity.order.Order;
 import entity.order.DeliveryOrder;
+import entity.order.Order;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.deliver_order.boundaries.StaffDeliveryOutputBoundary;
 import use_case.user_list.UserList;
-import static org.junit.Assert.*;
 
 import java.util.HashMap;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -49,10 +51,9 @@ public class DeliverOrderTest {
         } catch (Exception e) {
             assert true;
         }
-        try{
+        try {
             deliver.delivered("1");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assert false;
         }
         try {
@@ -72,15 +73,13 @@ public class DeliverOrderTest {
         deliver.getItemInfo("1");
         try {
             deliver.getToBeDeliver("1");
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assertFalse(false);
         }
         deliver.getItemInfo("1");
     }
 
     /**
-     *
      * Testing delivered method.
      */
     @Test

@@ -3,11 +3,12 @@ package constant.order_system;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 @SuppressWarnings("ALL")
 public class BuildOrderInfoTest {
     Object o;
+
     /**
      * Set the build order information
      */
@@ -15,6 +16,7 @@ public class BuildOrderInfoTest {
     public void setUp() {
         o = BuildOrderInfo.CREATOR;
     }
+
     /**
      * Test the existence of info
      */
@@ -23,6 +25,7 @@ public class BuildOrderInfoTest {
         BuildOrderInfo[] values = BuildOrderInfo.values();
         assertNotNull(values);
     }
+
     /**
      * Test order types
      */

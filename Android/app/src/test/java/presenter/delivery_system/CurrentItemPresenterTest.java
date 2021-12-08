@@ -56,12 +56,11 @@ public class CurrentItemPresenterTest {
     public void completeCurrent() {
         servingStaff.setCurrentDish(dish1);
         deliveryStaff.setCurrentOrder(order);
-        try{
+        try {
             staff.completeCurrent("6");
             staff.completeCurrent("7");
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
     }
@@ -77,15 +76,13 @@ public class CurrentItemPresenterTest {
             staff.displayCurrent("6");
             staff.displayCurrent("7");
             assert true;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert false;
         }
-        try{
+        try {
             staff.displayCurrent("1");
             assert false;
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
             assert true;
         }
     }
@@ -94,8 +91,8 @@ public class CurrentItemPresenterTest {
      * Test the getNext method
      */
     @Test
-    public void setCurrentItemInfo(){
-        staff.setCurrentItemInfo("Toronto","school");
+    public void setCurrentItemInfo() {
+        staff.setCurrentItemInfo("Toronto", "school");
     }
 
     /**
@@ -104,7 +101,6 @@ public class CurrentItemPresenterTest {
     private static class TestClass implements StaffViewInterface {
 
         /**
-         *
          * @param info information.
          */
         @Override

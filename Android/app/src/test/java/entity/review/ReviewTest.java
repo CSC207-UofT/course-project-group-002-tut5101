@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for Review Class
- *
  */
 public class ReviewTest {
     private Review review1;

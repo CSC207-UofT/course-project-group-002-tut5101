@@ -48,8 +48,7 @@ public class ServingStaffTest {
         setUp();
         try {
             servingStaff.completeServingDish();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assertFalse(false);
         }
 
@@ -58,8 +57,7 @@ public class ServingStaffTest {
 
         try {
             servingStaff.completeServingDish();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             fail();
         }
 

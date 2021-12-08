@@ -1,14 +1,13 @@
 package use_case.customer;
 
 
-
 import android.app.Activity;
 import constant.file_system.FileName;
+import constant.order_system.OrderType;
 import entity.order.Dish;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;
-import constant.order_system.OrderType;
 import use_case.placeorder.PlaceOrder;
 
 import java.util.HashMap;
@@ -26,7 +25,7 @@ public class PlaceOrderTest {
     @Before
     public void setUp() {
         DishList.setContext(new Activity());
-        DishList.setData("TEST"+ FileName.MENU_FILE);
+        DishList.setData("TEST" + FileName.MENU_FILE);
 
         menu.addDish(new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Quarter pound with 2 cheese", 10.0, new HashMap<>(), 400));
@@ -50,33 +49,32 @@ public class PlaceOrderTest {
         Dish quarterPoundWithCheese = new Dish("Quarter pound with cheese", 10.0, new HashMap<>(), 200);
         Dish dishCopy = placeOrder.generateDishCopy("Quarter pound with cheese", "None", OrderType.DELIVERY);
 
-        assert(quarterPoundWithCheese.equals(dishCopy));
+        assert (quarterPoundWithCheese.equals(dishCopy));
     }
-
 
 
     /**
      * Test placing a Dine In order with table number
      */
     @Test(timeout = 50)
-    public void testPlaceOrderDineInTrue(){
+    public void testPlaceOrderDineInTrue() {
         String[] dishNames = new String[]{"Quarter pound with cheese", "Small fries", "Coke"};
         String[] dishNames2 = new String[]{"Coke", "Coke"};
         String location = "1";
 
-        try{
+        try {
             placeOrder.placeOrder(OrderType.DINE_IN, dishNames, location);
             assert true;
         } catch (Exception ignored) {
             assert false;
         }
-        try{
+        try {
             placeOrder.placeOrder(OrderType.DINE_IN, dishNames2, location);
             assert true;
         } catch (Exception ignored) {
             assert false;
         }
-        try{
+        try {
             placeOrder.placeOrder(OrderType.DINE_IN, dishNames, "blah");
             assert false;
         } catch (Exception ignored) {
@@ -85,16 +83,15 @@ public class PlaceOrderTest {
     }
 
 
-
     /**
      * Test placing a delivery order with table number
      */
     @Test
-    public void testPlaceOrderDineInFalse(){
+    public void testPlaceOrderDineInFalse() {
         String[] dishNames = new String[]{"Quarter pound with cheese", "Small fries", "Coke"};
         String location = "Toronto, ON";
 
-        try{
+        try {
             placeOrder.placeOrder(OrderType.DELIVERY, dishNames, location);
             assert true;
         } catch (Exception ignored) {
@@ -102,7 +99,6 @@ public class PlaceOrderTest {
         }
 
     }
-
 
 
 }

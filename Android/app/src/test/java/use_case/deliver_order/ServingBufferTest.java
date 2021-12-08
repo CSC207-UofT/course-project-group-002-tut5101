@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ServingBufferTest {
     private Dish testDish;
@@ -15,7 +15,7 @@ public class ServingBufferTest {
      * Set up for the test
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         testDish = new Dish("1", 10, new HashMap<>(), 10);
     }
 
@@ -44,5 +44,7 @@ public class ServingBufferTest {
      * Test to reset the buffer
      */
     @Test
-    public void testReset() {ServingBuffer.reset();}
+    public void testReset() {
+        ServingBuffer.reset();
+    }
 }

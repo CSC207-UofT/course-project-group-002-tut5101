@@ -4,10 +4,11 @@ import entity.user.UserAttributes;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UserAttributesTest {
     private UserAttributes testAttributes;
+
     /**
      * Set up a new user for testing
      */
@@ -15,6 +16,7 @@ public class UserAttributesTest {
     public void setUp() {
         testAttributes = new UserAttributes("1", "2", "3");
     }
+
     /**
      * Test the id of user
      */
@@ -22,6 +24,7 @@ public class UserAttributesTest {
     public void getId() {
         assertEquals("1", testAttributes.getId());
     }
+
     /**
      * Test the name of user
      */
@@ -29,6 +32,7 @@ public class UserAttributesTest {
     public void getName() {
         assertEquals("2", testAttributes.getName());
     }
+
     /**
      * Test the password matching of the user
      */

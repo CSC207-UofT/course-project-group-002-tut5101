@@ -22,7 +22,7 @@ public class DeleteReviewPresenterTest {
      * Test the getting dish list method
      */
     @Test
-    public void decideReview(){
+    public void decideReview() {
         reviewPresenter.decideReview("ONE");
     }
 }

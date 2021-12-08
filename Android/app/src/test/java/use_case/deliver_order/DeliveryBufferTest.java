@@ -4,11 +4,11 @@ import entity.order.DeliveryOrder;
 import entity.order.Order;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
+
+import static org.junit.Assert.assertEquals;
 
 public class DeliveryBufferTest {
     private Order testOrder;
@@ -24,6 +24,7 @@ public class DeliveryBufferTest {
 
     /**
      * test to get a delivery order
+     *
      * @throws Exception When there is no order, throw exception
      */
     @Test

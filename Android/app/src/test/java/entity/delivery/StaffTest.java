@@ -4,9 +4,11 @@ package entity.delivery;
 The imports here imports the apis of Junit, the first gives the identifiers BeforeEach, Test, Timeout...
 The second line is to import assertions to test
  */
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test class Staff

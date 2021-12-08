@@ -6,7 +6,6 @@ import org.junit.Test;
 import presenter.order_system.view_interfaces.EditOrderViewInterface;
 import use_case.dish_list.DishInformation;
 
-
 import java.util.HashMap;
 
 /**
@@ -66,8 +65,6 @@ public class EditOrderPresenterTest {
     }
 
 
-
-
     /**
      * Empty fake presenter class implementing the output boundary
      */
@@ -75,6 +72,7 @@ public class EditOrderPresenterTest {
 
         /**
          * Test if this method is run
+         *
          * @param dishesOrderedList ordered dishes
          */
         @Override
@@ -83,7 +81,8 @@ public class EditOrderPresenterTest {
         }
 
         /**
-         *  Test if this method is run
+         * Test if this method is run
+         *
          * @param numDishes number of dishes for picker
          */
         @Override
@@ -92,7 +91,8 @@ public class EditOrderPresenterTest {
         }
 
         /**
-         *  Test if this method is run
+         * Test if this method is run
+         *
          * @param dishes dishes for picker
          */
         @Override
@@ -101,7 +101,8 @@ public class EditOrderPresenterTest {
         }
 
         /**
-         *  Test if this method is run
+         * Test if this method is run
+         *
          * @param dishesOrdered revised ordered dishes
          */
         @Override
@@ -109,10 +110,6 @@ public class EditOrderPresenterTest {
             assert true;
         }
     }
-
-
-
-
 
 
     /**

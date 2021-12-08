@@ -29,7 +29,7 @@ public class EditCaloriesTest {
      * Test the decreaseCalories
      */
     @Test
-    public void decreaseCalories(){
+    public void decreaseCalories() {
         edit.decreaseCalories("dish2", 2);
     }
 
@@ -37,7 +37,7 @@ public class EditCaloriesTest {
      * Test the increaseCalories
      */
     @Test
-    public void increaseCalories(){
+    public void increaseCalories() {
         edit.increaseCalories("dish2", 2);
     }
 

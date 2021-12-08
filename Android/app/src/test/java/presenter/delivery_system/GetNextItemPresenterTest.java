@@ -55,21 +55,19 @@ public class GetNextItemPresenterTest {
     public void testGetNext() {
         ServingBuffer.addDish(dish1);
         DeliveryBuffer.addDeliveryOrder(order);
-        try{
+        try {
             staff.getNext("6");
             staff.getNext("7");
             assert true;
-        }
-        catch (Exception ignored){
+        } catch (Exception ignored) {
             assert false;
         }
 
-        try{
+        try {
             staff.getNext("6");
             staff.getNext("7");
             assert false;
-        }
-        catch (Exception ignored){
+        } catch (Exception ignored) {
             assert true;
         }
     }

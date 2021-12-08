@@ -29,7 +29,7 @@ public class AddReviewPresenterTest {
      * Test the addToReviewList method
      */
     @Test
-    public void addToReviewList(){
+    public void addToReviewList() {
         reviewList.reset();
         add.addToReviewList("1", true, 3, "good");
         add.addToReviewList("2", true, 4, "good");
@@ -40,7 +40,7 @@ public class AddReviewPresenterTest {
      * Test the addToReviewList method
      */
     @Test
-    public void length(){
+    public void length() {
         reviewList.reset();
         assertEquals(0, add.length());
     }

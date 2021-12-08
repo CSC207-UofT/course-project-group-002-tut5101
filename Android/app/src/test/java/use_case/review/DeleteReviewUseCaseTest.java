@@ -9,7 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test the DeleteReviewUseCase class
@@ -20,13 +20,14 @@ public class DeleteReviewUseCaseTest {
 
     @Rule
     public TestRule rule = new InstantTaskExecutorRule();
+
     /**
      * Setup before tests
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         reviewList = new ReviewList();
-        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
+        ReviewList.setData("TEST" + FileName.REVIEW_FILE);
         ReviewList.setContext(new DeleteReviewActivity());
         reviewList.reset();
         Review review1 = new Review("Amy", true, 5, "good food",
@@ -54,7 +55,7 @@ public class DeleteReviewUseCaseTest {
      * Test deleteBelowThree method
      */
     @Test
-    public void testDelete(){
+    public void testDelete() {
         assertEquals(6, reviewList.sizeofList());
         deleteReviewUseCase.delete(1);
         assertEquals(5, reviewList.sizeofList());

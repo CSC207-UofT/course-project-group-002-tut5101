@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class UpdateFreshnessPresenterTest {
     private UpdateFreshnessPresenter update;
     TestClass testPresenter;
+
     /**
      * Setup before tests
      */
@@ -28,30 +29,32 @@ public class UpdateFreshnessPresenterTest {
      * Test the popInfo method for non-existing item
      */
     @Test
-    public void TestShowInfo1(){
+    public void TestShowInfo1() {
         testPresenter = new TestClass("item does not have freshness");
         update.setUpdateFreshnessInterface(testPresenter);
-        update.popInfo("Air","a");
+        update.popInfo("Air", "a");
 
     }
+
     /**
      * Test the popInfo method for has freshness item
      */
     @Test
-    public void TestShowInfo2(){
+    public void TestShowInfo2() {
         testPresenter = new TestClass("updated");
         update.setUpdateFreshnessInterface(testPresenter);
-        update.popInfo("Bread","b");
+        update.popInfo("Bread", "b");
 
     }
+
     /**
      * Test the popInfo method for has expiry date item
      */
     @Test
-    public void TestShowInfo3(){
+    public void TestShowInfo3() {
         testPresenter = new TestClass("item does not have freshness");
         update.setUpdateFreshnessInterface(testPresenter);
-        update.popInfo("Waffle","a");
+        update.popInfo("Waffle", "a");
 
     }
 
@@ -61,13 +64,16 @@ public class UpdateFreshnessPresenterTest {
     private static class TestClass implements UpdateFreshnessInterface {
 
         private final String checkMessage;
+
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){
-            checkMessage = info;}
+        private TestClass(String info) {
+            checkMessage = info;
+        }
+
         /**
          * test use
          *

@@ -3,6 +3,7 @@ package entity;
 import entity.user.User;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**

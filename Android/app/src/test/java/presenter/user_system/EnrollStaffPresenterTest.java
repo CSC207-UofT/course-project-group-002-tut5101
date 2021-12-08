@@ -59,7 +59,7 @@ public class EnrollStaffPresenterTest {
      * Test enrollNewUser method
      */
     @Test
-    public void testEnrollNewUser(){
+    public void testEnrollNewUser() {
         enrollStaffPresenter.enrollNewUser("6", "Test", "12345", "KITCHEN");
         assertEquals(7, userList.length());
     }

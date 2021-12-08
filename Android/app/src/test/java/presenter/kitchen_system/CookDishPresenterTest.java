@@ -27,7 +27,7 @@ public class CookDishPresenterTest {
         DishList dl = new DishList();
         dl.reset();
         DishList.setContext(new Activity());
-        DishList.setData("TEST"+FileName.MENU_FILE);
+        DishList.setData("TEST" + FileName.MENU_FILE);
 
         List<Dish> dishes1 = new ArrayList<>();
         dishes1.add(new Dish("Donut sandwich", 10.99, new HashMap<>(), 800.00));

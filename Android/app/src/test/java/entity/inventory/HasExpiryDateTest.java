@@ -27,6 +27,7 @@ public class HasExpiryDateTest {
     public void testSetID() {
         hasExpiryDate.setId(2);
     }
+
     /**
      * Test the getName method
      */
@@ -84,8 +85,8 @@ public class HasExpiryDateTest {
      */
     @Test(timeout = 50)
     public void testToString() {
-        String expected = "Test" + ","+ 40.0 +
-                ","+ 20 +","+ 20220731;
+        String expected = "Test" + "," + 40.0 +
+                "," + 20 + "," + 20220731;
         String actual = hasExpiryDate.toString();
         assertEquals(expected, actual);
     }
@@ -96,7 +97,7 @@ public class HasExpiryDateTest {
     @Test(timeout = 50)
     public void equals() {
         HasExpiryDate test = new HasExpiryDate("Test", 40.0, 20, 20220731);
-        assert(hasExpiryDate.equals(test));
+        assert (hasExpiryDate.equals(test));
     }
 
 }

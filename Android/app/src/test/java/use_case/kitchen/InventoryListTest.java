@@ -21,7 +21,6 @@ public class InventoryListTest {
     private HasFreshness hasFreshness;
 
 
-
     /**
      * Test the addInventory method
      */
@@ -29,7 +28,7 @@ public class InventoryListTest {
     public void testAddInventory() {
         inventoryList = new InventoryList();
         InventoryList.setContext(new Activity());
-        InventoryList.setData("TEST"+ FileName.INVENTORY_FILE);
+        InventoryList.setData("TEST" + FileName.INVENTORY_FILE);
         hasExpiryDate = new HasExpiryDate("Test1", 40.0, 20, 20220731);
         hasFreshness = new HasFreshness("Test2", 40.0, 20, "Fresh", 20220731);
 
@@ -38,8 +37,8 @@ public class InventoryListTest {
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
 
-        assert(inventoryList.checkExist("Test1"));
-        assert(inventoryList.checkExist("Test2"));
+        assert (inventoryList.checkExist("Test1"));
+        assert (inventoryList.checkExist("Test2"));
     }
 
     /**
@@ -59,8 +58,8 @@ public class InventoryListTest {
         inventoryList.addFromFactory(inventoryFactory, freshInfo);
         inventoryList.addFromFactory(inventoryFactory, expiryInfo);
 
-        assert(inventoryList.checkExist("Test3"));
-        assert(inventoryList.checkExist("Test4"));
+        assert (inventoryList.checkExist("Test3"));
+        assert (inventoryList.checkExist("Test4"));
     }
 
     /**
@@ -77,8 +76,8 @@ public class InventoryListTest {
 
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
-        String expected = "Test3"+ ","+ "40.0" +
-                ","+ "20" +","+ "Fresh" + "," + "20220731";
+        String expected = "Test3" + "," + "40.0" +
+                "," + "20" + "," + "Fresh" + "," + "20220731";
         String actual = inventoryList.getInfo("Test3");
         assertEquals(expected, actual);
     }
@@ -97,9 +96,9 @@ public class InventoryListTest {
 
         inventoryList.addInventory(hasExpiryDate);
         inventoryList.addInventory(hasFreshness);
-        assertTrue( inventoryList.checkExist("Test1"));
-        assertTrue( inventoryList.checkExist("Test2"));
-        assertFalse( inventoryList.checkExist("Test6"));
+        assertTrue(inventoryList.checkExist("Test1"));
+        assertTrue(inventoryList.checkExist("Test2"));
+        assertFalse(inventoryList.checkExist("Test6"));
     }
 
     /**
@@ -126,13 +125,12 @@ public class InventoryListTest {
         inventoryList.setBoundary(testPresenter);
         inventoryList.addInventory(hasFreshness);
         assertTrue(inventoryList.isHasFreshness("Test2"));
-        inventoryList.setFreshness("Test2","b");
-        String expected = "Test2"+ ","+ "40.0" +
-                ","+ "20" +","+ "b" + "," + "20220731";
+        inventoryList.setFreshness("Test2", "b");
+        String expected = "Test2" + "," + "40.0" +
+                "," + "20" + "," + "b" + "," + "20220731";
         String actual = inventoryList.getInfo("Test2");
         assertEquals(expected, actual);
     }
-
 
 
     /**
@@ -145,21 +143,20 @@ public class InventoryListTest {
         inventoryList.addInventory(hasExpiryDate);
         TestClass testPresenter = new TestClass();
         inventoryList.setBoundary(testPresenter);
-        assertEquals("Successfully updated",inventoryList.setQuantity("Test1",-1));
+        assertEquals("Successfully updated", inventoryList.setQuantity("Test1", -1));
         assertEquals(21, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Successfully updated",inventoryList.setQuantity("Test1",1));
+        assertEquals("Successfully updated", inventoryList.setQuantity("Test1", 1));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Not enough", inventoryList.setQuantity("Test1",21));
+        assertEquals("Not enough", inventoryList.setQuantity("Test1", 21));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("wrong name", inventoryList.setQuantity("Test5",19));
-        assertEquals("Successfully updated",inventoryList.passNewQuantityInfo("Test1",-1));
+        assertEquals("wrong name", inventoryList.setQuantity("Test5", 19));
+        assertEquals("Successfully updated", inventoryList.passNewQuantityInfo("Test1", -1));
         assertEquals(21, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Successfully updated",inventoryList.passNewQuantityInfo("Test1",1));
+        assertEquals("Successfully updated", inventoryList.passNewQuantityInfo("Test1", 1));
         assertEquals(20, InventoryList.getTotalQuantity("Test1"));
-        assertEquals("Not enough", inventoryList.passNewQuantityInfo("Test1",21));
-        assertEquals("wrong name", inventoryList.passNewQuantityInfo("Test5",19));
+        assertEquals("Not enough", inventoryList.passNewQuantityInfo("Test1", 21));
+        assertEquals("wrong name", inventoryList.passNewQuantityInfo("Test5", 19));
     }
-
 
 
     /**
@@ -169,12 +166,13 @@ public class InventoryListTest {
 
         /**
          * Check if the InventoryList calls on this method
+         *
          * @param message the message to display
          * @return the message
          */
         @Override
         public String getMessage(String message) {
-            assert(true);
+            assert (true);
             return message;
         }
     }

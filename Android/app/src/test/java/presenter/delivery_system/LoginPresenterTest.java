@@ -1,7 +1,7 @@
 package presenter.delivery_system;
 
-import constant.manager_system.UserType;
 import constant.login_system.LoginResult;
+import constant.manager_system.UserType;
 import entity.customer.Customer;
 import entity.delivery.DeliveryStaff;
 import entity.delivery.ServingStaff;
@@ -15,6 +15,7 @@ import presenter.login_system.LoginViewInterface;
 import use_case.user_list.UserList;
 
 import static org.junit.Assert.assertEquals;
+
 /**
  * Testing the login presenter.
  */
@@ -37,15 +38,15 @@ public class LoginPresenterTest {
      * Test the runLogin method
      */
     @Test
-    public void runLogin(){
-        login.runLogin("1","23");
+    public void runLogin() {
+        login.runLogin("1", "23");
     }
 
     /**
      * Test the getUserTypeById method
      */
     @Test
-    public void getUserTypeById(){
+    public void getUserTypeById() {
         login.getUserTypeById("2");
     }
 
@@ -53,7 +54,7 @@ public class LoginPresenterTest {
      * Test the getUserTypeById method
      */
     @Test
-    public void presentLoginResult(){
+    public void presentLoginResult() {
         login.presentLoginResult(LoginResult.FAILURE);
     }
 

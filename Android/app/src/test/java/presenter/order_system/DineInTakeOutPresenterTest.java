@@ -37,6 +37,7 @@ public class DineInTakeOutPresenterTest {
 
         /**
          * Test if this method is run
+         *
          * @param orderType type of order
          */
         @Override

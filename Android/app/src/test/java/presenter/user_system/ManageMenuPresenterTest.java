@@ -3,8 +3,8 @@ package presenter.user_system;
 
 import org.junit.Before;
 import org.junit.Test;
-import presenter.menu_system.view_interface.ManageMenuViewInterface;
 import presenter.menu_system.ManageMenuPresenter;
+import presenter.menu_system.view_interface.ManageMenuViewInterface;
 
 /**
  * Test the ManagerMenuPresenter class.
@@ -28,7 +28,7 @@ public class ManageMenuPresenterTest {
      * Test the getDish method
      */
     @Test
-    public void testGetDish(){
+    public void testGetDish() {
         manager.getDish("2");
         manager.getDish("1");
     }
@@ -37,7 +37,7 @@ public class ManageMenuPresenterTest {
      * Test the getting dish list method
      */
     @Test
-    public void testGettingDishList(){
+    public void testGettingDishList() {
         manager.getDishList();
     }
 
@@ -45,7 +45,7 @@ public class ManageMenuPresenterTest {
      * Test the PassingDishesAsList method
      */
     @Test
-    public void testPassingDishesAsList(){
+    public void testPassingDishesAsList() {
         manager.passingDishesAsList(new String[]{"good"});
     }
 
@@ -56,6 +56,7 @@ public class ManageMenuPresenterTest {
 
         /**
          * Testing use.
+         *
          * @param dishName name of the dish
          */
         @Override
@@ -65,6 +66,7 @@ public class ManageMenuPresenterTest {
 
         /**
          * Testing use.
+         *
          * @param s array of string.
          */
         @Override

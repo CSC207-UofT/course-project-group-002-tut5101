@@ -49,7 +49,7 @@ public class MainActivityPresenterTest {
      * Test setContext method
      */
     @Test
-    public void testSetContext(){
+    public void testSetContext() {
         presenter.setContext(null);
     }
 

@@ -23,10 +23,10 @@ public class AddReviewUseCaseTest {
      * Setup before tests
      */
     @Before
-    public void setUp(){
+    public void setUp() {
         ReviewList reviewList = new ReviewList();
         ReviewList.setContext(new AddReviewCommentActivity());
-        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
+        ReviewList.setData("TEST" + FileName.REVIEW_FILE);
         Review review1 = new Review("Amy", true, 5, "good food",
                 "1");
         Review review2 = new Review("Bob", false, 2, "Nice staff",
@@ -46,8 +46,8 @@ public class AddReviewUseCaseTest {
      * Test addToReviewList method
      */
     @Test
-    public void addToReviewList(){
-        add.addToReviewList("amy", true, 1,"dog");
+    public void addToReviewList() {
+        add.addToReviewList("amy", true, 1, "dog");
     }
 
 }

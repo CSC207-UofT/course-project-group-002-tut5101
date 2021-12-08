@@ -6,10 +6,10 @@ import constant.manager_system.UserType;
 import entity.customer.Customer;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-
 import use_case.enroll_staff.boundaries.EnrollStaffOutputBoundary;
 import use_case.user_list.UserList;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class EnrolNewStaffTest {
@@ -24,7 +24,7 @@ public class EnrolNewStaffTest {
         TestClass testPresenter = new TestClass();
         useCase.setOutputBoundary(testPresenter);
         UserList.setContext(new Activity());
-        UserList.setData("TEST"+ FileName.USER_FILE);
+        UserList.setData("TEST" + FileName.USER_FILE);
 
         userList.addUser(new Customer("0", "James", "12345"));
         userList.addUser(new Customer("1", "Steve", "12345"));
@@ -64,6 +64,7 @@ public class EnrolNewStaffTest {
 
         /**
          * Test if this method is called from DishInformation
+         *
          * @param id next available user id
          */
         @Override
@@ -73,11 +74,12 @@ public class EnrolNewStaffTest {
 
         /**
          * Test if this method is called from DishInformation
+         *
          * @param staffTypes array of staff types
          */
         @Override
         public void setAvailStaffTypeOptions(String[] staffTypes) {
-            assert(true);
+            assert (true);
         }
     }
 }

@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for UseCase.Customer Class
- *
  */
 
 public class CustomerTest {

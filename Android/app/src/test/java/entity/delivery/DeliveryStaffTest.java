@@ -57,8 +57,7 @@ public class DeliveryStaffTest {
         setUp();
         try {
             deliveryStaff.completeOrderDelivery();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             assertFalse(false);
         }
 
@@ -67,8 +66,7 @@ public class DeliveryStaffTest {
 
         try {
             deliveryStaff.completeOrderDelivery();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             fail();
         }
 

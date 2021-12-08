@@ -4,13 +4,13 @@ import android.app.Activity;
 import constant.file_system.FileName;
 import entity.order.Dish;
 import org.junit.Before;
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import use_case.dish_list.boundaries.PlaceOrderMenuOutputBoundary;
 import use_case.placeorder.boundaries.PlaceOrderOutputBoundary;
 
 import java.util.HashMap;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test the DishInformation class
@@ -20,7 +20,6 @@ public class DishInformationTest {
     private final DishInformation menu = new DishInformation(0);
 
     /**
-     *
      * Setting up the test.
      */
     @Before
@@ -28,7 +27,7 @@ public class DishInformationTest {
         TestClass testPresenter = new TestClass();
         TestClass2 testPresenter2 = new TestClass2();
         DishList.setContext(new Activity());
-        DishList.setData("TEST"+FileName.MENU_FILE);
+        DishList.setData("TEST" + FileName.MENU_FILE);
         menu.setPlaceOrderOutputBoundary(testPresenter);
         menu.setPlaceOrderMenuOutputBoundary(testPresenter2);
 
@@ -76,7 +75,6 @@ public class DishInformationTest {
     }
 
 
-
     /**
      * Fake presenter class that implements output boundary
      */
@@ -84,7 +82,8 @@ public class DishInformationTest {
 
         /**
          * Test if this method is called from DishInformation
-         * @param dishName name of dish
+         *
+         * @param dishName     name of dish
          * @param dishQuantity quantity of dish
          */
         @Override
@@ -94,8 +93,9 @@ public class DishInformationTest {
 
         /**
          * Test if this method is called from DishInformation
+         *
          * @param dishName name of dish
-         * @param price price of dish
+         * @param price    price of dish
          */
         @Override
         public void addDishPrices(String dishName, double price) {
@@ -103,9 +103,11 @@ public class DishInformationTest {
             assertEquals(10.0, price, 0.1);
         }
     }
+
     private static class TestClass2 implements PlaceOrderMenuOutputBoundary {
         /**
          * Test if this method is called from DishInformation
+         *
          * @param size the size of the number picker
          */
         @Override
@@ -115,11 +117,12 @@ public class DishInformationTest {
 
         /**
          * Test if this method is called from DishInformation
+         *
          * @param dishNames names of dishes
          */
         @Override
         public void setDisplayedDishNames(String[] dishNames) {
-            assert(dishNames.length == 9);
+            assert (dishNames.length == 9);
         }
 
     }

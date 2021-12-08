@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class DishListIteratorTest {
     private DishListIterator dishListIterator;
@@ -18,7 +18,7 @@ public class DishListIteratorTest {
     public void setUp() {
         DishList dishList = new DishList();
         DishList.setContext(new Activity());
-        DishList.setData("TEST"+ FileName.MENU_FILE);
+        DishList.setData("TEST" + FileName.MENU_FILE);
         testDish = new Dish("1", 2.0, new HashMap<>(), 1);
         dishList.addDish(testDish);
         dishListIterator = new DishListIterator();

@@ -9,7 +9,7 @@ import use_case.dish_list.DishInformation;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test the PlaceOrderPresenter class
@@ -110,7 +110,6 @@ public class PlaceOrderPresenterTest {
         placeOrder.runPlaceOrderInformation(OrderType.DINE_IN, "1");
         placeOrder.runPlaceOrderInformation(OrderType.DINE_IN, "blah");
     }
-
 
 
     /**

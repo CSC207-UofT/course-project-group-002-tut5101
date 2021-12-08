@@ -25,7 +25,7 @@ public class ReviewPresenterTest {
      * Test the getting dish list method
      */
     @Test
-    public void reviewsInListAsString(){
+    public void reviewsInListAsString() {
         reviewPresenter.reviewsInListAsString();
     }
 
@@ -33,7 +33,7 @@ public class ReviewPresenterTest {
      * Test the getting dish list method
      */
     @Test
-    public void updateReviewDisplay(){
+    public void updateReviewDisplay() {
         reviewPresenter.updateReviewDisplay("review1");
     }
 

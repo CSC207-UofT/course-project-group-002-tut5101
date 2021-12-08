@@ -26,7 +26,7 @@ public class UserLoginTest {
     public void setUp() {
         userLogin = new UserLogin();
         UserList.setContext(new Activity());
-        UserList.setData("TEST"+ FileName.USER_FILE);
+        UserList.setData("TEST" + FileName.USER_FILE);
         TestClass testPresenter = new TestClass();
         userLogin.setOutputBoundary(testPresenter);
 
@@ -58,6 +58,7 @@ public class UserLoginTest {
 
         /**
          * Test if the LoginUseCase calls this method
+         *
          * @param result login result
          */
         @Override

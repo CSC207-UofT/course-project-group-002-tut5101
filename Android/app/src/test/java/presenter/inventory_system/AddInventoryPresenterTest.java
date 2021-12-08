@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class AddInventoryPresenterTest {
     private AddInventoryPresenter add;
     TestClass testPresenter;
+
     /**
      * Setup before tests
      */
@@ -28,32 +29,34 @@ public class AddInventoryPresenterTest {
      * Test the addNewInventory method for HasFreshness
      */
     @Test
-    public void testAddNewInventory(){
+    public void testAddNewInventory() {
         testPresenter = new TestClass("Successful");
         add.setAddInventoryViewInterface(testPresenter);
-        add.addNewInventory("name", "2","3","4","5");
+        add.addNewInventory("name", "2", "3", "4", "5");
         InventoryList inventoryList = new InventoryList();
         assertTrue(inventoryList.checkExist("name"));
     }
+
     /**
      * Test the addNewInventory method for Has ExpiryDate
      */
     @Test
-    public void testAddNewInventory1(){
+    public void testAddNewInventory1() {
         testPresenter = new TestClass("Occupied name or item");
         add.setAddInventoryViewInterface(testPresenter);
-        add.addNewInventory("name", "2","3","4","N/A");
+        add.addNewInventory("name", "2", "3", "4", "N/A");
         InventoryList inventoryList = new InventoryList();
         assertTrue(inventoryList.checkExist("name"));
     }
+
     /**
      * Test the addNewInventory method for Existing item
      */
     @Test
-    public void testAddNewInventory2(){
+    public void testAddNewInventory2() {
         testPresenter = new TestClass("Occupied name or item");
         add.setAddInventoryViewInterface(testPresenter);
-        add.addNewInventory("Carrot", "2","3","4","N/A");
+        add.addNewInventory("Carrot", "2", "3", "4", "N/A");
         InventoryList inventoryList = new InventoryList();
         assertTrue(inventoryList.checkExist("name"));
     }
@@ -64,13 +67,16 @@ public class AddInventoryPresenterTest {
     private static class TestClass implements AddInventoryViewInterface {
 
         private final String checkMessage;
+
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){
-            checkMessage = info;}
+        private TestClass(String info) {
+            checkMessage = info;
+        }
+
         /**
          * test use
          *

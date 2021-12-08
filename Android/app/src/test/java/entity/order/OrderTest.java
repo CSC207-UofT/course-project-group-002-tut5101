@@ -5,7 +5,6 @@ import constant.order_system.OrderType;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -52,7 +51,7 @@ public class OrderTest {
      * test Order class for setting the status of a dish in the order
      */
     @Test(timeout = 50)
-    public void testSetDishStatus(){
+    public void testSetDishStatus() {
 
         // for dineInOrder
         try {
@@ -70,8 +69,7 @@ public class OrderTest {
         }
         try {
             assertNull(dineInOrder.setDishStatus("blah"));
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
         }
 
         setUp();
@@ -92,16 +90,14 @@ public class OrderTest {
         try {
             deliveryOrder.setDishStatus("Small fries");
             assertNull(deliveryOrder.setDishStatus("Small fries"));
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
         }
 
         setUp();
         try {
             assertEquals(smallFries, sameDishOrder.setDishStatus("Small fries"));
             assertNull(sameDishOrder.setDishStatus("Small fries"));
-        }
-        catch (Exception ignored) {
+        } catch (Exception ignored) {
         }
         setUp();
 
@@ -111,7 +107,7 @@ public class OrderTest {
      * test Order class for updating the order status
      */
     @Test(timeout = 50)
-    public void testUpdateOrderStatus(){
+    public void testUpdateOrderStatus() {
         dineInOrder.setOrderStatus(ItemStatus.ORDER_PLACED);
         deliveryOrder.setOrderStatus(ItemStatus.ORDER_PLACED);
 
@@ -170,7 +166,7 @@ public class OrderTest {
      * test Order class getting and setting order status
      */
     @Test(timeout = 50)
-    public void testSetAndGetOrderStatus(){
+    public void testSetAndGetOrderStatus() {
         dineInOrder.setOrderStatus(ItemStatus.ORDER_DELIVERED);
         assertEquals(ItemStatus.ORDER_DELIVERED, dineInOrder.getOrderStatus());
         dineInOrder.setOrderStatus(ItemStatus.ORDER_PLACED);
@@ -182,13 +178,13 @@ public class OrderTest {
      * Test Order class getting price of order
      */
     @Test(timeout = 50)
-    public void testGetOrderPrice(){
+    public void testGetOrderPrice() {
         double actual1 = dineInOrder.getOrderPrice();
         double actual2 = deliveryOrder.getOrderPrice();
         double expected = 21.99;
 
-        assert(expected == actual1);
-        assert(expected == actual2);
+        assert (expected == actual1);
+        assert (expected == actual2);
 
     }
 
@@ -256,7 +252,7 @@ public class OrderTest {
 
         String actual3 = sameDishOrder.getOrderContent();
         String expected2 = "Order contents: \n" + "\tDish: " + "Small fries" +
-                " Quantity: " + 2 + "\n" +"====================";
+                " Quantity: " + 2 + "\n" + "====================";
         assertEquals(actual3, expected2);
 
     }
@@ -265,7 +261,7 @@ public class OrderTest {
      * test Order class toString method
      */
     @Test(timeout = 50)
-    public void testToString(){
+    public void testToString() {
         String actual1 = dineInOrder.toString();
         String actual2 = deliveryOrder.toString();
 
@@ -298,7 +294,7 @@ public class OrderTest {
         dishes.put("Small fries", Collections.singletonList(smallFries));
         dishes.put("Coke", Collections.singletonList(coke));
         dineInOrder2 = new DineInOrder(Integer.parseInt(location), dishes);
-        assert(dineInOrder.equals(dineInOrder2));
+        assert (dineInOrder.equals(dineInOrder2));
     }
 
     /**
@@ -316,7 +312,7 @@ public class OrderTest {
      * Test getting table number for a DineInOrder
      */
     @Test(timeout = 50)
-    public void testGetTableNum(){
+    public void testGetTableNum() {
         int expected = 1;
         int actual = dineInOrder.getTableNum();
         assertEquals(expected, actual);
@@ -333,10 +329,6 @@ public class OrderTest {
         String actual = deliveryOrder.getAddress();
         assertEquals(expected, actual);
     }
-
-
-
-
 
 
 }

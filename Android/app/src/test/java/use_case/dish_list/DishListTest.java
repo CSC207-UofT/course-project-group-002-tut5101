@@ -9,7 +9,6 @@ import use_case.dish_list.boundaries.MenuOutputBoundary;
 
 import java.util.HashMap;
 
-
 import static org.junit.Assert.*;
 
 /**
@@ -19,13 +18,12 @@ public class DishListTest {
     private DishList menu = new DishList();
 
     /**
-     *
      * Setting up the test.
      */
     @Before
     public void setUp() {
         DishList.setContext(new Activity());
-        DishList.setData("TEST"+ FileName.MENU_FILE);
+        DishList.setData("TEST" + FileName.MENU_FILE);
         menu.addDish(new Dish("Small fries", 10.0, new HashMap<>(), 200));
         menu.addDish(new Dish("Median fries", 10.0, new HashMap<>(), 250));
         menu.addDish(new Dish("Large fries", 10.0, new HashMap<>(), 350));
@@ -91,7 +89,7 @@ public class DishListTest {
     @Test
     public void testIterator() {
         DishListIterator actual = menu.iterator();
-        assert(actual.hasNext());
+        assert (actual.hasNext());
     }
 
     /**
@@ -105,7 +103,6 @@ public class DishListTest {
 
 
     /**
-     *
      * Testing DishList addDishes method
      */
     @Test
@@ -117,7 +114,6 @@ public class DishListTest {
     }
 
     /**
-     *
      * Testing DishList addDishes method
      */
     @Test
@@ -130,7 +126,6 @@ public class DishListTest {
 
 
     /**
-     *
      * Testing DishList addDishes method
      */
     @Test
@@ -171,6 +166,7 @@ public class DishListTest {
 
         /**
          * Test if this method is called from DishInformation
+         *
          * @param menuItems the menu items to be displayed
          */
         @Override
@@ -185,22 +181,22 @@ public class DishListTest {
      * Test the iterator next method
      */
     @Test
-    public void testIteratorNext(){
+    public void testIteratorNext() {
         DishListIterator actual = menu.iterator();
-        assert(actual.hasNext());
+        assert (actual.hasNext());
         try {
-            for (int i = 0; i <= 9; i ++) {
+            for (int i = 0; i <= 9; i++) {
                 actual.next();
-                assert(true);
+                assert (true);
             }
             actual.next();
-            assert(true);
-        }
-        catch (Exception ignored) {
+            assert (true);
+        } catch (Exception ignored) {
             assertTrue(true);
         }
 
     }
+
     /**
      * Test the iterator replace method
      */
@@ -209,7 +205,7 @@ public class DishListTest {
         DishListIterator actual = menu.iterator();
         Dish dish = new Dish("Tofu", 100.0, new HashMap<>(), 10.0);
         actual.replace(dish);
-        assert(DishList.getAllDishes().containsValue(dish));
+        assert (DishList.getAllDishes().containsValue(dish));
     }
 
     @Test

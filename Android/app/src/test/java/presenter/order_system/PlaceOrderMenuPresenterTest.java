@@ -61,6 +61,7 @@ public class PlaceOrderMenuPresenterTest {
 
         /**
          * Test if this method is called
+         *
          * @param size the number of dishes in menu
          */
         @Override
@@ -70,6 +71,7 @@ public class PlaceOrderMenuPresenterTest {
 
         /**
          * Test if this method is called
+         *
          * @param dishNames names of dishes
          */
         @Override
@@ -77,7 +79,6 @@ public class PlaceOrderMenuPresenterTest {
             assert true;
         }
     }
-
 
 
     /**

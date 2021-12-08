@@ -77,8 +77,8 @@ public class HasFreshnessTest {
      */
     @Test(timeout = 50)
     public void testToString() {
-        String expected = "Test"+ ","+ 40.0 +
-                ","+ 20 +","+ "Fresh" + ","+ 20220731;
+        String expected = "Test" + "," + 40.0 +
+                "," + 20 + "," + "Fresh" + "," + 20220731;
         String actual = hasFreshness.toString();
         assertEquals(expected, actual);
     }
@@ -89,7 +89,7 @@ public class HasFreshnessTest {
     @Test(timeout = 50)
     public void equals() {
         HasFreshness test = new HasFreshness("Test", 40.0, 20, "Fresh", 20220731);
-        assert(hasFreshness.equals(test));
+        assert (hasFreshness.equals(test));
     }
 
 }

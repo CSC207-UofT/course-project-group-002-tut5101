@@ -13,8 +13,7 @@ import use_case.review.boundaries.ReviewOutputBoundary;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test the ReviewList class
@@ -33,7 +32,7 @@ public class ReviewListTest {
     public void setUp() {
         reviewList = new ReviewList();
         ReviewList.setContext(new SeeReviewActivity());
-        ReviewList.setData("TEST"+FileName.REVIEW_FILE);
+        ReviewList.setData("TEST" + FileName.REVIEW_FILE);
         reviewList.reset();
         review1 = new Review("Amy", true, 5, "good food", "1");
         review2 = new Review("Bob", false, 4, "Nice staff",
@@ -63,6 +62,7 @@ public class ReviewListTest {
         ReviewList.setReviews(reviews);
         assertEquals(1, reviewList.sizeofList());
     }
+
     /**
      * Test the add review method
      */
@@ -76,7 +76,7 @@ public class ReviewListTest {
      * Test the sizeOfList method
      */
     @Test
-    public void testSizeOfList(){
+    public void testSizeOfList() {
         reviewList.reset();
         reviewList.addReview(review1);
         reviewList.addReview(review2);
@@ -98,7 +98,7 @@ public class ReviewListTest {
      * Test the toString method
      */
     @Test
-    public void testToString(){
+    public void testToString() {
         reviewList.reset();
         reviewList.addReview(review1);
         reviewList.addReview(review2);
@@ -127,7 +127,7 @@ public class ReviewListTest {
      */
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
-    public void delete(){
+    public void delete() {
         reviewList.reset();
         reviewList.addReview(review1);
         reviewList.addReview(review2);
@@ -143,14 +143,13 @@ public class ReviewListTest {
     @Test
     public void testIteratorNext() {
         Iterator<Review> reviewIterator = reviewList.iterator();
-        while (reviewIterator.hasNext()){
+        while (reviewIterator.hasNext()) {
             reviewIterator.next();
         }
         try {
             reviewIterator.next();
             assert false;
-        }
-        catch (Exception ignored){
+        } catch (Exception ignored) {
             assert true;
         }
     }
@@ -163,6 +162,7 @@ public class ReviewListTest {
 
         /**
          * Test if this method is called
+         *
          * @param toString string to display
          */
         @Override
