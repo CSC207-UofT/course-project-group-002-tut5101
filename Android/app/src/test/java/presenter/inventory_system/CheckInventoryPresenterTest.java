@@ -44,7 +44,7 @@ public class CheckInventoryPresenterTest {
         check.checkValidity("Nothing");
     }
     /**
-     * Test the checkValidity method for HasExpriyDate
+     * Test the checkValidity method for HasExpiryDate
      */
     @Test
     public void checkValidity2(){
@@ -58,7 +58,7 @@ public class CheckInventoryPresenterTest {
      */
     private static class TestClass implements CheckInventoryInterface {
 
-        String checkMessage;
+        private final String checkMessage;
         /**
          * The constructor for this test class
          *

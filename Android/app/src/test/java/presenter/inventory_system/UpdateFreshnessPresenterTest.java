@@ -60,7 +60,7 @@ public class UpdateFreshnessPresenterTest {
      */
     private static class TestClass implements UpdateFreshnessInterface {
 
-        String checkMessage;
+        private final String checkMessage;
         /**
          * The constructor for this test class
          *

@@ -69,7 +69,7 @@ public class PlaceOrder implements PlaceOrderInputBoundary {
      *
      * @param dishName  the name of the dish
      * @param location  the table number of the dish, or location of order to be delivered
-     * @param orderType whether the dish is for a dine in or take out order
+     * @param orderType whether the dish is for a dine-in or take out order
      * @return a Dish with same information as the corresponding dish in the menu
      */
     public Dish generateDishCopy(String dishName, String location, OrderType orderType) {

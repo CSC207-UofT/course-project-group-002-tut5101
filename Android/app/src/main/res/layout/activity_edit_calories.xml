@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="155dp" android:layout_marginTop="187dp"
             app:layout_constraintTop_toBottomOf="@+id/askSelection"
-            android:onClick="confirm" tools:ignore="UsingOnClickInXml"
+            android:onClick="confirms" tools:ignore="UsingOnClickInXml"
     />
     <Button
             android:text="@string/exit"

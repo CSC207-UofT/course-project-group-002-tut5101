@@ -54,7 +54,7 @@ public class ReviewList implements Serializable, Iterable<Review> {
      * Add review to the review list.
      *
      * @param name        name.
-     * @param ifAnonymous whether use_case.review is anonymous.
+     * @param ifAnonymous return use_case.review is anonymous or not.
      * @param rate        rate of the use_case.review.
      * @param comment     comment left.
      */

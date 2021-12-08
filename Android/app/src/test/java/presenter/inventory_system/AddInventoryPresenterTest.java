@@ -63,7 +63,7 @@ public class AddInventoryPresenterTest {
      */
     private static class TestClass implements AddInventoryViewInterface {
 
-        String checkMessage;
+        private final String checkMessage;
         /**
          * The constructor for this test class
          *

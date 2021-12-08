@@ -26,7 +26,7 @@ public class MenuPresenterTest {
      * Test the dishesInMenuAsString method
      */
     @Test
-    public void testdishesInMenuAsString(){
+    public void testDishesInMenuAsString(){
         testPresenter = new TestClass("");
         menuPresenter.setDisplayDishesViewInterface(testPresenter);
         menuPresenter.dishesInMenuAsString();
@@ -47,20 +47,21 @@ public class MenuPresenterTest {
      * Empty fake presenter class implementing the output boundary
      */
     private static class TestClass implements DisplayMenuViewInterface {
-        String checkmessage;
+        private final String checkMessage;
         /**
          * The constructor for this test class
          *
          * @param info the message to compare
          */
-        private TestClass(String info){checkmessage = info;}
+        private TestClass(String info){
+            checkMessage = info;}
         /**
          *
          * @param menuItems menu items.
          */
         @Override
         public void setMenuItemsText(String menuItems) {
-            assertEquals(checkmessage, menuItems);
+            assertEquals(checkMessage, menuItems);
         }
     }
 
