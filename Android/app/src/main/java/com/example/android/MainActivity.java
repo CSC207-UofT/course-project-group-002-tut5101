@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Method that runs on creation of class
+     *
      * @param savedInstanceState fixed parameter.
      */
     @Override
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Selected customer action.
+     *
      * @param v view.
      */
     public void selectCustomerPickAction(View v) {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Select staff login.
+     *
      * @param v view.
      */
     public void selectLogin(View v) {
@@ -46,11 +49,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * generate information.
      */
-    private void setInformation(){
+    private void setInformation() {
         MainActivityPresenter presenter = new MainActivityPresenter();
         presenter.setContext(this);
         presenter.setData();
     }
-
-
 }
