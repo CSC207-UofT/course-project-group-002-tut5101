@@ -5,23 +5,22 @@ import constant.file_system.FileName;
 import entity.order.DeliveryOrder;
 import entity.order.DineInOrder;
 import entity.order.Dish;
-import gateway.GCloudReadWriter;
-import gateway.ReadWriter;
 import org.junit.Before;
 import org.junit.Test;
 import use_case.dish_list.DishList;
 import use_case.kitchen.OrderQueue;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class CookDishPresenterTest {
     private CookDishPresenter kp;
     private HashMap<String, Integer> temp;
 
-    @SuppressWarnings("unchecked")
     @Before
     public void setUp() throws Exception {
         kp = new CookDishPresenter();
