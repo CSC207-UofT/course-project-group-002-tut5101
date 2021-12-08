@@ -1,7 +1,7 @@
 package presenter.review_system;
 
-import use_case.review.boundaries.AddReviewInputBoundary;
 import use_case.review.AddReviewUseCase;
+import use_case.review.boundaries.AddReviewInputBoundary;
 
 /**
  * Controller class for use_case.review.
@@ -20,12 +20,10 @@ public class AddReviewPresenter {
 
 
     /**
-     *
-     * @param name name of the customer.
+     * @param name        name of the customer.
      * @param ifAnonymous whether the use_case.review is anonymous.
-     * @param rate the rate of the use_case.review.
-     * @param comment comments left.
-
+     * @param rate        the rate of the use_case.review.
+     * @param comment     comments left.
      */
     public void addToReviewList(String name, boolean ifAnonymous, int rate,
                                 String comment) {
@@ -34,7 +32,6 @@ public class AddReviewPresenter {
 
 
     /**
-     *
      * @return the length of the use_case.review list.
      */
     public int length() {

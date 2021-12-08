@@ -7,8 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.R;
-import presenter.inventory_system.view_interfaces.UpdateQuantityInterface;
 import presenter.inventory_system.UpdateQuantityPresenter;
+import presenter.inventory_system.view_interfaces.UpdateQuantityInterface;
 
 /**
  * Activity class for updating quantity of inventory.
@@ -18,6 +18,7 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
     private EditText name;
     private EditText usage;
     private final UpdateQuantityPresenter uqp = new UpdateQuantityPresenter();
+
     /**
      * Activity basic function.
      *
@@ -33,8 +34,10 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
         btn.setOnClickListener(this);
         uqp.setUpdateQuantityInterface(this);
     }
+
     /**
      * change the quantity of the item based on the input
+     *
      * @param v the view on which the user has clicked
      */
     @Override
@@ -47,12 +50,15 @@ public class UpdateQuantityActivity extends AppCompatActivity implements View.On
 
     /**
      * Show the message on the screen
+     *
      * @param message the message to send
      */
-    public void popInfo(String message){Toast.makeText(UpdateQuantityActivity.this,message,Toast.LENGTH_SHORT).show();}
+    public void popInfo(String message) {
+        Toast.makeText(UpdateQuantityActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
     /**
      * Call when  the pointer is enabled or disable for the current window.
-     *
      */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

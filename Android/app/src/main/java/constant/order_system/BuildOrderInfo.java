@@ -8,23 +8,27 @@ import android.os.Parcelable;
  */
 public enum BuildOrderInfo implements Parcelable {
     ORDER_TYPE, LOCATION, DISHES, PRICES;
+
     /**
      * overriding method
+     *
      * @return 0
      */
     @Override
-    public int describeContents(){
+    public int describeContents() {
         return 0;
     }
+
     /**
      * Flatten this object in to a Parcel.
-
+     * <p>
      * overriding method
-     * @param dest dest
+     *
+     * @param dest  dest
      * @param flags flags
      */
     @Override
-    public void writeToParcel(android.os.Parcel dest,int flags){
+    public void writeToParcel(android.os.Parcel dest, int flags) {
         dest.writeInt(this.ordinal());
     }
     // Parcelable.Creator<BuildOrderInfo> is the Interface that must be implemented and provided as
@@ -33,27 +37,26 @@ public enum BuildOrderInfo implements Parcelable {
     /**
      * Mandatory creator for implementing this interface.
      */
-    public static final android.os.Parcelable.Creator<BuildOrderInfo> CREATOR=new Parcelable.Creator<BuildOrderInfo>(){
+    public static final android.os.Parcelable.Creator<BuildOrderInfo> CREATOR = new Parcelable.Creator<BuildOrderInfo>() {
         /**
          * Create a new BuildOrderInfo from parcel.
-
          * overriding method
          * @param in in
          * @return a builder order ingo.
          */
         @Override
-        public BuildOrderInfo createFromParcel(Parcel in){
+        public BuildOrderInfo createFromParcel(Parcel in) {
             return BuildOrderInfo.values()[in.readInt()];
         }
+
         /**
          * Create the new array of build order info.
-
          * overriding method
          * @param size size
          * @return a builder order info.
          */
         @Override
-        public BuildOrderInfo[]newArray(int size){
+        public BuildOrderInfo[] newArray(int size) {
             return new BuildOrderInfo[size];
         }
     };

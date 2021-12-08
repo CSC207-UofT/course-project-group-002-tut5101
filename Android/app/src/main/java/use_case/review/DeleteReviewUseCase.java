@@ -22,6 +22,7 @@ public class DeleteReviewUseCase implements DeleteReviewInputBoundary {
 
     /**
      * Delete all reviews with rate below or equal to 3.
+     *
      * @param standard standard level
      */
     @Override

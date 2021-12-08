@@ -15,9 +15,9 @@ import presenter.inventory_system.view_interfaces.UpdateFreshnessInterface;
  */
 public class UpdateFreshnessActivity extends AppCompatActivity implements View.OnClickListener,
         UpdateFreshnessInterface {
-/**
- * Activity class for updating freshness.
- */
+    /**
+     * Activity class for updating freshness.
+     */
     Button btn;
     EditText name;
     EditText fresh;
@@ -41,6 +41,7 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
 
     /**
      * change the freshness of the item based on the input
+     *
      * @param v the view on which the user has clicked
      */
     @Override
@@ -50,17 +51,19 @@ public class UpdateFreshnessActivity extends AppCompatActivity implements View.O
         ufp.popInfo(inventoryItemName, inventoryItemFreshness);
         finish();
     }
+
     /**
      * Show the message on the screen
+     *
      * @param message the message to send
      */
     @Override
-    public void popInfo(String message){
-        Toast.makeText(UpdateFreshnessActivity.this,message,Toast.LENGTH_SHORT).show();
+    public void popInfo(String message) {
+        Toast.makeText(UpdateFreshnessActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
     /**
      * Call when  the pointer is enabled or disable for the current window.
-     *
      */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

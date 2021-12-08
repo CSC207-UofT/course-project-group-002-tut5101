@@ -13,6 +13,7 @@ public class DineInTakeOutPresenter {
 
     /**
      * Set the dineInTakeOutViewInterface of this class
+     *
      * @param selectDineInTakeOutViewInterface the class that implements this interface
      */
     public void setSelectDineInTakeOutViewInterface(SelectDineInTakeOutViewInterface selectDineInTakeOutViewInterface) {
@@ -21,13 +22,13 @@ public class DineInTakeOutPresenter {
 
     /**
      * Convert string input to order type and pass this to the view
+     *
      * @param orderTypeName the string value of the order type
      */
     public void retrieveOrderType(String orderTypeName) {
         if (Objects.equals(orderTypeName, OrderType.DINE_IN.toString())) {
             selectDineInTakeOutViewInterface.updateOrderType(OrderType.DINE_IN);
-        }
-        else {
+        } else {
             selectDineInTakeOutViewInterface.updateOrderType(OrderType.DELIVERY);
         }
     }

@@ -12,7 +12,7 @@ import presenter.review_system.AddReviewPresenter;
  * Activity class for adding use_case.review.
  */
 @SuppressWarnings("unused")
-public class AddReviewCommentActivity extends AppCompatActivity{
+public class AddReviewCommentActivity extends AppCompatActivity {
     private EditText editTextName;
     private EditText editTextIfAnonymous;
     private EditText editTextRate;
@@ -21,6 +21,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
 
     /**
      * Activity basic function
+     *
      * @param savedInstanceState fixed parameter.
      */
     @Override
@@ -37,6 +38,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
 
     /**
      * Clicking response. Add a review in the review list
+     *
      * @param v view.
      */
     public void addReview(View v) {
@@ -44,7 +46,7 @@ public class AddReviewCommentActivity extends AppCompatActivity{
         boolean iifAnonymous = editTextIfAnonymous.getText().toString().equals("Y");
         int irate = Integer.parseInt(editTextRate.getText().toString());
         String comment = editTextComment.getText().toString();
-        rc.addToReviewList(name,iifAnonymous, irate, comment);
+        rc.addToReviewList(name, iifAnonymous, irate, comment);
         finish();
     }
 }

@@ -24,6 +24,7 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Coo
 
     /**
      * Activity basic function.
+     *
      * @param savedInstanceState onCreate fixed parameter.
      */
     @Override
@@ -46,6 +47,7 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Coo
 
     /**
      * Listen to the change in Order and update the display if needed.
+     *
      * @param propertyChangeEvent A propertyChange Event
      */
     @Override
@@ -55,12 +57,13 @@ public class CurrentOrderDishesActivity extends AppCompatActivity implements Coo
 
     /**
      * Update the current dishes to display by mutating the arraylist that holds all display info.
+     *
      * @param displayDishes the updated array list of dish infos.
      */
     @Override
     public void renewDishes(ArrayList<String[]> displayDishes) {
-       dishesToDisplay.clear();
-       dishesToDisplay.addAll(displayDishes);
+        dishesToDisplay.clear();
+        dishesToDisplay.addAll(displayDishes);
     }
 
     /**

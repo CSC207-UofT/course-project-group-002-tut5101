@@ -28,6 +28,7 @@ public class EditOrderPresenter {
 
     /**
      * Set the EditOrderViewInterface attribute of this class
+     *
      * @param editOrderViewInterface the EditOrderViewInterface
      */
     public void setEditOrderViewInterface(EditOrderViewInterface editOrderViewInterface) {
@@ -36,6 +37,7 @@ public class EditOrderPresenter {
 
     /**
      * set the dishes ordered
+     *
      * @param dishesOrdered dishes ordered
      */
     public void setDishesOrdered(HashMap<String, Integer> dishesOrdered) {
@@ -49,29 +51,28 @@ public class EditOrderPresenter {
     /**
      * Takes the dishes ordered and collects them in string format into an array before updating the options to be picked
      */
-   public void collectDishes() {
-       collectedDishes = new ArrayList<>();
-       String dishNameAndQuantity;
-       if (!dishesOrdered.isEmpty()) {
-           for (String dishName : dishesOrdered.keySet()) {
-               dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName) + "   $" +
-                       dishPrices.get(dishName) + "\t each";
-               collectedDishes.add(dishNameAndQuantity);
-           }
-       }
-   }
+    public void collectDishes() {
+        collectedDishes = new ArrayList<>();
+        String dishNameAndQuantity;
+        if (!dishesOrdered.isEmpty()) {
+            for (String dishName : dishesOrdered.keySet()) {
+                dishNameAndQuantity = dishName + " x " + dishesOrdered.get(dishName) + "   $" +
+                        dishPrices.get(dishName) + "\t each";
+                collectedDishes.add(dishNameAndQuantity);
+            }
+        }
+    }
 
 
     /**
      * Set the number of options
      */
-    private void setOrderedDishesPicker(){
+    private void setOrderedDishesPicker() {
         collectDishes();
         if (collectedDishes.size() >= 1) {
             editOrderViewInterface.setOrderedDishesPickerMax(collectedDishes.size() - 1);
             editOrderViewInterface.setOrderedDishesPickerValues(collectedDishes.toArray(new String[0]));
-        }
-        else {
+        } else {
             editOrderViewInterface.setOrderedDishesPickerMax(0);
             editOrderViewInterface.setOrderedDishesPickerValues(new String[]{"No Dishes"});
         }
@@ -86,8 +87,7 @@ public class EditOrderPresenter {
             ArrayList<String> dishesString = new ArrayList<>(collectedDishes);
             dishesString.add(getTotalPriceString());
             editOrderViewInterface.displayDishesOrdered(dishesString.toArray(new String[0]));
-        }
-        else {
+        } else {
             editOrderViewInterface.displayDishesOrdered(new String[0]);
         }
     }
@@ -97,7 +97,7 @@ public class EditOrderPresenter {
         for (String dishName : dishesOrdered.keySet()) {
             Integer tempQuantity = dishesOrdered.get(dishName);
             Double tempPrice = dishPrices.get(dishName);
-            if (tempQuantity != null && tempPrice != null){
+            if (tempQuantity != null && tempPrice != null) {
                 int quantity = tempQuantity;
                 double price = tempPrice;
                 for (int i = 1; i <= quantity; i++) {
@@ -112,6 +112,7 @@ public class EditOrderPresenter {
 
     /**
      * Remove a dish from the current order
+     *
      * @param dishIndex the index corresponding to the dish to be removed
      */
     public void removeOrderedDish(int dishIndex) {

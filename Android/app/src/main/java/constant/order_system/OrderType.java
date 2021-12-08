@@ -12,6 +12,7 @@ public enum OrderType implements Parcelable {
 
     /**
      * overriding method
+     *
      * @return 0
      */
     @Override
@@ -21,7 +22,8 @@ public enum OrderType implements Parcelable {
 
     /**
      * overriding method
-     * @param dest dest
+     *
+     * @param dest  dest
      * @param flags flags
      */
     @Override

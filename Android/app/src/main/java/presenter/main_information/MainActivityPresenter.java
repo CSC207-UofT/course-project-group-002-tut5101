@@ -16,19 +16,21 @@ public class MainActivityPresenter {
     /**
      * Constructor for the presenter
      */
-    public MainActivityPresenter(){
+    public MainActivityPresenter() {
     }
 
     /**
      * Setting context
+     *
      * @param context context
      */
-    public void setContext(Context context){
+    public void setContext(Context context) {
         ReviewList.setContext(context);
         DishList.setContext(context);
         InventoryList.setContext(context);
         UserList.setContext(context);
     }
+
     /**
      * Setting Data for data structure
      */

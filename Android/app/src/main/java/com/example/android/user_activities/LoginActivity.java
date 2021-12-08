@@ -14,10 +14,10 @@ import com.example.android.inventory_activities.InventoryStarterActivity;
 import com.example.android.kitchen_activities.CurrentOrderDishesActivity;
 import com.example.android.manager_activities.ManagerPickActionActivity;
 import com.example.android.serving_staff_activities.ServingStaffPickActionActivity;
-import constant.manager_system.UserType;
-import constant.manager_system.EnrollUserMessage;
 import constant.login_system.LoginLogoutUIMessage;
 import constant.login_system.LoginResult;
+import constant.manager_system.EnrollUserMessage;
+import constant.manager_system.UserType;
 import presenter.login_system.LoginPresenter;
 import presenter.login_system.LoginViewInterface;
 
@@ -166,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
             case CUSTOMER:
                 return CustomerPickActionActivity.class;
             case MANAGER:
-              return ManagerPickActionActivity.class;
+                return ManagerPickActionActivity.class;
             case DELIVERY_STAFF:
                 return DeliveryStaffPickActionActivity.class;
             case KITCHEN:

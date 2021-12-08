@@ -51,7 +51,7 @@ public class ManageMenuActivity extends AppCompatActivity implements ManageMenuV
     /**
      * Set up manager options.
      */
-    private void setupOptions(){
+    private void setupOptions() {
         manageMenuPresenter.getDishList();
         selectDish.setMaxValue(managerDecision.length - 1);
         selectDish.setMinValue(0);
@@ -64,21 +64,20 @@ public class ManageMenuActivity extends AppCompatActivity implements ManageMenuV
      * @param v View parameter.
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void next(View v){
+    public void next(View v) {
         manageMenuPresenter.getDish(managerDecision[selectDish.getValue()]);
     }
 
     /**
      * Getting the selected dish.
      */
-    public void getDish(String dishName){
+    public void getDish(String dishName) {
         Intent intent = new Intent(ManageMenuActivity.this, SelectEditOrDeleteActivity.class);
         intent.putExtra("dishSelected", dishName);
         startActivity(intent);
     }
 
     /**
-     *
      * @param s array of strings of dishes.
      */
     @Override
@@ -96,7 +95,6 @@ public class ManageMenuActivity extends AppCompatActivity implements ManageMenuV
         Intent intent = new Intent(ManageMenuActivity.this, ManagerPickActionActivity.class);
         startActivity(intent);
     }
-
 
 
 }

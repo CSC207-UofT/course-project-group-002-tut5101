@@ -25,6 +25,7 @@ public class GCloudReadWriter implements ReadWriter {
 
     /**
      * Read the given file from Google cloud storage.
+     *
      * @param filename the name of the file
      * @return The obtained HashMap from the data file.
      */
@@ -57,9 +58,9 @@ public class GCloudReadWriter implements ReadWriter {
     }
 
     /**
-     * @param context an activity instance
+     * @param context  an activity instance
      * @param filename the name of the file
-     * @param map the HashMap to be saved
+     * @param map      the HashMap to be saved
      */
     public void saveToFile(Context context, String filename, Object map) {
         new Thread(() -> {

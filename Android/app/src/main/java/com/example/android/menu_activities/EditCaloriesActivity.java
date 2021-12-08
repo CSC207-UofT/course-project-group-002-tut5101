@@ -46,12 +46,13 @@ public class EditCaloriesActivity extends AppCompatActivity {
 
     /**
      * Next activity
+     *
      * @param v v
      */
-    public void confirms(View v){
+    public void confirms(View v) {
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        double number = Double.parseDouble( editTextNumber.getText().toString());
+        double number = Double.parseDouble(editTextNumber.getText().toString());
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(DishMessage.CONFIRMING)
                 .setMessage(DishMessage.EDIT_MENU)

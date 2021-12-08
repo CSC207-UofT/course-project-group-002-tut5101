@@ -17,15 +17,16 @@ public class HasFreshness extends Inventory implements Serializable {
 
     /**
      * Construct an instance of Material
-     * @param name The name of the Inventory
-     * @param price The buy in price of the Inventory
-     * @param quantity The quantity of the Inventory
-     * @param freshness The freshness of the Material
+     *
+     * @param name       The name of the Inventory
+     * @param price      The buy in price of the Inventory
+     * @param quantity   The quantity of the Inventory
+     * @param freshness  The freshness of the Material
      * @param ImportDate The ImportDate of the Material
      */
 
     public HasFreshness(String name, double price, int quantity, String freshness,
-                        int ImportDate){
+                        int ImportDate) {
         super(name, price, quantity);
         this.freshness = freshness;
         this.ImportDate = ImportDate;
@@ -35,22 +36,22 @@ public class HasFreshness extends Inventory implements Serializable {
 
     /**
      * Change the freshness status of a Material
+     *
      * @param NewFreshness The new freshness status of this Material
      */
 
-    public void setFreshness(String NewFreshness){
+    public void setFreshness(String NewFreshness) {
         this.freshness = NewFreshness;
     }
 
     /**
-     *
      * @return the string representation of the inventory item
      */
     @NonNull
     @Override
-    public String toString(){
-        return super.name+ ","+ this.price +
-                ","+ this.quantity +","+ this.freshness+","+ this.ImportDate;
+    public String toString() {
+        return super.name + "," + this.price +
+                "," + this.quantity + "," + this.freshness + "," + this.ImportDate;
 
     }
 

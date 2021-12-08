@@ -50,6 +50,7 @@ public class Dish implements Serializable {
 
     /**
      * Set the table number of the dish
+     *
      * @param tableNum the table number of the dish
      */
     public void setTableNum(int tableNum) {
@@ -59,7 +60,9 @@ public class Dish implements Serializable {
     /**
      * @return the table number for this dish.
      */
-    public int getTableNum() { return tableNum;}
+    public int getTableNum() {
+        return tableNum;
+    }
 
     /**
      * Return status of entities.Dish
@@ -237,6 +240,7 @@ public class Dish implements Serializable {
 
     /**
      * compares two dishes to see if contents are the same
+     *
      * @param o The dish to compare to
      * @return whether the contents (e.g. ingredients, name, price) of the two dishes are the same
      */

@@ -1,9 +1,9 @@
 package com.example.android.inventory_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.MainActivity;
 import com.example.android.R;
 
@@ -25,6 +25,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
 
     /**
      * Moving to the Adding inventory page.
+     *
      * @param v view
      */
     public void AddInventory(View v) {
@@ -34,6 +35,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
 
     /**
      * Moving to the getting inventory page.
+     *
      * @param v view.
      */
     public void GetInventoryInfo(View v) {
@@ -43,6 +45,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
 
     /**
      * Moving to the updating quantity page.
+     *
      * @param v view.
      */
     public void UpdateQuantity(View v) {
@@ -52,6 +55,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
 
     /**
      * Moving to the  updating freshness page.
+     *
      * @param v view.
      */
     public void UpdateFreshness(View v) {
@@ -61,6 +65,7 @@ public class InventoryStarterActivity extends AppCompatActivity {
 
     /**
      * back to main activity
+     *
      * @param view view
      */
     public void backToMainActivity(View view) {

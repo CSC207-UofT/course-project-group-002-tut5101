@@ -1,12 +1,12 @@
 package com.example.android.user_activities;
 
+import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
-import presenter.user_system.view_interfaces.DisplayUsersViewInterface;
 import presenter.user_system.UserPresenter;
+import presenter.user_system.view_interfaces.DisplayUsersViewInterface;
 
 /**
  * Activity class for seeing user.
@@ -25,6 +25,7 @@ public class SeeUserActivity extends AppCompatActivity implements DisplayUsersVi
 
     /**
      * Setting the user list to display
+     *
      * @param userItems user items.
      */
     @Override

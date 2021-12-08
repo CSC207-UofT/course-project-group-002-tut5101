@@ -23,12 +23,14 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
     private final Context kContext;
     private final int kResource;
     private final CookDishPresenter kp;
+
     /**
      * Create an adapter.
-     * @param context the activity it in
-     * @param resource The xml file to display
+     *
+     * @param context       the activity it in
+     * @param resource      The xml file to display
      * @param displayDishes the arraylist where its content would be displayed
-     * @param kp the kitchen presenter
+     * @param kp            the kitchen presenter
      */
     public CurrentOrderDishesAdapter(Context context, int resource, ArrayList<String[]> displayDishes, CookDishPresenter kp) {
         super(context, resource, displayDishes);
@@ -36,11 +38,13 @@ public class CurrentOrderDishesAdapter extends ArrayAdapter<String[]> {
         kResource = resource;
         this.kp = kp;
     }
+
     /**
      * Get a View that displays the data at the specified position in the data set.
-     * @param position the specified position
+     *
+     * @param position    the specified position
      * @param convertView the view to be inflated from a xml file
-     * @param parent the parent View that will apply the default layout
+     * @param parent      the parent View that will apply the default layout
      */
     @SuppressLint("ViewHolder")
     @Override

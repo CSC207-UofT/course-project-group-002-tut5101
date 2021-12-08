@@ -15,7 +15,7 @@ public class ReviewPresenter implements ReviewOutputBoundary {
     /**
      * Constructor for this class.
      */
-    public ReviewPresenter(){
+    public ReviewPresenter() {
         this.reviewList = new ReviewList();
         reviewList.setReviewOutputBoundary(this);
     }
@@ -23,6 +23,7 @@ public class ReviewPresenter implements ReviewOutputBoundary {
 
     /**
      * Setting view interface.
+     *
      * @param displayReviewViewInterface view interface for this class.
      */
     public void setDisplayReviewViewInterface(DisplayReviewViewInterface displayReviewViewInterface) {
@@ -37,7 +38,6 @@ public class ReviewPresenter implements ReviewOutputBoundary {
     }
 
     /**
-     *
      * @param toString string representation of the reviews.
      */
     @Override

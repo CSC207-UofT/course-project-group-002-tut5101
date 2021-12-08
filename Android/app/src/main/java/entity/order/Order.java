@@ -13,7 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-/**This is the Order class, which holds all the dishes the customer placed in the order
+/**
+ * This is the Order class, which holds all the dishes the customer placed in the order
  * by Evelyn Chou
  * 2021-11-03
  */
@@ -24,6 +25,7 @@ public abstract class Order {
 
     /**
      * Initialize an order (used by subclasses)
+     *
      * @param dishes the dishes ordered
      */
     public Order(HashMap<String, List<Dish>> dishes) {
@@ -33,6 +35,7 @@ public abstract class Order {
 
     /**
      * sets the status uncooked dish with name as cooked, and checks if the entire order is done cooking
+     *
      * @param name the name of the dish that was cooked and needs to be updated
      * @return the Dish that was updated
      */
@@ -72,6 +75,7 @@ public abstract class Order {
 
     /**
      * Returns provided STRING argument.
+     *
      * @param status is the status to set the order as
      */
     public void setOrderStatus(ItemStatus status) {
@@ -80,6 +84,7 @@ public abstract class Order {
 
     /**
      * Get the order status of the order
+     *
      * @return order status as type ItemStatus
      */
     public ItemStatus getOrderStatus() {
@@ -104,6 +109,7 @@ public abstract class Order {
 
     /**
      * Return all the dishes in the order with duplication
+     *
      * @return The list of all the dishes in the order with duplication
      */
     public List<Dish> getDishes() {
@@ -152,7 +158,6 @@ public abstract class Order {
 
 
     /**
-     *
      * @return String containing the dish names, quantity, ingredients, price for each dish, and total price of the Order
      */
     @NonNull
@@ -179,7 +184,6 @@ public abstract class Order {
     }
 
     /**
-     *
      * @param o the Dish to compare to
      * @return whether the attributes of the Order are the same.
      */

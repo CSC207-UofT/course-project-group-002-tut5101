@@ -5,8 +5,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.R;
-import presenter.review_system.view_interface.DisplayReviewViewInterface;
 import presenter.review_system.ReviewPresenter;
+import presenter.review_system.view_interface.DisplayReviewViewInterface;
 
 /**
  * Activity class for the manager to see the reviews, and thus decide to delete the reviews or not.
@@ -31,9 +31,10 @@ public class SeeReviewActivity extends AppCompatActivity implements DisplayRevie
 
     /**
      * Set the text to present
+     *
      * @param reviewsText texts of use_case.review.
      */
-    public void setReviewsText(String reviewsText){
+    public void setReviewsText(String reviewsText) {
         TextView reviewText = new TextView(this);
         reviewText.setText(reviewsText);
 

@@ -1,71 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".user_activities.LoginActivity">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".user_activities.LoginActivity">
 
-	<TextView
+    <TextView
             android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginEnd="10dp"
-		android:text="@string/userId"
-		android:textSize="16sp"
-		android:textStyle="bold"
-		app:layout_constraintBottom_toBottomOf="@+id/editTextUserId"
-		app:layout_constraintEnd_toStartOf="@+id/editTextUserId" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/userId"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextUserId"
+            app:layout_constraintEnd_toStartOf="@+id/editTextUserId"/>
 
-	<EditText
-		android:id="@+id/editTextUserId"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="108dp"
-		android:ems="10"
-		android:inputType="textPersonName"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.60"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		android:hint="@string/enter_id"
-		android:autofillHints="@string/enter_id"/>
-
-	<TextView
+    <EditText
+            android:id="@+id/editTextUserId"
             android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginEnd="10dp"
-		android:text="@string/password"
-		android:textSize="16sp"
-		android:textStyle="bold"
-		app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
-		app:layout_constraintEnd_toStartOf="@+id/editTextPassword" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/enter_id"
+            android:autofillHints="@string/enter_id"/>
 
-	<EditText
-		android:id="@+id/editTextPassword"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="60dp"
-		android:ems="10"
-		android:inputType="textPassword"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.60"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/editTextUserId"
-		android:hint="@string/enter_password"
-		android:autofillHints="@string/enter_password"/>
-
-	<Button
+    <TextView
             android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="60dp"
-			android:onClick="runLogin"
-			android:text="@string/login"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintHorizontal_bias="0.5"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/editTextPassword" tools:ignore="UsingOnClickInXml"/>
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/password"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
+            app:layout_constraintEnd_toStartOf="@+id/editTextPassword"/>
 
+    <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUserId"
+            android:hint="@string/enter_password"
+            android:autofillHints="@string/enter_password"/>
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:onClick="runLogin"
+            android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" tools:ignore="UsingOnClickInXml"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

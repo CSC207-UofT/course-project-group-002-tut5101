@@ -9,8 +9,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.R;
 import com.example.android.manager_activities.ManagerPickActionActivity;
-import constant.manager_system.EnrollUserMessage;
 import constant.login_system.LoginLogoutUIMessage;
+import constant.manager_system.EnrollUserMessage;
 import presenter.user_system.EnrollStaffPresenter;
 import presenter.user_system.view_interfaces.EnrollStaffViewInterface;
 

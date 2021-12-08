@@ -16,7 +16,8 @@ public class ServingStaff extends Staff {
 
     /**
      * Construct an instance of s serving staff
-     * @param staffName The name of the staff
+     *
+     * @param staffName   The name of the staff
      * @param staffNumber The number of the staff
      */
     public ServingStaff(String staffNumber, String staffName, String password) {
@@ -27,6 +28,7 @@ public class ServingStaff extends Staff {
 
     /**
      * Set the current dish to the given dish.
+     *
      * @param currentDish The current dish for the Serving Staff
      */
     public void setCurrentDish(Dish currentDish) {
@@ -35,15 +37,19 @@ public class ServingStaff extends Staff {
 
     /**
      * Check if the staff has a dish already
+     *
      * @return true when there is no current dish, false when there is one
      */
-    public boolean hasCurrentDish() {return currentDish != null;}
+    public boolean hasCurrentDish() {
+        return currentDish != null;
+    }
 
     /**
      * Set the status of the current to "Completed" to indicate that the dish is served
+     *
      * @throws Exception if the current Dish is null.
      */
-    public void completeServingDish() throws Exception{
+    public void completeServingDish() throws Exception {
         if (currentDish != null) {
             this.currentDish.setStatus(ItemStatus.DISH_COMPLETED);
             currentDish = null;
@@ -53,11 +59,10 @@ public class ServingStaff extends Staff {
     }
 
     /**
-     *
      * @return a string representation of the dish.
      */
-    public String displayDish(){
-        if (currentDish != null){
+    public String displayDish() {
+        if (currentDish != null) {
             return "Table: " + currentDish.getTableNum()
                     + " Dish: " + currentDish.getName()
                     + "\n====================";

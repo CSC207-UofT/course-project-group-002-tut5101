@@ -1,4 +1,5 @@
 package presenter.user_system.view_interfaces;
+
 /**
  * Interface for displaying users.
  */

@@ -11,7 +11,7 @@ public class EditCaloriesPresenter {
     /**
      * Constructor
      */
-    public EditCaloriesPresenter(){
+    public EditCaloriesPresenter() {
         this.dishList = new DishList();
     }
 
@@ -20,7 +20,7 @@ public class EditCaloriesPresenter {
      *
      * @param dishName the name of the dish
      */
-    public void increaseCalories(String dishName, double number){
+    public void increaseCalories(String dishName, double number) {
         dishList.editCalories(dishName, 1, number);
     }
 
@@ -29,7 +29,7 @@ public class EditCaloriesPresenter {
      *
      * @param dishName the name of the dish
      */
-    public void decreaseCalories(String dishName, double number){
+    public void decreaseCalories(String dishName, double number) {
         dishList.editCalories(dishName, 0, number);
     }
 }

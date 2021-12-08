@@ -21,6 +21,7 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
 
     /**
      * Set the view interface
+     *
      * @param placeOrderMenuViewInterface the view interface
      */
     public void setPlaceOrderMenuViewInterface(PlaceOrderMenuViewInterface placeOrderMenuViewInterface) {
@@ -54,19 +55,21 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
 
     /**
      * set the number of dishes ordered on view
+     *
      * @param size the number of dishes
      */
     @Override
     public void setDishNamePickerMaxValue(int size) {
         if (size >= 1) {
             placeOrderMenuViewInterface.setDishNamePickerMaxValue(size);
-        }
-        else {placeOrderMenuViewInterface.setDishNamePickerMaxValue(0);
+        } else {
+            placeOrderMenuViewInterface.setDishNamePickerMaxValue(0);
         }
     }
 
     /**
      * set the view to display dishes ordered
+     *
      * @param dishNames dishes ordered
      */
     @Override
@@ -75,4 +78,4 @@ public class PlaceOrderMenuPresenter implements PlaceOrderMenuOutputBoundary {
     }
 
 
-    }
+}

@@ -29,6 +29,7 @@ public class CookDishPresenter implements KitchenOutputBoundary {
 
     /**
      * Set the view that the KitchenPresenter is interacting with
+     *
      * @param kv the activity implementing KitchenView
      */
     public void setView(CookDishView kv) {
@@ -52,10 +53,11 @@ public class CookDishPresenter implements KitchenOutputBoundary {
 
     /**
      * Update the current dishes to be the potentially new orders.
+     *
      * @param dishes the new dishes (order) to be cooked
      */
     @Override
-    public void getNextOrder(HashMap<String, Integer> dishes){
+    public void getNextOrder(HashMap<String, Integer> dishes) {
         CookDishPresenter.dishes = dishes;
     }
 
@@ -69,7 +71,7 @@ public class CookDishPresenter implements KitchenOutputBoundary {
     /**
      * Mark the given dish as cooked.
      * Update the inventory.
-     *
+     * <p>
      * If the given dish is all completed in dishes, remove this element from dishes. Otherwise,
      * decreases the quantity of this dish by 1.
      *
@@ -79,7 +81,7 @@ public class CookDishPresenter implements KitchenOutputBoundary {
         this.kitchen.cookedDish(dishName);
         updateInventory(dishName);
         Integer name = dishes.get(dishName);
-        if (name != null){
+        if (name != null) {
             if (name > 1) {
                 dishes.put(dishName, name - 1);
             } else {
@@ -91,6 +93,7 @@ public class CookDishPresenter implements KitchenOutputBoundary {
 
     /**
      * Update the view in activity and prompt messages
+     *
      * @param dishName The name of the dish that is completed.
      */
     public void updateView(String dishName) {
@@ -104,12 +107,13 @@ public class CookDishPresenter implements KitchenOutputBoundary {
 
     /**
      * Update the inventory according to the ingredients used in the given dish name.
+     *
      * @param dishName The name of the cooked dish
      */
     private void updateInventory(String dishName) {
         HashMap<String, Integer> ingredientInfo = DishList.getDishIngredients(dishName);
 
-        for (String dish: ingredientInfo.keySet()) {
+        for (String dish : ingredientInfo.keySet()) {
             int oriQuantity = InventoryList.getTotalQuantity(dish);
             Integer dishIngredientInfo = ingredientInfo.get(dish);
             if (dishIngredientInfo != null) {

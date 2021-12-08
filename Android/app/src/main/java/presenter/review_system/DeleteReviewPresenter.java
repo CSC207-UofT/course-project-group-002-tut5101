@@ -1,8 +1,8 @@
 package presenter.review_system;
 
 import constant.manager_system.ManagerDecision;
-import use_case.review.boundaries.DeleteReviewInputBoundary;
 import use_case.review.DeleteReviewUseCase;
+import use_case.review.boundaries.DeleteReviewInputBoundary;
 
 import java.util.Objects;
 
@@ -15,22 +15,21 @@ public class DeleteReviewPresenter {
     /**
      * Empty constructor.
      */
-    public DeleteReviewPresenter(){
+    public DeleteReviewPresenter() {
         this.deleteReviewInputBoundary = new DeleteReviewUseCase();
     }
 
     /**
      * Method for deciding upon manager's decision.
+     *
      * @param action decision by manager.
      */
-    public void decideReview(String action){
-        if (Objects.equals(action, ManagerDecision.ONE.toString())){
+    public void decideReview(String action) {
+        if (Objects.equals(action, ManagerDecision.ONE.toString())) {
             deleteReviewInputBoundary.delete(1);
-        }
-        else if(Objects.equals(action,ManagerDecision.TWO.toString())) {
+        } else if (Objects.equals(action, ManagerDecision.TWO.toString())) {
             deleteReviewInputBoundary.delete(2);
-        }
-        else {
+        } else {
             deleteReviewInputBoundary.delete(3);
         }
     }

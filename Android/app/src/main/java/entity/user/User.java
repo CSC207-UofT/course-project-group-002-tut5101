@@ -106,5 +106,7 @@ public class User implements Serializable {
      *
      * @return the name of entities.User
      */
-    public String getPassword(){return attributes.getPassword();}
+    public String getPassword() {
+        return attributes.getPassword();
+    }
 }

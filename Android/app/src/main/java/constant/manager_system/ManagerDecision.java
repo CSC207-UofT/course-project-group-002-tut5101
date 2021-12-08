@@ -5,6 +5,7 @@ package constant.manager_system;
  */
 
 @SuppressWarnings("ALL")
-public enum ManagerDecision {DELETE, THREE, TWO, ONE, CALORIES, PRICE, EDIT, FOUR, FIVE, SIX
+public enum ManagerDecision {
+    DELETE, THREE, TWO, ONE, CALORIES, PRICE, EDIT, FOUR, FIVE, SIX
 
 }

@@ -1,9 +1,9 @@
 package com.example.android.customer_activities;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.MainActivity;
 import com.example.android.R;
 import com.example.android.menu_activities.SeeMenuActivity;
@@ -26,32 +26,40 @@ public class CustomerPickActionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_pick_action);
 
     }
+
     /**
      * Moving to the menu page.
+     *
      * @param v view
      */
     public void selectSeeMenu(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, SeeMenuActivity.class);
         startActivity(intent);
     }
+
     /**
      * Moving to the placing order page.
+     *
      * @param v view
      */
     public void selectPlaceOrder(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, SelectDineInTakeOutActivity.class);
         startActivity(intent);
     }
+
     /**
      * Moving to the add review page.
+     *
      * @param v view
      */
     public void selectAddReview(@SuppressWarnings("unused") View v) {
         Intent intent = new Intent(CustomerPickActionActivity.this, AddReviewCommentActivity.class);
         startActivity(intent);
     }
+
     /**
      * Moving to the main page, exit current.
+     *
      * @param v view
      */
     public void selectExit(@SuppressWarnings("unused") View v) {

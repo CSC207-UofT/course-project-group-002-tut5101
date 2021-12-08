@@ -16,7 +16,8 @@ public class DeliveryStaff extends Staff {
 
     /**
      * Construct an instance of s delivery staff
-     * @param staffName The name of the staff
+     *
+     * @param staffName   The name of the staff
      * @param staffNumber The number of the staff
      */
     public DeliveryStaff(String staffNumber, String staffName, String password) {
@@ -25,6 +26,7 @@ public class DeliveryStaff extends Staff {
 
     /**
      * Set the current order of the delivery staff
+     *
      * @param order the current order of this delivery staff
      */
     public void setCurrentOrder(DeliveryOrder order) {
@@ -33,15 +35,19 @@ public class DeliveryStaff extends Staff {
 
     /**
      * Check if the staff has an order already
+     *
      * @return true when there is no current dish, false when there is one
      */
-    public boolean hasCurrentOrder() {return currentOrder != null;}
+    public boolean hasCurrentOrder() {
+        return currentOrder != null;
+    }
 
     /**
      * Complete the current delivery order
+     *
      * @throws Exception if there is no order to be delivered
      */
-    public void completeOrderDelivery() throws Exception{
+    public void completeOrderDelivery() throws Exception {
         if (currentOrder != null) {
             this.currentOrder.setOrderStatus(ItemStatus.ORDER_COMPLETED);
             currentOrder = null;
@@ -52,17 +58,18 @@ public class DeliveryStaff extends Staff {
 
     /**
      * display the current order
+     *
      * @return string representation of current order
      */
-    public String displayOrder(){
-        if (currentOrder != null){
+    public String displayOrder() {
+        if (currentOrder != null) {
             return currentOrder.getOrderContent();
         }
         return "";
     }
 
     public String getOrderDestination() {
-        if (currentOrder != null){
+        if (currentOrder != null) {
             return currentOrder.getAddress();
         }
         return "";

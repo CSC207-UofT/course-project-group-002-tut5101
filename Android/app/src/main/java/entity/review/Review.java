@@ -36,7 +36,6 @@ public class Review implements Reviewable, Serializable {
     }
 
     /**
-     *
      * @return id of the use_case.review.
      */
     public String getReviewID() {
@@ -94,7 +93,6 @@ public class Review implements Reviewable, Serializable {
     }
 
     /**
-     *
      * @return a string representation of this use_case.review.
      */
     @Override

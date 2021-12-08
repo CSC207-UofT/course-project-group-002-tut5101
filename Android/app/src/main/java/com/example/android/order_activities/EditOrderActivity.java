@@ -1,13 +1,13 @@
 package com.example.android.order_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
@@ -30,6 +30,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
     private EditOrderPresenter editOrderPresenter;
 
     private NumberPicker orderedDishesPicker;
+
     /**
      * Activity basic function.
      *
@@ -57,14 +58,13 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
      * Collecting dish information.
      */
     @SuppressWarnings("unchecked")
-    private void collectDishInformation(){
+    private void collectDishInformation() {
         Intent intent = getIntent();
         System.out.println(intent.getExtras());
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
             System.out.println("has Dishes");
             dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
-        }
-        else {
+        } else {
             dishesOrdered = new HashMap<>();
         }
         System.out.println("Edit Order Activity collect Dish Info");
@@ -78,8 +78,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
         if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
             System.out.println("Has prices");
             dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
-        }
-        else {
+        } else {
             dishPrices = new HashMap<>();
         }
         System.out.println(dishPrices);
@@ -90,6 +89,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Display the ordered dishes
+     *
      * @param dishesOrderedList dishes ordered
      */
     @Override
@@ -105,6 +105,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Set the number of options to pick from
+     *
      * @param numDishes number of options
      */
     @Override
@@ -114,6 +115,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Set the ordered dishes options to edit
+     *
      * @param dishes dishes ordered
      */
     @Override
@@ -123,6 +125,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Get the dishes to be removed from the xml file and remove them from the current list of dishes
+     *
      * @param v the view on which the user has clicked
      */
     public void removeDish(View v) {
@@ -132,6 +135,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Update the dishes ordered
+     *
      * @param dishesOrdered the new dishes ordered
      */
     public void updateDishesOrdered(HashMap<String, Integer> dishesOrdered) {
@@ -140,6 +144,7 @@ public class EditOrderActivity extends AppCompatActivity implements EditOrderVie
 
     /**
      * Switch back to the place order page, and send the information
+     *
      * @param v the view on which the user has clicked
      */
     public void returnToOrder(View v) {

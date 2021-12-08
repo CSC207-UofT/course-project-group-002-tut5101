@@ -8,28 +8,28 @@
         tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/customerLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="512dp"
-        android:ems="15"
-        android:onClick="selectCustomerPickAction"
-        android:text="@string/i_am_a_customer"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="UsingOnClickInXml" />
+            android:id="@+id/customerLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="512dp"
+            android:ems="15"
+            android:onClick="selectCustomerPickAction"
+            android:text="@string/i_am_a_customer"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="UsingOnClickInXml"/>
 
     <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:onClick="selectLogin"
-        android:text="@string/staff_login"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/customerLogin"
-        app:layout_constraintStart_toStartOf="@+id/customerLogin"
-        app:layout_constraintTop_toBottomOf="@+id/customerLogin"
-        tools:ignore="UsingOnClickInXml" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:onClick="selectLogin"
+            android:text="@string/staff_login"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/customerLogin"
+            app:layout_constraintStart_toStartOf="@+id/customerLogin"
+            app:layout_constraintTop_toBottomOf="@+id/customerLogin"
+            tools:ignore="UsingOnClickInXml"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

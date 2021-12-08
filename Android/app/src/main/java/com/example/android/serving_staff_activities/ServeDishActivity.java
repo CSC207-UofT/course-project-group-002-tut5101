@@ -1,11 +1,11 @@
 package com.example.android.serving_staff_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
 import presenter.delivery_system.CurrentItemPresenter;
 import presenter.delivery_system.GetNextItemPresenter;
@@ -37,7 +37,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
         dishContent = findViewById(R.id.CurrentDish);
         // Get staff id for method calls
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             id = b.getString("id");
             mode = b.getString("action");
         }
@@ -74,6 +74,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
 
     /**
      * Put the current item(dish) information to user's view
+     *
      * @param info Dish information
      */
     @Override
@@ -83,6 +84,7 @@ public class ServeDishActivity extends AppCompatActivity implements StaffViewInt
 
     /**
      * Handle exceptions by displaying error message and return to previous page.
+     *
      * @param e Exception caught
      */
     private void exceptionHandler(Exception e) {

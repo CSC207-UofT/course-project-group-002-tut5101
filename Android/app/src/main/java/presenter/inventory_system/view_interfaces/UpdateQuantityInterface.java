@@ -1,4 +1,5 @@
 package presenter.inventory_system.view_interfaces;
+
 /**
  * Update Inventory quantity interface between view and presenter
  */

@@ -12,21 +12,23 @@ public class UserPresenter implements UserOutputBoundary {
     private final UserList userList;
     private DisplayUsersViewInterface displayUsersViewInterface;
 
-    public UserPresenter(){
+    public UserPresenter() {
         userList = new UserList();
         userList.setUserOutputBoundary(this);
     }
 
     /**
      * Setting up the DisplayUsersViewInterface.
+     *
      * @param viewInterface the view to display things to
      */
-    public void setDisplayUsersViewInterface(DisplayUsersViewInterface viewInterface){
+    public void setDisplayUsersViewInterface(DisplayUsersViewInterface viewInterface) {
         this.displayUsersViewInterface = viewInterface;
     }
 
     /**
      * Update the display to show users
+     *
      * @param userItems the list of users as a string
      */
     @Override
@@ -37,7 +39,7 @@ public class UserPresenter implements UserOutputBoundary {
     /**
      * Display users as string
      */
-    public void displayUsersAsString(){
+    public void displayUsersAsString() {
         userList.usersString();
     }
 

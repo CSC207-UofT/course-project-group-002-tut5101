@@ -1,8 +1,8 @@
 package presenter.menu_system;
 
 import presenter.menu_system.view_interface.ManageMenuViewInterface;
-import use_case.dish_list.boundaries.ManageMenuOutputBoundary;
 import use_case.dish_list.DishList;
+import use_case.dish_list.boundaries.ManageMenuOutputBoundary;
 
 /**
  * Presenter class for managing menu.
@@ -14,11 +14,10 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     /**
      * Constructor for this class.
      */
-    public ManageMenuPresenter(){
+    public ManageMenuPresenter() {
     }
 
     /**
-     *
      * @param manageMenuViewInterface view interface for managing menu.
      */
     public void setManageMenuViewInterface(ManageMenuViewInterface manageMenuViewInterface) {
@@ -46,7 +45,7 @@ public class ManageMenuPresenter implements ManageMenuOutputBoundary {
     /**
      * getting the dish list.
      */
-    public void getDishList(){
+    public void getDishList() {
         dishList.passDishesAsList();
     }
 

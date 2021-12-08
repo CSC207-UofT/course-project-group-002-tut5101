@@ -8,9 +8,9 @@ import android.content.Context;
 
 public interface ReadWriter {
     /**
-     * @param context an activity instance
+     * @param context  an activity instance
      * @param filename the name of the file
-     * @param map the HashMap to be saved
+     * @param map      the HashMap to be saved
      */
     void saveToFile(Context context, String filename, Object map);
 

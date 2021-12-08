@@ -10,13 +10,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.R;
 import constant.manager_system.ManagerDecision;
-import constant.manager_system.ReviewMessage;
 import constant.manager_system.ManagerUIMessage;
+import constant.manager_system.ReviewMessage;
 import presenter.review_system.DeleteReviewPresenter;
 
 
 /**
- *
  * Activity class for deleting reviews.
  */
 @SuppressWarnings("unused")
@@ -55,7 +54,7 @@ public class DeleteReviewActivity extends AppCompatActivity {
     /**
      * Set up manager options.
      */
-    private void setupOptions(){
+    private void setupOptions() {
         managerDecision = new String[]{ManagerDecision.ONE.name(), ManagerDecision.TWO.name(),
                 ManagerDecision.THREE.name()};
         selectAction.setDisplayedValues(managerDecision);

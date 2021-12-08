@@ -11,12 +11,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.R;
 import com.example.android.customer_activities.CustomerPickActionActivity;
-import constant.order_system.CustomerUIMessage;
 import constant.order_system.BuildOrderInfo;
+import constant.order_system.CustomerUIMessage;
 import constant.order_system.OrderType;
 import presenter.order_system.PlaceOrderMenuPresenter;
-import presenter.order_system.view_interfaces.PlaceOrderMenuViewInterface;
 import presenter.order_system.PlaceOrderPresenter;
+import presenter.order_system.view_interfaces.PlaceOrderMenuViewInterface;
 import presenter.order_system.view_interfaces.PlaceOrderViewInterface;
 
 import java.beans.PropertyChangeListener;
@@ -50,6 +50,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * Method that runs on creation of this class
+     *
      * @param savedInstanceState The saved state of this class
      */
     @Override
@@ -77,7 +78,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     /**
      * generate attributes corresponding to user view
      */
-    private void generateStartingInformation(){
+    private void generateStartingInformation() {
         this.dishQuantityPicker = findViewById(R.id.dishQuantityPicker);
         this.dishQuantityPicker.setMinValue(1);
         this.dishQuantityPicker.setMaxValue(20);
@@ -94,13 +95,12 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
      * collect information passed from last activity
      */
     @SuppressWarnings("unchecked")
-    private void collectDishInformation(){
+    private void collectDishInformation() {
         Intent intent = getIntent();
 
         if (intent.hasExtra(BuildOrderInfo.DISHES.name())) {
             dishesOrdered = (HashMap<String, Integer>) intent.getSerializableExtra(BuildOrderInfo.DISHES.name());
-        }
-        else {
+        } else {
             dishesOrdered = new HashMap<>();
         }
         if (intent.hasExtra(BuildOrderInfo.ORDER_TYPE.name())) {
@@ -111,8 +111,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         }
         if (intent.hasExtra(BuildOrderInfo.PRICES.name())) {
             dishPrices = (HashMap<String, Double>) intent.getSerializableExtra(BuildOrderInfo.PRICES.name());
-        }
-        else {
+        } else {
             dishPrices = new HashMap<>();
         }
         placeOrderPresenter.setDishesOrdered(dishesOrdered);
@@ -122,6 +121,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * method called from the use case through interface to set the number of dish choices
+     *
      * @param size the number of dish choices
      */
     public void setDishNamePickerMaxValue(int size) {
@@ -130,6 +130,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * method called from the use case through interface to set the available dish names
+     *
      * @param dishNames the array of all dish names
      */
     public void setDisplayedDishNames(String[] dishNames) {
@@ -138,6 +139,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * Update dishes ordered
+     *
      * @param dishesOrdered new dishes ordered
      */
     @Override
@@ -148,6 +150,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * Set dish prices
+     *
      * @param dishPrices prices of dishes ordered
      */
     @Override
@@ -157,6 +160,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * Method for order_dish button that runs on click
+     *
      * @param v the view on which the user has clicked
      */
     public void orderDish(View v) {
@@ -168,6 +172,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * display dishes ordered in the ordered dishes
+     *
      * @param displayedText text to display
      */
     @Override
@@ -184,6 +189,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     /**
      * method that runs on click of place_order button to collect all dishes in an array and then pass to the next
      * activity where dine in status and location is selected
+     *
      * @param v the view on which the user has clicked
      */
     public void placeOrder(View v) {
@@ -193,7 +199,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
     /**
      * show the order successfully placed view
      */
-    public void orderSuccessfullyPlaced(){
+    public void orderSuccessfullyPlaced() {
 
         observable.firePropertyChange("OrderStatus", 0, 1);
 
@@ -217,6 +223,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * set the error message
+     *
      * @param message message to display
      */
     public void setErrorMessage(String message) {
@@ -226,6 +233,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
 
     /**
      * Sends the information about order type, location, and dishes ordered to the edit order page to allow for changes
+     *
      * @param view the view on which the user has clicked
      */
     public void selectEditOrder(View view) {
@@ -246,7 +254,7 @@ public class PlaceOrderActivity extends AppCompatActivity implements PlaceOrderV
         if (!dishesOrdered.isEmpty()) {
             intent.putExtra(BuildOrderInfo.DISHES.name(), dishesOrdered);
         }
-        if (orderType != null ){
+        if (orderType != null) {
             intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         }
         if (location != null) {

@@ -11,7 +11,7 @@ public class EditPricePresenter {
     /**
      * Constructor
      */
-    public EditPricePresenter(){
+    public EditPricePresenter() {
         this.dishList = new DishList();
     }
 
@@ -20,7 +20,7 @@ public class EditPricePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void increasePrice(String dishName, double number){
+    public void increasePrice(String dishName, double number) {
         dishList.editPrice(dishName, 1, number);
     }
 
@@ -29,7 +29,7 @@ public class EditPricePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void decreasePrice(String dishName, double number){
+    public void decreasePrice(String dishName, double number) {
         dishList.editPrice(dishName, 0, number);
     }
 

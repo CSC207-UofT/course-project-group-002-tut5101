@@ -3,9 +3,9 @@ package presenter.user_system;
 
 import constant.manager_system.UserType;
 import presenter.user_system.view_interfaces.EnrollStaffViewInterface;
+import use_case.enroll_staff.EnrollNewStaff;
 import use_case.enroll_staff.boundaries.EnrollStaffInputBoundary;
 import use_case.enroll_staff.boundaries.EnrollStaffOutputBoundary;
-import use_case.enroll_staff.EnrollNewStaff;
 import use_case.user_list.UserList;
 
 /**
@@ -30,7 +30,8 @@ public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
 
     /**
      * Set view interface for presenter.
-     * @param viewInterface     view interface
+     *
+     * @param viewInterface view interface
      */
     public void setViewInterface(EnrollStaffViewInterface viewInterface) {
         this.enrollStaffViewInterface = viewInterface;
@@ -47,7 +48,7 @@ public class EnrollStaffPresenter implements EnrollStaffOutputBoundary {
     public void enrollNewUser(String newUserId, String newUserName, String newUserPassword, String userType) {
         UserType currentUserType = null;
         for (UserType type : UserType.values()) {
-            if (type.toString().equals(userType)){
+            if (type.toString().equals(userType)) {
                 currentUserType = type;
                 break;
             }

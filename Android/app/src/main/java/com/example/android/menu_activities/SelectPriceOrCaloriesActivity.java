@@ -56,13 +56,14 @@ public class SelectPriceOrCaloriesActivity extends AppCompatActivity {
 
     /**
      * Next activity
+     *
      * @param v v
      */
-    public void next(View v){
+    public void next(View v) {
         String action = selectOption[select.getValue()];
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        if  (Objects.equals(action, ManagerDecision.PRICE.toString())) {
+        if (Objects.equals(action, ManagerDecision.PRICE.toString())) {
             Intent intent = new Intent(SelectPriceOrCaloriesActivity.this, EditPriceActivity.class);
             intent.putExtra("dishSelected", dishName);
             startActivity(intent);

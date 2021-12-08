@@ -1,12 +1,12 @@
 package com.example.android.menu_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
 import constant.manager_system.DishMessage;
 import constant.manager_system.ManagerUIMessage;
@@ -45,12 +45,13 @@ public class EditPriceActivity extends AppCompatActivity {
 
     /**
      * Next activity
+     *
      * @param v v
      */
-    public void confirm(View v){
+    public void confirm(View v) {
         Intent extras = getIntent();
         String dishName = extras.getStringExtra("dishSelected");
-        double number = Double.parseDouble( editTextNumber.getText().toString());
+        double number = Double.parseDouble(editTextNumber.getText().toString());
         AlertDialog alertDlg = new AlertDialog.Builder(this)
                 .setTitle(DishMessage.CONFIRMING)
                 .setMessage(DishMessage.EDIT_MENU)

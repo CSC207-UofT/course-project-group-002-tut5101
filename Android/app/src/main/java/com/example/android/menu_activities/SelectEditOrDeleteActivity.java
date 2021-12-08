@@ -58,7 +58,7 @@ public class SelectEditOrDeleteActivity extends AppCompatActivity implements Sel
      * Setting up options.
      */
     private void setupOptions() {
-        selectOption = new String[]{ManagerDecision.DELETE.toString(),ManagerDecision.EDIT.toString()};
+        selectOption = new String[]{ManagerDecision.DELETE.toString(), ManagerDecision.EDIT.toString()};
         selectEditOrDelete.setMaxValue(selectOption.length - 1);
         selectEditOrDelete.setMinValue(0);
         selectEditOrDelete.setDisplayedValues(selectOption);

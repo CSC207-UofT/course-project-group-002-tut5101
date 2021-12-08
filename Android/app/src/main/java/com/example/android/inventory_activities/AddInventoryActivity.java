@@ -55,17 +55,17 @@ public class AddInventoryActivity extends AppCompatActivity implements View.OnCl
         this.ADD_INVENTORY_PRESENTER.addNewInventory(inventoryItemName, inventoryItemPrice, inventoryItemAmount, inventoryItemImportDate, inventoryItemFreshness);
         finish();
     }
+
     /**
      * show the toast information on the screen.
-     *
      */
     @Override
-    public void updateInventoryList(String message){
-        Toast.makeText(AddInventoryActivity.this,message,Toast.LENGTH_SHORT).show();
+    public void updateInventoryList(String message) {
+        Toast.makeText(AddInventoryActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
     /**
      * Call when  the pointer is enabled or disable for the current window.
-     *
      */
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

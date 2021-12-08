@@ -1,12 +1,12 @@
 package com.example.android.menu_activities;
 
+import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
-import presenter.menu_system.view_interface.DisplayMenuViewInterface;
 import presenter.menu_system.MenuPresenter;
+import presenter.menu_system.view_interface.DisplayMenuViewInterface;
 
 /**
  * Activity class for seeing menu
@@ -31,6 +31,7 @@ public class SeeMenuActivity extends AppCompatActivity implements DisplayMenuVie
 
     /**
      * Setting the next item
+     *
      * @param menuItems menu items.
      */
     public void setMenuItemsText(String menuItems) {

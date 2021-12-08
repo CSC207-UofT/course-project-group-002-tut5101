@@ -12,19 +12,19 @@ public class Staff extends User {
 
     /**
      * Construct a staff using the staff's name, staffNumber, and staffSalary
+     *
      * @param staffName The name of a staff
-     * @param staffID The staff number of a staff
-     * @param password The password of a staff
+     * @param staffID   The staff number of a staff
+     * @param password  The password of a staff
      */
     public Staff(String staffID, String staffName, String password) {
         super(staffID, staffName, password);
     }
 
     /**
-     *
      * Empty constructor for testing.
      */
-    public Staff(){
+    public Staff() {
     }
 
 }

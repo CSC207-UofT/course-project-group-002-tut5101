@@ -11,12 +11,13 @@ public class EditDeletePresenter {
     /**
      * Constructor
      */
-    public EditDeletePresenter(){
+    public EditDeletePresenter() {
         this.dishList = new DishList();
     }
 
     /**
      * delete a dish by the dish name
+     *
      * @param dishName name of dish
      */
     public void deleteDishByName(String dishName) {
@@ -28,7 +29,7 @@ public class EditDeletePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void increasePrice(String dishName){
+    public void increasePrice(String dishName) {
         dishList.editPrice(dishName, 1, 1);
     }
 
@@ -37,7 +38,7 @@ public class EditDeletePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void decreasePrice(String dishName){
+    public void decreasePrice(String dishName) {
         dishList.editPrice(dishName, 0, 1);
     }
 
@@ -46,7 +47,7 @@ public class EditDeletePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void increaseCalories(String dishName){
+    public void increaseCalories(String dishName) {
         dishList.editCalories(dishName, 1, 100);
     }
 
@@ -55,7 +56,7 @@ public class EditDeletePresenter {
      *
      * @param dishName the name of the dish
      */
-    public void decreaseCalories(String dishName){
+    public void decreaseCalories(String dishName) {
         dishList.editCalories(dishName, 0, 100);
     }
 }

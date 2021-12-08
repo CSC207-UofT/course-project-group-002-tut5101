@@ -8,15 +8,16 @@ import java.util.List;
 /**
  * A Dine In Order
  */
-public class DineInOrder extends Order{
+public class DineInOrder extends Order {
 
     private final int tableNum;
     private final OrderType orderType;
 
     /**
      * initialize a dine in order
+     *
      * @param tableNum the table number the order belongs to
-     * @param dishes the dishes in the order
+     * @param dishes   the dishes in the order
      */
     public DineInOrder(int tableNum, HashMap<String, List<Dish>> dishes) {
         super(dishes);
@@ -26,6 +27,7 @@ public class DineInOrder extends Order{
 
     /**
      * Get the table number to be delivered for the order
+     *
      * @return the table number of the dine-in order.
      */
     public int getTableNum() {

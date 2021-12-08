@@ -1,11 +1,11 @@
 package com.example.android.order_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.NumberPicker;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
 import constant.order_system.BuildOrderInfo;
 import constant.order_system.OrderType;
@@ -24,6 +24,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
 
     /**
      * Method that runs on creation of class
+     *
      * @param savedInstanceState saved state of the class
      */
     @Override
@@ -51,6 +52,7 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
 
     /**
      * Method that runs on click of button to pass the input to the presenter
+     *
      * @param v current view
      */
     public void next(View v) {
@@ -59,9 +61,10 @@ public class SelectDineInTakeOutActivity extends AppCompatActivity implements Se
 
     /**
      * Presenter passes type of order back to activity, then activity runs next view to be displayed
+     *
      * @param orderType type of order
      */
-    public void updateOrderType(OrderType orderType){
+    public void updateOrderType(OrderType orderType) {
         Intent intent = new Intent(SelectDineInTakeOutActivity.this, EnterLocationActivity.class);
         intent.putExtra(BuildOrderInfo.ORDER_TYPE.name(), (Parcelable) orderType);
         startActivity(intent);

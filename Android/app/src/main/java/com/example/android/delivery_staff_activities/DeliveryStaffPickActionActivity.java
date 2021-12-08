@@ -1,10 +1,10 @@
 package com.example.android.delivery_staff_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.MainActivity;
 import com.example.android.R;
 
@@ -28,13 +28,14 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
         header.setText(R.string.deliver_order_header);
         // Get id for further use
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             id = b.getString("id");
         }
     }
 
     /**
      * When the user selects to get the next order, try to get an order to be delivered.
+     *
      * @param v view
      */
     public void selectGetNextOrder(View v) {
@@ -48,7 +49,7 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
 
     /**
      * When the user selects to check the current order, show the current order to be delivered.
-      */
+     */
 
     public void seeCurrentOrder(View v) {
         Intent intent = new Intent(DeliveryStaffPickActionActivity.this, DeliverOrderActivity.class);
@@ -61,6 +62,7 @@ public class DeliveryStaffPickActionActivity extends AppCompatActivity {
 
     /**
      * // When selected Exit, return to log in activity.
+     *
      * @param v view.
      */
     public void selectExit(View v) {

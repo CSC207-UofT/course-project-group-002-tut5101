@@ -1,10 +1,10 @@
 package com.example.android.serving_staff_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.MainActivity;
 import com.example.android.R;
 
@@ -27,13 +27,14 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         header.setText(R.string.serve_dish_header);
         // Get id for further use
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             id = b.getString("id");
         }
     }
+
     /**
      * When the user selects to get the next dish, try to get a dish to be delivered.
-    */
+     */
     public void selectGetNextDish(View v) {
         Intent intent = new Intent(ServingStaffPickActionActivity.this, ServeDishActivity.class);
         Bundle b = new Bundle();
@@ -42,6 +43,7 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
+
     /**
      * When the user selects to check the current dish, show the current dish to be served.
      */
@@ -53,6 +55,7 @@ public class ServingStaffPickActionActivity extends AppCompatActivity {
         intent.putExtras(b); //Put your id to next activity
         startActivity(intent);
     }
+
     /**
      * When selected Exit, return to log in activity.
      */

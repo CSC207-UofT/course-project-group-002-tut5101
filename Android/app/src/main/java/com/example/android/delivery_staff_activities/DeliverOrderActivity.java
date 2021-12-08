@@ -3,15 +3,15 @@ package com.example.android.delivery_staff_activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.example.android.R;
-import presenter.delivery_system.view_interfaces.GeoDestination;
 import presenter.delivery_system.CurrentItemPresenter;
 import presenter.delivery_system.GetNextItemPresenter;
+import presenter.delivery_system.view_interfaces.GeoDestination;
 import presenter.delivery_system.view_interfaces.StaffViewInterface;
 
 import java.util.Objects;
@@ -43,7 +43,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
         currentOrder = findViewById(R.id.CurrentOrder);
         // Get id for method calls
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             id = b.getString("id");
             mode = b.getString("action");
         }
@@ -126,6 +126,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
 
     /**
      * Handle exceptions by displaying error message and return to previous page.
+     *
      * @param e Exception caught
      */
     private void exceptionHandler(Exception e) {
@@ -161,6 +162,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
 
     /**
      * Display the information of the current order on view
+     *
      * @param info The content of the order
      */
     @SuppressLint("SetTextI18n")
@@ -171,6 +173,7 @@ public class DeliverOrderActivity extends AppCompatActivity implements StaffView
 
     /**
      * Set destination of the order
+     *
      * @param destination Destination of the order, real address
      */
     @Override

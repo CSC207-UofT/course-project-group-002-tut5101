@@ -9,7 +9,7 @@ import use_case.dish_list.boundaries.MenuOutputBoundary;
  */
 
 
-public class MenuPresenter implements MenuOutputBoundary{
+public class MenuPresenter implements MenuOutputBoundary {
 
     private DishList dishList;
     private DisplayMenuViewInterface displayMenuViewInterface;
@@ -17,20 +17,21 @@ public class MenuPresenter implements MenuOutputBoundary{
     /**
      * Presenter class for menu.
      */
-    public MenuPresenter(){
+    public MenuPresenter() {
         initializeDishList();
     }
 
 
     /**
      * Setting up the DisplayDishesViewInterface.
+     *
      * @param displayMenuViewInterface the view to display things to
      */
     public void setDisplayDishesViewInterface(DisplayMenuViewInterface displayMenuViewInterface) {
         this.displayMenuViewInterface = displayMenuViewInterface;
     }
 
-    private void initializeDishList(){
+    private void initializeDishList() {
         dishList = new DishList();
         dishList.setMenuOutputBoundary(this);
     }
@@ -44,6 +45,7 @@ public class MenuPresenter implements MenuOutputBoundary{
 
     /**
      * update the display to show dishes in menu
+     *
      * @param menuItems the items in the menu as a string
      */
     public void updateMenuItemsDisplay(String menuItems) {
