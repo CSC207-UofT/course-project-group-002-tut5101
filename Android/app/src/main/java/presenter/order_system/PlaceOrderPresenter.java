@@ -227,7 +227,7 @@ public class PlaceOrderPresenter implements PlaceOrderOutputBoundary {
             placeOrderInputBoundary.placeOrder(orderType, dishes, location);
             placeOrderViewInterface.orderSuccessfullyPlaced();
         } catch (Exception e) {
-            String message = "Error, please try again";
+            String message = "Out of stock, please reduce the amount or order other dishes.";
             placeOrderViewInterface.setErrorMessage(message);
         }
     }
